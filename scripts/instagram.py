@@ -77,7 +77,8 @@ def load_tips():
         r = requests.get(url, timeout=30, headers=UA)
         r.raise_for_status()
         rows = list(csv.reader(io.StringIO(r.text)))[1:]
-        return {slug(r[0]): (r[3].strip(), r[4].strip()) for r in rows if len(r) >= 5 and r[0]}
+        return {slug(r[0]): (r[3].strip(), r[4].strip(), (r[5] if len(r) > 5 else "").strip())
+                for r in rows if len(r) >= 5 and r[0]}
     except Exception as e:
         print("No se pudo leer la pestaña 'Qué hacer (captions)':", e)
         return {}
@@ -218,29 +219,22 @@ def render(o, out_path):
 
 # ---------------------------------------------------------------- caption
 def caption(o):
+    """Simple caption, same style as the "Caption listo" column of the "Qué hacer (captions)" tab:
+    to-dos + "Ojo: ..." + "Revisa la información del vuelo en la web."
+    Column O of "Ofertas" overrides it when filled in."""
     if o["texto"]:
-        body = o["texto"].replace("\\n", "\n").strip()
-    else:
-        global TIPS
-        if TIPS is None:
-            TIPS = load_tips()
-        que, ojo = TIPS.get(slug(o["destino"]), ("", ""))
-        detalles = " · ".join(x for x in [o["escalas"], o["mes"]] if x)
-        body = f"✈️ Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])} COP {o['tipo']}\n"
-        body += f"📅 {detalles} · desde Bogotá\n\n"
-        if que:
-            body += f"{que}\n\n"
-        if ojo:
-            body += f"⚠️ Ojo: {ojo}\n\n"
-        body += ("🔎 Revisa la información del vuelo en la web: viajespillados.com (link en la bio). "
-                 "Los precios cambian rápido.")
-    extra = []
-    if o["credito"] and "foto" not in body.lower():
-        extra.append(f"📷 Foto: {o['credito']}")
-    if "#" not in body:
-        extra.append(f"#viajespillados #vuelosbaratos #ofertasdevuelos #viajardesdecolombia #{slug(o['destino']).replace('-', '')}")
-    text = body + ("\n\n" + "\n".join(extra) if extra else "")
-    return text[:2200]
+        return o["texto"].replace("\\n", "\n").strip()[:2200]
+    global TIPS
+    if TIPS is None:
+        TIPS = load_tips()
+    que, ojo, listo = TIPS.get(slug(o["destino"]), ("", "", ""))
+    if listo:
+        return listo[:2200]
+    parts = [que] if que else [f"Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])}."]
+    if ojo:
+        parts.append(f"Ojo: {ojo}")
+    parts.append("Revisa la información del vuelo en la web.")
+    return " ".join(parts)[:2200]
 
 
 # ---------------------------------------------------------------- git + hosting
