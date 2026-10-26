@@ -142,6 +142,9 @@ def download_photo(url):
     r.raise_for_status()
     im = Image.open(io.BytesIO(r.content))
     im = ImageOps.exif_transpose(im).convert("RGB")
+    # trim 2% on each side: removes thin frames/borders some photos have
+    w, h = im.size
+    im = im.crop((int(w * .02), int(h * .02), int(w * .98), int(h * .98)))
     return ImageOps.fit(im, (W, H), Image.LANCZOS, centering=(0.5, 0.5))
 
 
