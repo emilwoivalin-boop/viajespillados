@@ -1,0 +1,44 @@
+name: Instagram – renovar token
+
+# Los tokens de Instagram duran 60 días. Este flujo los renueva cada 2 semanas.
+# Si Instagram devuelve un token con otro texto, lo guarda en el secreto IG_ACCESS_TOKEN
+# cuando existe el secreto GH_PAT (token de GitHub con permiso "Secrets: write");
+# si no, el flujo falla y GitHub te avisa por correo para que lo actualices a mano.
+
+on:
+  schedule:
+    - cron: "17 14 1,15 * *"
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Renovar
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          resp=$(curl -sS -G "https://graph.instagram.com/refresh_access_token" \
+            --data-urlencode "grant_type=ig_refresh_token" \
+            --data-urlencode "access_token=${IG_ACCESS_TOKEN}")
+          new=$(echo "$resp" | jq -r '.access_token // empty')
+          exp=$(echo "$resp" | jq -r '.expires_in // empty')
+          if [ -z "$new" ]; then
+            echo "::error::No se pudo renovar el token: $(echo "$resp" | jq -c '.error // .')"
+            echo "Genera un token nuevo en Meta (API setup with Instagram login → Generate token) y guárdalo en IG_ACCESS_TOKEN." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo "::add-mask::$new"
+          days=$(( exp / 86400 ))
+          if [ "$new" = "$IG_ACCESS_TOKEN" ]; then
+            echo "✅ Token renovado. Vence en $days días." >> "$GITHUB_STEP_SUMMARY"
+          elif [ -n "${GH_PAT:-}" ]; then
+            GH_TOKEN="$GH_PAT" gh secret set IG_ACCESS_TOKEN --repo "$REPO" --body "$new"
+            echo "✅ Token renovado y guardado. Vence en $days días." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::error::Instagram devolvió un token nuevo pero no hay GH_PAT para guardarlo. Actualiza IG_ACCESS_TOKEN a mano."
+            exit 1
+          fi

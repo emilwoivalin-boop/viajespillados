@@ -1,0 +1,47 @@
+name: Instagram – publicar ofertas
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # 7:00 Bogotá
+    - cron: "0 23 * * *"   # 18:00 Bogotá
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "publish = publicar · preview = solo ver imagen y texto · check = probar la conexión"
+        type: choice
+        options: [preview, check, publish]
+        default: preview
+      destino:
+        description: "Opcional: publicar/ver solo este destino (ej. San Andrés). Con publish lo publica aunque no esté aprobado."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-publish
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - name: Configurar git
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Ejecutar
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '1' }}
+          MAX_AGE_DAYS: ${{ vars.MAX_AGE_DAYS || '3' }}
+          DESTINO: ${{ github.event.inputs.destino }}
+        run: python scripts/instagram.py "${{ github.event.inputs.mode || 'publish' }}"
