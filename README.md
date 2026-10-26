@@ -7,11 +7,11 @@ Web de ofertas de vuelos desde Colombia: https://www.instagram.com/viajespillado
 
 Publicado con GitHub Pages.
 
-## Instagram automático
+## Instagram (publicación manual con música)
 
-- `scripts/instagram.py` + `.github/workflows/instagram-publish.yml` publican en @viajespillados a las 7:00 y 18:00 (Bogotá).
-- Lee la misma hoja "Ofertas". Columna **N "Instagram"**: `sí`/`auto` = publicar, `revisar` o vacío = espera aprobación, `no` = nunca. Columna **O "Texto Instagram"** = texto del post opcional; si está vacía se usa el "Caption listo" de la pestaña "Qué hacer (captions)".
-- Solo publica ofertas con fecha "Publicado" de los últimos 3 días, una por turno, y no repite destino en 5 días.
-- Imágenes en `instagram/img/`, registro de lo publicado en `instagram/published.json`.
-- Probar sin publicar: Actions → "Instagram – publicar ofertas" → Run workflow → `preview` (o `check` para probar la conexión).
+- Cada día a las 6:37 y 13:07 (Bogotá) `.github/workflows/instagram-publish.yml` prepara los posts: imagen 1080×1350 + texto, en **https://viajespillados.com/publicar/** (página oculta, no indexada).
+- Desde el celular: Copiar texto → Compartir imagen a Instagram → agregar música → pegar texto → publicar → "Ya lo publiqué".
+- Aparecen las ofertas de "Ofertas" con fecha "Publicado" de los últimos 3 días. Columna **N "Instagram"**: `sí` = Recomendado, `revisar`/vacío = Por revisar, `no` o `publicado` = no aparece.
+- El texto sale de la pestaña "Qué hacer (captions)" (columna "Caption listo"); la columna **O** de "Ofertas" lo reemplaza si tiene algo.
+- Actions → "Instagram – publicar ofertas" → Run workflow: `prepare` (actualizar ya), `preview`, `check` (probar conexión) o `publish` + destino (publicar directo por API, sin música).
 - Secretos: `IG_ACCESS_TOKEN`, `IG_USER_ID`. El token se renueva solo cada 2 semanas (`instagram-token.yml`).

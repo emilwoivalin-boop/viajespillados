@@ -329,6 +329,42 @@ def candidates(offers, state, destino=None, max_age=3):
     return out
 
 
+def prepare(offers, max_age):
+    """Manual posting: render every fresh offer into instagram/ready/ and write posts.json,
+    which the page viajespillados.com/publicar/ shows (save/share image + copy caption)."""
+    ready_dir = os.path.join(IG_DIR, "ready")
+    os.makedirs(ready_dir, exist_ok=True)
+    todo = [o for o in offers
+            if 0 <= age_days(o["publicado"]) <= max_age
+            and slug(o["publicar"]) != "no" and slug(o["instagram"]) not in ("no", "publicado")]
+    todo.sort(key=lambda o: (not approved(o), age_days(o["publicado"]), -o["row"]))
+    posts, keep = [], set()
+    for o in todo:
+        name = f"{o['id']}.jpg"
+        keep.add(name)
+        path = os.path.join(ready_dir, name)
+        if not os.path.exists(path):
+            try:
+                render(o, path)
+            except Exception as e:
+                summary(f"⚠️ No se pudo crear la imagen de {o['destino']}: {e}")
+                continue
+        posts.append({
+            "id": o["id"], "destino": o["destino"], "aerolinea": o["aerolinea"],
+            "precio": cop(o["precio_num"]), "tipo": o["tipo"], "escalas": o["escalas"], "mes": o["mes"],
+            "publicado": o["publicado"], "recomendado": approved(o), "link": o["link"],
+            "imagen": f"../instagram/ready/{name}", "texto": caption(o),
+        })
+    for f in os.listdir(ready_dir):          # remove images of offers that are no longer listed
+        if f.endswith(".jpg") and f not in keep:
+            os.remove(os.path.join(ready_dir, f))
+    with open(os.path.join(ready_dir, "posts.json"), "w") as f:
+        json.dump({"actualizado": datetime.now(BOGOTA).strftime("%Y-%m-%d %H:%M"), "posts": posts},
+                  f, ensure_ascii=False, indent=1)
+    commit_push(["instagram/ready"], "Instagram: posts listos para publicar")
+    summary(f"✅ {len(posts)} posts listos en {SITE}/publicar/ : " + ", ".join(p["destino"] for p in posts))
+
+
 def main():
     mode = (sys.argv[1] if len(sys.argv) > 1 else "publish").lower()
     destino = os.environ.get("DESTINO", "").strip() or None
@@ -362,6 +398,10 @@ def main():
             summary(f"### {o['destino']} ({o['id']})\n![]({RAW}/{rel})\n\n```\n{caption(o)}\n```\n")
         if paths:
             commit_push(paths, "Instagram: vista previa")
+        return
+
+    if mode == "prepare":
+        prepare(offers, max_age)
         return
 
     todo = candidates(offers, state, destino, max_age)[:max_per_run]
