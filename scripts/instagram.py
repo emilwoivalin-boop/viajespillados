@@ -69,6 +69,23 @@ def load_offers():
     return offers
 
 
+def load_tips():
+    """Tab "Qué hacer (captions)": Destino | País | Región | Qué hacer | Ojo | Caption listo."""
+    try:
+        url = (f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
+               f"&sheet={urllib.parse.quote('Qué hacer (captions)')}")
+        r = requests.get(url, timeout=30, headers=UA)
+        r.raise_for_status()
+        rows = list(csv.reader(io.StringIO(r.text)))[1:]
+        return {slug(r[0]): (r[3].strip(), r[4].strip()) for r in rows if len(r) >= 5 and r[0]}
+    except Exception as e:
+        print("No se pudo leer la pestaña 'Qué hacer (captions)':", e)
+        return {}
+
+
+TIPS = None
+
+
 def slug(s):
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
@@ -201,11 +218,19 @@ def caption(o):
     if o["texto"]:
         body = o["texto"].replace("\\n", "\n").strip()
     else:
-        detalles = " · ".join(x for x in [o["tipo"], o["escalas"], o["mes"]] if x)
-        body = (f"✈️ Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])} COP\n"
-                f"📅 {detalles} · desde Bogotá\n\n"
-                "🔎 Revisa la información del vuelo en la web: viajespillados.com (link en la bio).\n"
-                "⚠️ Los precios cambian rápido: este es el precio que vimos al publicar.")
+        global TIPS
+        if TIPS is None:
+            TIPS = load_tips()
+        que, ojo = TIPS.get(slug(o["destino"]), ("", ""))
+        detalles = " · ".join(x for x in [o["escalas"], o["mes"]] if x)
+        body = f"✈️ Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])} COP {o['tipo']}\n"
+        body += f"📅 {detalles} · desde Bogotá\n\n"
+        if que:
+            body += f"{que}\n\n"
+        if ojo:
+            body += f"⚠️ Ojo: {ojo}\n\n"
+        body += ("🔎 Revisa la información del vuelo en la web: viajespillados.com (link en la bio). "
+                 "Los precios cambian rápido.")
     extra = []
     if o["credito"] and "foto" not in body.lower():
         extra.append(f"📷 Foto: {o['credito']}")
