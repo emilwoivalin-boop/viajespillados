@@ -1,18 +1,16 @@
 name: Instagram – publicar ofertas
 
-# Publicación manual (con música desde la app): este flujo solo PREPARA los posts
-# (imagen + texto) en viajespillados.com/publicar/. No publica nada por sí solo.
 on:
   schedule:
-    - cron: "37 11 * * *"   # 6:37 Bogotá, después de la revisión diaria
-    - cron: "7 18 * * *"    # 13:07 Bogotá
+    - cron: "0 12 * * *"   # 7:00 Bogotá
+    - cron: "0 23 * * *"   # 18:00 Bogotá
   workflow_dispatch:
     inputs:
       mode:
-        description: "prepare = preparar posts en /publicar · preview = solo ver · check = probar conexión · publish = publicar directo (sin música)"
+        description: "publish = publicar · preview = solo ver imagen y texto · check = probar la conexión"
         type: choice
-        options: [prepare, preview, check, publish]
-        default: prepare
+        options: [preview, check, publish]
+        default: preview
       destino:
         description: "Opcional: publicar/ver solo este destino (ej. San Andrés). Con publish lo publica aunque no esté aprobado."
         required: false
@@ -46,4 +44,4 @@ jobs:
           MAX_PER_RUN: ${{ vars.MAX_PER_RUN || '1' }}
           MAX_AGE_DAYS: ${{ vars.MAX_AGE_DAYS || '3' }}
           DESTINO: ${{ github.event.inputs.destino }}
-        run: python scripts/instagram.py "${{ github.event.inputs.mode || 'prepare' }}"
+        run: python scripts/instagram.py "${{ github.event.inputs.mode || 'publish' }}"
