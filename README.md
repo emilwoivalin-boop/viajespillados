@@ -12,6 +12,7 @@ Publicado con GitHub Pages.
 - `scripts/instagram.py` + `.github/workflows/instagram-publish.yml` publican en @viajespillados a las 7:00 y 18:00 (Bogotá).
 - Lee la misma hoja "Ofertas": **toda oferta que sale en la web se publica en Instagram** (columna N = `no` la deja fuera). Columna **O** = texto opcional; si está vacía se usa el "Caption listo" de la pestaña "Qué hacer (captions)".
 - 2 posts al día: a las 7:00 sale la mitad de las ofertas pendientes y a las 18:00 el resto. Si hay varias, se publican juntas como carrusel (máx. 10); si hay una, como post normal. Solo ofertas con fecha "Publicado" de los últimos 3 días.
+- Columna **P "Fechas"** = fechas del vuelo (`AAAA-MM-DD` o `ida/vuelta`, ej. `2026-11-13/2026-11-16`). Se muestran en la imagen y en el texto. Si el viaje no exige días libres (sales viernes después del trabajo, fin de semana o festivo, y vuelves antes del siguiente día laboral) aparece la etiqueta "SIN PEDIR DÍAS LIBRES". Los festivos están en `FESTIVOS` dentro de `scripts/instagram.py`.
 - Cada post lleva 5 hashtags (el máximo de Instagram): #viajespillados #vuelosbaratos #vuelosdesdebogota + destino y país (o #ofertasdevuelos #viajarbarato en carruseles).
 - Imágenes en `instagram/img/`, registro de lo publicado en `instagram/published.json`.
 - Probar sin publicar: Actions → "Instagram – publicar ofertas" → Run workflow → `preview` (o `check` para probar la conexión).

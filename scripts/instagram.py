@@ -56,7 +56,7 @@ def load_offers():
     if not rows or not re.match(r"publicar", rows[0][0], re.I):
         sys.exit("La hoja no tiene el formato esperado (A1 = Publicar).")
     keys = ["publicar", "publicado", "destino", "aerolinea", "precio", "tipo", "escalas", "mes",
-            "categoria", "link", "foto", "credito", "credito_link", "instagram", "texto"]
+            "categoria", "link", "foto", "credito", "credito_link", "instagram", "texto", "fechas"]
     offers = []
     for i, row in enumerate(rows[1:], start=2):
         row = (row + [""] * len(keys))[: len(keys)]
@@ -175,6 +175,87 @@ def draw_text_with_shadow(base, xy, text, fnt, fill, anchor="mt"):
     ImageDraw.Draw(base).text(xy, text, font=fnt, fill=fill, anchor=anchor)
 
 
+# ---------------------------------------------------------------- dates
+# Colombian public holidays (same list as the "Holidays" tab of the price log)
+FESTIVOS = {
+    "2026-11-02", "2026-11-16", "2026-12-08", "2026-12-25",
+    "2027-01-01", "2027-01-11", "2027-03-22", "2027-03-25", "2027-03-26", "2027-05-01", "2027-05-10",
+    "2027-05-31", "2027-06-07", "2027-07-05", "2027-07-12", "2027-07-20", "2027-08-07", "2027-08-16",
+    "2027-10-18", "2027-11-01", "2027-11-15", "2027-12-08", "2027-12-25",
+}
+DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre",
+         "octubre", "noviembre", "diciembre"]
+
+
+def trip_dates(o):
+    """Column P "Fechas": "YYYY-MM-DD" (one way) or "YYYY-MM-DD/YYYY-MM-DD" (round trip)."""
+    found = re.findall(r"\d{4}-\d{2}-\d{2}", o.get("fechas", ""))
+    try:
+        ds = [datetime.strptime(x, "%Y-%m-%d").date() for x in found[:2]]
+    except ValueError:
+        return []
+    return ds
+
+
+def is_workday(d):
+    return d.weekday() < 5 and d.isoformat() not in FESTIVOS
+
+
+def days_off(dep, ret):
+    """Workdays you need to take off: you leave after work on a Friday (or on a weekend/holiday)
+    and are back before work the next working day."""
+    n, d = 0, dep
+    while d <= ret:
+        if is_workday(d) and not (d == dep and d.weekday() == 4):
+            n += 1
+        d += timedelta(days=1)
+    return n
+
+
+def no_days_off(o):
+    ds = trip_dates(o)
+    return len(ds) == 2 and ds[1] > ds[0] and days_off(*ds) == 0
+
+
+def fmt_short(d):
+    return f"{DIAS[d.weekday()][:3]} {d.day} {MESES[d.month - 1][:3]}"
+
+
+def fmt_long(d, with_month=True):
+    return f"{DIAS[d.weekday()]} {d.day}" + (f" de {MESES[d.month - 1]}" if with_month else "")
+
+
+def dates_short(o):
+    ds = trip_dates(o)
+    if len(ds) == 2:
+        if ds[0].month == ds[1].month:
+            return f"{DIAS[ds[0].weekday()][:3]} {ds[0].day} – {fmt_short(ds[1])}"
+        return f"{fmt_short(ds[0])} – {fmt_short(ds[1])}"
+    if len(ds) == 1:
+        return fmt_short(ds[0])
+    return o["mes"]
+
+
+def dates_long(o):
+    ds = trip_dates(o)
+    if len(ds) == 2:
+        return f"del {fmt_long(ds[0], ds[0].month != ds[1].month)} al {fmt_long(ds[1])}"
+    if len(ds) == 1:
+        return f"el {fmt_long(ds[0])}"
+    return f"en {o['mes']}" if o["mes"] else ""
+
+
+def days_off_sentence(o):
+    if not no_days_off(o):
+        return ""
+    dep, ret = trip_dates(o)
+    salida = ("Sales el viernes después del trabajo" if dep.weekday() == 4 and dep.isoformat() not in FESTIVOS
+              else f"Sales el {DIAS[dep.weekday()]}" + (" festivo" if dep.isoformat() in FESTIVOS else ""))
+    vuelta = f"vuelves el {DIAS[ret.weekday()]}" + (" festivo" if ret.isoformat() in FESTIVOS else "")
+    return f"{salida} y {vuelta}: no necesitas pedir días libres."
+
+
 def render(o, out_path):
     photo = download_photo(o["foto"]) if o["foto"] else Image.new("RGB", (W, H), NAVY)
     img = photo.convert("RGBA")
@@ -188,18 +269,29 @@ def render(o, out_path):
     l1 = f"Vuelos de {o['aerolinea']}"
     city = f"a {o['destino']}"
     price = cop(o["precio_num"])
-    sub = " · ".join(x for x in [o["tipo"], o["escalas"], o["mes"]] if x)
+    sub = " · ".join(x for x in [o["tipo"], o["escalas"]] if x)
+    when = dates_short(o)
 
     f1 = fit_font(d, l1, "ExtraBold", 68, max_w)
     f2 = fit_font(d, city, "Black", 124, max_w, 64)
     f3 = font("Black", 136)
     f4 = fit_font(d, sub, "SemiBold", 48, max_w, 30)
+    f5 = fit_font(d, when, "Bold", 50, max_w, 30)
 
     y = 92
     draw_text_with_shadow(img, (cx, y), l1, f1, "white"); y += f1.size + 14
     draw_text_with_shadow(img, (cx, y), city, f2, "white"); y += f2.size + 18
     draw_text_with_shadow(img, (cx, y), price, f3, YELLOW); y += f3.size + 26
-    draw_text_with_shadow(img, (cx, y), sub, f4, "white")
+    draw_text_with_shadow(img, (cx, y), sub, f4, "white"); y += f4.size + 14
+    if when:
+        draw_text_with_shadow(img, (cx, y), when, f5, "white"); y += f5.size + 26
+    if no_days_off(o):
+        badge = "SIN PEDIR DÍAS LIBRES"
+        fbg = font("Black", 40)
+        tw = d.textlength(badge, font=fbg)
+        box = [cx - tw / 2 - 30, y, cx + tw / 2 + 30, y + 72]
+        ImageDraw.Draw(img).rounded_rectangle(box, radius=36, fill=YELLOW)
+        ImageDraw.Draw(img).text((cx, y + 36), badge, font=fbg, fill=NAVY, anchor="mm")
 
     # bottom: logo + site, photo credit
     logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((84, 84), Image.LANCZOS)
@@ -251,7 +343,11 @@ def hashtags(offers):
 
 
 def headline(o):
-    return f"Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])} {o['tipo']} desde Bogotá."
+    h = f"Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])} {o['tipo']} desde Bogotá"
+    when = dates_long(o)
+    h += (f", {when}." if when else ".")
+    extra = days_off_sentence(o)
+    return h + (f" {extra}" if extra else "")
 
 
 def caption(o):
@@ -275,8 +371,9 @@ def caption(o):
 def caption_carousel(offers):
     lines = ["Vuelos baratos desde Bogotá pillados hoy:", ""]
     for o in offers:
-        det = ", ".join(x for x in [o["tipo"], o["escalas"], o["mes"]] if x)
-        lines.append(f"• {o['destino']} con {o['aerolinea']}: {cop(o['precio_num'])} ({det})")
+        det = ", ".join(x for x in [o["tipo"], o["escalas"], dates_short(o)] if x)
+        badge = " – sin pedir días libres" if no_days_off(o) else ""
+        lines.append(f"• {o['destino']} con {o['aerolinea']}: {cop(o['precio_num'])} ({det}){badge}")
     lines += ["", "Desliza para verlas todas. Revisa la información de los vuelos en la web.", "", hashtags(offers)]
     return "\n".join(lines)[:2200]
 
