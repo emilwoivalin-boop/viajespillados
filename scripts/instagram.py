@@ -105,8 +105,9 @@ def age_days(date_str):
 
 
 def approved(o):
-    v = slug(o["instagram"])
-    return v in ("si", "auto", "yes", "aprobado", "ok")
+    """Every offer shown on the website is posted on Instagram:
+    only "no" in column A (Publicar) or column N (Instagram) keeps it off Instagram."""
+    return slug(o["publicar"]) != "no" and slug(o["instagram"]) != "no"
 
 
 # ---------------------------------------------------------------- state
@@ -313,26 +314,27 @@ def summary(md):
 
 def candidates(offers, state, destino=None, max_age=3):
     done = {p["id"] for p in state["posts"]}
-    recent_dest = {slug(p["destino"]) for p in state["posts"]
-                   if age_days(p.get("published_at", "")[:10]) < 5}
     out = []
     for o in offers:
-        if o["id"] in done or slug(o["publicar"]) == "no" or slug(o["instagram"]) == "no":
+        if o["id"] in done or not approved(o):
             continue
         if destino:
             if slug(o["destino"]) == slug(destino):
                 out.append(o)
-            continue
-        if approved(o) and 0 <= age_days(o["publicado"]) <= max_age and slug(o["destino"]) not in recent_dest:
+        elif 0 <= age_days(o["publicado"]) <= max_age:
             out.append(o)
-    out.sort(key=lambda o: (age_days(o["publicado"]), -o["row"]))   # newest first
+    if destino:
+        out.sort(key=lambda o: (age_days(o["publicado"]), -o["row"]))   # newest first
+    else:
+        # oldest first, so every offer gets posted before it is too old
+        out.sort(key=lambda o: (-age_days(o["publicado"]), o["row"]))
     return out
 
 
 def main():
     mode = (sys.argv[1] if len(sys.argv) > 1 else "publish").lower()
     destino = os.environ.get("DESTINO", "").strip() or None
-    max_per_run = int(os.environ.get("MAX_PER_RUN") or 1)
+    max_per_run = int(os.environ.get("MAX_PER_RUN") or 2)
     max_age = int(os.environ.get("MAX_AGE_DAYS") or 3)
 
     if mode == "check":
@@ -366,7 +368,7 @@ def main():
 
     todo = candidates(offers, state, destino, max_age)[:max_per_run]
     if not todo:
-        summary("Nada que publicar: no hay ofertas aprobadas (columna N = sí/auto), nuevas (≤ "
+        summary("Nada que publicar: no hay ofertas nuevas (≤ "
                 f"{max_age} días) y sin publicar.")
         return
     for o in todo:
