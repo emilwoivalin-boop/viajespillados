@@ -14,11 +14,11 @@ Column N decides Instagram:  "sí"/"auto" = publish,  "revisar" or empty = wait 
 "no" = never.  Column O is the caption (optional; a basic caption is built if empty).
 
 Modes:
-  publish  – publish up to MAX_PER_RUN approved, fresh, not-yet-published offers
+  publish  – 2 posts a day (SLOT=morning/evening): all pending offers as one carousel (or one post)
   preview  – only render images + captions (no posting), saved to instagram/preview/
   check    – verify that the token works and show the account name and token expiry
 
-Env: IG_ACCESS_TOKEN, IG_USER_ID (GitHub secrets), optional MAX_PER_RUN, MAX_AGE_DAYS,
+Env: IG_ACCESS_TOKEN, IG_USER_ID (GitHub secrets), optional SLOT, MAX_AGE_DAYS,
      DESTINO (only this destination; used for "publish now" from the Actions tab).
 """
 import csv, io, json, os, re, subprocess, sys, time, unicodedata, urllib.parse
@@ -41,6 +41,7 @@ UA = {"User-Agent": "ViajesPilladosBot/1.0 (https://viajespillados.com; instagra
 BOGOTA = timezone(timedelta(hours=-5))
 
 W, H = 1080, 1350
+MAX_CAROUSEL = 10   # Instagram API limit for carousel items
 YELLOW = (255, 198, 49)
 NAVY = (20, 34, 59)
 
@@ -77,7 +78,7 @@ def load_tips():
         r = requests.get(url, timeout=30, headers=UA)
         r.raise_for_status()
         rows = list(csv.reader(io.StringIO(r.text)))[1:]
-        return {slug(r[0]): (r[3].strip(), r[4].strip(), (r[5] if len(r) > 5 else "").strip())
+        return {slug(r[0]): (r[3].strip(), r[4].strip(), (r[5] if len(r) > 5 else "").strip(), r[1].strip())
                 for r in rows if len(r) >= 5 and r[0]}
     except Exception as e:
         print("No se pudo leer la pestaña 'Qué hacer (captions)':", e)
@@ -219,23 +220,65 @@ def render(o, out_path):
 
 
 # ---------------------------------------------------------------- caption
-def caption(o):
-    """Simple caption, same style as the "Caption listo" column of the "Qué hacer (captions)" tab:
-    to-dos + "Ojo: ..." + "Revisa la información del vuelo en la web."
-    Column O of "Ofertas" overrides it when filled in."""
-    if o["texto"]:
-        return o["texto"].replace("\\n", "\n").strip()[:2200]
+def tips(o):
     global TIPS
     if TIPS is None:
         TIPS = load_tips()
-    que, ojo, listo = TIPS.get(slug(o["destino"]), ("", "", ""))
-    if listo:
-        return listo[:2200]
-    parts = [que] if que else [f"Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])}."]
-    if ojo:
-        parts.append(f"Ojo: {ojo}")
-    parts.append("Revisa la información del vuelo en la web.")
-    return " ".join(parts)[:2200]
+    return TIPS.get(slug(o["destino"]), ("", "", "", ""))
+
+
+def tag(text):
+    return "#" + re.sub(r"[^a-z0-9]", "", slug(text))
+
+
+# Instagram allows max 5 hashtags per post: brand + 2 niche + destination/country (or 2 more niche)
+BASE_TAGS = ["#viajespillados", "#vuelosbaratos", "#vuelosdesdebogota"]
+
+
+def hashtags(offers):
+    tags = list(BASE_TAGS)
+    if len(offers) == 1:
+        o = offers[0]
+        tags.append(tag(o["destino"]))
+        pais = tips(o)[3]
+        if pais and slug(pais) != slug(o["destino"]):
+            tags.append(tag(pais))
+        else:
+            tags.append("#ofertasdevuelos")
+    else:
+        tags += ["#ofertasdevuelos", "#viajarbarato"]
+    return " ".join(dict.fromkeys(tags[:5]))
+
+
+def headline(o):
+    return f"Vuelos de {o['aerolinea']} a {o['destino']} por {cop(o['precio_num'])} {o['tipo']} desde Bogotá."
+
+
+def caption(o):
+    """Single post: headline + the simple "Caption listo" text of the "Qué hacer (captions)" tab
+    (column O of "Ofertas" overrides the text) + hashtags."""
+    if o["texto"]:
+        body = o["texto"].replace("\\n", "\n").strip()
+    else:
+        que, ojo, listo, _ = tips(o)
+        if listo:
+            body = listo
+        else:
+            parts = [que] if que else []
+            if ojo:
+                parts.append(f"Ojo: {ojo}")
+            parts.append("Revisa la información del vuelo en la web.")
+            body = " ".join(parts)
+    return f"{headline(o)}\n\n{body}\n\n{hashtags([o])}"[:2200]
+
+
+def caption_carousel(offers):
+    lines = ["Vuelos baratos desde Bogotá pillados hoy:", ""]
+    for o in offers:
+        det = ", ".join(x for x in [o["tipo"], o["escalas"], o["mes"]] if x)
+        lines.append(f"• {o['destino']} con {o['aerolinea']}: {cop(o['precio_num'])} ({det})")
+    lines += ["", "Desliza para verlas todas. Revisa la información de los vuelos en la web.", "", hashtags(offers)]
+    return "\n".join(lines)[:2200]
 
 
 # ---------------------------------------------------------------- git + hosting
@@ -288,19 +331,41 @@ def api(method, path, **params):
     return data
 
 
-def publish_to_instagram(image_url, text):
-    uid = os.environ["IG_USER_ID"]
-    container = api("POST", f"{uid}/media", image_url=image_url, caption=text)["id"]
-    for _ in range(30):
+def wait_ready(container):
+    for _ in range(40):
         st = api("GET", container, fields="status_code,status")
         if st.get("status_code") == "FINISHED":
-            break
+            return
         if st.get("status_code") in ("ERROR", "EXPIRED"):
             raise RuntimeError(f"Instagram no pudo procesar la imagen: {st}")
         time.sleep(4)
+    raise RuntimeError("Instagram tardó demasiado en procesar la imagen")
+
+
+def finish(container):
+    uid = os.environ["IG_USER_ID"]
     media_id = api("POST", f"{uid}/media_publish", creation_id=container)["id"]
     permalink = api("GET", media_id, fields="permalink").get("permalink", "")
     return media_id, permalink
+
+
+def publish_to_instagram(image_url, text):
+    uid = os.environ["IG_USER_ID"]
+    container = api("POST", f"{uid}/media", image_url=image_url, caption=text)["id"]
+    wait_ready(container)
+    return finish(container)
+
+
+def publish_carousel(image_urls, text):
+    uid = os.environ["IG_USER_ID"]
+    children = []
+    for url in image_urls:
+        c = api("POST", f"{uid}/media", image_url=url, is_carousel_item="true")["id"]
+        wait_ready(c)
+        children.append(c)
+    parent = api("POST", f"{uid}/media", media_type="CAROUSEL", children=",".join(children), caption=text)["id"]
+    wait_ready(parent)
+    return finish(parent)
 
 
 # ---------------------------------------------------------------- main
@@ -334,7 +399,6 @@ def candidates(offers, state, destino=None, max_age=3):
 def main():
     mode = (sys.argv[1] if len(sys.argv) > 1 else "publish").lower()
     destino = os.environ.get("DESTINO", "").strip() or None
-    max_per_run = int(os.environ.get("MAX_PER_RUN") or 2)
     max_age = int(os.environ.get("MAX_AGE_DAYS") or 3)
 
     if mode == "check":
@@ -354,7 +418,7 @@ def main():
             todo = sorted(offers, key=lambda o: age_days(o["publicado"]))[:3]
             summary("No hay ofertas aprobadas pendientes; muestro las 3 más recientes como ejemplo.")
         paths = []
-        for o in todo[:5]:
+        for o in todo[:MAX_CAROUSEL]:
             rel = f"instagram/preview/{o['id']}.jpg"
             render(o, os.path.join(ROOT, rel))
             paths.append(rel)
@@ -362,30 +426,53 @@ def main():
                 f.write(caption(o) + "\n")
             paths.append(f"instagram/preview/{o['id']}.txt")
             summary(f"### {o['destino']} ({o['id']})\n![]({RAW}/{rel})\n\n```\n{caption(o)}\n```\n")
+        if len(todo) > 1:
+            with open(os.path.join(ROOT, "instagram/preview/carrusel.txt"), "w") as f:
+                f.write(caption_carousel(todo[:MAX_CAROUSEL]) + "\n")
+            paths.append("instagram/preview/carrusel.txt")
+            summary(f"### Texto si se publican juntas (carrusel)\n```\n{caption_carousel(todo[:MAX_CAROUSEL])}\n```\n")
         if paths:
             commit_push(paths, "Instagram: vista previa")
         return
 
-    todo = candidates(offers, state, destino, max_age)[:max_per_run]
+    pending = candidates(offers, state, destino, max_age)
+    if destino:
+        todo = pending[:1]
+    else:
+        # 2 posts a day: the morning post takes half of the pending offers, the evening post the rest.
+        slot = os.environ.get("SLOT", "manual")
+        n = len(pending)
+        take = (n + 1) // 2 if slot == "morning" else n
+        todo = pending[:min(take, MAX_CAROUSEL)]
     if not todo:
         summary("Nada que publicar: no hay ofertas nuevas (≤ "
                 f"{max_age} días) y sin publicar.")
         return
+
+    rels = []
     for o in todo:
         rel = f"instagram/img/{o['id']}.jpg"
         render(o, os.path.join(ROOT, rel))
-        commit_push([rel], f"Instagram: imagen {o['destino']}")
-        url = public_image_url(rel)
-        media_id, permalink = publish_to_instagram(url, caption(o))
-        state = load_state()
+        rels.append(rel)
+    commit_push(rels, "Instagram: imágenes " + ", ".join(o["destino"] for o in todo))
+    urls = [public_image_url(r) for r in rels]
+    if len(todo) == 1:
+        media_id, permalink = publish_to_instagram(urls[0], caption(todo[0]))
+    else:
+        media_id, permalink = publish_carousel(urls, caption_carousel(todo))
+
+    state = load_state()
+    now = datetime.now(BOGOTA).strftime("%Y-%m-%d %H:%M")
+    for o, url in zip(todo, urls):
         state["posts"].append({
             "id": o["id"], "destino": o["destino"], "precio": o["precio_num"], "sheet_row": o["row"],
-            "media_id": media_id, "permalink": permalink, "image": url,
-            "published_at": datetime.now(BOGOTA).strftime("%Y-%m-%d %H:%M"),
+            "media_id": media_id, "permalink": permalink, "image": url, "published_at": now,
+            "carousel": len(todo) > 1,
         })
-        save_state(state)
-        commit_push(["instagram/published.json"], f"Instagram: publicado {o['destino']}")
-        summary(f"✅ Publicado **{o['destino']}** ({cop(o['precio_num'])}): {permalink}")
+    save_state(state)
+    names = ", ".join(o["destino"] for o in todo)
+    commit_push(["instagram/published.json"], f"Instagram: publicado {names}")
+    summary(f"✅ Publicado ({'carrusel de ' + str(len(todo)) if len(todo) > 1 else 'post'}): **{names}** – {permalink}")
 
 
 if __name__ == "__main__":
