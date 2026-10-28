@@ -10,23 +10,23 @@
   {
    "text": "Thursday. Bogotá's El Dorado airport. Let's go!",
    "media": {
-    "type": "ai",
-    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
-    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Salidas_Aeropuerto_Internacional_El_Dorado.jpg?width=1280"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/eldorado.jpg",
+    "focus": 0.55
    },
    "stick": {
     "action": "suitcase",
     "x0": 0.15,
-    "x1": 0.75,
-    "y": 0.75,
+    "x1": 0.7,
+    "y": 0.8,
     "size": 440
    }
   },
   {
    "text": "Just two hours, direct…",
    "media": {
-    "type": "ai",
-    "prompt": "view through an airplane window, fluffy white clouds and bright blue sky, airplane wing visible, sun shining"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/ai/scene1-3438ea08abb3.jpg"
    },
    "stick": {
     "action": "none"
@@ -35,90 +35,90 @@
   {
    "text": "…and you're in Aruba!",
    "media": {
-    "type": "ai",
-    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
-    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Queen_Beatrix_International_Airport_Aruba.JPG?width=1280"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/aruba-airport.jpg",
+    "focus": 0.62
    },
    "stick": {
     "action": "celebrate",
     "x0": 0.5,
     "x1": 0.5,
-    "y": 0.75,
+    "y": 0.76,
     "size": 440
    }
   },
   {
    "text": "Day one: chill under the fofoti trees on Eagle Beach.",
    "media": {
-    "type": "ai",
-    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
-    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=1280"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/eagle-beach.jpg",
+    "focus": 0.5
    },
    "stick": {
     "action": "relax",
-    "x0": 0.62,
-    "x1": 0.62,
-    "y": 0.78,
+    "x0": 0.6,
+    "x1": 0.6,
+    "y": 0.8,
     "size": 420
    }
   },
   {
    "text": "Day two: rent a car and drive to Arikok's natural pool.",
    "media": {
-    "type": "ai",
-    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
-    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Aruba-Natural-Pool-2013.JPG?width=1280"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/arikok.jpg",
+    "focus": 0.45
    },
    "stick": {
     "action": "drive",
     "x0": -0.1,
     "x1": 1.1,
-    "y": 0.76,
+    "y": 0.7,
     "size": 440
    }
   },
   {
    "text": "Day three: snorkel the calm waters of Mangel Halto.",
    "media": {
-    "type": "ai",
-    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
-    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Mangel_halto%2C_Aruba_%28abou_di_awa%29_01.jpg?width=1280"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/reef.jpg",
+    "focus": 0.5
    },
    "stick": {
     "action": "swim",
     "x0": 0.15,
     "x1": 0.6,
-    "y": 0.62,
+    "y": 0.42,
     "size": 420
    }
   },
   {
    "text": "Then catch the sunset at the California Lighthouse.",
    "media": {
-    "type": "ai",
-    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
-    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/California_lighthouse_%28Aruba%29_-_1.jpg?width=1280"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/lighthouse.jpg",
+    "focus": 0.5
    },
    "stick": {
     "action": "photo",
-    "x0": 0.3,
-    "x1": 0.3,
-    "y": 0.76,
-    "size": 440
+    "x0": 0.22,
+    "x1": 0.22,
+    "y": 0.86,
+    "size": 400
    }
   },
   {
    "text": "Sunday night you're back in Bogotá. Only two days off work!",
    "media": {
-    "type": "ai",
-    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
-    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Fachada_Principal_del_Aeropuerto_El_Dorado.jpg?width=1280"
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/eldorado-night.jpg",
+    "focus": 0.45
    },
    "stick": {
     "action": "suitcase",
     "x0": 0.85,
     "x1": 0.3,
-    "y": 0.75,
+    "y": 0.8,
     "size": 440,
     "facing": -1
    }
@@ -133,11 +133,12 @@
   "cta": "Visit viajespillados.com",
   "small": "link in bio",
   "media": {
-   "type": "ai",
-   "prompt": "Aruba beach at golden hour, palm trees, calm turquoise sea, white sand"
+   "type": "file",
+   "path": "reels/aruba-abril-2027-cartoon/img/eagle-beach.jpg",
+   "focus": 0.5
   }
  },
- "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nIllustrations made with AI.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
+ "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nIlustraciones / illustrations: Viajes Pillados (AI-assisted).\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
  "rate": "+28%",
  "pad": 0.0,
  "seed": 11,

@@ -202,6 +202,8 @@ def ai_image(prompt, dst, seed=7, ref=None):
 
 def media_file(m, sb, base, work, name, i):
     """Return a local image for a photo/ai media spec."""
+    if m["type"] == "file":   # image stored in the repo (e.g. illustrations made by the owner)
+        return os.path.join(ROOT, m["path"])
     if m["type"] == "ai":
         os.makedirs(os.path.join(base, "ai"), exist_ok=True)
         prompt = m["prompt"] + (", " + sb["ai_style"] if sb.get("ai_style") else "")
@@ -217,10 +219,11 @@ def clip_from_video(src, dur, out):
        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
 
 
-def clip_from_photo(src, dur, out, zoom_in=True):
+def clip_from_photo(src, dur, out, zoom_in=True, focus=0.5):
     frames = int(dur * FPS) + 1
     z = f"min(1+0.20*on/{frames},1.20)" if zoom_in else f"max(1.20-0.20*on/{frames},1.0)"
-    vf = (f"scale={W*2}:{H*2}:force_original_aspect_ratio=increase,crop={W*2}:{H*2},"
+    vf = (f"scale={W*2}:{H*2}:force_original_aspect_ratio=increase,"
+          f"crop={W*2}:{H*2}:(iw-{W*2})*{focus}:(ih-{H*2})/2,"
           f"zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},"
           f"format=yuv420p")
     sh("ffmpeg", "-y", "-loop", "1", "-i", src, "-t", f"{dur:.2f}", "-vf", vf,
@@ -385,7 +388,8 @@ def render(rid):
             if m["type"] == "video":
                 clip_from_video(pexels_file(m["pexels_id"], os.path.join(work, f"s{i}.mp4")), dur, out)
             else:
-                clip_from_photo(media_file(m, sb, base, work, f"scene{i}", i), dur, out, i % 2 == 0)
+                clip_from_photo(media_file(m, sb, base, work, f"scene{i}", i), dur, out, i % 2 == 0,
+                                m.get("focus", 0.5))
         except Exception as e:
             fb = m.get("fallback_photo") or sb.get("fallback_photo")
             print(f"Escena {i}: {e} – uso la foto de respaldo")
@@ -410,7 +414,8 @@ def render(rid):
     end_media = end.get("media") or {"type": "photo", "url": sb.get("fallback_photo")}
     end_media.setdefault("type", "photo")
     try:
-        clip_from_photo(media_file(end_media, sb, base, work, "end", -1), end_dur, end_bg, True)
+        clip_from_photo(media_file(end_media, sb, base, work, "end", -1), end_dur, end_bg, True,
+                        end_media.get("focus", 0.5))
     except Exception:
         sh("ffmpeg", "-y", "-sseof", "-0.1", "-i", clips[-1], "-vf",
            f"tpad=stop_mode=clone:stop_duration={end_dur}", "-t", f"{end_dur}", "-c:v", "libx264",
