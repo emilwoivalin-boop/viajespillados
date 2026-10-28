@@ -405,7 +405,7 @@ def public_image_url(rel_path, wait_s=240):
     while time.time() < deadline:
         try:
             r = requests.head(site_url, timeout=15, headers=UA)
-            if r.status_code == 200 and r.headers.get("content-type", "").startswith("image/"):
+            if r.status_code == 200 and r.headers.get("content-type", "").startswith(("image/", "video/")):
                 return site_url
         except requests.RequestException:
             pass

@@ -1,0 +1,313 @@
+#!/usr/bin/env python3
+"""
+Viajes Pillados – short vertical Reels (1080x1920) from a storyboard.
+
+  reels/<id>/storyboard.json  → reels/<id>/reel.mp4 (+ cover.jpg, caption.txt)
+
+The script (voice-over text) and the choice of footage are written in the storyboard.
+The voice is generated with Microsoft Edge neural TTS (edge-tts), subtitles are burned in,
+and a banner with the deal (destination + price) stays on screen the whole time.
+
+storyboard.json:
+{
+  "id": "aruba-puente-mayo",
+  "voice": "es-CO-SalomeNeural",
+  "banner": {"title": "Aruba", "price": "$645.976", "detail": "ida y vuelta · 29 abr – 2 may"},
+  "scenes": [
+     {"text": "...", "media": {"type": "video", "pexels_id": 34467289}},
+     {"text": "...", "media": {"type": "photo", "url": "https://commons.../Special:FilePath/X.jpg",
+                               "credit": "Autor / Wikimedia Commons, CC BY 2.0"}}
+  ],
+  "end": {"line1": "Vuelos desde $645.976", "line2": "ida y vuelta · link en la bio"},
+  "caption": "..."
+}
+
+Usage: python scripts/reel.py render <id>      (render only)
+       python scripts/reel.py publish <id>     (render if needed + publish as Reel)
+"""
+import asyncio, json, os, re, subprocess, sys, time
+
+import requests
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import instagram as ig  # noqa: E402  (fonts, git helpers, Instagram API helpers)
+
+W, H, FPS = 1080, 1920, 30
+YELLOW = (255, 198, 49)
+NAVY = (20, 34, 59)
+UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/124.0 Safari/537.36 ViajesPilladosBot/1.0 (+https://viajespillados.com)"}
+WUA = {"User-Agent": "ViajesPilladosBot/1.0 (https://viajespillados.com; reels)"}
+
+
+def sh(*args):
+    subprocess.run(args, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+
+
+def duration(path):
+    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of",
+                          "default=nw=1:nk=1", path], capture_output=True, text=True, check=True)
+    return float(out.stdout.strip())
+
+
+# ---------------------------------------------------------------- voice
+async def _tts(text, voice, mp3):
+    import edge_tts
+    comm = edge_tts.Communicate(text, voice, rate="+6%", boundary="WordBoundary")
+    words = []
+    with open(mp3, "wb") as f:
+        async for chunk in comm.stream():
+            if chunk["type"] == "audio":
+                f.write(chunk["data"])
+            elif chunk["type"] == "WordBoundary":
+                words.append((chunk["offset"] / 1e7, (chunk["offset"] + chunk["duration"]) / 1e7, chunk["text"]))
+    return words
+
+
+def tts(text, voice, mp3):
+    return asyncio.run(_tts(text, voice, mp3))
+
+
+# ---------------------------------------------------------------- footage
+def pexels_file(pid, dst):
+    key = os.environ.get("PEXELS_API_KEY", "").strip()
+    url = None
+    if key:
+        j = requests.get(f"https://api.pexels.com/videos/videos/{pid}", headers={"Authorization": key},
+                         timeout=30).json()
+        files = [f for f in j.get("video_files", []) if f.get("height") and f["height"] >= 1280
+                 and f.get("file_type") == "video/mp4"]
+        files.sort(key=lambda f: abs(f["height"] - 1920))
+        if files:
+            url = files[0]["link"]
+    if not url:
+        url = f"https://www.pexels.com/download/video/{pid}/"
+    r = requests.get(url, headers=UA, timeout=180, allow_redirects=True)
+    r.raise_for_status()
+    if not r.headers.get("content-type", "").startswith("video"):
+        raise RuntimeError(f"Pexels {pid}: no video ({r.headers.get('content-type')})")
+    with open(dst, "wb") as f:
+        f.write(r.content)
+    return dst
+
+
+def photo_file(url, dst):
+    r = requests.get(re.sub(r"width=\d+", "width=2160", url), headers=WUA, timeout=120)
+    r.raise_for_status()
+    im = ImageOps.exif_transpose(Image.open(__import__("io").BytesIO(r.content))).convert("RGB")
+    im.save(dst, "JPEG", quality=92)
+    return dst
+
+
+def clip_from_video(src, dur, out):
+    vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
+          f"eq=saturation=1.08,format=yuv420p")
+    sh("ffmpeg", "-y", "-stream_loop", "-1", "-i", src, "-t", f"{dur:.2f}", "-vf", vf, "-an",
+       "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
+
+
+def clip_from_photo(src, dur, out, zoom_in=True):
+    frames = int(dur * FPS) + 1
+    z = f"min(1+0.10*on/{frames},1.10)" if zoom_in else f"max(1.10-0.10*on/{frames},1.0)"
+    vf = (f"scale={W*2}:{H*2}:force_original_aspect_ratio=increase,crop={W*2}:{H*2},"
+          f"zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},"
+          f"format=yuv420p")
+    sh("ffmpeg", "-y", "-loop", "1", "-i", src, "-t", f"{dur:.2f}", "-vf", vf,
+       "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
+
+
+# ---------------------------------------------------------------- overlays
+def banner_png(b, path):
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    # top shade for readability
+    shade = Image.new("L", (1, 420))
+    for y in range(420):
+        shade.putpixel((0, y), int(170 * (1 - y / 420) ** 1.6))
+    img.paste(Image.new("RGBA", (W, 420), (10, 18, 34, 255)), (0, 0), shade.resize((W, 420)))
+    # bottom shade for subtitles
+    shade2 = Image.new("L", (1, 700))
+    for y in range(700):
+        shade2.putpixel((0, y), int(185 * (y / 700) ** 1.4))
+    img.paste(Image.new("RGBA", (W, 700), (10, 18, 34, 255)), (0, H - 700), shade2.resize((W, 700)))
+    d = ImageDraw.Draw(img)
+    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((76, 76), Image.LANCZOS)
+    img.alpha_composite(logo, (60, 150))
+    d.text((152, 188), "viajespillados", font=ig.font("ExtraBold", 38), fill="white", anchor="lm")
+    ft = ig.font("Black", 92)
+    d.text((W // 2, 300), b["title"], font=ft, fill="white", anchor="mm")
+    fp = ig.font("Black", 64)
+    price = b["price"]
+    tw = d.textlength(price, font=fp)
+    box = [W // 2 - tw / 2 - 34, 360, W // 2 + tw / 2 + 34, 448]
+    d.rounded_rectangle(box, radius=44, fill=YELLOW)
+    d.text((W // 2, 404), price, font=fp, fill=NAVY, anchor="mm")
+    if b.get("detail"):
+        d.text((W // 2, 492), b["detail"], font=ig.font("Bold", 40), fill="white", anchor="mm")
+    img.save(path)
+
+
+def end_png(e, path):
+    img = Image.new("RGBA", (W, H), (10, 18, 34, 215))
+    d = ImageDraw.Draw(img)
+    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((200, 200), Image.LANCZOS)
+    img.alpha_composite(logo, (W // 2 - 100, 560))
+    d.text((W // 2, 880), e["line1"], font=ig.font("Black", 78), fill=YELLOW, anchor="mm")
+    d.text((W // 2, 980), e["line2"], font=ig.font("Bold", 50), fill="white", anchor="mm")
+    d.text((W // 2, 1110), "viajespillados.com", font=ig.font("ExtraBold", 54), fill="white", anchor="mm")
+    img.save(path)
+
+
+def ass_time(t):
+    h, m = int(t // 3600), int(t % 3600 // 60)
+    return f"{h}:{m:02d}:{t % 60:05.2f}"
+
+
+def subtitles(chunks, path):
+    """chunks: list of (start, end, text). Big bold captions, lower third."""
+    head = (
+        "[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 0\n\n"
+        "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, "
+        "BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, "
+        "Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
+        "Style: Sub,Inter Display Black,74,&H00FFFFFF,&H00FFFFFF,&H00221410,&H64000000,-1,0,0,0,100,100,0,0,1,"
+        "5,2,2,80,80,430,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, "
+        "Effect, Text\n")
+    with open(path, "w") as f:
+        f.write(head)
+        for s, e, t in chunks:
+            t = t.replace("{", "(").replace("}", ")")
+            f.write(f"Dialogue: 0,{ass_time(s)},{ass_time(e)},Sub,,0,0,0,,{t}\n")
+
+
+def chunk_words(words, offset, max_words=4, max_chars=22):
+    out, cur = [], []
+    for w in words:
+        cur.append(w)
+        text = " ".join(x[2] for x in cur)
+        if len(cur) >= max_words or len(text) >= max_chars or re.search(r"[.,:;!?]$", w[2]):
+            out.append((offset + cur[0][0], offset + cur[-1][1] + 0.08, text))
+            cur = []
+    if cur:
+        out.append((offset + cur[0][0], offset + cur[-1][1] + 0.08, " ".join(x[2] for x in cur)))
+    # make chunks continuous so captions don't flicker
+    for i in range(len(out) - 1):
+        s, e, t = out[i]
+        out[i] = (s, max(e, out[i + 1][0]), t)
+    return out
+
+
+# ---------------------------------------------------------------- render
+def render(rid):
+    base = os.path.join(ROOT, "reels", rid)
+    sb = json.load(open(os.path.join(base, "storyboard.json")))
+    work = os.path.join("/tmp", "reel-" + rid)
+    os.makedirs(work, exist_ok=True)
+    voice = sb.get("voice", "es-CO-SalomeNeural")
+
+    clips, audios, subs, t = [], [], [], 0.0
+    for i, sc in enumerate(sb["scenes"]):
+        mp3 = os.path.join(work, f"v{i}.mp3")
+        words = tts(sc["text"], voice, mp3)
+        dur = duration(mp3) + 0.25
+        subs += chunk_words(words, t)
+        audios.append((mp3, dur))
+        m = sc["media"]
+        out = os.path.join(work, f"c{i}.mp4")
+        try:
+            if m["type"] == "video":
+                clip_from_video(pexels_file(m["pexels_id"], os.path.join(work, f"s{i}.mp4")), dur, out)
+            else:
+                clip_from_photo(photo_file(m["url"], os.path.join(work, f"s{i}.jpg")), dur, out, i % 2 == 0)
+        except Exception as e:
+            fb = m.get("fallback_photo") or sb.get("fallback_photo")
+            print(f"Escena {i}: {e} – uso la foto de respaldo")
+            clip_from_photo(photo_file(fb, os.path.join(work, f"s{i}.jpg")), dur, out, i % 2 == 0)
+        clips.append(out)
+        t += dur
+
+    # end card (3 s) on top of the last scene's footage
+    end_dur = 3.0
+    end_bg = os.path.join(work, "end_bg.mp4")
+    sh("ffmpeg", "-y", "-sseof", "-0.1", "-i", clips[-1], "-vf", "tpad=stop_mode=clone:stop_duration=3",
+       "-t", f"{end_dur}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", end_bg)
+    clips.append(end_bg)
+
+    with open(os.path.join(work, "clips.txt"), "w") as f:
+        f.writelines(f"file '{c}'\n" for c in clips)
+    video = os.path.join(work, "video.mp4")
+    sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(work, "clips.txt"), "-c", "copy", video)
+
+    # voice track with silence padding per scene + end
+    parts = []
+    for mp3, dur in audios:
+        p = mp3.replace(".mp3", ".wav")
+        sh("ffmpeg", "-y", "-i", mp3, "-af", f"apad=whole_dur={dur:.2f}", "-ar", "44100", "-ac", "2", p)
+        parts.append(p)
+    silence = os.path.join(work, "end.wav")
+    sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{end_dur}", silence)
+    parts.append(silence)
+    with open(os.path.join(work, "audio.txt"), "w") as f:
+        f.writelines(f"file '{p}'\n" for p in parts)
+    audio = os.path.join(work, "voice.wav")
+    sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(work, "audio.txt"), audio)
+
+    banner = os.path.join(work, "banner.png")
+    banner_png(sb["banner"], banner)
+    endcard = os.path.join(work, "endcard.png")
+    end_png(sb["end"], endcard)
+    ass = os.path.join(work, "subs.ass")
+    subtitles(subs, ass)
+
+    final = os.path.join(base, "reel.mp4")
+    fonts = ig.FONTS
+    flt = (f"[0:v][2:v]overlay=0:0:enable='lt(t,{t:.2f})'[a];"
+           f"[a][3:v]overlay=0:0:enable='gte(t,{t:.2f})'[b];"
+           f"[b]ass={ass}:fontsdir={fonts}[v]")
+    sh("ffmpeg", "-y", "-i", video, "-i", audio, "-loop", "1", "-i", banner, "-loop", "1", "-i", endcard,
+       "-filter_complex", flt, "-map", "[v]", "-map", "1:a", "-t", f"{t + end_dur:.2f}",
+       "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-profile:v", "high", "-pix_fmt", "yuv420p",
+       "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-movflags", "+faststart", final)
+
+    cover = os.path.join(base, "cover.jpg")
+    sh("ffmpeg", "-y", "-ss", "1.0", "-i", final, "-frames:v", "1", "-q:v", "3", cover)
+    with open(os.path.join(base, "caption.txt"), "w") as f:
+        f.write(sb.get("caption", "") + "\n")
+    print(f"Reel listo: {final} ({t + end_dur:.1f} s)")
+    return final
+
+
+# ---------------------------------------------------------------- publish
+def publish(rid):
+    base = os.path.join(ROOT, "reels", rid)
+    rel = f"reels/{rid}/reel.mp4"
+    if not os.path.exists(os.path.join(ROOT, rel)):
+        render(rid)
+        ig.commit_push([f"reels/{rid}"], f"Reel: {rid}")
+    url = ig.public_image_url(rel)   # works for any file: waits for viajespillados.com, else raw GitHub
+    sb = json.load(open(os.path.join(base, "storyboard.json")))
+    uid = os.environ["IG_USER_ID"]
+    c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=sb.get("caption", ""),
+               share_to_feed="true")["id"]
+    for _ in range(60):
+        st = ig.api("GET", c, fields="status_code,status")
+        if st.get("status_code") == "FINISHED":
+            break
+        if st.get("status_code") in ("ERROR", "EXPIRED"):
+            raise RuntimeError(f"Instagram no pudo procesar el video: {st}")
+        time.sleep(10)
+    media_id, permalink = ig.finish(c)
+    with open(os.path.join(base, "published.json"), "w") as f:
+        json.dump({"media_id": media_id, "permalink": permalink}, f)
+    ig.commit_push([f"reels/{rid}/published.json"], f"Reel publicado: {rid}")
+    ig.summary(f"✅ Reel publicado: {permalink}")
+
+
+if __name__ == "__main__":
+    mode, rid = sys.argv[1], sys.argv[2]
+    if mode == "render":
+        render(rid)
+        ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
+    elif mode == "publish":
+        publish(rid)

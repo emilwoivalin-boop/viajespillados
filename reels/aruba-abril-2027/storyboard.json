@@ -1,0 +1,27 @@
+{
+  "id": "aruba-abril-2027",
+  "offer_id": "aruba-2026-10-26-645976",
+  "voice": "es-CO-SalomeNeural",
+  "banner": {"title": "3 días en Aruba", "price": "$645.976", "detail": "ida y vuelta · jue 29 abr – dom 2 may"},
+  "fallback_photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=2160",
+  "scenes": [
+    {"text": "¿Aruba ida y vuelta por menos de 650 mil pesos? Te armamos el plan de tres días.",
+     "media": {"type": "video", "pexels_id": 34467289}},
+    {"text": "Día uno: dos horas de vuelo directo desde Bogotá, y de una a Eagle Beach, bajo los árboles fofoti.",
+     "media": {"type": "photo", "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=2160",
+               "credit": "Jason Boldero / Wikimedia Commons, CC BY 2.0"}},
+    {"text": "Día dos: recorre el Parque Nacional Arikok en 4x4 hasta la piscina natural.",
+     "media": {"type": "photo", "url": "https://commons.wikimedia.org/wiki/Special:FilePath/NaturalPoolAruba.jpg?width=2160",
+               "credit": "Oogstweg / Wikimedia Commons, CC BY-SA 4.0"}},
+    {"text": "Día tres: snorkel en Mangel Halto,",
+     "media": {"type": "photo", "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mangel_halto%2C_Aruba_%28abou_di_awa%29_01.jpg?width=2160",
+               "credit": "Ginelly.Q / Wikimedia Commons, CC0"}},
+    {"text": "y el atardecer en el faro California.",
+     "media": {"type": "photo", "url": "https://commons.wikimedia.org/wiki/Special:FilePath/California_lighthouse_aruba%60s_sunset.jpg?width=2160",
+               "credit": "Johanna Estrada Ysa / Wikimedia Commons, CC BY-SA 4.0"}},
+    {"text": "Ojo: la isla es cara, así que alquilar carro sale más barato que los taxis.",
+     "media": {"type": "video", "pexels_id": 29286737}}
+  ],
+  "end": {"line1": "Vuelos desde $645.976", "line2": "ida y vuelta · link en la bio"},
+  "caption": "3 días en Aruba con vuelos de Wingo por $645.976 ida y vuelta, directo desde Bogotá, del jueves 29 de abril al domingo 2 de mayo. Relájate en Eagle Beach, recorre el Parque Nacional Arikok en 4x4 y haz snorkel en Mangel Halto. Ojo: la isla es cara; alquilar carro suele salir más barato que los taxis. Revisa la información del vuelo en la web.\n\nFotos: Jason Boldero (CC BY 2.0), Oogstweg (CC BY-SA 4.0), Ginelly.Q (CC0), Johanna Estrada Ysa (CC BY-SA 4.0) / Wikimedia Commons. Videos: Pexels.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #viajarbarato"
+}

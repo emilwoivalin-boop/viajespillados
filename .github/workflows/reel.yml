@@ -1,0 +1,45 @@
+name: Reel – video de viaje
+
+# Crea un Reel vertical (voz IA + subtítulos + fotos/videos reales) a partir de reels/<id>/storyboard.json.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "render = solo crear el video (vista previa) · publish = crear y publicar en Instagram"
+        type: choice
+        options: [render, publish]
+        default: render
+      id:
+        description: "Carpeta del reel en reels/ (ej. aruba-abril-2027)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-publish
+  cancel-in-progress: false
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Instalar dependencias
+        run: |
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          pip install --quiet pillow requests edge-tts
+      - name: Configurar git
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Crear reel
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python scripts/reel.py "${{ github.event.inputs.mode }}" "${{ github.event.inputs.id }}"
