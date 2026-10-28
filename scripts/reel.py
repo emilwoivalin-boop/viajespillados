@@ -427,6 +427,7 @@ def render(rid):
     voice = sb.get("voice", "es-CO-SalomeNeural")
     rate = sb.get("rate", "+28%")
     pad = sb.get("pad", 0.0)
+    stickman.STYLE = sb.get("stick_style", "classic")   # "classic" or "pop" (red beanie, yellow t-shirt)
 
     clips, audios, subs, sfx, t = [], [], [], [], 0.0
     for i, sc in enumerate(sb["scenes"]):

@@ -22,6 +22,14 @@ YELLOW = (255, 198, 49, 255)
 YELLOW_D = (226, 160, 20, 255)
 CORAL = (255, 90, 78, 255)
 SKIN_SHADOW = (0, 0, 0, 70)
+RED = (214, 48, 49, 255)
+RED_D = (168, 30, 34, 255)
+SHIRT = (255, 205, 40, 255)
+SHIRT_D = (222, 165, 20, 255)
+
+# "classic": black lines, hair strands, white mitten hands (user's reference)
+# "pop": Modern Pop look – red knit beanie, yellow t-shirt, black stick limbs (stickman-video-director A2)
+STYLE = "classic"
 
 
 def rad(a):
@@ -99,7 +107,9 @@ def head(pen, c, r, facing, t, mood="smile", glasses=False, mask=False, look=0.0
     pen.circle(c, r + 3, WHITE, None)               # halo
     pen.circle(c, r, WHITE, DARK, ow)
     ex = facing * r * 0.12 + look * r * 0.1
-    eyes = [(c[0] + ex - r * 0.27, c[1] - r * 0.12), (c[0] + ex + r * 0.27, c[1] - r * 0.12)]
+    pop = STYLE == "pop"
+    ey = c[1] + r * 0.12 if pop else c[1] - r * 0.12
+    eyes = [(c[0] + ex - r * 0.25, ey), (c[0] + ex + r * 0.25, ey)]
     blink = (t % 3.4) < 0.12
     if mask:
         pen.rrect((c[0] + ex - r * 0.66, c[1] - r * 0.42, c[0] + ex + r * 0.66, c[1] + r * 0.14), r * 0.25,
@@ -115,22 +125,43 @@ def head(pen, c, r, facing, t, mood="smile", glasses=False, mask=False, look=0.0
         for e in eyes:
             if blink:
                 pen.line((e[0] - r * 0.1, e[1]), (e[0] + r * 0.1, e[1]), DARK, ow)
+            elif pop:
+                pen.ellipse((e[0] - r * 0.07, e[1] - r * 0.11, e[0] + r * 0.07, e[1] + r * 0.11), DARK)
             else:
                 pen.ellipse((e[0] - r * 0.085, e[1] - r * 0.15, e[0] + r * 0.085, e[1] + r * 0.15), DARK)
         lift = r * 0.08 if mood == "wow" else 0
-        for e in eyes:  # arched eyebrows
+        for e in ([] if pop else eyes):  # arched eyebrows
             pen.arc((e[0] - r * 0.15, e[1] - r * 0.42 - lift, e[0] + r * 0.15, e[1] - r * 0.2 - lift), 200, 340,
                     DARK, ow * 0.75)
     mx = c[0] + facing * r * 0.08
     if mood == "wow":
         pen.ellipse((mx - r * 0.2, c[1] + r * 0.2, mx + r * 0.2, c[1] + r * 0.62), DARK)
         pen.ellipse((mx - r * 0.12, c[1] + r * 0.42, mx + r * 0.12, c[1] + r * 0.58), CORAL)
+    elif pop and not mask:
+        pen.arc((mx - r * 0.3, c[1] + r * 0.12, mx + r * 0.3, c[1] + r * 0.62), 25, 155, DARK, ow * 0.9)
     elif not mask:
         pen.arc((mx - r * 0.5, c[1] - r * 0.25, mx + r * 0.5, c[1] + r * 0.62), 25, 155, DARK, ow)
 
 
+def beanie(pen, c, r, facing):
+    """Smooth red knit beanie (no pom-pom) with a ribbed folded cuff, sitting low on the forehead."""
+    ow = max(3, r * 0.075)
+    top = c[1] - r * 1.45
+    pen.ellipse((c[0] - r * 0.97, top, c[0] + r * 1.0, c[1] - r * 0.25), RED, DARK, ow)
+    pen.arc((c[0] - r * 0.7, top + r * 0.18, c[0] + r * 0.2, top + r * 0.9), 200, 250, (240, 110, 105, 255),
+            max(2, r * 0.07))                                               # soft highlight
+    y0, y1 = c[1] - r * 0.5, c[1] - r * 0.16
+    pen.rrect((c[0] - r * 1.07, y0, c[0] + r * 1.07, y1), r * 0.14, RED, DARK, ow)
+    k = -0.82
+    while k < 0.9:                                                          # knit ribs
+        pen.line((c[0] + k * r, y0 + r * 0.07), (c[0] + k * r, y1 - r * 0.07), RED_D, max(2, r * 0.05))
+        k += 0.2
+
+
 def cap(pen, c, r, facing):
-    """Three hair strands on top of the head (replaces the old cap)."""
+    """Three hair strands on top of the head (classic) or the red beanie (pop)."""
+    if STYLE == "pop":
+        return beanie(pen, c, r, facing)
     for k, (dx, h, bend) in enumerate([(-0.26, 0.42, -0.16), (0.0, 0.5, 0.02), (0.24, 0.42, 0.18)]):
         base = (c[0] + dx * r, c[1] - r * 0.96 + abs(dx) * r * 0.25)
         mid = (base[0] + (dx * 0.3 + bend * 0.5) * r, base[1] - h * r * 0.55)
@@ -139,7 +170,10 @@ def cap(pen, c, r, facing):
 
 
 def hand(pen, p, r):
-    """Small white mitten with a thumb."""
+    """Small white mitten with a thumb (classic) or a small black fist (pop)."""
+    if STYLE == "pop":
+        pen.circle(p, r * 0.8, DARK, WHITE, 1.5)
+        return
     pen.circle((p[0] + r * 0.55, p[1] - r * 0.55), r * 0.42, WHITE, DARK, max(2, r * 0.18))
     pen.circle(p, r, WHITE, DARK, max(2, r * 0.18))
 
@@ -149,6 +183,47 @@ def shoe(pen, ankle, facing, s, angle=0):
     cx = ankle[0] + facing * s * 0.35
     cy = ankle[1] + s * 0.12
     pen.ellipse((cx - s * 0.75, cy - s * 0.3, cx + s * 0.75, cy + s * 0.3), DARK, WHITE, 2)
+
+
+def torso(pen, neck, hip, h, lw):
+    """Body line (classic) or a yellow t-shirt with rounded shoulders (pop)."""
+    if STYLE != "pop":
+        pen.stroke(hip, neck, width=lw * 1.15)
+        return
+    dx, dy = hip[0] - neck[0], hip[1] - neck[1]
+    L = math.hypot(dx, dy) or 1
+    ux, uy = dx / L, dy / L
+    px, py = -uy, ux
+
+    def at(u, v):  # u along the body (down), v sideways
+        return (neck[0] + ux * u + px * v, neck[1] + uy * u + py * v)
+    sw, hw, hem = h * 0.095, h * 0.098, L + h * 0.02
+    pts = [at(h * 0.005, -h * 0.045), at(h * 0.012, -sw * 0.8), at(h * 0.035, -sw), at(h * 0.08, -sw * 0.97),
+           at(hem - h * 0.01, -hw), at(hem, -hw * 0.9), at(hem, hw * 0.9), at(hem - h * 0.01, hw),
+           at(h * 0.08, sw * 0.97), at(h * 0.035, sw), at(h * 0.012, sw * 0.8), at(h * 0.005, h * 0.045)]
+    pen.poly(pts, SHIRT, DARK, max(2.5, lw * 0.45))
+    pen.arc((neck[0] - h * 0.045, neck[1] - h * 0.035, neck[0] + h * 0.045, neck[1] + h * 0.03), 20, 160, SHIRT_D,
+            max(2, lw * 0.4))                                                # collar
+
+
+def sleeve(pen, sh, elbow, h, lw):
+    """Short flared t-shirt sleeve over the upper arm (pop only)."""
+    if STYLE != "pop":
+        return
+    dx, dy = elbow[0] - sh[0], elbow[1] - sh[1]
+    L = math.hypot(dx, dy) or 1
+    ux, uy = dx / L, dy / L
+    px, py = -uy, ux
+    b, e = h * 0.045, h * 0.048
+    s0 = (sh[0] - ux * h * 0.02, sh[1] - uy * h * 0.02)
+    s1 = (sh[0] + dx * 0.6, sh[1] + dy * 0.6)
+    pts = [(s0[0] + px * b, s0[1] + py * b), (s1[0] + px * e, s1[1] + py * e),
+           (s1[0] - px * e, s1[1] - py * e), (s0[0] - px * b, s0[1] - py * b)]
+    pen.poly(pts, SHIRT, None)
+    ow = max(2.5, lw * 0.45)
+    pen.stroke(pts[0], pts[1], width=ow, color=DARK, outline=None)
+    pen.stroke(pts[1], pts[2], width=ow, color=DARK, outline=None)
+    pen.stroke(pts[2], pts[3], width=ow, color=DARK, outline=None)
 
 
 def shadow(pen, x, y, w):
@@ -167,13 +242,14 @@ def arm(pen, sh, upper_a, elbow_bend, L, facing, hand_r):
     h = limb(elbow, facing * (upper_a + elbow_bend), L * 0.5)
     pen.stroke(sh, elbow, h)
     hand(pen, h, hand_r)
+    sleeve(pen, sh, elbow, L / 0.32, pen.lw)
     return h
 
 
 def standing(pen, x, feet, h, facing, t, legs, arms, bob=0.0, mood="smile", glasses=False, backpack=False,
              lean=0.0, tilt=0.0):
     """legs: [(thigh angle, knee bend), (back, front)], arms: [(upper angle, elbow bend), (back, front)]."""
-    leg_L, torso_L, arm_L = h * 0.44, h * 0.34, h * 0.32
+    leg_L, torso_L, arm_L = (h * 0.48, h * 0.30, h * 0.31) if STYLE == "pop" else (h * 0.44, h * 0.34, h * 0.32)
     r = h * 0.15
     hip = (x, feet - leg_L + bob)
     neck = (x + facing * lean * h, hip[1] - torso_L)
@@ -192,9 +268,9 @@ def standing(pen, x, feet, h, facing, t, legs, arms, bob=0.0, mood="smile", glas
         bx = neck[0] - facing * h * 0.1
         pen.rrect((bx - h * 0.09, sh[1] + h * 0.01, bx + h * 0.09, sh[1] + h * 0.26), h * 0.04, CORAL, DARK, 4)
         pen.line((bx - h * 0.06, sh[1] + h * 0.15), (bx + h * 0.06, sh[1] + h * 0.15), DARK, 3)
-    pen.stroke(hip, neck, width=lw * 1.15)
     af = leg(pen, hip, l_front[0], l_front[1], leg_L, facing)
     shoe(pen, af, facing, h * 0.07)
+    torso(pen, neck, hip, h, lw)
     hf = arm(pen, sh, a_front[0], a_front[1], arm_L, facing, h * 0.04)
     head(pen, hc, r, facing, t, mood=mood, glasses=glasses)
     cap(pen, hc, r, facing)
@@ -218,9 +294,10 @@ def suitcase(pen, handle_hand, x, feet, h, facing):
     cx = x - facing * h * 0.46
     top = feet - bh - h * 0.06
     pen.stroke(handle_hand, (cx + facing * bw * 0.25, top - h * 0.03), width=h * 0.018, color=(200, 205, 215, 255))
-    pen.rrect((cx - bw / 2, top, cx + bw / 2, top + bh), h * 0.04, YELLOW, DARK, 5)
+    body, rib = ((70, 160, 220, 255), (45, 120, 180, 255)) if STYLE == "pop" else (YELLOW, YELLOW_D)
+    pen.rrect((cx - bw / 2, top, cx + bw / 2, top + bh), h * 0.04, body, DARK, 5)
     for k in (0.33, 0.66):
-        pen.line((cx - bw / 2 + bw * k, top + h * 0.03), (cx - bw / 2 + bw * k, top + bh - h * 0.03), YELLOW_D, 4)
+        pen.line((cx - bw / 2 + bw * k, top + h * 0.03), (cx - bw / 2 + bw * k, top + bh - h * 0.03), rib, 4)
     pen.rrect((cx - bw * 0.3, top + bh * 0.25, cx + bw * 0.05, top + bh * 0.45), h * 0.01, CORAL, None)
     for wx in (cx - bw * 0.32, cx + bw * 0.32):
         pen.circle((wx, feet - h * 0.03), h * 0.03, NAVY, DARK, 3)
@@ -254,7 +331,10 @@ def jeep(pen, x, ground, L, facing, t):
 
 # ---------------------------------------------------------------- main generator
 def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.4,
-           glasses=None, backpack=None):
+           glasses=None, backpack=None, style=None):
+    global STYLE
+    if style:
+        STYLE = style
     lw = max(6, size * 0.024)
     rnd = random.Random(7)
     confetti = [(rnd.uniform(-1, 1), rnd.uniform(0, 1), rnd.choice([YELLOW, CORAL, (80, 170, 220, 255), WHITE]),
@@ -316,7 +396,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
             hip = (hx + L * 0.55, gy - L * 0.05)
             # arms folded behind the head
             pen.stroke(neck, (hx + L * 0.02, gy - L * 0.32), (hx - L * 0.12, gy - L * 0.2))
-            pen.stroke(hip, neck, width=lw * 1.15)
+            torso(pen, neck, hip, L, lw)
             knee = (hip[0] + L * 0.22, gy - L * 0.3)
             pen.stroke(hip, knee, (hip[0] + L * 0.42, gy - L * 0.05))
             shoe(pen, (hip[0] + L * 0.42, gy - L * 0.08), 1, L * 0.07)
@@ -350,13 +430,14 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                 ank = limb(knee, a + facing * 6 * sgn, L * 0.22)
                 pen.stroke(hip, knee, ank)
                 shoe(pen, ank, -facing, L * 0.06)
-            pen.stroke(sh, hip, width=lw * 1.15)
+            torso(pen, sh, hip, L, lw)
             for ph0 in (0, math.pi):
                 a = t * 2 * math.pi * 0.9 + ph0
                 elbow = (sh[0] + facing * math.cos(a) * L * 0.18, sh[1] - math.sin(a) * L * 0.18)
                 h_ = (sh[0] + facing * math.cos(a) * L * 0.34, sh[1] - math.sin(a) * L * 0.3)
                 pen.stroke(sh, elbow, h_)
                 hand(pen, h_, L * 0.04)
+                sleeve(pen, sh, elbow, L, lw)
             head(pen, hc, L * 0.115, facing, t, mask=True)
             cap(pen, hc, L * 0.115, facing)
         elif action == "drive":
@@ -371,7 +452,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
             bump = math.sin(t * 2 * math.pi * 2.5) * L * 0.01
             hip = (dx, cy - L * 0.06 + bump)
             neck = (dx + facing * L * 0.02, hip[1] - L * 0.25)
-            pen.stroke(hip, neck, width=lw * 1.1)
+            torso(pen, neck, hip, L, lw)
             hcx = (neck[0] + facing * L * 0.01, neck[1] - L * 0.1)
             head(pen, hcx, L * 0.1, facing, t, glasses=True)
             cap(pen, hcx, L * 0.1, facing)

@@ -270,5 +270,6 @@
  "rate": "+30%",
  "pad": 0.3,
  "seed": 11,
- "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text"
+ "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
+ "stick_style": "pop"
 }
