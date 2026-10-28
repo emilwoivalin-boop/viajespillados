@@ -33,6 +33,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import instagram as ig  # noqa: E402  (fonts, git helpers, Instagram API helpers)
+import stickman  # noqa: E402
 
 W, H, FPS = 1080, 1920, 30
 YELLOW = (255, 198, 49)
@@ -118,6 +119,25 @@ def clip_from_photo(src, dur, out, zoom_in=True):
        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
 
 
+def add_stickman(clip, st, dur, out):
+    """Overlay the animated stick man (st = {"action", "x0", "x1", "y", "size", "facing"}) on a clip."""
+    band_h, feet_local = 700, 600
+    feet_abs = int(st.get("y", 0.70) * H)
+    by = max(0, min(H - band_h, feet_abs - feet_local))
+    n = int(dur * FPS) + 3
+    cmd = ["ffmpeg", "-y", "-i", clip, "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{W}x{band_h}",
+           "-r", str(FPS), "-i", "-", "-filter_complex", f"[0:v][1:v]overlay=0:{by},format=yuv420p",
+           "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out]
+    p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    for fr in stickman.frames(st.get("action", "walk"), n, FPS, x0=st.get("x0", 0.3), x1=st.get("x1", 0.6),
+                              feet=feet_local + (feet_abs - by - feet_local), size=st.get("size", 330),
+                              facing=st.get("facing", 1), band_h=band_h):
+        p.stdin.write(fr.tobytes())
+    p.stdin.close()
+    if p.wait() != 0:
+        raise RuntimeError("ffmpeg stickman overlay failed")
+
+
 # ---------------------------------------------------------------- overlays
 def banner_png(b, path):
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -172,7 +192,7 @@ def subtitles(chunks, path):
         "BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, "
         "Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
         "Style: Sub,Inter Display Black,74,&H00FFFFFF,&H00FFFFFF,&H00221410,&H64000000,-1,0,0,0,100,100,0,0,1,"
-        "5,2,2,80,80,430,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, "
+        "5,2,2,80,80,300,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, "
         "Effect, Text\n")
     with open(path, "w") as f:
         f.write(head)
@@ -224,6 +244,10 @@ def render(rid):
             fb = m.get("fallback_photo") or sb.get("fallback_photo")
             print(f"Escena {i}: {e} – uso la foto de respaldo")
             clip_from_photo(photo_file(fb, os.path.join(work, f"s{i}.jpg")), dur, out, i % 2 == 0)
+        if sc.get("stick") and sc["stick"].get("action", "none") != "none":
+            out2 = os.path.join(work, f"c{i}s.mp4")
+            add_stickman(out, sc["stick"], dur, out2)
+            out = out2
         clips.append(out)
         t += dur
 
