@@ -7,7 +7,7 @@ on:
       mode:
         description: "render = solo crear el video (vista previa) · publish = crear y publicar en Instagram"
         type: choice
-        options: [render, publish]
+        options: [render, publish, images]
         default: render
       id:
         description: "Carpeta del reel en reels/ (ej. aruba-abril-2027)"

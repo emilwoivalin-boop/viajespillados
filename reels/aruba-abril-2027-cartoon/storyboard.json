@@ -11,7 +11,8 @@
    "text": "Thursday. Bogotá's El Dorado airport. Let's go!",
    "media": {
     "type": "ai",
-    "prompt": "Bogotá El Dorado international airport terminal exterior at sunrise, modern glass facade under a huge curved white canopy roof, yellow taxis at the drop-off lane, green Andes mountains behind"
+    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
+    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Salidas_Aeropuerto_Internacional_El_Dorado.jpg?width=1280"
    },
    "stick": {
     "action": "suitcase",
@@ -35,7 +36,8 @@
    "text": "…and you're in Aruba!",
    "media": {
     "type": "ai",
-    "prompt": "small Caribbean airport terminal in Aruba with teal roofs and white walls, tall palm trees bending in the trade wind, bright blue sky, arrivals road"
+    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
+    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Queen_Beatrix_International_Airport_Aruba.JPG?width=1280"
    },
    "stick": {
     "action": "celebrate",
@@ -49,7 +51,8 @@
    "text": "Day one: chill under the fofoti trees on Eagle Beach.",
    "media": {
     "type": "ai",
-    "prompt": "Eagle Beach in Aruba, wide white sand beach with one twisted wind-bent divi-divi tree leaning toward the turquoise sea, bright sun, calm water"
+    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
+    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=1280"
    },
    "stick": {
     "action": "relax",
@@ -63,7 +66,8 @@
    "text": "Day two: rent a car and drive to Arikok's natural pool.",
    "media": {
     "type": "ai",
-    "prompt": "Arikok National Park in Aruba, dry rocky hills with tall cactus, red dirt road, natural rock pool with turquoise water and white waves crashing on dark volcanic rocks"
+    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
+    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Aruba-Natural-Pool-2013.JPG?width=1280"
    },
    "stick": {
     "action": "drive",
@@ -77,7 +81,8 @@
    "text": "Day three: snorkel the calm waters of Mangel Halto.",
    "media": {
     "type": "ai",
-    "prompt": "underwater snorkeling scene in calm turquoise shallow water, mangrove roots, colorful tropical fish, corals, sun rays from the surface"
+    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
+    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Mangel_halto%2C_Aruba_%28abou_di_awa%29_01.jpg?width=1280"
    },
    "stick": {
     "action": "swim",
@@ -91,7 +96,8 @@
    "text": "Then catch the sunset at the California Lighthouse.",
    "media": {
     "type": "ai",
-    "prompt": "California Lighthouse in Aruba, tall slender white stone lighthouse on a hill at sunset, orange and pink sky, sea on the horizon"
+    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
+    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/California_lighthouse_%28Aruba%29_-_1.jpg?width=1280"
    },
    "stick": {
     "action": "photo",
@@ -105,7 +111,8 @@
    "text": "Sunday night you're back in Bogotá. Only two days off work!",
    "media": {
     "type": "ai",
-    "prompt": "Bogotá El Dorado international airport terminal at night, glowing glass facade under curved canopy roof, city lights, taxis"
+    "prompt": "Redraw this exact photo as a flat vector cartoon illustration, keep the same place, buildings, landmarks and composition",
+    "ref": "https://commons.wikimedia.org/wiki/Special:FilePath/Fachada_Principal_del_Aeropuerto_El_Dorado.jpg?width=1280"
    },
    "stick": {
     "action": "suitcase",
@@ -134,5 +141,5 @@
  "rate": "+28%",
  "pad": 0.0,
  "seed": 11,
- "ai_style": "flat vector cartoon illustration, bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, simple shapes, vertical 9:16 composition, open flat ground in the lower third, no people, no characters, no text, no letters, no logos"
+ "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text"
 }

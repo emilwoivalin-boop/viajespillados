@@ -127,12 +127,12 @@ def photo_file(url, dst):
     return dst
 
 
-def ai_image(prompt, dst, seed=7):
+def ai_image(prompt, dst, seed=7, ref=None):
     """Generate a vertical illustration. Uses OpenAI (OPENAI_API_KEY) when available, otherwise the free
     Pollinations (Flux) API. The result is cached next to the storyboard so re-renders don't regenerate it."""
     import hashlib
     import urllib.parse
-    key = hashlib.sha1(f"{prompt}|{seed}".encode()).hexdigest()[:12]
+    key = hashlib.sha1(f"{prompt}|{seed}|{ref}".encode()).hexdigest()[:12]
     cache = dst.rsplit(".", 1)[0] + f"-{key}.jpg"
     if os.path.exists(cache):
         return cache
@@ -148,7 +148,8 @@ def ai_image(prompt, dst, seed=7):
         data = base64.b64decode(r.json()["data"][0]["b64_json"])
     else:
         url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) +
-               f"?width=1080&height=1920&seed={seed}&model=flux&nologo=true&private=true")
+               f"?width=1080&height=1920&seed={seed}&nologo=true&private=true" +
+               (f"&model=kontext&image={urllib.parse.quote(ref, safe='')}" if ref else "&model=flux"))
         for attempt in range(8):
             r = requests.get(url, headers=WUA, timeout=240)
             if r.status_code == 200 and r.headers.get("content-type", "").startswith("image"):
@@ -172,7 +173,8 @@ def media_file(m, sb, base, work, name, i):
     if m["type"] == "ai":
         os.makedirs(os.path.join(base, "ai"), exist_ok=True)
         prompt = m["prompt"] + (", " + sb["ai_style"] if sb.get("ai_style") else "")
-        return ai_image(prompt, os.path.join(base, "ai", f"{name}.jpg"), seed=m.get("seed", sb.get("seed", 7)))
+        return ai_image(prompt, os.path.join(base, "ai", f"{name}.jpg"), seed=m.get("seed", sb.get("seed", 7)),
+                        ref=m.get("ref"))
     return photo_file(m["url"], os.path.join(work, f"{name}.jpg"))
 
 
@@ -462,7 +464,17 @@ if __name__ == "__main__":
     import traceback
     mode, rid = sys.argv[1], sys.argv[2]
     try:
-        if mode == "render":
+        if mode == "images":   # only (re)generate the AI images, for review
+            base = os.path.join(ROOT, "reels", rid)
+            sb = json.load(open(os.path.join(base, "storyboard.json")))
+            for i, sc in enumerate(sb["scenes"]):
+                if sc["media"]["type"] == "ai":
+                    try:
+                        media_file(sc["media"], sb, base, "/tmp", f"scene{i}", i)
+                    except Exception as e:
+                        print(f"scene{i}: {e}")
+            ig.commit_push([f"reels/{rid}"], f"Reel: imágenes IA {rid}")
+        elif mode == "render":
             render(rid)
             ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
         elif mode == "publish":
