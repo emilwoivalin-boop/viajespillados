@@ -46,9 +46,10 @@ class Pen:
     def P(self, p):
         return ((p[0] - self.x0) * SS, (p[1] - self.y0) * SS)
 
-    def stroke(self, *pts, width=None, color=WHITE, outline=DARK):
+    def stroke(self, *pts, width=None, color=DARK, outline=WHITE):
+        """Classic stick-figure line: black, with a thin white halo so it reads on any background."""
         w = (width or self.lw) * SS
-        o = w + 8 * SS
+        o = w + 6 * SS
         q = [self.P(p) for p in pts]
         if outline:
             self.d.line(q, fill=outline, width=int(o), joint="curve")
@@ -93,65 +94,61 @@ class Pen:
 
 # ---------------------------------------------------------------- body parts
 def head(pen, c, r, facing, t, mood="smile", glasses=False, mask=False, look=0.0):
-    pen.circle(c, r, WHITE, DARK, 5)
-    ex = facing * r * 0.30 + look * r * 0.1
-    eyes = [(c[0] + ex - r * 0.26, c[1] - r * 0.05), (c[0] + ex + r * 0.26, c[1] - r * 0.05)]
+    """Round white head, thick black outline, oval eyes, arched eyebrows, big smile (reference style)."""
+    ow = max(3, r * 0.075)
+    pen.circle(c, r + 3, WHITE, None)               # halo
+    pen.circle(c, r, WHITE, DARK, ow)
+    ex = facing * r * 0.12 + look * r * 0.1
+    eyes = [(c[0] + ex - r * 0.27, c[1] - r * 0.12), (c[0] + ex + r * 0.27, c[1] - r * 0.12)]
     blink = (t % 3.4) < 0.12
     if mask:
-        pen.rrect((c[0] + ex - r * 0.62, c[1] - r * 0.35, c[0] + ex + r * 0.62, c[1] + r * 0.18), r * 0.25,
-                  (120, 200, 230, 200), DARK, 4)
-        pen.stroke((c[0] - facing * r * 0.6, c[1] - r * 0.1), (c[0] - facing * r * 0.85, c[1] - r * 1.1),
-                   width=r * 0.18, color=YELLOW)
+        pen.rrect((c[0] + ex - r * 0.66, c[1] - r * 0.42, c[0] + ex + r * 0.66, c[1] + r * 0.14), r * 0.25,
+                  (120, 200, 230, 210), DARK, ow * 0.8)
+        pen.stroke((c[0] - facing * r * 0.7, c[1] - r * 0.1), (c[0] - facing * r * 0.9, c[1] - r * 1.15),
+                   width=r * 0.14, color=YELLOW, outline=DARK)
     elif glasses:
         for e in eyes:
-            pen.rrect((e[0] - r * 0.24, e[1] - r * 0.15, e[0] + r * 0.24, e[1] + r * 0.17), r * 0.1, NAVY, DARK, 2)
-        pen.line((eyes[0][0] + r * 0.24, eyes[0][1]), (eyes[1][0] - r * 0.24, eyes[1][1]), DARK, 4)
+            pen.rrect((e[0] - r * 0.25, e[1] - r * 0.14, e[0] + r * 0.25, e[1] + r * 0.18), r * 0.1, DARK, DARK, 2)
+            pen.ellipse((e[0] - r * 0.16, e[1] - r * 0.08, e[0] - r * 0.04, e[1] - r * 0.01), (255, 255, 255, 140))
+        pen.line((eyes[0][0] + r * 0.25, eyes[0][1]), (eyes[1][0] - r * 0.25, eyes[1][1]), DARK, ow * 0.8)
     else:
         for e in eyes:
             if blink:
-                pen.line((e[0] - r * 0.09, e[1]), (e[0] + r * 0.09, e[1]), DARK, 5)
+                pen.line((e[0] - r * 0.1, e[1]), (e[0] + r * 0.1, e[1]), DARK, ow)
             else:
-                pen.ellipse((e[0] - r * 0.08, e[1] - r * 0.11, e[0] + r * 0.08, e[1] + r * 0.11), DARK)
-                pen.ellipse((e[0] - r * 0.02, e[1] - r * 0.08, e[0] + r * 0.04, e[1] - r * 0.02), WHITE)
-        # eyebrows
-        for e in eyes:
-            lift = r * 0.1 if mood == "wow" else 0
-            pen.line((e[0] - r * 0.12, e[1] - r * 0.25 - lift), (e[0] + r * 0.12, e[1] - r * 0.28 - lift), DARK, 4)
-    mx = c[0] + facing * r * 0.25
+                pen.ellipse((e[0] - r * 0.085, e[1] - r * 0.15, e[0] + r * 0.085, e[1] + r * 0.15), DARK)
+        lift = r * 0.08 if mood == "wow" else 0
+        for e in eyes:  # arched eyebrows
+            pen.arc((e[0] - r * 0.15, e[1] - r * 0.42 - lift, e[0] + r * 0.15, e[1] - r * 0.2 - lift), 200, 340,
+                    DARK, ow * 0.75)
+    mx = c[0] + facing * r * 0.08
     if mood == "wow":
-        pen.ellipse((mx - r * 0.16, c[1] + r * 0.28, mx + r * 0.16, c[1] + r * 0.62), DARK)
-        pen.ellipse((mx - r * 0.09, c[1] + r * 0.45, mx + r * 0.09, c[1] + r * 0.6), CORAL)
+        pen.ellipse((mx - r * 0.2, c[1] + r * 0.2, mx + r * 0.2, c[1] + r * 0.62), DARK)
+        pen.ellipse((mx - r * 0.12, c[1] + r * 0.42, mx + r * 0.12, c[1] + r * 0.58), CORAL)
     elif not mask:
-        pen.arc((mx - r * 0.32, c[1] + r * 0.02, mx + r * 0.32, c[1] + r * 0.52), 15, 165, DARK, 5)
-    # cheek
-    if not mask:
-        pen.ellipse((c[0] + facing * r * 0.62 - r * 0.12, c[1] + r * 0.2, c[0] + facing * r * 0.62 + r * 0.12,
-                     c[1] + r * 0.36), (255, 140, 130, 120))
+        pen.arc((mx - r * 0.5, c[1] - r * 0.25, mx + r * 0.5, c[1] + r * 0.62), 25, 155, DARK, ow)
 
 
 def cap(pen, c, r, facing):
-    dome = [(c[0] - r * 1.04, c[1] - r * 0.12), (c[0] - r * 0.92, c[1] - r * 0.62), (c[0] - r * 0.5, c[1] - r * 0.98),
-            (c[0], c[1] - r * 1.1), (c[0] + r * 0.5, c[1] - r * 0.98), (c[0] + r * 0.92, c[1] - r * 0.62),
-            (c[0] + r * 1.04, c[1] - r * 0.12)]
-    pen.poly(dome, YELLOW, DARK, 5)
-    pen.line((c[0] - r * 1.0, c[1] - r * 0.2), (c[0] + r * 1.0, c[1] - r * 0.2), YELLOW_D, 5)
-    brim = [(c[0] + facing * r * 0.45, c[1] - r * 0.42), (c[0] + facing * r * 1.85, c[1] - r * 0.30),
-            (c[0] + facing * r * 1.80, c[1] - r * 0.02), (c[0] + facing * r * 0.5, c[1] - r * 0.06)]
-    pen.poly(brim, YELLOW, DARK, 5)
-    pen.circle((c[0], c[1] - r * 1.1), r * 0.1, YELLOW_D, DARK, 3)
-    pen.circle((c[0] - facing * r * 0.15, c[1] - r * 0.6), r * 0.17, NAVY, None)  # logo dot
+    """Three hair strands on top of the head (replaces the old cap)."""
+    for k, (dx, h, bend) in enumerate([(-0.26, 0.42, -0.16), (0.0, 0.5, 0.02), (0.24, 0.42, 0.18)]):
+        base = (c[0] + dx * r, c[1] - r * 0.96 + abs(dx) * r * 0.25)
+        mid = (base[0] + (dx * 0.3 + bend * 0.5) * r, base[1] - h * r * 0.55)
+        tip = (base[0] + (dx * 0.5 + bend) * r, base[1] - h * r)
+        pen.stroke(base, mid, tip, width=max(3, r * 0.065))
 
 
 def hand(pen, p, r):
-    pen.circle(p, r, WHITE, DARK, 4)
+    """Small white mitten with a thumb."""
+    pen.circle((p[0] + r * 0.55, p[1] - r * 0.55), r * 0.42, WHITE, DARK, max(2, r * 0.18))
+    pen.circle(p, r, WHITE, DARK, max(2, r * 0.18))
 
 
 def shoe(pen, ankle, facing, s, angle=0):
-    a = rad(angle)
-    tip = (ankle[0] + facing * s * 1.0 * math.cos(a), ankle[1] + s * 0.25 + s * math.sin(a) * facing * 0.0)
-    pen.stroke((ankle[0] - facing * s * 0.25, ankle[1] + s * 0.18), tip, width=s * 0.55, color=NAVY)
-    pen.line((ankle[0] - facing * s * 0.3, ankle[1] + s * 0.42), (tip[0] + facing * s * 0.1, tip[1] + s * 0.17),
-             WHITE, 3)
+    """Black oval foot."""
+    cx = ankle[0] + facing * s * 0.35
+    cy = ankle[1] + s * 0.12
+    pen.ellipse((cx - s * 0.75, cy - s * 0.3, cx + s * 0.75, cy + s * 0.3), DARK, WHITE, 2)
 
 
 def shadow(pen, x, y, w):
@@ -177,7 +174,7 @@ def standing(pen, x, feet, h, facing, t, legs, arms, bob=0.0, mood="smile", glas
              lean=0.0, tilt=0.0):
     """legs: [(thigh angle, knee bend), (back, front)], arms: [(upper angle, elbow bend), (back, front)]."""
     leg_L, torso_L, arm_L = h * 0.44, h * 0.34, h * 0.32
-    r = h * 0.115
+    r = h * 0.15
     hip = (x, feet - leg_L + bob)
     neck = (x + facing * lean * h, hip[1] - torso_L)
     sh = (neck[0], neck[1] + h * 0.06)
@@ -258,7 +255,7 @@ def jeep(pen, x, ground, L, facing, t):
 # ---------------------------------------------------------------- main generator
 def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.4,
            glasses=None, backpack=None):
-    lw = max(10, size * 0.045)
+    lw = max(6, size * 0.024)
     rnd = random.Random(7)
     confetti = [(rnd.uniform(-1, 1), rnd.uniform(0, 1), rnd.choice([YELLOW, CORAL, (80, 170, 220, 255), WHITE]),
                  rnd.uniform(0, 1)) for _ in range(26)]
@@ -287,7 +284,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
         elif action == "wave":
             w = 28 * math.sin(t * 2 * math.pi * 1.6)
             shadow(pen, x, feet + size * 0.02, size * 0.2)
-            standing(pen, x, feet, size, facing, t, [(-4, 4), (4, 4)], [(-14, 20), (122 + w * 0.6, 34)],
+            standing(pen, x, feet, size, facing, t, [(-4, 4), (4, 4)], [(-14, 20), (98 + w * 0.6, 45)],
                      glasses=bool(glasses), backpack=bool(backpack))
         elif action == "photo":
             shadow(pen, x, feet + size * 0.02, size * 0.2)
