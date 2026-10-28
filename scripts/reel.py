@@ -83,7 +83,9 @@ def tight_voice(text, voice, mp3, rate):
     """TTS + cut the silence before the first and after the last word (no gaps between scenes).
     Full stops inside a scene become commas so the voice doesn't pause between sentences.
     Returns (wav path, duration, word timings relative to the trimmed audio)."""
-    spoken = re.sub(r"([.!…])\s+(?=\S)", ", ", text.strip())
+    spoken = text.strip()
+    if os.environ.get("REEL_MERGE_SENTENCES") == "1":   # optional: no pauses inside a scene
+        spoken = re.sub(r"([.!…])\s+(?=\S)", ", ", spoken)
     words = tts(spoken, voice, mp3, rate)
     full = duration(mp3)
     if words:
