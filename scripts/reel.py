@@ -79,6 +79,23 @@ def tts(text, voice, mp3, rate="+15%"):
             time.sleep(3 * (attempt + 1))
 
 
+def tight_voice(text, voice, mp3, rate):
+    """TTS + cut the silence before the first and after the last word (no gaps between scenes).
+    Full stops inside a scene become commas so the voice doesn't pause between sentences.
+    Returns (wav path, duration, word timings relative to the trimmed audio)."""
+    spoken = re.sub(r"([.!…])\s+(?=\S)", ", ", text.strip())
+    words = tts(spoken, voice, mp3, rate)
+    full = duration(mp3)
+    if words:
+        s0 = max(0.0, words[0][0] - 0.03)
+        e0 = min(full, words[-1][1] + 0.07)
+    else:
+        s0, e0 = 0.0, full
+    wav = mp3.replace(".mp3", ".wav")
+    sh("ffmpeg", "-y", "-i", mp3, "-af", f"atrim={s0:.3f}:{e0:.3f},asetpts=PTS-STARTPTS", "-ar", "44100", "-ac", "2", wav)
+    return wav, e0 - s0, [(a - s0, b - s0, w) for a, b, w in words]
+
+
 # ---------------------------------------------------------------- footage
 def pexels_file(pid, dst):
     key = os.environ.get("PEXELS_API_KEY", "").strip()
@@ -269,16 +286,16 @@ def render(rid):
     work = os.path.join("/tmp", "reel-" + rid)
     os.makedirs(work, exist_ok=True)
     voice = sb.get("voice", "es-CO-SalomeNeural")
-    rate = sb.get("rate", "+15%")
-    pad = sb.get("pad", 0.12)
+    rate = sb.get("rate", "+28%")
+    pad = sb.get("pad", 0.0)
 
     clips, audios, subs, t = [], [], [], 0.0
     for i, sc in enumerate(sb["scenes"]):
         mp3 = os.path.join(work, f"v{i}.mp3")
-        words = tts(sc["text"], voice, mp3, rate)
-        dur = duration(mp3) + pad
+        wav, vdur, words = tight_voice(sc["text"], voice, mp3, rate)
+        dur = vdur + pad
         subs += chunk_words(attach_punctuation(words, sc["text"]), t)
-        audios.append((mp3, dur))
+        audios.append((wav, dur))
         m = sc["media"]
         out = os.path.join(work, f"c{i}.mp4")
         try:
@@ -302,8 +319,8 @@ def render(rid):
     end_audio = None
     if end.get("text"):
         end_audio = os.path.join(work, "vend.mp3")
-        tts(end["text"], voice, end_audio, rate)
-        end_dur = duration(end_audio) + 0.8
+        end_audio, edur, _ = tight_voice(end["text"], voice, end_audio, rate)
+        end_dur = edur + 0.9
     else:
         end_dur = 3.0
     end_bg = os.path.join(work, "end_bg.mp4")
@@ -323,13 +340,13 @@ def render(rid):
 
     # voice track with silence padding per scene + end
     parts = []
-    for mp3, dur in audios:
-        p = mp3.replace(".mp3", ".wav")
-        sh("ffmpeg", "-y", "-i", mp3, "-af", f"apad=whole_dur={dur:.2f}", "-ar", "44100", "-ac", "2", p)
+    for wav, dur in audios:
+        p = wav.replace(".wav", "_p.wav")
+        sh("ffmpeg", "-y", "-i", wav, "-af", f"apad=whole_dur={dur:.3f}", "-ar", "44100", "-ac", "2", p)
         parts.append(p)
     silence = os.path.join(work, "end.wav")
     if end_audio:
-        sh("ffmpeg", "-y", "-i", end_audio, "-af", f"adelay=250|250,apad=whole_dur={end_dur:.2f}", "-ar", "44100",
+        sh("ffmpeg", "-y", "-i", end_audio, "-af", f"apad=whole_dur={end_dur:.3f}", "-ar", "44100",
            "-ac", "2", silence)
     else:
         sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{end_dur}", silence)
