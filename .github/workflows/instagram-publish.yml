@@ -2,8 +2,8 @@ name: Instagram – publicar ofertas
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # 7:00 Bogotá
-    - cron: "0 23 * * *"   # 18:00 Bogotá
+    - cron: "7 12 * * *"   # 7:07 Bogotá (minuto 7: GitHub retrasa menos los crons que no son en punto)
+    - cron: "7 23 * * *"   # 18:07 Bogotá
   workflow_dispatch:
     inputs:
       mode:
@@ -41,7 +41,7 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          SLOT: ${{ github.event.schedule == '0 12 * * *' && 'morning' || (github.event.schedule == '0 23 * * *' && 'evening' || 'manual') }}
+          SLOT: ${{ github.event.schedule == '7 12 * * *' && 'morning' || (github.event.schedule == '7 23 * * *' && 'evening' || 'manual') }}
           MAX_AGE_DAYS: ${{ vars.MAX_AGE_DAYS || '3' }}
           DESTINO: ${{ github.event.inputs.destino }}
         run: python scripts/instagram.py "${{ github.event.inputs.mode || 'publish' }}"

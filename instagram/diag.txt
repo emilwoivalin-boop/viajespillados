@@ -1,4 +1,0 @@
-2026-10-28 08:38
-content_publishing_limit: OK {"data": [{"config": {"quota_total": 100, "quota_duration": 86400}, "quota_usage": 1}]}
-single container: OK {"id": "18101238476099125"}
-carousel item container: OK {"id": "18101238497099125"}
