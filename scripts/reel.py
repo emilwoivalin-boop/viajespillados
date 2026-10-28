@@ -211,8 +211,9 @@ def attach_punctuation(words, text):
         while k < len(toks) and norm(toks[k]) != norm(w) and not norm(toks[k]).startswith(norm(w)):
             k += 1
         if k < len(toks):
-            out.append((s, e, toks[k]))
-            j = k + 1
+            n = max(1, len(w.split()))          # a boundary can cover several words ("April 29")
+            out.append((s, e, " ".join(toks[k:k + n])))
+            j = k + n
         else:
             out.append((s, e, w))
     return out
