@@ -580,4 +580,15 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except BaseException as e:
+        if not isinstance(e, SystemExit) or e.code not in (0, None):
+            with open(os.path.join(ROOT, "instagram/last_error.txt"), "w") as f:
+                f.write(f"{datetime.now(BOGOTA):%Y-%m-%d %H:%M} – {(sys.argv[1:] or ['publish'])[0]} – "
+                        f"{type(e).__name__}: {e}\n")
+            try:
+                commit_push(["instagram/last_error.txt"], "Instagram: error")
+            except Exception:
+                pass
+        raise
