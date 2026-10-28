@@ -5,7 +5,7 @@
  "banner": {},
  "scenes": [
   {
-   "text": "What if your next long weekend was in the Caribbean? Thursday afternoon at El Dorado: grab your suitcase, we're going!",
+   "text": "What if your next long weekend was in the Caribbean? It's 4 PM on Thursday, the 29th of April, and you arrive at El Dorado airport. Grab your suitcase, we're going!",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado.jpg",
@@ -131,7 +131,7 @@
   "kicker": "",
   "airline": "Wingo · direct flight",
   "price": "COP 645,976",
-  "detail": "round trip",
+  "detail": "round trip · Apr 29 – May 2",
   "cta": "viajespillados.com",
   "small": "Check out this offer and many more · link in bio",
   "media": {
@@ -139,17 +139,7 @@
    "path": "reels/aruba-abril-2027-cartoon/img/eagle-beach.jpg",
    "focus": 0.5
   },
-  "title": "3 days in Aruba",
-  "times": [
-   [
-    "Departs",
-    "Thu, Apr 29 · 4:17 PM"
-   ],
-   [
-    "Returns",
-    "Sun, May 2 · 3:15 PM"
-   ]
-  ]
+  "title": "3 days in Aruba"
  },
  "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nIlustraciones / illustrations: Viajes Pillados (AI-assisted).\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
  "rate": "+30%",
@@ -157,11 +147,5 @@
  "seed": 11,
  "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
  "stick_style": "classic",
- "caption_margin": 780,
- "intro": {
-  "kicker": "Departure",
-  "line": "Thu, Apr 29 · 4:17 PM",
-  "sub": "from Bogotá El Dorado",
-  "dur": 4.0
- }
+ "caption_margin": 780
 }
