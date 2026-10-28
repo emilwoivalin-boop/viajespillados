@@ -553,10 +553,17 @@ def main():
         rels.append(rel)
     commit_push(rels, "Instagram: imágenes " + ", ".join(o["destino"] for o in todo))
     urls = [public_image_url(r) for r in rels]
-    if len(todo) == 1:
-        media_id, permalink = publish_to_instagram(urls[0], caption(todo[0]))
-    else:
-        media_id, permalink = publish_carousel(urls, caption_carousel(todo))
+    try:
+        if len(todo) == 1:
+            media_id, permalink = publish_to_instagram(urls[0], caption(todo[0]))
+        else:
+            media_id, permalink = publish_carousel(urls, caption_carousel(todo))
+    except BaseException as e:
+        # keep the error in the repo so it can be read without the Actions logs
+        with open(os.path.join(ROOT, "instagram/last_error.txt"), "w") as f:
+            f.write(f"{datetime.now(BOGOTA):%Y-%m-%d %H:%M} – {type(e).__name__}: {e}\nURLs: {urls}\n")
+        commit_push(["instagram/last_error.txt"], "Instagram: error al publicar")
+        raise
 
     state = load_state()
     now = datetime.now(BOGOTA).strftime("%Y-%m-%d %H:%M")
