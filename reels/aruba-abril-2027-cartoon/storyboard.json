@@ -77,8 +77,8 @@
     "action": "celebrate",
     "x0": 0.66,
     "x1": 0.66,
-    "y": 0.8,
-    "size": 380
+    "y": 0.83,
+    "size": 360
    },
    "pops": [
     {
@@ -276,5 +276,6 @@
  "pad": 0.3,
  "seed": 11,
  "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
- "stick_style": "classic"
+ "stick_style": "classic",
+ "caption_margin": 780
 }
