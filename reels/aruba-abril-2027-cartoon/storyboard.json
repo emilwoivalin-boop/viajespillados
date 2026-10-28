@@ -2,13 +2,10 @@
  "id": "aruba-abril-2027-cartoon",
  "offer_id": "aruba-2026-10-26-645976",
  "voice": "en-US-AndrewNeural",
- "banner": {
-  "title": "3 days in Aruba",
-  "detail": "Thu Apr 29 – Sun May 2"
- },
+ "banner": {},
  "scenes": [
   {
-   "text": "What if your next long weekend was in the Caribbean? Thursday morning at El Dorado: grab your suitcase, we're going!",
+   "text": "What if your next long weekend was in the Caribbean? Thursday afternoon at El Dorado: grab your suitcase, we're going!",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado.jpg",
@@ -22,23 +19,7 @@
     "y1": 0.75,
     "size": 560,
     "size1": 330
-   },
-   "pops": [
-    {
-     "icon": "pin",
-     "word": "Caribbean",
-     "x": 0.8,
-     "y": 0.3,
-     "size": 170
-    },
-    {
-     "icon": "suitcase",
-     "word": "suitcase",
-     "x": 0.2,
-     "y": 0.4,
-     "size": 150
-    }
-   ]
+   }
   },
   {
    "text": "Just a two-hour direct flight over the clouds, and the sea below starts turning turquoise.",
@@ -48,23 +29,7 @@
    },
    "stick": {
     "action": "none"
-   },
-   "pops": [
-    {
-     "icon": "plane",
-     "word": "flight",
-     "x": 0.75,
-     "y": 0.28,
-     "size": 200
-    },
-    {
-     "icon": "sparkle",
-     "word": "turquoise",
-     "x": 0.25,
-     "y": 0.42,
-     "size": 170
-    }
-   ]
+   }
   },
   {
    "text": "Welcome to Aruba! Sunshine, warm trade winds and palm trees everywhere you look.",
@@ -79,23 +44,7 @@
     "x1": 0.66,
     "y": 0.83,
     "size": 360
-   },
-   "pops": [
-    {
-     "icon": "sun",
-     "word": "Sunshine",
-     "x": 0.8,
-     "y": 0.24,
-     "size": 170
-    },
-    {
-     "icon": "heart",
-     "word": "palm",
-     "x": 0.22,
-     "y": 0.36,
-     "size": 140
-    }
-   ]
+   }
   },
   {
    "text": "Day one: lay your towel on the soft white sand of Eagle Beach, and relax under the famous twisted fofoti trees.",
@@ -110,23 +59,7 @@
     "x1": 0.58,
     "y": 0.83,
     "size": 420
-   },
-   "pops": [
-    {
-     "icon": "sun",
-     "word": "relax",
-     "x": 0.82,
-     "y": 0.22,
-     "size": 170
-    },
-    {
-     "icon": "heart",
-     "word": "fofoti",
-     "x": 0.25,
-     "y": 0.38,
-     "size": 140
-    }
-   ]
+   }
   },
   {
    "text": "Day two: rent a jeep, it's cheaper than taxis, and explore the wild coast of Arikok National Park all the way to the natural pool.",
@@ -143,23 +76,7 @@
     "y1": 0.97,
     "size": 200,
     "size1": 470
-   },
-   "pops": [
-    {
-     "icon": "pin",
-     "word": "Arikok",
-     "x": 0.78,
-     "y": 0.3,
-     "size": 170
-    },
-    {
-     "icon": "sparkle",
-     "word": "pool",
-     "x": 0.25,
-     "y": 0.36,
-     "size": 170
-    }
-   ]
+   }
   },
   {
    "text": "Day three: snorkel in the calm, crystal clear water of Mangel Halto, full of colorful fish and coral.",
@@ -174,23 +91,7 @@
     "x1": 0.62,
     "y": 0.36,
     "size": 420
-   },
-   "pops": [
-    {
-     "icon": "fish",
-     "word": "colorful",
-     "x": 0.75,
-     "y": 0.3,
-     "size": 170
-    },
-    {
-     "icon": "fish",
-     "word": "coral",
-     "x": 0.25,
-     "y": 0.42,
-     "size": 130
-    }
-   ]
+   }
   },
   {
    "text": "In the evening, head up to the California Lighthouse and watch the sky turn pink over the sea.",
@@ -205,26 +106,10 @@
     "x1": 0.2,
     "y": 0.88,
     "size": 380
-   },
-   "pops": [
-    {
-     "icon": "sparkle",
-     "word": "pink",
-     "x": 0.78,
-     "y": 0.28,
-     "size": 170
-    },
-    {
-     "icon": "heart",
-     "word": "sky",
-     "x": 0.22,
-     "y": 0.36,
-     "size": 140
-    }
-   ]
+   }
   },
   {
-   "text": "Sunday night you land back in Bogotá, tanned and happy. And you only took two days off work!",
+   "text": "Sunday afternoon you land back in Bogotá, tanned and happy. And you only took two days off work!",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado-night.jpg",
@@ -238,38 +123,33 @@
     "y1": 0.97,
     "size": 330,
     "size1": 560
-   },
-   "pops": [
-    {
-     "icon": "plane",
-     "word": "land",
-     "x": 0.75,
-     "y": 0.26,
-     "size": 200
-    },
-    {
-     "icon": "heart",
-     "word": "happy",
-     "x": 0.25,
-     "y": 0.38,
-     "size": 150
-    }
-   ]
+   }
   }
  ],
  "end": {
-  "text": "So, what's the price? Round trip with Wingo for just 645 thousand pesos. Grab this deal now at viajespillados dot com!",
-  "kicker": "The price?",
-  "airline": "Wingo · direct",
+  "text": "So, what's the price? Round trip with Wingo for just 645 thousand pesos. Check out this offer and many more at viajespillados dot com!",
+  "kicker": "",
+  "airline": "Wingo · direct flight",
   "price": "COP 645,976",
-  "detail": "round trip · Apr 29 – May 2",
-  "cta": "Visit viajespillados.com",
-  "small": "link in bio",
+  "detail": "round trip",
+  "cta": "viajespillados.com",
+  "small": "Check out this offer and many more · link in bio",
   "media": {
    "type": "file",
    "path": "reels/aruba-abril-2027-cartoon/img/eagle-beach.jpg",
    "focus": 0.5
-  }
+  },
+  "title": "3 days in Aruba",
+  "times": [
+   [
+    "Departs",
+    "Thu, Apr 29 · 4:17 PM"
+   ],
+   [
+    "Returns",
+    "Sun, May 2 · 3:15 PM"
+   ]
+  ]
  },
  "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nIlustraciones / illustrations: Viajes Pillados (AI-assisted).\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
  "rate": "+30%",
@@ -277,5 +157,11 @@
  "seed": 11,
  "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
  "stick_style": "classic",
- "caption_margin": 780
+ "caption_margin": 780,
+ "intro": {
+  "kicker": "Departure",
+  "line": "Thu, Apr 29 · 4:17 PM",
+  "sub": "from Bogotá El Dorado",
+  "dur": 4.0
+ }
 }

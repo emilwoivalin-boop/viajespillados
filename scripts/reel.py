@@ -351,8 +351,8 @@ def banner_png(b, path):
     logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((76, 76), Image.LANCZOS)
     img.alpha_composite(logo, (60, 150))
     d.text((152, 188), "viajespillados", font=ig.font("ExtraBold", 38), fill="white", anchor="lm")
-    ft = ig.font("Black", 92)
-    d.text((W // 2, 300), b["title"], font=ft, fill="white", anchor="mm")
+    if b.get("title"):
+        d.text((W // 2, 300), b["title"], font=ig.font("Black", 92), fill="white", anchor="mm")
     y = 380
     if b.get("price"):  # optional: price can be kept for the end card only
         fp = ig.font("Black", 64)
@@ -365,24 +365,50 @@ def banner_png(b, path):
     img.save(path)
 
 
-def end_png(e, path):
-    """End card: the reveal (airline + price) and the call to action."""
-    img = Image.new("RGBA", (W, H), (10, 18, 34, 220))
+def intro_png(it, path):
+    """Opening tag with the departure date and time (shown during the first seconds)."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((170, 170), Image.LANCZOS)
-    img.alpha_composite(logo, (W // 2 - 85, 430))
-    y = 690
+    fk, fl, fs = ig.font("Bold", 38), ig.font("Black", 68), ig.font("SemiBold", 40)
+    tw = max(d.textlength(it.get("line", ""), font=fl), d.textlength(it.get("sub", ""), font=fs)) + 120
+    x0, x1, y0 = W // 2 - tw / 2 - 40, W // 2 + tw / 2 + 40, 330
+    d.rounded_rectangle([x0, y0, x1, y0 + 250], radius=44, fill=(10, 18, 34, 225), outline=YELLOW, width=5)
+    plane = reelfx._icon("plane", 104)
+    img.alpha_composite(plane, (int(x0 + 26), y0 + 14))
+    d.text((x0 + 140, y0 + 66), it.get("kicker", "DEPARTURE").upper(), font=fk, fill=YELLOW, anchor="lm")
+    d.text((W // 2 + 30, y0 + 140), it.get("line", ""), font=fl, fill="white", anchor="mm")
+    if it.get("sub"):
+        d.text((W // 2 + 30, y0 + 208), it["sub"], font=fs, fill=(220, 228, 240), anchor="mm")
+    img.save(path)
+
+
+def end_png(e, path):
+    """End card: the reveal (trip, airline, price, flight times) and the call to action."""
+    img = Image.new("RGBA", (W, H), (10, 18, 34, 225))
+    d = ImageDraw.Draw(img)
+    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((150, 150), Image.LANCZOS)
+    img.alpha_composite(logo, (W // 2 - 75, 300))
+    y = 560
+    if e.get("title"):
+        d.text((W // 2, y), e["title"], font=ig.font("Black", 100), fill="white", anchor="mm"); y += 110
     if e.get("kicker"):
         d.text((W // 2, y), e["kicker"], font=ig.font("Bold", 50), fill="white", anchor="mm"); y += 90
     if e.get("airline"):
-        d.text((W // 2, y), e["airline"], font=ig.font("Black", 84), fill="white", anchor="mm"); y += 180
+        d.text((W // 2, y), e["airline"], font=ig.font("Bold", 58), fill=(220, 228, 240), anchor="mm"); y += 160
     if e.get("price"):
         fp = ig.font("Black", 120)
         tw = d.textlength(e["price"], font=fp)
         d.rounded_rectangle([W // 2 - tw / 2 - 50, y - 85, W // 2 + tw / 2 + 50, y + 85], radius=85, fill=YELLOW)
-        d.text((W // 2, y), e["price"], font=fp, fill=NAVY, anchor="mm"); y += 150
+        d.text((W // 2, y), e["price"], font=fp, fill=NAVY, anchor="mm"); y += 140
     if e.get("detail"):
-        d.text((W // 2, y), e["detail"], font=ig.font("Bold", 48), fill="white", anchor="mm"); y += 150
+        d.text((W // 2, y), e["detail"], font=ig.font("Bold", 46), fill="white", anchor="mm"); y += 90
+    for label, val in e.get("times", []):
+        fl, fv = ig.font("Bold", 44), ig.font("SemiBold", 44)
+        lw_, vw = d.textlength(label + "  ", font=fl), d.textlength(val, font=fv)
+        x = W // 2 - (lw_ + vw) / 2
+        d.text((x, y), label + "  ", font=fl, fill=YELLOW, anchor="lm")
+        d.text((x + lw_, y), val, font=fv, fill="white", anchor="lm"); y += 68
+    y += 90
     cta = e.get("cta", "viajespillados.com")
     fc = ig.font("Black", 56)
     tw = d.textlength(cta, font=fc)
@@ -563,11 +589,20 @@ def render(rid):
 
     final = os.path.join(base, "reel.mp4")
     fonts = ig.FONTS
+    intro_in, intro_flt = [], ""
+    if sb.get("intro"):
+        intro = os.path.join(work, "intro.png")
+        intro_png(sb["intro"], intro)
+        idur = sb["intro"].get("dur", 3.5)
+        intro_in = ["-loop", "1", "-i", intro]
+        intro_flt = (f"[4:v]format=rgba,fade=in:st=0.15:d=0.35:alpha=1,fade=out:st={idur - 0.4:.2f}:d=0.4:alpha=1[i];"
+                     f"[b0][i]overlay=0:0:enable='lt(t,{idur:.2f})'[b];")
     flt = (f"[0:v][2:v]overlay=0:0:enable='lt(t,{t:.2f})'[a];"
            f"[3:v]format=rgba,fade=in:st={t:.2f}:d=0.3:alpha=1[e];"
-           f"[a][e]overlay=0:0:enable='gte(t,{t:.2f})'[b];"
+           f"[a][e]overlay=0:0:enable='gte(t,{t:.2f})'[{'b0' if intro_in else 'b'}];"
+           + intro_flt +
            f"[b]ass={ass}:fontsdir={fonts}[v]")
-    sh("ffmpeg", "-y", "-i", video, "-i", audio, "-loop", "1", "-i", banner, "-loop", "1", "-i", endcard,
+    sh("ffmpeg", "-y", "-i", video, "-i", audio, "-loop", "1", "-i", banner, "-loop", "1", "-i", endcard, *intro_in,
        "-filter_complex", flt, "-map", "[v]", "-map", "1:a", "-t", f"{t + end_dur:.2f}",
        "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-profile:v", "high", "-pix_fmt", "yuv420p",
        "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-movflags", "+faststart", final)
