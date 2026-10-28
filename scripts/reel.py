@@ -233,6 +233,46 @@ def clip_from_photo(src, dur, out, zoom_in=True, focus=0.5):
        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
 
 
+def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom=0.10):
+    """Render a picture scene in Python so the stick man lives *inside* the picture: he is drawn onto the
+    illustration first and the gentle camera move (eased zoom) is applied to both, so he never slides
+    against the background. Icon pops are drawn afterwards, in screen space."""
+    st = st or {"action": "none"}
+    pops = pops or []
+    img = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+    k = max(W / img.width, H / img.height)
+    img = img.resize((round(img.width * k), round(img.height * k)), Image.LANCZOS)
+    ox, oy = int((img.width - W) * focus), (img.height - H) // 2
+    base = img.crop((ox, oy, ox + W, oy + H)).convert("RGBA")
+
+    n = int(dur * FPS) + 2
+    gen = stickman.frames(st.get("action", "none"), n, FPS, x0=st.get("x0", 0.3), x1=st.get("x1", st.get("x0", 0.3)),
+                          feet=int(st.get("y", 0.7) * H), feet1=int(st.get("y1", st.get("y", 0.7)) * H),
+                          size=st.get("size", 330), size1=st.get("size1"), facing=st.get("facing", 1), band_h=H)
+    # zoom centre: keep the stick man's area in view
+    sx = (st.get("x0", 0.5) + st.get("x1", 0.5)) / 2 if st.get("action", "none") != "none" else 0.5
+    cx0, cy0 = W * (0.5 + (sx - 0.5) * 0.35), H * (0.5 + (st.get("y", 0.5) - 0.5) * 0.35)
+    cmd = ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+           "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", out]
+    p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    for i, band in enumerate(gen):
+        q = stickman.smooth(i / max(1, n - 1))
+        z = 1 + zoom * (q if zoom_in else 1 - q)
+        fr = base.copy()
+        if st.get("action", "none") != "none":
+            fr.alpha_composite(band)
+        bw, bh = W / z, H / z
+        x0 = min(max(cx0 - bw / 2, 0), W - bw)
+        y0 = min(max(cy0 - bh / 2, 0), H - bh)
+        fr = fr.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + bw, y0 + bh))
+        if pops:
+            reelfx.draw_pops(fr, pops, i / FPS, W, H)
+        p.stdin.write(fr.convert("RGB").tobytes())
+    p.stdin.close()
+    if p.wait() != 0:
+        raise RuntimeError("ffmpeg photo scene failed")
+
+
 def add_stickman(clip, st, dur, out, pops=None):
     """Overlay the animated stick man (st = {"action", "x0", "x1", "y", "size", "facing"}) and any icon pops
     (pops = [{"icon", "t" (scene seconds), "x", "y", "size"}]) on a clip."""
@@ -284,8 +324,8 @@ def scene_sfx(sc, t0, dur, pops):
         ev.append((t0 + 0.15, "boing", 0.22))
     elif act == "photo":
         k = 0
-        while k * 1.6 / 1.4 < dur - 0.2:
-            ev.append((t0 + k * 1.6 / 1.4, "shutter", 0.35))
+        while k * 1.6 < dur - 0.2:
+            ev.append((t0 + k * 1.6, "shutter", 0.35))
             k += 1
     elif act == "swim":
         ev += [(t0 + 0.3, "bubbles", 0.22), (t0 + dur * 0.55, "bubbles", 0.18)]
@@ -443,17 +483,19 @@ def render(rid):
         audios.append((wav, dur))
         m = sc["media"]
         out = os.path.join(work, f"c{i}.mp4")
+        in_photo = False
         try:
             if m["type"] == "video":
                 clip_from_video(pexels_file(m["pexels_id"], os.path.join(work, f"s{i}.mp4")), dur, out)
             else:
-                clip_from_photo(media_file(m, sb, base, work, f"scene{i}", i), dur, out, i % 2 == 0,
-                                m.get("focus", 0.5))
+                photo_scene(media_file(m, sb, base, work, f"scene{i}", i), dur, out, sc.get("stick"), pops,
+                            i % 2 == 0, m.get("focus", 0.5), sb.get("zoom", 0.10))
+                in_photo = True
         except Exception as e:
             fb = m.get("fallback_photo") or sb.get("fallback_photo")
             print(f"Escena {i}: {e} – uso la foto de respaldo")
             clip_from_photo(photo_file(fb, os.path.join(work, f"s{i}.jpg")), dur, out, i % 2 == 0)
-        if pops or (sc.get("stick") and sc["stick"].get("action", "none") != "none"):
+        if not in_photo and (pops or (sc.get("stick") and sc["stick"].get("action", "none") != "none")):
             out2 = os.path.join(work, f"c{i}s.mp4")
             add_stickman(out, sc.get("stick"), dur, out2, pops)
             out = out2

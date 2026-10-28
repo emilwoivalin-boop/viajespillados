@@ -277,15 +277,21 @@ def standing(pen, x, feet, h, facing, t, legs, arms, bob=0.0, mood="smile", glas
     return hb, hf, hc
 
 
-def walk_pose(t, speed=1.0):
-    ph = t * 2 * math.pi * 1.7 * speed
+def walk_pose(ph, amp=1.0):
+    """Walk cycle at phase ph (radians). amp 0..1 scales the stride so he can ease into and out of a stop."""
     s, c = math.sin(ph), math.cos(ph)
-    l1 = (26 * s, 8 + 30 * max(0.0, -c))
-    l2 = (-26 * s, 8 + 30 * max(0.0, c))
-    a1 = (-22 * s, 18)
-    a2 = (22 * s, 18)
-    bob = -abs(math.sin(ph)) * 0.025
+    l1 = (22 * amp * s, 6 + 22 * amp * max(0.0, -c))
+    l2 = (-22 * amp * s, 6 + 22 * amp * max(0.0, c))
+    a1 = (-16 * amp * s, 16)
+    a2 = (16 * amp * s, 16)
+    bob = -abs(math.sin(ph)) * 0.014 * amp
     return (l2, l1), (a1, a2), bob
+
+
+def smooth(p):
+    """Ease-in-out (smootherstep) for 0..1."""
+    p = max(0.0, min(1.0, p))
+    return p * p * p * (p * (p * 6 - 15) + 10)
 
 
 # ---------------------------------------------------------------- props
@@ -318,7 +324,7 @@ def jeep(pen, x, ground, L, facing, t):
     cy = ground - wr
     # dust puffs behind
     for k in range(3):
-        ph = (t * 2.2 + k / 3) % 1
+        ph = (t * 1.2 + k / 3) % 1
         px = x - facing * (L * 0.6 + ph * L * 0.5)
         pen.circle((px, cy + wr * 0.4 - ph * L * 0.15), L * (0.05 + ph * 0.07), (230, 215, 190, int(170 * (1 - ph))),
                    None)
@@ -330,19 +336,36 @@ def jeep(pen, x, ground, L, facing, t):
 
 
 # ---------------------------------------------------------------- main generator
-def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.4,
-           glasses=None, backpack=None, style=None):
+def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.0,
+           glasses=None, backpack=None, style=None, feet1=None, size1=None):
+    """feet1/size1 (optional): end position/size, so he can walk into or out of the picture with perspective."""
     global STYLE
+    feet0, size0 = feet, size
+    feet1 = feet0 if feet1 is None else feet1
+    size1 = size0 if size1 is None else size1
     if style:
         STYLE = style
     lw = max(6, size * 0.024)
     rnd = random.Random(7)
     confetti = [(rnd.uniform(-1, 1), rnd.uniform(0, 1), rnd.choice([YELLOW, CORAL, (80, 170, 220, 255), WHITE]),
                  rnd.uniform(0, 1)) for _ in range(26)]
+    # eased path: he starts and stops gently; the walk cycle is driven by how far he actually moves,
+    # so the feet don't slide over the ground
+    xs = [W * (x0 + (x1 - x0) * smooth(i / max(1, n - 1))) for i in range(n + 1)]
+    leg_L = size * 0.44
+    phase = 0.0
     for i in range(n):
         t = i / fps * speed
         p = i / max(1, n - 1)
-        x = W * (x0 + (x1 - x0) * p)
+        x = xs[i]
+        e = smooth(p)
+        feet, size = feet0 + (feet1 - feet0) * e, size0 + (size1 - size0) * e
+        lw = max(4, size * 0.024)
+        v = math.hypot(xs[i + 1] - xs[i], (feet1 - feet0) * (smooth((i + 1) / max(1, n - 1)) - e)) * fps                      # px per second right now
+        f = max(0.7, min(1.1, v / (0.5 * size))) if v > 1 else 0.7
+        amp = min(1.0, math.degrees(math.asin(min(0.45, v / f / 4 / leg_L))) / 22) if v > 1 else 0.0
+        amp = max(amp, 0.0)
+        phase += 2 * math.pi * f / fps * (1 if amp > 0.02 else 0)
         out = Image.new("RGBA", (W, band_h), (0, 0, 0, 0))
         if action == "none":
             yield out
@@ -350,10 +373,12 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
         # local canvas around the figure
         cw = int(size * 3.2)
         lx = int(x - cw / 2)
-        pen = Pen(lx, 0, cw, band_h, lw)
+        py0 = max(0, int(feet - size * 1.6))
+        ph = max(10, min(band_h - py0, int(size * 1.9)))
+        pen = Pen(lx, py0, cw, ph, lw)
 
         if action in ("walk", "suitcase"):
-            legs, arms, bob = walk_pose(t)
+            legs, arms, bob = walk_pose(phase, amp)
             shadow(pen, x, feet + size * 0.02, size * 0.2)
             if action == "suitcase":
                 arms = ((-48, 6), arms[1])
@@ -362,7 +387,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
             if action == "suitcase":
                 suitcase(pen, hb, x, feet, size, facing)
         elif action == "wave":
-            w = 28 * math.sin(t * 2 * math.pi * 1.6)
+            w = 22 * math.sin(t * 2 * math.pi * 0.8)
             shadow(pen, x, feet + size * 0.02, size * 0.2)
             standing(pen, x, feet, size, facing, t, [(-4, 4), (4, 4)], [(-14, 20), (98 + w * 0.6, 45)],
                      glasses=bool(glasses), backpack=bool(backpack))
@@ -376,12 +401,12 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
             if (t % 1.6) < 0.12:  # camera flash
                 pen.circle((ph[0] + facing * size * 0.05, ph[1] - size * 0.05), size * 0.07, (255, 255, 230, 220), None)
         elif action == "celebrate":
-            j = abs(math.sin(t * 2 * math.pi * 1.1)) * size * 0.16
-            w = 10 * math.sin(t * 2 * math.pi * 2.2)
+            j = math.sin(t * math.pi * 0.9) ** 2 * size * 0.07      # soft little hops
+            w = 8 * math.sin(t * 2 * math.pi * 0.7)
             shadow(pen, x, feet + size * 0.02, size * 0.2 * (1 - j / size))
             for cx_, cy_, col, ph in confetti:
-                yy = ((cy_ + t * 0.35 + ph) % 1) * size * 1.3 + feet - size * 1.45
-                xx = x + cx_ * size * 0.9 + math.sin(t * 3 + ph * 6) * size * 0.05
+                yy = ((cy_ + t * 0.18 + ph) % 1) * size * 1.3 + feet - size * 1.45
+                xx = x + cx_ * size * 0.9 + math.sin(t * 1.6 + ph * 6) * size * 0.04
                 pen.rrect((xx, yy, xx + size * 0.025, yy + size * 0.045), 2, col, None)
             standing(pen, x, feet - j, size, facing, t, [(-14, 20), (14, 20)], [(160 + w, -15), (-160 - w, 15)],
                      mood="wow", backpack=bool(backpack))
@@ -413,17 +438,17 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
             pen.line((zx, zy + fz), (zx + fz, zy + fz), WHITE, 5)
         elif action == "swim":
             L = size
-            yb = feet - L * 0.3 + math.sin(t * 2 * math.pi * 0.9) * L * 0.03
+            yb = feet - L * 0.3 + math.sin(t * 2 * math.pi * 0.35) * L * 0.025
             hc = (x + facing * L * 0.47, yb - L * 0.06)
             sh = (x + facing * L * 0.28, yb)
             hip = (x - facing * L * 0.18, yb + L * 0.03)
             # bubbles
             for k in range(5):
-                ph = (t * 0.8 + k / 5) % 1
+                ph = (t * 0.5 + k / 5) % 1
                 bx = hc[0] - facing * L * 0.1 + math.sin(t * 4 + k) * L * 0.03
                 pen.circle((bx, hc[1] - L * 0.15 - ph * L * 0.6), L * (0.012 + 0.012 * k % 3), (255, 255, 255, 170),
                            (255, 255, 255, 230), 2)
-            kk = math.sin(t * 2 * math.pi * 3) * 16
+            kk = math.sin(t * 2 * math.pi * 1.4) * 12
             for sgn in (1, -1):
                 a = -facing * (90 + sgn * kk)
                 knee = limb(hip, a, L * 0.22)
@@ -432,7 +457,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                 shoe(pen, ank, -facing, L * 0.06)
             torso(pen, sh, hip, L, lw)
             for ph0 in (0, math.pi):
-                a = t * 2 * math.pi * 0.9 + ph0
+                a = t * 2 * math.pi * 0.5 + ph0
                 elbow = (sh[0] + facing * math.cos(a) * L * 0.18, sh[1] - math.sin(a) * L * 0.18)
                 h_ = (sh[0] + facing * math.cos(a) * L * 0.34, sh[1] - math.sin(a) * L * 0.3)
                 pen.stroke(sh, elbow, h_)
@@ -449,7 +474,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                        width=lw * 0.8, color=(210, 215, 225, 255))
             # driver (upper body only; the car hides the legs)
             dx = x - facing * L * 0.08
-            bump = math.sin(t * 2 * math.pi * 2.5) * L * 0.01
+            bump = math.sin(t * 2 * math.pi * 1.6) * L * 0.006
             hip = (dx, cy - L * 0.06 + bump)
             neck = (dx + facing * L * 0.02, hip[1] - L * 0.25)
             torso(pen, neck, hip, L, lw)
@@ -471,7 +496,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
             for wx in (x - L * 0.34, x + L * 0.34):
                 pen.circle((wx, cy + L * 0.1), wr, (40, 40, 45, 255), DARK, 5)
                 pen.circle((wx, cy + L * 0.1), wr * 0.45, (200, 205, 215, 255), DARK, 3)
-                a = t * 14
+                a = (x - xs[0]) / wr
                 pen.line((wx - math.cos(a) * wr * 0.4, cy + L * 0.1 - math.sin(a) * wr * 0.4),
                          (wx + math.cos(a) * wr * 0.4, cy + L * 0.1 + math.sin(a) * wr * 0.4), DARK, 4)
 
@@ -480,5 +505,5 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
         dx = max(0, lx)
         wcrop = min(local.width - sx, W - dx)
         if wcrop > 0:
-            out.alpha_composite(local.crop((sx, 0, sx + wcrop, local.height)), (dx, 0))
+            out.alpha_composite(local.crop((sx, 0, sx + wcrop, local.height)), (dx, py0))
         yield out

@@ -16,10 +16,12 @@
    },
    "stick": {
     "action": "suitcase",
-    "x0": 0.12,
-    "x1": 0.6,
-    "y": 0.79,
-    "size": 505
+    "x0": 0.16,
+    "x1": 0.47,
+    "y": 0.97,
+    "y1": 0.75,
+    "size": 560,
+    "size1": 330
    },
    "pops": [
     {
@@ -73,10 +75,10 @@
    },
    "stick": {
     "action": "celebrate",
-    "x0": 0.45,
-    "x1": 0.45,
+    "x0": 0.66,
+    "x1": 0.66,
     "y": 0.8,
-    "size": 505
+    "size": 380
    },
    "pops": [
     {
@@ -104,10 +106,10 @@
    },
    "stick": {
     "action": "relax",
-    "x0": 0.55,
-    "x1": 0.55,
-    "y": 0.79,
-    "size": 482
+    "x0": 0.58,
+    "x1": 0.58,
+    "y": 0.83,
+    "size": 420
    },
    "pops": [
     {
@@ -135,10 +137,12 @@
    },
    "stick": {
     "action": "drive",
-    "x0": -0.1,
-    "x1": 1.1,
-    "y": 0.79,
-    "size": 505
+    "x0": 0.22,
+    "x1": 0.55,
+    "y": 0.75,
+    "y1": 0.97,
+    "size": 200,
+    "size1": 470
    },
    "pops": [
     {
@@ -166,10 +170,10 @@
    },
    "stick": {
     "action": "swim",
-    "x0": 0.15,
-    "x1": 0.6,
-    "y": 0.55,
-    "size": 482
+    "x0": 0.08,
+    "x1": 0.62,
+    "y": 0.36,
+    "size": 420
    },
    "pops": [
     {
@@ -197,10 +201,10 @@
    },
    "stick": {
     "action": "photo",
-    "x0": 0.22,
-    "x1": 0.22,
-    "y": 0.86,
-    "size": 459
+    "x0": 0.2,
+    "x1": 0.2,
+    "y": 0.88,
+    "size": 380
    },
    "pops": [
     {
@@ -228,11 +232,12 @@
    },
    "stick": {
     "action": "suitcase",
-    "x0": 0.88,
-    "x1": 0.35,
-    "y": 0.79,
-    "size": 505,
-    "facing": -1
+    "x0": 0.5,
+    "x1": 0.76,
+    "y": 0.75,
+    "y1": 0.97,
+    "size": 330,
+    "size1": 560
    },
    "pops": [
     {
@@ -271,5 +276,5 @@
  "pad": 0.3,
  "seed": 11,
  "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
- "stick_style": "pop"
+ "stick_style": "classic"
 }
