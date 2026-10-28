@@ -256,9 +256,9 @@ def chunk_words(words, offset, max_words=3, max_chars=18):
     if cur:
         out.append((offset + cur[0][0], offset + cur[-1][1] + 0.08, " ".join(x[2] for x in cur)))
     # make chunks continuous so captions don't flicker
-    for i in range(len(out) - 1):
+    for i in range(len(out) - 1):          # each caption ends exactly when the next one starts
         s, e, t = out[i]
-        out[i] = (s, max(e, out[i + 1][0]), t)
+        out[i] = (s, out[i + 1][0], t)
     return out
 
 
