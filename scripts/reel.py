@@ -127,6 +127,55 @@ def photo_file(url, dst):
     return dst
 
 
+def ai_image(prompt, dst, seed=7):
+    """Generate a vertical illustration. Uses OpenAI (OPENAI_API_KEY) when available, otherwise the free
+    Pollinations (Flux) API. The result is cached next to the storyboard so re-renders don't regenerate it."""
+    import hashlib
+    import urllib.parse
+    key = hashlib.sha1(f"{prompt}|{seed}".encode()).hexdigest()[:12]
+    cache = dst.rsplit(".", 1)[0] + f"-{key}.jpg"
+    if os.path.exists(cache):
+        return cache
+    for old in [f for f in os.listdir(os.path.dirname(dst)) if f.startswith(os.path.basename(dst).rsplit(".", 1)[0] + "-")]:
+        os.remove(os.path.join(os.path.dirname(dst), old))
+    data = None
+    if os.environ.get("OPENAI_API_KEY"):
+        r = requests.post("https://api.openai.com/v1/images/generations", timeout=300,
+                          headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
+                          json={"model": "gpt-image-1", "prompt": prompt, "size": "1024x1536", "quality": "medium"})
+        r.raise_for_status()
+        import base64
+        data = base64.b64decode(r.json()["data"][0]["b64_json"])
+    else:
+        url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) +
+               f"?width=1080&height=1920&seed={seed}&model=flux&nologo=true&private=true")
+        for attempt in range(8):
+            r = requests.get(url, headers=WUA, timeout=240)
+            if r.status_code == 200 and r.headers.get("content-type", "").startswith("image"):
+                data = r.content
+                break
+            print(f"Imagen IA: HTTP {r.status_code}, reintento {attempt + 1}")
+            time.sleep(20)
+        if data is None:
+            raise RuntimeError("No se pudo generar la imagen con IA")
+        time.sleep(16)  # anonymous rate limit: one image every 15 s
+    im = Image.open(__import__("io").BytesIO(data)).convert("RGB")
+    w, h = im.size
+    im = im.crop((0, 0, w, int(h * 0.95)))  # drop the bottom strip (possible watermark)
+    im = ImageOps.fit(im, (1080, 1920), Image.LANCZOS)
+    im.save(cache, "JPEG", quality=92)
+    return cache
+
+
+def media_file(m, sb, base, work, name, i):
+    """Return a local image for a photo/ai media spec."""
+    if m["type"] == "ai":
+        os.makedirs(os.path.join(base, "ai"), exist_ok=True)
+        prompt = m["prompt"] + (", " + sb["ai_style"] if sb.get("ai_style") else "")
+        return ai_image(prompt, os.path.join(base, "ai", f"{name}.jpg"), seed=m.get("seed", sb.get("seed", 7)))
+    return photo_file(m["url"], os.path.join(work, f"{name}.jpg"))
+
+
 def clip_from_video(src, dur, out):
     vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
           f"eq=saturation=1.08,format=yuv420p")
@@ -302,7 +351,7 @@ def render(rid):
             if m["type"] == "video":
                 clip_from_video(pexels_file(m["pexels_id"], os.path.join(work, f"s{i}.mp4")), dur, out)
             else:
-                clip_from_photo(photo_file(m["url"], os.path.join(work, f"s{i}.jpg")), dur, out, i % 2 == 0)
+                clip_from_photo(media_file(m, sb, base, work, f"scene{i}", i), dur, out, i % 2 == 0)
         except Exception as e:
             fb = m.get("fallback_photo") or sb.get("fallback_photo")
             print(f"Escena {i}: {e} – uso la foto de respaldo")
@@ -324,9 +373,10 @@ def render(rid):
     else:
         end_dur = 3.0
     end_bg = os.path.join(work, "end_bg.mp4")
-    bg_photo = (end.get("media") or {}).get("url") or sb.get("fallback_photo")
+    end_media = end.get("media") or {"type": "photo", "url": sb.get("fallback_photo")}
+    end_media.setdefault("type", "photo")
     try:
-        clip_from_photo(photo_file(bg_photo, os.path.join(work, "end.jpg")), end_dur, end_bg, True)
+        clip_from_photo(media_file(end_media, sb, base, work, "end", -1), end_dur, end_bg, True)
     except Exception:
         sh("ffmpeg", "-y", "-sseof", "-0.1", "-i", clips[-1], "-vf",
            f"tpad=stop_mode=clone:stop_duration={end_dur}", "-t", f"{end_dur}", "-c:v", "libx264",

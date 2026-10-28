@@ -1,0 +1,138 @@
+{
+ "id": "aruba-abril-2027-cartoon",
+ "offer_id": "aruba-2026-10-26-645976",
+ "voice": "en-US-AndrewNeural",
+ "banner": {
+  "title": "3 days in Aruba",
+  "detail": "Thu Apr 29 – Sun May 2"
+ },
+ "scenes": [
+  {
+   "text": "Thursday. Bogotá's El Dorado airport. Let's go!",
+   "media": {
+    "type": "ai",
+    "prompt": "Bogotá El Dorado international airport terminal exterior at sunrise, modern glass facade under a huge curved white canopy roof, yellow taxis at the drop-off lane, green Andes mountains behind"
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.15,
+    "x1": 0.75,
+    "y": 0.75,
+    "size": 440
+   }
+  },
+  {
+   "text": "Just two hours, direct…",
+   "media": {
+    "type": "ai",
+    "prompt": "view through an airplane window, fluffy white clouds and bright blue sky, airplane wing visible, sun shining"
+   },
+   "stick": {
+    "action": "none"
+   }
+  },
+  {
+   "text": "…and you're in Aruba!",
+   "media": {
+    "type": "ai",
+    "prompt": "small Caribbean airport terminal in Aruba with teal roofs and white walls, tall palm trees bending in the trade wind, bright blue sky, arrivals road"
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.5,
+    "x1": 0.5,
+    "y": 0.75,
+    "size": 440
+   }
+  },
+  {
+   "text": "Day one: chill under the fofoti trees on Eagle Beach.",
+   "media": {
+    "type": "ai",
+    "prompt": "Eagle Beach in Aruba, wide white sand beach with one twisted wind-bent divi-divi tree leaning toward the turquoise sea, bright sun, calm water"
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.62,
+    "x1": 0.62,
+    "y": 0.78,
+    "size": 420
+   }
+  },
+  {
+   "text": "Day two: rent a car and drive to Arikok's natural pool.",
+   "media": {
+    "type": "ai",
+    "prompt": "Arikok National Park in Aruba, dry rocky hills with tall cactus, red dirt road, natural rock pool with turquoise water and white waves crashing on dark volcanic rocks"
+   },
+   "stick": {
+    "action": "drive",
+    "x0": -0.1,
+    "x1": 1.1,
+    "y": 0.76,
+    "size": 440
+   }
+  },
+  {
+   "text": "Day three: snorkel the calm waters of Mangel Halto.",
+   "media": {
+    "type": "ai",
+    "prompt": "underwater snorkeling scene in calm turquoise shallow water, mangrove roots, colorful tropical fish, corals, sun rays from the surface"
+   },
+   "stick": {
+    "action": "swim",
+    "x0": 0.15,
+    "x1": 0.6,
+    "y": 0.62,
+    "size": 420
+   }
+  },
+  {
+   "text": "Then catch the sunset at the California Lighthouse.",
+   "media": {
+    "type": "ai",
+    "prompt": "California Lighthouse in Aruba, tall slender white stone lighthouse on a hill at sunset, orange and pink sky, sea on the horizon"
+   },
+   "stick": {
+    "action": "photo",
+    "x0": 0.3,
+    "x1": 0.3,
+    "y": 0.76,
+    "size": 440
+   }
+  },
+  {
+   "text": "Sunday night you're back in Bogotá. Only two days off work!",
+   "media": {
+    "type": "ai",
+    "prompt": "Bogotá El Dorado international airport terminal at night, glowing glass facade under curved canopy roof, city lights, taxis"
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.85,
+    "x1": 0.3,
+    "y": 0.75,
+    "size": 440,
+    "facing": -1
+   }
+  }
+ ],
+ "end": {
+  "text": "The price? Round trip with Wingo for just 645 thousand pesos. Grab the deal at viajespillados dot com!",
+  "kicker": "The price?",
+  "airline": "Wingo · direct",
+  "price": "COP 645,976",
+  "detail": "round trip · Apr 29 – May 2",
+  "cta": "Visit viajespillados.com",
+  "small": "link in bio",
+  "media": {
+   "type": "ai",
+   "prompt": "Aruba beach at golden hour, palm trees, calm turquoise sea, white sand"
+  }
+ },
+ "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nIllustrations made with AI.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
+ "rate": "+28%",
+ "pad": 0.0,
+ "seed": 11,
+ "ai_style": "flat vector cartoon illustration, bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, simple shapes, vertical 9:16 composition, open flat ground in the lower third, no people, no characters, no text, no letters, no logos"
+}
