@@ -1,0 +1,134 @@
+{
+ "id": "aruba-abril-2027-en",
+ "offer_id": "aruba-2026-10-26-645976",
+ "voice": "en-US-AndrewNeural",
+ "banner": {
+  "title": "3 days in Aruba",
+  "price": "COP 645,976",
+  "detail": "round trip · Thu Apr 29 – Sun May 2"
+ },
+ "fallback_photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=2160",
+ "scenes": [
+  {
+   "text": "Thursday, April 29. You leave El Dorado airport in Bogotá with your suitcase, heading to Aruba.",
+   "media": {
+    "type": "photo",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Salidas_Aeropuerto_Internacional_El_Dorado.jpg?width=2160",
+    "credit": "QuinteroEsteban / Wikimedia Commons, CC BY-SA 4.0"
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.15,
+    "x1": 0.75,
+    "y": 0.75,
+    "size": 420
+   }
+  },
+  {
+   "text": "A two-hour direct flight with Wingo, round trip for 645 thousand pesos.",
+   "media": {
+    "type": "video",
+    "pexels_id": 34467289
+   },
+   "stick": {
+    "action": "none"
+   }
+  },
+  {
+   "text": "Welcome to Aruba!",
+   "media": {
+    "type": "photo",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Queen_Beatrix_International_Airport_Aruba.JPG?width=2160",
+    "credit": "NoTalkMan / Wikimedia Commons, CC0"
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.5,
+    "x1": 0.5,
+    "y": 0.75,
+    "size": 420
+   }
+  },
+  {
+   "text": "Day one: relax on Eagle Beach, under the famous fofoti trees.",
+   "media": {
+    "type": "photo",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=2160",
+    "credit": "Jason Boldero / Wikimedia Commons, CC BY 2.0"
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.62,
+    "x1": 0.62,
+    "y": 0.78,
+    "size": 420
+   }
+  },
+  {
+   "text": "Day two: rent a car, it's cheaper than taxis, and drive through Arikok National Park to the natural pool.",
+   "media": {
+    "type": "photo",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aruba-Natural-Pool-2013.JPG?width=2160",
+    "credit": "Bjørn Christian Tørrissen / Wikimedia Commons, CC BY-SA 3.0"
+   },
+   "stick": {
+    "action": "drive",
+    "x0": -0.1,
+    "x1": 1.1,
+    "y": 0.76,
+    "size": 440
+   }
+  },
+  {
+   "text": "Day three: go snorkeling in the calm waters of Mangel Halto.",
+   "media": {
+    "type": "photo",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mangel_halto%2C_Aruba_%28abou_di_awa%29_01.jpg?width=2160",
+    "credit": "Ginelly.Q / Wikimedia Commons, CC0"
+   },
+   "stick": {
+    "action": "swim",
+    "x0": 0.15,
+    "x1": 0.6,
+    "y": 0.62,
+    "size": 420
+   }
+  },
+  {
+   "text": "And to finish, climb the California Lighthouse to watch the sunset.",
+   "media": {
+    "type": "photo",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/California_lighthouse_%28Aruba%29_-_1.jpg?width=2160",
+    "credit": "DanielleJWiki / Wikimedia Commons, CC BY-SA 4.0"
+   },
+   "stick": {
+    "action": "wave",
+    "x0": 0.3,
+    "x1": 0.3,
+    "y": 0.76,
+    "size": 420
+   }
+  },
+  {
+   "text": "Sunday, May 2: you land back at El Dorado, and you only took two days off work.",
+   "media": {
+    "type": "photo",
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fachada_Principal_del_Aeropuerto_El_Dorado.jpg?width=2160",
+    "credit": "QuinteroEsteban / Wikimedia Commons, CC BY-SA 4.0"
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.85,
+    "x1": 0.3,
+    "y": 0.75,
+    "size": 420,
+    "facing": -1
+   }
+  }
+ ],
+ "end": {
+  "line1": "Flights from COP 645,976",
+  "line2": "round trip · link in bio"
+ },
+ "caption": "3 days in Aruba: Wingo flights for COP 645,976 round trip, direct from Bogotá, Thursday April 29 to Sunday May 2. Relax on Eagle Beach, explore Arikok National Park by 4x4 and go snorkeling at Mangel Halto. Tip: the island is expensive; renting a car is usually cheaper than taxis. Check the flight details on our website.\n\nPhotos: QuinteroEsteban (CC BY-SA 4.0), NoTalkMan (CC0), Jason Boldero (CC BY 2.0), Bjørn Christian Tørrissen (CC BY-SA 3.0), Ginelly.Q (CC0), DanielleJWiki (CC BY-SA 4.0) / Wikimedia Commons. Video: Pexels.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights"
+}
