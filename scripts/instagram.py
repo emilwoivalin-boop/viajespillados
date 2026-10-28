@@ -506,6 +506,25 @@ def main():
                 f"⚠️ IG_USER_ID ({os.environ.get('IG_USER_ID')}) no coincide con el user_id de la cuenta."))
         return
 
+    if mode == "diag":
+        # read-only diagnosis: publishing quota + create (but never publish) test containers
+        uid = os.environ["IG_USER_ID"]
+        out = []
+        img = f"{SITE}/instagram/img/aruba-2026-10-26-645976.jpg"
+        for label, fn in [
+            ("content_publishing_limit", lambda: api("GET", f"{uid}/content_publishing_limit", fields="config,quota_usage")),
+            ("single container", lambda: api("POST", f"{uid}/media", image_url=img, caption="test")),
+            ("carousel item container", lambda: api("POST", f"{uid}/media", image_url=img, is_carousel_item="true")),
+        ]:
+            try:
+                out.append(f"{label}: OK {json.dumps(fn())}")
+            except BaseException as e:
+                out.append(f"{label}: FAIL {e}")
+        with open(os.path.join(ROOT, "instagram/diag.txt"), "w") as f:
+            f.write(datetime.now(BOGOTA).strftime("%Y-%m-%d %H:%M") + "\n" + "\n".join(out) + "\n")
+        commit_push(["instagram/diag.txt"], "Instagram: diagnóstico")
+        return
+
     offers = load_offers()
     state = load_state()
 

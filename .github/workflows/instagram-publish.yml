@@ -9,7 +9,7 @@ on:
       mode:
         description: "publish = publicar · preview = solo ver imagen y texto · check = probar la conexión"
         type: choice
-        options: [preview, check, publish]
+        options: [preview, check, publish, diag]
         default: preview
       destino:
         description: "Opcional: publicar/ver solo este destino (ej. San Andrés). Con publish lo publica aunque no esté aprobado."
