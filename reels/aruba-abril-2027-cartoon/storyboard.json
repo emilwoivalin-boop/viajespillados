@@ -12,13 +12,13 @@
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado.jpg",
-    "focus": 0.55
+    "focus": 0.5
    },
    "stick": {
     "action": "suitcase",
-    "x0": 0.15,
-    "x1": 0.7,
-    "y": 0.8,
+    "x0": 0.12,
+    "x1": 0.6,
+    "y": 0.79,
     "size": 505
    }
   },
@@ -37,13 +37,13 @@
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/aruba-airport.jpg",
-    "focus": 0.62
+    "focus": 0.5
    },
    "stick": {
     "action": "celebrate",
-    "x0": 0.5,
-    "x1": 0.5,
-    "y": 0.76,
+    "x0": 0.45,
+    "x1": 0.45,
+    "y": 0.8,
     "size": 505
    }
   },
@@ -56,9 +56,9 @@
    },
    "stick": {
     "action": "relax",
-    "x0": 0.6,
-    "x1": 0.6,
-    "y": 0.8,
+    "x0": 0.55,
+    "x1": 0.55,
+    "y": 0.79,
     "size": 482
    }
   },
@@ -67,13 +67,13 @@
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/arikok.jpg",
-    "focus": 0.45
+    "focus": 0.5
    },
    "stick": {
     "action": "drive",
     "x0": -0.1,
     "x1": 1.1,
-    "y": 0.7,
+    "y": 0.79,
     "size": 505
    }
   },
@@ -88,7 +88,7 @@
     "action": "swim",
     "x0": 0.15,
     "x1": 0.6,
-    "y": 0.58,
+    "y": 0.55,
     "size": 482
    }
   },
@@ -112,13 +112,13 @@
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado-night.jpg",
-    "focus": 0.45
+    "focus": 0.5
    },
    "stick": {
     "action": "suitcase",
-    "x0": 0.85,
-    "x1": 0.3,
-    "y": 0.8,
+    "x0": 0.88,
+    "x1": 0.35,
+    "y": 0.79,
     "size": 505,
     "facing": -1
    }
@@ -139,8 +139,8 @@
   }
  },
  "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nIlustraciones / illustrations: Viajes Pillados (AI-assisted).\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
- "rate": "+15%",
- "pad": 0.35,
+ "rate": "+30%",
+ "pad": 0.3,
  "seed": 11,
  "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text"
 }
