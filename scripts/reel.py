@@ -68,7 +68,15 @@ async def _tts(text, voice, mp3, rate):
 
 
 def tts(text, voice, mp3, rate="+15%"):
-    return asyncio.run(_tts(text, voice, mp3, rate))
+    text = text.replace("…", "...")
+    for attempt in range(5):   # the free Edge TTS service sometimes returns no audio: retry
+        try:
+            return asyncio.run(_tts(text, voice, mp3, rate))
+        except Exception as e:
+            if attempt == 4:
+                raise
+            print(f"TTS reintento {attempt + 1}: {e}")
+            time.sleep(3 * (attempt + 1))
 
 
 # ---------------------------------------------------------------- footage
