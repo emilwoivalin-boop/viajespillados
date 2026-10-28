@@ -138,20 +138,52 @@ def ai_image(prompt, dst, seed=7, ref=None):
         return cache
     for old in [f for f in os.listdir(os.path.dirname(dst)) if f.startswith(os.path.basename(dst).rsplit(".", 1)[0] + "-")]:
         os.remove(os.path.join(os.path.dirname(dst), old))
+    import base64
     data = None
-    if os.environ.get("OPENAI_API_KEY"):
-        r = requests.post("https://api.openai.com/v1/images/generations", timeout=300,
-                          headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
-                          json={"model": "gpt-image-1", "prompt": prompt, "size": "1024x1536", "quality": "medium"})
+    ref_bytes = None
+    if ref:
+        rr = requests.get(ref, headers=WUA, timeout=120)
+        rr.raise_for_status()
+        im0 = ImageOps.exif_transpose(Image.open(__import__("io").BytesIO(rr.content))).convert("RGB")
+        im0.thumbnail((1536, 1536))
+        buf = __import__("io").BytesIO()
+        im0.save(buf, "PNG")
+        ref_bytes = buf.getvalue()
+    if os.environ.get("GEMINI_API_KEY"):
+        parts = [{"text": prompt + ". Vertical 9:16 image."}]
+        if ref_bytes:
+            parts.append({"inline_data": {"mime_type": "image/png", "data": base64.b64encode(ref_bytes).decode()}})
+        model = os.environ.get("GEMINI_IMAGE_MODEL", "gemini-2.5-flash-image")
+        r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                          params={"key": os.environ["GEMINI_API_KEY"]}, timeout=300,
+                          json={"contents": [{"parts": parts}],
+                                "generationConfig": {"responseModalities": ["IMAGE"],
+                                                     "imageConfig": {"aspectRatio": "9:16"}}})
         r.raise_for_status()
-        import base64
+        for part in r.json()["candidates"][0]["content"]["parts"]:
+            blob = part.get("inline_data") or part.get("inlineData")
+            if blob:
+                data = base64.b64decode(blob["data"])
+                break
+        if data is None:
+            raise RuntimeError(f"Gemini no devolvió imagen: {str(r.json())[:300]}")
+    elif os.environ.get("OPENAI_API_KEY"):
+        hdr = {"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"}
+        if ref_bytes:
+            r = requests.post("https://api.openai.com/v1/images/edits", headers=hdr, timeout=300,
+                              files={"image": ("ref.png", ref_bytes, "image/png")},
+                              data={"model": "gpt-image-1", "prompt": prompt, "size": "1024x1536", "quality": "medium"})
+        else:
+            r = requests.post("https://api.openai.com/v1/images/generations", headers=hdr, timeout=300,
+                              json={"model": "gpt-image-1", "prompt": prompt, "size": "1024x1536", "quality": "medium"})
+        r.raise_for_status()
         data = base64.b64decode(r.json()["data"][0]["b64_json"])
     else:
+        # free fallback: text-to-image only (no reference photo), lower quality
         url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) +
-               f"?width=1080&height=1920&seed={seed}&nologo=true&private=true" +
-               (f"&model=kontext&image={urllib.parse.quote(ref, safe='')}" if ref else "&model=flux"))
-        for attempt in range(8):
-            r = requests.get(url, headers=WUA, timeout=240)
+               f"?width=1080&height=1920&seed={seed}&nologo=true&private=true&model=flux")
+        for attempt in range(4):
+            r = requests.get(url, headers=WUA, timeout=180)
             if r.status_code == 200 and r.headers.get("content-type", "").startswith("image"):
                 data = r.content
                 break
