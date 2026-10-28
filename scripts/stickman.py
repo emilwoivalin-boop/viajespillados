@@ -93,10 +93,10 @@ def standing_figure(pen, x, feet_y, h, facing=1, legs=(0, 0), arms=(20, -20), bo
     return hands
 
 
-def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700):
+def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.4):
     lw = max(10, int(size * 0.045))
     for i in range(n):
-        t = i / fps
+        t = i / fps * speed
         p = i / max(1, n - 1)
         img = Image.new("RGBA", (W, band_h), (0, 0, 0, 0))
         pen = Pen(img, lw)

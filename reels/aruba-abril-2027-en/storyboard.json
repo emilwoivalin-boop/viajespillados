@@ -4,13 +4,12 @@
  "voice": "en-US-AndrewNeural",
  "banner": {
   "title": "3 days in Aruba",
-  "price": "COP 645,976",
-  "detail": "round trip · Thu Apr 29 – Sun May 2"
+  "detail": "Thu Apr 29 – Sun May 2"
  },
  "fallback_photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=2160",
  "scenes": [
   {
-   "text": "Thursday, April 29. You leave El Dorado airport in Bogotá with your suitcase, heading to Aruba.",
+   "text": "Thursday. Bogotá's El Dorado airport. Let's go!",
    "media": {
     "type": "photo",
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Salidas_Aeropuerto_Internacional_El_Dorado.jpg?width=2160",
@@ -25,7 +24,7 @@
    }
   },
   {
-   "text": "A two-hour direct flight with Wingo, round trip for 645 thousand pesos.",
+   "text": "Just two hours, direct…",
    "media": {
     "type": "video",
     "pexels_id": 34467289
@@ -35,7 +34,7 @@
    }
   },
   {
-   "text": "Welcome to Aruba!",
+   "text": "…and you're in Aruba!",
    "media": {
     "type": "photo",
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Queen_Beatrix_International_Airport_Aruba.JPG?width=2160",
@@ -50,7 +49,7 @@
    }
   },
   {
-   "text": "Day one: relax on Eagle Beach, under the famous fofoti trees.",
+   "text": "Day one: chill under the fofoti trees on Eagle Beach.",
    "media": {
     "type": "photo",
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=2160",
@@ -65,7 +64,7 @@
    }
   },
   {
-   "text": "Day two: rent a car, it's cheaper than taxis, and drive through Arikok National Park to the natural pool.",
+   "text": "Day two: rent a car and drive to Arikok's natural pool.",
    "media": {
     "type": "photo",
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Aruba-Natural-Pool-2013.JPG?width=2160",
@@ -80,7 +79,7 @@
    }
   },
   {
-   "text": "Day three: go snorkeling in the calm waters of Mangel Halto.",
+   "text": "Day three: snorkel the calm waters of Mangel Halto.",
    "media": {
     "type": "photo",
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mangel_halto%2C_Aruba_%28abou_di_awa%29_01.jpg?width=2160",
@@ -95,7 +94,7 @@
    }
   },
   {
-   "text": "And to finish, climb the California Lighthouse to watch the sunset.",
+   "text": "Then catch the sunset at the California Lighthouse.",
    "media": {
     "type": "photo",
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/California_lighthouse_%28Aruba%29_-_1.jpg?width=2160",
@@ -110,7 +109,7 @@
    }
   },
   {
-   "text": "Sunday, May 2: you land back at El Dorado, and you only took two days off work.",
+   "text": "Sunday night you're back in Bogotá. Only two days off work!",
    "media": {
     "type": "photo",
     "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fachada_Principal_del_Aeropuerto_El_Dorado.jpg?width=2160",
@@ -127,8 +126,18 @@
   }
  ],
  "end": {
-  "line1": "Flights from COP 645,976",
-  "line2": "round trip · link in bio"
+  "text": "The price? Round trip with Wingo for just 645 thousand pesos. Grab the deal at viajespillados dot com!",
+  "kicker": "The price?",
+  "airline": "Wingo · direct",
+  "price": "COP 645,976",
+  "detail": "round trip · Apr 29 – May 2",
+  "cta": "Visit viajespillados.com",
+  "small": "link in bio",
+  "media": {
+   "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Fofoti_Tree%2C_Eagle_Beach%2C_Aruba_%2828568601953%29.jpg?width=2160"
+  }
  },
- "caption": "3 days in Aruba: Wingo flights for COP 645,976 round trip, direct from Bogotá, Thursday April 29 to Sunday May 2. Relax on Eagle Beach, explore Arikok National Park by 4x4 and go snorkeling at Mangel Halto. Tip: the island is expensive; renting a car is usually cheaper than taxis. Check the flight details on our website.\n\nPhotos: QuinteroEsteban (CC BY-SA 4.0), NoTalkMan (CC0), Jason Boldero (CC BY 2.0), Bjørn Christian Tørrissen (CC BY-SA 3.0), Ginelly.Q (CC0), DanielleJWiki (CC BY-SA 4.0) / Wikimedia Commons. Video: Pexels.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights"
+ "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nPhotos: QuinteroEsteban (CC BY-SA 4.0), NoTalkMan (CC0), Jason Boldero (CC BY 2.0), Bjørn Christian Tørrissen (CC BY-SA 3.0), Ginelly.Q (CC0), DanielleJWiki (CC BY-SA 4.0) / Wikimedia Commons. Video: Pexels.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
+ "rate": "+20%",
+ "pad": 0.08
 }

@@ -54,9 +54,9 @@ def duration(path):
 
 
 # ---------------------------------------------------------------- voice
-async def _tts(text, voice, mp3):
+async def _tts(text, voice, mp3, rate):
     import edge_tts
-    comm = edge_tts.Communicate(text, voice, rate="+6%", boundary="WordBoundary")
+    comm = edge_tts.Communicate(text, voice, rate=rate, boundary="WordBoundary")
     words = []
     with open(mp3, "wb") as f:
         async for chunk in comm.stream():
@@ -67,8 +67,8 @@ async def _tts(text, voice, mp3):
     return words
 
 
-def tts(text, voice, mp3):
-    return asyncio.run(_tts(text, voice, mp3))
+def tts(text, voice, mp3, rate="+15%"):
+    return asyncio.run(_tts(text, voice, mp3, rate))
 
 
 # ---------------------------------------------------------------- footage
@@ -111,7 +111,7 @@ def clip_from_video(src, dur, out):
 
 def clip_from_photo(src, dur, out, zoom_in=True):
     frames = int(dur * FPS) + 1
-    z = f"min(1+0.10*on/{frames},1.10)" if zoom_in else f"max(1.10-0.10*on/{frames},1.0)"
+    z = f"min(1+0.20*on/{frames},1.20)" if zoom_in else f"max(1.20-0.20*on/{frames},1.0)"
     vf = (f"scale={W*2}:{H*2}:force_original_aspect_ratio=increase,crop={W*2}:{H*2},"
           f"zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},"
           f"format=yuv420p")
@@ -157,25 +157,43 @@ def banner_png(b, path):
     d.text((152, 188), "viajespillados", font=ig.font("ExtraBold", 38), fill="white", anchor="lm")
     ft = ig.font("Black", 92)
     d.text((W // 2, 300), b["title"], font=ft, fill="white", anchor="mm")
-    fp = ig.font("Black", 64)
-    price = b["price"]
-    tw = d.textlength(price, font=fp)
-    box = [W // 2 - tw / 2 - 34, 360, W // 2 + tw / 2 + 34, 448]
-    d.rounded_rectangle(box, radius=44, fill=YELLOW)
-    d.text((W // 2, 404), price, font=fp, fill=NAVY, anchor="mm")
+    y = 380
+    if b.get("price"):  # optional: price can be kept for the end card only
+        fp = ig.font("Black", 64)
+        tw = d.textlength(b["price"], font=fp)
+        d.rounded_rectangle([W // 2 - tw / 2 - 34, 360, W // 2 + tw / 2 + 34, 448], radius=44, fill=YELLOW)
+        d.text((W // 2, 404), b["price"], font=fp, fill=NAVY, anchor="mm")
+        y = 492
     if b.get("detail"):
-        d.text((W // 2, 492), b["detail"], font=ig.font("Bold", 40), fill="white", anchor="mm")
+        d.text((W // 2, y), b["detail"], font=ig.font("Bold", 40), fill="white", anchor="mm")
     img.save(path)
 
 
 def end_png(e, path):
-    img = Image.new("RGBA", (W, H), (10, 18, 34, 215))
+    """End card: the reveal (airline + price) and the call to action."""
+    img = Image.new("RGBA", (W, H), (10, 18, 34, 220))
     d = ImageDraw.Draw(img)
-    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((200, 200), Image.LANCZOS)
-    img.alpha_composite(logo, (W // 2 - 100, 560))
-    d.text((W // 2, 880), e["line1"], font=ig.font("Black", 78), fill=YELLOW, anchor="mm")
-    d.text((W // 2, 980), e["line2"], font=ig.font("Bold", 50), fill="white", anchor="mm")
-    d.text((W // 2, 1110), "viajespillados.com", font=ig.font("ExtraBold", 54), fill="white", anchor="mm")
+    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((170, 170), Image.LANCZOS)
+    img.alpha_composite(logo, (W // 2 - 85, 430))
+    y = 690
+    if e.get("kicker"):
+        d.text((W // 2, y), e["kicker"], font=ig.font("Bold", 50), fill="white", anchor="mm"); y += 90
+    if e.get("airline"):
+        d.text((W // 2, y), e["airline"], font=ig.font("Black", 84), fill="white", anchor="mm"); y += 180
+    if e.get("price"):
+        fp = ig.font("Black", 120)
+        tw = d.textlength(e["price"], font=fp)
+        d.rounded_rectangle([W // 2 - tw / 2 - 50, y - 85, W // 2 + tw / 2 + 50, y + 85], radius=85, fill=YELLOW)
+        d.text((W // 2, y), e["price"], font=fp, fill=NAVY, anchor="mm"); y += 150
+    if e.get("detail"):
+        d.text((W // 2, y), e["detail"], font=ig.font("Bold", 48), fill="white", anchor="mm"); y += 150
+    cta = e.get("cta", "viajespillados.com")
+    fc = ig.font("Black", 56)
+    tw = d.textlength(cta, font=fc)
+    d.rounded_rectangle([W // 2 - tw / 2 - 46, y - 58, W // 2 + tw / 2 + 46, y + 58], radius=58, fill="white")
+    d.text((W // 2, y), cta, font=fc, fill=NAVY, anchor="mm"); y += 110
+    if e.get("small"):
+        d.text((W // 2, y), e["small"], font=ig.font("SemiBold", 42), fill="white", anchor="mm")
     img.save(path)
 
 
@@ -219,7 +237,7 @@ def attach_punctuation(words, text):
     return out
 
 
-def chunk_words(words, offset, max_words=4, max_chars=22):
+def chunk_words(words, offset, max_words=3, max_chars=18):
     out, cur = [], []
     for w in words:
         cur.append(w)
@@ -243,12 +261,14 @@ def render(rid):
     work = os.path.join("/tmp", "reel-" + rid)
     os.makedirs(work, exist_ok=True)
     voice = sb.get("voice", "es-CO-SalomeNeural")
+    rate = sb.get("rate", "+15%")
+    pad = sb.get("pad", 0.12)
 
     clips, audios, subs, t = [], [], [], 0.0
     for i, sc in enumerate(sb["scenes"]):
         mp3 = os.path.join(work, f"v{i}.mp3")
-        words = tts(sc["text"], voice, mp3)
-        dur = duration(mp3) + 0.25
+        words = tts(sc["text"], voice, mp3, rate)
+        dur = duration(mp3) + pad
         subs += chunk_words(attach_punctuation(words, sc["text"]), t)
         audios.append((mp3, dur))
         m = sc["media"]
@@ -269,11 +289,23 @@ def render(rid):
         clips.append(out)
         t += dur
 
-    # end card (3 s) on top of the last scene's footage
-    end_dur = 3.0
+    # end card: reveal + call to action, optionally with its own voice line
+    end = sb["end"]
+    end_audio = None
+    if end.get("text"):
+        end_audio = os.path.join(work, "vend.mp3")
+        tts(end["text"], voice, end_audio, rate)
+        end_dur = duration(end_audio) + 0.8
+    else:
+        end_dur = 3.0
     end_bg = os.path.join(work, "end_bg.mp4")
-    sh("ffmpeg", "-y", "-sseof", "-0.1", "-i", clips[-1], "-vf", "tpad=stop_mode=clone:stop_duration=3",
-       "-t", f"{end_dur}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", end_bg)
+    bg_photo = (end.get("media") or {}).get("url") or sb.get("fallback_photo")
+    try:
+        clip_from_photo(photo_file(bg_photo, os.path.join(work, "end.jpg")), end_dur, end_bg, True)
+    except Exception:
+        sh("ffmpeg", "-y", "-sseof", "-0.1", "-i", clips[-1], "-vf",
+           f"tpad=stop_mode=clone:stop_duration={end_dur}", "-t", f"{end_dur}", "-c:v", "libx264",
+           "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", end_bg)
     clips.append(end_bg)
 
     with open(os.path.join(work, "clips.txt"), "w") as f:
@@ -288,7 +320,11 @@ def render(rid):
         sh("ffmpeg", "-y", "-i", mp3, "-af", f"apad=whole_dur={dur:.2f}", "-ar", "44100", "-ac", "2", p)
         parts.append(p)
     silence = os.path.join(work, "end.wav")
-    sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{end_dur}", silence)
+    if end_audio:
+        sh("ffmpeg", "-y", "-i", end_audio, "-af", f"adelay=250|250,apad=whole_dur={end_dur:.2f}", "-ar", "44100",
+           "-ac", "2", silence)
+    else:
+        sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{end_dur}", silence)
     parts.append(silence)
     with open(os.path.join(work, "audio.txt"), "w") as f:
         f.writelines(f"file '{p}'\n" for p in parts)
@@ -305,7 +341,8 @@ def render(rid):
     final = os.path.join(base, "reel.mp4")
     fonts = ig.FONTS
     flt = (f"[0:v][2:v]overlay=0:0:enable='lt(t,{t:.2f})'[a];"
-           f"[a][3:v]overlay=0:0:enable='gte(t,{t:.2f})'[b];"
+           f"[3:v]format=rgba,fade=in:st={t:.2f}:d=0.3:alpha=1[e];"
+           f"[a][e]overlay=0:0:enable='gte(t,{t:.2f})'[b];"
            f"[b]ass={ass}:fontsdir={fonts}[v]")
     sh("ffmpeg", "-y", "-i", video, "-i", audio, "-loop", "1", "-i", banner, "-loop", "1", "-i", endcard,
        "-filter_complex", flt, "-map", "[v]", "-map", "1:a", "-t", f"{t + end_dur:.2f}",
