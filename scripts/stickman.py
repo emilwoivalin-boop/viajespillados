@@ -152,12 +152,6 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                 hand = (sh[0] + facing * math.cos(a) * L * 0.32, sh[1] - math.sin(a) * L * 0.25)
                 pen.line(sh, hand)
             _head(pen, head, L * 0.11, facing)
-            # water line
-            wl = []
-            for k2 in range(0, W + 20, 20):
-                wl.append((k2, yb + L * 0.02 + math.sin(k2 / 40 + t * 4) * 6))
-            ImageDraw.Draw(img)  # noqa
-            pen.segs.append(tuple(wl))
         elif action == "drive":
             L = size
             cy = feet - L * 0.18

@@ -201,6 +201,23 @@ def subtitles(chunks, path):
             f.write(f"Dialogue: 0,{ass_time(s)},{ass_time(e)},Sub,,0,0,0,,{t}\n")
 
 
+def attach_punctuation(words, text):
+    """edge-tts word boundaries drop punctuation; take the display form from the original text."""
+    toks = text.split()
+    out, j = [], 0
+    norm = lambda w: re.sub(r"[^\wáéíóúüñ]", "", w.lower())
+    for s, e, w in words:
+        k = j
+        while k < len(toks) and norm(toks[k]) != norm(w) and not norm(toks[k]).startswith(norm(w)):
+            k += 1
+        if k < len(toks):
+            out.append((s, e, toks[k]))
+            j = k + 1
+        else:
+            out.append((s, e, w))
+    return out
+
+
 def chunk_words(words, offset, max_words=4, max_chars=22):
     out, cur = [], []
     for w in words:
@@ -231,7 +248,7 @@ def render(rid):
         mp3 = os.path.join(work, f"v{i}.mp3")
         words = tts(sc["text"], voice, mp3)
         dur = duration(mp3) + 0.25
-        subs += chunk_words(words, t)
+        subs += chunk_words(attach_punctuation(words, sc["text"]), t)
         audios.append((mp3, dur))
         m = sc["media"]
         out = os.path.join(work, f"c{i}.mp4")
