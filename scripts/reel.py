@@ -34,6 +34,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import instagram as ig  # noqa: E402  (fonts, git helpers, Instagram API helpers)
 import stickman  # noqa: E402
+import reelfx  # noqa: E402
 
 W, H, FPS = 1080, 1920, 30
 YELLOW = (255, 198, 49)
@@ -232,23 +233,65 @@ def clip_from_photo(src, dur, out, zoom_in=True, focus=0.5):
        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
 
 
-def add_stickman(clip, st, dur, out):
-    """Overlay the animated stick man (st = {"action", "x0", "x1", "y", "size", "facing"}) on a clip."""
+def add_stickman(clip, st, dur, out, pops=None):
+    """Overlay the animated stick man (st = {"action", "x0", "x1", "y", "size", "facing"}) and any icon pops
+    (pops = [{"icon", "t" (scene seconds), "x", "y", "size"}]) on a clip."""
+    st = st or {"action": "none"}
+    pops = pops or []
     band_h, feet_local = 700, 600
     feet_abs = int(st.get("y", 0.70) * H)
     by = max(0, min(H - band_h, feet_abs - feet_local))
+    full = bool(pops)                      # icons can be anywhere, so use a full-frame overlay
+    oh, oy = (H, 0) if full else (band_h, by)
     n = int(dur * FPS) + 3
-    cmd = ["ffmpeg", "-y", "-i", clip, "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{W}x{band_h}",
-           "-r", str(FPS), "-i", "-", "-filter_complex", f"[0:v][1:v]overlay=0:{by},format=yuv420p",
+    cmd = ["ffmpeg", "-y", "-i", clip, "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{W}x{oh}",
+           "-r", str(FPS), "-i", "-", "-filter_complex", f"[0:v][1:v]overlay=0:{oy},format=yuv420p",
            "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    for fr in stickman.frames(st.get("action", "walk"), n, FPS, x0=st.get("x0", 0.3), x1=st.get("x1", 0.6),
-                              feet=feet_local + (feet_abs - by - feet_local), size=st.get("size", 330),
-                              facing=st.get("facing", 1), band_h=band_h):
+    gen = stickman.frames(st.get("action", "walk"), n, FPS, x0=st.get("x0", 0.3), x1=st.get("x1", 0.6),
+                          feet=feet_local + (feet_abs - by - feet_local), size=st.get("size", 330),
+                          facing=st.get("facing", 1), band_h=band_h)
+    for i, fr in enumerate(gen):
+        if full:
+            big = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            big.paste(fr, (0, by))
+            reelfx.draw_pops(big, pops, i / FPS, W, H)
+            fr = big
         p.stdin.write(fr.tobytes())
     p.stdin.close()
     if p.wait() != 0:
         raise RuntimeError("ffmpeg stickman overlay failed")
+
+
+def word_time(words, word, default):
+    """Start time (scene seconds) of the first spoken word that matches `word`."""
+    key = re.sub(r"[^a-z0-9áéíóúñ]", "", word.lower())
+    for w in words:
+        if re.sub(r"[^a-z0-9áéíóúñ]", "", w[2].lower()).startswith(key):
+            return w[0]
+    return default
+
+
+def scene_sfx(sc, t0, dur, pops):
+    """Sound effects that match what happens on screen in a scene (times are reel seconds)."""
+    ev = []
+    if t0 > 0:
+        ev.append((max(0, t0 - 0.12), "whoosh", 0.22))
+    for pp in pops:
+        ev.append((t0 + pp["t"], "pop", 0.30))
+    act = (sc.get("stick") or {}).get("action", "none")
+    if act == "celebrate":
+        ev.append((t0 + 0.15, "boing", 0.22))
+    elif act == "photo":
+        k = 0
+        while k * 1.6 / 1.4 < dur - 0.2:
+            ev.append((t0 + k * 1.6 / 1.4, "shutter", 0.35))
+            k += 1
+    elif act == "swim":
+        ev += [(t0 + 0.3, "bubbles", 0.22), (t0 + dur * 0.55, "bubbles", 0.18)]
+    elif act == "drive":
+        ev.append((t0 + 0.1, "engine", 0.16))
+    return ev
 
 
 # ---------------------------------------------------------------- overlays
@@ -350,12 +393,20 @@ def attach_punctuation(words, text):
     return out
 
 
+STOP = {"a", "an", "the", "to", "of", "in", "on", "at", "and", "for", "with", "your", "our", "over", "under",
+        "de", "la", "el", "en", "y", "con", "por", "para", "los", "las", "un", "una", "tu"}
+
+
 def chunk_words(words, offset, max_words=3, max_chars=18):
+    """Group spoken words into short captions; never leave a chunk hanging on 'the', 'to', 'and'…"""
     out, cur = [], []
-    for w in words:
+    for i, w in enumerate(words):
         cur.append(w)
         text = " ".join(x[2] for x in cur)
-        if len(cur) >= max_words or len(text) >= max_chars or re.search(r"[.,:;!?]$", w[2]):
+        last = re.sub(r"[^a-záéíóúñ]", "", w[2].lower())
+        punct = re.search(r"[.,:;!?]$", w[2])
+        full = len(cur) >= max_words or len(text) >= max_chars
+        if punct or (full and (last not in STOP or len(cur) >= max_words + 1) and i + 1 < len(words)):
             out.append((offset + cur[0][0], offset + cur[-1][1] + 0.08, text))
             cur = []
     if cur:
@@ -377,12 +428,17 @@ def render(rid):
     rate = sb.get("rate", "+28%")
     pad = sb.get("pad", 0.0)
 
-    clips, audios, subs, t = [], [], [], 0.0
+    clips, audios, subs, sfx, t = [], [], [], [], 0.0
     for i, sc in enumerate(sb["scenes"]):
         mp3 = os.path.join(work, f"v{i}.mp3")
         wav, vdur, words = tight_voice(sc["text"], voice, mp3, rate)
         dur = vdur + pad
         subs += chunk_words(attach_punctuation(words, sc["text"]), t)
+        pops = []
+        for k, pp in enumerate(sc.get("pops", [])):
+            pt = word_time(words, pp["word"], dur * (k + 1) / 3) if pp.get("word") else pp.get("at", 0.5) * dur
+            pops.append({**pp, "t": pt})
+        sfx += scene_sfx(sc, t, dur, pops)
         audios.append((wav, dur))
         m = sc["media"]
         out = os.path.join(work, f"c{i}.mp4")
@@ -396,9 +452,9 @@ def render(rid):
             fb = m.get("fallback_photo") or sb.get("fallback_photo")
             print(f"Escena {i}: {e} – uso la foto de respaldo")
             clip_from_photo(photo_file(fb, os.path.join(work, f"s{i}.jpg")), dur, out, i % 2 == 0)
-        if sc.get("stick") and sc["stick"].get("action", "none") != "none":
+        if pops or (sc.get("stick") and sc["stick"].get("action", "none") != "none"):
             out2 = os.path.join(work, f"c{i}s.mp4")
-            add_stickman(out, sc["stick"], dur, out2)
+            add_stickman(out, sc.get("stick"), dur, out2, pops)
             out = out2
         clips.append(out)
         t += dur
@@ -446,6 +502,14 @@ def render(rid):
         f.writelines(f"file '{p}'\n" for p in parts)
     audio = os.path.join(work, "voice.wav")
     sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(work, "audio.txt"), audio)
+    if sb.get("sfx", True):
+        sfx += [(max(0, t - 0.1), "whoosh", 0.22), (t + 0.05, "chime", 0.30)]
+        fx = os.path.join(work, "sfx.wav")
+        reelfx.write_track(sfx, t + end_dur, fx)
+        mixed = os.path.join(work, "voice_sfx.wav")
+        sh("ffmpeg", "-y", "-i", audio, "-i", fx, "-filter_complex",
+           "[0:a][1:a]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]", "-map", "[a]", mixed)
+        audio = mixed
 
     banner = os.path.join(work, "banner.png")
     banner_png(sb["banner"], banner)
