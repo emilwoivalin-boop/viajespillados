@@ -346,9 +346,20 @@ def publish(rid):
 
 
 if __name__ == "__main__":
+    import traceback
     mode, rid = sys.argv[1], sys.argv[2]
-    if mode == "render":
-        render(rid)
-        ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
-    elif mode == "publish":
-        publish(rid)
+    try:
+        if mode == "render":
+            render(rid)
+            ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
+        elif mode == "publish":
+            publish(rid)
+    except Exception as e:
+        err = traceback.format_exc()
+        if isinstance(e, subprocess.CalledProcessError) and e.stderr:
+            err += "\n--- ffmpeg ---\n" + e.stderr.decode(errors="ignore")[-3000:]
+        path = os.path.join(ROOT, "reels", rid, "error.txt")
+        with open(path, "w") as f:
+            f.write(err)
+        ig.commit_push([path], f"Reel: error {rid}")
+        raise
