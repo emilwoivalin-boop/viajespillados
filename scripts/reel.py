@@ -333,6 +333,8 @@ def scene_sfx(sc, t0, dur, pops):
             ev.append((t0 + s_, "step", 0.16 if k % 2 else 0.13))
         if act == "suitcase" and len(steps) > 1:
             ev.append((t0 + steps[0], "rumble", 0.05, round(steps[-1] - steps[0] + 0.3, 2)))
+    if not sc.get("action_sfx", True):           # max one extra sound per picture (ambience wins)
+        return ev
     if act == "celebrate":
         ev.append((t0 + 0.15, "boing", 0.22))
     elif act == "photo":
@@ -635,6 +637,9 @@ def render(rid):
 # ---------------------------------------------------------------- publish
 def publish(rid):
     base = os.path.join(ROOT, "reels", rid)
+    if os.path.exists(os.path.join(base, "published.json")):     # never post the same Reel twice
+        ig.summary(f"Reel {rid} ya estaba publicado: {open(os.path.join(base, 'published.json')).read()}")
+        return
     rel = f"reels/{rid}/reel.mp4"
     if not os.path.exists(os.path.join(ROOT, rel)):
         render(rid)
@@ -672,6 +677,24 @@ if __name__ == "__main__":
                     except Exception as e:
                         print(f"scene{i}: {e}")
             ig.commit_push([f"reels/{rid}"], f"Reel: imágenes IA {rid}")
+        elif mode == "fetch":   # daily Reel: download the pictures the owner uploaded to Google Drive
+            base = os.path.join(ROOT, "reels", rid)
+            plan = json.load(open(os.path.join(base, "plan.json")))
+            os.makedirs(os.path.join(base, "img"), exist_ok=True)
+            for key, fid in plan["drive_files"].items():
+                r = requests.get("https://drive.google.com/uc", params={"export": "download", "id": fid},
+                                 headers=WUA, timeout=60)
+                r.raise_for_status()
+                if not r.headers.get("content-type", "").startswith("image/"):
+                    raise RuntimeError(f"{key}: Drive no devolvió una imagen (¿carpeta compartida con enlace?) "
+                                       f"{r.headers.get('content-type')}")
+                from io import BytesIO
+                im = ImageOps.exif_transpose(Image.open(BytesIO(r.content))).convert("RGB")
+                if im.width > 1080:
+                    im = im.resize((1080, round(im.height * 1080 / im.width)), Image.LANCZOS)
+                im.save(os.path.join(base, "img", f"{key}.jpg"), quality=92)
+                print(key, im.size)
+            ig.commit_push([f"reels/{rid}/img"], f"Reel: imágenes de Drive {rid}")
         elif mode == "render":
             render(rid)
             ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
