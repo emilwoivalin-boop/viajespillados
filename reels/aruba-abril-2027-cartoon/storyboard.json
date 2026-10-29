@@ -13,26 +13,27 @@
    },
    "stick": {
     "action": "suitcase",
-    "x0": 0.16,
-    "x1": 0.47,
+    "x0": 0.2,
+    "x1": 0.5,
     "y": 0.97,
-    "y1": 0.75,
-    "size": 560,
-    "size1": 330
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
    }
   },
   {
    "text": "Just a two-hour direct flight over the clouds, and the sea below starts turning turquoise.",
    "media": {
     "type": "file",
-    "path": "reels/aruba-abril-2027-cartoon/ai/scene1-3438ea08abb3.jpg"
+    "path": "reels/aruba-abril-2027-cartoon/img/flight.jpg",
+    "focus": 0.5
    },
    "stick": {
     "action": "none"
    }
   },
   {
-   "text": "Welcome to Aruba! Sunshine, warm trade winds and palm trees everywhere you look.",
+   "text": "Welcome to Aruba! Warm trade winds, palm trees everywhere you look, and your Caribbean weekend starts tonight.",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/aruba-airport.jpg",
@@ -40,10 +41,10 @@
    },
    "stick": {
     "action": "celebrate",
-    "x0": 0.66,
-    "x1": 0.66,
-    "y": 0.83,
-    "size": 360
+    "x0": 0.45,
+    "x1": 0.45,
+    "y": 0.9,
+    "size": 400
    }
   },
   {
@@ -55,10 +56,10 @@
    },
    "stick": {
     "action": "relax",
-    "x0": 0.58,
-    "x1": 0.58,
-    "y": 0.83,
-    "size": 420
+    "x0": 0.63,
+    "x1": 0.63,
+    "y": 0.475,
+    "size": 380
    }
   },
   {
@@ -70,12 +71,13 @@
    },
    "stick": {
     "action": "drive",
-    "x0": 0.22,
-    "x1": 0.55,
-    "y": 0.75,
+    "x0": 0.47,
+    "x1": 0.4,
+    "y": 0.6,
     "y1": 0.97,
-    "size": 200,
-    "size1": 470
+    "size": 150,
+    "size1": 460,
+    "facing": -1
    }
   },
   {
@@ -87,10 +89,10 @@
    },
    "stick": {
     "action": "swim",
-    "x0": 0.08,
-    "x1": 0.62,
-    "y": 0.36,
-    "size": 420
+    "x0": 0.1,
+    "x1": 0.65,
+    "y": 0.37,
+    "size": 380
    }
   },
   {
@@ -102,14 +104,14 @@
    },
    "stick": {
     "action": "photo",
-    "x0": 0.2,
-    "x1": 0.2,
-    "y": 0.88,
-    "size": 380
+    "x0": 0.28,
+    "x1": 0.28,
+    "y": 0.67,
+    "size": 340
    }
   },
   {
-   "text": "Sunday afternoon you land back in Bogotá, tanned and happy. And you only took two days off work!",
+   "text": "On Sunday you land back in Bogotá, tanned and happy. And you only took two days off work!",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado-night.jpg",
@@ -118,11 +120,11 @@
    "stick": {
     "action": "suitcase",
     "x0": 0.5,
-    "x1": 0.76,
-    "y": 0.75,
+    "x1": 0.75,
+    "y": 0.68,
     "y1": 0.97,
-    "size": 330,
-    "size1": 560
+    "size": 260,
+    "size1": 520
    }
   }
  ],
@@ -136,7 +138,7 @@
   "small": "Check out this offer and many more · link in bio",
   "media": {
    "type": "file",
-   "path": "reels/aruba-abril-2027-cartoon/img/eagle-beach.jpg",
+   "path": "reels/aruba-abril-2027-cartoon/img/beach-end.jpg",
    "focus": 0.5
   },
   "title": "3 days in Aruba"
@@ -147,5 +149,6 @@
  "seed": 11,
  "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
  "stick_style": "classic",
- "caption_margin": 780
+ "caption_margin": 400,
+ "caption_align": 8
 }

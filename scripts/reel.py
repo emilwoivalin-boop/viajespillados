@@ -424,7 +424,7 @@ def ass_time(t):
     return f"{h}:{m:02d}:{t % 60:05.2f}"
 
 
-def subtitles(chunks, path, margin_v=300):
+def subtitles(chunks, path, margin_v=300, align=2):
     """chunks: list of (start, end, text). Big bold captions, lower third."""
     head = (
         f"[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 0\n\n"
@@ -432,7 +432,7 @@ def subtitles(chunks, path, margin_v=300):
         "BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, "
         "Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
         "Style: Sub,Inter Display Black,74,&H00FFFFFF,&H00FFFFFF,&H00221410,&H64000000,-1,0,0,0,100,100,0,0,1,"
-        f"5,2,2,80,80,{margin_v},1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, "
+        f"5,2,{align},80,80,{margin_v},1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, "
         "Effect, Text\n")
     with open(path, "w") as f:
         f.write(head)
@@ -585,7 +585,7 @@ def render(rid):
     endcard = os.path.join(work, "endcard.png")
     end_png(sb["end"], endcard)
     ass = os.path.join(work, "subs.ass")
-    subtitles(subs, ass, sb.get("caption_margin", 300))   # higher margin = captions further up
+    subtitles(subs, ass, sb.get("caption_margin", 300), sb.get("caption_align", 2))   # higher margin = captions further up
 
     final = os.path.join(base, "reel.mp4")
     fonts = ig.FONTS
