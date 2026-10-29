@@ -27,7 +27,83 @@
   "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Valle de Guadalupe wine valley in Mexico: neat green rows of grapevines on gentle golden hills, a small rustic stone winery with a terracotta roof, a wooden table with a wine bottle and two glasses, warm late-afternoon light. A clear empty dirt path between the vine rows in the lower half.",
   "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A small seaside fishing village (Puerto Nuevo, Mexico) on a rocky Pacific cliff at sunset, orange and pink sky, waves below, a simple open-air restaurant terrace with a table holding a big red lobster, rice, beans and a stack of tortillas. Empty terrace floor in the lower half next to the table."
  },
- "scenes": {},
+ "scenes": {
+  "vuelo": {
+   "stick": {
+    "action": "none"
+   },
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.45,
+    "y": 0.88,
+    "size": 400,
+    "facing": 1
+   },
+   "pop": null,
+   "ambience": null
+  },
+  "dia1": {
+   "stick": {
+    "action": "walk",
+    "x0": 0.42,
+    "x1": 0.52,
+    "y": 0.95,
+    "y1": 0.74,
+    "size": 460,
+    "size1": 280,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "pin",
+    "word": "arco",
+    "x": 0.5,
+    "y": 0.12,
+    "size": 190
+   },
+   "ambience": null
+  },
+  "dia2": {
+   "stick": {
+    "action": "walk",
+    "x0": 0.45,
+    "x1": 0.6,
+    "y": 0.97,
+    "y1": 0.6,
+    "size": 440,
+    "size1": 220,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "heart",
+    "word": "vinos",
+    "x": 0.8,
+    "y": 0.4,
+    "size": 180
+   },
+   "ambience": null
+  },
+  "dia3": {
+   "stick": {
+    "action": "photo",
+    "x0": 0.66,
+    "y": 0.86,
+    "size": 420,
+    "facing": -1
+   },
+   "pop": {
+    "icon": "sun",
+    "word": "atardecer",
+    "x": 0.45,
+    "y": 0.1,
+    "size": 200
+   },
+   "ambience": "waves"
+  }
+ },
  "end_image": "dia1",
  "drive_files": {
   "vuelo": "1KxoDTiVSNoaUreAJ-g2GhB79tyGumz6E",

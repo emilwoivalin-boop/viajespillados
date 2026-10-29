@@ -1,0 +1,187 @@
+{
+ "id": "tijuana-2027-03-26",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Viernes 26 de marzo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Tijuana!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": []
+  },
+  {
+   "text": "Vuelas con una escala, y al bajar ves cerros dorados y el Pacífico brillando.",
+   "media": {
+    "type": "file",
+    "path": "reels/tijuana-2027-03-26/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Tijuana! Sales del aeropuerto y ya huele a tacos al carbón.",
+   "media": {
+    "type": "file",
+    "path": "reels/tijuana-2027-03-26/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.45,
+    "y": 0.88,
+    "size": 400,
+    "facing": 1
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: caminas la Avenida Revolución, entre tiendas de colores y su gran arco metálico.",
+   "media": {
+    "type": "file",
+    "path": "reels/tijuana-2027-03-26/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.42,
+    "x1": 0.52,
+    "y": 0.95,
+    "y1": 0.74,
+    "size": 460,
+    "size1": 280,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "arco",
+     "x": 0.5,
+     "y": 0.12,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día dos: te vas al Valle de Guadalupe a probar vinos entre viñedos y cerros.",
+   "media": {
+    "type": "file",
+    "path": "reels/tijuana-2027-03-26/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.45,
+    "x1": 0.6,
+    "y": 0.97,
+    "y1": 0.6,
+    "size": 440,
+    "size1": 220,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "vinos",
+     "x": 0.8,
+     "y": 0.4,
+     "size": 180
+    }
+   ],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día tres: en Puerto Nuevo comes langosta con frijoles, arroz y tortillas, mirando el atardecer.",
+   "media": {
+    "type": "file",
+    "path": "reels/tijuana-2027-03-26/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "photo",
+    "x0": 0.66,
+    "y": 0.86,
+    "size": 420,
+    "facing": -1
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "atardecer",
+     "x": 0.45,
+     "y": 0.1,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Viva, por solo 768 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "10 días en Tijuana",
+  "kicker": "",
+  "airline": "Viva · 1 escala",
+  "price": "$767.957",
+  "detail": "ida y vuelta · 26 mar – 4 abr",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/tijuana-2027-03-26/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "10 días en Tijuana desde Bogotá ✈️ Recorre la Avenida Revolución, prueba vinos en el Valle de Guadalupe y come langosta en Puerto Nuevo. Ida y vuelta con Viva desde $767.957 (26 mar – 4 abr). Mira la oferta en viajespillados.com – link en la bio.\n\nIlustraciones: Viajes Pillados (con ayuda de IA).\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #tijuana #ofertasdevuelos"
+}
