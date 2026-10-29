@@ -1,0 +1,506 @@
+[
+{
+"destino": "Cartagena",
+"q": "Cartagena Colombia walled city"
+},
+{
+"destino": "Santa Marta",
+"q": "Tayrona National Park beach"
+},
+{
+"destino": "San Andrés",
+"q": "San Andres island Colombia beach"
+},
+{
+"destino": "Medellín",
+"q": "Medellin Colombia skyline"
+},
+{
+"destino": "Cali",
+"q": "Cali Colombia city"
+},
+{
+"destino": "Barranquilla",
+"q": "Barranquilla Colombia"
+},
+{
+"destino": "Bucaramanga",
+"q": "Chicamocha canyon"
+},
+{
+"destino": "Pereira",
+"q": "Pereira Risaralda Colombia"
+},
+{
+"destino": "Montería",
+"q": "Monteria Sinu river"
+},
+{
+"destino": "Tolú",
+"q": "Tolu Sucre Colombia beach"
+},
+{
+"destino": "Leticia",
+"q": "Leticia Amazonas Colombia"
+},
+{
+"destino": "Riohacha",
+"q": "Riohacha La Guajira beach"
+},
+{
+"destino": "Pasto",
+"q": "Laguna de la Cocha"
+},
+{
+"destino": "Villavicencio",
+"q": "Villavicencio Meta llanos"
+},
+{
+"destino": "Neiva",
+"q": "Desierto de la Tatacoa"
+},
+{
+"destino": "Yopal",
+"q": "Yopal Casanare"
+},
+{
+"destino": "Santo Domingo",
+"q": "Santo Domingo Zona Colonial"
+},
+{
+"destino": "Punta Cana",
+"q": "Punta Cana beach"
+},
+{
+"destino": "Santiago de los Caballeros",
+"q": "Monumento Santiago de los Caballeros"
+},
+{
+"destino": "Puerto Plata",
+"q": "Puerto Plata Dominican Republic"
+},
+{
+"destino": "Kingston",
+"q": "Kingston Jamaica"
+},
+{
+"destino": "Montego Bay",
+"q": "Montego Bay beach"
+},
+{
+"destino": "Curaçao",
+"q": "Willemstad Handelskade"
+},
+{
+"destino": "Aruba",
+"q": "Eagle Beach Aruba"
+},
+{
+"destino": "Bonaire",
+"q": "Kralendijk Bonaire"
+},
+{
+"destino": "San Juan",
+"q": "Old San Juan Puerto Rico"
+},
+{
+"destino": "La Habana",
+"q": "Havana Capitolio"
+},
+{
+"destino": "Granada (isla)",
+"q": "Grand Anse beach Grenada"
+},
+{
+"destino": "San Salvador",
+"q": "San Salvador El Salvador cathedral"
+},
+{
+"destino": "San José",
+"q": "San Jose Costa Rica Teatro Nacional"
+},
+{
+"destino": "Ciudad de Panamá",
+"q": "Panama City skyline"
+},
+{
+"destino": "Belice",
+"q": "Belize barrier reef caye"
+},
+{
+"destino": "Ciudad de Guatemala",
+"q": "Guatemala City"
+},
+{
+"destino": "San Pedro Sula",
+"q": "San Pedro Sula Honduras"
+},
+{
+"destino": "Ciudad de México",
+"q": "Palacio de Bellas Artes Mexico City"
+},
+{
+"destino": "Cancún",
+"q": "Cancun beach"
+},
+{
+"destino": "Guadalajara",
+"q": "Guadalajara Cathedral"
+},
+{
+"destino": "Monterrey",
+"q": "Cerro de la Silla Monterrey"
+},
+{
+"destino": "Puerto Vallarta",
+"q": "Puerto Vallarta malecon"
+},
+{
+"destino": "Mérida",
+"q": "Merida Yucatan cathedral"
+},
+{
+"destino": "Tijuana",
+"q": "Tijuana arch Avenida Revolucion"
+},
+{
+"destino": "Nueva York",
+"q": "Manhattan skyline"
+},
+{
+"destino": "Miami",
+"q": "Miami Beach"
+},
+{
+"destino": "Orlando",
+"q": "Orlando Florida Lake Eola"
+},
+{
+"destino": "Las Vegas",
+"q": "Las Vegas Strip"
+},
+{
+"destino": "Los Ángeles",
+"q": "Los Angeles skyline"
+},
+{
+"destino": "San Francisco",
+"q": "Golden Gate Bridge"
+},
+{
+"destino": "Boston",
+"q": "Boston skyline"
+},
+{
+"destino": "Filadelfia",
+"q": "Philadelphia Independence Hall"
+},
+{
+"destino": "Denver",
+"q": "Denver skyline Rocky Mountains"
+},
+{
+"destino": "Honolulu",
+"q": "Waikiki Diamond Head"
+},
+{
+"destino": "Toronto",
+"q": "Toronto skyline CN Tower"
+},
+{
+"destino": "Vancouver",
+"q": "Vancouver skyline"
+},
+{
+"destino": "Quito",
+"q": "Quito historic center"
+},
+{
+"destino": "Guayaquil",
+"q": "Malecon 2000 Guayaquil"
+},
+{
+"destino": "Galápagos",
+"q": "Galapagos Kicker Rock"
+},
+{
+"destino": "Lima",
+"q": "Lima Miraflores coast"
+},
+{
+"destino": "Cusco",
+"q": "Cusco Plaza de Armas"
+},
+{
+"destino": "La Paz",
+"q": "La Paz Bolivia Illimani"
+},
+{
+"destino": "Santa Cruz de la Sierra",
+"q": "Santa Cruz de la Sierra plaza"
+},
+{
+"destino": "Caracas",
+"q": "Caracas Avila"
+},
+{
+"destino": "Maracaibo",
+"q": "Maracaibo bridge"
+},
+{
+"destino": "São Paulo",
+"q": "Avenida Paulista Sao Paulo"
+},
+{
+"destino": "Río de Janeiro",
+"q": "Sugarloaf Mountain Rio de Janeiro"
+},
+{
+"destino": "Salvador de Bahía",
+"q": "Pelourinho Salvador Bahia"
+},
+{
+"destino": "Florianópolis",
+"q": "Florianopolis beach"
+},
+{
+"destino": "Belo Horizonte",
+"q": "Pampulha Belo Horizonte"
+},
+{
+"destino": "Brasilia",
+"q": "Brasilia National Congress"
+},
+{
+"destino": "Manaos",
+"q": "Teatro Amazonas Manaus"
+},
+{
+"destino": "Belém",
+"q": "Ver-o-Peso Belem"
+},
+{
+"destino": "Buenos Aires",
+"q": "Buenos Aires Obelisco"
+},
+{
+"destino": "Bariloche",
+"q": "Bariloche Nahuel Huapi lake"
+},
+{
+"destino": "Mendoza",
+"q": "Mendoza vineyards Andes"
+},
+{
+"destino": "Salta",
+"q": "Salta Argentina cathedral"
+},
+{
+"destino": "Iguazú",
+"q": "Iguazu Falls"
+},
+{
+"destino": "Santiago de Chile",
+"q": "Santiago de Chile skyline Andes"
+},
+{
+"destino": "Iquique",
+"q": "Iquique Chile beach"
+},
+{
+"destino": "Montevideo",
+"q": "Montevideo Rambla"
+},
+{
+"destino": "Asunción",
+"q": "Asuncion Paraguay Palacio de los Lopez"
+},
+{
+"destino": "París",
+"q": "Eiffel Tower"
+},
+{
+"destino": "Niza",
+"q": "Nice Promenade des Anglais"
+},
+{
+"destino": "Madrid",
+"q": "Madrid Plaza Mayor"
+},
+{
+"destino": "Barcelona",
+"q": "Sagrada Familia"
+},
+{
+"destino": "Gran Canaria",
+"q": "Maspalomas dunes Gran Canaria"
+},
+{
+"destino": "Tenerife",
+"q": "Teide Tenerife"
+},
+{
+"destino": "Lisboa",
+"q": "Lisbon Alfama tram"
+},
+{
+"destino": "Roma",
+"q": "Colosseum Rome"
+},
+{
+"destino": "Venecia",
+"q": "Venice Grand Canal"
+},
+{
+"destino": "Milán",
+"q": "Milan Cathedral"
+},
+{
+"destino": "Ámsterdam",
+"q": "Amsterdam canal houses"
+},
+{
+"destino": "Bruselas",
+"q": "Grand Place Brussels"
+},
+{
+"destino": "Fráncfort",
+"q": "Frankfurt skyline Main"
+},
+{
+"destino": "Berlín",
+"q": "Brandenburg Gate"
+},
+{
+"destino": "Viena",
+"q": "Vienna Schonbrunn"
+},
+{
+"destino": "Zúrich",
+"q": "Zurich old town Limmat"
+},
+{
+"destino": "Copenhague",
+"q": "Nyhavn Copenhagen"
+},
+{
+"destino": "Estocolmo",
+"q": "Stockholm Gamla stan"
+},
+{
+"destino": "Oslo",
+"q": "Oslo Opera House"
+},
+{
+"destino": "Helsinki",
+"q": "Helsinki Cathedral"
+},
+{
+"destino": "Reikiavik",
+"q": "Reykjavik Hallgrimskirkja"
+},
+{
+"destino": "Dublín",
+"q": "Dublin Ha'penny Bridge"
+},
+{
+"destino": "Londres",
+"q": "Tower Bridge London"
+},
+{
+"destino": "Atenas",
+"q": "Acropolis Athens Parthenon"
+},
+{
+"destino": "Malta",
+"q": "Valletta Malta"
+},
+{
+"destino": "Estambul",
+"q": "Istanbul Hagia Sophia"
+},
+{
+"destino": "Tiflis",
+"q": "Tbilisi old town"
+},
+{
+"destino": "Marrakech",
+"q": "Marrakech Jemaa el-Fnaa"
+},
+{
+"destino": "El Cairo",
+"q": "Giza pyramids"
+},
+{
+"destino": "Dubái",
+"q": "Dubai skyline Burj Khalifa"
+},
+{
+"destino": "Johannesburgo",
+"q": "Johannesburg skyline"
+},
+{
+"destino": "Ciudad del Cabo",
+"q": "Table Mountain Cape Town"
+},
+{
+"destino": "Tokio",
+"q": "Mount Fuji"
+},
+{
+"destino": "Seúl",
+"q": "Gyeongbokgung Seoul"
+},
+{
+"destino": "Shanghái",
+"q": "Shanghai Pudong skyline Bund"
+},
+{
+"destino": "Pekín",
+"q": "Great Wall of China Mutianyu"
+},
+{
+"destino": "Hong Kong",
+"q": "Hong Kong skyline Victoria Harbour"
+},
+{
+"destino": "Singapur",
+"q": "Marina Bay Singapore"
+},
+{
+"destino": "Bangkok",
+"q": "Wat Arun Bangkok"
+},
+{
+"destino": "Bali",
+"q": "Bali rice terraces"
+},
+{
+"destino": "Yakarta",
+"q": "Jakarta National Monument"
+},
+{
+"destino": "Manila",
+"q": "Manila Intramuros"
+},
+{
+"destino": "Bombay",
+"q": "Gateway of India Mumbai"
+},
+{
+"destino": "Sídney",
+"q": "Sydney Opera House"
+},
+{
+"destino": "Melbourne",
+"q": "Melbourne skyline Yarra"
+},
+{
+"destino": "Brisbane",
+"q": "Brisbane skyline river"
+},
+{
+"destino": "Auckland",
+"q": "Auckland Sky Tower skyline"
+}
+]

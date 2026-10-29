@@ -1,0 +1,28 @@
+name: Fotos – biblioteca de destinos
+
+# Busca fotos reutilizables en Wikimedia Commons para cada destino (photos/destinos_in.json)
+# y guarda candidatos + hojas de contacto para elegir.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow requests
+      - run: python scripts/photo_library.py search
+      - name: Guardar
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add photos
+          git commit -m "Fotos: candidatos de la biblioteca de destinos" || exit 0
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
