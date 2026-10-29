@@ -54,6 +54,8 @@ def auth(code):
     me = requests.get(f"{API}/v2/user/info/", params={"fields": "display_name"}, timeout=30,
                       headers={"Authorization": f"Bearer {j['access_token']}"}).json()
     name = ((me.get("data") or {}).get("user") or {}).get("display_name", "?")
+    with open(os.path.join(ROOT, "tiktok", "connected.json"), "w") as f:   # flag for the daily task (no secrets)
+        json.dump({"account": name, "scope": j.get("scope"), "at": time.strftime("%Y-%m-%d %H:%M")}, f)
     summary(f"✅ TikTok conectado: cuenta **{name}**, permisos: {j.get('scope')}. "
             f"El token se renueva solo (válido 365 días).")
 
