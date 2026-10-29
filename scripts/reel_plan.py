@@ -125,7 +125,6 @@ def build(rid):
                 "media": {"type": "file", "path": img(plan.get("end_image", "dia1")), "focus": 0.5}},
         "caption": (f"{title} desde Bogotá ✈️ {tips} Ida y vuelta con {o['aerolinea']} desde {cop(o['precio'])} "
                     f"({fechas}). Mira la oferta en viajespillados.com – link en la bio.\n\n"
-                    "Ilustraciones: Viajes Pillados (con ayuda de IA).\n\n"
                     f"#viajespillados #vuelosbaratos #vuelosdesdebogota {ig.tag(o['destino'])} #ofertasdevuelos"),
     }
     json.dump(sb, open(os.path.join(base, "storyboard.json"), "w"), ensure_ascii=False, indent=1)

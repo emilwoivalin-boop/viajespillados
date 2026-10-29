@@ -205,8 +205,21 @@ async function loadOffers(){
       precio:Number(String(r[4]).replace(/[^\d]/g,"")), tipo:r[5], escalas:r[6], mes:r[7],
       categoria:r[8], link:r[9], foto:r[10], credito:r[11], credito_link:r[12]
     }));
+    if(list.length) await addLibraryPhotos(list);
     return list.length ? list : FALLBACK;
   }catch(e){ return FALLBACK; }
+}
+
+// Ofertas sin foto: usa la foto del destino de la pestaña "Fotos" (Destino | Foto | Crédito | Link).
+async function addLibraryPhotos(list){
+  if(list.every(o=>o.foto)) return;
+  try{
+    const url=`https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Fotos&_=${Date.now()}`;
+    const r=await fetch(url); if(!r.ok) return;
+    const key=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
+    const lib={}; parseCSV(await r.text()).slice(1).forEach(x=>{ if(x[0]&&x[1]) lib[key(x[0])]=x; });
+    list.forEach(o=>{ const x=!o.foto && lib[key(o.destino)]; if(x){o.foto=x[1]; o.credito=x[2]; o.credito_link=x[3];} });
+  }catch(e){}
 }
 
 const TODAY="Ofertas de hoy";

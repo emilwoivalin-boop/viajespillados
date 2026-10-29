@@ -67,7 +67,25 @@ def load_offers():
         o["precio_num"] = int(re.sub(r"[^\d]", "", o["precio"]) or 0)
         o["id"] = f"{slug(o['destino'])}-{o['publicado']}-{o['precio_num']}"
         offers.append(o)
+    lib = load_photo_library()
+    for o in offers:   # no photo on the offer row -> use the destination's photo from the tab "Fotos"
+        if not o["foto"] and slug(o["destino"]) in lib:
+            o["foto"], o["credito"], o["credito_link"] = lib[slug(o["destino"])]
     return offers
+
+
+def load_photo_library():
+    """Tab "Fotos": Destino | Foto (URL) | Crédito foto | Link crédito (one good photo per destination)."""
+    try:
+        url = (f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv"
+               f"&sheet={urllib.parse.quote('Fotos')}&_={int(time.time())}")
+        r = requests.get(url, timeout=30, headers=UA)
+        r.raise_for_status()
+        rows = list(csv.reader(io.StringIO(r.text)))[1:]
+        return {slug(r[0]): (r[1].strip(), r[2].strip(), r[3].strip()) for r in rows if len(r) >= 4 and r[0] and r[1]}
+    except Exception as e:
+        print("No se pudo leer la pestaña 'Fotos':", e)
+        return {}
 
 
 def load_tips():
