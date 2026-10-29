@@ -1,0 +1,32 @@
+{
+ "id": "tijuana-2027-03-26",
+ "offer": {
+  "destino": "Tijuana",
+  "aerolinea": "Viva",
+  "precio": 767957,
+  "escalas": "1 escala",
+  "ida": "2027-03-26",
+  "vuelta": "2027-04-04",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20TIJ%20from%20BOG%20on%202027-03-26%20through%202027-04-04&curr=COP&hl=es-419",
+  "sheet_row": 20
+ },
+ "hora_salida": null,
+ "drive_folder_id": "1oQXtVWh4xQM11jVh6jsxyE-0KQ4PfJOs",
+ "que_hacer": "Recorre la Avenida Revolución, prueba vinos en el Valle de Guadalupe y come langosta en Puerto Nuevo.",
+ "lines": {
+  "vuelo": "Vuelas con una escala, y al bajar ves cerros dorados y el Pacífico brillando.",
+  "llegada": "¡Bienvenido a Tijuana! Sales del aeropuerto y ya huele a tacos al carbón.",
+  "dia1": "Día uno: caminas la Avenida Revolución, entre tiendas de colores y su gran arco metálico.",
+  "dia2": "Día dos: te vas al Valle de Guadalupe a probar vinos entre viñedos y cerros.",
+  "dia3": "Día tres: en Puerto Nuevo comes langosta con frijoles, arroz y tortillas, mirando el atardecer."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below the dry golden hills of the Baja California desert meeting the deep blue Pacific Ocean coastline, sunny blue sky. Keep the lower half open with the landscape clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a small modern airport terminal in Tijuana, Mexico, dry brown hills in the background, a few tall palm trees, bright sunny sky, a simple taco stand with a striped awning at the side. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A lively Mexican city street (Avenida Revolución in Tijuana) with colorful two-story shops, papel picado banners strung across the street, and a large silver metal arch monument rising at the end of the street, sunny afternoon. The wide sidewalk in the lower half is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Valle de Guadalupe wine valley in Mexico: neat green rows of grapevines on gentle golden hills, a small rustic stone winery with a terracotta roof, a wooden table with a wine bottle and two glasses, warm late-afternoon light. A clear empty dirt path between the vine rows in the lower half.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A small seaside fishing village (Puerto Nuevo, Mexico) on a rocky Pacific cliff at sunset, orange and pink sky, waves below, a simple open-air restaurant terrace with a table holding a big red lobster, rice, beans and a stack of tortillas. Empty terrace floor in the lower half next to the table."
+ },
+ "scenes": {},
+ "end_image": "dia1"
+}
