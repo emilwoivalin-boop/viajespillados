@@ -5,7 +5,7 @@
  "banner": {},
  "scenes": [
   {
-   "text": "It's 4 PM on Thursday, the 29th of April, and you arrive at El Dorado airport. Grab your suitcase, we're heading to the Caribbean!",
+   "text": "4 PM, Thursday April 29th. You arrive at El Dorado airport. Grab your suitcase, we're heading to the Caribbean!",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado.jpg",
@@ -22,7 +22,7 @@
    }
   },
   {
-   "text": "Just a two-hour direct flight over the clouds, and the sea below starts turning turquoise.",
+   "text": "A two-hour direct flight, and the sea below turns turquoise.",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/flight.jpg",
@@ -33,7 +33,7 @@
    }
   },
   {
-   "text": "Welcome to Aruba! Warm trade winds, palm trees everywhere you look, and your Caribbean weekend starts tonight.",
+   "text": "Welcome to Aruba! Trade winds, palm trees, and your weekend starts tonight.",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/aruba-airport.jpg",
@@ -48,7 +48,7 @@
    }
   },
   {
-   "text": "Day one: lay your towel on the soft white sand of Eagle Beach, and relax under the famous twisted fofoti trees.",
+   "text": "Day one: relax on the soft white sand of Eagle Beach, under the famous fofoti trees.",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eagle-beach.jpg",
@@ -63,7 +63,7 @@
    }
   },
   {
-   "text": "Day two: rent a jeep, it's cheaper than taxis, and explore the wild coast of Arikok National Park all the way to the natural pool.",
+   "text": "Day two: rent a jeep and explore the wild coast of Arikok National Park, all the way to the natural pool.",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/arikok.jpg",
@@ -81,7 +81,7 @@
    }
   },
   {
-   "text": "Day three: snorkel in the calm, crystal clear water of Mangel Halto, full of colorful fish and coral.",
+   "text": "Day three: snorkel in the crystal clear water of Mangel Halto, full of colorful fish and coral.",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/reef.jpg",
@@ -96,7 +96,7 @@
    }
   },
   {
-   "text": "In the evening, head up to the California Lighthouse and watch the sky turn pink over the sea.",
+   "text": "At sunset, head to the California Lighthouse and watch the sky turn pink.",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/lighthouse.jpg",
@@ -111,7 +111,7 @@
    }
   },
   {
-   "text": "On Sunday you land back in Bogotá, tanned and happy. And you only took two days off work!",
+   "text": "Sunday you land back in Bogotá, tanned and happy. Only two days off work!",
    "media": {
     "type": "file",
     "path": "reels/aruba-abril-2027-cartoon/img/eldorado-night.jpg",
@@ -129,7 +129,7 @@
   }
  ],
  "end": {
-  "text": "So, what's the price? Round trip with Wingo for just 645 thousand pesos. Check out this offer and many more at viajespillados dot com!",
+  "text": "The price? Round trip with Wingo, just 645 thousand pesos. Check out this offer and many more at viajespillados dot com!",
   "kicker": "",
   "airline": "Wingo · direct flight",
   "price": "COP 645,976",
@@ -144,7 +144,7 @@
   "title": "3 days in Aruba"
  },
  "caption": "3 days in Aruba for a long weekend, flying direct from Bogotá ✈️ Chill on Eagle Beach, drive to Arikok's natural pool and snorkel at Mangel Halto. Round trip with Wingo from COP 645,976 (Apr 29 – May 2). See the deal on viajespillados.com – link in bio.\n\nIlustraciones / illustrations: Viajes Pillados (AI-assisted).\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #cheapflights",
- "rate": "+40%",
+ "rate": "+48%",
  "pad": 0.3,
  "seed": 11,
  "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
