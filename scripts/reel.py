@@ -318,13 +318,13 @@ def scene_sfx(sc, t0, dur, pops):
     if t0 > 0:
         ev.append((max(0, t0 - 0.12), "whoosh", 0.22))
     for pp in pops:
-        ev.append((t0 + pp["t"], "sparkle" if pp.get("icon") == "sparkle" else "pop", 0.28))
+        ev.append((t0 + pp["t"], "pop", 0.28))
     for amb in sc.get("ambience", []):           # background sound that matches the picture
         g = {"waves": 0.10, "underwater": 0.12, "crickets": 0.06, "flyby": 0.14}.get(amb, 0.1)
         ev.append((t0, amb, g, round(dur, 2)))
     st = sc.get("stick") or {}
     act = st.get("action", "none")
-    if act in ("walk", "suitcase"):
+    if act in ("walk", "suitcase") and sc.get("steps", False):
         n = int(dur * FPS) + 2
         y0, y1 = st.get("y", 0.7) * H, st.get("y1", st.get("y", 0.7)) * H
         steps = stickman.step_times(n, FPS, st.get("x0", 0.3), st.get("x1", st.get("x0", 0.3)), st.get("size", 330),
@@ -586,8 +586,9 @@ def render(rid):
     audio = os.path.join(work, "voice.wav")
     sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(work, "audio.txt"), audio)
     if sb.get("sfx", True):
-        sfx += [(max(0, t - 0.1), "whoosh", 0.22), (t + 0.05, "chime", 0.30),
-                (t + sb["end"].get("coin_at", 1.4), "coin", 0.28)]
+        sfx += [(max(0, t - 0.1), "whoosh", 0.22), (t + 0.05, "chime", 0.30)]
+        if sb["end"].get("coin"):
+            sfx.append((t + sb["end"].get("coin_at", 1.4), "coin", 0.28))
         fx = os.path.join(work, "sfx.wav")
         reelfx.write_track(sfx, t + end_dur, fx)
         mixed = os.path.join(work, "voice_sfx.wav")
