@@ -2,7 +2,9 @@
  "id": "aruba-abril-2027-cartoon-es",
  "offer_id": "aruba-2026-10-26-645976",
  "voice": "es-CO-GonzaloNeural",
- "banner": {},
+ "banner": {
+  "logo": false
+ },
  "scenes": [
   {
    "text": "Jueves 29 de abril, 4 de la tarde. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pal Caribe!",

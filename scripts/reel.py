@@ -361,9 +361,10 @@ def banner_png(b, path):
         shade2.putpixel((0, y), int(185 * (y / 700) ** 1.4))
     img.paste(Image.new("RGBA", (W, 700), (10, 18, 34, 255)), (0, H - 700), shade2.resize((W, 700)))
     d = ImageDraw.Draw(img)
-    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((76, 76), Image.LANCZOS)
-    img.alpha_composite(logo, (60, 150))
-    d.text((152, 188), "viajespillados", font=ig.font("ExtraBold", 38), fill="white", anchor="lm")
+    if b.get("logo", True):
+        logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((76, 76), Image.LANCZOS)
+        img.alpha_composite(logo, (60, 150))
+        d.text((152, 188), "viajespillados", font=ig.font("ExtraBold", 38), fill="white", anchor="lm")
     if b.get("title"):
         d.text((W // 2, 300), b["title"], font=ig.font("Black", 92), fill="white", anchor="mm")
     y = 380
