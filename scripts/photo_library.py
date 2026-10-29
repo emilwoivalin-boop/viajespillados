@@ -55,8 +55,8 @@ def search(q, quality):
     return out
 
 
-def run_search():
-    dest = json.load(open(os.path.join(ROOT, "photos", "destinos_in.json")))
+def run_search(src="destinos_in.json", out="candidates.json", prefix="sheet"):
+    dest = json.load(open(os.path.join(ROOT, "photos", src)))
     res = {}
     for d in dest:
         c = []
@@ -71,11 +71,11 @@ def run_search():
         res[d["destino"]] = c[:4]
         print(d["destino"], len(res[d["destino"]]))
         time.sleep(0.5)
-    json.dump(res, open(os.path.join(ROOT, "photos", "candidates.json"), "w"), ensure_ascii=False, indent=1)
-    sheets(res)
+    json.dump(res, open(os.path.join(ROOT, "photos", out), "w"), ensure_ascii=False, indent=1)
+    sheets(res, prefix)
 
 
-def sheets(res):
+def sheets(res, prefix="sheet"):
     os.makedirs(os.path.join(ROOT, "photos", "sheets"), exist_ok=True)
     try:
         font = ImageFont.truetype(os.path.join(ROOT, "instagram", "fonts", sorted(os.listdir(os.path.join(ROOT, "instagram", "fonts")))[0]), 22)
@@ -100,9 +100,11 @@ def sheets(res):
                 except Exception as e:
                     print("thumb", name, i, e)
                 time.sleep(0.2)
-        sheet.save(os.path.join(ROOT, "photos", "sheets", f"sheet_{s // per:02d}.jpg"), quality=80)
+        sheet.save(os.path.join(ROOT, "photos", "sheets", f"{prefix}_{s // per:02d}.jpg"), quality=80)
 
 
 if __name__ == "__main__":
     if sys.argv[1] == "search":
         run_search()
+    elif sys.argv[1] == "redo":
+        run_search("destinos_redo.json", "candidates_redo.json", "redo")

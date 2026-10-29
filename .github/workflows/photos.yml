@@ -4,6 +4,11 @@ name: Fotos – biblioteca de destinos
 # y guarda candidatos + hojas de contacto para elegir.
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [search, redo]
+        default: search
 
 permissions:
   contents: write
@@ -18,7 +23,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow requests
-      - run: python scripts/photo_library.py search
+      - run: python scripts/photo_library.py "${{ github.event.inputs.mode || 'search' }}"
       - name: Guardar
         run: |
           git config user.name "viajespillados-bot"
