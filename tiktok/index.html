@@ -1,0 +1,20 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Conectar TikTok</title><link rel="icon" href="../logo-icon.png"><style>
+:root{--navy:#14223b;--coral:#ff5a4e;--yellow:#ffc631;--bg:#fff8ec;--muted:#4f5b6b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--navy);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:32px 16px 64px}a{color:var(--coral)}h1{font-size:30px;line-height:1.2}h2{font-size:20px;margin-top:28px}
+header a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-weight:800}header img{width:36px;height:36px}
+.box{background:#fff;border:1px solid #f0e3c8;border-radius:14px;padding:18px;margin:18px 0}code{font-size:18px;word-break:break-all;background:#ffefc9;padding:6px 8px;border-radius:8px;display:block}
+button{background:var(--coral);color:#fff;border:0;border-radius:999px;padding:10px 18px;font-weight:700;font-size:16px;cursor:pointer;margin-top:10px}small{color:var(--muted)}
+</style></head><body><main><header><a href="../"><img src="../logo-icon.png" alt="">viajespillados</a></header>
+<h1>Conectar TikTok – paso 1</h1>
+<div class="box"><p>Pega el <b>Client key</b> de tu app de TikTok (TikTok for Developers › tu app › Credentials). No es secreto; el <i>Client secret</i> nunca va aquí.</p>
+<input id="k" placeholder="Client key" style="width:100%;font-size:17px;padding:10px;border:1px solid #f0e3c8;border-radius:10px">
+<button id="go">Autorizar con TikTok</button></div>
+<p><small>TikTok te pedirá iniciar sesión y aceptar los permisos <i>user.info.basic</i> y <i>video.upload</i> (subir videos a tus borradores). Luego vuelves a esta web con un código.</small></p>
+<script>
+document.getElementById("go").onclick=()=>{const k=document.getElementById("k").value.trim(); if(!k) return;
+ const u=new URL("https://www.tiktok.com/v2/auth/authorize/");
+ u.search=new URLSearchParams({client_key:k,scope:"user.info.basic,video.upload",response_type:"code",
+   redirect_uri:"https://viajespillados.com/tiktok/callback.html",state:"vp"+Date.now()}).toString();
+ location.href=u.toString();};
+</script></main></body></html>
