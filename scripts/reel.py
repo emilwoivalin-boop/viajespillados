@@ -318,8 +318,21 @@ def scene_sfx(sc, t0, dur, pops):
     if t0 > 0:
         ev.append((max(0, t0 - 0.12), "whoosh", 0.22))
     for pp in pops:
-        ev.append((t0 + pp["t"], "pop", 0.30))
-    act = (sc.get("stick") or {}).get("action", "none")
+        ev.append((t0 + pp["t"], "sparkle" if pp.get("icon") == "sparkle" else "pop", 0.28))
+    for amb in sc.get("ambience", []):           # background sound that matches the picture
+        g = {"waves": 0.10, "underwater": 0.12, "crickets": 0.06, "flyby": 0.14}.get(amb, 0.1)
+        ev.append((t0, amb, g, round(dur, 2)))
+    st = sc.get("stick") or {}
+    act = st.get("action", "none")
+    if act in ("walk", "suitcase"):
+        n = int(dur * FPS) + 2
+        y0, y1 = st.get("y", 0.7) * H, st.get("y1", st.get("y", 0.7)) * H
+        steps = stickman.step_times(n, FPS, st.get("x0", 0.3), st.get("x1", st.get("x0", 0.3)), st.get("size", 330),
+                                    y0, y1)
+        for k, s_ in enumerate(steps):
+            ev.append((t0 + s_, "step", 0.16 if k % 2 else 0.13))
+        if act == "suitcase" and len(steps) > 1:
+            ev.append((t0 + steps[0], "rumble", 0.05, round(steps[-1] - steps[0] + 0.3, 2)))
     if act == "celebrate":
         ev.append((t0 + 0.15, "boing", 0.22))
     elif act == "photo":
@@ -330,7 +343,7 @@ def scene_sfx(sc, t0, dur, pops):
     elif act == "swim":
         ev += [(t0 + 0.3, "bubbles", 0.22), (t0 + dur * 0.55, "bubbles", 0.18)]
     elif act == "drive":
-        ev.append((t0 + 0.1, "engine", 0.16))
+        ev += [(t0 + 0.1, "engine", 0.16), (t0 + 1.25, "engine", 0.13), (t0 + 2.4, "engine", 0.10)]
     return ev
 
 
@@ -533,7 +546,8 @@ def render(rid):
     end_audio = None
     if end.get("text"):
         end_audio = os.path.join(work, "vend.mp3")
-        end_audio, edur, _ = tight_voice(end["text"], voice, end_audio, rate)
+        end_audio, edur, end_words = tight_voice(end["text"], voice, end_audio, rate)
+        end["coin_at"] = word_time(end_words, "645", 1.4)
         end_dur = edur + 0.9
     else:
         end_dur = 3.0
@@ -572,7 +586,8 @@ def render(rid):
     audio = os.path.join(work, "voice.wav")
     sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(work, "audio.txt"), audio)
     if sb.get("sfx", True):
-        sfx += [(max(0, t - 0.1), "whoosh", 0.22), (t + 0.05, "chime", 0.30)]
+        sfx += [(max(0, t - 0.1), "whoosh", 0.22), (t + 0.05, "chime", 0.30),
+                (t + sb["end"].get("coin_at", 1.4), "coin", 0.28)]
         fx = os.path.join(work, "sfx.wav")
         reelfx.write_track(sfx, t + end_dur, fx)
         mixed = os.path.join(work, "voice_sfx.wav")

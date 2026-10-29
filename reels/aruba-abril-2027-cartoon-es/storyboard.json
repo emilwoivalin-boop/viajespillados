@@ -19,7 +19,17 @@
     "y1": 0.68,
     "size": 520,
     "size1": 260
-   }
+   },
+   "pops": [
+    {
+     "icon": "clock",
+     "word": "4",
+     "x": 0.84,
+     "y": 0.1,
+     "size": 202
+    }
+   ],
+   "ambience": []
   },
   {
    "text": "Dos horas de vuelo directo, y el mar abajo se pone turquesa.",
@@ -30,7 +40,19 @@
    },
    "stick": {
     "action": "none"
-   }
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "turquesa",
+     "x": 0.5,
+     "y": 0.8,
+     "size": 229
+    }
+   ],
+   "ambience": [
+    "flyby"
+   ]
   },
   {
    "text": "¡Bienvenido a Aruba! Brisa, palmeras, y el puente arranca esta misma noche.",
@@ -45,7 +67,26 @@
     "x1": 0.45,
     "y": 0.9,
     "size": 400
-   }
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "Aruba",
+     "x": 0.48,
+     "y": 0.41,
+     "size": 175
+    },
+    {
+     "icon": "heart",
+     "word": "palmeras",
+     "x": 0.8,
+     "y": 0.4,
+     "size": 162
+    }
+   ],
+   "ambience": [
+    "crickets"
+   ]
   },
   {
    "text": "Día uno: relájate en la arena blanca de Eagle Beach, bajo los famosos árboles fofoti.",
@@ -60,7 +101,19 @@
     "x1": 0.63,
     "y": 0.475,
     "size": 380
-   }
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "relájate",
+     "x": 0.85,
+     "y": 0.1,
+     "size": 229
+    }
+   ],
+   "ambience": [
+    "waves"
+   ]
   },
   {
    "text": "Día dos: alquila un jeep y recorre la costa salvaje del Parque Nacional Arikok, hasta la piscina natural.",
@@ -78,7 +131,19 @@
     "size": 150,
     "size1": 460,
     "facing": -1
-   }
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "piscina",
+     "x": 0.62,
+     "y": 0.4,
+     "size": 189
+    }
+   ],
+   "ambience": [
+    "waves"
+   ]
   },
   {
    "text": "Día tres: haz snorkel en el agua cristalina de Mangel Halto, llena de peces de colores y coral.",
@@ -93,7 +158,19 @@
     "x1": 0.65,
     "y": 0.37,
     "size": 380
-   }
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "coral",
+     "x": 0.62,
+     "y": 0.72,
+     "size": 189
+    }
+   ],
+   "ambience": [
+    "underwater"
+   ]
   },
   {
    "text": "Al atardecer, sube al Faro California y mira cómo el cielo se pone rosado.",
@@ -108,7 +185,26 @@
     "x1": 0.28,
     "y": 0.67,
     "size": 340
-   }
+   },
+   "pops": [
+    {
+     "icon": "camera",
+     "word": "Faro",
+     "x": 0.37,
+     "y": 0.43,
+     "size": 175
+    },
+    {
+     "icon": "heart",
+     "word": "rosado",
+     "x": 0.8,
+     "y": 0.42,
+     "size": 175
+    }
+   ],
+   "ambience": [
+    "waves"
+   ]
   },
   {
    "text": "El domingo aterrizas en Bogotá, bronceado y feliz. ¡Y solo pediste dos días libres!",
@@ -125,7 +221,24 @@
     "y1": 0.97,
     "size": 260,
     "size1": 520
-   }
+   },
+   "pops": [
+    {
+     "icon": "plane",
+     "word": "aterrizas",
+     "x": 0.8,
+     "y": 0.1,
+     "size": 229
+    },
+    {
+     "icon": "heart",
+     "word": "feliz",
+     "x": 0.6,
+     "y": 0.55,
+     "size": 175
+    }
+   ],
+   "ambience": []
   }
  ],
  "end": {

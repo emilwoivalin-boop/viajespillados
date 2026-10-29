@@ -335,6 +335,26 @@ def jeep(pen, x, ground, L, facing, t):
     return body, hood, wr, cy
 
 
+def step_times(n, fps, x0, x1, size, feet0=0, feet1=0, speed=1.0):
+    """Seconds at which a foot touches the ground (same walk maths as frames())."""
+    xs = [W * (x0 + (x1 - x0) * smooth(i / max(1, n - 1))) for i in range(n + 1)]
+    leg_L, phase, out, last = size * 0.44, 0.0, [], 0
+    for i in range(n):
+        p = i / max(1, n - 1)
+        e = smooth(p)
+        sz = size
+        v = math.hypot(xs[i + 1] - xs[i], (feet1 - feet0) * (smooth((i + 1) / max(1, n - 1)) - e)) * fps
+        f = max(0.7, min(1.1, v / (0.5 * sz))) if v > 1 else 0.7
+        amp = min(1.0, math.degrees(math.asin(min(0.45, v / f / 4 / leg_L))) / 22) if v > 1 else 0.0
+        phase += 2 * math.pi * f / fps * (1 if amp > 0.02 else 0)
+        k = int(phase // math.pi)
+        if k > last:
+            last = k
+            if amp > 0.15:
+                out.append(i / fps)
+    return out
+
+
 # ---------------------------------------------------------------- main generator
 def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.0,
            glasses=None, backpack=None, style=None, feet1=None, size1=None):

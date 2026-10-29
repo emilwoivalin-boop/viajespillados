@@ -19,7 +19,17 @@
     "y1": 0.68,
     "size": 520,
     "size1": 260
-   }
+   },
+   "pops": [
+    {
+     "icon": "clock",
+     "word": "4",
+     "x": 0.84,
+     "y": 0.1,
+     "size": 202
+    }
+   ],
+   "ambience": []
   },
   {
    "text": "A two-hour direct flight, and the sea below turns turquoise.",
@@ -30,7 +40,19 @@
    },
    "stick": {
     "action": "none"
-   }
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "turquoise",
+     "x": 0.5,
+     "y": 0.8,
+     "size": 229
+    }
+   ],
+   "ambience": [
+    "flyby"
+   ]
   },
   {
    "text": "Welcome to Aruba! Trade winds, palm trees, and your weekend starts tonight.",
@@ -45,7 +67,26 @@
     "x1": 0.45,
     "y": 0.9,
     "size": 400
-   }
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "Aruba",
+     "x": 0.48,
+     "y": 0.41,
+     "size": 175
+    },
+    {
+     "icon": "heart",
+     "word": "palm",
+     "x": 0.8,
+     "y": 0.4,
+     "size": 162
+    }
+   ],
+   "ambience": [
+    "crickets"
+   ]
   },
   {
    "text": "Day one: relax on the soft white sand of Eagle Beach, under the famous fofoti trees.",
@@ -60,7 +101,19 @@
     "x1": 0.63,
     "y": 0.475,
     "size": 380
-   }
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "relax",
+     "x": 0.85,
+     "y": 0.1,
+     "size": 229
+    }
+   ],
+   "ambience": [
+    "waves"
+   ]
   },
   {
    "text": "Day two: rent a jeep and explore the wild coast of Arikok National Park, all the way to the natural pool.",
@@ -78,7 +131,19 @@
     "size": 150,
     "size1": 460,
     "facing": -1
-   }
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "pool",
+     "x": 0.62,
+     "y": 0.4,
+     "size": 189
+    }
+   ],
+   "ambience": [
+    "waves"
+   ]
   },
   {
    "text": "Day three: snorkel in the crystal clear water of Mangel Halto, full of colorful fish and coral.",
@@ -93,7 +158,19 @@
     "x1": 0.65,
     "y": 0.37,
     "size": 380
-   }
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "coral",
+     "x": 0.62,
+     "y": 0.72,
+     "size": 189
+    }
+   ],
+   "ambience": [
+    "underwater"
+   ]
   },
   {
    "text": "At sunset, head to the California Lighthouse and watch the sky turn pink.",
@@ -108,7 +185,26 @@
     "x1": 0.28,
     "y": 0.67,
     "size": 340
-   }
+   },
+   "pops": [
+    {
+     "icon": "camera",
+     "word": "Lighthouse",
+     "x": 0.37,
+     "y": 0.43,
+     "size": 175
+    },
+    {
+     "icon": "heart",
+     "word": "pink",
+     "x": 0.8,
+     "y": 0.42,
+     "size": 175
+    }
+   ],
+   "ambience": [
+    "waves"
+   ]
   },
   {
    "text": "Sunday you land back in Bogotá, tanned and happy. Only two days off work!",
@@ -125,7 +221,24 @@
     "y1": 0.97,
     "size": 260,
     "size1": 520
-   }
+   },
+   "pops": [
+    {
+     "icon": "plane",
+     "word": "land",
+     "x": 0.8,
+     "y": 0.1,
+     "size": 229
+    },
+    {
+     "icon": "heart",
+     "word": "happy",
+     "x": 0.6,
+     "y": 0.55,
+     "size": 175
+    }
+   ],
+   "ambience": []
   }
  ],
  "end": {
