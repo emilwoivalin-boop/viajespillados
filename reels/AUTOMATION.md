@@ -113,4 +113,9 @@ Common facts
 1. Load today's entry; continue only if status is `rendered` (if `prompts_sent`: tell the owner the Reel wasn't built; stop).
 2. Run the workflow with mode `publish` and id. When it succeeds, `git pull` and read `reels/<id>/published.json` (permalink).
 3. Set status `published` (+ permalink) in `reels/daily.json`, commit + push.
-4. Output one line: "✅ Reel de <Destino> publicado: <permalink>". On failure: the error from `reels/<id>/error.txt` in one line.
+4. **TikTok draft**: if the repo secret TIKTOK_REFRESH_TOKEN exists (`gh secret list -R emilwoivalin-boop/viajespillados`), run
+   `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/tiktok.yml/dispatches -f ref=main -f 'inputs[mode]=upload' -f 'inputs[value]=<id>'`,
+   wait for it, `git pull`, and read `reels/<id>/tiktok.json` (or `tiktok_error.txt`). The video lands in the owner's TikTok inbox as a draft.
+5. Output: "✅ Reel de <Destino> publicado: <permalink>" and, if the TikTok upload worked, a second line
+   "📥 También está en tus borradores de TikTok: abre TikTok › notificaciones, añade un sonido en tendencia y publica." followed by the
+   caption from `reels/<id>/caption.txt` in a code block so it is easy to copy. On failure: the error in one line.

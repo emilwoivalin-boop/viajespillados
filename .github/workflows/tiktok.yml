@@ -1,0 +1,43 @@
+name: TikTok – conectar / subir
+
+# auth   = una vez: pega el código que muestra viajespillados.com/tiktok/callback.html
+# upload = envía reels/<id>/reel.mp4 a los borradores (bandeja) de TikTok
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [upload, auth]
+        default: upload
+      value:
+        description: "upload: id del reel (carpeta en reels/) · auth: código de TikTok"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  tiktok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests
+      - name: TikTok
+        env:
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+          GH_ADMIN_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
+        run: python scripts/tiktok.py "${{ github.event.inputs.mode }}" "${{ github.event.inputs.value }}"
+      - name: Guardar resultado
+        if: always() && github.event.inputs.mode == 'upload'
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reels || true
+          git commit -m "TikTok: ${{ github.event.inputs.value }}" || exit 0
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
