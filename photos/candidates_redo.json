@@ -1,0 +1,876 @@
+{
+ "Barranquilla": [
+  {
+   "file": "Ventanalmundo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Ventanalmundo.jpg/500px-Ventanalmundo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2448,
+   "h": 3264,
+   "license": "CC BY-SA 4.0",
+   "artist": "Jdvillalobos",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Ventanalmundo.jpg?width=1080",
+   "credito": "Jdvillalobos / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Ventanalmundo.jpg"
+  },
+  {
+   "file": "Ventana_al_mundo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Ventana_al_mundo.jpg/500px-Ventana_al_mundo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2232,
+   "h": 3968,
+   "license": "CC BY-SA 4.0",
+   "artist": "Purrego",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Ventana_al_mundo.jpg?width=1080",
+   "credito": "Purrego / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Ventana_al_mundo.jpg"
+  },
+  {
+   "file": "Ventana_al_Mundo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Ventana_al_Mundo.jpg/500px-Ventana_al_Mundo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2916,
+   "h": 5184,
+   "license": "CC BY-SA 4.0",
+   "artist": "IAmJesusDavid",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Ventana_al_Mundo.jpg?width=1080",
+   "credito": "IAmJesusDavid / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Ventana_al_Mundo.jpg"
+  },
+  {
+   "file": "HitoVentana1.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/HitoVentana1.jpg/500px-HitoVentana1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2448,
+   "h": 3264,
+   "license": "CC BY-SA 4.0",
+   "artist": "Jdvillalobos",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/HitoVentana1.jpg?width=1080",
+   "credito": "Jdvillalobos / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:HitoVentana1.jpg"
+  }
+ ],
+ "Pereira": [
+  {
+   "file": "CATEDRAL_NUESTRA_SEÑORA_DE_LA_POBREZA_09-09-2014.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/CATEDRAL_NUESTRA_SE%C3%91ORA_DE_LA_POBREZA_09-09-2014.JPG/500px-CATEDRAL_NUESTRA_SE%C3%91ORA_DE_LA_POBREZA_09-09-2014.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4517,
+   "h": 3477,
+   "license": "CC BY-SA 3.0",
+   "artist": "Juan Camilo Blandón Múnera",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/CATEDRAL_NUESTRA_SE%C3%91ORA_DE_LA_POBREZA_09-09-2014.JPG?width=1080",
+   "credito": "Juan Camilo Blandón Múnera / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:CATEDRAL_NUESTRA_SE%C3%91ORA_DE_LA_POBREZA_09-09-2014.JPG"
+  },
+  {
+   "file": "Catedral_de_Pereira.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Catedral_de_Pereira.jpg/500px-Catedral_de_Pereira.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2448,
+   "h": 3264,
+   "license": "CC BY-SA 4.0",
+   "artist": "Baiji",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Pereira.jpg?width=1080",
+   "credito": "Baiji / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Catedral_de_Pereira.jpg"
+  },
+  {
+   "file": "Catedral_de_Pereira_-_La_Piedad.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Catedral_de_Pereira_-_La_Piedad.jpg/500px-Catedral_de_Pereira_-_La_Piedad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3000,
+   "h": 4000,
+   "license": "CC BY-SA 4.0",
+   "artist": "SajoR",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Pereira_-_La_Piedad.jpg?width=1080",
+   "credito": "SajoR / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Catedral_de_Pereira_-_La_Piedad.jpg"
+  },
+  {
+   "file": "Catedral_de_Pereira_-_Bautisterio.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Catedral_de_Pereira_-_Bautisterio.jpg/500px-Catedral_de_Pereira_-_Bautisterio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3000,
+   "h": 4000,
+   "license": "CC BY-SA 4.0",
+   "artist": "SajoR",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Pereira_-_Bautisterio.jpg?width=1080",
+   "credito": "SajoR / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Catedral_de_Pereira_-_Bautisterio.jpg"
+  }
+ ],
+ "Montería": [
+  {
+   "file": "Patio_de_la_Monteria_Palace_Pedro_I_Alcazar_Seville_Spain.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Patio_de_la_Monteria_Palace_Pedro_I_Alcazar_Seville_Spain.jpg/500px-Patio_de_la_Monteria_Palace_Pedro_I_Alcazar_Seville_Spain.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2077,
+   "h": 3435,
+   "license": "CC BY-SA 3.0",
+   "artist": "Jebulon",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Patio_de_la_Monteria_Palace_Pedro_I_Alcazar_Seville_Spain.jpg?width=1080",
+   "credito": "Jebulon / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Patio_de_la_Monteria_Palace_Pedro_I_Alcazar_Seville_Spain.jpg"
+  },
+  {
+   "file": "Montería,_Cordoba,_Colombia_-_panoramio.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Monter%C3%ADa%2C_Cordoba%2C_Colombia_-_panoramio.jpg/500px-Monter%C3%ADa%2C_Cordoba%2C_Colombia_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2560,
+   "h": 1920,
+   "license": "CC BY-SA 3.0",
+   "artist": "pardocorp",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Monter%C3%ADa%2C_Cordoba%2C_Colombia_-_panoramio.jpg?width=1080",
+   "credito": "pardocorp / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Monter%C3%ADa,_Cordoba,_Colombia_-_panoramio.jpg"
+  },
+  {
+   "file": "Centro_Cultural_Banrep_Monteria.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Centro_Cultural_Banrep_Monteria.jpg/500px-Centro_Cultural_Banrep_Monteria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3975,
+   "h": 2729,
+   "license": "CC0",
+   "artist": "Anfecaro",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Centro_Cultural_Banrep_Monteria.jpg?width=1080",
+   "credito": "Anfecaro / Wikimedia Commons, CC0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Centro_Cultural_Banrep_Monteria.jpg"
+  },
+  {
+   "file": "IEAN_Montería-Colombia.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/IEAN_Monter%C3%ADa-Colombia.jpg/500px-IEAN_Monter%C3%ADa-Colombia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2936,
+   "h": 2202,
+   "license": "CC BY-SA 3.0",
+   "artist": "Dodo5555",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/IEAN_Monter%C3%ADa-Colombia.jpg?width=1080",
+   "credito": "Dodo5555 / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:IEAN_Monter%C3%ADa-Colombia.jpg"
+  }
+ ],
+ "Leticia": [
+  {
+   "file": "Amazon_River_95_km_upstream_of_Tabatinga,_Leticia.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Amazon_River_95_km_upstream_of_Tabatinga%2C_Leticia.jpg/500px-Amazon_River_95_km_upstream_of_Tabatinga%2C_Leticia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3032,
+   "h": 2008,
+   "license": "Public domain",
+   "artist": "ISS Expedition 4 crew member",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Amazon_River_95_km_upstream_of_Tabatinga%2C_Leticia.jpg?width=1080",
+   "credito": "ISS Expedition 4 crew member / Wikimedia Commons, Public domain",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Amazon_River_95_km_upstream_of_Tabatinga,_Leticia.jpg"
+  },
+  {
+   "file": "Amazon_River,_Colombia_(26748354339).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Amazon_River%2C_Colombia_%2826748354339%29.jpg/500px-Amazon_River%2C_Colombia_%2826748354339%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4810,
+   "h": 2405,
+   "license": "CC BY-SA 2.0",
+   "artist": "Pedro Szekely from Los Angeles, USA",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Amazon_River%2C_Colombia_%2826748354339%29.jpg?width=1080",
+   "credito": "Pedro Szekely from Los Angeles, USA / Wikimedia Commons, CC BY-SA 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Amazon_River,_Colombia_(26748354339).jpg"
+  },
+  {
+   "file": "Ações_do_AmazonLog_2017_em_Leticia,_na_Colômbia_(38264511866).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/A%C3%A7%C3%B5es_do_AmazonLog_2017_em_Leticia%2C_na_Col%C3%B4mbia_%2838264511866%29.jpg/500px-A%C3%A7%C3%B5es_do_AmazonLog_2017_em_Leticia%2C_na_Col%C3%B4mbia_%2838264511866%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3456,
+   "license": "CC BY 2.0",
+   "artist": "Agência Brasil Fotografias",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/A%C3%A7%C3%B5es_do_AmazonLog_2017_em_Leticia%2C_na_Col%C3%B4mbia_%2838264511866%29.jpg?width=1080",
+   "credito": "Agência Brasil Fotografias / Wikimedia Commons, CC BY 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:A%C3%A7%C3%B5es_do_AmazonLog_2017_em_Leticia,_na_Col%C3%B4mbia_(38264511866).jpg"
+  },
+  {
+   "file": "Amazonas,_Iquitos_-_Leticia,_Kolumbien_(11472727105).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Amazonas%2C_Iquitos_-_Leticia%2C_Kolumbien_%2811472727105%29.jpg/500px-Amazonas%2C_Iquitos_-_Leticia%2C_Kolumbien_%2811472727105%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4496,
+   "h": 3000,
+   "license": "CC BY-SA 2.0",
+   "artist": "M M from Switzerland",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Amazonas%2C_Iquitos_-_Leticia%2C_Kolumbien_%2811472727105%29.jpg?width=1080",
+   "credito": "M M from Switzerland / Wikimedia Commons, CC BY-SA 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Amazonas,_Iquitos_-_Leticia,_Kolumbien_(11472727105).jpg"
+  }
+ ],
+ "Villavicencio": [
+  {
+   "file": "Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8609276535).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609276535%29.jpg/500px-Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609276535%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3481,
+   "h": 2321,
+   "license": "CC BY-SA 2.0",
+   "artist": "National Police of Colombia",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609276535%29.jpg?width=1080",
+   "credito": "National Police of Colombia / Wikimedia Commons, CC BY-SA 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8609276535).jpg"
+  },
+  {
+   "file": "Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8610295136).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288610295136%29.jpg/500px-Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288610295136%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3956,
+   "h": 2638,
+   "license": "CC BY-SA 2.0",
+   "artist": "National Police of Colombia",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288610295136%29.jpg?width=1080",
+   "credito": "National Police of Colombia / Wikimedia Commons, CC BY-SA 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8610295136).jpg"
+  },
+  {
+   "file": "Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8609193285).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609193285%29.jpg/500px-Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609193285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3969,
+   "h": 2647,
+   "license": "CC BY-SA 2.0",
+   "artist": "National Police of Colombia",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609193285%29.jpg?width=1080",
+   "credito": "National Police of Colombia / Wikimedia Commons, CC BY-SA 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8609193285).jpg"
+  },
+  {
+   "file": "Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8609340525).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609340525%29.jpg/500px-Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609340525%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3770,
+   "h": 2513,
+   "license": "CC BY-SA 2.0",
+   "artist": "National Police of Colombia",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_%288609340525%29.jpg?width=1080",
+   "credito": "National Police of Colombia / Wikimedia Commons, CC BY-SA 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Tres_contundentes_golpes_a_las_estructuras_de_las_bandas_criminales_en_los_Llanos_Orientales_(8609340525).jpg"
+  }
+ ],
+ "Puerto Plata": [
+  {
+   "file": "Blue-headed_quail_dove_(Starnoenas_cyanocephala).JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Blue-headed_quail_dove_%28Starnoenas_cyanocephala%29.JPG/500px-Blue-headed_quail_dove_%28Starnoenas_cyanocephala%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5472,
+   "h": 3648,
+   "license": "CC BY-SA 4.0",
+   "artist": "Charles J. Sharp",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Blue-headed_quail_dove_%28Starnoenas_cyanocephala%29.JPG?width=1080",
+   "credito": "Charles J. Sharp / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Blue-headed_quail_dove_(Starnoenas_cyanocephala).JPG"
+  },
+  {
+   "file": "Playa_Dorada,_Provincia_Puerto_Plata_-_panoramio.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Playa_Dorada%2C_Provincia_Puerto_Plata_-_panoramio.jpg/500px-Playa_Dorada%2C_Provincia_Puerto_Plata_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3648,
+   "h": 2736,
+   "license": "CC BY 3.0",
+   "artist": "Juan Espaillat",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Playa_Dorada%2C_Provincia_Puerto_Plata_-_panoramio.jpg?width=1080",
+   "credito": "Juan Espaillat / Wikimedia Commons, CC BY 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Playa_Dorada,_Provincia_Puerto_Plata_-_panoramio.jpg"
+  },
+  {
+   "file": "Dominican_Republic_(340231836).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Dominican_Republic_%28340231836%29.jpg/500px-Dominican_Republic_%28340231836%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3096,
+   "h": 2312,
+   "license": "CC BY 2.0",
+   "artist": "Sandra Cohen-Rose and Colin Rose from Montreal, Canada",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Dominican_Republic_%28340231836%29.jpg?width=1080",
+   "credito": "Sandra Cohen-Rose and Colin Rose from Montreal, Canada / Wikimedia Commons, CC BY 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Dominican_Republic_(340231836).jpg"
+  },
+  {
+   "file": "Playa_Punta_Rucia,_Puerto_Plata_Province.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Playa_Punta_Rucia%2C_Puerto_Plata_Province.jpg/500px-Playa_Punta_Rucia%2C_Puerto_Plata_Province.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4608,
+   "h": 3456,
+   "license": "CC BY-SA 4.0",
+   "artist": "Man77",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Playa_Punta_Rucia%2C_Puerto_Plata_Province.jpg?width=1080",
+   "credito": "Man77 / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Playa_Punta_Rucia,_Puerto_Plata_Province.jpg"
+  }
+ ],
+ "Kingston": [
+  {
+   "file": "Kingston_Harbour,_Jamaica_(NBY_439806).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Kingston_Harbour%2C_Jamaica_%28NBY_439806%29.jpg/500px-Kingston_Harbour%2C_Jamaica_%28NBY_439806%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3600,
+   "h": 2324,
+   "license": "Public domain",
+   "artist": "Unknown authorUnknown author",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Kingston_Harbour%2C_Jamaica_%28NBY_439806%29.jpg?width=1080",
+   "credito": "Unknown authorUnknown author / Wikimedia Commons, Public domain",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Kingston_Harbour,_Jamaica_(NBY_439806).jpg"
+  },
+  {
+   "file": "Kingston_Harbour,_Jamaica_(NBY_442347).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Kingston_Harbour%2C_Jamaica_%28NBY_442347%29.jpg/500px-Kingston_Harbour%2C_Jamaica_%28NBY_442347%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3600,
+   "h": 2312,
+   "license": "Public domain",
+   "artist": "Unknown authorUnknown author",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Kingston_Harbour%2C_Jamaica_%28NBY_442347%29.jpg?width=1080",
+   "credito": "Unknown authorUnknown author / Wikimedia Commons, Public domain",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Kingston_Harbour,_Jamaica_(NBY_442347).jpg"
+  },
+  {
+   "file": "Kingston_Harbour,_Jamaica_(NBY_439807).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Kingston_Harbour%2C_Jamaica_%28NBY_439807%29.jpg/500px-Kingston_Harbour%2C_Jamaica_%28NBY_439807%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3600,
+   "h": 2316,
+   "license": "Public domain",
+   "artist": "Unknown authorUnknown author",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Kingston_Harbour%2C_Jamaica_%28NBY_439807%29.jpg?width=1080",
+   "credito": "Unknown authorUnknown author / Wikimedia Commons, Public domain",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Kingston_Harbour,_Jamaica_(NBY_439807).jpg"
+  },
+  {
+   "file": "Kingston_Harbour,_Jamaica_(NBY_442348).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Kingston_Harbour%2C_Jamaica_%28NBY_442348%29.jpg/500px-Kingston_Harbour%2C_Jamaica_%28NBY_442348%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3600,
+   "h": 2309,
+   "license": "Public domain",
+   "artist": "Unknown authorUnknown author",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Kingston_Harbour%2C_Jamaica_%28NBY_442348%29.jpg?width=1080",
+   "credito": "Unknown authorUnknown author / Wikimedia Commons, Public domain",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Kingston_Harbour,_Jamaica_(NBY_442348).jpg"
+  }
+ ],
+ "San Salvador": [
+  {
+   "file": "Santa_Tecla_BW_2012-10-05_08-06-21.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Santa_Tecla_BW_2012-10-05_08-06-21.JPG/500px-Santa_Tecla_BW_2012-10-05_08-06-21.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3872,
+   "h": 2592,
+   "license": "CC BY-SA 3.0",
+   "artist": "Berthold Werner",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Santa_Tecla_BW_2012-10-05_08-06-21.JPG?width=1080",
+   "credito": "Berthold Werner / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Santa_Tecla_BW_2012-10-05_08-06-21.JPG"
+  },
+  {
+   "file": "Toyota_Auris,_GIMS_2018,_Le_Grand-Saconnex_(1X7A1634).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Toyota_Auris%2C_GIMS_2018%2C_Le_Grand-Saconnex_%281X7A1634%29.jpg/500px-Toyota_Auris%2C_GIMS_2018%2C_Le_Grand-Saconnex_%281X7A1634%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5379,
+   "h": 3586,
+   "license": "CC BY-SA 4.0",
+   "artist": "Matti Blume",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Toyota_Auris%2C_GIMS_2018%2C_Le_Grand-Saconnex_%281X7A1634%29.jpg?width=1080",
+   "credito": "Matti Blume / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Toyota_Auris,_GIMS_2018,_Le_Grand-Saconnex_(1X7A1634).jpg"
+  },
+  {
+   "file": "Toyota_Highlander_Hybrid_(XU70)_1X7A6359.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Toyota_Highlander_Hybrid_%28XU70%29_1X7A6359.jpg/500px-Toyota_Highlander_Hybrid_%28XU70%29_1X7A6359.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3921,
+   "h": 2538,
+   "license": "CC BY-SA 4.0",
+   "artist": "Alexander Migl",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Toyota_Highlander_Hybrid_%28XU70%29_1X7A6359.jpg?width=1080",
+   "credito": "Alexander Migl / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Toyota_Highlander_Hybrid_(XU70)_1X7A6359.jpg"
+  },
+  {
+   "file": "Paris,_Platz_am_Palais_de_Chaillot_--_2014_--_1242.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Paris%2C_Platz_am_Palais_de_Chaillot_--_2014_--_1242.jpg/500px-Paris%2C_Platz_am_Palais_de_Chaillot_--_2014_--_1242.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5010,
+   "h": 3039,
+   "license": "CC BY-SA 4.0",
+   "artist": "Dietmar Rabich",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Paris%2C_Platz_am_Palais_de_Chaillot_--_2014_--_1242.jpg?width=1080",
+   "credito": "Dietmar Rabich / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Paris,_Platz_am_Palais_de_Chaillot_--_2014_--_1242.jpg"
+  }
+ ],
+ "San Pedro Sula": [
+  {
+   "file": "San_Pedro_Sula_Cathedral.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/San_Pedro_Sula_Cathedral.jpg/500px-San_Pedro_Sula_Cathedral.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2048,
+   "h": 1536,
+   "license": "CC BY-SA 2.0",
+   "artist": "Micah MacAllen",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/San_Pedro_Sula_Cathedral.jpg?width=1080",
+   "credito": "Micah MacAllen / Wikimedia Commons, CC BY-SA 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:San_Pedro_Sula_Cathedral.jpg"
+  },
+  {
+   "file": "Chef_del_Aire_-_San_Pedro_Sula_1980.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Chef_del_Aire_-_San_Pedro_Sula_1980.jpg/500px-Chef_del_Aire_-_San_Pedro_Sula_1980.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2621,
+   "h": 2083,
+   "license": "CC BY-SA 4.0",
+   "artist": "Infrogmation of New Orleans",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Chef_del_Aire_-_San_Pedro_Sula_1980.jpg?width=1080",
+   "credito": "Infrogmation of New Orleans / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Chef_del_Aire_-_San_Pedro_Sula_1980.jpg"
+  },
+  {
+   "file": "Waiting_on_the_stairs,_San_Pedro_Sula,_Honduras_1980.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Waiting_on_the_stairs%2C_San_Pedro_Sula%2C_Honduras_1980.jpg/500px-Waiting_on_the_stairs%2C_San_Pedro_Sula%2C_Honduras_1980.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2663,
+   "h": 2039,
+   "license": "CC BY 2.0",
+   "artist": "Infrogmation of New Orleans",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Waiting_on_the_stairs%2C_San_Pedro_Sula%2C_Honduras_1980.jpg?width=1080",
+   "credito": "Infrogmation of New Orleans / Wikimedia Commons, CC BY 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Waiting_on_the_stairs,_San_Pedro_Sula,_Honduras_1980.jpg"
+  },
+  {
+   "file": "Honduras_1980_-_San_Pedro_Sula_Grupo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Honduras_1980_-_San_Pedro_Sula_Grupo.jpg/500px-Honduras_1980_-_San_Pedro_Sula_Grupo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2632,
+   "h": 2069,
+   "license": "CC BY 2.0",
+   "artist": "Infrogmation of New Orleans",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Honduras_1980_-_San_Pedro_Sula_Grupo.jpg?width=1080",
+   "credito": "Infrogmation of New Orleans / Wikimedia Commons, CC BY 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Honduras_1980_-_San_Pedro_Sula_Grupo.jpg"
+  }
+ ],
+ "Guadalajara": [
+  {
+   "file": "Catedral_metropolitana_de_Guadalajara_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Catedral_metropolitana_de_Guadalajara_01.jpg/500px-Catedral_metropolitana_de_Guadalajara_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4025,
+   "h": 2264,
+   "license": "CC BY-SA 4.0",
+   "artist": "ProtoplasmaKid",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_metropolitana_de_Guadalajara_01.jpg?width=1080",
+   "credito": "ProtoplasmaKid / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Catedral_metropolitana_de_Guadalajara_01.jpg"
+  },
+  {
+   "file": "Catedral_de_Guadalajara_Jalisco_1974.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Catedral_de_Guadalajara_Jalisco_1974.jpg/500px-Catedral_de_Guadalajara_Jalisco_1974.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 8187,
+   "h": 8305,
+   "license": "CC BY-SA 4.0",
+   "artist": "Infrogmation",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Guadalajara_Jalisco_1974.jpg?width=1080",
+   "credito": "Infrogmation / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Catedral_de_Guadalajara_Jalisco_1974.jpg"
+  },
+  {
+   "file": "Catedral_metropolitana_de_Guadalajara_10.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Catedral_metropolitana_de_Guadalajara_10.jpg/500px-Catedral_metropolitana_de_Guadalajara_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2268,
+   "h": 4032,
+   "license": "CC BY-SA 4.0",
+   "artist": "ProtoplasmaKid",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_metropolitana_de_Guadalajara_10.jpg?width=1080",
+   "credito": "ProtoplasmaKid / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Catedral_metropolitana_de_Guadalajara_10.jpg"
+  },
+  {
+   "file": "Catedral_metropolitana_de_Guadalajara_04.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Catedral_metropolitana_de_Guadalajara_04.jpg/500px-Catedral_metropolitana_de_Guadalajara_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2264,
+   "h": 4025,
+   "license": "CC BY-SA 4.0",
+   "artist": "ProtoplasmaKid",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_metropolitana_de_Guadalajara_04.jpg?width=1080",
+   "credito": "ProtoplasmaKid / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Catedral_metropolitana_de_Guadalajara_04.jpg"
+  }
+ ],
+ "Los Ángeles": [
+  {
+   "file": "Griffith_Observatory_2012_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Griffith_Observatory_2012_01.jpg/500px-Griffith_Observatory_2012_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5184,
+   "h": 3456,
+   "license": "CC BY-SA 4.0",
+   "artist": "Photograph by Mike Peel (www.mikepeel.net).",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Griffith_Observatory_2012_01.jpg?width=1080",
+   "credito": "Photograph by Mike Peel (www.mikepeel.net). / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Griffith_Observatory_2012_01.jpg"
+  },
+  {
+   "file": "Griffith_Observatory_2012_18.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Griffith_Observatory_2012_18.jpg/500px-Griffith_Observatory_2012_18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3456,
+   "h": 5184,
+   "license": "CC BY-SA 4.0",
+   "artist": "Photograph by Mike Peel (www.mikepeel.net).",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Griffith_Observatory_2012_18.jpg?width=1080",
+   "credito": "Photograph by Mike Peel (www.mikepeel.net). / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Griffith_Observatory_2012_18.jpg"
+  },
+  {
+   "file": "Griffith_Observatory_2008_(Griffith_park).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Griffith_Observatory_2008_%28Griffith_park%29.jpg/500px-Griffith_Observatory_2008_%28Griffith_park%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2825,
+   "h": 4238,
+   "license": "CC BY 2.0",
+   "artist": "sam garza",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Griffith_Observatory_2008_%28Griffith_park%29.jpg?width=1080",
+   "credito": "sam garza / Wikimedia Commons, CC BY 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Griffith_Observatory_2008_(Griffith_park).jpg"
+  },
+  {
+   "file": "Griffith_Observatory,_Los_Angeles_2015-07-19.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Griffith_Observatory%2C_Los_Angeles_2015-07-19.jpg/500px-Griffith_Observatory%2C_Los_Angeles_2015-07-19.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2461,
+   "h": 3692,
+   "license": "CC BY-SA 4.0",
+   "artist": "Eric C Gardner",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Griffith_Observatory%2C_Los_Angeles_2015-07-19.jpg?width=1080",
+   "credito": "Eric C Gardner / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Griffith_Observatory,_Los_Angeles_2015-07-19.jpg"
+  }
+ ],
+ "Belo Horizonte": [
+  {
+   "file": "Igreja_São_Francisco_de_Assis_(98975).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Igreja_S%C3%A3o_Francisco_de_Assis_%2898975%29.jpg/500px-Igreja_S%C3%A3o_Francisco_de_Assis_%2898975%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 3000,
+   "license": "CC BY 4.0",
+   "artist": "Boaventuravinicius",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Igreja_S%C3%A3o_Francisco_de_Assis_%2898975%29.jpg?width=1080",
+   "credito": "Boaventuravinicius / Wikimedia Commons, CC BY 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Igreja_S%C3%A3o_Francisco_de_Assis_(98975).jpg"
+  },
+  {
+   "file": "Igreja_São_Francisco_de_Assis_(40301).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Igreja_S%C3%A3o_Francisco_de_Assis_%2840301%29.jpg/500px-Igreja_S%C3%A3o_Francisco_de_Assis_%2840301%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3000,
+   "h": 4000,
+   "license": "CC BY 4.0",
+   "artist": "Boaventuravinicius",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Igreja_S%C3%A3o_Francisco_de_Assis_%2840301%29.jpg?width=1080",
+   "credito": "Boaventuravinicius / Wikimedia Commons, CC BY 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Igreja_S%C3%A3o_Francisco_de_Assis_(40301).jpg"
+  },
+  {
+   "file": "Igreja_São_Francisco_de_Assis-_Pampulha-_BH-MG.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Igreja_S%C3%A3o_Francisco_de_Assis-_Pampulha-_BH-MG.jpg/500px-Igreja_S%C3%A3o_Francisco_de_Assis-_Pampulha-_BH-MG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1822,
+   "h": 1119,
+   "license": "CC BY-SA 4.0",
+   "artist": "Augusto Dewas",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Igreja_S%C3%A3o_Francisco_de_Assis-_Pampulha-_BH-MG.jpg?width=1080",
+   "credito": "Augusto Dewas / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Igreja_S%C3%A3o_Francisco_de_Assis-_Pampulha-_BH-MG.jpg"
+  },
+  {
+   "file": "Igreja_São_francisco_de_Assis_-_Pampulha,_Belo_Horizonte.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Igreja_S%C3%A3o_francisco_de_Assis_-_Pampulha%2C_Belo_Horizonte.jpg/500px-Igreja_S%C3%A3o_francisco_de_Assis_-_Pampulha%2C_Belo_Horizonte.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4820,
+   "h": 3213,
+   "license": "CC BY-SA 4.0",
+   "artist": "Guilherme Mário da Silva",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Igreja_S%C3%A3o_francisco_de_Assis_-_Pampulha%2C_Belo_Horizonte.jpg?width=1080",
+   "credito": "Guilherme Mário da Silva / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Igreja_S%C3%A3o_francisco_de_Assis_-_Pampulha,_Belo_Horizonte.jpg"
+  }
+ ],
+ "Buenos Aires": [
+  {
+   "file": "Casa_Rosada,_Buenos_Aires,_Argentina.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Casa_Rosada%2C_Buenos_Aires%2C_Argentina.jpg/500px-Casa_Rosada%2C_Buenos_Aires%2C_Argentina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3694,
+   "h": 2144,
+   "license": "CC BY-SA 3.0",
+   "artist": "Diego Delso",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Casa_Rosada%2C_Buenos_Aires%2C_Argentina.jpg?width=1080",
+   "credito": "Diego Delso / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Casa_Rosada,_Buenos_Aires,_Argentina.jpg"
+  },
+  {
+   "file": "Casa_Rosada_façade.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Casa_Rosada_fa%C3%A7ade.jpg/500px-Casa_Rosada_fa%C3%A7ade.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5000,
+   "h": 2971,
+   "license": "CC BY-SA 2.5 ca",
+   "artist": "The Cosmonaut",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Casa_Rosada_fa%C3%A7ade.jpg?width=1080",
+   "credito": "The Cosmonaut / Wikimedia Commons, CC BY-SA 2.5 ca",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Casa_Rosada_fa%C3%A7ade.jpg"
+  },
+  {
+   "file": "Patio_de_las_Palmeras,_Casa_Rosada.jpeg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Patio_de_las_Palmeras%2C_Casa_Rosada.jpeg/500px-Patio_de_las_Palmeras%2C_Casa_Rosada.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3282,
+   "h": 5000,
+   "license": "CC BY-SA 2.5 ca",
+   "artist": "The Cosmonaut",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Patio_de_las_Palmeras%2C_Casa_Rosada.jpeg?width=1080",
+   "credito": "The Cosmonaut / Wikimedia Commons, CC BY-SA 2.5 ca",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Patio_de_las_Palmeras,_Casa_Rosada.jpeg"
+  },
+  {
+   "file": "Patio_de_las_Palmeras,_Casa_Rosada1.jpeg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Patio_de_las_Palmeras%2C_Casa_Rosada1.jpeg/500px-Patio_de_las_Palmeras%2C_Casa_Rosada1.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3320,
+   "h": 5010,
+   "license": "CC BY-SA 2.5 ca",
+   "artist": "The Cosmonaut",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Patio_de_las_Palmeras%2C_Casa_Rosada1.jpeg?width=1080",
+   "credito": "The Cosmonaut / Wikimedia Commons, CC BY-SA 2.5 ca",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Patio_de_las_Palmeras,_Casa_Rosada1.jpeg"
+  }
+ ],
+ "Santiago de Chile": [
+  {
+   "file": "Santiago_Cable_Car.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Santiago_Cable_Car.jpg/500px-Santiago_Cable_Car.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3989,
+   "h": 5983,
+   "license": "CC0",
+   "artist": "Robert Motecinos Holda",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Santiago_Cable_Car.jpg?width=1080",
+   "credito": "Robert Motecinos Holda / Wikimedia Commons, CC0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Santiago_Cable_Car.jpg"
+  },
+  {
+   "file": "Sanhattan_desde_el_Cerro_San_Cristóbal,_Santiago_de_Chile.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Sanhattan_desde_el_Cerro_San_Crist%C3%B3bal%2C_Santiago_de_Chile.jpg/500px-Sanhattan_desde_el_Cerro_San_Crist%C3%B3bal%2C_Santiago_de_Chile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2592,
+   "h": 1456,
+   "license": "CC BY-SA 4.0",
+   "artist": "AlexVanHeusen",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Sanhattan_desde_el_Cerro_San_Crist%C3%B3bal%2C_Santiago_de_Chile.jpg?width=1080",
+   "credito": "AlexVanHeusen / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Sanhattan_desde_el_Cerro_San_Crist%C3%B3bal,_Santiago_de_Chile.jpg"
+  },
+  {
+   "file": "Providencia_and_the_Andes_viewed_from_Bellavista,_Santiago_(5126208048).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Providencia_and_the_Andes_viewed_from_Bellavista%2C_Santiago_%285126208048%29.jpg/500px-Providencia_and_the_Andes_viewed_from_Bellavista%2C_Santiago_%285126208048%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1944,
+   "h": 1296,
+   "license": "CC BY 2.0",
+   "artist": "Robert Cutts from Bristol, England, UK",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Providencia_and_the_Andes_viewed_from_Bellavista%2C_Santiago_%285126208048%29.jpg?width=1080",
+   "credito": "Robert Cutts from Bristol, England, UK / Wikimedia Commons, CC BY 2.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Providencia_and_the_Andes_viewed_from_Bellavista,_Santiago_(5126208048).jpg"
+  },
+  {
+   "file": "Teleférico_de_Santiago_-_Junio_2017_-_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Telef%C3%A9rico_de_Santiago_-_Junio_2017_-_01.jpg/500px-Telef%C3%A9rico_de_Santiago_-_Junio_2017_-_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4096,
+   "h": 2304,
+   "license": "CC BY-SA 4.0",
+   "artist": "Jorge Barrios Riquelme",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Telef%C3%A9rico_de_Santiago_-_Junio_2017_-_01.jpg?width=1080",
+   "credito": "Jorge Barrios Riquelme / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Telef%C3%A9rico_de_Santiago_-_Junio_2017_-_01.jpg"
+  }
+ ],
+ "Montevideo": [
+  {
+   "file": "Montevideo_Palacio_Salvo-20110506-RM-114438.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Montevideo_Palacio_Salvo-20110506-RM-114438.jpg/500px-Montevideo_Palacio_Salvo-20110506-RM-114438.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2992,
+   "h": 4467,
+   "license": "CC BY-SA 4.0",
+   "artist": "Ermell",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Montevideo_Palacio_Salvo-20110506-RM-114438.jpg?width=1080",
+   "credito": "Ermell / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Montevideo_Palacio_Salvo-20110506-RM-114438.jpg"
+  },
+  {
+   "file": "Palacio_Salvo,_Montevideo,_Uruguay_(2019).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Palacio_Salvo%2C_Montevideo%2C_Uruguay_%282019%29.jpg/500px-Palacio_Salvo%2C_Montevideo%2C_Uruguay_%282019%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3338,
+   "h": 4425,
+   "license": "CC BY-SA 4.0",
+   "artist": "Bruce R.Schulman",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Palacio_Salvo%2C_Montevideo%2C_Uruguay_%282019%29.jpg?width=1080",
+   "credito": "Bruce R.Schulman / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Palacio_Salvo,_Montevideo,_Uruguay_(2019).jpg"
+  },
+  {
+   "file": "Montevideo_Palacio-Salvo.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Montevideo_Palacio-Salvo.jpg/500px-Montevideo_Palacio-Salvo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 2300,
+   "h": 2325,
+   "license": "CC BY 4.0",
+   "artist": "acediscovery",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Montevideo_Palacio-Salvo.jpg?width=1080",
+   "credito": "acediscovery / Wikimedia Commons, CC BY 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Montevideo_Palacio-Salvo.jpg"
+  },
+  {
+   "file": "Palacio_Salvo,_Montevideo,_Plaza_Independencia.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Palacio_Salvo%2C_Montevideo%2C_Plaza_Independencia.JPG/500px-Palacio_Salvo%2C_Montevideo%2C_Plaza_Independencia.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 1704,
+   "h": 2272,
+   "license": "Public domain",
+   "artist": "Herr stahlhoefer",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Palacio_Salvo%2C_Montevideo%2C_Plaza_Independencia.JPG?width=1080",
+   "credito": "Herr stahlhoefer / Wikimedia Commons, Public domain",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Palacio_Salvo,_Montevideo,_Plaza_Independencia.JPG"
+  }
+ ],
+ "Tenerife": [
+  {
+   "file": "Cumbre_dorsal_-_Teide.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Cumbre_dorsal_-_Teide.jpg/500px-Cumbre_dorsal_-_Teide.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5855,
+   "h": 3042,
+   "license": "CC BY-SA 3.0",
+   "artist": "H. Zell",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Cumbre_dorsal_-_Teide.jpg?width=1080",
+   "credito": "H. Zell / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Cumbre_dorsal_-_Teide.jpg"
+  },
+  {
+   "file": "Teide_Parque_Nacional_R01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Teide_Parque_Nacional_R01.jpg/500px-Teide_Parque_Nacional_R01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4764,
+   "h": 3526,
+   "license": "CC BY 3.0",
+   "artist": "Marc Ryckaert",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Teide_Parque_Nacional_R01.jpg?width=1080",
+   "credito": "Marc Ryckaert / Wikimedia Commons, CC BY 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Teide_Parque_Nacional_R01.jpg"
+  },
+  {
+   "file": "Teide-Einsturzkrater-2011.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Teide-Einsturzkrater-2011.jpg/500px-Teide-Einsturzkrater-2011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4928,
+   "h": 3264,
+   "license": "CC BY-SA 3.0",
+   "artist": "Tuxyso",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Teide-Einsturzkrater-2011.jpg?width=1080",
+   "credito": "Tuxyso / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Teide-Einsturzkrater-2011.jpg"
+  },
+  {
+   "file": "Pico_del_Teide_-_Tenerife_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Pico_del_Teide_-_Tenerife_01.jpg/500px-Pico_del_Teide_-_Tenerife_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5748,
+   "h": 3995,
+   "license": "CC BY-SA 3.0",
+   "artist": "H. Zell",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Pico_del_Teide_-_Tenerife_01.jpg?width=1080",
+   "credito": "H. Zell / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Pico_del_Teide_-_Tenerife_01.jpg"
+  }
+ ],
+ "Ciudad del Cabo": [
+  {
+   "file": "Cape_Town_City_Bowl_and_Table_Mountain_at_dawn.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Cape_Town_City_Bowl_and_Table_Mountain_at_dawn.jpg/500px-Cape_Town_City_Bowl_and_Table_Mountain_at_dawn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 5268,
+   "h": 3381,
+   "license": "CC BY-SA 3.0",
+   "artist": "Daniel Case",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Cape_Town_City_Bowl_and_Table_Mountain_at_dawn.jpg?width=1080",
+   "credito": "Daniel Case / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Cape_Town_City_Bowl_and_Table_Mountain_at_dawn.jpg"
+  },
+  {
+   "file": "Cape_Town_(ZA),_Table_Mountain_--_2024_--_3437.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Cape_Town_%28ZA%29%2C_Table_Mountain_--_2024_--_3437.jpg/500px-Cape_Town_%28ZA%29%2C_Table_Mountain_--_2024_--_3437.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6559,
+   "h": 3689,
+   "license": "CC BY-SA 4.0",
+   "artist": "Dietmar Rabich",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Cape_Town_%28ZA%29%2C_Table_Mountain_--_2024_--_3437.jpg?width=1080",
+   "credito": "Dietmar Rabich / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Table_Mountain_--_2024_--_3437.jpg"
+  },
+  {
+   "file": "Cape_Town_(ZA),_Table_Mountain,_Blick_auf_City_Bowl_--_2024_--_2826.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Cape_Town_%28ZA%29%2C_Table_Mountain%2C_Blick_auf_City_Bowl_--_2024_--_2826.jpg/500px-Cape_Town_%28ZA%29%2C_Table_Mountain%2C_Blick_auf_City_Bowl_--_2024_--_2826.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6720,
+   "h": 4480,
+   "license": "CC BY-SA 4.0",
+   "artist": "Dietmar Rabich",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Cape_Town_%28ZA%29%2C_Table_Mountain%2C_Blick_auf_City_Bowl_--_2024_--_2826.jpg?width=1080",
+   "credito": "Dietmar Rabich / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Table_Mountain,_Blick_auf_City_Bowl_--_2024_--_2826.jpg"
+  },
+  {
+   "file": "Cape_Town_(ZA),_Table_Mountain,_Blick_auf_City_Bowl_--_2024_--_2855.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Cape_Town_%28ZA%29%2C_Table_Mountain%2C_Blick_auf_City_Bowl_--_2024_--_2855.jpg/500px-Cape_Town_%28ZA%29%2C_Table_Mountain%2C_Blick_auf_City_Bowl_--_2024_--_2855.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 6720,
+   "h": 4480,
+   "license": "CC BY-SA 4.0",
+   "artist": "Dietmar Rabich",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Cape_Town_%28ZA%29%2C_Table_Mountain%2C_Blick_auf_City_Bowl_--_2024_--_2855.jpg?width=1080",
+   "credito": "Dietmar Rabich / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Table_Mountain,_Blick_auf_City_Bowl_--_2024_--_2855.jpg"
+  }
+ ],
+ "Yakarta": [
+  {
+   "file": "Tourists_posing_at_the_National_Monument_of_Scotland.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Tourists_posing_at_the_National_Monument_of_Scotland.jpg/500px-Tourists_posing_at_the_National_Monument_of_Scotland.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3584,
+   "h": 2081,
+   "license": "CC BY-SA 4.0",
+   "artist": "Colin",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Tourists_posing_at_the_National_Monument_of_Scotland.jpg?width=1080",
+   "credito": "Colin / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Tourists_posing_at_the_National_Monument_of_Scotland.jpg"
+  },
+  {
+   "file": "Colorado_National_Monument_entrance.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Colorado_National_Monument_entrance.jpg/500px-Colorado_National_Monument_entrance.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4368,
+   "h": 2912,
+   "license": "CC BY-SA 4.0",
+   "artist": "Daniel Schwen",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Colorado_National_Monument_entrance.jpg?width=1080",
+   "credito": "Daniel Schwen / Wikimedia Commons, CC BY-SA 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Colorado_National_Monument_entrance.jpg"
+  },
+  {
+   "file": "Edinburgh_National_Monument_20211020.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Edinburgh_National_Monument_20211020.jpg/500px-Edinburgh_National_Monument_20211020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 3681,
+   "h": 2582,
+   "license": "CC BY-SA 3.0",
+   "artist": "Daniel Kraft",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Edinburgh_National_Monument_20211020.jpg?width=1080",
+   "credito": "Daniel Kraft / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Edinburgh_National_Monument_20211020.jpg"
+  },
+  {
+   "file": "Kasha-Katuwe_Tent_Rocks_National_Monument_entrance_sign.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Kasha-Katuwe_Tent_Rocks_National_Monument_entrance_sign.jpg/500px-Kasha-Katuwe_Tent_Rocks_National_Monument_entrance_sign.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4032,
+   "h": 3024,
+   "license": "CC BY-SA 3.0",
+   "artist": "Grendelkhan",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Kasha-Katuwe_Tent_Rocks_National_Monument_entrance_sign.jpg?width=1080",
+   "credito": "Grendelkhan / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Kasha-Katuwe_Tent_Rocks_National_Monument_entrance_sign.jpg"
+  }
+ ],
+ "Manila": [
+  {
+   "file": "Erronea_pyriformis_01.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Erronea_pyriformis_01.jpg/500px-Erronea_pyriformis_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 11400,
+   "h": 9000,
+   "license": "CC BY-SA 3.0",
+   "artist": "H. Zell",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Erronea_pyriformis_01.jpg?width=1080",
+   "credito": "H. Zell / Wikimedia Commons, CC BY-SA 3.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Erronea_pyriformis_01.jpg"
+  },
+  {
+   "file": "Sunset_in_Manila_Bay,_Manila,_Philippines.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Sunset_in_Manila_Bay%2C_Manila%2C_Philippines.jpg/500px-Sunset_in_Manila_Bay%2C_Manila%2C_Philippines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 2667,
+   "license": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset_in_Manila_Bay%2C_Manila%2C_Philippines.jpg?width=1080",
+   "credito": "Vyacheslav Argenberg / Wikimedia Commons, CC BY 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Sunset_in_Manila_Bay,_Manila,_Philippines.jpg"
+  },
+  {
+   "file": "Majestic_sunset_in_Manila_Bay,_Manila,_Philippines.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Majestic_sunset_in_Manila_Bay%2C_Manila%2C_Philippines.jpg/500px-Majestic_sunset_in_Manila_Bay%2C_Manila%2C_Philippines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 2667,
+   "license": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Majestic_sunset_in_Manila_Bay%2C_Manila%2C_Philippines.jpg?width=1080",
+   "credito": "Vyacheslav Argenberg / Wikimedia Commons, CC BY 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Majestic_sunset_in_Manila_Bay,_Manila,_Philippines.jpg"
+  },
+  {
+   "file": "Manila_Bay,_Philippines.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Manila_Bay%2C_Philippines.jpg/500px-Manila_Bay%2C_Philippines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+   "w": 4000,
+   "h": 2248,
+   "license": "CC BY 4.0",
+   "artist": "Vyacheslav Argenberg",
+   "foto": "https://commons.wikimedia.org/wiki/Special:FilePath/Manila_Bay%2C_Philippines.jpg?width=1080",
+   "credito": "Vyacheslav Argenberg / Wikimedia Commons, CC BY 4.0",
+   "credito_link": "https://commons.wikimedia.org/wiki/File:Manila_Bay,_Philippines.jpg"
+  }
+ ]
+}
