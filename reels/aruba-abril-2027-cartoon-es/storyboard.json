@@ -1,0 +1,154 @@
+{
+ "id": "aruba-abril-2027-cartoon-es",
+ "offer_id": "aruba-2026-10-26-645976",
+ "voice": "es-CO-GonzaloNeural",
+ "banner": {},
+ "scenes": [
+  {
+   "text": "Jueves 29 de abril, 4 de la tarde. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pal Caribe!",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/eldorado.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   }
+  },
+  {
+   "text": "Dos horas de vuelo directo, y el mar abajo se pone turquesa.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/flight.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   }
+  },
+  {
+   "text": "¡Bienvenido a Aruba! Brisa, palmeras, y el puente arranca esta misma noche.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/aruba-airport.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.45,
+    "x1": 0.45,
+    "y": 0.9,
+    "size": 400
+   }
+  },
+  {
+   "text": "Día uno: relájate en la arena blanca de Eagle Beach, bajo los famosos árboles fofoti.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/eagle-beach.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.63,
+    "x1": 0.63,
+    "y": 0.475,
+    "size": 380
+   }
+  },
+  {
+   "text": "Día dos: alquila un jeep y recorre la costa salvaje del Parque Nacional Arikok, hasta la piscina natural.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/arikok.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "drive",
+    "x0": 0.47,
+    "x1": 0.4,
+    "y": 0.6,
+    "y1": 0.97,
+    "size": 150,
+    "size1": 460,
+    "facing": -1
+   }
+  },
+  {
+   "text": "Día tres: haz snorkel en el agua cristalina de Mangel Halto, llena de peces de colores y coral.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/reef.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "swim",
+    "x0": 0.1,
+    "x1": 0.65,
+    "y": 0.37,
+    "size": 380
+   }
+  },
+  {
+   "text": "Al atardecer, sube al Faro California y mira cómo el cielo se pone rosado.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/lighthouse.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "photo",
+    "x0": 0.28,
+    "x1": 0.28,
+    "y": 0.67,
+    "size": 340
+   }
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, bronceado y feliz. ¡Y solo pediste dos días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-abril-2027-cartoon/img/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   }
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Wingo, por solo 645 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$645.976",
+  "detail": "ida y vuelta · 29 abr – 2 may",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/aruba-abril-2027-cartoon/img/beach-end.jpg",
+   "focus": 0.5
+  },
+  "title": "3 días en Aruba"
+ },
+ "caption": "3 días en Aruba en puente, con vuelo directo desde Bogotá ✈️ Playa en Eagle Beach, jeep hasta la piscina natural de Arikok y snorkel en Mangel Halto. Ida y vuelta con Wingo desde $645.976 (29 abr – 2 may). Mira la oferta en viajespillados.com – link en la bio.\n\nIlustraciones: Viajes Pillados (con ayuda de IA).\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #ofertasdevuelos",
+ "rate": "+35%",
+ "pad": 0.3,
+ "seed": 11,
+ "ai_style": "bold clean dark outlines, vibrant warm colors, soft gradients, cheerful travel poster style, no people, no text",
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8
+}
