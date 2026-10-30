@@ -612,7 +612,10 @@ def main():
         })
     save_state(state)
     names = ", ".join(o["destino"] for o in todo)
-    commit_push(["instagram/published.json"], f"Instagram: publicado {names}")
+    import tiktok_feed   # same post, ready to repost on TikTok by hand
+    text = caption(todo[0]) if len(todo) == 1 else caption_carousel(todo)
+    feed = tiktok_feed.add("photos", "Ofertas: " + names, rels, text, permalink)
+    commit_push(["instagram/published.json", feed], f"Instagram: publicado {names}")
     summary(f"✅ Publicado ({'carrusel de ' + str(len(todo)) if len(todo) > 1 else 'post'}): **{names}** – {permalink}")
 
 

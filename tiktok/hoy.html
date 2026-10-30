@@ -1,0 +1,60 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Para TikTok</title><link rel="icon" href="../logo-icon.png"><meta name="robots" content="noindex">
+<style>
+:root{--navy:#14223b;--coral:#ff5a4e;--yellow:#ffc631;--bg:#fff8ec;--muted:#4f5b6b;--line:#f0e3c8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--navy);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:640px;margin:0 auto;padding:20px 16px 60px}h1{font-size:26px;margin:6px 0 4px}p.sub{color:var(--muted);margin:0 0 18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}.card.done{opacity:.55}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.top b{font-size:17px}.top small{color:var(--muted);white-space:nowrap}
+.media{display:flex;gap:8px;overflow-x:auto;margin:12px 0;padding-bottom:4px}.media img{height:180px;border-radius:10px}.media video{width:100%;max-height:420px;border-radius:10px;background:#000}
+button,a.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:999px;padding:11px 16px;font:700 15px system-ui,sans-serif;cursor:pointer;text-decoration:none;margin:4px 6px 4px 0}
+.primary{background:var(--coral);color:#fff}.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)!important}
+textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:10px;padding:10px;font:14px/1.4 system-ui,sans-serif;color:var(--navy);margin-top:8px}
+label.chk{display:flex;gap:8px;align-items:center;margin-top:8px;font-weight:600}.links{font-size:13px;color:var(--muted)}.links a{color:var(--muted)}
+.steps{background:#ffefc9;border-radius:12px;padding:10px 14px;font-size:14px}
+</style></head><body><main>
+<h1>Para subir a TikTok</h1>
+<p class="sub">Lo mismo que se publicó en Instagram, listo para TikTok. Lo más nuevo arriba.</p>
+<div class="steps">1. <b>Guardar en el teléfono</b> → 2. <b>Copiar texto</b> → 3. TikTok › <b>+</b> › Subir › elige el video o las fotos (en orden) › pega el texto › añade un sonido › Publicar.</div>
+<div id="list"><p>Cargando…</p></div>
+<script>
+const KEY="vp_tiktok_done";
+const done=(()=>{try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}})();
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}};
+const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const url=p=>"../"+p;
+async function share(it,btn){
+  btn.textContent="Preparando…";
+  try{
+    const files=await Promise.all(it.files.map(async p=>{const b=await (await fetch(url(p))).blob();
+      return new File([b],p.split("/").pop(),{type:b.type||(p.endsWith(".mp4")?"video/mp4":"image/jpeg")});}));
+    if(navigator.canShare&&navigator.canShare({files})){await navigator.share({files});btn.textContent="✓ Listo";return;}
+    files.forEach(f=>{const a=document.createElement("a");a.href=URL.createObjectURL(f);a.download=f.name;document.body.appendChild(a);a.click();a.remove();});
+    btn.textContent="✓ Descargado";
+  }catch(e){btn.textContent=it.kind==="video"?"Guardar video":"Guardar fotos";}
+}
+fetch("feed.json?_="+Date.now()).then(r=>r.json()).then(feed=>{
+  const list=document.getElementById("list");
+  if(!feed.length){list.innerHTML="<p>Todavía no hay nada.</p>";return;}
+  list.innerHTML="";
+  feed.forEach(it=>{
+    const c=document.createElement("div");c.className="card"+(done[it.id]?" done":"");
+    const media=it.kind==="video"
+      ?`<video src="${esc(url(it.files[0]))}" controls playsinline preload="metadata"></video>`
+      :it.files.map(p=>`<img src="${esc(url(p))}" alt="" loading="lazy">`).join("");
+    c.innerHTML=`<div class="top"><b>${esc(it.title)}</b><small>${esc(it.at)}</small></div>
+      <div class="media">${media}</div>
+      <button class="primary sh">${it.kind==="video"?"Guardar video":"Guardar "+it.files.length+" fotos"}</button>
+      <button class="ghost cp">Copiar texto</button>
+      <textarea readonly>${esc(it.caption)}</textarea>
+      <div class="links">${it.files.map((p,i)=>`<a href="${esc(url(p))}" download>Archivo ${i+1}</a>`).join(" · ")}${it.instagram?` · <a href="${esc(it.instagram)}" target="_blank" rel="noopener">Ver en Instagram</a>`:""}</div>
+      <label class="chk"><input type="checkbox" ${done[it.id]?"checked":""}> Ya está en TikTok</label>`;
+    c.querySelector(".sh").onclick=e=>share(it,e.currentTarget);
+    c.querySelector(".cp").onclick=e=>{const t=c.querySelector("textarea");
+      (navigator.clipboard?navigator.clipboard.writeText(t.value):Promise.reject()).catch(()=>{t.select();document.execCommand("copy");})
+      .finally(()=>{e.currentTarget.textContent="✓ Copiado";});};
+    c.querySelector("input").onchange=e=>{if(e.target.checked)done[it.id]=1;else delete done[it.id];save();c.classList.toggle("done",e.target.checked);};
+    list.appendChild(c);
+  });
+}).catch(()=>{document.getElementById("list").innerHTML="<p>No se pudo cargar la lista.</p>";});
+</script></main></body></html>

@@ -659,7 +659,9 @@ def publish(rid):
     media_id, permalink = ig.finish(c)
     with open(os.path.join(base, "published.json"), "w") as f:
         json.dump({"media_id": media_id, "permalink": permalink}, f)
-    ig.commit_push([f"reels/{rid}/published.json"], f"Reel publicado: {rid}")
+    import tiktok_feed   # same Reel, ready to repost on TikTok by hand
+    feed = tiktok_feed.add("video", "Reel: " + sb.get("end", {}).get("title", rid), [rel], sb.get("caption", ""), permalink)
+    ig.commit_push([f"reels/{rid}/published.json", feed], f"Reel publicado: {rid}")
     ig.summary(f"✅ Reel publicado: {permalink}")
 
 
