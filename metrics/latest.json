@@ -1,10 +1,33 @@
 {
- "generado": "2026-10-30 16:56",
+ "generado": "2026-10-30 17:01",
  "errores": {
-  "web": "RuntimeError: HTTP 404 https://viajespillados.goatcounter.com/api/v0/stats/total: {\"error\":\"not found\"}",
   "youtube": "RuntimeError: falta YOUTUBE_API_KEY"
  },
  "filas": [
+  {
+   "fecha": "2026-10-29",
+   "canal": "web",
+   "tipo": "web",
+   "id": "total",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "",
+   "enlace": "",
+   "metrica": "visitas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-10-29",
+   "canal": "web",
+   "tipo": "web",
+   "id": "total",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "",
+   "enlace": "",
+   "metrica": "eventos",
+   "valor": 0
+  },
   {
    "fecha": "2026-10-30",
    "canal": "instagram",
