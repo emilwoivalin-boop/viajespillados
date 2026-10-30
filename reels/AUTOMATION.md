@@ -113,9 +113,9 @@ Common facts
 1. Load today's entry; continue only if status is `rendered` (if `prompts_sent`: tell the owner the Reel wasn't built; stop).
 2. Run the workflow with mode `publish` and id. When it succeeds, `git pull` and read `reels/<id>/published.json` (permalink).
 3. Set status `published` (+ permalink) in `reels/daily.json`, commit + push.
-4. **TikTok draft**: if `tiktok/connected.json` exists in the repo (TikTok was connected), run
-   `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/tiktok.yml/dispatches -f ref=main -f 'inputs[mode]=upload' -f 'inputs[value]=<id>'`,
-   wait for it, `git pull`, and read `reels/<id>/tiktok.json` (or `tiktok_error.txt`). The video lands in the owner's TikTok inbox as a draft.
-5. Output: "✅ Reel de <Destino> publicado: <permalink>" and, if the TikTok upload worked, a second line
-   "📥 También está en tus borradores de TikTok: abre TikTok › notificaciones, añade un sonido en tendencia y publica." followed by the
-   caption from `reels/<id>/caption.txt` in a code block so it is easy to copy. On failure: the error in one line.
+4. **TikTok (manual for now)**: automatic TikTok drafts are OFF until TikTok approves the app (the sandbox app does not
+   deliver drafts to the phone) – do NOT run tiktok.yml. The publish step already added the Reel to `tiktok/feed.json`, which feeds
+   https://viajespillados.com/tiktok/hoy.html (the owner saves the video there and posts it in TikTok by hand).
+5. Output: "✅ Reel de <Destino> publicado: <permalink>" and a second line
+   "📲 Para TikTok: https://viajespillados.com/tiktok/hoy.html (guardar video › copiar texto › TikTok + › subir)", followed by the
+   caption from `reels/<id>/storyboard.json` ("caption") in a code block so it is easy to copy. On failure: the error in one line.
