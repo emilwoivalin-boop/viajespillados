@@ -26,13 +26,17 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet requests
+      - name: Ocultar el código en los registros
+        run: |
+          V=$(jq -r '.inputs.value' "$GITHUB_EVENT_PATH")
+          if [ "$(jq -r '.inputs.mode' "$GITHUB_EVENT_PATH")" = "auth" ]; then echo "::add-mask::$V"; fi
       - name: TikTok
         env:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
           GH_ADMIN_TOKEN: ${{ secrets.GH_ADMIN_TOKEN }}
-        run: python scripts/tiktok.py "${{ github.event.inputs.mode }}" "${{ github.event.inputs.value }}"
+        run: python scripts/tiktok.py "$(jq -r '.inputs.mode' "$GITHUB_EVENT_PATH")" "$(jq -r '.inputs.value' "$GITHUB_EVENT_PATH")"
       - name: Guardar resultado
         if: always()
         run: |
