@@ -12,11 +12,11 @@
  },
  "hora_salida": null,
  "drive_folder_id": "1Iigj8r-7MOMUCXOtfjblpGHwuiTrWtmh",
- "que_hacer": "Recorre La Habana Vieja, pasea por el Malecón en un carro clásico y escápate al valle de Viñales.",
+ "que_hacer": "Navidad en La Habana. Recorre La Habana Vieja, pasea por el Malecón en un carro clásico y escápate al valle de Viñales.",
  "lines": {
   "vuelo": "Cuatro horas de vuelo directo, y abajo el mar Caribe se pone azul turquesa.",
-  "llegada": "¡Bienvenido a La Habana! Sales del aeropuerto y te recibe un aire tibio con olor a mar.",
-  "dia1": "Día uno: caminas La Habana Vieja, entre plazas coloniales y fachadas de todos los colores.",
+  "llegada": "¡Bienvenido a La Habana! Llegas en plena Navidad y te recibe un aire tibio con olor a mar.",
+  "dia1": "Día uno: caminas La Habana Vieja, entre luces de Navidad y fachadas de todos los colores.",
   "dia2": "Día dos: recorres el Malecón en un carro clásico descapotable mientras cae el atardecer.",
   "dia3": "Día tres: te escapas al valle de Viñales, entre mogotes verdes y campos de tabaco."
  },
@@ -27,13 +27,88 @@
   "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Havana Malecón seawall promenade at sunset: a long low stone wall along the sea with waves splashing, colorful old buildings along the road, an orange and pink sky with the sun setting over the water, and a bright red open-top 1950s classic convertible car parked at the left edge of the seaside road. The road and the wide sidewalk in the lower half are clearly visible and empty.",
   "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Viñales valley in Cuba: round steep green limestone hills (mogotes) in the background, flat fields of green tobacco plants on red soil, a small wooden tobacco drying house with a tall thatched palm roof, a few royal palm trees, sunny late-morning sky. A clear empty red dirt path through the tobacco fields in the lower half."
  },
- "scenes": {},
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.45,
+    "y": 0.9,
+    "size": 400,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "pin",
+    "word": "Habana",
+    "x": 0.8,
+    "y": 0.42,
+    "size": 190
+   },
+   "ambience": null
+  },
+  "dia1": {
+   "stick": {
+    "action": "walk",
+    "x0": 0.3,
+    "x1": 0.5,
+    "y": 0.86,
+    "y1": 0.8,
+    "size": 420,
+    "size1": 360,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "sparkle",
+    "word": "luces",
+    "x": 0.8,
+    "y": 0.52,
+    "size": 180
+   },
+   "ambience": null
+  },
+  "dia2": {
+   "stick": {
+    "action": "photo",
+    "x0": 0.66,
+    "y": 0.86,
+    "size": 420,
+    "facing": -1
+   },
+   "pop": null,
+   "ambience": "waves"
+  },
+  "dia3": {
+   "stick": {
+    "action": "walk",
+    "x0": 0.5,
+    "x1": 0.47,
+    "y": 0.66,
+    "y1": 0.95,
+    "size": 200,
+    "size1": 440,
+    "facing": -1
+   },
+   "pop": {
+    "icon": "pin",
+    "word": "Viñales",
+    "x": 0.2,
+    "y": 0.42,
+    "size": 190
+   },
+   "ambience": null
+  }
+ },
  "end_image": "dia1",
  "drive_files": {
-  "vuelo": "1j-MTNrbBofCVoYj07fTbbXhXiXLo6zCR",
-  "llegada": "1l40efszjPRUYO4e39ZzNweLN5Nlu1-th",
-  "dia1": "1u9GUR-BEgKvwh-J0HP8aqcsm-kNXjZX5",
-  "dia2": "1N0I0Vtm-xUuJmf9HqkKubMPsm41oRBrv",
+  "vuelo": "1l40efszjPRUYO4e39ZzNweLN5Nlu1-th",
+  "llegada": "1j-MTNrbBofCVoYj07fTbbXhXiXLo6zCR",
+  "dia1": "1N0I0Vtm-xUuJmf9HqkKubMPsm41oRBrv",
+  "dia2": "1u9GUR-BEgKvwh-J0HP8aqcsm-kNXjZX5",
   "dia3": "11xtPBTPtEyRO7jC447ejdJiYSobp4YCi"
- }
+ },
+ "ocasion": "Navidad"
 }

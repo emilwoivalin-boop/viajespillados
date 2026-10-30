@@ -1,0 +1,187 @@
+{
+ "id": "la-habana-2026-12-19",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Sábado 19 de diciembre. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' La Habana!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": []
+  },
+  {
+   "text": "Cuatro horas de vuelo directo, y abajo el mar Caribe se pone azul turquesa.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2026-12-19/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a La Habana! Llegas en plena Navidad y te recibe un aire tibio con olor a mar.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2026-12-19/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.45,
+    "y": 0.9,
+    "size": 400,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Habana",
+     "x": 0.8,
+     "y": 0.42,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: caminas La Habana Vieja, entre luces de Navidad y fachadas de todos los colores.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2026-12-19/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.3,
+    "x1": 0.5,
+    "y": 0.86,
+    "y1": 0.8,
+    "size": 420,
+    "size1": 360,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "luces",
+     "x": 0.8,
+     "y": 0.52,
+     "size": 180
+    }
+   ],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día dos: recorres el Malecón en un carro clásico descapotable mientras cae el atardecer.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2026-12-19/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "photo",
+    "x0": 0.66,
+    "y": 0.86,
+    "size": 420,
+    "facing": -1
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false
+  },
+  {
+   "text": "Día tres: te escapas al valle de Viñales, entre mogotes verdes y campos de tabaco.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2026-12-19/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.5,
+    "x1": 0.47,
+    "y": 0.66,
+    "y1": 0.95,
+    "size": 200,
+    "size1": 440,
+    "facing": -1
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Viñales",
+     "x": 0.2,
+     "y": 0.42,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "El sábado aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Wingo, por solo 908 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "8 días en La Habana",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$907.980",
+  "detail": "ida y vuelta · 19 dic – 26 dic",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/la-habana-2026-12-19/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "8 días en La Habana desde Bogotá ✈️ Navidad en La Habana. Recorre La Habana Vieja, pasea por el Malecón en un carro clásico y escápate al valle de Viñales. Ida y vuelta con Wingo desde $907.980 (19 dic – 26 dic). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #lahabana #ofertasdevuelos"
+}
