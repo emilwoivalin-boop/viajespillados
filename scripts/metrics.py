@@ -68,7 +68,7 @@ def web():
     if not tok:
         raise RuntimeError("falta GOATCOUNTER_TOKEN")
     h = {"Authorization": f"Bearer {tok}", "Content-Type": "application/json"}
-    p = {"start": f"{YDAY}T00:00:00-05:00", "end": f"{TODAY}T00:00:00-05:00"}
+    p = {"start": f"{YDAY}T05:00:00Z", "end": f"{TODAY}T05:00:00Z"}   # Bogotá midnight = 05:00 UTC
     tot = _get(f"{GC_SITE}/api/v0/stats/total", headers=h, params=p)
     add("web", "web", "total", "visitas", tot.get("total", tot.get("total_utc")), fecha=YDAY)
     if "total_events" in tot:
