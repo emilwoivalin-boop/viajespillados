@@ -1,8 +1,6 @@
 {
- "generado": "2026-10-30 17:01",
- "errores": {
-  "youtube": "RuntimeError: falta YOUTUBE_API_KEY"
- },
+ "generado": "2026-10-30 17:17",
+ "errores": {},
  "filas": [
   {
    "fecha": "2026-10-29",
@@ -687,6 +685,114 @@
    "enlace": "",
    "metrica": "cuentas_interactuaron",
    "valor": 3
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "cuenta",
+   "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "",
+   "enlace": "",
+   "metrica": "suscriptores",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "cuenta",
+   "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "",
+   "enlace": "",
+   "metrica": "vistas_total",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "cuenta",
+   "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "",
+   "enlace": "",
+   "metrica": "videos",
+   "valor": 2
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "phxH2z4O7aA",
+   "publicado": "2026-10-30 18:59",
+   "destinos": "La Habana",
+   "titulo": "Qué hacer en La Habana, Cuba ✈️",
+   "enlace": "https://youtube.com/shorts/phxH2z4O7aA",
+   "metrica": "vistas",
+   "valor": 126
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "phxH2z4O7aA",
+   "publicado": "2026-10-30 18:59",
+   "destinos": "La Habana",
+   "titulo": "Qué hacer en La Habana, Cuba ✈️",
+   "enlace": "https://youtube.com/shorts/phxH2z4O7aA",
+   "metrica": "me_gusta",
+   "valor": 4
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "phxH2z4O7aA",
+   "publicado": "2026-10-30 18:59",
+   "destinos": "La Habana",
+   "titulo": "Qué hacer en La Habana, Cuba ✈️",
+   "enlace": "https://youtube.com/shorts/phxH2z4O7aA",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "GBVrnwM7A4E",
+   "publicado": "2026-10-30 17:35",
+   "destinos": "Tijuana",
+   "titulo": "Qué hacer en Tijuana, México ✈️",
+   "enlace": "https://youtube.com/shorts/GBVrnwM7A4E",
+   "metrica": "vistas",
+   "valor": 283
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "GBVrnwM7A4E",
+   "publicado": "2026-10-30 17:35",
+   "destinos": "Tijuana",
+   "titulo": "Qué hacer en Tijuana, México ✈️",
+   "enlace": "https://youtube.com/shorts/GBVrnwM7A4E",
+   "metrica": "me_gusta",
+   "valor": 5
+  },
+  {
+   "fecha": "2026-10-30",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "GBVrnwM7A4E",
+   "publicado": "2026-10-30 17:35",
+   "destinos": "Tijuana",
+   "titulo": "Qué hacer en Tijuana, México ✈️",
+   "enlace": "https://youtube.com/shorts/GBVrnwM7A4E",
+   "metrica": "comentarios",
+   "valor": 1
   },
   {
    "fecha": "2026-10-30",
