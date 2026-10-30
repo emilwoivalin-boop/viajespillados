@@ -11,7 +11,7 @@ button,a.btn{display:inline-flex;align-items:center;justify-content:center;gap:6
 .primary{background:var(--coral);color:#fff}.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)!important}
 textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:10px;padding:10px;font:14px/1.4 system-ui,sans-serif;color:var(--navy);margin-top:8px}
 label.chk{display:inline-flex;margin-right:16px;gap:8px;align-items:center;margin-top:8px;font-weight:600}.links{font-size:13px;color:var(--muted)}.links a{color:var(--muted)}
-.steps{background:#ffefc9;border-radius:12px;padding:10px 14px;font-size:14px}
+.warn{background:#ffe1de;border-radius:12px;padding:10px 14px;font-size:14px;margin-top:10px}.steps{background:#ffefc9;border-radius:12px;padding:10px 14px;font-size:14px}
 </style></head><body><main>
 <h1>Para TikTok y YouTube</h1>
 <p class="sub">Lo mismo que se publicó en Instagram, listo para TikTok y YouTube Shorts. Lo más nuevo arriba.</p>
@@ -19,8 +19,23 @@ label.chk{display:inline-flex;margin-right:16px;gap:8px;align-items:center;margi
 <div id="list"><p>Cargando…</p></div>
 <script>
 const KEY="vp_tiktok_done";
-const done=(()=>{try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}})();
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}};
+const readCookie=()=>{try{const m=document.cookie.match(/(?:^|; )vpdone=([^;]*)/);return m?JSON.parse(decodeURIComponent(m[1])):{}}catch(e){return {}}};
+const done=Object.assign({},readCookie(),(()=>{try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}})());
+let ids=null;
+const save=()=>{
+  if(ids)Object.keys(done).forEach(k=>{if(!ids.has(k.split("|")[0]))delete done[k];});
+  const v=JSON.stringify(done);
+  try{localStorage.setItem(KEY,v)}catch(e){}
+  try{document.cookie="vpdone="+encodeURIComponent(v)+"; max-age=31536000; path=/; SameSite=Lax; Secure"}catch(e){}
+};
+(()=>{ // warn when this browser will not keep the ticks (in-app browsers, private mode)
+  const ua=navigator.userAgent;let ok=true;
+  try{localStorage.setItem("vp_t","1");ok=localStorage.getItem("vp_t")==="1"}catch(e){ok=false}
+  const inapp=/Instagram|FBAN|FBAV|TikTok|musical_ly|BytedanceWebview|Claude|; wv\)|Line\//i.test(ua);
+  if(!ok||inapp){const w=document.createElement("div");w.className="warn";
+    w.innerHTML="⚠️ Este navegador no guarda las marcas. Abre la página en <b>Safari</b> o <b>Chrome</b> (menú ··· › Abrir en el navegador) y añádela a la pantalla de inicio.";
+    document.querySelector("main").insertBefore(w,document.getElementById("list"));}
+})();
 const esc=s=>String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const url=p=>"../"+p;
 async function share(it,btn){
@@ -36,7 +51,7 @@ async function share(it,btn){
 fetch("feed.json?_="+Date.now()).then(r=>r.json()).then(feed=>{
   const list=document.getElementById("list");
   if(!feed.length){list.innerHTML="<p>Todavía no hay nada.</p>";return;}
-  list.innerHTML="";
+  list.innerHTML="";ids=new Set(feed.map(it=>it.id));
   feed.forEach(it=>{
     const yt=it.kind==="video";
     const allDone=()=>done[it.id]&&(!yt||done[it.id+"|yt"]);
