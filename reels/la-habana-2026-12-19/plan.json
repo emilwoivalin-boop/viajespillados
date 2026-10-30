@@ -1,0 +1,32 @@
+{
+ "id": "la-habana-2026-12-19",
+ "offer": {
+  "destino": "La Habana",
+  "aerolinea": "Wingo",
+  "precio": 907980,
+  "escalas": "directo",
+  "ida": "2026-12-19",
+  "vuelta": "2026-12-26",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20HAV%20from%20BOG%20on%202026-12-19%20through%202026-12-26&curr=COP&hl=es-419",
+  "sheet_row": 16
+ },
+ "hora_salida": null,
+ "drive_folder_id": "1Iigj8r-7MOMUCXOtfjblpGHwuiTrWtmh",
+ "que_hacer": "Recorre La Habana Vieja, pasea por el Malecón en un carro clásico y escápate al valle de Viñales.",
+ "lines": {
+  "vuelo": "Cuatro horas de vuelo directo, y abajo el mar Caribe se pone azul turquesa.",
+  "llegada": "¡Bienvenido a La Habana! Sales del aeropuerto y te recibe un aire tibio con olor a mar.",
+  "dia1": "Día uno: caminas La Habana Vieja, entre plazas coloniales y fachadas de todos los colores.",
+  "dia2": "Día dos: recorres el Malecón en un carro clásico descapotable mientras cae el atardecer.",
+  "dia3": "Día tres: te escapas al valle de Viñales, entre mogotes verdes y campos de tabaco."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below the bright turquoise Caribbean Sea with the long green coastline of Cuba and a few small islands, sunny blue sky. Keep the lower half open with the sea and coast clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a small low airport terminal in Havana, Cuba, with tall royal palm trees, a bright blue sky and a shiny turquoise 1950s classic car parked at the curb on one side. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A colonial plaza in Old Havana, Cuba: two- and three-story old buildings painted yellow, pink, turquoise and orange with wooden balconies and tall arched doorways, a baroque church with two bell towers at the back, cobblestone ground, sunny morning sky. The wide cobblestone plaza in the lower half is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Havana Malecón seawall promenade at sunset: a long low stone wall along the sea with waves splashing, colorful old buildings along the road, an orange and pink sky with the sun setting over the water, and a bright red open-top 1950s classic convertible car parked at the left edge of the seaside road. The road and the wide sidewalk in the lower half are clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Viñales valley in Cuba: round steep green limestone hills (mogotes) in the background, flat fields of green tobacco plants on red soil, a small wooden tobacco drying house with a tall thatched palm roof, a few royal palm trees, sunny late-morning sky. A clear empty red dirt path through the tobacco fields in the lower half."
+ },
+ "scenes": {},
+ "end_image": "dia1"
+}
