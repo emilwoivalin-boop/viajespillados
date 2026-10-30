@@ -63,7 +63,10 @@ def auth(code):
 def access_token():
     j = token(grant_type="refresh_token", refresh_token=os.environ["TIKTOK_REFRESH_TOKEN"])
     if j.get("refresh_token") and j["refresh_token"] != os.environ["TIKTOK_REFRESH_TOKEN"] and os.environ.get("GH_ADMIN_TOKEN"):
-        save_secret("TIKTOK_REFRESH_TOKEN", j["refresh_token"])   # keep the newest refresh token
+        try:
+            save_secret("TIKTOK_REFRESH_TOKEN", j["refresh_token"])   # keep the newest refresh token
+        except Exception as e:
+            print("Aviso: no se pudo guardar el refresh token nuevo (¿GH_ADMIN_TOKEN vencido?):", type(e).__name__)
     return j["access_token"]
 
 
