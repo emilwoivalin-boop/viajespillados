@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Para TikTok</title><link rel="icon" href="../logo-icon.png"><meta name="robots" content="noindex">
+<title>Para TikTok y YouTube</title><link rel="icon" href="../logo-icon.png"><meta name="robots" content="noindex">
 <style>
 :root{--navy:#14223b;--coral:#ff5a4e;--yellow:#ffc631;--bg:#fff8ec;--muted:#4f5b6b;--line:#f0e3c8}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--navy);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
@@ -10,12 +10,12 @@ main{max-width:640px;margin:0 auto;padding:20px 16px 60px}h1{font-size:26px;marg
 button,a.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:999px;padding:11px 16px;font:700 15px system-ui,sans-serif;cursor:pointer;text-decoration:none;margin:4px 6px 4px 0}
 .primary{background:var(--coral);color:#fff}.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)!important}
 textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:10px;padding:10px;font:14px/1.4 system-ui,sans-serif;color:var(--navy);margin-top:8px}
-label.chk{display:flex;gap:8px;align-items:center;margin-top:8px;font-weight:600}.links{font-size:13px;color:var(--muted)}.links a{color:var(--muted)}
+label.chk{display:inline-flex;margin-right:16px;gap:8px;align-items:center;margin-top:8px;font-weight:600}.links{font-size:13px;color:var(--muted)}.links a{color:var(--muted)}
 .steps{background:#ffefc9;border-radius:12px;padding:10px 14px;font-size:14px}
 </style></head><body><main>
-<h1>Para subir a TikTok</h1>
-<p class="sub">Lo mismo que se publicó en Instagram, listo para TikTok. Lo más nuevo arriba.</p>
-<div class="steps">1. <b>Guardar en el teléfono</b> → 2. <b>Copiar texto</b> → 3. TikTok › <b>+</b> › Subir › elige el video o las fotos (en orden) › pega el texto › añade un sonido › Publicar.</div>
+<h1>Para TikTok y YouTube</h1>
+<p class="sub">Lo mismo que se publicó en Instagram, listo para TikTok y YouTube Shorts. Lo más nuevo arriba.</p>
+<div class="steps"><b>TikTok:</b> Guardar en el teléfono → Copiar texto → TikTok › <b>+</b> › Subir › elige el video o las fotos (en orden) › pega el texto › añade un sonido › Publicar.<br><b>YouTube (solo videos):</b> Guardar video → YouTube › <b>+</b> › Short › Subir › elige el video › Siguiente › pega el <b>título</b> › Subir Short. El texto puedes pegarlo después como descripción.</div>
 <div id="list"><p>Cargando…</p></div>
 <script>
 const KEY="vp_tiktok_done";
@@ -38,22 +38,29 @@ fetch("feed.json?_="+Date.now()).then(r=>r.json()).then(feed=>{
   if(!feed.length){list.innerHTML="<p>Todavía no hay nada.</p>";return;}
   list.innerHTML="";
   feed.forEach(it=>{
-    const c=document.createElement("div");c.className="card"+(done[it.id]?" done":"");
+    const yt=it.kind==="video";
+    const allDone=()=>done[it.id]&&(!yt||done[it.id+"|yt"]);
+    const c=document.createElement("div");c.className="card"+(allDone()?" done":"");
     const media=it.kind==="video"
       ?`<video src="${esc(url(it.files[0]))}" controls playsinline preload="metadata"></video>`
       :it.files.map(p=>`<img src="${esc(url(p))}" alt="" loading="lazy">`).join("");
     c.innerHTML=`<div class="top"><b>${esc(it.title)}</b><small>${esc(it.at)}</small></div>
       <div class="media">${media}</div>
       <button class="primary sh">${it.kind==="video"?"Guardar video":"Guardar "+it.files.length+" fotos"}</button>
-      <button class="ghost cp">Copiar texto</button>
+      <button class="ghost cp">Copiar texto</button>${yt?`<button class="ghost ct">Copiar título (YouTube)</button>`:""}
       <textarea readonly>${esc(it.caption)}</textarea>
       <div class="links">${it.files.map((p,i)=>`<a href="${esc(url(p))}" download>Archivo ${i+1}</a>`).join(" · ")}${it.instagram?` · <a href="${esc(it.instagram)}" target="_blank" rel="noopener">Ver en Instagram</a>`:""}</div>
-      <label class="chk"><input type="checkbox" ${done[it.id]?"checked":""}> Ya está en TikTok</label>`;
+      <label class="chk"><input type="checkbox" class="tk" ${done[it.id]?"checked":""}> En TikTok</label>${yt?`<label class="chk"><input type="checkbox" class="yt" ${done[it.id+"|yt"]?"checked":""}> En YouTube</label>`:""}`;
     c.querySelector(".sh").onclick=e=>share(it,e.currentTarget);
     c.querySelector(".cp").onclick=e=>{const t=c.querySelector("textarea");
       (navigator.clipboard?navigator.clipboard.writeText(t.value):Promise.reject()).catch(()=>{t.select();document.execCommand("copy");})
       .finally(()=>{e.currentTarget.textContent="✓ Copiado";});};
-    c.querySelector("input").onchange=e=>{if(e.target.checked)done[it.id]=1;else delete done[it.id];save();c.classList.toggle("done",e.target.checked);};
+    const copy=(txt,btn,lbl)=>{(navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject())
+      .catch(()=>{const t=document.createElement("textarea");t.value=txt;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();})
+      .finally(()=>{btn.textContent="✓ "+lbl;});};
+    if(yt){c.querySelector(".ct").onclick=e=>copy(it.yt_title||it.title.replace(/^Reel: /,""),e.currentTarget,"Título copiado");}
+    c.querySelectorAll("input[type=checkbox]").forEach(b=>b.onchange=e=>{const k=it.id+(b.classList.contains("yt")?"|yt":"");
+      if(b.checked)done[k]=1;else delete done[k];save();c.classList.toggle("done",!!allDone());});
     list.appendChild(c);
   });
 }).catch(()=>{document.getElementById("list").innerHTML="<p>No se pudo cargar la lista.</p>";});

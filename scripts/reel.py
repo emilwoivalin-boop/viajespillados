@@ -660,7 +660,12 @@ def publish(rid):
     with open(os.path.join(base, "published.json"), "w") as f:
         json.dump({"media_id": media_id, "permalink": permalink}, f)
     import tiktok_feed   # same Reel, ready to repost on TikTok by hand
-    feed = tiktok_feed.add("video", "Reel: " + sb.get("end", {}).get("title", rid), [rel], sb.get("caption", ""), permalink)
+    try:
+        destino = [json.load(open(os.path.join(base, "plan.json")))["offer"]["destino"]]
+    except Exception:
+        destino = None
+    feed = tiktok_feed.add("video", "Reel: " + sb.get("end", {}).get("title", rid), [rel], sb.get("caption", ""),
+                           permalink, destinos=destino)
     ig.commit_push([f"reels/{rid}/published.json", feed], f"Reel publicado: {rid}")
     ig.summary(f"✅ Reel publicado: {permalink}")
 

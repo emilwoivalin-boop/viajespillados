@@ -115,7 +115,8 @@ Common facts
 3. Set status `published` (+ permalink) in `reels/daily.json`, commit + push.
 4. **TikTok (manual for now)**: automatic TikTok drafts are OFF until TikTok approves the app (the sandbox app does not
    deliver drafts to the phone) – do NOT run tiktok.yml. The publish step already added the Reel to `tiktok/feed.json`, which feeds
-   https://viajespillados.com/tiktok/hoy.html (the owner saves the video there and posts it in TikTok by hand).
+   https://viajespillados.com/tiktok/hoy.html (the owner saves the video there and posts it in TikTok and YouTube Shorts by hand).
 5. Output: "✅ Reel de <Destino> publicado: <permalink>" and a second line
-   "📲 Para TikTok: https://viajespillados.com/tiktok/hoy.html (guardar video › copiar texto › TikTok + › subir)", followed by the
-   caption from `reels/<id>/storyboard.json` ("caption") in a code block so it is easy to copy. On failure: the error in one line.
+   "📲 Para TikTok y YouTube: https://viajespillados.com/tiktok/hoy.html (guardar video › copiar texto/título › subir)", followed by
+   the YouTube title (`yt_title`) and the TikTok/YouTube text (`caption`) of the newest item in `tiktok/feed.json`, each in a code
+   block so they are easy to copy. That text is about the destination (no price/airline/dates). On failure: the error in one line.
