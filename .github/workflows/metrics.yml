@@ -1,0 +1,44 @@
+name: Rendimiento – foto diaria
+
+# Cada noche (00:41 Bogotá): visitas de la web del día anterior + estadísticas de Instagram, YouTube y X
+# -> metrics/history.csv y metrics/latest.json
+on:
+  schedule:
+    - cron: "41 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metrics
+  cancel-in-progress: false
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests requests_oauthlib
+      - name: Recoger
+        env:
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: python scripts/metrics.py
+      - name: Guardar
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add metrics
+          git commit -m "Rendimiento: $(date -u +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
