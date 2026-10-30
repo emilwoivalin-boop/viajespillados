@@ -97,7 +97,8 @@ def add(kind, title, files, caption, permalink="", destinos=None):
             caption, yt_title = text, yt
     now = datetime.now(timezone(timedelta(hours=-5))).strftime("%Y-%m-%d %H:%M")
     feed.insert(0, {"kind": kind, "title": title, "files": files, "caption": caption, "yt_title": yt_title,
-                    "instagram": permalink, "at": now, "id": f"{kind}-{now}"})
+                    "instagram": permalink, "at": now, "id": f"{kind}-{now}",
+                    "destinos": list(destinos or [])})
     os.makedirs(os.path.dirname(PATH), exist_ok=True)
     json.dump(feed[:60], open(PATH, "w"), ensure_ascii=False, indent=1)
     return "tiktok/feed.json"

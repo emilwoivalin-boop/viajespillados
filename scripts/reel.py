@@ -666,7 +666,9 @@ def publish(rid):
         destino = None
     feed = tiktok_feed.add("video", "Reel: " + sb.get("end", {}).get("title", rid), [rel], sb.get("caption", ""),
                            permalink, destinos=destino)
-    ig.commit_push([f"reels/{rid}/published.json", feed], f"Reel publicado: {rid}")
+    import x_post        # same Reel on X (skipped if the X keys are not set)
+    xp = x_post.share_latest()
+    ig.commit_push([f"reels/{rid}/published.json", feed] + xp, f"Reel publicado: {rid}")
     ig.summary(f"✅ Reel publicado: {permalink}")
 
 

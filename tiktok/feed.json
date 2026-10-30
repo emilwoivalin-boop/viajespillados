@@ -10,7 +10,11 @@
   "yt_title": "2 destinos que tienes que conocer 🌎",
   "instagram": "https://www.instagram.com/p/DfILjHNmCQ_/",
   "at": "2026-10-30 13:02",
-  "id": "photos-2026-10-30 13:02"
+  "id": "photos-2026-10-30 13:02",
+  "destinos": [
+   "Reikiavik",
+   "Vancouver"
+  ]
  },
  {
   "kind": "video",
@@ -22,7 +26,10 @@
   "instagram": "https://www.instagram.com/reel/DfIGYX6ieE7/",
   "at": "2026-10-30 12:18",
   "id": "video-2026-10-30 12:18",
-  "yt_title": "Qué hacer en La Habana, Cuba ✈️"
+  "yt_title": "Qué hacer en La Habana, Cuba ✈️",
+  "destinos": [
+   "La Habana"
+  ]
  },
  {
   "kind": "photos",
@@ -37,7 +44,13 @@
   "instagram": "https://www.instagram.com/p/DfGL63vDs3W/",
   "at": "2026-10-29 18:27",
   "id": "photos-2026-10-29 18:27",
-  "yt_title": "4 destinos que tienes que conocer 🌎"
+  "yt_title": "4 destinos que tienes que conocer 🌎",
+  "destinos": [
+   "Salvador de Bahía",
+   "Puerto Vallarta",
+   "Toronto",
+   "Atenas"
+  ]
  },
  {
   "kind": "video",
@@ -49,6 +62,9 @@
   "instagram": "https://www.instagram.com/reel/DfF8PkxDqkw/",
   "at": "2026-10-29 16:10",
   "id": "video-2026-10-29 16:10",
-  "yt_title": "Qué hacer en Tijuana, México ✈️"
+  "yt_title": "Qué hacer en Tijuana, México ✈️",
+  "destinos": [
+   "Tijuana"
+  ]
  }
 ]

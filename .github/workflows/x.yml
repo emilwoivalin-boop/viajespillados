@@ -1,0 +1,45 @@
+name: X – probar / publicar
+
+# check   = probar las claves (muestra la cuenta conectada)
+# preview = ver el texto del último post, sin publicar
+# latest  = publicar en X lo último que salió en Instagram (si no está ya)
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [check, preview, latest]
+        default: check
+
+permissions:
+  contents: write
+
+concurrency:
+  group: x-post
+  cancel-in-progress: false
+
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests requests_oauthlib
+      - name: X
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: python scripts/x_post.py "${{ github.event.inputs.mode }}"
+      - name: Guardar resultado
+        if: always()
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add x || true
+          git commit -m "X: ${{ github.event.inputs.mode }}" || exit 0
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done
