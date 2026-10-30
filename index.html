@@ -246,7 +246,7 @@ function render(){
     const link=safeUrl(o.link), foto=photo(o.foto), cl=safeUrl(o.credito_link);
     const sub=[o.tipo,o.escalas,o.mes].filter(Boolean).join(" · ");
     return `<article class="card">
-      <a class="post" href="${esc(link)||"#"}" target="_blank" rel="noopener" ${foto?`style="background-image:url('${esc(foto)}')"`:""} aria-label="Ver vuelos a ${esc(o.destino)}">
+      <a class="post" href="${esc(link)||"#"}" target="_blank" rel="noopener" data-dest="${esc(o.destino)}" ${foto?`style="background-image:url('${esc(foto)}')"`:""} aria-label="Ver vuelos a ${esc(o.destino)}">
         <div class="t">
           <div class="l1">Vuelos de ${esc(o.aerolinea)}</div>
           <div class="city">a ${esc(o.destino)}</div>
@@ -256,7 +256,7 @@ function render(){
       </a>
       <div class="meta">
         <div class="row"><span class="tag">${esc(o.categoria||"")}</span><span>desde Bogotá</span></div>
-        <a class="btn" href="${esc(link)||"#"}" target="_blank" rel="noopener">Ver vuelos →</a>
+        <a class="btn" href="${esc(link)||"#"}" target="_blank" rel="noopener" data-dest="${esc(o.destino)}">Ver vuelos →</a>
         ${o.credito?`<span class="credit">📷 ${cl?`<a href="${esc(cl)}" target="_blank" rel="noopener">${esc(o.credito)}</a>`:esc(o.credito)}</span>`:""}
       </div>
     </article>`;}).join("");
@@ -290,10 +290,22 @@ document.getElementById("subForm").addEventListener("submit", async e=>{
     await fetch(CONFIG.NEWSLETTER_URL,{method:"POST",mode:"no-cors",
       headers:{"Content-Type":"application/x-www-form-urlencoded"},
       body:new URLSearchParams({email,origen:"web"})});
-    msg.className="msg ok";msg.textContent="¡Listo! Te avisaremos de las próximas ofertas.";
+    msg.className="msg ok";msg.textContent="¡Listo! Te avisaremos de las próximas ofertas.";track("boletin/suscripcion","Suscripción al boletín");
     e.target.reset();
   }catch(err){msg.className="msg err";msg.textContent="No se pudo enviar. Inténtalo de nuevo.";}
 });
 </script>
+<script>
+// GoatCounter: visits (no cookies) + which offers people click
+function track(path,title){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:path,title:title,event:true});}catch(e){}}
+const slugify=s=>String(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+document.addEventListener("click",e=>{
+  const a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
+  if(a.dataset.dest){track("oferta/"+slugify(a.dataset.dest),"Clic oferta: "+a.dataset.dest);return;}
+  const h=a.getAttribute("href")||"";
+  if(/instagram\.com/.test(h))track("salida/instagram","Clic Instagram");
+},true);
+</script>
+<script data-goatcounter="https://viajespillados.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
