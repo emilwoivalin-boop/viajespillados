@@ -40,7 +40,15 @@
    "stick": {
     "action": "none"
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "París",
+     "x": 0.56,
+     "y": 0.6,
+     "size": 190
+    }
+   ],
    "ambience": [],
    "action_sfx": true
   },
@@ -52,7 +60,11 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "celebrate",
+    "x0": 0.45,
+    "y": 0.88,
+    "size": 420,
+    "facing": 1
    },
    "pops": [],
    "ambience": [],
@@ -66,7 +78,11 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "photo",
+    "x0": 0.63,
+    "y": 0.83,
+    "size": 380,
+    "facing": -1
    },
    "pops": [],
    "ambience": [],
@@ -80,9 +96,22 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "walk",
+    "x0": 0.25,
+    "x1": 0.6,
+    "y": 0.84,
+    "size": 380,
+    "facing": 1
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "pirámide",
+     "x": 0.66,
+     "y": 0.38,
+     "size": 190
+    }
+   ],
    "ambience": [],
    "action_sfx": true
   },
@@ -94,9 +123,24 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "walk",
+    "x0": 0.42,
+    "x1": 0.55,
+    "y": 0.95,
+    "y1": 0.78,
+    "size": 440,
+    "size1": 320,
+    "facing": 1
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "luces",
+     "x": 0.18,
+     "y": 0.42,
+     "size": 200
+    }
+   ],
    "ambience": [],
    "action_sfx": true
   },
