@@ -1,1 +1,0 @@
-2026-10-30 21:54 – auth – FB_USER_TOKEN no parece un token de acceso de Facebook (debería empezar con EA…; largo 32).
