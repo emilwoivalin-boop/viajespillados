@@ -59,5 +59,12 @@
    "ambience": null
   }
  },
- "end_image": "dia1"
+ "end_image": "dia1",
+ "drive_files": {
+  "vuelo": "1AXMxhpTK5d9kYQneVhWux1RFQhz9L3nz",
+  "llegada": "1lR7ibSuyRGBQ1jPIE0EQ4txj_fn9jQ9m",
+  "dia1": "1cDdUUbbHHb6JwMuC4xUEkKdI_Do06VwK",
+  "dia2": "1yU2qldGz3nm4Y__l8_ozSndcrbadG2Dq",
+  "dia3": "1efvIr1yw1yOlTD01p18zzf3glMxvyIKN"
+ }
 }
