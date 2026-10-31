@@ -56,7 +56,11 @@ def _save_secret(name, value):
 
 
 def auth():
-    app_id, secret, short = (os.environ.get(k, "") for k in ("FB_APP_ID", "FB_APP_SECRET", "FB_USER_TOKEN"))
+    app_id, secret, short = (os.environ.get(k, "").strip().strip('"').strip() for k in ("FB_APP_ID", "FB_APP_SECRET", "FB_USER_TOKEN"))
+    if short.lower().startswith("bearer "):
+        short = short[7:].strip()
+    if not short.startswith("EA"):
+        sys.exit(f"FB_USER_TOKEN no parece un token de acceso de Facebook (debería empezar con EA…; largo {len(short)}).")
     if not (app_id and secret and short):
         sys.exit("Faltan los secretos FB_APP_ID, FB_APP_SECRET o FB_USER_TOKEN.")
     long_user = _check(requests.get(f"{G}/oauth/access_token", timeout=30, params={
