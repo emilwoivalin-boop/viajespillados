@@ -150,7 +150,14 @@ def share_latest():
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "preview"
     if mode == "auth":
-        auth()
+        try:
+            auth()
+        except BaseException as e:   # write the reason (never a token) so it can be read without the log
+            os.makedirs(os.path.dirname(ERR), exist_ok=True)
+            msg = e.code if isinstance(e, SystemExit) else f"{type(e).__name__}: {e}"
+            with open(ERR, "w") as f:
+                f.write(f"{_now()} – auth – {msg}\n")
+            raise
     elif mode == "check":
         pid, tok = _creds()
         if not pid:
