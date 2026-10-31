@@ -1,0 +1,1 @@
+2026-10-30 21:49 – auth – Faltan los secretos FB_APP_ID, FB_APP_SECRET o FB_USER_TOKEN.
