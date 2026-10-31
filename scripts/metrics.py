@@ -227,7 +227,7 @@ def facebook():
     pid, tok = os.environ.get("FB_PAGE_ID"), os.environ.get("FB_PAGE_TOKEN")
     if not pid or not tok:
         raise RuntimeError("Facebook no conectado")
-    F = "https://graph.facebook.com/v23.0"
+    F = "https://graph.facebook.com/v26.0"
     pg = _get(f"{F}/{pid}", params={"fields": "followers_count,fan_count", "access_token": tok})
     add("facebook", "cuenta", pid, "seguidores", pg.get("followers_count", pg.get("fan_count")))
     try:

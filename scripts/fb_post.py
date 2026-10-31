@@ -25,8 +25,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import tiktok_feed  # noqa: E402
 
-G = "https://graph.facebook.com/v23.0"
-GV = "https://graph-video.facebook.com/v23.0"
+G = "https://graph.facebook.com/v26.0"
+GV = "https://graph-video.facebook.com/v26.0"
 SITE = "https://viajespillados.com/"
 REPO = "emilwoivalin-boop/viajespillados"
 LOG = os.path.join(ROOT, "fb", "published.json")
