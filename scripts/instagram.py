@@ -618,6 +618,8 @@ def main():
                            destinos=[o["destino"] for o in todo])
     import x_post        # same post on X (skipped if the X keys are not set)
     xp = x_post.share_latest()
+    import fb_post       # and on the Facebook Page (skipped if not connected)
+    xp += fb_post.share_latest()
     commit_push(["instagram/published.json", feed] + xp, f"Instagram: publicado {names}")
     summary(f"✅ Publicado ({'carrusel de ' + str(len(todo)) if len(todo) > 1 else 'post'}): **{names}** – {permalink}")
 

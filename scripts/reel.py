@@ -668,6 +668,8 @@ def publish(rid):
                            permalink, destinos=destino)
     import x_post        # same Reel on X (skipped if the X keys are not set)
     xp = x_post.share_latest()
+    import fb_post       # and on the Facebook Page (skipped if not connected)
+    xp += fb_post.share_latest()
     ig.commit_push([f"reels/{rid}/published.json", feed] + xp, f"Reel publicado: {rid}")
     ig.summary(f"✅ Reel publicado: {permalink}")
 

@@ -17,8 +17,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HIST = os.path.join(ROOT, "metrics", "history.csv")
 LATEST = os.path.join(ROOT, "metrics", "latest.json")
 BOG = timezone(timedelta(hours=-5))
-CH = {"instagram": "Instagram", "youtube": "YouTube", "x": "X", "web": "Web"}
-VIEW = {"instagram": "vistas", "youtube": "vistas", "x": "vistas"}
+CH = {"instagram": "Instagram", "youtube": "YouTube", "x": "X", "facebook": "Facebook", "web": "Web"}
+VIEW = {"instagram": "vistas", "youtube": "vistas", "x": "vistas", "facebook": "vistas"}
 DIAS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 MESES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -113,6 +113,7 @@ def build():
     ig_f, ig_fd = acct("instagram", "seguidores")
     yt_f, yt_fd = acct("youtube", "suscriptores")
     x_f, x_fd = acct("x", "seguidores")
+    fb_f, fb_fd = acct("facebook", "seguidores")
     ig_day = {m: cur.get(k) for k in cur for m in ["alcance_dia", "visitas_perfil", "clics_web"] if k[0] == "instagram" and k[2] == m}
 
     # ---------------------------------------------------------------- summary text
@@ -129,7 +130,8 @@ def build():
              + (f"; top: {max(clicks, key=clicks.get)}." if clicks else "."))
     fl = [f"IG {fmt(ig_f)}" + (f" ({sign(ig_fd)})" if ig_fd else "") if ig_f is not None else None,
           f"YouTube {fmt(yt_f)}" + (f" ({sign(yt_fd)})" if yt_fd else "") if yt_f is not None else None,
-          f"X {fmt(x_f)}" + (f" ({sign(x_fd)})" if x_fd else "") if x_f is not None else None]
+          f"X {fmt(x_f)}" + (f" ({sign(x_fd)})" if x_fd else "") if x_f is not None else None,
+          f"Facebook {fmt(fb_f)}" + (f" ({sign(fb_fd)})" if fb_fd else "") if fb_f is not None else None]
     s.append("👥 Followers: " + " · ".join(x for x in fl if x) + ".")
     if errors:
         s.append("⚠️ No data from: " + ", ".join(errors) + ".")
@@ -150,6 +152,7 @@ def build():
              f"reach yesterday {fmt(ig_day['alcance_dia'])}" if ig_day.get("alcance_dia") is not None else ""),
         tile("YouTube subscribers", fmt(yt_f) if yt_f is not None else "—", yt_fd),
         tile("X followers", fmt(x_f) if x_f is not None else "—", x_fd),
+        tile("Facebook followers", fmt(fb_f) if fb_f is not None else "—", fb_fd),
     ])
     maxv = max([p["vistas"] for p in posts] or [1])
     prow = "".join(
@@ -159,7 +162,7 @@ def build():
         f'<td class="n"><div class="bar"><i style="width:{max(2, 100 * p["vistas"] / maxv):.0f}%"></i></div>{fmt(p["vistas"])}</td>'
         f'<td class="n">{sign(p["delta"]) if p["delta"] is not None else "—"}</td>'
         f'<td class="n">{fmt(p["likes"])}</td></tr>' for p in posts[:15])
-    cols = ["instagram", "youtube", "x", "web clicks"]
+    cols = ["instagram", "youtube", "x", "facebook", "web clicks"]
     drow = "".join(
         f'<tr><td>{e(k)}</td>' + "".join(f'<td class="n">{fmt(v[c]) if v.get(c) else "·"}</td>' for c in cols) + "</tr>"
         for k, v in dest_rows[:15])
@@ -201,8 +204,8 @@ pre{{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);bo
 <tbody>{prow or '<tr><td colspan="5" class="muted">No data.</td></tr>'}</tbody></table></div>
 <div class="two">
 <div><h2>Destinations <span class="muted" style="font-weight:400;font-size:13px">({period}; website clicks from yesterday)</span></h2>
-<div class="card"><table><thead><tr><th>Destination</th><th class="n">Instagram</th><th class="n">YouTube</th><th class="n">X</th><th class="n">Web clicks</th></tr></thead>
-<tbody>{drow or '<tr><td colspan="5" class="muted">No data.</td></tr>'}</tbody></table></div></div>
+<div class="card"><table><thead><tr><th>Destination</th><th class="n">Instagram</th><th class="n">YouTube</th><th class="n">X</th><th class="n">Facebook</th><th class="n">Web clicks</th></tr></thead>
+<tbody>{drow or '<tr><td colspan="6" class="muted">No data.</td></tr>'}</tbody></table></div></div>
 <div><h2>Website visits by source (yesterday)</h2>
 <div class="card"><table><tbody>{rrow}</tbody></table></div></div>
 </div>

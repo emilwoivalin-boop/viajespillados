@@ -221,6 +221,35 @@ def x():
                 add("x", tipo, t["id"], name, pm[k], **base)
 
 
+# ---------------------------------------------------------------- Facebook Page
+@section("facebook")
+def facebook():
+    pid, tok = os.environ.get("FB_PAGE_ID"), os.environ.get("FB_PAGE_TOKEN")
+    if not pid or not tok:
+        raise RuntimeError("Facebook no conectado")
+    F = "https://graph.facebook.com/v23.0"
+    pg = _get(f"{F}/{pid}", params={"fields": "followers_count,fan_count", "access_token": tok})
+    add("facebook", "cuenta", pid, "seguidores", pg.get("followers_count", pg.get("fan_count")))
+    try:
+        log = json.load(open(os.path.join(ROOT, "fb", "published.json")))
+    except Exception:
+        log = []
+    for e in log[:30]:
+        title = e.get("title", "")
+        dests = title.split(": ", 1)[1] if title.startswith("Ofertas: ") else re.sub(r"^Reel: \d+ días en ", "", title)
+        tipo = "reel" if e.get("kind") == "video" else "carrusel"
+        base = dict(publicado=e.get("at", ""), destinos=dests, titulo=title, enlace=e.get("url", ""))
+        try:
+            if e.get("kind") == "video":
+                v = _get(f"{F}/{e['post_id']}/video_insights", params={"metric": "total_video_views", "access_token": tok}).get("data", [])
+                add("facebook", tipo, e["post_id"], "vistas", (v[0]["values"][0]["value"] if v else None), **base)
+            else:
+                v = _get(f"{F}/{e['post_id']}/insights", params={"metric": "post_impressions", "access_token": tok}).get("data", [])
+                add("facebook", tipo, e["post_id"], "vistas", (v[0]["values"][0]["value"] if v else None), **base)
+        except Exception as ex:
+            errors["facebook_posts"] = str(ex)[:200]
+
+
 def save():
     os.makedirs(OUT, exist_ok=True)
     hist = os.path.join(OUT, "history.csv")
@@ -241,6 +270,6 @@ def save():
 
 
 if __name__ == "__main__":
-    for fn in (web, instagram, youtube, x):
+    for fn in (web, instagram, youtube, x, facebook):
         fn()
     save()
