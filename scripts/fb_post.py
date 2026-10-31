@@ -90,6 +90,23 @@ def text_for(item):
     return (item.get("caption") or item.get("title", "")).strip()[:5000]
 
 
+def square(path, size=1080):
+    """Facebook shows multi-photo posts as square tiles and crops 4:5 images (top line and footer get cut).
+    Put the whole image on a square canvas filled with a blurred, darkened copy of itself."""
+    import io
+    from PIL import Image, ImageFilter, ImageEnhance
+    im = Image.open(path).convert("RGB")
+    bg = im.resize((size, size)).filter(ImageFilter.GaussianBlur(40))
+    bg = ImageEnhance.Brightness(bg).enhance(0.6)
+    w, h = im.size
+    k = size / max(w, h)
+    fg = im.resize((round(w * k), round(h * k)), Image.LANCZOS)
+    bg.paste(fg, ((size - fg.width) // 2, (size - fg.height) // 2))
+    buf = io.BytesIO()
+    bg.save(buf, "JPEG", quality=92)
+    return buf.getvalue()
+
+
 def post_item(item, pid, tok):
     text = text_for(item)
     urls = [SITE + p for p in item["files"]]
@@ -101,9 +118,11 @@ def post_item(item, pid, tok):
         url = f"https://www.facebook.com/{pid}/videos/{post_id}"
     else:
         ids = []
-        for u in urls[:10]:
-            ids.append(_check(requests.post(f"{G}/{pid}/photos", timeout=120, data={
-                "url": u, "published": "false", "access_token": tok}), "photo")["id"])
+        for rel in item["files"][:10]:
+            ids.append(_check(requests.post(f"{G}/{pid}/photos", timeout=120,
+                                            data={"published": "false", "access_token": tok},
+                                            files={"source": ("photo.jpg", square(os.path.join(ROOT, rel)), "image/jpeg")}),
+                              "photo")["id"])
         j = _check(requests.post(f"{G}/{pid}/feed", timeout=120, data={
             "message": text, "attached_media": json.dumps([{"media_fbid": i} for i in ids]),
             "access_token": tok}), "feed")
