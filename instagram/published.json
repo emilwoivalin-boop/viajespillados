@@ -217,6 +217,28 @@
       "image": "https://viajespillados.com/instagram/img/seul-2026-10-30-4772850.jpg",
       "published_at": "2026-10-30 21:18",
       "carousel": true
+    },
+    {
+      "id": "la-habana-2026-10-31-707190",
+      "destino": "La Habana",
+      "precio": 707190,
+      "sheet_row": 35,
+      "media_id": "18102870617383509",
+      "permalink": "https://www.instagram.com/p/DfKqOThFDWF/",
+      "image": "https://viajespillados.com/instagram/img/la-habana-2026-10-31-707190.jpg",
+      "published_at": "2026-10-31 12:09",
+      "carousel": true
+    },
+    {
+      "id": "tijuana-2026-10-31-473993",
+      "destino": "Tijuana",
+      "precio": 473993,
+      "sheet_row": 36,
+      "media_id": "18102870617383509",
+      "permalink": "https://www.instagram.com/p/DfKqOThFDWF/",
+      "image": "https://viajespillados.com/instagram/img/tijuana-2026-10-31-473993.jpg",
+      "published_at": "2026-10-31 12:09",
+      "carousel": true
     }
   ]
 }
