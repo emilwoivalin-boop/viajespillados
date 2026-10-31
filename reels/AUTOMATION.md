@@ -60,6 +60,19 @@ Common facts
      concrete vivid detail. Only facts you are sure about.
    The opening line (date + El Dorado), the return line (with the workdays-off sentence) and the price ending are added
    automatically by `reel_plan.py build` – don't write them.
+4a. **4a · Fechas y ocasiones.** The storyline must take the trip dates (ida–vuelta) into account. Check whether the trip overlaps
+   (1) Nochebuena/Navidad (24–25 Dec), Nochevieja/Año Nuevo (31 Dec–1 Jan), Semana Santa, Halloween/Día de Muertos, or a Colombian
+   holiday weekend (tab "Holidays" of the Price log), or (2) a famous local event or season at the destination (e.g. carnival,
+   national day, a big festival, cherry blossoms, northern lights, whale season). Fixed-date occasions can be used directly; for any
+   event whose dates change from year to year, confirm with a web search that it happens during the trip dates in that year, and
+   only use it if the overlap is clear – never guess. Pick at most one occasion (the most relevant). If there is one: save it in
+   plan.json as `"ocasion": {"nombre": ..., "fechas": ..., "fuente": <url or "fecha fija">}`; mention it naturally in the "llegada"
+   line (e.g. "¡Bienvenido a La Habana en plena Navidad! …"); turn the day line that best fits into the occasion (it may start with
+   "En Nochebuena:", "El 31:" etc. instead of "Día dos:"), keeping the other Qué hacer activities; add matching visual details to
+   the picture prompts of those scenes (e.g. Christmas lights and decorations, a night sky with fireworks, carnival colours and
+   streamers – still no people, no text); start "que_hacer" (it becomes the start of the Instagram caption) with a short sentence
+   such as "Navidad en La Habana."; and mention the occasion in the final message to the owner. Only state facts you are sure
+   about. If nothing applies, change nothing.
 5. **Picture prompts** (`prompts`, English, one per key). Every prompt = this style block + scene description + layout rule:
    - Style block: `Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16.`
    - `vuelo`: view from high above the clouds with a small white airplane, and the landscape of the destination region far below (sea and islands, mountains, city…).

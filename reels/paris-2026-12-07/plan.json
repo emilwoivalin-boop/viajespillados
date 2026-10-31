@@ -1,0 +1,63 @@
+{
+ "id": "paris-2026-12-07",
+ "offer": {
+  "destino": "París",
+  "aerolinea": "Avianca",
+  "precio": 3366511,
+  "escalas": "directo",
+  "ida": "2026-12-07",
+  "vuelta": "2026-12-13",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20CDG%20from%20BOG%20on%202026-12-07%20through%202026-12-13&curr=COP&hl=es-419",
+  "sheet_row": 24
+ },
+ "hora_salida": null,
+ "drive_folder_id": "11pMqPcBFzr4SDadRg4gDIl7S0kLLXSxZ",
+ "que_hacer": "Navidad en París. Sube a la Torre Eiffel, recorre el Louvre y pasea por Montmartre.",
+ "ocasion": {
+  "nombre": "Navidad en París: luces de Navidad de los Campos Elíseos y mercado navideño",
+  "fechas": "22 nov 2026 – 3 ene 2027 (luces); mercado hasta el 4 ene 2027",
+  "fuente": "https://www.sortiraparis.com/en/news/in-paris/articles/45753-champs-elysees-christmas-lights-2026-find-out-the-date-and-launch-program"
+ },
+ "lines": {
+  "vuelo": "Once horas de vuelo directo cruzando el Atlántico, y abajo aparece París junto al río Sena.",
+  "llegada": "¡Bienvenido a París en plena Navidad! El aire frío de diciembre huele a castañas asadas y vino caliente.",
+  "dia1": "Día uno: subes a la Torre Eiffel y ves todo París desde arriba, con el Sena brillando abajo.",
+  "dia2": "Día dos: recorres el Louvre y entras por su famosa pirámide de cristal a ver la Mona Lisa.",
+  "dia3": "De noche: caminas los Campos Elíseos, con luces de Navidad en cada árbol y el Arco del Triunfo al fondo."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a winter patchwork of pale green and brown fields of France with the winding blue Seine river leading to a small distant city with a tiny Eiffel Tower shape, pale blue December sky. Keep the lower half open with the fields and the river clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a modern curved glass airport terminal near Paris on a cold clear winter morning, bare trees, a small Christmas tree with red and gold baubles and a green wreath with a red bow on the terminal wall, a few cream-colored Parisian buildings in the distance under a pale blue sky. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Eiffel Tower seen from the wide lawn of the Champ de Mars on a crisp sunny winter day: the tall brown iron tower in the center, bare trees on both sides, cream-colored Parisian buildings with grey roofs, a clear blue sky. The wide path in the lower half leading toward the tower is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Louvre museum courtyard in Paris on a sunny winter morning: the big glass pyramid in the middle, the long elegant cream-colored palace buildings with grey roofs around it, shallow fountains, blue sky. The wide stone-paved courtyard in the lower half is clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Champs-Élysées avenue in Paris at night at Christmas time: two long rows of bare trees wrapped in thousands of sparkling white and red Christmas lights, elegant cream buildings with lit windows, a few small wooden Christmas market chalets with red roofs, the Arc de Triomphe glowing at the far end of the avenue, dark blue night sky with stars. The wide sidewalk in the lower half is clearly visible and empty."
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "dia1": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "dia2": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "dia3": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  }
+ },
+ "end_image": "dia1"
+}

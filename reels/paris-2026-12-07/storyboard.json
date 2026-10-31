@@ -1,0 +1,139 @@
+{
+ "id": "paris-2026-12-07",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Lunes 7 de diciembre. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' París!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": []
+  },
+  {
+   "text": "Once horas de vuelo directo cruzando el Atlántico, y abajo aparece París junto al río Sena.",
+   "media": {
+    "type": "file",
+    "path": "reels/paris-2026-12-07/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a París en plena Navidad! El aire frío de diciembre huele a castañas asadas y vino caliente.",
+   "media": {
+    "type": "file",
+    "path": "reels/paris-2026-12-07/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: subes a la Torre Eiffel y ves todo París desde arriba, con el Sena brillando abajo.",
+   "media": {
+    "type": "file",
+    "path": "reels/paris-2026-12-07/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día dos: recorres el Louvre y entras por su famosa pirámide de cristal a ver la Mona Lisa.",
+   "media": {
+    "type": "file",
+    "path": "reels/paris-2026-12-07/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "De noche: caminas los Campos Elíseos, con luces de Navidad en cada árbol y el Arco del Triunfo al fondo.",
+   "media": {
+    "type": "file",
+    "path": "reels/paris-2026-12-07/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Avianca, por solo 3 millones 367 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "7 días en París",
+  "kicker": "",
+  "airline": "Avianca · vuelo directo",
+  "price": "$3.366.511",
+  "detail": "ida y vuelta · 7 dic – 13 dic",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/paris-2026-12-07/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en París desde Bogotá ✈️ Navidad en París. Sube a la Torre Eiffel, recorre el Louvre y pasea por Montmartre. Ida y vuelta con Avianca desde $3.366.511 (7 dic – 13 dic). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #paris #ofertasdevuelos"
+}
