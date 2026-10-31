@@ -173,6 +173,11 @@ if __name__ == "__main__":
         exp = dbg.get("expires_at", 0)
         print(f"Página: {p.get('name')} · seguidores {p.get('followers_count')} · token "
               f"{'sin vencimiento' if not exp else 'vence ' + datetime.fromtimestamp(exp).isoformat()}")
+        os.makedirs(os.path.dirname(LOG), exist_ok=True)
+        with open(os.path.join(ROOT, "fb", "check.txt"), "w") as f:
+            f.write(f"{_now()} – {p.get('name')} · seguidores {p.get('followers_count')} · token "
+                    f"{'sin vencimiento' if not exp else 'vence ' + datetime.fromtimestamp(exp).isoformat()} · "
+                    f"permisos {', '.join(dbg.get('scopes', []))}\n")
     elif mode == "preview":
         item = json.load(open(tiktok_feed.PATH))[0]
         print(item["title"], item["files"], "\n\n" + text_for(item))
