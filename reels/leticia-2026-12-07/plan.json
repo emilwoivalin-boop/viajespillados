@@ -35,27 +35,72 @@
  "scenes": {
   "vuelo": {
    "stick": null,
-   "pop": null,
+   "pop": {
+    "icon": "pin",
+    "word": "selva",
+    "x": 0.36,
+    "y": 0.74,
+    "size": 190
+   },
    "ambience": null
   },
   "llegada": {
-   "stick": null,
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.45,
+    "y": 0.83,
+    "size": 400,
+    "facing": 1
+   },
    "pop": null,
-   "ambience": null
+   "ambience": "crickets"
   },
   "dia1": {
-   "stick": null,
-   "pop": null,
-   "ambience": null
+   "stick": {
+    "action": "walk",
+    "x0": 0.45,
+    "x1": 0.55,
+    "y": 0.93,
+    "y1": 0.8,
+    "size": 440,
+    "size1": 340,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "sparkle",
+    "word": "velas",
+    "x": 0.15,
+    "y": 0.66,
+    "size": 190
+   },
+   "ambience": "crickets"
   },
   "dia2": {
-   "stick": null,
+   "stick": {
+    "action": "photo",
+    "x0": 0.47,
+    "y": 0.77,
+    "size": 300,
+    "facing": 1
+   },
    "pop": null,
    "ambience": null
   },
   "dia3": {
-   "stick": null,
-   "pop": null,
+   "stick": {
+    "action": "photo",
+    "x0": 0.45,
+    "y": 0.77,
+    "size": 300,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "heart",
+    "word": "delfines",
+    "x": 0.82,
+    "y": 0.42,
+    "size": 190
+   },
    "ambience": null
   }
  },
