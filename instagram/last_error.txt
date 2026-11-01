@@ -1,1 +1,2 @@
-2026-10-28 18:46 – check – KeyError: 'IG_ACCESS_TOKEN'
+2026-11-01 12:52 – RuntimeError: Instagram API error 400: {"error": {"message": "Media ID is not available", "type": "OAuthException", "code": 9007, "error_subcode": 2207027, "is_transient": false, "error_user_title": "Cannot Publish", "error_user_msg": "The media is not ready for publishing, please wait for a moment", "fbtrace_id": "A_OlcWNeyq3LNlJe_9T_G3V"}}
+URLs: ['https://viajespillados.com/instagram/img/leticia-2026-11-01-492400.jpg', 'https://viajespillados.com/instagram/img/cusco-2026-11-01-1174950.jpg']
