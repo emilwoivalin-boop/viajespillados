@@ -59,7 +59,7 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-10-31,web,pagina,/,,,Viajes Pillados,,visitas,3
 2026-10-31,web,origen,(directo),,,(directo),,visitas,2
 2026-10-31,web,origen,ig,,,ig,,visitas,1
-2026-11-01,instagram,cuenta,17841432973721368,,,,,seguidores,6
+2026-11-01,instagram,cuenta,17841432973721368,,,,,seguidores,7
 2026-11-01,instagram,cuenta,17841432973721368,,,,,publicaciones,11
 2026-11-01,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,me_gusta,0
 2026-11-01,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,comentarios,0
@@ -70,8 +70,8 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-01,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,interacciones,0
 2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,me_gusta,3
 2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,comentarios,0
-2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,alcance,177
-2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,vistas,201
+2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,alcance,184
+2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,vistas,208
 2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,guardados,0
 2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,compartidos,0
 2026-11-01,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,interacciones,3
@@ -112,8 +112,8 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-01,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,interacciones,0
 2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,me_gusta,2
 2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,comentarios,0
-2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,alcance,158
-2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,vistas,174
+2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,alcance,159
+2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,vistas,175
 2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,guardados,0
 2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,compartidos,0
 2026-11-01,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,interacciones,3
@@ -145,10 +145,10 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-01,youtube,cuenta,UCUaIRv98Akt5tvHvsmPd1kQ,,,,,suscriptores,1
 2026-11-01,youtube,cuenta,UCUaIRv98Akt5tvHvsmPd1kQ,,,,,vistas_total,1001
 2026-11-01,youtube,cuenta,UCUaIRv98Akt5tvHvsmPd1kQ,,,,,videos,2
-2026-11-01,youtube,short,phxH2z4O7aA,2026-10-30 18:59,La Habana,"Qué hacer en La Habana, Cuba ✈️",https://youtube.com/shorts/phxH2z4O7aA,vistas,546
+2026-11-01,youtube,short,phxH2z4O7aA,2026-10-30 18:59,La Habana,"Qué hacer en La Habana, Cuba ✈️",https://youtube.com/shorts/phxH2z4O7aA,vistas,548
 2026-11-01,youtube,short,phxH2z4O7aA,2026-10-30 18:59,La Habana,"Qué hacer en La Habana, Cuba ✈️",https://youtube.com/shorts/phxH2z4O7aA,me_gusta,7
 2026-11-01,youtube,short,phxH2z4O7aA,2026-10-30 18:59,La Habana,"Qué hacer en La Habana, Cuba ✈️",https://youtube.com/shorts/phxH2z4O7aA,comentarios,0
-2026-11-01,youtube,short,GBVrnwM7A4E,2026-10-30 17:35,Tijuana,"Qué hacer en Tijuana, México ✈️",https://youtube.com/shorts/GBVrnwM7A4E,vistas,473
+2026-11-01,youtube,short,GBVrnwM7A4E,2026-10-30 17:35,Tijuana,"Qué hacer en Tijuana, México ✈️",https://youtube.com/shorts/GBVrnwM7A4E,vistas,475
 2026-11-01,youtube,short,GBVrnwM7A4E,2026-10-30 17:35,Tijuana,"Qué hacer en Tijuana, México ✈️",https://youtube.com/shorts/GBVrnwM7A4E,me_gusta,3
 2026-11-01,youtube,short,GBVrnwM7A4E,2026-10-30 17:35,Tijuana,"Qué hacer en Tijuana, México ✈️",https://youtube.com/shorts/GBVrnwM7A4E,comentarios,1
 2026-11-01,x,cuenta,2116232271464218624,,,,,seguidores,0
@@ -179,3 +179,7 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-01,x,carrusel,2116245008370033015,2026-10-30 14:05,"Reikiavik, Vancouver","Ofertas: Reikiavik, Vancouver",https://x.com/viajespillados/status/2116245008370033015,respuestas,0
 2026-11-01,x,carrusel,2116245008370033015,2026-10-30 14:05,"Reikiavik, Vancouver","Ofertas: Reikiavik, Vancouver",https://x.com/viajespillados/status/2116245008370033015,guardados,0
 2026-11-01,facebook,cuenta,1480839581771583,,,,,seguidores,0
+2026-11-01,facebook,carrusel,1480839581771583_122101624803529435,2026-10-31 21:09,"Lima, Santiago de Chile","Ofertas: Lima, Santiago de Chile",https://www.facebook.com/1480839581771583_122101624803529435,vistas,0
+2026-11-01,facebook,reel,938942612420788,2026-10-31 12:16,París,Reel: 7 días en París,https://www.facebook.com/1480839581771583/videos/938942612420788,vistas,0
+2026-11-01,facebook,carrusel,1480839581771583_122101345923529435,2026-10-31 12:09,"La Habana, Tijuana","Ofertas: La Habana, Tijuana",https://www.facebook.com/1480839581771583_122101345923529435,vistas,0
+2026-11-01,facebook,carrusel,1480839581771583_122100773943529435,2026-10-30 22:11,"Lisboa, Seúl","Ofertas: Lisboa, Seúl",https://www.facebook.com/1480839581771583_122100773943529435,vistas,2

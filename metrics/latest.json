@@ -1,8 +1,6 @@
 {
- "generado": "2026-11-01 07:00",
- "errores": {
-  "facebook_posts": "HTTP 400 https://graph.facebook.com/v26.0/1480839581771583_122100773943529435/insights: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtra"
- },
+ "generado": "2026-11-01 11:09",
+ "errores": {},
  "filas": [
   {
    "fecha": "2026-10-31",
@@ -74,7 +72,7 @@
    "titulo": "",
    "enlace": "",
    "metrica": "seguidores",
-   "valor": 6
+   "valor": 7
   },
   {
    "fecha": "2026-11-01",
@@ -206,7 +204,7 @@
    "titulo": "París",
    "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
    "metrica": "alcance",
-   "valor": 177
+   "valor": 184
   },
   {
    "fecha": "2026-11-01",
@@ -218,7 +216,7 @@
    "titulo": "París",
    "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
    "metrica": "vistas",
-   "valor": 201
+   "valor": 208
   },
   {
    "fecha": "2026-11-01",
@@ -710,7 +708,7 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "alcance",
-   "valor": 158
+   "valor": 159
   },
   {
    "fecha": "2026-11-01",
@@ -722,7 +720,7 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "vistas",
-   "valor": 174
+   "valor": 175
   },
   {
    "fecha": "2026-11-01",
@@ -1106,7 +1104,7 @@
    "titulo": "Qué hacer en La Habana, Cuba ✈️",
    "enlace": "https://youtube.com/shorts/phxH2z4O7aA",
    "metrica": "vistas",
-   "valor": 546
+   "valor": 548
   },
   {
    "fecha": "2026-11-01",
@@ -1142,7 +1140,7 @@
    "titulo": "Qué hacer en Tijuana, México ✈️",
    "enlace": "https://youtube.com/shorts/GBVrnwM7A4E",
    "metrica": "vistas",
-   "valor": 473
+   "valor": 475
   },
   {
    "fecha": "2026-11-01",
@@ -1503,6 +1501,54 @@
    "enlace": "",
    "metrica": "seguidores",
    "valor": 0
+  },
+  {
+   "fecha": "2026-11-01",
+   "canal": "facebook",
+   "tipo": "carrusel",
+   "id": "1480839581771583_122101624803529435",
+   "publicado": "2026-10-31 21:09",
+   "destinos": "Lima, Santiago de Chile",
+   "titulo": "Ofertas: Lima, Santiago de Chile",
+   "enlace": "https://www.facebook.com/1480839581771583_122101624803529435",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-01",
+   "canal": "facebook",
+   "tipo": "reel",
+   "id": "938942612420788",
+   "publicado": "2026-10-31 12:16",
+   "destinos": "París",
+   "titulo": "Reel: 7 días en París",
+   "enlace": "https://www.facebook.com/1480839581771583/videos/938942612420788",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-01",
+   "canal": "facebook",
+   "tipo": "carrusel",
+   "id": "1480839581771583_122101345923529435",
+   "publicado": "2026-10-31 12:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "Ofertas: La Habana, Tijuana",
+   "enlace": "https://www.facebook.com/1480839581771583_122101345923529435",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-01",
+   "canal": "facebook",
+   "tipo": "carrusel",
+   "id": "1480839581771583_122100773943529435",
+   "publicado": "2026-10-30 22:11",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Ofertas: Lisboa, Seúl",
+   "enlace": "https://www.facebook.com/1480839581771583_122100773943529435",
+   "metrica": "vistas",
+   "valor": 2
   }
  ]
 }
