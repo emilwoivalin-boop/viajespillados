@@ -1,10 +1,69 @@
 {
- "generado": "2026-11-01 06:59",
+ "generado": "2026-11-01 07:00",
  "errores": {
-  "web": "RuntimeError: HTTP 404 https://viajespillados.goatcounter.com/api/v0/stats/total: {\"error\":\"not found\"}",
   "facebook_posts": "HTTP 400 https://graph.facebook.com/v26.0/1480839581771583_122100773943529435/insights: {\"error\":{\"message\":\"(#100) The value must be a valid insights metric\",\"type\":\"OAuthException\",\"code\":100,\"fbtra"
  },
  "filas": [
+  {
+   "fecha": "2026-10-31",
+   "canal": "web",
+   "tipo": "web",
+   "id": "total",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "",
+   "enlace": "",
+   "metrica": "visitas",
+   "valor": 3
+  },
+  {
+   "fecha": "2026-10-31",
+   "canal": "web",
+   "tipo": "web",
+   "id": "total",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "",
+   "enlace": "",
+   "metrica": "eventos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-10-31",
+   "canal": "web",
+   "tipo": "pagina",
+   "id": "/",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "Viajes Pillados",
+   "enlace": "",
+   "metrica": "visitas",
+   "valor": 3
+  },
+  {
+   "fecha": "2026-10-31",
+   "canal": "web",
+   "tipo": "origen",
+   "id": "(directo)",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "(directo)",
+   "enlace": "",
+   "metrica": "visitas",
+   "valor": 2
+  },
+  {
+   "fecha": "2026-10-31",
+   "canal": "web",
+   "tipo": "origen",
+   "id": "ig",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "ig",
+   "enlace": "",
+   "metrica": "visitas",
+   "valor": 1
+  },
   {
    "fecha": "2026-11-01",
    "canal": "instagram",

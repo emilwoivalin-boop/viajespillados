@@ -54,6 +54,11 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-10-31,x,carrusel,2116245008370033015,2026-10-30 14:05,"Reikiavik, Vancouver","Ofertas: Reikiavik, Vancouver",https://x.com/viajespillados/status/2116245008370033015,respuestas,0
 2026-10-31,x,carrusel,2116245008370033015,2026-10-30 14:05,"Reikiavik, Vancouver","Ofertas: Reikiavik, Vancouver",https://x.com/viajespillados/status/2116245008370033015,guardados,0
 2026-10-31,facebook,cuenta,1480839581771583,,,,,seguidores,0
+2026-10-31,web,web,total,,,,,visitas,3
+2026-10-31,web,web,total,,,,,eventos,0
+2026-10-31,web,pagina,/,,,Viajes Pillados,,visitas,3
+2026-10-31,web,origen,(directo),,,(directo),,visitas,2
+2026-10-31,web,origen,ig,,,ig,,visitas,1
 2026-11-01,instagram,cuenta,17841432973721368,,,,,seguidores,6
 2026-11-01,instagram,cuenta,17841432973721368,,,,,publicaciones,11
 2026-11-01,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,me_gusta,0
