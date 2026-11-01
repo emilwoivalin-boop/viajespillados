@@ -1,0 +1,7 @@
+{"id":"test-render","destino":"La Habana","pais":"Cuba","dias":2,
+ "scenes":[
+  {"key":"hook","img":"vuelo","tag":{"es":"LA HABANA · 2 DÍAS","en":"HAVANA · 2 DAYS"},"text":{"es":"¿La Habana en dos días? Parce, pilla este plan.","en":"Havana in two days? Here's the plan."},"stick":null,"pop":null},
+  {"key":"d1","img":"llegada","tag":{"es":"DÍA 1","en":"DAY 1"},"text":{"es":"Día uno: Habana Vieja a pie, qué chimba.","en":"Day one: walk Old Havana."},"stick":{"action":"walk","x0":0.3,"x1":0.6,"y":0.88,"size":380},"pop":{"icon":"pin","word":{"es":"Habana","en":"Havana"},"x":0.7,"y":0.45}},
+  {"key":"d2","img":"dia1","tag":{"es":"DÍA 2","en":"DAY 2"},"text":{"es":"Día dos: Malecón al atardecer. Guárdalo pa' tu viaje, y vuelos en viajespillados punto com.","en":"Day two: sunset on the Malecón. Save this for your trip!"},"stick":{"action":"photo","x0":0.35,"y":0.8,"size":360},"pop":null,"ambience":"waves"}
+ ],
+ "caption":{"es":"test","en":"test"}}

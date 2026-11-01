@@ -1,0 +1,54 @@
+name: Travel plan – render videos
+
+# Renders trips/<id>/storyboard_es.json and storyboard_en.json into video_es.mp4 / video_en.mp4.
+# The videos are NOT published anywhere and are NOT put on the website: they go to the branch
+# "trip-videos" (folder <id>/), from where they are copied to the owner's computer.
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "Folder in trips/ (e.g. medellin-3-dias)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trip-render
+  cancel-in-progress: false
+
+jobs:
+  trip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          pip install --quiet pillow requests edge-tts
+      - name: Git
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Render
+        run: python scripts/reel.py trip "${{ github.event.inputs.id }}"
+      - name: Save videos to branch trip-videos
+        run: |
+          ID="${{ github.event.inputs.id }}"
+          if git ls-remote --exit-code --heads origin trip-videos >/dev/null; then
+            git fetch -q origin trip-videos
+            git worktree add /tmp/tv origin/trip-videos
+            cd /tmp/tv && git checkout -q -B trip-videos
+          else
+            git worktree add --orphan -b trip-videos /tmp/tv
+            cd /tmp/tv
+          fi
+          mkdir -p "$ID"
+          cp "$GITHUB_WORKSPACE/trips/$ID"/video_*.mp4 "$GITHUB_WORKSPACE/trips/$ID"/video_*_cover.jpg "$ID"/
+          git add "$ID"
+          git commit -q -m "Travel plan videos: $ID"
+          for i in 1 2 3; do git push -q origin trip-videos && break; git pull -q --rebase origin trip-videos; done

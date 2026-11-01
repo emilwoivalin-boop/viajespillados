@@ -233,7 +233,7 @@ def clip_from_photo(src, dur, out, zoom_in=True, focus=0.5):
        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
 
 
-def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom=0.10):
+def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom=0.10, tag=None):
     """Render a picture scene in Python so the stick man lives *inside* the picture: he is drawn onto the
     illustration first and the gentle camera move (eased zoom) is applied to both, so he never slides
     against the background. Icon pops are drawn afterwards, in screen space."""
@@ -245,6 +245,7 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
     ox, oy = int((img.width - W) * focus), (img.height - H) // 2
     base = img.crop((ox, oy, ox + W, oy + H)).convert("RGBA")
 
+    tag_img = tag_png(tag) if tag else None
     n = int(dur * FPS) + 2
     gen = stickman.frames(st.get("action", "none"), n, FPS, x0=st.get("x0", 0.3), x1=st.get("x1", st.get("x0", 0.3)),
                           feet=int(st.get("y", 0.7) * H), feet1=int(st.get("y1", st.get("y", 0.7)) * H),
@@ -267,6 +268,8 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
         fr = fr.resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + bw, y0 + bh))
         if pops:
             reelfx.draw_pops(fr, pops, i / FPS, W, H)
+        if tag_img is not None:
+            fr.alpha_composite(tag_img)
         p.stdin.write(fr.convert("RGB").tobytes())
     p.stdin.close()
     if p.wait() != 0:
@@ -435,6 +438,33 @@ def end_png(e, path):
     img.save(path)
 
 
+def tag_png(text, y=250):
+    """Small yellow chip at the top (e.g. "DÍA 1"), above the captions."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    f = ig.font("Black", 50)
+    tw = d.textlength(text, font=f)
+    d.rounded_rectangle([W / 2 - tw / 2 - 34, y - 42, W / 2 + tw / 2 + 34, y + 42], radius=42, fill=YELLOW)
+    d.text((W // 2, y), text, font=f, fill=NAVY, anchor="mm")
+    return img
+
+
+def outro_png(o, path):
+    """Low-key sign-off: small logo + site name near the bottom (Spanish travel plans only)."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    f = ig.font("Bold", 38)
+    text = o.get("text", "viajespillados.com")
+    tw = d.textlength(text, font=f)
+    x = W // 2 - (64 + 14 + tw) / 2
+    y = H - o.get("bottom", 170)
+    d.rounded_rectangle([x - 22, y - 46, x + 64 + 14 + tw + 22, y + 46], radius=46, fill=(10, 18, 34, 150))
+    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((64, 64), Image.LANCZOS)
+    img.alpha_composite(logo, (int(x), int(y - 32)))
+    d.text((x + 64 + 14, y), text, font=f, fill="white", anchor="lm")
+    img.save(path)
+
+
 def ass_time(t):
     h, m = int(t // 3600), int(t % 3600 // 60)
     return f"{h}:{m:02d}:{t % 60:05.2f}"
@@ -501,10 +531,10 @@ def chunk_words(words, offset, max_words=3, max_chars=18):
 
 
 # ---------------------------------------------------------------- render
-def render(rid):
-    base = os.path.join(ROOT, "reels", rid)
-    sb = json.load(open(os.path.join(base, "storyboard.json")))
-    work = os.path.join("/tmp", "reel-" + rid)
+def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
+    base = os.path.join(ROOT, folder, rid)
+    sb = json.load(open(os.path.join(base, sb_file)))
+    work = os.path.join("/tmp", "reel-" + rid + "-" + sb_file.replace(".json", ""))
     os.makedirs(work, exist_ok=True)
     voice = sb.get("voice", "es-CO-SalomeNeural")
     rate = sb.get("rate", "+28%")
@@ -531,7 +561,7 @@ def render(rid):
                 clip_from_video(pexels_file(m["pexels_id"], os.path.join(work, f"s{i}.mp4")), dur, out)
             else:
                 photo_scene(media_file(m, sb, base, work, f"scene{i}", i), dur, out, sc.get("stick"), pops,
-                            i % 2 == 0, m.get("focus", 0.5), sb.get("zoom", 0.10))
+                            i % 2 == 0, m.get("focus", 0.5), sb.get("zoom", 0.10), sc.get("tag"))
                 in_photo = True
         except Exception as e:
             fb = m.get("fallback_photo") or sb.get("fallback_photo")
@@ -544,27 +574,31 @@ def render(rid):
         clips.append(out)
         t += dur
 
-    # end card: reveal + call to action, optionally with its own voice line
-    end = sb["end"]
+    # end card: reveal + call to action, optionally with its own voice line (travel plans have none)
+    end = sb.get("end") or {}
+    has_end = bool(end)
     end_audio = None
-    if end.get("text"):
+    if not has_end:
+        end_dur = 0.0
+    elif end.get("text"):
         end_audio = os.path.join(work, "vend.mp3")
         end_audio, edur, end_words = tight_voice(end["text"], voice, end_audio, rate)
         end["coin_at"] = word_time(end_words, "645", 1.4)
         end_dur = edur + 0.9
     else:
         end_dur = 3.0
-    end_bg = os.path.join(work, "end_bg.mp4")
-    end_media = end.get("media") or {"type": "photo", "url": sb.get("fallback_photo")}
-    end_media.setdefault("type", "photo")
-    try:
-        clip_from_photo(media_file(end_media, sb, base, work, "end", -1), end_dur, end_bg, True,
-                        end_media.get("focus", 0.5))
-    except Exception:
-        sh("ffmpeg", "-y", "-sseof", "-0.1", "-i", clips[-1], "-vf",
-           f"tpad=stop_mode=clone:stop_duration={end_dur}", "-t", f"{end_dur}", "-c:v", "libx264",
-           "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", end_bg)
-    clips.append(end_bg)
+    if has_end:
+        end_bg = os.path.join(work, "end_bg.mp4")
+        end_media = end.get("media") or {"type": "photo", "url": sb.get("fallback_photo")}
+        end_media.setdefault("type", "photo")
+        try:
+            clip_from_photo(media_file(end_media, sb, base, work, "end", -1), end_dur, end_bg, True,
+                            end_media.get("focus", 0.5))
+        except Exception:
+            sh("ffmpeg", "-y", "-sseof", "-0.1", "-i", clips[-1], "-vf",
+               f"tpad=stop_mode=clone:stop_duration={end_dur}", "-t", f"{end_dur}", "-c:v", "libx264",
+               "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", end_bg)
+        clips.append(end_bg)
 
     with open(os.path.join(work, "clips.txt"), "w") as f:
         f.writelines(f"file '{c}'\n" for c in clips)
@@ -581,16 +615,18 @@ def render(rid):
     if end_audio:
         sh("ffmpeg", "-y", "-i", end_audio, "-af", f"apad=whole_dur={end_dur:.3f}", "-ar", "44100",
            "-ac", "2", silence)
-    else:
+        parts.append(silence)
+    elif has_end:
         sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{end_dur}", silence)
-    parts.append(silence)
+        parts.append(silence)
     with open(os.path.join(work, "audio.txt"), "w") as f:
         f.writelines(f"file '{p}'\n" for p in parts)
     audio = os.path.join(work, "voice.wav")
     sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(work, "audio.txt"), audio)
     if sb.get("sfx", True):
-        sfx += [(max(0, t - 0.1), "whoosh", 0.22), (t + 0.05, "chime", 0.30)]
-        if sb["end"].get("coin"):
+        if has_end:
+            sfx += [(max(0, t - 0.1), "whoosh", 0.22), (t + 0.05, "chime", 0.30)]
+        if end.get("coin"):
             sfx.append((t + sb["end"].get("coin_at", 1.4), "coin", 0.28))
         fx = os.path.join(work, "sfx.wav")
         reelfx.write_track(sfx, t + end_dur, fx)
@@ -602,33 +638,47 @@ def render(rid):
     banner = os.path.join(work, "banner.png")
     banner_png(sb["banner"], banner)
     endcard = os.path.join(work, "endcard.png")
-    end_png(sb["end"], endcard)
+    if has_end:
+        end_png(end, endcard)
     ass = os.path.join(work, "subs.ass")
     subtitles(subs, ass, sb.get("caption_margin", 300), sb.get("caption_align", 2))   # higher margin = captions further up
 
-    final = os.path.join(base, "reel.mp4")
+    final = os.path.join(base, out_file)
     fonts = ig.FONTS
-    intro_in, intro_flt = [], ""
+    ins = ["-i", video, "-i", audio, "-loop", "1", "-i", banner]
+    flt = f"[0:v][2:v]overlay=0:0:enable='lt(t,{t:.2f})'[s0];"
+    cur, n_in = "s0", 3
+    if has_end:
+        ins += ["-loop", "1", "-i", endcard]
+        flt += (f"[{n_in}:v]format=rgba,fade=in:st={t:.2f}:d=0.3:alpha=1[e];"
+                f"[{cur}][e]overlay=0:0:enable='gte(t,{t:.2f})'[s1];")
+        cur, n_in = "s1", n_in + 1
     if sb.get("intro"):
         intro = os.path.join(work, "intro.png")
         intro_png(sb["intro"], intro)
         idur = sb["intro"].get("dur", 3.5)
-        intro_in = ["-loop", "1", "-i", intro]
-        intro_flt = (f"[4:v]format=rgba,fade=in:st=0.15:d=0.35:alpha=1,fade=out:st={idur - 0.4:.2f}:d=0.4:alpha=1[i];"
-                     f"[b0][i]overlay=0:0:enable='lt(t,{idur:.2f})'[b];")
-    flt = (f"[0:v][2:v]overlay=0:0:enable='lt(t,{t:.2f})'[a];"
-           f"[3:v]format=rgba,fade=in:st={t:.2f}:d=0.3:alpha=1[e];"
-           f"[a][e]overlay=0:0:enable='gte(t,{t:.2f})'[{'b0' if intro_in else 'b'}];"
-           + intro_flt +
-           f"[b]ass={ass}:fontsdir={fonts}[v]")
-    sh("ffmpeg", "-y", "-i", video, "-i", audio, "-loop", "1", "-i", banner, "-loop", "1", "-i", endcard, *intro_in,
+        ins += ["-loop", "1", "-i", intro]
+        flt += (f"[{n_in}:v]format=rgba,fade=in:st=0.15:d=0.35:alpha=1,fade=out:st={idur - 0.4:.2f}:d=0.4:alpha=1[i];"
+                f"[{cur}][i]overlay=0:0:enable='lt(t,{idur:.2f})'[s2];")
+        cur, n_in = "s2", n_in + 1
+    if sb.get("outro"):
+        outro = os.path.join(work, "outro.png")
+        outro_png(sb["outro"], outro)
+        od = sb["outro"].get("dur", 3.0)
+        st0 = max(0.0, t + end_dur - od)
+        ins += ["-loop", "1", "-i", outro]
+        flt += (f"[{n_in}:v]format=rgba,fade=in:st={st0:.2f}:d=0.5:alpha=1[o];"
+                f"[{cur}][o]overlay=0:0:enable='gte(t,{st0:.2f})'[s3];")
+        cur, n_in = "s3", n_in + 1
+    flt += f"[{cur}]ass={ass}:fontsdir={fonts}[v]"
+    sh("ffmpeg", "-y", *ins,
        "-filter_complex", flt, "-map", "[v]", "-map", "1:a", "-t", f"{t + end_dur:.2f}",
        "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-profile:v", "high", "-pix_fmt", "yuv420p",
        "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-movflags", "+faststart", final)
 
-    cover = os.path.join(base, "cover.jpg")
+    cover = os.path.join(base, out_file.replace(".mp4", "") + "_cover.jpg" if out_file != "reel.mp4" else "cover.jpg")
     sh("ffmpeg", "-y", "-ss", "1.0", "-i", final, "-frames:v", "1", "-q:v", "3", cover)
-    with open(os.path.join(base, "caption.txt"), "w") as f:
+    with open(os.path.join(base, "caption.txt" if out_file == "reel.mp4" else out_file.replace(".mp4", "_caption.txt")), "w") as f:
         f.write(sb.get("caption", "") + "\n")
     print(f"Reel listo: {final} ({t + end_dur:.1f} s)")
     return final
@@ -706,6 +756,10 @@ if __name__ == "__main__":
                 im.save(os.path.join(base, "img", f"{key}.jpg"), quality=92)
                 print(key, im.size)
             ig.commit_push([f"reels/{rid}/img"], f"Reel: imágenes de Drive {rid}")
+        elif mode == "trip":   # travel plan videos: trips/<id>/storyboard_es.json + storyboard_en.json
+            for lang in ("es", "en"):
+                if os.path.exists(os.path.join(ROOT, "trips", rid, f"storyboard_{lang}.json")):
+                    render(rid, "trips", f"storyboard_{lang}.json", f"video_{lang}.mp4")
         elif mode == "render":
             render(rid)
             ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
@@ -715,7 +769,7 @@ if __name__ == "__main__":
         err = traceback.format_exc()
         if isinstance(e, subprocess.CalledProcessError) and e.stderr:
             err += "\n--- ffmpeg ---\n" + e.stderr.decode(errors="ignore")[-3000:]
-        path = os.path.join(ROOT, "reels", rid, "error.txt")
+        path = os.path.join(ROOT, "trips" if mode == "trip" else "reels", rid, "error.txt")
         with open(path, "w") as f:
             f.write(err)
         ig.commit_push([path], f"Reel: error {rid}")
