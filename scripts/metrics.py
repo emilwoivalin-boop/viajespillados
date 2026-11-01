@@ -54,11 +54,17 @@ def section(name):
     return deco
 
 
-def _get(url, **kw):
-    r = requests.get(url, timeout=60, **kw)
-    if r.status_code >= 400:
-        raise RuntimeError(f"HTTP {r.status_code} {url.split('?')[0]}: {r.text[:200]}")
-    return r.json()
+def _get(url, retries=3, **kw):
+    import time
+    for attempt in range(retries):
+        r = requests.get(url, timeout=60, **kw)
+        if r.status_code < 400:
+            return r.json()
+        # 4xx with a clear API error (bad metric, bad token) won't fix itself; 404/429/5xx may
+        if r.status_code not in (404, 429) and r.status_code < 500:
+            break
+        time.sleep(10 * (attempt + 1))
+    raise RuntimeError(f"HTTP {r.status_code} {url.split('?')[0]}: {r.text[:200]}")
 
 
 # ---------------------------------------------------------------- website (GoatCounter, yesterday)
@@ -221,6 +227,27 @@ def x():
                 add("x", tipo, t["id"], name, pm[k], **base)
 
 
+_FB_OK = {}
+
+
+def _fb_metric(url, tok, names):
+    """First metric name Meta accepts (names change between Graph versions); remembered per endpoint type."""
+    kind = url.rsplit("/", 1)[-1]
+    tried = []
+    for name in ([_FB_OK[kind]] if kind in _FB_OK else []) + [n for n in names if n != _FB_OK.get(kind)]:
+        try:
+            d = _get(url, retries=1, params={"metric": name, "access_token": tok}).get("data", [])
+            _FB_OK[kind] = name
+            if not d:
+                return 0
+            vals = d[0].get("values") or [{}]
+            v = vals[-1].get("value", d[0].get("total_value", {}).get("value"))
+            return sum(v.values()) if isinstance(v, dict) else v
+        except Exception as e:
+            tried.append(f"{name}: {str(e)[-120:]}")
+    raise RuntimeError("ninguna métrica válida – " + " | ".join(tried))
+
+
 # ---------------------------------------------------------------- Facebook Page
 @section("facebook")
 def facebook():
@@ -241,11 +268,11 @@ def facebook():
         base = dict(publicado=e.get("at", ""), destinos=dests, titulo=title, enlace=e.get("url", ""))
         try:
             if e.get("kind") == "video":
-                v = _get(f"{F}/{e['post_id']}/video_insights", params={"metric": "total_video_views", "access_token": tok}).get("data", [])
-                add("facebook", tipo, e["post_id"], "vistas", (v[0]["values"][0]["value"] if v else None), **base)
+                add("facebook", tipo, e["post_id"], "vistas",
+                    _fb_metric(f"{F}/{e['post_id']}/video_insights", tok, ["post_video_views", "total_video_views", "post_media_view"]), **base)
             else:
-                v = _get(f"{F}/{e['post_id']}/insights", params={"metric": "post_impressions", "access_token": tok}).get("data", [])
-                add("facebook", tipo, e["post_id"], "vistas", (v[0]["values"][0]["value"] if v else None), **base)
+                add("facebook", tipo, e["post_id"], "vistas",
+                    _fb_metric(f"{F}/{e['post_id']}/insights", tok, ["post_media_view", "post_impressions_unique", "post_impressions"]), **base)
         except Exception as ex:
             errors["facebook_posts"] = str(ex)[:200]
 
@@ -256,10 +283,9 @@ def save():
     old = []
     if os.path.exists(hist):
         with open(hist, newline="") as f:
-            old = [r for r in csv.DictReader(f)
-                   # re-running the same night replaces that night's rows
-                   if not (r["fecha"] in (str(TODAY), str(YDAY)) and (r["canal"], r["fecha"]) in
-                           {(n["canal"], n["fecha"]) for n in rows})]
+            new_keys = {(n["fecha"], n["canal"], str(n["id"]), n["metrica"]) for n in rows}
+            # re-running the same day replaces exactly the same rows, nothing else
+            old = [r for r in csv.DictReader(f) if (r["fecha"], r["canal"], r["id"], r["metrica"]) not in new_keys]
     with open(hist, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
