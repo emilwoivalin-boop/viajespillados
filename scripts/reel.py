@@ -545,7 +545,7 @@ def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
     for i, sc in enumerate(sb["scenes"]):
         mp3 = os.path.join(work, f"v{i}.mp3")
         wav, vdur, words = tight_voice(sc["text"], voice, mp3, rate)
-        dur = vdur + pad
+        dur = vdur + pad + sc.get("hold", 0.0)   # "hold": extra seconds on the picture after the line
         subs += chunk_words(attach_punctuation(words, sc["text"]), t)
         pops = []
         for k, pp in enumerate(sc.get("pops", [])):

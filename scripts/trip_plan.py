@@ -55,6 +55,7 @@ def build(tid):
             scenes.append({"text": text, "media": {"type": "file", "path": img, "focus": sc.get("focus", 0.5)},
                            "stick": st, "pops": pops, "ambience": amb, "action_sfx": not amb,
                            **({"tag": tag} if tag else {})})
+        scenes[-1]["hold"] = 1.6          # let the last picture breathe (no end card in travel plans)
         voice, rate = VOICE[lang]
         sb = {"id": f"{tid}-{lang}", "voice": voice, "rate": rate, "pad": 0.25, "stick_style": "classic",
               "caption_margin": 400, "caption_align": 8, "banner": {"logo": False}, "scenes": scenes,
