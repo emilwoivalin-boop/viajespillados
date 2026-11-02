@@ -1,0 +1,58 @@
+{
+ "id": "aruba-2027-05-20",
+ "offer": {
+  "destino": "Aruba",
+  "aerolinea": "Wingo",
+  "precio": 702929,
+  "escalas": "directo",
+  "ida": "2027-05-20",
+  "vuelta": "2027-05-23",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20AUA%20from%20BOG%20on%202027-05-20%20through%202027-05-23&curr=COP&hl=es-419",
+  "sheet_row": 43
+ },
+ "hora_salida": null,
+ "drive_folder_id": "1HU_3Kz9iAt6FrcF8VSFvHGtMCN0SVyg4",
+ "que_hacer": "Relájate en Eagle Beach, recorre el Parque Nacional Arikok en 4x4 y haz snorkel en Mangel Halto.",
+ "lines": {
+  "vuelo": "Dos horas de vuelo directo, y abajo el Caribe se pinta de azul turquesa.",
+  "llegada": "¡Bienvenido a Aruba! Te recibe una brisa tibia que no para y palmeras moviéndose al sol.",
+  "dia1": "Día uno: te tiras en la arena blanca de Eagle Beach, a la sombra de un árbol fofoti.",
+  "dia2": "Día dos: te montas en un 4x4 por los caminos de piedra del Parque Nacional Arikok.",
+  "dia3": "Día tres: haces snorkel en el agua cristalina de Mangel Halto, entre peces de colores."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below the bright turquoise Caribbean Sea with the small flat island of Aruba, white beaches along its coast and a light-blue reef edge, sunny blue sky. Keep the lower half open with the sea and island clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a small modern Caribbean airport terminal in Aruba with a light roof, tall green palm trees bending in the wind, a few round cacti and a bright blue sky with small white clouds. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Eagle Beach in Aruba: very wide white sand, calm turquoise sea, and one famous fofoti tree with a twisted trunk and its crown bent sideways by the wind, casting a dark shadow on the sand, sunny blue sky. The white sand in the shadow of the tree and the lower half of the picture is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Arikok National Park in Aruba: dry rocky hills with tall green candle cacti and low divi-divi trees, golden-brown earth, the dark blue rough sea with white waves at the rocky coast in the background, sunny sky. A clear empty dirt track winds from the hills in the middle down to the bottom of the picture.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Mangel Halto in Aruba: shallow crystal-clear turquoise water over light sand and a few coral heads with small yellow, blue and orange fish visible under the surface, green mangrove trees and a small wooden deck at the side, sunny sky. The calm water surface across the middle of the picture is clearly visible and empty."
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "dia1": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "dia2": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "dia3": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  }
+ },
+ "end_image": "dia1"
+}
