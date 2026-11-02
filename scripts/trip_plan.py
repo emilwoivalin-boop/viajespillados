@@ -30,7 +30,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ICONS = {"sun", "heart", "sparkle", "pin", "plane", "fish", "suitcase", "clock", "camera"}
 AMBIENCE = {"waves", "crickets", "underwater", "birds", "steeldrum"}
 SFX = {"bell", "splash", "clink", "engine", "bubbles", "shutter", "boing", "chime", "sparkle", "pop", "coin"}
-ACTIONS = {"walk", "suitcase", "wave", "celebrate", "relax", "swim", "drive", "photo", "none"}
+ACTIONS = {"walk", "suitcase", "wave", "celebrate", "relax", "swim", "drive", "photo", "none",
+           "wade", "dance", "lookout", "sip", "dive", "float"}
 VOICE = {"es": ("es-CO-GonzaloNeural", "+35%"), "en": ("en-US-AndrewNeural", "+25%")}
 
 

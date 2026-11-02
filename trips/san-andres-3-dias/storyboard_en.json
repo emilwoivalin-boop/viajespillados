@@ -43,16 +43,15 @@
    "tag": "SAN ANDRÉS · 3 DAYS"
   },
   {
-   "text": "Day one: head up to La Loma, one of the oldest Raizal neighborhoods. On top is the First Baptist Church, built of wood, with the best view on the island. People here speak Creole, and everything feels calm.",
+   "text": "Day one: head up to La Loma, one of the oldest Raizal neighborhoods. On top is the First Baptist Church, built of wood, with the best view on the island.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/laloma.jpg",
     "focus": 0.5
    },
    "stick": {
-    "action": "walk",
-    "x0": 0.3,
-    "x1": 0.55,
+    "action": "lookout",
+    "x0": 0.42,
     "y": 0.87,
     "size": 400,
     "facing": 1
@@ -69,7 +68,30 @@
      "gain": 0.22
     }
    ],
-   "steps": true,
+   "steps": false,
+   "tag": "DAY 1"
+  },
+  {
+   "text": "And listen up: locals speak Creole, a sing-song Caribbean English with African roots that sounds a lot like Jamaican. It's been official since 1991, and many Raizales also speak Spanish and English. Total calm.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/laloma.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "wave",
+    "x0": 0.55,
+    "y": 0.88,
+    "size": 420,
+    "facing": -1
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
    "tag": "DAY 1"
   },
   {
@@ -103,11 +125,10 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "walk",
-    "x0": 0.3,
-    "x1": 0.6,
+    "action": "dance",
+    "x0": 0.45,
     "y": 0.55,
-    "size": 250,
+    "size": 260,
     "facing": 1
    },
    "pops": [
@@ -142,18 +163,17 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "swim",
-    "x0": 0.25,
-    "x1": 0.5,
+    "action": "float",
+    "x0": 0.45,
     "y": 0.8,
-    "size": 320,
+    "size": 300,
     "facing": 1
    },
    "pops": [],
    "ambience": [
     "waves"
    ],
-   "action_sfx": true,
+   "action_sfx": false,
    "sfx": [],
    "steps": false,
    "tag": "DAY 2"
@@ -166,10 +186,10 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "walk",
-    "x0": 0.2,
-    "x1": 0.5,
-    "y": 0.83,
+    "action": "wade",
+    "x0": 0.15,
+    "x1": 0.45,
+    "y": 0.86,
     "size": 340,
     "facing": 1
    },
@@ -209,24 +229,20 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "celebrate",
+    "action": "dive",
     "x0": 0.6,
+    "x1": 0.3,
     "y": 0.665,
+    "y1": 0.83,
     "size": 260,
-    "facing": 1
+    "facing": -1
    },
    "pops": [],
    "ambience": [
     "waves"
    ],
    "action_sfx": true,
-   "sfx": [
-    {
-     "kind": "splash",
-     "at": 3.0,
-     "gain": 0.3
-    }
-   ],
+   "sfx": [],
    "steps": false,
    "tag": "DAY 3"
   },
@@ -238,10 +254,10 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "relax",
-    "x0": 0.27,
-    "y": 0.9,
-    "size": 450,
+    "action": "sip",
+    "x0": 0.3,
+    "y": 0.93,
+    "size": 380,
     "facing": 1
    },
    "pops": [
@@ -294,5 +310,5 @@
   }
  ],
  "end": null,
- "caption": "San Andrés in 3 days 🌴 La Loma, Big Pond, Johnny Cay, El Acuario, Rocky Cay, West View and a coco loco sunset. Save this for your trip!"
+ "caption": "San Andrés in 3 days 🌴 La Loma, Raizal Creole, Big Pond, Johnny Cay, El Acuario, Rocky Cay, West View and a coco loco sunset. Save this for your trip!"
 }

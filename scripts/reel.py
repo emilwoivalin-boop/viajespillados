@@ -327,8 +327,9 @@ def scene_sfx(sc, t0, dur, pops):
              "steeldrum": 0.05}.get(amb, 0.1)
         ev.append((t0, amb, g, round(dur, 2)))
     for e in sc.get("sfx", []):                  # one-off sounds placed by hand: {"kind", "at" (s), "gain"}
-        if e.get("at", 0) < dur:
-            ev.append((t0 + e.get("at", 0), e["kind"], e.get("gain", 0.25)))
+        at = e["frac"] * dur if "frac" in e else e.get("at", 0)
+        if at < dur:
+            ev.append((t0 + at, e["kind"], e.get("gain", 0.25)))
     st = sc.get("stick") or {}
     act = st.get("action", "none")
     if act in ("walk", "suitcase") and sc.get("steps", False):
@@ -340,6 +341,10 @@ def scene_sfx(sc, t0, dur, pops):
             ev.append((t0 + s_, "step", 0.16 if k % 2 else 0.13))
         if act == "suitcase" and len(steps) > 1:
             ev.append((t0 + steps[0], "rumble", 0.05, round(steps[-1] - steps[0] + 0.3, 2)))
+    if act == "dive":                            # the splash always lands with him
+        ev += [(t0 + dur * 0.40, "whoosh", 0.18), (t0 + dur * 0.42, "splash", 0.32)]
+    if act == "wade" and sc.get("steps", False):
+        ev = [e for e in ev if e[1] != "step"]
     if not sc.get("action_sfx", True):           # max one extra sound per picture (ambience wins)
         return ev
     if act == "celebrate":

@@ -43,16 +43,15 @@
    "tag": "SAN ANDRÉS · 3 DÍAS"
   },
   {
-   "text": "Día uno: vamos pa' La Loma, uno de los barrios raizales más antiguos. Arriba está la Primera Iglesia Bautista, toda de madera, con la mejor vista de la isla. Aquí la gente habla creole y se respira una calma bacana.",
+   "text": "Día uno: vamos pa' La Loma, uno de los barrios raizales más antiguos. Arriba está la Primera Iglesia Bautista, toda de madera, con la mejor vista de la isla.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/laloma.jpg",
     "focus": 0.5
    },
    "stick": {
-    "action": "walk",
-    "x0": 0.3,
-    "x1": 0.55,
+    "action": "lookout",
+    "x0": 0.42,
     "y": 0.87,
     "size": 400,
     "facing": 1
@@ -69,7 +68,30 @@
      "gain": 0.22
     }
    ],
-   "steps": true,
+   "steps": false,
+   "tag": "DÍA 1"
+  },
+  {
+   "text": "Y para la oreja: aquí se habla creole, un inglés caribeño cantadito, con raíces africanas, que suena parecido al de Jamaica. Es idioma oficial desde 1991, y muchos raizales hablan también español e inglés. Calma total, parce.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/laloma.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "wave",
+    "x0": 0.55,
+    "y": 0.88,
+    "size": 420,
+    "facing": -1
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
    "tag": "DÍA 1"
   },
   {
@@ -103,11 +125,10 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "walk",
-    "x0": 0.3,
-    "x1": 0.6,
+    "action": "dance",
+    "x0": 0.45,
     "y": 0.55,
-    "size": 250,
+    "size": 260,
     "facing": 1
    },
    "pops": [
@@ -142,18 +163,17 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "swim",
-    "x0": 0.25,
-    "x1": 0.5,
+    "action": "float",
+    "x0": 0.45,
     "y": 0.8,
-    "size": 320,
+    "size": 300,
     "facing": 1
    },
    "pops": [],
    "ambience": [
     "waves"
    ],
-   "action_sfx": true,
+   "action_sfx": false,
    "sfx": [],
    "steps": false,
    "tag": "DÍA 2"
@@ -166,10 +186,10 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "walk",
-    "x0": 0.2,
-    "x1": 0.5,
-    "y": 0.83,
+    "action": "wade",
+    "x0": 0.15,
+    "x1": 0.45,
+    "y": 0.86,
     "size": 340,
     "facing": 1
    },
@@ -209,24 +229,20 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "celebrate",
+    "action": "dive",
     "x0": 0.6,
+    "x1": 0.3,
     "y": 0.665,
+    "y1": 0.83,
     "size": 260,
-    "facing": 1
+    "facing": -1
    },
    "pops": [],
    "ambience": [
     "waves"
    ],
    "action_sfx": true,
-   "sfx": [
-    {
-     "kind": "splash",
-     "at": 3.0,
-     "gain": 0.3
-    }
-   ],
+   "sfx": [],
    "steps": false,
    "tag": "DÍA 3"
   },
@@ -238,10 +254,10 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "relax",
-    "x0": 0.27,
-    "y": 0.9,
-    "size": 450,
+    "action": "sip",
+    "x0": 0.3,
+    "y": 0.93,
+    "size": 380,
     "facing": 1
    },
    "pops": [
@@ -294,7 +310,7 @@
   }
  ],
  "end": null,
- "caption": "San Andrés en 3 días 🌴 La Loma, Big Pond, Johnny Cay, El Acuario, Rocky Cay, West View y atardecer con coco loco. Guárdalo pa' tu viaje 🇨🇴",
+ "caption": "San Andrés en 3 días 🌴 La Loma, el creole raizal, Big Pond, Johnny Cay, El Acuario, Rocky Cay, West View y atardecer con coco loco. Guárdalo pa' tu viaje 🇨🇴",
  "outro": {
   "text": "viajespillados.com",
   "dur": 3.0

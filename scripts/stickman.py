@@ -7,7 +7,9 @@ props (roller suitcase, backpack, sunglasses, beach towel, snorkel mask, jeep, p
 frames(action, n, fps, **params) yields RGBA images of size (W, band_h); the reel overlays them at a
 fixed y. Everything is drawn at 2x and downsampled for smooth, anti-aliased lines.
 
-Actions: walk, suitcase, wave, celebrate, relax, swim, drive, photo, none.
+Actions: walk, suitcase, wave, celebrate, relax, swim, drive, photo, none,
+         wade (walking knee-deep in the sea), dance, lookout (shading the eyes + pointing), sip (drinks from
+         a coconut), dive (jumps from x0/y into the water at x1/y1, splash, swims up), float (on his back in water).
 """
 import math
 import random
@@ -335,6 +337,50 @@ def jeep(pen, x, ground, L, facing, t):
     return body, hood, wr, cy
 
 
+WATER = (110, 205, 215, 175)
+
+
+def water_over(pen, x, wl, half_w, L, t):
+    """Translucent sea surface that hides the figure below the water line wl, with moving ripples."""
+    pen.ellipse((x - half_w, wl - L * 0.035, x + half_w, wl + L * 0.33), WATER)
+    for k in range(2):
+        ph = (t * 0.6 + k * 0.5) % 1
+        rw = half_w * (0.55 + ph * 0.6)
+        pen.arc((x - rw, wl - L * 0.035, x + rw, wl + L * 0.05), 0, 180, (255, 255, 255, int(230 * (1 - ph))),
+                max(2, int(L * 0.012)))
+
+
+def note(pen, x, y, s, a=255):
+    pen.ellipse((x - s * 0.5, y - s * 0.35, x + s * 0.5, y + s * 0.35), (16, 24, 40, a), (255, 255, 255, a), 2)
+    pen.line((x + s * 0.45, y), (x + s * 0.45, y - s * 1.6), (16, 24, 40, a), max(2, int(s * 0.18)))
+    pen.line((x + s * 0.45, y - s * 1.6), (x + s * 1.0, y - s * 1.2), (16, 24, 40, a), max(2, int(s * 0.18)))
+
+
+def coconut(pen, c, s):
+    pen.line((c[0] + s * 0.1, c[1] - s * 0.3), (c[0] + s * 0.45, c[1] - s * 1.05), (250, 250, 250, 255), max(2, int(s * 0.12)))
+    pen.circle(c, s * 0.5, (140, 90, 45, 255), DARK, 3)
+    pen.ellipse((c[0] - s * 0.4, c[1] - s * 0.38, c[0] + s * 0.4, c[1] - s * 0.18), (245, 240, 225, 255), None)
+
+
+def splash(pen, x, y, L, age):
+    """Water splash at (x, y), age in seconds since entry."""
+    if age < 0:
+        return
+    a = max(0.0, 1 - age / 0.9)
+    rnd = random.Random(11)
+    for k in range(12):
+        ang = rnd.uniform(-70, 70)
+        v = rnd.uniform(0.5, 1.0) * L * 0.9
+        px = x + math.sin(math.radians(ang)) * v * age
+        py = y - math.cos(math.radians(ang)) * v * age + 2.2 * L * age * age
+        if a > 0 and py < y + L * 0.05:
+            pen.circle((px, py), L * 0.025, (255, 255, 255, int(235 * a)), (120, 200, 230, int(255 * a)), 2)
+    for k in range(3):
+        ph = (age * 0.7 + k / 3) % 1 if age > 0.2 else age * 2
+        rw = L * (0.12 + ph * 0.45)
+        pen.ellipse((x - rw, y - rw * 0.16, x + rw, y + rw * 0.16), None, (255, 255, 255, int(220 * (1 - ph))), 4)
+
+
 def step_times(n, fps, x0, x1, size, feet0=0, feet1=0, speed=1.0):
     """Seconds at which a foot touches the ground (same walk maths as frames())."""
     xs = [W * (x0 + (x1 - x0) * smooth(i / max(1, n - 1))) for i in range(n + 1)]
@@ -390,11 +436,17 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
         if action == "none":
             yield out
             continue
+        if action == "dive":                 # own path: stand, jump in an arc, splash, swim up
+            pd0, pd1 = 0.22, 0.42
+            u = min(1.0, max(0.0, (p - pd0) / (pd1 - pd0)))
+            x = W * (x0 + (x1 - x0) * u)
+            feet = feet0 + (feet1 - feet0) * u - math.sin(math.pi * u) * size0 * 0.55 * (1 if u < 1 else 0)
+            size = size0
         # local canvas around the figure
         cw = int(size * 3.2)
         lx = int(x - cw / 2)
-        py0 = max(0, int(feet - size * 1.6))
-        ph = max(10, min(band_h - py0, int(size * 1.9)))
+        py0 = max(0, int(feet - size * (2.2 if action == "dive" else 1.6)))
+        ph = max(10, min(band_h - py0, int(size * (2.6 if action == "dive" else 1.9))))
         pen = Pen(lx, py0, cw, ph, lw)
 
         if action in ("walk", "suitcase"):
@@ -485,6 +537,74 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                 sleeve(pen, sh, elbow, L, lw)
             head(pen, hc, L * 0.115, facing, t, mask=True)
             cap(pen, hc, L * 0.115, facing)
+        elif action == "wade":
+            legs, arms, bob = walk_pose(phase, amp * 0.7)
+            arms = ((-65, -20), (65 + 10 * math.sin(t * 2), 25))      # arms out for balance
+            standing(pen, x, feet, size, facing, t, legs, arms, bob=bob * size, glasses=bool(glasses))
+            water_over(pen, x, feet - size * 0.24, size * 0.42, size, t)
+        elif action == "dance":
+            sw = math.sin(t * 2 * math.pi * 1.1)
+            up = abs(math.sin(t * 2 * math.pi * 1.1))
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            standing(pen, x + sw * size * 0.03, feet, size, facing, t,
+                     [(-12 + 10 * sw, 8 + 22 * max(0, sw)), (12 + 10 * sw, 8 + 22 * max(0, -sw))],
+                     [(-(130 - 30 * sw), -45), (130 + 30 * sw, 45)], bob=-up * size * 0.03, lean=0.03 * sw, tilt=0.15 * sw)
+            for k in range(3):
+                ph_ = (t * 0.45 + k / 3) % 1
+                note(pen, x + facing * size * (0.35 + 0.15 * k) + math.sin(t * 3 + k) * size * 0.03,
+                     feet - size * (1.0 + ph_ * 0.45), size * 0.05, int(255 * (1 - ph_)))
+        elif action == "lookout":
+            pt = 4 * math.sin(t * 2 * math.pi * 0.3)
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            standing(pen, x, feet, size, facing, t, [(-6, 4), (6, 4)], [(-30, -95), (92 + pt, 6)],
+                     tilt=0.08, glasses=bool(glasses), backpack=bool(backpack))
+        elif action == "sip":
+            cyc = (t % 3.0) / 3.0
+            lift = smooth(min(1, cyc / 0.25)) * (1 - smooth(max(0, (cyc - 0.6) / 0.25)))
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-4, 4), (4, 4)],
+                                  [(-10, 15), (40 + 105 * lift, 70 + 40 * lift)], tilt=-0.12 * lift)
+            coconut(pen, (hf[0] + facing * size * 0.03, hf[1] - size * 0.02), size * 0.09)
+            if lift > 0.9:
+                for k in range(3):   # little bubbles = slurp
+                    pen.circle((hc[0] + facing * size * (0.16 + 0.05 * k), hc[1] - size * (0.05 + 0.04 * k)),
+                               size * 0.012, (255, 255, 255, 200), None)
+        elif action == "float":
+            L = size
+            gy = feet - L * 0.03 + math.sin(t * 2 * math.pi * 0.3) * L * 0.015
+            hx = x - L * 0.5
+            hc = (hx, gy - L * 0.1)
+            neck = (hx + L * 0.14, gy - L * 0.05)
+            hip = (hx + L * 0.55, gy - L * 0.03)
+            pen.stroke(neck, (hx + L * 0.25, gy - L * 0.28), (hx + L * 0.05, gy - L * 0.4))   # arm waving
+            torso(pen, neck, hip, L, lw)
+            pen.stroke(hip, (hip[0] + L * 0.45, gy - L * 0.02))
+            pen.stroke(hip, (hip[0] + L * 0.42, gy - L * 0.08))
+            head(pen, hc, L * 0.115, 1, t, glasses=True)
+            cap(pen, hc, L * 0.115, 1)
+            water_over(pen, x, gy - L * 0.01, L * 0.85, L * 0.6, t)
+        elif action == "dive":
+            pd0, pd1 = 0.22, 0.42
+            if p < pd0:                      # crouch, arms swing back
+                c = smooth(p / pd0)
+                shadow(pen, x, feet + size * 0.02, size * 0.2)
+                standing(pen, x, feet, size, facing, t, [(35 * c, 75 * c), (45 * c, 85 * c)],
+                         [(-50 * c, 10), (-35 * c, 10)], bob=size * 0.1 * c, mood="wow")
+            elif p < pd1:                    # flying, arms over the head
+                standing(pen, x, feet, size, facing, t, [(-6, 0), (6, 0)], [(-155, 0), (155, 0)], mood="wow")
+            else:                            # splash, then he pops up and waves
+                age = (p - pd1) * n / fps
+                wx, wy = W * x1, feet1
+                splash(pen, wx, wy, size, age)
+                if age > 0.7:
+                    bobv = math.sin(t * 2 * math.pi * 0.4) * size * 0.015
+                    hc = (wx, wy - size * 0.1 + bobv)
+                    w_ = 25 * math.sin(t * 2 * math.pi * 0.9)
+                    pen.stroke((wx + size * 0.08, wy), limb((wx + size * 0.08, wy), 160 + w_, size * 0.28))
+                    hand(pen, limb((wx + size * 0.08, wy), 160 + w_, size * 0.28), size * 0.04)
+                    head(pen, hc, size * 0.12, facing, t, mood="smile")
+                    cap(pen, hc, size * 0.12, facing)
+                    water_over(pen, wx, wy, size * 0.35, size * 0.5, t)
         elif action == "drive":
             L = size
             body, hood, wr, cy = jeep(pen, x, feet, L, facing, t)
