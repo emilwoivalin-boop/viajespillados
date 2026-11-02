@@ -1,0 +1,220 @@
+{
+ "id": "san-andres-3-dias-en",
+ "voice": "en-US-AndrewNeural",
+ "rate": "+25%",
+ "pad": 0.25,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "San Andrés in three days without missing a thing? Here's the plan, parce.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/hook.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "wave",
+    "x0": 0.5,
+    "y": 0.88,
+    "size": 430,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "San Andrés",
+     "x": 0.27,
+     "y": 0.56,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "tag": "SAN ANDRÉS · 3 DAYS"
+  },
+  {
+   "text": "Day one: head up to La Loma and the First Baptist Church, all wood, with ocean views.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/laloma.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.3,
+    "x1": 0.55,
+    "y": 0.87,
+    "size": 400,
+    "facing": 1
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true,
+   "tag": "DAY 1"
+  },
+  {
+   "text": "Then Big Pond lagoon: turtles, iguanas and even caimans. Careful!",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/bigpond.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "photo",
+    "x0": 0.4,
+    "y": 0.81,
+    "size": 360,
+    "facing": 1
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true,
+   "tag": "DAY 1"
+  },
+  {
+   "text": "Day two: boat to Johnny Cay for palm trees and fried fish. Go early, it fills up.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/johnnycay.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.3,
+    "x1": 0.6,
+    "y": 0.55,
+    "size": 250,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "fish",
+     "word": "fish",
+     "x": 0.72,
+     "y": 0.72,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "tag": "DAY 2"
+  },
+  {
+   "text": "Then Acuario: fish, stingrays, and you wade through the sea to Haynes Cay.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/acuario.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "tag": "DAY 2"
+  },
+  {
+   "text": "Day three: from San Luis beach, walk through the water to Rocky Cay and its sunken ship.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/rockycay.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.25,
+    "x1": 0.55,
+    "y": 0.72,
+    "size": 330,
+    "facing": 1
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "tag": "DAY 3"
+  },
+  {
+   "text": "Next, West View: jump off the diving board, and at La Piscinita the fish eat from your hand.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/westview.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "tag": "DAY 3"
+  },
+  {
+   "text": "And finish with a coco loco at sunset.",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/atardecer.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.27,
+    "y": 0.9,
+    "size": 450,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "coco loco",
+     "x": 0.78,
+     "y": 0.46,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "tag": "DAY 3"
+  },
+  {
+   "text": "That's the full plan. Save this for your trip!",
+   "media": {
+    "type": "file",
+    "path": "trips/san-andres-3-dias/img/cierre.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.68,
+    "y": 0.9,
+    "size": 420,
+    "facing": -1
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "hold": 1.6
+  }
+ ],
+ "end": null,
+ "caption": "San Andrés in 3 days 🌴 Johnny Cay, Acuario, Rocky Cay, West View and a coco loco sunset. Save this for your trip!"
+}
