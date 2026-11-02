@@ -294,6 +294,28 @@
       "image": "https://viajespillados.com/instagram/img/asuncion-2026-11-01-1236584.jpg",
       "published_at": "2026-11-01 21:25",
       "carousel": true
+    },
+    {
+      "id": "la-habana-2026-11-02-382603",
+      "destino": "La Habana",
+      "precio": 382603,
+      "sheet_row": 42,
+      "media_id": "18145618024581464",
+      "permalink": "https://www.instagram.com/p/DfQS7GFAT41/",
+      "image": "https://viajespillados.com/instagram/img/la-habana-2026-11-02-382603.jpg",
+      "published_at": "2026-11-02 16:41",
+      "carousel": true
+    },
+    {
+      "id": "aruba-2026-11-02-702929",
+      "destino": "Aruba",
+      "precio": 702929,
+      "sheet_row": 43,
+      "media_id": "18145618024581464",
+      "permalink": "https://www.instagram.com/p/DfQS7GFAT41/",
+      "image": "https://viajespillados.com/instagram/img/aruba-2026-11-02-702929.jpg",
+      "published_at": "2026-11-02 16:41",
+      "carousel": true
     }
   ]
 }
