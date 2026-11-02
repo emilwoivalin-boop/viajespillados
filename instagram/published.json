@@ -261,6 +261,39 @@
       "image": "https://viajespillados.com/instagram/img/santiago-de-chile-2026-10-31-1382550.jpg",
       "published_at": "2026-10-31 21:09",
       "carousel": true
+    },
+    {
+      "id": "leticia-2026-11-01-492400",
+      "destino": "Leticia",
+      "precio": 492400,
+      "sheet_row": 39,
+      "media_id": "18034688081675419",
+      "permalink": "https://www.instagram.com/p/DfOOnZgFvL5/",
+      "image": "https://viajespillados.com/instagram/img/leticia-2026-11-01-492400.jpg",
+      "published_at": "2026-11-01 21:25",
+      "carousel": true
+    },
+    {
+      "id": "cusco-2026-11-01-1174950",
+      "destino": "Cusco",
+      "precio": 1174950,
+      "sheet_row": 40,
+      "media_id": "18034688081675419",
+      "permalink": "https://www.instagram.com/p/DfOOnZgFvL5/",
+      "image": "https://viajespillados.com/instagram/img/cusco-2026-11-01-1174950.jpg",
+      "published_at": "2026-11-01 21:25",
+      "carousel": true
+    },
+    {
+      "id": "asuncion-2026-11-01-1236584",
+      "destino": "Asunción",
+      "precio": 1236584,
+      "sheet_row": 41,
+      "media_id": "18034688081675419",
+      "permalink": "https://www.instagram.com/p/DfOOnZgFvL5/",
+      "image": "https://viajespillados.com/instagram/img/asuncion-2026-11-01-1236584.jpg",
+      "published_at": "2026-11-01 21:25",
+      "carousel": true
     }
   ]
 }
