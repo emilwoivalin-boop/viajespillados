@@ -34,32 +34,72 @@
    "ambience": null
   },
   "llegada": {
-   "stick": null,
-   "pop": null,
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.52,
+    "y": 0.92,
+    "size": 400,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "sun",
+    "word": "sol",
+    "x": 0.78,
+    "y": 0.41,
+    "size": 190
+   },
    "ambience": null
   },
   "dia1": {
-   "stick": null,
+   "stick": {
+    "action": "relax",
+    "x0": 0.64,
+    "y": 0.645,
+    "size": 360,
+    "facing": 1
+   },
    "pop": null,
-   "ambience": null
+   "ambience": "waves"
   },
   "dia2": {
-   "stick": null,
+   "stick": {
+    "action": "drive",
+    "x0": 0.6,
+    "x1": 0.42,
+    "y": 0.58,
+    "y1": 0.97,
+    "size": 150,
+    "size1": 460,
+    "facing": -1
+   },
    "pop": null,
    "ambience": null
   },
   "dia3": {
-   "stick": null,
-   "pop": null,
-   "ambience": null
+   "stick": {
+    "action": "swim",
+    "x0": 0.08,
+    "x1": 0.42,
+    "y": 0.5,
+    "size": 360,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "fish",
+    "word": "peces",
+    "x": 0.25,
+    "y": 0.74,
+    "size": 200
+   },
+   "ambience": "waves"
   }
  },
  "end_image": "dia1",
  "drive_files": {
   "vuelo": "1uzsHUWOpnFOMiPVAQMZZtcxDRMkATkKC",
-  "llegada": "1I-7M7cthlJB-cgpzgmfeK-XzXgEg4i6F",
-  "dia1": "1UvOMBTcAsf0-hAJEc6pgdsPV5OJt2duI",
+  "llegada": "1UvOMBTcAsf0-hAJEc6pgdsPV5OJt2duI",
+  "dia1": "1WBhADmvsh83lq7T7BUNAcJdCDt40-Dvn",
   "dia2": "1Dj94QZSk6xghXMs717XrwSuzpJhim-6C",
-  "dia3": "1WBhADmvsh83lq7T7BUNAcJdCDt40-Dvn"
+  "dia3": "1I-7M7cthlJB-cgpzgmfeK-XzXgEg4i6F"
  }
 }

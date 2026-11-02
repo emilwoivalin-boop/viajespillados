@@ -1,0 +1,179 @@
+{
+ "id": "aruba-2027-05-20",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Jueves 20 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Aruba!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": []
+  },
+  {
+   "text": "Dos horas de vuelo directo, y abajo el Caribe se pinta de azul turquesa.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-2027-05-20/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Aruba! Te recibe una brisa tibia que no para y palmeras moviéndose al sol.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-2027-05-20/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.52,
+    "y": 0.92,
+    "size": 400,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "sol",
+     "x": 0.78,
+     "y": 0.41,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: te tiras en la arena blanca de Eagle Beach, a la sombra de un árbol fofoti.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-2027-05-20/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.64,
+    "y": 0.645,
+    "size": 360,
+    "facing": 1
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false
+  },
+  {
+   "text": "Día dos: te montas en un 4x4 por los caminos de piedra del Parque Nacional Arikok.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-2027-05-20/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "drive",
+    "x0": 0.6,
+    "x1": 0.42,
+    "y": 0.58,
+    "y1": 0.97,
+    "size": 150,
+    "size1": 460,
+    "facing": -1
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Día tres: haces snorkel en el agua cristalina de Mangel Halto, entre peces de colores.",
+   "media": {
+    "type": "file",
+    "path": "reels/aruba-2027-05-20/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "swim",
+    "x0": 0.08,
+    "x1": 0.42,
+    "y": 0.5,
+    "size": 360,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "fish",
+     "word": "peces",
+     "x": 0.25,
+     "y": 0.74,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste dos días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Wingo, por solo 703 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "4 días en Aruba",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$702.929",
+  "detail": "ida y vuelta · 20 may – 23 may",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/aruba-2027-05-20/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "4 días en Aruba desde Bogotá ✈️ Relájate en Eagle Beach, recorre el Parque Nacional Arikok en 4x4 y haz snorkel en Mangel Halto. Ida y vuelta con Wingo desde $702.929 (20 may – 23 may). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #aruba #ofertasdevuelos"
+}
