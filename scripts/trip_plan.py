@@ -15,7 +15,8 @@ plan.json:
      "text": {"es": "...", "en": "..."},
      "stick": {"action": "walk", "x0": .3, "x1": .6, "y": .85, "size": 380, "facing": 1} | null,
      "pop": {"icon": "pin", "word": {"es": "Guatapé", "en": "Guatapé"}, "x": .7, "y": .4, "size": 190} | null,
-     "ambience": "waves" | "crickets" | null},
+     "ambience": "waves" | ["waves", "steeldrum"] | null,   # also crickets, underwater, birds
+     "sfx": [{"kind": "bell", "at": 0.3, "gain": 0.25}], "steps": true, "action_sfx": true},   # optional extras
     ...
   ],
   "caption": {"es": "...", "en": "..."}
@@ -27,7 +28,8 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ICONS = {"sun", "heart", "sparkle", "pin", "plane", "fish", "suitcase", "clock", "camera"}
-AMBIENCE = {"waves", "crickets"}
+AMBIENCE = {"waves", "crickets", "underwater", "birds", "steeldrum"}
+SFX = {"bell", "splash", "clink", "engine", "bubbles", "shutter", "boing", "chime", "sparkle", "pop", "coin"}
 ACTIONS = {"walk", "suitcase", "wave", "celebrate", "relax", "swim", "drive", "photo", "none"}
 VOICE = {"es": ("es-CO-GonzaloNeural", "+35%"), "en": ("en-US-AndrewNeural", "+25%")}
 
@@ -48,12 +50,16 @@ def build(tid):
                 assert p["icon"] in ICONS, f"{sc['key']}: unknown sticker {p['icon']}"
                 assert word.lower().strip("¡!¿?,.") in text.lower(), f"{sc['key']} ({lang}): sticker word not in text"
                 pops = [{"icon": p["icon"], "word": word, "x": p["x"], "y": p["y"], "size": p.get("size", 190)}]
-            amb = [sc["ambience"]] if sc.get("ambience") in AMBIENCE else []
+            amb = sc.get("ambience") or []
+            amb = [a for a in ([amb] if isinstance(amb, str) else amb) if a in AMBIENCE]
+            sfx = sc.get("sfx") or []
+            assert all(e["kind"] in SFX for e in sfx), f"{sc['key']}: unknown sfx"
             img = f"trips/{tid}/img/{sc.get('img', sc['key'])}.jpg"
             assert os.path.exists(os.path.join(ROOT, img)), f"missing picture {img}"
             tag = (sc.get("tag") or {}).get(lang)
             scenes.append({"text": text, "media": {"type": "file", "path": img, "focus": sc.get("focus", 0.5)},
-                           "stick": st, "pops": pops, "ambience": amb, "action_sfx": not amb,
+                           "stick": st, "pops": pops, "ambience": amb, "action_sfx": sc.get("action_sfx", not amb),
+                           "sfx": sfx, "steps": sc.get("steps", False),
                            **({"tag": tag} if tag else {})})
         scenes[-1]["hold"] = 1.6          # let the last picture breathe (no end card in travel plans)
         voice, rate = VOICE[lang]

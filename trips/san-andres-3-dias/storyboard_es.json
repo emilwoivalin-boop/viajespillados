@@ -11,7 +11,7 @@
  },
  "scenes": [
   {
-   "text": "¿San Andrés en tres días sin perderte nada? Pilla este plan, parce.",
+   "text": "¿San Andrés en tres días? Parce, esta isla está más cerca de Nicaragua que del resto de Colombia, y tiene un mar de siete colores. Pilla este plan completico.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/hook.jpg",
@@ -34,13 +34,16 @@
     }
    ],
    "ambience": [
-    "waves"
+    "waves",
+    "steeldrum"
    ],
    "action_sfx": false,
+   "sfx": [],
+   "steps": false,
    "tag": "SAN ANDRÉS · 3 DÍAS"
   },
   {
-   "text": "Día uno: vamos pa' La Loma, a la Primera Iglesia Bautista, de madera y con vista al mar.",
+   "text": "Día uno: vamos pa' La Loma, uno de los barrios raizales más antiguos. Arriba está la Primera Iglesia Bautista, toda de madera, con la mejor vista de la isla. Aquí la gente habla creole y se respira una calma bacana.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/laloma.jpg",
@@ -55,12 +58,22 @@
     "facing": 1
    },
    "pops": [],
-   "ambience": [],
-   "action_sfx": true,
+   "ambience": [
+    "birds"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "bell",
+     "at": 0.4,
+     "gain": 0.22
+    }
+   ],
+   "steps": true,
    "tag": "DÍA 1"
   },
   {
-   "text": "Bajas a la Laguna Big Pond: tortugas, iguanas y hasta caimanes. ¡Uy, pilas!",
+   "text": "Bajas a la Laguna Big Pond, agua dulce en medio del monte. Puro silencio, pajaritos, tortugas tomando sol, iguanas en los árboles y caimanes asomando la nariz. ¡Uy, pilas, nada de meter la mano!",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/bigpond.jpg",
@@ -74,12 +87,16 @@
     "facing": 1
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "birds"
+   ],
    "action_sfx": true,
+   "sfx": [],
+   "steps": false,
    "tag": "DÍA 1"
   },
   {
-   "text": "Día dos: lancha a Johnny Cay, palmeras y pescado frito. Sal temprano, que se llena.",
+   "text": "Día dos: lancha a Johnny Cay, un islote de palmeras a un kilómetro y medio del centro. Reggae sonando, gente asoleándose, coco loco en la mano y pescado frito con patacón. Pilas, sal temprano, que a mediodía se llena.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/johnnycay.jpg",
@@ -103,30 +120,46 @@
     }
    ],
    "ambience": [
-    "waves"
+    "waves",
+    "steeldrum"
    ],
    "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "engine",
+     "at": 0.1,
+     "gain": 0.14
+    }
+   ],
+   "steps": false,
    "tag": "DÍA 2"
   },
   {
-   "text": "Después, Acuario: peces, mantarrayas y caminas por el agua hasta Haynes Cay. ¡Qué chimba!",
+   "text": "De ahí, pa' El Acuario: un banco de arena con el agua por las rodillas, peces de colores y mantarrayas pasando por tus pies. Caminas por el mar hasta Haynes Cay y te quedas flotando, relajado. ¡Qué chimba!",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/acuario.jpg",
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "swim",
+    "x0": 0.25,
+    "x1": 0.5,
+    "y": 0.8,
+    "size": 320,
+    "facing": 1
    },
    "pops": [],
    "ambience": [
     "waves"
    ],
-   "action_sfx": false,
+   "action_sfx": true,
+   "sfx": [],
+   "steps": false,
    "tag": "DÍA 2"
   },
   {
-   "text": "Día tres: desde San Luis caminas por el mar hasta Rocky Cay y su barco hundido.",
+   "text": "Día tres: arrancas en la playa de San Luis, el lado más tranquilo de la isla, y caminas por el agua hasta Rocky Cay. Al lado está el barco hundido, oxidado y lleno de peces. Lleva careta, que vale la pena.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/rockycay.jpg",
@@ -134,38 +167,71 @@
    },
    "stick": {
     "action": "walk",
-    "x0": 0.25,
-    "x1": 0.55,
-    "y": 0.72,
-    "size": 330,
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.83,
+    "size": 340,
     "facing": 1
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "camera",
+     "word": "barco",
+     "x": 0.8,
+     "y": 0.48,
+     "size": 170
+    }
+   ],
    "ambience": [
     "waves"
    ],
    "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "splash",
+     "at": 0.6,
+     "gain": 0.12
+    },
+    {
+     "kind": "splash",
+     "at": 2.2,
+     "gain": 0.1
+    }
+   ],
+   "steps": false,
    "tag": "DÍA 3"
   },
   {
-   "text": "Luego West View: te tiras del trampolín y en La Piscinita los peces te comen de la mano.",
+   "text": "Por la tarde, West View: piscina natural de agua cristalina. Te tiras del trampolín, bajas por el tobogán, y en La Piscinita los peces te comen pan de la mano. Pilas: zapatos de agua, que hay roca y coral.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/westview.jpg",
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "celebrate",
+    "x0": 0.6,
+    "y": 0.665,
+    "size": 260,
+    "facing": 1
    },
    "pops": [],
    "ambience": [
     "waves"
    ],
-   "action_sfx": false,
+   "action_sfx": true,
+   "sfx": [
+    {
+     "kind": "splash",
+     "at": 3.0,
+     "gain": 0.3
+    }
+   ],
+   "steps": false,
    "tag": "DÍA 3"
   },
   {
-   "text": "Y cierras con un coco loco viendo el atardecer. ¡Bacanísimo!",
+   "text": "Y cierras en la costa oeste con un coco loco: ron, vodka y tequila servidos en un coco. Música caribeña, brisa, y el sol cayéndose al mar. ¡Bacanísimo!",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/atardecer.jpg",
@@ -188,13 +254,22 @@
     }
    ],
    "ambience": [
-    "waves"
+    "waves",
+    "steeldrum"
    ],
    "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "clink",
+     "at": 0.5,
+     "gain": 0.3
+    }
+   ],
+   "steps": false,
    "tag": "DÍA 3"
   },
   {
-   "text": "Plan completico. Guárdalo pa' tu viaje… y los vuelos baratos, en viajespillados punto com.",
+   "text": "Tres días, siete colores y cero estrés, parce. Guárdalo pa' tu viaje... y los vuelos baratos, en viajespillados punto com.",
    "media": {
     "type": "file",
     "path": "trips/san-andres-3-dias/img/cierre.jpg",
@@ -209,14 +284,17 @@
    },
    "pops": [],
    "ambience": [
-    "waves"
+    "waves",
+    "steeldrum"
    ],
-   "action_sfx": false,
+   "action_sfx": true,
+   "sfx": [],
+   "steps": false,
    "hold": 1.6
   }
  ],
  "end": null,
- "caption": "San Andrés en 3 días 🌴 Johnny Cay, Acuario, Rocky Cay, West View y atardecer con coco loco. Guárdalo pa' tu viaje 🇨🇴",
+ "caption": "San Andrés en 3 días 🌴 La Loma, Big Pond, Johnny Cay, El Acuario, Rocky Cay, West View y atardecer con coco loco. Guárdalo pa' tu viaje 🇨🇴",
  "outro": {
   "text": "viajespillados.com",
   "dur": 3.0

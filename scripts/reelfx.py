@@ -166,6 +166,64 @@ def synth(kind, dur=None):
             g = 1.0 if (t * 3.1) % 1 < 0.35 and (t * 47) % 1 < 0.5 else 0.0
             out.append(math.sin(2 * math.pi * 4300 * t) * g * 0.25 * min(1, t * 2, (n - i) / RATE * 2))
         return out
+    if kind == "birds":                     # jungle / garden birdsong (daytime nature)
+        n = int(RATE * (dur or 4))
+        out = [0.0] * n
+        t = 0.2
+        while t < n / RATE - 0.4:
+            f0 = rnd.uniform(2400, 3600)
+            for r in range(rnd.choice((2, 3, 4))):
+                st = t + r * 0.11
+                for i in range(int(RATE * 0.07)):
+                    tt = i / RATE
+                    j = int((st + tt) * RATE)
+                    if j < n:
+                        out[j] += math.sin(2 * math.pi * (f0 + 9000 * tt) * tt) * math.sin(math.pi * tt / 0.07) * 0.35
+            t += rnd.uniform(0.5, 1.3)
+        return [v * min(1, i / RATE * 2, (n - i) / RATE * 2) for i, v in enumerate(out)]
+    if kind == "steeldrum":                 # soft Caribbean steel-pan loop (beach / party vibe)
+        n = int(RATE * (dur or 4))
+        out = [0.0] * n
+        notes = (523.3, 659.3, 784.0, 659.3, 587.3, 784.0, 880.0, 784.0)
+        k, beat = 0, 0.24
+        while k * beat < n / RATE:
+            f = notes[k % len(notes)]
+            st = int(k * beat * RATE)
+            for i in range(int(RATE * 0.5)):
+                j = st + i
+                if j >= n:
+                    break
+                tt = i / RATE
+                out[j] += (math.sin(2 * math.pi * f * tt) + 0.4 * math.sin(2 * math.pi * 2 * f * tt)
+                           + 0.2 * math.sin(2 * math.pi * 2.76 * f * tt)) * math.exp(-tt * 7) * 0.35
+            k += 1
+        return [v * min(1, i / RATE * 1.5, (n - i) / RATE * 1.5) for i, v in enumerate(out)]
+    if kind == "bell":                      # church bell, two strokes
+        n = int(RATE * 3.2)
+        for i in range(n):
+            t = i / RATE
+            v = 0.0
+            for st in (0.0, 1.3):
+                if t >= st:
+                    u = t - st
+                    v += sum(a * math.sin(2 * math.pi * f * u) for f, a in ((392, .5), (784, .3), (941, .2), (1176, .12))) * math.exp(-u * 2.2)
+            out.append(v * 0.6)
+        return out
+    if kind == "splash":                    # body hitting the water
+        n = int(RATE * 0.8)
+        lp = _noise_lp(n, rnd, 0.35)
+        return [lp[i] * 3.0 * min(1, i / RATE * 60) * math.exp(-i / RATE * 5) for i in range(n)]
+    if kind == "clink":                     # glasses / straw tapping a coconut cup
+        n = int(RATE * 0.6)
+        for i in range(n):
+            t = i / RATE
+            v = 0.0
+            for st in (0.0, 0.18):
+                if t >= st:
+                    u = t - st
+                    v += (math.sin(2 * math.pi * 3150 * u) + 0.6 * math.sin(2 * math.pi * 4720 * u)) * math.exp(-u * 18) * 0.4
+            out.append(v)
+        return out
     if kind == "coin":                      # cash-register ka-ching for the price
         n = int(RATE * 0.7)
         for i in range(n):

@@ -323,8 +323,12 @@ def scene_sfx(sc, t0, dur, pops):
     for pp in pops:
         ev.append((t0 + pp["t"], "pop", 0.28))
     for amb in sc.get("ambience", []):           # background sound that matches the picture
-        g = {"waves": 0.10, "underwater": 0.12, "crickets": 0.06, "flyby": 0.14}.get(amb, 0.1)
+        g = {"waves": 0.10, "underwater": 0.12, "crickets": 0.06, "flyby": 0.14, "birds": 0.07,
+             "steeldrum": 0.05}.get(amb, 0.1)
         ev.append((t0, amb, g, round(dur, 2)))
+    for e in sc.get("sfx", []):                  # one-off sounds placed by hand: {"kind", "at" (s), "gain"}
+        if e.get("at", 0) < dur:
+            ev.append((t0 + e.get("at", 0), e["kind"], e.get("gain", 0.25)))
     st = sc.get("stick") or {}
     act = st.get("action", "none")
     if act in ("walk", "suitcase") and sc.get("steps", False):
