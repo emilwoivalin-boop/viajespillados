@@ -1,9 +1,9 @@
 {
- "generado": "2026-11-01 11:09",
+ "generado": "2026-11-02 07:00",
  "errores": {},
  "filas": [
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "web",
    "tipo": "web",
    "id": "total",
@@ -12,10 +12,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "visitas",
-   "valor": 3
+   "valor": 1
   },
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "web",
    "tipo": "web",
    "id": "total",
@@ -27,7 +27,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "web",
    "tipo": "pagina",
    "id": "/",
@@ -36,34 +36,22 @@
    "titulo": "Viajes Pillados",
    "enlace": "",
    "metrica": "visitas",
-   "valor": 3
+   "valor": 1
   },
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "web",
    "tipo": "origen",
-   "id": "(directo)",
+   "id": "t.co",
    "publicado": "",
    "destinos": "",
-   "titulo": "(directo)",
-   "enlace": "",
-   "metrica": "visitas",
-   "valor": 2
-  },
-  {
-   "fecha": "2026-10-31",
-   "canal": "web",
-   "tipo": "origen",
-   "id": "ig",
-   "publicado": "",
-   "destinos": "",
-   "titulo": "ig",
+   "titulo": "t.co",
    "enlace": "",
    "metrica": "visitas",
    "valor": 1
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -72,10 +60,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "seguidores",
-   "valor": 7
+   "valor": 20
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -84,10 +72,178 @@
    "titulo": "",
    "enlace": "",
    "metrica": "publicaciones",
-   "valor": 11
+   "valor": 13
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18034688081675419",
+   "publicado": "2026-11-02 02:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Leticia, Cusco, Asunción",
+   "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18034688081675419",
+   "publicado": "2026-11-02 02:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Leticia, Cusco, Asunción",
+   "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18034688081675419",
+   "publicado": "2026-11-02 02:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Leticia, Cusco, Asunción",
+   "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
+   "metrica": "alcance",
+   "valor": 4
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18034688081675419",
+   "publicado": "2026-11-02 02:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Leticia, Cusco, Asunción",
+   "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
+   "metrica": "vistas",
+   "valor": 18
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18034688081675419",
+   "publicado": "2026-11-02 02:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Leticia, Cusco, Asunción",
+   "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18034688081675419",
+   "publicado": "2026-11-02 02:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Leticia, Cusco, Asunción",
+   "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18034688081675419",
+   "publicado": "2026-11-02 02:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Leticia, Cusco, Asunción",
+   "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
+   "metrica": "interacciones",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17998055907023303",
+   "publicado": "2026-11-01 17:16",
+   "destinos": "Leticia",
+   "titulo": "Leticia",
+   "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
+   "metrica": "me_gusta",
+   "valor": 79
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17998055907023303",
+   "publicado": "2026-11-01 17:16",
+   "destinos": "Leticia",
+   "titulo": "Leticia",
+   "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
+   "metrica": "comentarios",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17998055907023303",
+   "publicado": "2026-11-01 17:16",
+   "destinos": "Leticia",
+   "titulo": "Leticia",
+   "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
+   "metrica": "alcance",
+   "valor": 2565
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17998055907023303",
+   "publicado": "2026-11-01 17:16",
+   "destinos": "Leticia",
+   "titulo": "Leticia",
+   "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
+   "metrica": "vistas",
+   "valor": 2905
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17998055907023303",
+   "publicado": "2026-11-01 17:16",
+   "destinos": "Leticia",
+   "titulo": "Leticia",
+   "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
+   "metrica": "guardados",
+   "valor": 10
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17998055907023303",
+   "publicado": "2026-11-01 17:16",
+   "destinos": "Leticia",
+   "titulo": "Leticia",
+   "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
+   "metrica": "compartidos",
+   "valor": 6
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17998055907023303",
+   "publicado": "2026-11-01 17:16",
+   "destinos": "Leticia",
+   "titulo": "Leticia",
+   "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
+   "metrica": "interacciones",
+   "valor": 96
+  },
+  {
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -99,7 +255,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -111,7 +267,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -120,10 +276,10 @@
    "titulo": "Lima, Santiago de Chile",
    "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
    "metrica": "alcance",
-   "valor": 1
+   "valor": 3
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -131,347 +287,347 @@
    "destinos": "Lima, Santiago de Chile",
    "titulo": "Lima, Santiago de Chile",
    "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
+   "metrica": "vistas",
+   "valor": 11
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18083183573406144",
+   "publicado": "2026-11-01 02:09",
+   "destinos": "Lima, Santiago de Chile",
+   "titulo": "Lima, Santiago de Chile",
+   "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18083183573406144",
+   "publicado": "2026-11-01 02:09",
+   "destinos": "Lima, Santiago de Chile",
+   "titulo": "Lima, Santiago de Chile",
+   "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18083183573406144",
+   "publicado": "2026-11-01 02:09",
+   "destinos": "Lima, Santiago de Chile",
+   "titulo": "Lima, Santiago de Chile",
+   "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
+   "metrica": "interacciones",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18114315866165626",
+   "publicado": "2026-10-31 17:16",
+   "destinos": "París",
+   "titulo": "París",
+   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
+   "metrica": "me_gusta",
+   "valor": 3
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18114315866165626",
+   "publicado": "2026-10-31 17:16",
+   "destinos": "París",
+   "titulo": "París",
+   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18114315866165626",
+   "publicado": "2026-10-31 17:16",
+   "destinos": "París",
+   "titulo": "París",
+   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
+   "metrica": "alcance",
+   "valor": 195
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18114315866165626",
+   "publicado": "2026-10-31 17:16",
+   "destinos": "París",
+   "titulo": "París",
+   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
+   "metrica": "vistas",
+   "valor": 219
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18114315866165626",
+   "publicado": "2026-10-31 17:16",
+   "destinos": "París",
+   "titulo": "París",
+   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18114315866165626",
+   "publicado": "2026-10-31 17:16",
+   "destinos": "París",
+   "titulo": "París",
+   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18114315866165626",
+   "publicado": "2026-10-31 17:16",
+   "destinos": "París",
+   "titulo": "París",
+   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
+   "metrica": "interacciones",
+   "valor": 3
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18102870617383509",
+   "publicado": "2026-10-31 17:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "La Habana, Tijuana",
+   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18102870617383509",
+   "publicado": "2026-10-31 17:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "La Habana, Tijuana",
+   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18102870617383509",
+   "publicado": "2026-10-31 17:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "La Habana, Tijuana",
+   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
+   "metrica": "alcance",
+   "valor": 3
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18102870617383509",
+   "publicado": "2026-10-31 17:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "La Habana, Tijuana",
+   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
+   "metrica": "vistas",
+   "valor": 4
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18102870617383509",
+   "publicado": "2026-10-31 17:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "La Habana, Tijuana",
+   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18102870617383509",
+   "publicado": "2026-10-31 17:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "La Habana, Tijuana",
+   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18102870617383509",
+   "publicado": "2026-10-31 17:09",
+   "destinos": "La Habana, Tijuana",
+   "titulo": "La Habana, Tijuana",
+   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
+   "metrica": "interacciones",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18118479626079848",
+   "publicado": "2026-10-31 02:18",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Lisboa, Seúl",
+   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18118479626079848",
+   "publicado": "2026-10-31 02:18",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Lisboa, Seúl",
+   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18118479626079848",
+   "publicado": "2026-10-31 02:18",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Lisboa, Seúl",
+   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
+   "metrica": "alcance",
+   "valor": 3
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18118479626079848",
+   "publicado": "2026-10-31 02:18",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Lisboa, Seúl",
+   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
+   "metrica": "vistas",
+   "valor": 5
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18118479626079848",
+   "publicado": "2026-10-31 02:18",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Lisboa, Seúl",
+   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18118479626079848",
+   "publicado": "2026-10-31 02:18",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Lisboa, Seúl",
+   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18118479626079848",
+   "publicado": "2026-10-31 02:18",
+   "destinos": "Lisboa, Seúl",
+   "titulo": "Lisboa, Seúl",
+   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
+   "metrica": "interacciones",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18436903321181256",
+   "publicado": "2026-10-30 18:02",
+   "destinos": "Reikiavik, Vancouver",
+   "titulo": "Reikiavik, Vancouver",
+   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18436903321181256",
+   "publicado": "2026-10-30 18:02",
+   "destinos": "Reikiavik, Vancouver",
+   "titulo": "Reikiavik, Vancouver",
+   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18436903321181256",
+   "publicado": "2026-10-30 18:02",
+   "destinos": "Reikiavik, Vancouver",
+   "titulo": "Reikiavik, Vancouver",
+   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
+   "metrica": "alcance",
+   "valor": 3
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18436903321181256",
+   "publicado": "2026-10-30 18:02",
+   "destinos": "Reikiavik, Vancouver",
+   "titulo": "Reikiavik, Vancouver",
+   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
    "metrica": "vistas",
    "valor": 7
   },
   {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18083183573406144",
-   "publicado": "2026-11-01 02:09",
-   "destinos": "Lima, Santiago de Chile",
-   "titulo": "Lima, Santiago de Chile",
-   "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18083183573406144",
-   "publicado": "2026-11-01 02:09",
-   "destinos": "Lima, Santiago de Chile",
-   "titulo": "Lima, Santiago de Chile",
-   "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
-   "metrica": "compartidos",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18083183573406144",
-   "publicado": "2026-11-01 02:09",
-   "destinos": "Lima, Santiago de Chile",
-   "titulo": "Lima, Santiago de Chile",
-   "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
-   "metrica": "interacciones",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "18114315866165626",
-   "publicado": "2026-10-31 17:16",
-   "destinos": "París",
-   "titulo": "París",
-   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
-   "metrica": "me_gusta",
-   "valor": 3
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "18114315866165626",
-   "publicado": "2026-10-31 17:16",
-   "destinos": "París",
-   "titulo": "París",
-   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
-   "metrica": "comentarios",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "18114315866165626",
-   "publicado": "2026-10-31 17:16",
-   "destinos": "París",
-   "titulo": "París",
-   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
-   "metrica": "alcance",
-   "valor": 184
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "18114315866165626",
-   "publicado": "2026-10-31 17:16",
-   "destinos": "París",
-   "titulo": "París",
-   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
-   "metrica": "vistas",
-   "valor": 208
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "18114315866165626",
-   "publicado": "2026-10-31 17:16",
-   "destinos": "París",
-   "titulo": "París",
-   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "18114315866165626",
-   "publicado": "2026-10-31 17:16",
-   "destinos": "París",
-   "titulo": "París",
-   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
-   "metrica": "compartidos",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "18114315866165626",
-   "publicado": "2026-10-31 17:16",
-   "destinos": "París",
-   "titulo": "París",
-   "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
-   "metrica": "interacciones",
-   "valor": 3
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18102870617383509",
-   "publicado": "2026-10-31 17:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "La Habana, Tijuana",
-   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18102870617383509",
-   "publicado": "2026-10-31 17:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "La Habana, Tijuana",
-   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
-   "metrica": "comentarios",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18102870617383509",
-   "publicado": "2026-10-31 17:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "La Habana, Tijuana",
-   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
-   "metrica": "alcance",
-   "valor": 1
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18102870617383509",
-   "publicado": "2026-10-31 17:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "La Habana, Tijuana",
-   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
-   "metrica": "vistas",
-   "valor": 1
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18102870617383509",
-   "publicado": "2026-10-31 17:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "La Habana, Tijuana",
-   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18102870617383509",
-   "publicado": "2026-10-31 17:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "La Habana, Tijuana",
-   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
-   "metrica": "compartidos",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18102870617383509",
-   "publicado": "2026-10-31 17:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "La Habana, Tijuana",
-   "enlace": "https://www.instagram.com/p/DfKqOThFDWF/",
-   "metrica": "interacciones",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18118479626079848",
-   "publicado": "2026-10-31 02:18",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Lisboa, Seúl",
-   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18118479626079848",
-   "publicado": "2026-10-31 02:18",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Lisboa, Seúl",
-   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
-   "metrica": "comentarios",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18118479626079848",
-   "publicado": "2026-10-31 02:18",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Lisboa, Seúl",
-   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
-   "metrica": "alcance",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18118479626079848",
-   "publicado": "2026-10-31 02:18",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Lisboa, Seúl",
-   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
-   "metrica": "vistas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18118479626079848",
-   "publicado": "2026-10-31 02:18",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Lisboa, Seúl",
-   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18118479626079848",
-   "publicado": "2026-10-31 02:18",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Lisboa, Seúl",
-   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
-   "metrica": "compartidos",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18118479626079848",
-   "publicado": "2026-10-31 02:18",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Lisboa, Seúl",
-   "enlace": "https://www.instagram.com/p/DfJEOINlgIH/",
-   "metrica": "interacciones",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18436903321181256",
-   "publicado": "2026-10-30 18:02",
-   "destinos": "Reikiavik, Vancouver",
-   "titulo": "Reikiavik, Vancouver",
-   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18436903321181256",
-   "publicado": "2026-10-30 18:02",
-   "destinos": "Reikiavik, Vancouver",
-   "titulo": "Reikiavik, Vancouver",
-   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
-   "metrica": "comentarios",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18436903321181256",
-   "publicado": "2026-10-30 18:02",
-   "destinos": "Reikiavik, Vancouver",
-   "titulo": "Reikiavik, Vancouver",
-   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
-   "metrica": "alcance",
-   "valor": 2
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18436903321181256",
-   "publicado": "2026-10-30 18:02",
-   "destinos": "Reikiavik, Vancouver",
-   "titulo": "Reikiavik, Vancouver",
-   "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
-   "metrica": "vistas",
-   "valor": 6
-  },
-  {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -483,7 +639,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -495,7 +651,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -507,7 +663,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -519,7 +675,7 @@
    "valor": 8
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -531,7 +687,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -540,10 +696,10 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/reel/DfIGYX6ieE7/",
    "metrica": "alcance",
-   "valor": 257
+   "valor": 260
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -552,10 +708,10 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/reel/DfIGYX6ieE7/",
    "metrica": "vistas",
-   "valor": 295
+   "valor": 298
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -567,7 +723,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -579,7 +735,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -591,7 +747,7 @@
    "valor": 9
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -603,7 +759,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -615,7 +771,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -624,10 +780,10 @@
    "titulo": "Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",
    "enlace": "https://www.instagram.com/p/DfGL63vDs3W/",
    "metrica": "alcance",
-   "valor": 1
+   "valor": 3
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -636,10 +792,10 @@
    "titulo": "Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",
    "enlace": "https://www.instagram.com/p/DfGL63vDs3W/",
    "metrica": "vistas",
-   "valor": 4
+   "valor": 10
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -651,7 +807,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -663,7 +819,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -675,7 +831,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -687,7 +843,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -699,7 +855,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -708,10 +864,10 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "alcance",
-   "valor": 159
+   "valor": 163
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -720,10 +876,10 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "vistas",
-   "valor": 175
+   "valor": 179
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -735,7 +891,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -747,7 +903,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -759,7 +915,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -771,7 +927,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -783,7 +939,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -792,10 +948,10 @@
    "titulo": "La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",
    "enlace": "https://www.instagram.com/p/DfCkCiQFXkf/",
    "metrica": "alcance",
-   "valor": 1
+   "valor": 3
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -804,10 +960,10 @@
    "titulo": "La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",
    "enlace": "https://www.instagram.com/p/DfCkCiQFXkf/",
    "metrica": "vistas",
-   "valor": 7
+   "valor": 10
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -819,7 +975,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -831,7 +987,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -843,7 +999,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -855,7 +1011,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -867,7 +1023,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -876,10 +1032,10 @@
    "titulo": "Santiago de los Caballeros",
    "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
    "metrica": "alcance",
-   "valor": 1
+   "valor": 3
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -888,82 +1044,82 @@
    "titulo": "Santiago de los Caballeros",
    "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
    "metrica": "vistas",
+   "valor": 6
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18122189984029691",
+   "publicado": "2026-10-27 13:58",
+   "destinos": "Santiago de los Caballeros",
+   "titulo": "Santiago de los Caballeros",
+   "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18122189984029691",
+   "publicado": "2026-10-27 13:58",
+   "destinos": "Santiago de los Caballeros",
+   "titulo": "Santiago de los Caballeros",
+   "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18122189984029691",
+   "publicado": "2026-10-27 13:58",
+   "destinos": "Santiago de los Caballeros",
+   "titulo": "Santiago de los Caballeros",
+   "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
+   "metrica": "interacciones",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18129399827490350",
+   "publicado": "2026-10-26 20:02",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18129399827490350",
+   "publicado": "2026-10-26 20:02",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18129399827490350",
+   "publicado": "2026-10-26 20:02",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
+   "metrica": "alcance",
    "valor": 4
   },
   {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "post",
-   "id": "18122189984029691",
-   "publicado": "2026-10-27 13:58",
-   "destinos": "Santiago de los Caballeros",
-   "titulo": "Santiago de los Caballeros",
-   "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "post",
-   "id": "18122189984029691",
-   "publicado": "2026-10-27 13:58",
-   "destinos": "Santiago de los Caballeros",
-   "titulo": "Santiago de los Caballeros",
-   "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
-   "metrica": "compartidos",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "post",
-   "id": "18122189984029691",
-   "publicado": "2026-10-27 13:58",
-   "destinos": "Santiago de los Caballeros",
-   "titulo": "Santiago de los Caballeros",
-   "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
-   "metrica": "interacciones",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "post",
-   "id": "18129399827490350",
-   "publicado": "2026-10-26 20:02",
-   "destinos": "Aruba",
-   "titulo": "Aruba",
-   "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "post",
-   "id": "18129399827490350",
-   "publicado": "2026-10-26 20:02",
-   "destinos": "Aruba",
-   "titulo": "Aruba",
-   "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
-   "metrica": "comentarios",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-01",
-   "canal": "instagram",
-   "tipo": "post",
-   "id": "18129399827490350",
-   "publicado": "2026-10-26 20:02",
-   "destinos": "Aruba",
-   "titulo": "Aruba",
-   "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
-   "metrica": "alcance",
-   "valor": 3
-  },
-  {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -972,10 +1128,10 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
    "metrica": "vistas",
-   "valor": 8
+   "valor": 9
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -987,7 +1143,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -999,7 +1155,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -1011,7 +1167,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -1020,10 +1176,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "alcance_dia",
-   "valor": 231
+   "valor": 2556
   },
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -1032,10 +1188,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "visitas_perfil",
-   "valor": 1
+   "valor": 4
   },
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -1047,7 +1203,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-10-31",
+   "fecha": "2026-11-01",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -1056,10 +1212,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "cuentas_interactuaron",
-   "valor": 5
+   "valor": 89
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "cuenta",
    "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
@@ -1068,10 +1224,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "suscriptores",
-   "valor": 1
+   "valor": 2
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "cuenta",
    "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
@@ -1080,10 +1236,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "vistas_total",
-   "valor": 1001
+   "valor": 1034
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "cuenta",
    "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
@@ -1092,10 +1248,82 @@
    "titulo": "",
    "enlace": "",
    "metrica": "videos",
-   "valor": 2
+   "valor": 4
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "M0Uh-QdE8rU",
+   "publicado": "2026-11-01 20:26",
+   "destinos": "Leticia",
+   "titulo": "Qué hacer en Leticia, Colombia ✈️",
+   "enlace": "https://youtube.com/shorts/M0Uh-QdE8rU",
+   "metrica": "vistas",
+   "valor": 36
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "M0Uh-QdE8rU",
+   "publicado": "2026-11-01 20:26",
+   "destinos": "Leticia",
+   "titulo": "Qué hacer en Leticia, Colombia ✈️",
+   "enlace": "https://youtube.com/shorts/M0Uh-QdE8rU",
+   "metrica": "me_gusta",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "M0Uh-QdE8rU",
+   "publicado": "2026-11-01 20:26",
+   "destinos": "Leticia",
+   "titulo": "Qué hacer en Leticia, Colombia ✈️",
+   "enlace": "https://youtube.com/shorts/M0Uh-QdE8rU",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "X5I6CktS3ZE",
+   "publicado": "2026-11-01 20:26",
+   "destinos": "París",
+   "titulo": "Qué hacer en París, Francia ✈️",
+   "enlace": "https://youtube.com/shorts/X5I6CktS3ZE",
+   "metrica": "vistas",
+   "valor": 999
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "X5I6CktS3ZE",
+   "publicado": "2026-11-01 20:26",
+   "destinos": "París",
+   "titulo": "Qué hacer en París, Francia ✈️",
+   "enlace": "https://youtube.com/shorts/X5I6CktS3ZE",
+   "metrica": "me_gusta",
+   "valor": 13
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "youtube",
+   "tipo": "short",
+   "id": "X5I6CktS3ZE",
+   "publicado": "2026-11-01 20:26",
+   "destinos": "París",
+   "titulo": "Qué hacer en París, Francia ✈️",
+   "enlace": "https://youtube.com/shorts/X5I6CktS3ZE",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "short",
    "id": "phxH2z4O7aA",
@@ -1104,10 +1332,10 @@
    "titulo": "Qué hacer en La Habana, Cuba ✈️",
    "enlace": "https://youtube.com/shorts/phxH2z4O7aA",
    "metrica": "vistas",
-   "valor": 548
+   "valor": 557
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "short",
    "id": "phxH2z4O7aA",
@@ -1119,7 +1347,7 @@
    "valor": 7
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "short",
    "id": "phxH2z4O7aA",
@@ -1131,7 +1359,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "short",
    "id": "GBVrnwM7A4E",
@@ -1140,10 +1368,10 @@
    "titulo": "Qué hacer en Tijuana, México ✈️",
    "enlace": "https://youtube.com/shorts/GBVrnwM7A4E",
    "metrica": "vistas",
-   "valor": 475
+   "valor": 479
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "short",
    "id": "GBVrnwM7A4E",
@@ -1155,7 +1383,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "youtube",
    "tipo": "short",
    "id": "GBVrnwM7A4E",
@@ -1167,7 +1395,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "cuenta",
    "id": "2116232271464218624",
@@ -1179,7 +1407,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "cuenta",
    "id": "2116232271464218624",
@@ -1188,10 +1416,130 @@
    "titulo": "",
    "enlace": "",
    "metrica": "posts",
-   "valor": 5
+   "valor": 7
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2117080554889740632",
+   "publicado": "2026-11-01 21:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Ofertas: Leticia, Cusco, Asunción",
+   "enlace": "https://x.com/viajespillados/status/2117080554889740632",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2117080554889740632",
+   "publicado": "2026-11-01 21:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Ofertas: Leticia, Cusco, Asunción",
+   "enlace": "https://x.com/viajespillados/status/2117080554889740632",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2117080554889740632",
+   "publicado": "2026-11-01 21:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Ofertas: Leticia, Cusco, Asunción",
+   "enlace": "https://x.com/viajespillados/status/2117080554889740632",
+   "metrica": "reposts",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2117080554889740632",
+   "publicado": "2026-11-01 21:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Ofertas: Leticia, Cusco, Asunción",
+   "enlace": "https://x.com/viajespillados/status/2117080554889740632",
+   "metrica": "respuestas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2117080554889740632",
+   "publicado": "2026-11-01 21:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Ofertas: Leticia, Cusco, Asunción",
+   "enlace": "https://x.com/viajespillados/status/2117080554889740632",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2116942646358729197",
+   "publicado": "2026-11-01 12:17",
+   "destinos": "Leticia",
+   "titulo": "Reel: 7 días en Leticia",
+   "enlace": "https://x.com/viajespillados/status/2116942646358729197",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2116942646358729197",
+   "publicado": "2026-11-01 12:17",
+   "destinos": "Leticia",
+   "titulo": "Reel: 7 días en Leticia",
+   "enlace": "https://x.com/viajespillados/status/2116942646358729197",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2116942646358729197",
+   "publicado": "2026-11-01 12:17",
+   "destinos": "Leticia",
+   "titulo": "Reel: 7 días en Leticia",
+   "enlace": "https://x.com/viajespillados/status/2116942646358729197",
+   "metrica": "reposts",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2116942646358729197",
+   "publicado": "2026-11-01 12:17",
+   "destinos": "Leticia",
+   "titulo": "Reel: 7 días en Leticia",
+   "enlace": "https://x.com/viajespillados/status/2116942646358729197",
+   "metrica": "respuestas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2116942646358729197",
+   "publicado": "2026-11-01 12:17",
+   "destinos": "Leticia",
+   "titulo": "Reel: 7 días en Leticia",
+   "enlace": "https://x.com/viajespillados/status/2116942646358729197",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116714155780473314",
@@ -1203,7 +1551,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116714155780473314",
@@ -1215,7 +1563,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116714155780473314",
@@ -1227,7 +1575,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116714155780473314",
@@ -1239,7 +1587,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116714155780473314",
@@ -1251,7 +1599,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "reel",
    "id": "2116580157993484566",
@@ -1263,7 +1611,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "reel",
    "id": "2116580157993484566",
@@ -1275,7 +1623,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "reel",
    "id": "2116580157993484566",
@@ -1287,7 +1635,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "reel",
    "id": "2116580157993484566",
@@ -1299,7 +1647,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "reel",
    "id": "2116580157993484566",
@@ -1311,7 +1659,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116578311841157130",
@@ -1323,7 +1671,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116578311841157130",
@@ -1335,7 +1683,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116578311841157130",
@@ -1347,7 +1695,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116578311841157130",
@@ -1359,7 +1707,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116578311841157130",
@@ -1371,7 +1719,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116354008562487770",
@@ -1383,7 +1731,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116354008562487770",
@@ -1395,7 +1743,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116354008562487770",
@@ -1407,7 +1755,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116354008562487770",
@@ -1419,7 +1767,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116354008562487770",
@@ -1431,7 +1779,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116245008370033015",
@@ -1443,7 +1791,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116245008370033015",
@@ -1455,7 +1803,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116245008370033015",
@@ -1467,7 +1815,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116245008370033015",
@@ -1479,7 +1827,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2116245008370033015",
@@ -1491,7 +1839,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "facebook",
    "tipo": "cuenta",
    "id": "1480839581771583",
@@ -1503,7 +1851,31 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
+   "canal": "facebook",
+   "tipo": "carrusel",
+   "id": "1480839581771583_122102520789529435",
+   "publicado": "2026-11-01 21:25",
+   "destinos": "Leticia, Cusco, Asunción",
+   "titulo": "Ofertas: Leticia, Cusco, Asunción",
+   "enlace": "https://www.facebook.com/1480839581771583_122102520789529435",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
+   "canal": "facebook",
+   "tipo": "reel",
+   "id": "1666843071785584",
+   "publicado": "2026-11-01 12:17",
+   "destinos": "Leticia",
+   "titulo": "Reel: 7 días en Leticia",
+   "enlace": "https://www.facebook.com/1480839581771583/videos/1666843071785584",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-02",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122101624803529435",
@@ -1515,7 +1887,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "facebook",
    "tipo": "reel",
    "id": "938942612420788",
@@ -1527,7 +1899,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122101345923529435",
@@ -1539,7 +1911,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-01",
+   "fecha": "2026-11-02",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122100773943529435",
