@@ -40,6 +40,7 @@
    "action_sfx": false,
    "sfx": [],
    "steps": false,
+   "crowd": [],
    "tag": "SAN ANDRÉS · 3 DÍAS"
   },
   {
@@ -69,6 +70,7 @@
     }
    ],
    "steps": false,
+   "crowd": [],
    "tag": "DÍA 1"
   },
   {
@@ -92,6 +94,7 @@
    "action_sfx": false,
    "sfx": [],
    "steps": false,
+   "crowd": [],
    "tag": "DÍA 1"
   },
   {
@@ -115,6 +118,7 @@
    "action_sfx": true,
    "sfx": [],
    "steps": false,
+   "crowd": [],
    "tag": "DÍA 1"
   },
   {
@@ -153,6 +157,38 @@
     }
    ],
    "steps": false,
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.3,
+     "y": 0.535,
+     "size": 250,
+     "facing": 1,
+     "speed": 0.8
+    },
+    {
+     "action": "sip",
+     "x0": 0.76,
+     "y": 0.525,
+     "size": 240,
+     "facing": -1
+    },
+    {
+     "action": "dance",
+     "x0": 0.62,
+     "y": 0.565,
+     "size": 275,
+     "facing": -1,
+     "speed": 1.2
+    },
+    {
+     "action": "relax",
+     "x0": 0.86,
+     "y": 0.505,
+     "size": 200,
+     "facing": 1
+    }
+   ],
    "tag": "DÍA 2"
   },
   {
@@ -176,6 +212,7 @@
    "action_sfx": false,
    "sfx": [],
    "steps": false,
+   "crowd": [],
    "tag": "DÍA 2"
   },
   {
@@ -219,6 +256,7 @@
     }
    ],
    "steps": false,
+   "crowd": [],
    "tag": "DÍA 3"
   },
   {
@@ -244,6 +282,7 @@
    "action_sfx": true,
    "sfx": [],
    "steps": false,
+   "crowd": [],
    "tag": "DÍA 3"
   },
   {
@@ -256,8 +295,8 @@
    "stick": {
     "action": "sip",
     "x0": 0.3,
-    "y": 0.93,
-    "size": 380,
+    "y": 0.965,
+    "size": 620,
     "facing": 1
    },
    "pops": [
@@ -282,6 +321,16 @@
     }
    ],
    "steps": false,
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.74,
+     "y": 0.95,
+     "size": 520,
+     "facing": -1,
+     "speed": 0.9
+    }
+   ],
    "tag": "DÍA 3"
   },
   {
@@ -306,6 +355,7 @@
    "action_sfx": true,
    "sfx": [],
    "steps": false,
+   "crowd": [],
    "hold": 1.6
   }
  ],

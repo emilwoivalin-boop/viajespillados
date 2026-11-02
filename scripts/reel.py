@@ -233,7 +233,7 @@ def clip_from_photo(src, dur, out, zoom_in=True, focus=0.5):
        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out)
 
 
-def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom=0.10, tag=None):
+def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom=0.10, tag=None, crowd=None):
     """Render a picture scene in Python so the stick man lives *inside* the picture: he is drawn onto the
     illustration first and the gentle camera move (eased zoom) is applied to both, so he never slides
     against the background. Icon pops are drawn afterwards, in screen space."""
@@ -250,6 +250,10 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
     gen = stickman.frames(st.get("action", "none"), n, FPS, x0=st.get("x0", 0.3), x1=st.get("x1", st.get("x0", 0.3)),
                           feet=int(st.get("y", 0.7) * H), feet1=int(st.get("y1", st.get("y", 0.7)) * H),
                           size=st.get("size", 330), size1=st.get("size1"), facing=st.get("facing", 1), band_h=H)
+    extra = [stickman.frames(c.get("action", "wave"), n, FPS, x0=c.get("x0", 0.5), x1=c.get("x1", c.get("x0", 0.5)),
+                             feet=int(c.get("y", 0.7) * H), feet1=int(c.get("y1", c.get("y", 0.7)) * H),
+                             size=c.get("size", 300), facing=c.get("facing", 1), band_h=H, speed=c.get("speed", 1.0))
+             for c in (crowd or [])]
     # zoom centre: keep the stick man's area in view
     sx = (st.get("x0", 0.5) + st.get("x1", 0.5)) / 2 if st.get("action", "none") != "none" else 0.5
     cx0, cy0 = W * (0.5 + (sx - 0.5) * 0.35), H * (0.5 + (st.get("y", 0.5) - 0.5) * 0.35)
@@ -260,6 +264,8 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
         q = stickman.smooth(i / max(1, n - 1))
         z = 1 + zoom * (q if zoom_in else 1 - q)
         fr = base.copy()
+        for g in extra:                          # other people in the scene (drawn behind the main figure)
+            fr.alpha_composite(next(g))
         if st.get("action", "none") != "none":
             fr.alpha_composite(band)
         bw, bh = W / z, H / z
@@ -570,7 +576,8 @@ def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
                 clip_from_video(pexels_file(m["pexels_id"], os.path.join(work, f"s{i}.mp4")), dur, out)
             else:
                 photo_scene(media_file(m, sb, base, work, f"scene{i}", i), dur, out, sc.get("stick"), pops,
-                            i % 2 == 0, m.get("focus", 0.5), sb.get("zoom", 0.10), sc.get("tag"))
+                            i % 2 == 0, m.get("focus", 0.5), sb.get("zoom", 0.10), sc.get("tag"),
+                            crowd=sc.get("crowd"))
                 in_photo = True
         except Exception as e:
             fb = m.get("fallback_photo") or sb.get("fallback_photo")

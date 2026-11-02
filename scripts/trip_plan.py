@@ -43,6 +43,8 @@ def build(tid):
         for sc in plan["scenes"]:
             st = sc.get("stick") or {"action": "none"}
             assert st.get("action", "none") in ACTIONS, f"{sc['key']}: unknown action {st.get('action')}"
+            for c in sc.get("crowd") or []:      # extra stick people (party, beach), behind the main one
+                assert c.get("action", "wave") in ACTIONS, f"{sc['key']}: unknown crowd action"
             text = sc["text"][lang]
             pops = []
             if sc.get("pop"):
@@ -60,7 +62,7 @@ def build(tid):
             tag = (sc.get("tag") or {}).get(lang)
             scenes.append({"text": text, "media": {"type": "file", "path": img, "focus": sc.get("focus", 0.5)},
                            "stick": st, "pops": pops, "ambience": amb, "action_sfx": sc.get("action_sfx", not amb),
-                           "sfx": sfx, "steps": sc.get("steps", False),
+                           "sfx": sfx, "steps": sc.get("steps", False), "crowd": sc.get("crowd") or [],
                            **({"tag": tag} if tag else {})})
         scenes[-1]["hold"] = 1.6          # let the last picture breathe (no end card in travel plans)
         voice, rate = VOICE[lang]
@@ -89,8 +91,8 @@ def preview(tid, out):
         im = im.resize((round(im.width * k), round(im.height * k)))
         ox, oy = (im.width - 1080) // 2, (im.height - 1920) // 2
         fr = im.crop((ox, oy, ox + 1080, oy + 1920)).convert("RGBA")
-        st = sc.get("stick") or {"action": "none"}
-        if st.get("action", "none") != "none":
+        for st in (sc.get("crowd") or []) + [sc.get("stick") or {"action": "none"}]:
+          if st.get("action", "none") != "none":
             n = 40
             band = list(stickman.frames(st["action"], n, 30, x0=st.get("x0", 0.5), x1=st.get("x1", st.get("x0", 0.5)),
                                         feet=int(st.get("y", 0.8) * 1920), feet1=int(st.get("y1", st.get("y", 0.8)) * 1920),
