@@ -64,9 +64,10 @@ def build(tid):
                            "stick": st, "pops": pops, "ambience": amb, "action_sfx": sc.get("action_sfx", not amb),
                            "sfx": sfx, "steps": sc.get("steps", False), "crowd": sc.get("crowd") or [],
                            **({"tag": tag} if tag else {})})
-        scenes[-1]["hold"] = 1.6          # let the last picture breathe (no end card in travel plans)
+        scenes[-1]["hold"] = plan.get("end_hold", 1.6)          # let the last picture breathe (no end card in travel plans)
         voice, rate = VOICE[lang]
-        sb = {"id": f"{tid}-{lang}", "voice": voice, "rate": rate, "pad": 0.25, "stick_style": "classic",
+        rate = (plan.get("rate") or {}).get(lang, rate)          # optional per-trip speed, e.g. {"es": "+45%"}
+        sb = {"id": f"{tid}-{lang}", "voice": voice, "rate": rate, "pad": plan.get("pad", 0.25), "stick_style": "classic",
               "caption_margin": 400, "caption_align": 8, "banner": {"logo": False}, "scenes": scenes,
               "end": None, "caption": (plan.get("caption") or {}).get(lang, "")}
         if lang == "es":

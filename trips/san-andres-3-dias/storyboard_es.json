@@ -1,8 +1,8 @@
 {
  "id": "san-andres-3-dias-es",
  "voice": "es-CO-GonzaloNeural",
- "rate": "+35%",
- "pad": 0.25,
+ "rate": "+48%",
+ "pad": 0.08,
  "stick_style": "classic",
  "caption_margin": 400,
  "caption_align": 8,
@@ -356,7 +356,7 @@
    "sfx": [],
    "steps": false,
    "crowd": [],
-   "hold": 1.6
+   "hold": 1.0
   }
  ],
  "end": null,

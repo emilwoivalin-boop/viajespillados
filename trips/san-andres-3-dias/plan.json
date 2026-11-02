@@ -339,5 +339,11 @@
  "caption": {
   "es": "San Andrés en 3 días 🌴 La Loma, el creole raizal, Big Pond, Johnny Cay, El Acuario, Rocky Cay, West View y atardecer con coco loco. Guárdalo pa' tu viaje 🇨🇴",
   "en": "San Andrés in 3 days 🌴 La Loma, Raizal Creole, Big Pond, Johnny Cay, El Acuario, Rocky Cay, West View and a coco loco sunset. Save this for your trip!"
- }
+ },
+ "rate": {
+  "es": "+48%",
+  "en": "+38%"
+ },
+ "pad": 0.08,
+ "end_hold": 1.0
 }
