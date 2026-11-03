@@ -1,4 +1,1 @@
-open: https://accounts.picsart.com/device
-code: WWDZ-NFWL
-direct: https://accounts.picsart.com/device?user_code=WWDZ-NFWL
-status: waiting
+status: failed (not approved in time)
