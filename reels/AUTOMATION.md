@@ -5,14 +5,14 @@ Aruba Reel (`reels/aruba-abril-2027-cartoon-es`). Three scheduled tasks run it:
 
 | Bogotá time | Task | What it does |
 |---|---|---|
-| 06:41 | **A · prepare** | picks the offer, writes the script and 5 picture prompts, creates today's Drive folder, sends the prompts to the owner |
-| (owner) | — | makes the 5 pictures in the Gemini app and uploads them to today's Drive folder **before 11:20** |
+| 06:41 | **A · prepare** | picks the offer, writes the script and 6 picture prompts, makes the pictures with Picsart (automatic), checks them, tells the owner |
+| (owner) | — | nothing – only if Picsart failed: makes the 5 pictures in the Gemini app and uploads them to today's Drive folder **before 11:20** |
 | 11:23 | **B · build** | downloads the pictures, places stick man / sticker / sound, renders the video, checks it |
 | 12:14 | **C · post** | publishes the rendered Reel on Instagram |
 
 State lives in `reels/daily.json` (one entry per Bogotá date):
 `{"2026-10-30": {"id": "lima-2027-01-16", "destino": "Lima", "status": "prompts_sent", "drive_folder_id": "...", "note": ""}}`
-Status flow: `prompts_sent` → `rendered` → `published`, or `skipped` (with a note).
+Status flow: `pictures_ready` (Picsart) or `prompts_sent` (manual fallback) → `rendered` → `published`, or `skipped` (with a note).
 
 Common facts
 - Repo: `emilwoivalin-boop/viajespillados` (GitHub Pages site viajespillados.com). In a fresh session attach it with the
@@ -29,6 +29,12 @@ Common facts
   H Price, Q Depart date, R Return date, S Workdays off, X Score 0–10, Y Final flag).
 - Drive parent folder "Viajes Pillados – Reels": `1_9RYH30SlCRgR-MGv_Kpq3K-jFLMBuSm` (shared "anyone with the link can view",
   so the GitHub workflow can download the pictures).
+- Picsart (owner's Pro account): `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/picsart.yml/dispatches
+  -f ref=main -f 'inputs[mode]=pictures' -f 'inputs[kind]=reels' -f 'inputs[id]=<id>' [-f 'inputs[keys]=dia2,cover']` makes the
+  pictures from plan.json `prompts` into `reels/<id>/img/<key>.jpg` (Nano Banana 2, falls back to Nano Banana Pro) and writes
+  `img/picsart.json` (done / failed + credits left in the run summary). Poll the run like reel.yml (`-w picsart.yml`), then `git pull`.
+  If the run fails with a sign-in error ("Not authenticated", "session expired"), the sign-in must be renewed: that needs the owner
+  (see "Renew the Picsart sign-in" at the end) – use the manual fallback for today and tell the owner.
 - Helper: `python scripts/reel_plan.py info <ida> <vuelta>` (Spanish dates, days, workdays off),
   `python scripts/reel_plan.py build <id>` (plan.json → storyboard.json), `python scripts/reel_plan.py preview <id> <out.jpg>`
   (one frame per scene with stick man + sticker – look at it with the Read tool).
@@ -81,18 +87,32 @@ Common facts
    - `vuelo`: view from high above the clouds with a small white airplane, and the landscape of the destination region far below (sea and islands, mountains, city…).
    - `llegada`: outside the destination's airport or arrival spot, with a typical local detail (palms, mountains, skyline…), with an empty sidewalk in the lower third.
    - `dia1`/`dia2`/`dia3`: the place of that day's activity, recognisable (landmark shapes, colours, nature), and a clear empty area where a small stick figure can stand / sit / walk (say where: "empty sand in the lower half", "the trail is clearly visible and empty"). On a buddy Reel ask for room for two figures ("wide empty area for two small figures"). If a line has a hammock, a dock or a wall to sit on, mention it so the stick man can use it (hammock between two palms, wooden dock edge).
+   - `cover` (the grid cover / thumbnail): the single most iconic, colourful view of the destination, bright daylight, the middle
+     of the picture calm (open sky or sea – a big title goes there), an empty beach / plaza / path in the bottom fifth.
    - Use the time of day that fits the line (evening activities → sunset sky).
-6. **Drive**: in the parent folder create a folder `<YYYY-MM-DD> <Destino>` (Drive tool create_file, mimeType folder, parentId above),
-   and inside it a Google Doc "Prompts" with the 5 prompts numbered 1–5 in the order vuelo, llegada, dia1, dia2, dia3.
-   Save its id as `drive_folder_id` in plan.json and in `reels/daily.json` (status `prompts_sent`). Commit + push.
-7. **Final output** (the owner reads this on the phone; keep it short, Spanish is fine):
-   destino, fechas, precio, why it was picked (score / % below usual), the Drive folder link
-   `https://drive.google.com/drive/folders/<id>`, and the 5 prompts numbered 1–5, each in its own code block so they are easy to copy.
-   Remind: "Sube las 5 imágenes a la carpeta en este orden (o nómbralas 1–5) antes de las 11:20."
+6. **Pictures with Picsart (automatic)**: commit + push plan.json, run the Picsart workflow with mode `pictures` (see Common facts),
+   poll until it finishes (≈ 3–8 min), `git pull`. Then **look at every picture** (Read `reels/<id>/img/<key>.jpg`) and check: it
+   shows the right place, no text / letters / logos / people / stick figures, the empty area for the stick man really exists, the
+   top third is calm, it looks like the same simple cartoon style as the others. Redo only the bad ones (`keys`), improving their
+   prompt in plan.json first (be more explicit about what was wrong). At most 2 redo rounds; then keep the best version.
+   If all pictures are fine: set today's entry in `reels/daily.json` to status `pictures_ready` (no Drive folder needed). Commit + push.
+   **Fallback** (Picsart run failed, sign-in expired, no credits, or fewer than 5 usable pictures after the redos): do the old
+   manual flow – in the Drive parent folder create a folder `<YYYY-MM-DD> <Destino>` (Drive tool create_file, mimeType folder,
+   parentId above) with a Google Doc "Prompts" containing the 5 prompts numbered 1–5 (vuelo, llegada, dia1, dia2, dia3); save its id
+   as `drive_folder_id` in plan.json and in `reels/daily.json` with status `prompts_sent`. Commit + push.
+7. **Final output** (the owner reads this on the phone; keep it short, Spanish is fine): destino, fechas, precio, why it was picked
+   (score / % below usual), the occasion if any, and whether it is a buddy Reel.
+   - `pictures_ready`: "Las imágenes ya están hechas con Picsart – no tienes que subir nada. El Reel se arma a las 11:23 y se
+     publica a las 12:14." If you can send files, send a contact sheet of the 6 pictures
+     (`python -c` with PIL, 6 thumbnails side by side) so the owner can see them.
+   - `prompts_sent` (fallback): say why Picsart failed, then the Drive folder link `https://drive.google.com/drive/folders/<id>`
+     and the 5 prompts numbered 1–5, each in its own code block, and "Sube las 5 imágenes a la carpeta en este orden (o nómbralas
+     1–5) antes de las 11:20." If the Picsart sign-in expired, add: "Pídele a Claude que renueve el acceso a Picsart."
 
 ## B · build (11:23)
 
-1. Load today's entry from `reels/daily.json`; continue only if status is `prompts_sent`.
+1. Load today's entry from `reels/daily.json`. If status is `pictures_ready`, the pictures are already in `reels/<id>/img/` –
+   skip steps 2–3. If status is `prompts_sent` (manual fallback), do steps 2–3. Any other status: stop.
 2. List the images in the Drive folder (search_files `parentId = '<folder>' and mimeType contains 'image/'`, excludeContentSnippets).
    Order: files whose names start with 1–5 by that number, otherwise by createdTime (oldest first). Map to vuelo, llegada, dia1, dia2, dia3.
    - If fewer than 5 images: if it is before 11:50, wait 5 minutes and check again (up to 5 times). Still missing → set status
@@ -140,7 +160,9 @@ Common facts
 5. `python scripts/reel_plan.py build <id>` and `python scripts/reel_plan.py preview <id> /tmp/preview.jpg`; Read the preview and
    fix anything that looks wrong (floating stick man, sticker on top of something, stick man hidden, buddy overlapping him).
    The preview shows two moments for pictures with beats. Commit + push.
-6. Run the workflow with mode `render`. `git pull`, check `reels/<id>/reel.mp4` exists (duration 30–55 s) and look at a contact
+6. Run the workflow with mode `render` (it also makes the grid cover `reels/<id>/cover_ig.jpg`: the `cover` picture – or dia1 –
+   with "DESDE BOGOTÁ", the destination, days, price and the stick man; step C uploads it as the Reel's cover). `git pull`, Read
+   `cover_ig.jpg` and check the text is readable and nothing important is hidden. Check `reels/<id>/reel.mp4` exists (duration 30–55 s) and look at a contact
    sheet: `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/3,scale=216:-1,tile=8x2" -frames:v 1 /tmp/sheet.jpg`. If something is clearly
    broken, fix and render again (time allows one retry).
 7. Set status `rendered`, commit + push. Output one short line: "Reel de <Destino> listo, se publica a las 12:14", plus any problem.
@@ -157,3 +179,11 @@ Common facts
    "📲 Para TikTok y YouTube: https://viajespillados.com/tiktok/hoy.html (guardar video › copiar texto/título › subir)", followed by
    the YouTube title (`yt_title`) and the TikTok/YouTube text (`caption`) of the newest item in `tiktok/feed.json`, each in a code
    block so they are easy to copy. That text is about the destination (no price/airline/dates). On failure: the error in one line.
+
+## Renew the Picsart sign-in (only when a Picsart run says it is not signed in)
+
+Needs the owner (one minute on the phone). Run `picsart.yml` with mode `login`, then poll
+`git fetch -q origin picsart-login && git show FETCH_HEAD:login.txt` every 10 s: when it shows `status: waiting`, send the owner
+the `direct:` link and the `code:` ("Abre este link, entra con tu cuenta Picsart Pro y aprueba"). The run waits up to ~15 min for
+the approval and then shows `status: ok` (with the account and credits) or `failed`. The sign-in is kept encrypted in the Actions
+cache and refreshes itself on every run; it is lost only if nothing uses Picsart for 7 days (cache eviction) or the owner revokes it.

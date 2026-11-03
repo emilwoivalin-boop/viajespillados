@@ -781,8 +781,11 @@ def publish(rid):
     url = ig.public_image_url(rel)   # works for any file: waits for viajespillados.com, else raw GitHub
     sb = json.load(open(os.path.join(base, "storyboard.json")))
     uid = os.environ["IG_USER_ID"]
+    extra = {}
+    if os.path.exists(os.path.join(base, "cover_ig.jpg")):       # designed cover (destination + price)
+        extra["cover_url"] = ig.public_image_url(f"reels/{rid}/cover_ig.jpg")
     c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=sb.get("caption", ""),
-               share_to_feed="true")["id"]
+               share_to_feed="true", **extra)["id"]
     for _ in range(60):
         st = ig.api("GET", c, fields="status_code,status")
         if st.get("status_code") == "FINISHED":
@@ -846,6 +849,12 @@ if __name__ == "__main__":
                     render(rid, "trips", f"storyboard_{lang}.json", f"video_{lang}.mp4")
         elif mode == "render":
             render(rid)
+            if os.path.exists(os.path.join(ROOT, "reels", rid, "plan.json")):   # daily Reel: grid cover
+                try:
+                    import cover
+                    cover.make(rid)
+                except Exception as e:
+                    print("cover:", e)
             ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
         elif mode == "publish":
             publish(rid)
