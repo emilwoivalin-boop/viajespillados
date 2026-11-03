@@ -4,6 +4,7 @@ same structure as the approved Aruba Reel, and makes a quick placement preview.
     python scripts/reel_plan.py build <id>      # plan.json -> storyboard.json
     python scripts/reel_plan.py preview <id>    # contact sheet of every scene with stick man + sticker
     python scripts/reel_plan.py info <ida> <vuelta>   # Spanish dates + workdays off, for writing the plan
+    python scripts/reel_plan.py buddy [<YYYY-MM-DD>]  # "yes" if today's Reel is a travel-buddy Reel (every third)
 
 plan.json (written by the morning task, completed by the build task):
 {
@@ -14,7 +15,9 @@ plan.json (written by the morning task, completed by the build task):
   "drive_folder_id": "...",
   "lines":   {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},
   "prompts": {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},
-  "scenes":  {"vuelo":   {"stick": {...} | null, "pop": {...} | null, "ambience": "waves" | "crickets" | null},
+  "buddy": false,                            # every third Reel: true (see `buddy`) – the travel buddy joins him
+  "scenes":  {"vuelo":   {"stick": {...} | null, "pop": {...} | null, "ambience": "waves" | ["waves", "steeldrum"] | null,
+                          "crowd": [{"look": "buddy", ...}], "sfx": [{"kind", "at" | "frac", "gain"}]},
               "llegada": {...}, "dia1": {...}, "dia2": {...}, "dia3": {...}},
   "end_image": "dia1"                        # which picture sits behind the price card
 }
@@ -30,12 +33,38 @@ import instagram as ig  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEYS = ["vuelo", "llegada", "dia1", "dia2", "dia3"]
 ICONS = {"sun", "heart", "sparkle", "pin", "plane", "fish", "suitcase", "clock", "camera"}
-AMBIENCE = {"waves", "crickets"}
-ACTIONS = {"walk", "suitcase", "wave", "celebrate", "relax", "swim", "drive", "photo", "none"}
+AMBIENCE = {"waves", "crickets", "underwater", "birds", "steeldrum"}
+SFX = {"bell", "splash", "clink", "engine", "bubbles", "shutter", "boing", "chime", "sparkle", "pop"}
+ACTIONS = {"walk", "suitcase", "wave", "celebrate", "relax", "swim", "drive", "photo", "none",
+           "wade", "dance", "lookout", "point", "sip", "dive", "float", "stand", "run", "sit", "hammock", "shrug",
+           "selfie", "scared", "laugh", "eat", "kayak", "parachute"}
 
 # fixed opening and closing scenes (same pictures and stick man moves as the approved Aruba Reel)
 SALIDA_STICK = {"action": "suitcase", "x0": 0.2, "x1": 0.5, "y": 0.97, "y1": 0.68, "size": 520, "size1": 260}
 REGRESO_STICK = {"action": "suitcase", "x0": 0.5, "x1": 0.75, "y": 0.68, "y1": 0.97, "size": 260, "size1": 520}
+# travel buddy (every third Reel): walks next to him in the airport scenes
+SALIDA_BUDDY = {"look": "buddy", "action": "suitcase", "x0": 0.05, "x1": 0.36, "y": 0.99, "y1": 0.70, "size": 480,
+                "size1": 245}
+REGRESO_BUDDY = {"look": "buddy", "action": "suitcase", "x0": 0.36, "x1": 0.58, "y": 0.70, "y1": 0.99, "size": 245,
+                 "size1": 480}
+
+
+def buddy_next(today=None):
+    """True if the next daily Reel (the one being prepared today) is a 'buddy' Reel: every third Reel that was
+    actually made (statuses other than skipped) has the travel buddy."""
+    today = today or date.today().isoformat()
+    daily = json.load(open(os.path.join(ROOT, "reels", "daily.json")))
+    made = sum(1 for k, v in daily.items() if k < today and v.get("status") != "skipped")
+    return (made + 1) % 3 == 0
+
+
+def check_figure(f, line, where):
+    """Validate a stick figure (single move or beats) of a scene."""
+    assert f.get("action", "none") in ACTIONS, f"{where}: acción desconocida {f.get('action')}"
+    for b in f.get("beats") or []:
+        assert b.get("action", "stand") in ACTIONS, f"{where}: acción desconocida {b.get('action')}"
+        if b.get("word"):
+            assert b["word"].lower() in line.lower(), f"{where}: la palabra '{b['word']}' no está en el texto"
 
 NUM = {1: "un", 2: "dos", 3: "tres", 4: "cuatro", 5: "cinco"}
 
@@ -91,23 +120,32 @@ def build(rid):
     regreso = f"El {ig.DIAS[b.weekday()]} aterrizas en Bogotá, feliz y descansado. {days_off_line(inf['dias_libres'])}".strip()
 
     scenes = [{"text": salida, "media": {"type": "file", "path": "reels/common/eldorado-day.jpg", "focus": 0.5},
-               "stick": SALIDA_STICK, "pops": [], "ambience": []}]
+               "stick": SALIDA_STICK, "pops": [], "ambience": [],
+               "crowd": [SALIDA_BUDDY] if plan.get("buddy") else []}]
     for k in KEYS:
         sc = (plan.get("scenes") or {}).get(k) or {}
         st = sc.get("stick") or {"action": "none"}
-        assert st.get("action", "none") in ACTIONS, f"{k}: acción desconocida {st.get('action')}"
+        check_figure(st, plan["lines"][k], k)
+        crowd = sc.get("crowd") or []
+        for c in crowd:
+            check_figure(c, plan["lines"][k], k + " (crowd)")
+        sfx = sc.get("sfx") or []
+        assert all(e["kind"] in SFX for e in sfx), f"{k}: sonido desconocido"
         pops = []
         if sc.get("pop"):
             p = sc["pop"]
             assert p["icon"] in ICONS, f"{k}: sticker desconocido {p['icon']}"
             assert p["word"].lower().strip("¡!¿?,.") in plan["lines"][k].lower(), f"{k}: la palabra del sticker no está en el texto"
             pops = [{"icon": p["icon"], "word": p["word"], "x": p["x"], "y": p["y"], "size": p.get("size", 190)}]
-        amb = [sc["ambience"]] if sc.get("ambience") in AMBIENCE else []
+        amb = sc.get("ambience") or []
+        amb = [a for a in ([amb] if isinstance(amb, str) else amb) if a in AMBIENCE]
         scenes.append({"text": plan["lines"][k], "media": {"type": "file", "path": img(k), "focus": 0.5},
-                       "stick": st, "pops": pops, "ambience": amb,
-                       "action_sfx": not amb})      # max one extra sound per picture
+                       "stick": st, "pops": pops, "ambience": amb, "crowd": crowd, "sfx": sfx,
+                       "steps": sc.get("steps", False),
+                       "action_sfx": sc.get("action_sfx", not amb)})
     scenes.append({"text": regreso, "media": {"type": "file", "path": "reels/common/eldorado-night.jpg", "focus": 0.5},
-                   "stick": REGRESO_STICK, "pops": [], "ambience": []})
+                   "stick": REGRESO_STICK, "pops": [], "ambience": [],
+                   "crowd": [REGRESO_BUDDY] if plan.get("buddy") else []})
 
     escalas = "vuelo directo" if o["escalas"] == "directo" else o["escalas"]
     fechas = f"{a.day} {ig.MESES[a.month - 1][:3]} – {b.day} {ig.MESES[b.month - 1][:3]}"
@@ -136,8 +174,8 @@ def build(rid):
 
 def preview(rid, out=None):
     """One frame per scene (stick man at 85 % of its move, sticker shown) side by side."""
-    import stickman
     import reelfx
+    import reel
     from PIL import Image
     sb = json.load(open(os.path.join(ROOT, "reels", rid, "storyboard.json")))
     tiles = []
@@ -146,20 +184,26 @@ def preview(rid, out=None):
         k = max(1080 / im.width, 1920 / im.height)
         im = im.resize((round(im.width * k), round(im.height * k)))
         ox, oy = (im.width - 1080) // 2, (im.height - 1920) // 2
-        fr = im.crop((ox, oy, ox + 1080, oy + 1920)).convert("RGBA")
-        st = sc.get("stick") or {"action": "none"}
-        if st.get("action", "none") != "none":
-            n = 40
-            band = list(stickman.frames(st["action"], n, 30, x0=st.get("x0", 0.5), x1=st.get("x1", st.get("x0", 0.5)),
-                                        feet=int(st.get("y", 0.8) * 1920), feet1=int(st.get("y1", st.get("y", 0.8)) * 1920),
-                                        size=st.get("size", 330), size1=st.get("size1"), facing=st.get("facing", 1),
-                                        band_h=1920))[int(n * 0.85)]
-            fr.alpha_composite(band)
-        reelfx.draw_pops(fr, [{**p, "t": 0} for p in sc.get("pops", [])], 1.0, 1080, 1920)
-        tiles.append(fr.convert("RGB").resize((270, 480)))
-    sheet = Image.new("RGB", (270 * len(tiles), 480), "white")
+        base = im.crop((ox, oy, ox + 1080, oy + 1920)).convert("RGBA")
+        n = 120                                   # beats are spread evenly here (in the video they follow the words)
+        figs = [dict(c) for c in sc.get("crowd") or []] + [dict(sc.get("stick") or {"action": "none"})]
+        picks = (int(n * 0.45), int(n * 0.85)) if any(f.get("beats") for f in figs) else (int(n * 0.85),)
+        got = []
+        for f in figs:
+            reel.resolve_beats(f, [], 4.0)
+            got.append({i: p for i, p in enumerate(reel.figure_frames(f, n, patch=True)) if i in picks})
+        for i in picks:
+            fr = base.copy()
+            for g in got:
+                if g.get(i):
+                    fr.alpha_composite(g[i][0], g[i][1])
+            reelfx.draw_pops(fr, [{**p, "t": 0} for p in sc.get("pops", [])], 1.0, 1080, 1920)
+            tiles.append(fr.convert("RGB").resize((270, 480)))
+    cols = min(len(tiles), 7)
+    rows = (len(tiles) + cols - 1) // cols
+    sheet = Image.new("RGB", (270 * cols, 480 * rows), "white")
     for i, t in enumerate(tiles):
-        sheet.paste(t, (i * 270, 0))
+        sheet.paste(t, ((i % cols) * 270, (i // cols) * 480))
     out = out or os.path.join(ROOT, "reels", rid, "preview.jpg")
     sheet.save(out, quality=85)
     print("preview:", out)
@@ -171,5 +215,7 @@ if __name__ == "__main__":
         build(sys.argv[2])
     elif cmd == "preview":
         preview(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    elif cmd == "buddy":
+        print("yes" if buddy_next(sys.argv[2] if len(sys.argv) > 2 else None) else "no")
     elif cmd == "info":
         print(json.dumps(info(sys.argv[2], sys.argv[3]), ensure_ascii=False))

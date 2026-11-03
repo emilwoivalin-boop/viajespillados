@@ -50,7 +50,10 @@ Common facts
 3. `id` = `<slug-destino>-<ida>` (e.g. `lima-2027-01-16`). Create `reels/<id>/plan.json` (format in `scripts/reel_plan.py`):
    `offer` = destino, aerolinea, precio (number), escalas ("directo" / "1 escala" / "N escalas"), ida, vuelta, link (J), sheet_row;
    `hora_salida` = null (only fill it, e.g. "4 de la tarde", if you verified the airline's scheduled departure time for that
-   weekday from a reliable timetable page; otherwise leave null); `que_hacer` = column D of `Qué hacer`; `end_image` = "dia1".
+   weekday from a reliable timetable page; otherwise leave null); `que_hacer` = column D of `Qué hacer`; `end_image` = "dia1";
+   `buddy` = true if `python scripts/reel_plan.py buddy` prints "yes" (every third Reel that was actually made has the travel
+   buddy – a second stick figure with a ponytail and a flower – walking next to him), else false. Also save `buddy` in today's
+   `reels/daily.json` entry.
 4. **Script lines** (`lines`, Spanish from Colombia, tú, short and lively like the Aruba Reel; 8–20 words each; no prices, no airline):
    - `vuelo`: the flight, e.g. "Dos horas de vuelo directo, y el mar abajo se pone turquesa." Only state the flight time if you
      know it (Price log Notes "N hrs"); say "directo" only for non-stop.
@@ -77,7 +80,7 @@ Common facts
    - Style block: `Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16.`
    - `vuelo`: view from high above the clouds with a small white airplane, and the landscape of the destination region far below (sea and islands, mountains, city…).
    - `llegada`: outside the destination's airport or arrival spot, with a typical local detail (palms, mountains, skyline…), with an empty sidewalk in the lower third.
-   - `dia1`/`dia2`/`dia3`: the place of that day's activity, recognisable (landmark shapes, colours, nature), and a clear empty area where a small stick figure can stand / sit / walk (say where: "empty sand in the lower half", "the trail is clearly visible and empty").
+   - `dia1`/`dia2`/`dia3`: the place of that day's activity, recognisable (landmark shapes, colours, nature), and a clear empty area where a small stick figure can stand / sit / walk (say where: "empty sand in the lower half", "the trail is clearly visible and empty"). On a buddy Reel ask for room for two figures ("wide empty area for two small figures"). If a line has a hammock, a dock or a wall to sit on, mention it so the stick man can use it (hammock between two palms, wooden dock edge).
    - Use the time of day that fits the line (evening activities → sunset sky).
 6. **Drive**: in the parent folder create a folder `<YYYY-MM-DD> <Destino>` (Drive tool create_file, mimeType folder, parentId above),
    and inside it a Google Doc "Prompts" with the 5 prompts numbered 1–5 in the order vuelo, llegada, dia1, dia2, dia3.
@@ -100,22 +103,43 @@ Common facts
    - `stick`: the classic stick man doing something that fits the line and the picture, placed ON the ground / sand / path / water
      where it is empty. Coordinates are fractions of the 1080×1920 frame (pictures are cover-fitted to 9:16): `x0`/`x1` = start/end x
      of his body centre, `y` (and optional `y1`) = where his FEET are, `size` (and optional `size1`) = body height in px
-     (≈ 500 close to the camera at the bottom, ≈ 250–350 in the middle distance, ≈ 150 far away), `facing` 1 = right, −1 = left.
-     Actions: `walk`, `suitcase`, `wave`, `celebrate` (arrival!), `relax` (lying on a towel – beaches/parks), `swim` (snorkel – `y`
-     is the water level of his body), `drive` (jeep on a road), `photo` (viewpoints, landmarks, sunsets), `none` (flight scene).
+     (≈ 450–550 close to the camera at the bottom, ≈ 250–350 in the middle distance, ≈ 150 far away), `facing` 1 = right, −1 = left.
+     **Moves** (pick the one that matches the line; vary them, don't use the same move on two pictures in a row):
+     `walk`, `run` (speed lines), `suitcase`, `stand`, `wave`, `celebrate` (arrival!), `point` (pointing at a view or landmark),
+     `photo`, `selfie`, `laugh`, `shrug`, `scared` (jumps back, sweat drops – animals, heights, spicy food), `relax` (lying on a
+     towel – beaches/parks), `hammock` (lies in a hammock hung between x0 and x1 at height y), `sit` (on an edge – dock, wall,
+     rock; y = the edge surface), `eat` (plate of fried fish – food lines), `sip` (coconut drink – bars, sunsets), `dance`
+     (music notes – parties, festivals), `swim` (snorkel – `y` is the water level of his body), `wade` (knee-deep in the sea),
+     `float` (on his back in the water), `dive` (jumps from x0/y into the water at x1/y1, splash), `kayak` (on water, x0→x1),
+     `drive` (jeep on a road), `parachute` (drops in from above and lands at y – fun for the arrival), `none` (flight scene).
+     **Several moves in one picture** (`beats`), timed to the words of the line – use them on at least 2 of the 5 pictures:
+     `"stick": {"y": .87, "size": 400, "beats": [{"action": "run", "x0": -0.15, "x1": .45},
+     {"action": "point", "word": "iglesia"}, {"action": "selfie", "word": "vista"}]}` – each beat starts when the voice says its
+     `word` (a word of that line) and starts where the previous beat ended unless it gives its own x0/y/size/facing. Optional
+     `"mood": "love" | "laugh" | "scared" | "wow"` changes his face for a beat (e.g. heart eyes at a sunset).
      Keep him out of the top 33 % (captions live there) unless he swims.
      Reference values that looked right in the Aruba Reel: arrival celebrate {x0 .45, y .9, size 400}; beach relax {x .63, y .475,
      size 380} (on sand in the tree shadow); jeep coming down a path {x0 .47→.40, y .60→.97, size 150→460, facing −1};
      swim {x0 .10→.65, y .37, size 380}; lighthouse photo {x .28, y .67, size 340}.
+   - `crowd` (optional): extra stick people behind him, each like a `stick` (single move or beats):
+     - **Buddy Reel** (`buddy: true` in plan.json): put the travel buddy `{"look": "buddy", ...}` in the `crowd` of the
+       `llegada` picture and of at least 2 day pictures, next to him (not on top: ~0.2–0.3 apart in x), doing a matching or
+       reacting move (both scared at the animal, she takes the photo while he points, both dance). The airport scenes add her
+       automatically. On other Reels: no buddy.
+     - Party / beach / bar lines (any Reel): 2–4 extra people (`dance` with `speed` 0.8–1.2 so they aren't in sync, `sip`, `relax`).
    - `pop` (optional, max 1, only when it adds meaning): one sticker `{icon, word, x, y, size}` – icons: sun, heart, sparkle, pin,
      plane, fish, suitcase, clock, camera. `word` must be a word of that scene's line (it pops when the voice says it); put it next
      to the thing it refers to (sun in the sky, pin on the place, sparkle on a sign…), not on the stick man and not in y .18–.33.
      Size 170–230. Use stickers on at most 3 of the 5 pictures.
-   - `ambience` (optional, max 1): `waves` (beach / sea at the coast) or `crickets` (warm night). If set, the stick man's action
-     sound is muted on that picture (max one extra sound per picture). The whoosh between pictures and the chime at the price
-     reveal are always there.
+   - `ambience` (optional, one or a list): `waves` (beach / sea), `crickets` (warm night), `birds` (nature, parks, jungle),
+     `steeldrum` (beach party / Caribbean vibe, sunsets), `underwater`. `sfx` (optional): one-off sounds
+     `[{"kind": "bell" | "splash" | "clink" | "engine" | "bubbles" | "shutter" | "boing" | "chime", "at": seconds or "frac": 0–1}]`.
+     Moves inside `beats` bring their own sounds (photo/selfie click, dive splash, scared/run whoosh, parachute landing).
+     For a single move with an ambience, add `"action_sfx": true` to keep its sound. The whoosh between pictures and the chime at
+     the price reveal are always there.
 5. `python scripts/reel_plan.py build <id>` and `python scripts/reel_plan.py preview <id> /tmp/preview.jpg`; Read the preview and
-   fix anything that looks wrong (floating stick man, sticker on top of something, stick man hidden). Commit + push.
+   fix anything that looks wrong (floating stick man, sticker on top of something, stick man hidden, buddy overlapping him).
+   The preview shows two moments for pictures with beats. Commit + push.
 6. Run the workflow with mode `render`. `git pull`, check `reels/<id>/reel.mp4` exists (duration 30–55 s) and look at a contact
    sheet: `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/3,scale=216:-1,tile=8x2" -frames:v 1 /tmp/sheet.jpg`. If something is clearly
    broken, fix and render again (time allows one retry).
