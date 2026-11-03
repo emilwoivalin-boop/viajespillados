@@ -1,0 +1,37 @@
+{
+ "id": "montego-bay-2027-05-31",
+ "offer": {
+  "destino": "Montego Bay",
+  "aerolinea": "Wingo",
+  "precio": 911317,
+  "escalas": "directo",
+  "ida": "2027-05-31",
+  "vuelta": "2027-06-07",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20MBJ%20from%20BOG%20on%202027-05-31%20through%202027-06-07&curr=COP&hl=es-419",
+  "sheet_row": 44
+ },
+ "hora_salida": null,
+ "drive_folder_id": "1vpKNBU-HvhIEVlPoruGZ1R1Bdaif1OnH",
+ "ocasion": {
+  "nombre": "Puentes festivos de Corpus Christi (lunes 31 de mayo) y Sagrado Corazón (lunes 7 de junio)",
+  "fechas": "2027-05-31 y 2027-06-07",
+  "fuente": "fecha fija (Price log, pestaña Holidays)"
+ },
+ "que_hacer": "Doble puente festivo en Montego Bay. Relájate en Doctor's Cave Beach, ve hasta las playas de Negril y sube las cascadas de Dunn's River en Ocho Ríos.",
+ "lines": {
+  "vuelo": "Tres horas de vuelo directo, y abajo el mar Caribe se pone azul turquesa.",
+  "llegada": "¡Bienvenido a Montego Bay en pleno puente festivo! Te recibe el sol del Caribe y una brisa tibia entre palmeras.",
+  "dia1": "Festivo de llegada: te tiras en la arena blanca de Doctor's Cave Beach, frente al agua cristalina.",
+  "dia2": "Día dos: te vas hasta Negril y caminas por su playa larguísima de arena blanca hasta el atardecer.",
+  "dia3": "Día tres: subes las cascadas de Dunn's River en Ocho Ríos, escalón por escalón, entre el agua fresca."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below the bright turquoise Caribbean Sea and the green mountainous north coast of Jamaica with white beaches and a curved bay, sunny blue sky. Keep the lower half open with the sea and the green island coast clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a modern Caribbean airport terminal in Montego Bay, Jamaica, with a light roof, tall green coconut palm trees, bright tropical flowers, green hills in the background and a bright blue sky with small white clouds. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Doctor's Cave Beach in Montego Bay: a small curved beach of soft white sand, calm crystal-clear turquoise water, a few green palm trees and a simple wooden beach house at the side, sunny blue sky. The white sand in the lower half of the picture is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Seven Mile Beach in Negril, Jamaica, at sunset: a very long straight beach of white sand curving into the distance, tall leaning coconut palms, calm sea, a big orange sun low over the water and a pink and orange sunset sky. The wet sand along the water from the middle down to the bottom of the picture is clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Dunn's River Falls in Ocho Rios, Jamaica: a wide waterfall flowing down many natural rock terraces like big stone steps, white foaming water, lush green tropical forest on both sides, the blue sea at the bottom, sunny sky. The lowest wide rock steps with shallow water in the lower half of the picture are clearly visible and empty."
+ },
+ "scenes": {},
+ "end_image": "dia1"
+}
