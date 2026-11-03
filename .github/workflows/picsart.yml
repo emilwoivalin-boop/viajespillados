@@ -1,0 +1,82 @@
+name: Picsart – pictures
+
+# Makes the AI pictures for the daily Reels (and travel videos) with the owner's Picsart Pro account (gen-ai CLI).
+# mode login    = one-time device sign-in (link + code are pushed to branch picsart-login; approve on the phone)
+# mode pictures = make the pictures of reels/<id> (plan.json "prompts") or trips/<id> (prompts.json)
+# The sign-in is kept encrypted in the Actions cache (key picsart-cred-*); the token refreshes itself on each run.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [pictures, login, credits]
+        default: pictures
+      kind:
+        description: "reels or trips"
+        default: reels
+      id:
+        description: "folder id (e.g. lima-2027-01-16)"
+        default: ""
+      keys:
+        description: "only these pictures, comma-separated (empty = all)"
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: picsart
+  cancel-in-progress: false
+
+jobs:
+  picsart:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      VAULT: ${{ secrets.PICSART_VAULT || secrets.GEMINI_API_KEY || secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: Install
+        run: |
+          npm install -g --silent @picsart/gen-ai
+          pip install --quiet pillow requests
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Restore sign-in
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/picsart-vault.enc
+          key: picsart-cred-${{ github.run_id }}
+          restore-keys: picsart-cred-
+      - name: Unlock sign-in
+        run: |
+          test -n "$VAULT" || { echo "No vault secret"; exit 1; }
+          if [ -f ~/picsart-vault.enc ]; then
+            openssl enc -d -aes-256-cbc -pbkdf2 -pass env:VAULT -in ~/picsart-vault.enc | tar xz -C ~ \
+              && echo "sign-in restored" || echo "could not unlock the saved sign-in"
+          fi
+      - name: Run
+        run: |
+          if [ "${{ inputs.mode }}" = "login" ]; then python scripts/picsart.py login
+          elif [ "${{ inputs.mode }}" = "credits" ]; then python scripts/picsart.py credits
+          else python scripts/picsart.py pictures "${{ inputs.kind }}" "${{ inputs.id }}" "${{ inputs.keys }}"; fi
+      - name: Lock sign-in
+        id: lock
+        if: always()
+        run: |
+          if [ -f ~/.gen-ai/credentials.json ]; then
+            tar cz -C ~ .gen-ai | openssl enc -aes-256-cbc -pbkdf2 -pass env:VAULT -out ~/picsart-vault.enc
+            echo "saved=1" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Save sign-in
+        if: always() && steps.lock.outputs.saved == '1'
+        uses: actions/cache/save@v4
+        with:
+          path: ~/picsart-vault.enc
+          key: picsart-cred-${{ github.run_id }}
