@@ -83,15 +83,14 @@ def destination_text(destinos, tips=None):
     return text[:2200], title[:100]
 
 
-def add(kind, title, files, caption, permalink="", destinos=None):
+def add(kind, title, files, caption, permalink="", destinos=None, yt_title=""):
     """kind: "photos" (offer images) or "video" (Reel). files: repo-relative paths.
     destinos: destination names – used to write the TikTok/YouTube text (falls back to `caption`)."""
     try:
         feed = json.load(open(PATH))
     except Exception:
         feed = []
-    yt_title = ""
-    if destinos:
+    if destinos and not yt_title:
         text, yt = destination_text(destinos)
         if text:
             caption, yt_title = text, yt

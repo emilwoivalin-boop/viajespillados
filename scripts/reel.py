@@ -842,7 +842,8 @@ def publish_trip(tid, lang="es"):
         json.dump({"media_id": media_id, "permalink": permalink}, f)
     import tiktok_feed
     feed = tiktok_feed.add("video", f"Plan de viaje: {plan.get('destino', tid)}", [rel], caption, permalink,
-                           destinos=[plan["destino"]] if plan.get("destino") else None)
+                           yt_title=(plan.get("yt_title") or f"{plan.get('destino', tid)} en {plan.get('dias', 3)} días: "
+                                     "plan completo"))
     import x_post
     xp = x_post.share_latest()
     import fb_post
