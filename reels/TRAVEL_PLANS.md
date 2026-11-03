@@ -124,5 +124,5 @@ Don't publish these videos unless the owner asks for a specific one. When asked:
 video as a Reel on Viajes Pillados (and the usual X/Facebook/TikTok feed) and writes `trips/<id>/published_es.json`.
 Every render also makes a designed cover per language (`cover_es.jpg` / `cover_en.jpg`: hook picture, "PLAN DE N DÍAS",
 destination, a short promise, the stick man – and the buddy if she is in the video; English has no brand). trip-publish uploads
-it as the Reel cover and puts it on the download page next to the video. Send both covers to the owner with the videos.
+it as the Reel cover and puts only the Spanish cover on the download page next to the video (the English cover is just sent to the owner). Send both covers to the owner with the videos.
 Otherwise keep them off `main` (the website serves `main`).

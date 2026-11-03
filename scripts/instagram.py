@@ -368,9 +368,25 @@ def headline(o):
     return h + (f" {extra}" if extra else "")
 
 
+def destination_caption(destinos):
+    """Owner's rule: Instagram captions talk about the DESTINATION (what to do + a practical tip), not the flight –
+    the picture/video already shows price and dates. Same text as the TikTok/YouTube download page."""
+    try:
+        import tiktok_feed
+        text, _ = tiktok_feed.destination_text(list(destinos))
+        return text
+    except Exception as e:
+        print("destination caption:", e)
+        return None
+
+
 def caption(o):
-    """Single post: headline + the simple "Caption listo" text of the "Qué hacer (captions)" tab
-    (column O of "Ofertas" overrides the text) + hashtags."""
+    """Single post: text about the destination (sheet tab "Qué hacer (captions)") + hashtags.
+    Column O of "Ofertas" (Texto Instagram) still overrides everything."""
+    if not o["texto"]:
+        text = destination_caption([o["destino"]])
+        if text:
+            return text[:2200]
     if o["texto"]:
         body = o["texto"].replace("\\n", "\n").strip()
     else:
@@ -387,6 +403,9 @@ def caption(o):
 
 
 def caption_carousel(offers):
+    text = destination_caption(dict.fromkeys(o["destino"] for o in offers))
+    if text:
+        return text[:2200]
     lines = ["Vuelos baratos desde Bogotá pillados hoy:", ""]
     for o in offers:
         det = ", ".join(x for x in [o["tipo"], o["escalas"], dates_short(o)] if x)

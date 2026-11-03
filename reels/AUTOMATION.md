@@ -169,6 +169,11 @@ Common facts
 
 ## C · post (12:14)
 
+Caption rule (owner): Instagram captions talk about the destination (what to do + a practical tip from the sheet tab
+"Qué hacer (captions)" + hashtags), never the flight – the video already shows price and dates. `reel.py publish` builds it
+automatically (plus the occasion, if any); the offer posts and carousels do the same.
+
+
 1. Load today's entry; continue only if status is `rendered` (if `prompts_sent`: tell the owner the Reel wasn't built; stop).
 2. Run the workflow with mode `publish` and id. When it succeeds, `git pull` and read `reels/<id>/published.json` (permalink).
 3. Set status `published` (+ permalink) in `reels/daily.json`, commit + push.

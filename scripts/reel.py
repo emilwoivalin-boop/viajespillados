@@ -780,6 +780,16 @@ def publish(rid):
         ig.commit_push([f"reels/{rid}"], f"Reel: {rid}")
     url = ig.public_image_url(rel)   # works for any file: waits for viajespillados.com, else raw GitHub
     sb = json.load(open(os.path.join(base, "storyboard.json")))
+    try:                     # owner's rule: the caption is about the destination, not the flight
+        plan = json.load(open(os.path.join(base, "plan.json")))
+        text = ig.destination_caption([plan["offer"]["destino"]])
+        if text:
+            oc = (plan.get("ocasion") or {}).get("nombre")
+            oc = (oc or "").split("(")[0].strip()
+            sb["caption"] = (f"{oc} en {plan['offer']['destino']} ✨\n\n" if oc else "") + text
+            json.dump(sb, open(os.path.join(base, "storyboard.json"), "w"), ensure_ascii=False, indent=1)
+    except Exception as e:
+        print("caption:", e)
     uid = os.environ["IG_USER_ID"]
     extra = {}
     if os.path.exists(os.path.join(base, "cover_ig.jpg")):       # designed cover (destination + price)
