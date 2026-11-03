@@ -32,13 +32,81 @@
   "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Seven Mile Beach in Negril, Jamaica, at sunset: a very long straight beach of white sand curving into the distance, tall leaning coconut palms, calm sea, a big orange sun low over the water and a pink and orange sunset sky. The wet sand along the water from the middle down to the bottom of the picture is clearly visible and empty.",
   "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Dunn's River Falls in Ocho Rios, Jamaica: a wide waterfall flowing down many natural rock terraces like big stone steps, white foaming water, lush green tropical forest on both sides, the blue sea at the bottom, sunny sky. The lowest wide rock steps with shallow water in the lower half of the picture are clearly visible and empty."
  },
- "scenes": {},
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.5,
+    "y": 0.9,
+    "size": 400,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "sun",
+    "word": "sol",
+    "x": 0.8,
+    "y": 0.12,
+    "size": 190
+   },
+   "ambience": null
+  },
+  "dia1": {
+   "stick": {
+    "action": "relax",
+    "x0": 0.33,
+    "y": 0.76,
+    "size": 380,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "sparkle",
+    "word": "cristalina",
+    "x": 0.78,
+    "y": 0.64,
+    "size": 190
+   },
+   "ambience": "waves"
+  },
+  "dia2": {
+   "stick": {
+    "action": "walk",
+    "x0": 0.42,
+    "x1": 0.52,
+    "y": 0.95,
+    "y1": 0.66,
+    "size": 470,
+    "size1": 230,
+    "facing": 1
+   },
+   "pop": null,
+   "ambience": "waves"
+  },
+  "dia3": {
+   "stick": {
+    "action": "walk",
+    "x0": 0.22,
+    "x1": 0.5,
+    "y": 0.88,
+    "y1": 0.8,
+    "size": 360,
+    "size1": 320,
+    "facing": 1
+   },
+   "pop": null,
+   "ambience": null
+  }
+ },
  "end_image": "dia1",
  "drive_files": {
-  "vuelo": "1wcH6SfXFYJDdsOY9iHZWpPGiCFMdP7zv",
+  "vuelo": "1YuL16oh4d4Z4iUu44zGi7z2jWKqv_1FK",
   "llegada": "1OoCjHH5gm0SBcAtXaiykmWuTNPz5W2Dx",
-  "dia1": "16yztyvoH_zwJ0Ff1Nz1STD21vmcndyTv",
-  "dia2": "1YuL16oh4d4Z4iUu44zGi7z2jWKqv_1FK",
+  "dia1": "1wcH6SfXFYJDdsOY9iHZWpPGiCFMdP7zv",
+  "dia2": "16yztyvoH_zwJ0Ff1Nz1STD21vmcndyTv",
   "dia3": "1bDUdxY9A3wrrf3ExKwh4oNXgKFHag-BZ"
  }
 }

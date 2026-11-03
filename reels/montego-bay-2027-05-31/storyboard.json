@@ -1,0 +1,181 @@
+{
+ "id": "montego-bay-2027-05-31",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Lunes 31 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Montego Bay!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": []
+  },
+  {
+   "text": "Tres horas de vuelo directo, y abajo el mar Caribe se pone azul turquesa.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-05-31/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Montego Bay en pleno puente festivo! Te recibe el sol del Caribe y una brisa tibia entre palmeras.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-05-31/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.5,
+    "y": 0.9,
+    "size": 400,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "sol",
+     "x": 0.8,
+     "y": 0.12,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "Festivo de llegada: te tiras en la arena blanca de Doctor's Cave Beach, frente al agua cristalina.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-05-31/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.33,
+    "y": 0.76,
+    "size": 380,
+    "facing": 1
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "cristalina",
+     "x": 0.78,
+     "y": 0.64,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false
+  },
+  {
+   "text": "Día dos: te vas hasta Negril y caminas por su playa larguísima de arena blanca hasta el atardecer.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-05-31/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.42,
+    "x1": 0.52,
+    "y": 0.95,
+    "y1": 0.66,
+    "size": 470,
+    "size1": 230,
+    "facing": 1
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false
+  },
+  {
+   "text": "Día tres: subes las cascadas de Dunn's River en Ocho Ríos, escalón por escalón, entre el agua fresca.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-05-31/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "walk",
+    "x0": 0.22,
+    "x1": 0.5,
+    "y": 0.88,
+    "y1": 0.8,
+    "size": 360,
+    "size1": 320,
+    "facing": 1
+   },
+   "pops": [],
+   "ambience": [],
+   "action_sfx": true
+  },
+  {
+   "text": "El lunes aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Wingo, por solo 911 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "8 días en Montego Bay",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$911.317",
+  "detail": "ida y vuelta · 31 may – 7 jun",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/montego-bay-2027-05-31/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "8 días en Montego Bay desde Bogotá ✈️ Doble puente festivo en Montego Bay. Relájate en Doctor's Cave Beach, ve hasta las playas de Negril y sube las cascadas de Dunn's River en Ocho Ríos. Ida y vuelta con Wingo desde $911.317 (31 may – 7 jun). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #montegobay #ofertasdevuelos"
+}
