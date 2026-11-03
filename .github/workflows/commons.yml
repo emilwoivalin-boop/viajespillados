@@ -1,0 +1,29 @@
+name: Atlas – Commons photos
+
+# Downloads openly licensed Wikimedia Commons photos (with author + license) to the side branch atlas-photos.
+on:
+  workflow_dispatch:
+    inputs:
+      photos:
+        description: 'JSON {"key": "File:Name.jpg" or "search:words"}'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: |
+          pip install --quiet pillow requests
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - env:
+          PHOTOS: ${{ inputs.photos }}
+        run: python scripts/commons_fetch.py "$PHOTOS"
