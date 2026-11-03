@@ -77,6 +77,7 @@ Deliver in chat: the Spanish script (numbered, with the day chip for each scene)
 N prompts each in its own code block, and a short **Facts used** list (fact → source link). Save the same as `script.md` in the computer folder
 `~/Movies/Viajes Pillados - Travel plans/<Destino>/` (write it there with device_bash). Ask for the
 pictures: "Make the N pictures in Gemini and attach them here in order (or name them 1–N)."
+**The owner makes the travel-video pictures by hand – do NOT generate them with Picsart** (its credits are kept for the daily Reels).
 If the owner asks for changes, edit and resend only what changed.
 
 ## Round 3 – pictures → videos
