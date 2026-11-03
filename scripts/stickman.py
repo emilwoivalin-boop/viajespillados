@@ -439,7 +439,8 @@ def step_times(n, fps, x0, x1, size, feet0=0, feet1=0, speed=1.0):
 
 # ---------------------------------------------------------------- main generator
 def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.0,
-           glasses=None, backpack=None, style=None, feet1=None, size1=None, look="hero", mood=None):
+           glasses=None, backpack=None, style=None, feet1=None, size1=None, look="hero", mood=None, patch=False):
+    """patch=True yields (small RGBA image, (x, y)) or None instead of full-width frames (much faster to composite)."""
     """feet1/size1 (optional): end position/size, so he can walk into or out of the picture with perspective."""
     global STYLE
     feet0, size0 = feet, size
@@ -472,7 +473,7 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
         LOOK, MOOD = look, mood
         if action == "point":
             action = "lookout"
-        out = Image.new("RGBA", (W, band_h), (0, 0, 0, 0))
+        out = None if patch else Image.new("RGBA", (W, band_h), (0, 0, 0, 0))
         if action == "none":
             yield out
             continue
@@ -855,6 +856,10 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
         sx = max(0, -lx)
         dx = max(0, lx)
         wcrop = min(local.width - sx, W - dx)
+        hcrop = min(local.height, band_h - py0)
+        if patch:
+            yield (local.crop((sx, 0, sx + wcrop, hcrop)), (dx, py0)) if wcrop > 0 and hcrop > 0 else None
+            continue
         if wcrop > 0:
             out.alpha_composite(local.crop((sx, 0, sx + wcrop, local.height)), (dx, py0))
         yield out

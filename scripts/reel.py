@@ -248,8 +248,8 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
     tag_img = tag_png(tag) if tag else None
     n = int(dur * FPS) + 2
     has_main = bool(st.get("beats")) or st.get("action", "none") != "none"
-    gen = figure_frames(st, n)
-    extra = [figure_frames({"action": "wave", **c}, n) for c in (crowd or [])]
+    gen = figure_frames(st, n, patch=True)
+    extra = [figure_frames({"action": "wave", **c}, n, patch=True) for c in (crowd or [])]
     # zoom centre: keep the stick man's area in view
     sx = (st.get("x0", 0.5) + st.get("x1", st.get("x0", 0.5))) / 2 if has_main else 0.5
     sx = min(0.85, max(0.15, sx))
@@ -262,9 +262,11 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
         z = 1 + zoom * (q if zoom_in else 1 - q)
         fr = base.copy()
         for g in extra:                          # other people in the scene (drawn behind the main figure)
-            fr.alpha_composite(next(g))
-        if has_main:
-            fr.alpha_composite(band)
+            pt = next(g, None)
+            if pt:
+                fr.alpha_composite(pt[0], pt[1])
+        if has_main and band:
+            fr.alpha_composite(band[0], band[1])
         bw, bh = W / z, H / z
         x0 = min(max(cx0 - bw / 2, 0), W - bw)
         y0 = min(max(cy0 - bh / 2, 0), H - bh)
@@ -333,7 +335,7 @@ def resolve_beats(st, words, dur):
         last = t
 
 
-def figure_frames(st, n):
+def figure_frames(st, n, patch=False):
     """Frames of one stick figure for a scene: a single move, or a sequence of "beats" (each with its own move
     and position; a beat starts where the previous one ended unless it says otherwise)."""
     st = st or {}
@@ -343,7 +345,8 @@ def figure_frames(st, n):
                                    x1=st.get("x1", st.get("x0", 0.3)), feet=int(st.get("y", 0.7) * H),
                                    feet1=int(st.get("y1", st.get("y", 0.7)) * H), size=st.get("size", 330),
                                    size1=st.get("size1"), facing=st.get("facing", 1), band_h=H,
-                                   speed=st.get("speed", 1.0), look=st.get("look", "hero"), mood=st.get("mood"))
+                                   speed=st.get("speed", 1.0), look=st.get("look", "hero"), mood=st.get("mood"),
+                                   patch=patch)
         return
     cx, cy, cs, cf = st.get("x0", 0.5), st.get("y", 0.8), st.get("size", 330), st.get("facing", 1)
     starts = [int(b.get("t", 0) * FPS) for b in beats] + [n]
@@ -360,7 +363,7 @@ def figure_frames(st, n):
         yield from stickman.frames(b.get("action", "stand"), seg, FPS, x0=x0, x1=x1, feet=int(y0 * H),
                                    feet1=int(y1 * H), size=s0, size1=s1 if s1 != s0 else None, facing=f, band_h=H,
                                    speed=b.get("speed", st.get("speed", 1.0)), look=b.get("look", st.get("look", "hero")),
-                                   mood=b.get("mood"))
+                                   mood=b.get("mood"), patch=patch)
         cx, cy, cs, cf = x1, y1, s1, f
 
 
