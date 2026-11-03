@@ -56,37 +56,74 @@ def push_branch(branch, files, message):
     subprocess.run(["git", "push", "-q", "origin", f"HEAD:refs/heads/{branch}"], cwd=wt, check=True)
 
 
+AUTH = "https://auth.picsart.com/api"          # same endpoints and client as `gen-ai login --device`
+CLIENT = "auth-service-Gen-AI-CLI"
+
+
 def login():
-    """Device sign-in. The link + code are pushed to branch picsart-login (file login.txt) so the assistant can
-    send them to the owner; the owner approves on the phone and this waits until done (max ~15 min)."""
-    p = subprocess.Popen(["gen-ai", "login", "--device", "--plain", "--no-color"], stdout=subprocess.PIPE,
-                         stderr=subprocess.STDOUT, text=True)
-    info, sent = {}, False
-    for line in p.stdout:
-        print(line, end="")
-        m = re.search(r"open:\s*(https?://\S+)", line)
-        if m and "directly" not in line:
-            info["url"] = m.group(1)
-        m = re.search(r"code:\s*([A-Z0-9-]{4,})", line)
-        if m:
-            info["code"] = m.group(1)
-        m = re.search(r"directly:\s*(https?://\S+)", line)
-        if m:
-            info["direct"] = m.group(1)
-        if not sent and "code" in info and "url" in info:
-            time.sleep(1)
-            text = (f"open: {info.get('direct') or info['url']}\ncode: {info['code']}\n"
-                    f"time: {time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())} UTC\nstatus: waiting\n")
-            push_branch("picsart-login", {"login.txt": text}, "Picsart sign-in code")
-            sent = True
-    rc = p.wait()
+    """Device sign-in (like `gen-ai login --device`, but patient with rate limits). The link + code are pushed to
+    branch picsart-login (file login.txt) so the assistant can send them to the owner; the owner approves on the
+    phone and this waits until done. Writes ~/.gen-ai/credentials.json in the CLI's format."""
+    import requests
+    from datetime import datetime, timedelta, timezone
+    r = requests.post(f"{AUTH}/oauth2/device_authorization", data={"client_id": CLIENT, "scope": "user-global"},
+                      headers={"Accept": "application/json"}, timeout=30)
+    r.raise_for_status()
+    dev = r.json()
+    url = dev.get("verification_uri_complete") or dev["verification_uri"]
+    push_branch("picsart-login", {"login.txt": f"open: {dev['verification_uri']}\ncode: {dev['user_code']}\n"
+                                               f"direct: {url}\nstatus: waiting\n"}, "Picsart sign-in code")
+    print("code pushed:", dev["user_code"])
+    interval, end, tok = int(dev.get("interval", 5)), time.time() + int(dev.get("expires_in", 900)), None
+    while time.time() < end:
+        time.sleep(interval)
+        try:
+            t = requests.post(f"{AUTH}/oauth2/token", headers={"Accept": "application/json"}, timeout=30,
+                              data={"grant_type": "urn:ietf:params:oauth:grant-type:device_code",
+                                    "device_code": dev["device_code"], "client_id": CLIENT})
+        except requests.RequestException as e:
+            print("retry:", e)
+            continue
+        if t.status_code == 429:
+            interval = min(60, interval + int(t.headers.get("Retry-After", 10)))
+            print("rate limited, waiting", interval, "s")
+            continue
+        body = t.json() if t.content else {}
+        if t.ok and body.get("access_token"):
+            tok = body
+            break
+        err = body.get("error")
+        if err == "slow_down":
+            interval += 5
+        elif err != "authorization_pending":
+            print("sign-in error:", t.status_code, body)
+            break
+    if not tok:
+        push_branch("picsart-login", {"login.txt": "status: failed (not approved in time)\n"}, "Picsart sign-in result")
+        sys.exit(1)
+    me = requests.get("https://api.picsart.com/gw-v2/users/show/me.json", timeout=30,
+                      headers={"Authorization": f"Bearer {tok['access_token']}"}).json()
+    me = me.get("response", me)
+    now = datetime.now(timezone.utc)
+    iso = lambda s: (now + timedelta(seconds=int(s))).isoformat().replace("+00:00", "Z")  # noqa: E731
+    cred = {"token": tok["access_token"], "refreshToken": tok["refresh_token"], "uid": str(me.get("id", "")),
+            "email": str(me.get("email") or me.get("username") or ""), "expiresAt": iso(tok["expires_in"]),
+            "apiUrl": "https://api.picsart.com", "authSource": "device"}
+    if tok.get("refresh_token_expires_in"):
+        cred["refreshExpiresAt"] = iso(tok["refresh_token_expires_in"])
+    d = os.path.expanduser("~/.gen-ai")
+    os.makedirs(d, exist_ok=True)
+    path = os.path.join(d, "credentials.json")
+    with open(path, "w") as f:
+        json.dump(cred, f, indent=2)
+    os.chmod(path, 0o600)
     who = subprocess.run(["gen-ai", "whoami", "--plain"], capture_output=True, text=True)
-    cred = subprocess.run(["gen-ai", "credits", "--plain"], capture_output=True, text=True)
-    status = "ok" if rc == 0 and who.returncode == 0 else f"failed (exit {rc})"
-    push_branch("picsart-login", {"login.txt": f"status: {status}\n{who.stdout}\n{cred.stdout}\n"},
-                "Picsart sign-in result")
-    summary(f"Picsart sign-in: {status}\n\n{who.stdout}\n{cred.stdout}")
-    if status != "ok":
+    cr = subprocess.run(["gen-ai", "credits", "--plain"], capture_output=True, text=True)
+    ok = who.returncode == 0
+    push_branch("picsart-login", {"login.txt": f"status: {'ok' if ok else 'failed'}\n{who.stdout}{who.stderr}\n"
+                                               f"{cr.stdout}{cr.stderr}\n"}, "Picsart sign-in result")
+    summary(f"Picsart sign-in: {'ok' if ok else 'failed'}\n\n{who.stdout}\n{cr.stdout}")
+    if not ok:
         sys.exit(1)
 
 
