@@ -60,6 +60,12 @@ def make(rid, out=None):
         sd.line([(0, y), (W, y)], fill=int(150 * max(0.0, 1 - t * t)))
     img.alpha_composite(Image.merge("RGBA", (Image.new("L", (W, H), 0),) * 3 + (shade.filter(ImageFilter.GaussianBlur(30)),)))
 
+    # stick man (+ buddy) celebrating at the bottom – drawn first so the confetti stays behind the text
+    if plan.get("buddy"):
+        figure(img, "celebrate", 0.36, 0.93, 470, 1, "buddy")
+        figure(img, "celebrate", 0.62, 0.93, 500, -1)
+    else:
+        figure(img, "celebrate", 0.5, 0.93, 500)
     d = ImageDraw.Draw(img)
     inf = reel_plan.info(o["ida"], o["vuelta"])
     # chip
@@ -88,13 +94,6 @@ def make(rid, out=None):
     d.rounded_rectangle(((W - pw) / 2 + 8, py + 10, (W + pw) / 2 + 8, py + 170), 40, fill=(0, 0, 0, 120))
     d.rounded_rectangle(((W - pw) / 2, py, (W + pw) / 2, py + 160), 40, fill=YELLOW, outline=DARK, width=6)
     d.text(((W - pw) / 2 + 55, py + 8), price, font=fp, fill=DARK)
-    # stick man (+ buddy) celebrating under the price
-    if plan.get("buddy"):
-        figure(img, "celebrate", 0.36, 0.93, 470, 1, "buddy")
-        figure(img, "celebrate", 0.62, 0.93, 500, -1)
-    else:
-        figure(img, "celebrate", 0.5, 0.93, 500)
-    d = ImageDraw.Draw(img)
     text_c(d, H - 120, "viajespillados.com", ig.font("Bold", 46), stroke=4)
     out = out or os.path.join(base, "cover_ig.jpg")
     img.convert("RGB").save(out, quality=90)
