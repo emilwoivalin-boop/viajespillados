@@ -1,0 +1,116 @@
+{
+ "id": "zz-picsart-test",
+ "offer": {
+  "destino": "Leticia",
+  "aerolinea": "Avianca",
+  "precio": 492400,
+  "escalas": "directo",
+  "ida": "2026-12-07",
+  "vuelta": "2026-12-13",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20LET%20from%20BOG%20on%202026-12-07%20through%202026-12-13&curr=COP&hl=es-419",
+  "sheet_row": 39
+ },
+ "hora_salida": null,
+ "drive_folder_id": "1qBr4V_1GVxkm3eHh0c2Gn_al4BWCimup",
+ "que_hacer": "Noche de Velitas en Leticia. Navega el Amazonas hasta Puerto Nariño, busca delfines rosados en los lagos de Tarapoto y cruza a pie a Tabatinga, en Brasil.",
+ "ocasion": {
+  "nombre": "Noche de Velitas (víspera de la Inmaculada Concepción)",
+  "fechas": "noche del 7 de diciembre de 2026 (festivo 8 de diciembre)",
+  "fuente": "fecha fija"
+ },
+ "lines": {
+  "vuelo": "Vuelo directo desde Bogotá, y abajo la selva amazónica se vuelve un mar verde infinito.",
+  "llegada": "¡Bienvenido a Leticia en plena Noche de Velitas! Al bajar del avión te abraza el calor húmedo de la selva.",
+  "dia1": "En la Noche de Velitas: las calles de Leticia se llenan de velas y faroles de colores.",
+  "dia2": "Día dos: navegas el Amazonas en lancha hasta Puerto Nariño, un pueblito sin carros en plena selva.",
+  "dia3": "Día tres: en los lagos de Tarapoto buscas delfines rosados que salen a respirar junto a la canoa."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below an endless flat green Amazon rainforest with a wide winding brown river and a few small lakes, bright blue sky. Keep the lower half open with the jungle and the river clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a small low tropical airport terminal in the Amazon at dusk, tall palm trees and dense green jungle behind it, a few small lit candles and colorful paper lanterns lined up along the edge of the building, warm orange and purple evening sky. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A small Amazon river town street at night on the Night of the Little Candles: low colorful houses, palm trees, hundreds of small glowing candles and colorful paper lanterns in red, yellow, green and blue lined up along the sidewalks and on the steps of the houses, dark blue night sky with stars. The wide street in the lower half is clearly visible and empty except for the candles along its edges.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The wide brown Amazon river on a sunny morning, thick green jungle on both banks with tall trees, a small colorful wooden village with stilt houses on the river bank in the distance, white clouds in a blue sky. A long narrow wooden motorboat in the lower half floating on the river, clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A calm dark lake in the Amazon rainforest in the late afternoon, surrounded by tall green trees and flooded forest, two pink river dolphins arching out of the water, warm golden sky. A simple empty wooden canoe floating on the water in the lower half, clearly visible.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The most iconic view of Leticia in the Colombian Amazon: the wide Amazon river with a wooden boat, lush rainforest and a pink river dolphin jumping, bright daylight. The middle of the picture is calm open sky and water for a big title; an empty sandy riverbank in the bottom fifth."
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": {
+    "icon": "pin",
+    "word": "selva",
+    "x": 0.36,
+    "y": 0.74,
+    "size": 190
+   },
+   "ambience": null
+  },
+  "llegada": {
+   "stick": {
+    "action": "celebrate",
+    "x0": 0.45,
+    "y": 0.83,
+    "size": 400,
+    "facing": 1
+   },
+   "pop": null,
+   "ambience": "crickets"
+  },
+  "dia1": {
+   "stick": {
+    "action": "walk",
+    "x0": 0.45,
+    "x1": 0.55,
+    "y": 0.93,
+    "y1": 0.8,
+    "size": 440,
+    "size1": 340,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "sparkle",
+    "word": "velas",
+    "x": 0.15,
+    "y": 0.66,
+    "size": 190
+   },
+   "ambience": "crickets"
+  },
+  "dia2": {
+   "stick": {
+    "action": "photo",
+    "x0": 0.47,
+    "y": 0.77,
+    "size": 300,
+    "facing": 1
+   },
+   "pop": null,
+   "ambience": null
+  },
+  "dia3": {
+   "stick": {
+    "action": "photo",
+    "x0": 0.45,
+    "y": 0.77,
+    "size": 300,
+    "facing": 1
+   },
+   "pop": {
+    "icon": "heart",
+    "word": "delfines",
+    "x": 0.82,
+    "y": 0.42,
+    "size": 190
+   },
+   "ambience": null
+  }
+ },
+ "end_image": "dia1",
+ "drive_files": {
+  "vuelo": "1V-JZGcjRZO8zVJL5G6mWWLpsP6ehhViG",
+  "llegada": "1QXwlfNku1OJhcLSXvxINv5E3cUgwyuEo",
+  "dia1": "1qPspbH7PeCk5g-ra1T4hNB-WnXUaQjRq",
+  "dia2": "1DC36PhhI0jKlsQCITlBrYUyWiYI779Vm",
+  "dia3": "1Bv5GG2wR_SEy18R7mKfiw2BZs3ZCt0q4"
+ }
+}
