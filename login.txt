@@ -1,4 +1,16 @@
-open: https://accounts.picsart.com/device
-code: WSVJ-BSFX
-direct: https://accounts.picsart.com/device?user_code=WSVJ-BSFX
-status: waiting
+status: ok
+  ✓ Authenticated
+
+    Email    hth9c6bg6k@privaterelay.appleid.com
+    UID      528857042011101
+
+
+  Picsart Credits
+
+    Total    1000
+    Base     1000
+    Addon    0
+  
+  Top up at https://picsart.com/pricing
+
+
