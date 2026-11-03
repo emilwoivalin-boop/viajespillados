@@ -1,4 +1,3 @@
-open: https://accounts.picsart.com/device
-code: WPKJ-WPTR
-time: 2026-11-03 19:20:11 UTC
-status: waiting
+status: failed (exit 3)
+
+
