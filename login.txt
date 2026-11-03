@@ -1,1 +1,4 @@
-status: failed (not approved in time)
+open: https://accounts.picsart.com/device
+code: WSVJ-BSFX
+direct: https://accounts.picsart.com/device?user_code=WSVJ-BSFX
+status: waiting
