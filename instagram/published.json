@@ -338,6 +338,28 @@
       "image": "https://viajespillados.com/instagram/img/sao-paulo-2026-11-02-1196272.jpg",
       "published_at": "2026-11-02 22:57",
       "carousel": true
+    },
+    {
+      "id": "puerto-plata-2026-11-03-715639",
+      "destino": "Puerto Plata",
+      "precio": 715639,
+      "sheet_row": 46,
+      "media_id": "18119868083095191",
+      "permalink": "https://www.instagram.com/p/DfSoemUHb80/",
+      "image": "https://viajespillados.com/instagram/img/puerto-plata-2026-11-03-715639.jpg",
+      "published_at": "2026-11-03 14:28",
+      "carousel": true
+    },
+    {
+      "id": "santiago-de-chile-2026-11-03-1012430",
+      "destino": "Santiago de Chile",
+      "precio": 1012430,
+      "sheet_row": 47,
+      "media_id": "18119868083095191",
+      "permalink": "https://www.instagram.com/p/DfSoemUHb80/",
+      "image": "https://viajespillados.com/instagram/img/santiago-de-chile-2026-11-03-1012430.jpg",
+      "published_at": "2026-11-03 14:28",
+      "carousel": true
     }
   ]
 }
