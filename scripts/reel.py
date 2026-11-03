@@ -823,13 +823,20 @@ def publish_trip(tid, lang="es"):
     with open(os.path.join(ROOT, rel), "wb") as f:
         f.write(subprocess.run(["git", "show", f"origin/trip-videos:{tid}/video_{lang}.mp4"], cwd=ROOT,
                                check=True, capture_output=True).stdout)
-    ig.commit_push([rel], f"Travel video for Instagram: {tid} ({lang})")
+    crel = f"trips/{tid}/cover_{lang}.jpg"
+    got = subprocess.run(["git", "show", f"origin/trip-videos:{tid}/cover_{lang}.jpg"], cwd=ROOT, capture_output=True)
+    if got.returncode == 0:
+        open(os.path.join(ROOT, crel), "wb").write(got.stdout)
+    elif not os.path.exists(os.path.join(ROOT, crel)):
+        import cover
+        cover.make_trip(tid, lang)
+    ig.commit_push([rel, crel], f"Travel video for Instagram: {tid} ({lang})")
     url = ig.public_image_url(rel)
     plan = json.load(open(os.path.join(base, "plan.json")))
     caption = (plan.get("publish_caption") or {}).get(lang) or (plan.get("caption") or {}).get(lang, "")
     uid = os.environ["IG_USER_ID"]
     c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=caption, share_to_feed="true",
-               thumb_offset=str(plan.get("thumb_offset_ms", 2500)))["id"]
+               cover_url=ig.public_image_url(crel))["id"]
     for _ in range(90):
         st = ig.api("GET", c, fields="status_code,status")
         if st.get("status_code") == "FINISHED":
@@ -841,7 +848,7 @@ def publish_trip(tid, lang="es"):
     with open(done, "w") as f:
         json.dump({"media_id": media_id, "permalink": permalink}, f)
     import tiktok_feed
-    feed = tiktok_feed.add("video", f"Plan de viaje: {plan.get('destino', tid)}", [rel], caption, permalink,
+    feed = tiktok_feed.add("video", f"Plan de viaje: {plan.get('destino', tid)}", [rel, crel], caption, permalink,
                            yt_title=(plan.get("yt_title") or f"{plan.get('destino', tid)} en {plan.get('dias', 3)} días: "
                                      "plan completo"))
     import x_post
@@ -885,9 +892,14 @@ if __name__ == "__main__":
                 print(key, im.size)
             ig.commit_push([f"reels/{rid}/img"], f"Reel: imágenes de Drive {rid}")
         elif mode == "trip":   # travel plan videos: trips/<id>/storyboard_es.json + storyboard_en.json
+            import cover
             for lang in ("es", "en"):
                 if os.path.exists(os.path.join(ROOT, "trips", rid, f"storyboard_{lang}.json")):
                     render(rid, "trips", f"storyboard_{lang}.json", f"video_{lang}.mp4")
+                    try:
+                        cover.make_trip(rid, lang)          # designed cover: trips/<id>/cover_<lang>.jpg
+                    except Exception as e:
+                        print("cover:", e)
         elif mode == "render":
             render(rid)
             if os.path.exists(os.path.join(ROOT, "reels", rid, "plan.json")):   # daily Reel: grid cover

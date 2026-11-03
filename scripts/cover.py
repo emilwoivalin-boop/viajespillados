@@ -1,6 +1,7 @@
 """Cover image for a daily Reel (shown on the Instagram grid and as the Reel's thumbnail).
 
     python scripts/cover.py <id> [out.jpg]      # -> reels/<id>/cover_ig.jpg
+    python scripts/cover.py trip <id> [es en]   # -> trips/<id>/cover_es.jpg, cover_en.jpg (travel-plan videos)
 
 Background: reels/<id>/img/cover.jpg (Picsart picture) or the dia1 picture. On top: "DESDE BOGOTÁ", the
 destination, "<N> días · ida y vuelta", the price, the stick man celebrating (and the travel buddy on buddy
@@ -101,5 +102,61 @@ def make(rid, out=None):
     return out
 
 
+TRIP_TEXT = {
+    "es": {"chip": "PLAN DE {d} DÍAS", "sub": "Qué hacer, dónde ir y datos curiosos", "site": "viajespillados.com"},
+    "en": {"chip": "{d}-DAY PLAN", "sub": "What to do, where to go + fun facts", "site": ""},
+}
+
+
+def make_trip(tid, lang="es", out=None):
+    """Cover for a travel-plan video: the hook picture with "PLAN DE N DÍAS", the destination, a short promise and
+    the stick man (+ the travel buddy if she is in the video). English version: no brand."""
+    base = os.path.join(ROOT, "trips", tid)
+    plan = json.load(open(os.path.join(base, "plan.json")))
+    first = plan["scenes"][0]
+    src = os.path.join(base, "img", f"{first.get('img', first['key'])}.jpg")
+    im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+    k = max(W / im.width, H / im.height)
+    im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+    ox, oy = (im.width - W) // 2, (im.height - H) // 2
+    img = im.crop((ox, oy, ox + W, oy + H)).convert("RGBA")
+    shade = Image.new("L", (W, H), 0)
+    sd = ImageDraw.Draw(shade)
+    for y in range(H):
+        t = abs(y - 800) / 480
+        sd.line([(0, y), (W, y)], fill=int(150 * max(0.0, 1 - t * t)))
+    img.alpha_composite(Image.merge("RGBA", (Image.new("L", (W, H), 0),) * 3 + (shade.filter(ImageFilter.GaussianBlur(30)),)))
+    buddy = any((c.get("look") == "buddy") for sc in plan["scenes"] for c in (sc.get("crowd") or []))
+    if buddy:
+        figure(img, "celebrate", 0.34, 0.93, 470, 1, "buddy")
+        figure(img, "celebrate", 0.64, 0.93, 500, -1)
+    else:
+        figure(img, "celebrate", 0.5, 0.93, 500)
+    d = ImageDraw.Draw(img)
+    tx = TRIP_TEXT[lang]
+    chip = tx["chip"].format(d=plan.get("dias", 3))
+    f = ig.font("ExtraBold", 52)
+    cw = d.textlength(chip, font=f) + 80
+    d.rounded_rectangle(((W - cw) / 2, 470, (W + cw) / 2, 555), 42, fill=YELLOW)
+    d.text(((W - cw) / 2 + 40, 480), chip, font=f, fill=DARK)
+    dest = plan.get("destino", tid).upper()
+    fd = ig.fit_font(d, dest, "Black", 200, 980, 90)
+    text_c(d, 590, dest, fd, stroke=10)
+    y = 590 + fd.size + 40
+    sub = tx["sub"]
+    fs = ig.fit_font(d, sub, "Bold", 58, 940, 36)
+    text_c(d, y, sub, fs, stroke=6)
+    if tx["site"]:
+        text_c(d, H - 120, tx["site"], ig.font("Bold", 46), stroke=4)
+    out = out or os.path.join(base, f"cover_{lang}.jpg")
+    img.convert("RGB").save(out, quality=90)
+    print("cover:", out)
+    return out
+
+
 if __name__ == "__main__":
-    make(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)
+    if sys.argv[1] == "trip":                     # python scripts/cover.py trip <id> [es|en]
+        for lg in (sys.argv[3:] or ["es", "en"]):
+            make_trip(sys.argv[2], lg)
+    else:
+        make(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)

@@ -49,6 +49,7 @@ jobs:
           fi
           mkdir -p "$ID"
           cp "$GITHUB_WORKSPACE/trips/$ID"/video_*.mp4 "$GITHUB_WORKSPACE/trips/$ID"/video_*_cover.jpg "$ID"/
+          cp "$GITHUB_WORKSPACE/trips/$ID"/cover_*.jpg "$ID"/ 2>/dev/null || true
           git add "$ID"
           git commit -q -m "Travel plan videos: $ID"
           for i in 1 2 3; do git push -q origin trip-videos && break; git pull -q --rebase origin trip-videos; done
