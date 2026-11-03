@@ -353,12 +353,12 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-02,web,origen,l.instagram.com,,,l.instagram.com,,visitas,3
 2026-11-02,web,origen,www.facebook.com,,,www.facebook.com,,visitas,2
 2026-11-02,web,origen,(directo),,,(directo),,visitas,1
-2026-11-03,instagram,cuenta,17841432973721368,,,,,seguidores,81
+2026-11-03,instagram,cuenta,17841432973721368,,,,,seguidores,86
 2026-11-03,instagram,cuenta,17841432973721368,,,,,publicaciones,16
 2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,me_gusta,0
 2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,comentarios,0
-2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,alcance,5
-2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,vistas,14
+2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,alcance,7
+2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,vistas,20
 2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,guardados,0
 2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,compartidos,0
 2026-11-03,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,interacciones,0
@@ -369,38 +369,38 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-03,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,guardados,0
 2026-11-03,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,compartidos,0
 2026-11-03,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,interacciones,0
-2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,me_gusta,133
+2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,me_gusta,150
 2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,comentarios,2
-2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,alcance,6149
-2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,vistas,7452
-2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,guardados,44
-2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,compartidos,69
-2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,interacciones,251
+2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,alcance,6738
+2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,vistas,8380
+2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,guardados,49
+2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,compartidos,71
+2026-11-03,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,interacciones,275
 2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,me_gusta,0
 2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,comentarios,0
-2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,alcance,8
-2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,vistas,30
+2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,alcance,9
+2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,vistas,32
 2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,guardados,0
 2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,compartidos,0
 2026-11-03,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,interacciones,0
 2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,me_gusta,95
 2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,comentarios,2
-2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,alcance,3118
-2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,vistas,3533
+2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,alcance,3125
+2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,vistas,3543
 2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,guardados,12
 2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,compartidos,11
 2026-11-03,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,interacciones,121
 2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,me_gusta,0
 2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,comentarios,0
-2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,alcance,8
-2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,vistas,22
+2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,alcance,9
+2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,vistas,23
 2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,guardados,0
 2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,compartidos,0
 2026-11-03,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,interacciones,0
 2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,me_gusta,3
 2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,comentarios,0
-2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,alcance,210
-2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,vistas,241
+2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,alcance,211
+2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,vistas,242
 2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,guardados,0
 2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,compartidos,0
 2026-11-03,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,interacciones,3
@@ -413,8 +413,8 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-03,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,interacciones,0
 2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,me_gusta,0
 2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,comentarios,0
-2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,alcance,8
-2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,vistas,20
+2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,alcance,9
+2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,vistas,22
 2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,guardados,0
 2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,compartidos,0
 2026-11-03,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,interacciones,0
@@ -427,8 +427,8 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-03,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,interacciones,0
 2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,me_gusta,8
 2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,comentarios,0
-2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,alcance,279
-2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,vistas,317
+2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,alcance,281
+2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,vistas,319
 2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,guardados,1
 2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,compartidos,0
 2026-11-03,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,interacciones,9
@@ -441,8 +441,8 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-03,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,interacciones,1
 2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,me_gusta,3
 2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,comentarios,0
-2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,alcance,181
-2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,vistas,205
+2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,alcance,182
+2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,vistas,206
 2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,guardados,0
 2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,compartidos,0
 2026-11-03,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,interacciones,4
@@ -462,8 +462,8 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-03,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,interacciones,0
 2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,me_gusta,0
 2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,comentarios,0
-2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,alcance,9
-2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,vistas,16
+2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,alcance,10
+2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,vistas,19
 2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,guardados,0
 2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,compartidos,0
 2026-11-03,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,interacciones,0
