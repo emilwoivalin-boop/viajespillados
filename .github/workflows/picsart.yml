@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      VAULT: ${{ secrets.PICSART_VAULT || secrets.GEMINI_API_KEY || secrets.OPENAI_API_KEY }}
+      VAULT: ${{ secrets.PICSART_VAULT || secrets.X_API_SECRET || secrets.X_ACCESS_SECRET || secrets.PEXELS_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
