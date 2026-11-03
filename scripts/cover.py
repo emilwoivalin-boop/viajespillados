@@ -61,12 +61,12 @@ def make(rid, out=None):
         sd.line([(0, y), (W, y)], fill=int(150 * max(0.0, 1 - t * t)))
     img.alpha_composite(Image.merge("RGBA", (Image.new("L", (W, H), 0),) * 3 + (shade.filter(ImageFilter.GaussianBlur(30)),)))
 
-    # stick man (+ buddy) celebrating at the bottom – drawn first so the confetti stays behind the text
+    # stick man (+ buddy) standing calmly, no confetti at the bottom – drawn first so the confetti stays behind the text
     if plan.get("buddy"):
-        figure(img, "celebrate", 0.36, 0.93, 470, 1, "buddy")
-        figure(img, "celebrate", 0.62, 0.93, 500, -1)
+        figure(img, "stand", 0.36, 0.93, 470, 1, "buddy")
+        figure(img, "wave", 0.62, 0.93, 500, -1)
     else:
-        figure(img, "celebrate", 0.5, 0.93, 500)
+        figure(img, "wave", 0.5, 0.93, 500)
     d = ImageDraw.Draw(img)
     inf = reel_plan.info(o["ida"], o["vuelta"])
     # chip
@@ -128,10 +128,10 @@ def make_trip(tid, lang="es", out=None):
     img.alpha_composite(Image.merge("RGBA", (Image.new("L", (W, H), 0),) * 3 + (shade.filter(ImageFilter.GaussianBlur(30)),)))
     buddy = any((c.get("look") == "buddy") for sc in plan["scenes"] for c in (sc.get("crowd") or []))
     if buddy:
-        figure(img, "celebrate", 0.34, 0.93, 470, 1, "buddy")
-        figure(img, "celebrate", 0.64, 0.93, 500, -1)
+        figure(img, "stand", 0.34, 0.93, 470, 1, "buddy")
+        figure(img, "wave", 0.64, 0.93, 500, -1)
     else:
-        figure(img, "celebrate", 0.5, 0.93, 500)
+        figure(img, "wave", 0.5, 0.93, 500)
     d = ImageDraw.Draw(img)
     tx = TRIP_TEXT[lang]
     chip = tx["chip"].format(d=plan.get("dias", 3))
