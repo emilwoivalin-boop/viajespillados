@@ -31,7 +31,8 @@ ICONS = {"sun", "heart", "sparkle", "pin", "plane", "fish", "suitcase", "clock",
 AMBIENCE = {"waves", "crickets", "underwater", "birds", "steeldrum"}
 SFX = {"bell", "splash", "clink", "engine", "bubbles", "shutter", "boing", "chime", "sparkle", "pop", "coin"}
 ACTIONS = {"walk", "suitcase", "wave", "celebrate", "relax", "swim", "drive", "photo", "none",
-           "wade", "dance", "lookout", "sip", "dive", "float"}
+           "wade", "dance", "lookout", "sip", "dive", "float", "stand", "run", "sit", "hammock", "shrug", "selfie",
+           "scared", "laugh", "eat", "kayak", "parachute", "point"}
 VOICE = {"es": ("es-CO-GonzaloNeural", "+35%"), "en": ("en-US-AndrewNeural", "+25%")}
 
 
@@ -41,8 +42,17 @@ def build(tid):
     for lang in ("es", "en"):
         scenes = []
         for sc in plan["scenes"]:
-            st = sc.get("stick") or {"action": "none"}
-            assert st.get("action", "none") in ACTIONS, f"{sc['key']}: unknown action {st.get('action')}"
+            def figure(f):
+                f = json.loads(json.dumps(f))
+                for b in f.get("beats") or []:
+                    assert b.get("action", "stand") in ACTIONS, f"{sc['key']}: unknown beat action {b.get('action')}"
+                    if isinstance(b.get("word"), dict):
+                        b["word"] = b["word"][lang]
+                        assert b["word"].lower() in text.lower(), f"{sc['key']} ({lang}): beat word {b['word']} not in text"
+                assert f.get("action", "none") in ACTIONS, f"{sc['key']}: unknown action {f.get('action')}"
+                return f
+            text = sc["text"][lang]
+            st = figure(sc.get("stick") or {"action": "none"})
             for c in sc.get("crowd") or []:      # extra stick people (party, beach), behind the main one
                 assert c.get("action", "wave") in ACTIONS, f"{sc['key']}: unknown crowd action"
             text = sc["text"][lang]
@@ -62,7 +72,7 @@ def build(tid):
             tag = (sc.get("tag") or {}).get(lang)
             scenes.append({"text": text, "media": {"type": "file", "path": img, "focus": sc.get("focus", 0.5)},
                            "stick": st, "pops": pops, "ambience": amb, "action_sfx": sc.get("action_sfx", not amb),
-                           "sfx": sfx, "steps": sc.get("steps", False), "crowd": sc.get("crowd") or [],
+                           "sfx": sfx, "steps": sc.get("steps", False), "crowd": [figure(c) for c in sc.get("crowd") or []],
                            **({"tag": tag} if tag else {})})
         scenes[-1]["hold"] = plan.get("end_hold", 1.6)          # let the last picture breathe (no end card in travel plans)
         voice, rate = VOICE[lang]
@@ -91,20 +101,27 @@ def preview(tid, out):
         k = max(1080 / im.width, 1920 / im.height)
         im = im.resize((round(im.width * k), round(im.height * k)))
         ox, oy = (im.width - 1080) // 2, (im.height - 1920) // 2
-        fr = im.crop((ox, oy, ox + 1080, oy + 1920)).convert("RGBA")
-        for st in (sc.get("crowd") or []) + [sc.get("stick") or {"action": "none"}]:
-          if st.get("action", "none") != "none":
-            n = 40
-            band = list(stickman.frames(st["action"], n, 30, x0=st.get("x0", 0.5), x1=st.get("x1", st.get("x0", 0.5)),
-                                        feet=int(st.get("y", 0.8) * 1920), feet1=int(st.get("y1", st.get("y", 0.8)) * 1920),
-                                        size=st.get("size", 330), size1=st.get("size1"), facing=st.get("facing", 1),
-                                        band_h=1920))[int(n * 0.85)]
-            fr.alpha_composite(band)
+        base = im.crop((ox, oy, ox + 1080, oy + 1920)).convert("RGBA")
+        n, dur = 120, 4.0                     # beats without word timing are spread evenly over the preview
+        figs = [dict(c) for c in sc.get("crowd") or []] + [dict(sc.get("stick") or {"action": "none"})]
+        for f in figs:
+            reel.resolve_beats(f, [], dur)
+        picks = (int(n * 0.15), int(n * 0.5), int(n * 0.85))
+        frames = []
+        for k, f in enumerate(figs):          # keep only the frames we show (full frames are big)
+            g = reel.figure_frames({"action": "wave", **f} if k < len(figs) - 1 else f, n)
+            frames.append({i: im for i, im in enumerate(g) if i in picks})
+        for j, i in enumerate(picks):
+            fr = base.copy()
+            for fl in frames:
+                fr.alpha_composite(fl[i])
+            if j < 2:
+                tiles.append(fr.convert("RGB").resize((270, 480)))
         reelfx.draw_pops(fr, [{**p, "t": 0} for p in sc.get("pops", [])], 1.0, 1080, 1920)
         if sc.get("tag"):
             fr.alpha_composite(reel.tag_png(sc["tag"]))
         tiles.append(fr.convert("RGB").resize((270, 480)))
-    cols = min(len(tiles), 5)
+    cols = min(len(tiles), 6)
     rows = (len(tiles) + cols - 1) // cols
     sheet = Image.new("RGB", (270 * cols, 480 * rows), "white")
     for i, t in enumerate(tiles):

@@ -18,11 +18,23 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "wave",
-    "x0": 0.5,
+    "x0": 0.55,
     "y": 0.88,
     "size": 430,
-    "facing": 1
+    "beats": [
+     {
+      "action": "parachute"
+     },
+     {
+      "action": "lookout",
+      "word": "seven"
+     },
+     {
+      "action": "run",
+      "word": "Here's",
+      "x1": 1.25
+     }
+    ]
    },
    "pops": [
     {
@@ -40,7 +52,28 @@
    "action_sfx": false,
    "sfx": [],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.28,
+     "y": 0.9,
+     "size": 400,
+     "beats": [
+      {
+       "action": "none"
+      },
+      {
+       "action": "parachute",
+       "word": "Nicaragua"
+      },
+      {
+       "action": "run",
+       "word": "Here's",
+       "x1": 1.25
+      }
+     ]
+    }
+   ],
    "tag": "SAN ANDRÉS · 3 DAYS"
   },
   {
@@ -51,11 +84,23 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "lookout",
-    "x0": 0.42,
     "y": 0.87,
     "size": 400,
-    "facing": 1
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.45
+     },
+     {
+      "action": "point",
+      "word": "First"
+     },
+     {
+      "action": "selfie",
+      "word": "best"
+     }
+    ]
    },
    "pops": [],
    "ambience": [
@@ -70,7 +115,29 @@
     }
    ],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.9,
+     "size": 380,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": -0.25,
+       "x1": 0.2
+      },
+      {
+       "action": "photo",
+       "word": "Church"
+      },
+      {
+       "action": "selfie",
+       "word": "best",
+       "facing": 1
+      }
+     ]
+    }
+   ],
    "tag": "DAY 1"
   },
   {
@@ -81,11 +148,28 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "wave",
-    "x0": 0.55,
+    "x0": 0.6,
     "y": 0.88,
     "size": 420,
-    "facing": -1
+    "facing": -1,
+    "beats": [
+     {
+      "action": "wave"
+     },
+     {
+      "action": "laugh",
+      "word": "sing-song"
+     },
+     {
+      "action": "point",
+      "word": "official",
+      "facing": -1
+     },
+     {
+      "action": "shrug",
+      "word": "also"
+     }
+    ]
    },
    "pops": [],
    "ambience": [
@@ -94,7 +178,29 @@
    "action_sfx": false,
    "sfx": [],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.28,
+     "y": 0.9,
+     "size": 390,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "laugh",
+       "word": "Jamaican"
+      },
+      {
+       "action": "dance",
+       "word": "calm",
+       "speed": 0.7
+      }
+     ]
+    }
+   ],
    "tag": "DAY 1"
   },
   {
@@ -105,11 +211,26 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "photo",
-    "x0": 0.4,
     "y": 0.81,
     "size": 360,
-    "facing": 1
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.62,
+      "x1": 0.45,
+      "facing": -1
+     },
+     {
+      "action": "photo",
+      "word": "turtles",
+      "facing": 1
+     },
+     {
+      "action": "scared",
+      "word": "caimans",
+      "facing": 1
+     }
+    ]
    },
    "pops": [],
    "ambience": [
@@ -118,7 +239,25 @@
    "action_sfx": true,
    "sfx": [],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.26,
+     "y": 0.79,
+     "size": 330,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "sit"
+      },
+      {
+       "action": "scared",
+       "word": "caimans",
+       "y": 0.81
+      }
+     ]
+    }
+   ],
    "tag": "DAY 1"
   },
   {
@@ -129,11 +268,26 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "dance",
-    "x0": 0.45,
-    "y": 0.55,
-    "size": 260,
-    "facing": 1
+    "size": 290,
+    "beats": [
+     {
+      "action": "kayak",
+      "x0": -0.2,
+      "x1": 0.35,
+      "y": 0.63,
+      "size": 300
+     },
+     {
+      "action": "dance",
+      "word": "Reggae",
+      "x0": 0.45,
+      "y": 0.55
+     },
+     {
+      "action": "eat",
+      "word": "fish"
+     }
+    ]
    },
    "pops": [
     {
@@ -167,11 +321,22 @@
      "speed": 0.8
     },
     {
-     "action": "sip",
+     "look": "buddy",
      "x0": 0.76,
      "y": 0.525,
-     "size": 240,
-     "facing": -1
+     "size": 250,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "dance",
+       "speed": 1.1
+      },
+      {
+       "action": "sip",
+       "word": "coco",
+       "mood": "love"
+      }
+     ]
     },
     {
      "action": "dance",
@@ -199,11 +364,20 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "float",
-    "x0": 0.45,
     "y": 0.8,
-    "size": 300,
-    "facing": 1
+    "size": 360,
+    "beats": [
+     {
+      "action": "wade",
+      "x0": 0.12,
+      "x1": 0.4
+     },
+     {
+      "action": "float",
+      "word": "float",
+      "x0": 0.45
+     }
+    ]
    },
    "pops": [],
    "ambience": [
@@ -212,7 +386,33 @@
    "action_sfx": false,
    "sfx": [],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.72,
+     "size": 300,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "swim",
+       "x0": 0.85,
+       "x1": 0.65
+      },
+      {
+       "action": "wade",
+       "word": "Wade",
+       "x0": 0.7,
+       "x1": 0.6,
+       "y": 0.78
+      },
+      {
+       "action": "laugh",
+       "word": "good",
+       "y": 0.78
+      }
+     ]
+    }
+   ],
    "tag": "DAY 2"
   },
   {
@@ -223,12 +423,24 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "wade",
-    "x0": 0.15,
-    "x1": 0.45,
     "y": 0.86,
     "size": 340,
-    "facing": 1
+    "beats": [
+     {
+      "action": "wade",
+      "x0": 0.12,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": "ship"
+     },
+     {
+      "action": "swim",
+      "word": "snorkel",
+      "x1": 0.6
+     }
+    ]
    },
    "pops": [
     {
@@ -256,7 +468,28 @@
     }
    ],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.7,
+     "size": 300,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "kayak",
+       "x0": 1.2,
+       "x1": 0.7
+      },
+      {
+       "action": "kayak",
+       "word": "ship",
+       "x0": 0.7,
+       "x1": 0.6,
+       "speed": 0.6
+      }
+     ]
+    }
+   ],
    "tag": "DAY 3"
   },
   {
@@ -267,22 +500,58 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "dive",
-    "x0": 0.6,
-    "x1": 0.3,
-    "y": 0.665,
-    "y1": 0.83,
     "size": 260,
-    "facing": -1
+    "beats": [
+     {
+      "action": "stand",
+      "x0": 0.6,
+      "y": 0.665,
+      "facing": -1
+     },
+     {
+      "action": "dive",
+      "word": "Jump",
+      "x1": 0.3,
+      "y1": 0.83
+     },
+     {
+      "action": "swim",
+      "word": "Piscinita",
+      "x0": 0.3,
+      "x1": 0.2,
+      "y": 0.83
+     }
+    ]
    },
    "pops": [],
    "ambience": [
     "waves"
    ],
-   "action_sfx": true,
+   "action_sfx": false,
    "sfx": [],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.72,
+     "y": 0.6,
+     "size": 230,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "celebrate",
+       "word": "Jump"
+      },
+      {
+       "action": "laugh",
+       "word": "bread"
+      }
+     ]
+    }
+   ],
    "tag": "DAY 3"
   },
   {
@@ -293,11 +562,20 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "sip",
     "x0": 0.3,
     "y": 0.965,
     "size": 620,
-    "facing": 1
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sip"
+     },
+     {
+      "action": "sip",
+      "word": "sun",
+      "mood": "love"
+     }
+    ]
    },
    "pops": [
     {
@@ -323,12 +601,21 @@
    "steps": false,
    "crowd": [
     {
-     "action": "dance",
+     "look": "buddy",
      "x0": 0.74,
      "y": 0.95,
-     "size": 520,
+     "size": 540,
      "facing": -1,
-     "speed": 0.9
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "dance",
+       "word": "music",
+       "speed": 0.9
+      }
+     ]
     }
    ],
    "tag": "DAY 3"
@@ -341,11 +628,21 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "celebrate",
-    "x0": 0.68,
     "y": 0.9,
     "size": 420,
-    "facing": -1
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.2,
+      "x1": 0.68,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": "Save",
+      "facing": -1
+     }
+    ]
    },
    "pops": [],
    "ambience": [
@@ -355,7 +652,26 @@
    "action_sfx": true,
    "sfx": [],
    "steps": false,
-   "crowd": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.92,
+     "size": 400,
+     "beats": [
+      {
+       "action": "run",
+       "x0": -0.35,
+       "x1": 0.45,
+       "facing": 1
+      },
+      {
+       "action": "wave",
+       "word": "Save",
+       "facing": 1
+      }
+     ]
+    }
+   ],
    "hold": 1.0
   }
  ],

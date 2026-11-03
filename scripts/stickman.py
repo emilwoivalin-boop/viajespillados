@@ -9,7 +9,10 @@ fixed y. Everything is drawn at 2x and downsampled for smooth, anti-aliased line
 
 Actions: walk, suitcase, wave, celebrate, relax, swim, drive, photo, none,
          wade (walking knee-deep in the sea), dance, lookout (shading the eyes + pointing), sip (drinks from
-         a coconut), dive (jumps from x0/y into the water at x1/y1, splash, swims up), float (on his back in water).
+         a coconut), dive (jumps from x0/y into the water at x1/y1, splash, swims up), float (on his back in water),
+         stand, run (speed lines), sit (on an edge at y), hammock (between x0 and x1 at y), shrug, selfie, scared,
+         laugh, eat (fried fish), kayak, parachute (drops in from above, lands at y), point (= lookout).
+look="buddy" draws the travel buddy (ponytail + flower); mood=laugh|love|scared|wow overrides the face.
 """
 import math
 import random
@@ -32,6 +35,8 @@ SHIRT_D = (222, 165, 20, 255)
 # "classic": black lines, hair strands, white mitten hands (user's reference)
 # "pop": Modern Pop look – red knit beanie, yellow t-shirt, black stick limbs (stickman-video-director A2)
 STYLE = "classic"
+LOOK = "hero"     # "hero" (hair strands) or "buddy" (ponytail + flower) – set per frame by frames()
+MOOD = None       # optional face override for a whole move: laugh, love, scared, wow
 
 
 def rad(a):
@@ -123,6 +128,17 @@ def head(pen, c, r, facing, t, mood="smile", glasses=False, mask=False, look=0.0
             pen.rrect((e[0] - r * 0.25, e[1] - r * 0.14, e[0] + r * 0.25, e[1] + r * 0.18), r * 0.1, DARK, DARK, 2)
             pen.ellipse((e[0] - r * 0.16, e[1] - r * 0.08, e[0] - r * 0.04, e[1] - r * 0.01), (255, 255, 255, 140))
         pen.line((eyes[0][0] + r * 0.25, eyes[0][1]), (eyes[1][0] - r * 0.25, eyes[1][1]), DARK, ow * 0.8)
+    elif (MOOD if MOOD and mood == "smile" else mood) in ("laugh", "love"):
+        md = MOOD if MOOD and mood == "smile" else mood
+        for e in eyes:
+            if md == "laugh":                       # happy squint ^ ^
+                pen.arc((e[0] - r * 0.13, e[1] - r * 0.08, e[0] + r * 0.13, e[1] + r * 0.2), 200, 340, DARK, ow)
+            else:                                   # heart eyes
+                hr = r * 0.11
+                pen.circle((e[0] - hr * 0.55, e[1] - hr * 0.3), hr * 0.62, CORAL, None)
+                pen.circle((e[0] + hr * 0.55, e[1] - hr * 0.3), hr * 0.62, CORAL, None)
+                pen.poly([(e[0] - hr * 1.1, e[1] - hr * 0.1), (e[0] + hr * 1.1, e[1] - hr * 0.1), (e[0], e[1] + hr * 1.1)],
+                         CORAL, None)
     else:
         for e in eyes:
             if blink:
@@ -136,7 +152,16 @@ def head(pen, c, r, facing, t, mood="smile", glasses=False, mask=False, look=0.0
             pen.arc((e[0] - r * 0.15, e[1] - r * 0.42 - lift, e[0] + r * 0.15, e[1] - r * 0.2 - lift), 200, 340,
                     DARK, ow * 0.75)
     mx = c[0] + facing * r * 0.08
-    if mood == "wow":
+    if MOOD and mood == "smile":
+        mood = MOOD
+    if mood == "laugh" and not mask:
+        pen.poly([(mx - r * 0.42, c[1] + r * 0.18), (mx + r * 0.42, c[1] + r * 0.18), (mx + r * 0.3, c[1] + r * 0.5),
+                  (mx, c[1] + r * 0.66), (mx - r * 0.3, c[1] + r * 0.5)], DARK, None)
+        pen.ellipse((mx - r * 0.16, c[1] + r * 0.42, mx + r * 0.16, c[1] + r * 0.6), CORAL)
+    elif mood == "scared" and not mask:
+        pts = [(mx - r * 0.3 + k * r * 0.12, c[1] + r * (0.42 if k % 2 else 0.34)) for k in range(6)]
+        pen.stroke(*pts, width=ow * 0.8, outline=None)
+    elif mood == "wow":
         pen.ellipse((mx - r * 0.2, c[1] + r * 0.2, mx + r * 0.2, c[1] + r * 0.62), DARK)
         pen.ellipse((mx - r * 0.12, c[1] + r * 0.42, mx + r * 0.12, c[1] + r * 0.58), CORAL)
     elif pop and not mask:
@@ -164,6 +189,17 @@ def cap(pen, c, r, facing):
     """Three hair strands on top of the head (classic) or the red beanie (pop)."""
     if STYLE == "pop":
         return beanie(pen, c, r, facing)
+    if LOOK == "buddy":                             # travel buddy: ponytail with a coral tie + a flower
+        b = (c[0] - facing * r * 0.85, c[1] - r * 0.55)
+        pen.stroke(b, (b[0] - facing * r * 0.45, b[1] + r * 0.25), (b[0] - facing * r * 0.35, b[1] + r * 0.85),
+                   width=max(4, r * 0.16))
+        pen.circle(b, r * 0.13, CORAL, DARK, 2)
+        f = (c[0] + facing * r * 0.55, c[1] - r * 0.8)
+        for a in range(5):
+            pen.circle((f[0] + math.cos(a * 1.257) * r * 0.13, f[1] + math.sin(a * 1.257) * r * 0.13), r * 0.1,
+                       (255, 120, 170, 255), DARK, 2)
+        pen.circle(f, r * 0.08, YELLOW, DARK, 2)
+        return
     for k, (dx, h, bend) in enumerate([(-0.26, 0.42, -0.16), (0.0, 0.5, 0.02), (0.24, 0.42, 0.18)]):
         base = (c[0] + dx * r, c[1] - r * 0.96 + abs(dx) * r * 0.25)
         mid = (base[0] + (dx * 0.3 + bend * 0.5) * r, base[1] - h * r * 0.55)
@@ -403,7 +439,7 @@ def step_times(n, fps, x0, x1, size, feet0=0, feet1=0, speed=1.0):
 
 # ---------------------------------------------------------------- main generator
 def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.0,
-           glasses=None, backpack=None, style=None, feet1=None, size1=None):
+           glasses=None, backpack=None, style=None, feet1=None, size1=None, look="hero", mood=None):
     """feet1/size1 (optional): end position/size, so he can walk into or out of the picture with perspective."""
     global STYLE
     feet0, size0 = feet, size
@@ -432,6 +468,10 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
         amp = min(1.0, math.degrees(math.asin(min(0.45, v / f / 4 / leg_L))) / 22) if v > 1 else 0.0
         amp = max(amp, 0.0)
         phase += 2 * math.pi * f / fps * (1 if amp > 0.02 else 0)
+        global LOOK, MOOD
+        LOOK, MOOD = look, mood
+        if action == "point":
+            action = "lookout"
         out = Image.new("RGBA", (W, band_h), (0, 0, 0, 0))
         if action == "none":
             yield out
@@ -443,10 +483,20 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
             feet = feet0 + (feet1 - feet0) * u - math.sin(math.pi * u) * size0 * 0.55 * (1 if u < 1 else 0)
             size = size0
         # local canvas around the figure
-        cw = int(size * 3.2)
+        cw = int(size * 3.2) if action != "hammock" else int(abs(x1 - x0) * W + size * 1.2)
+        if action == "hammock":
+            x = W * (x0 + x1) / 2
         lx = int(x - cw / 2)
-        py0 = max(0, int(feet - size * (2.2 if action == "dive" else 1.6)))
-        ph = max(10, min(band_h - py0, int(size * (2.6 if action == "dive" else 1.9))))
+        up = {"dive": 2.2, "parachute": 2.6}.get(action, 1.6)
+        if action == "parachute":            # floats down from above the picture, lands at feet
+            pl = min(1.0, p / 0.55)
+            land_y = feet
+            feet = land_y - (1 - smooth(pl)) * size * 3.2
+            x = W * (x0 + (x1 - x0) * smooth(pl)) + math.sin(t * 2.2) * size * 0.08 * (1 - pl)
+        if action == "hammock":
+            cw_h = abs(x1 - x0) * W + size
+        py0 = max(0, int(feet - size * up))
+        ph = max(10, min(band_h - py0, int(size * (up + 0.4))))
         pen = Pen(lx, py0, cw, ph, lw)
 
         if action in ("walk", "suitcase"):
@@ -605,6 +655,167 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                     head(pen, hc, size * 0.12, facing, t, mood="smile")
                     cap(pen, hc, size * 0.12, facing)
                     water_over(pen, wx, wy, size * 0.35, size * 0.5, t)
+        elif action == "stand":
+            br = math.sin(t * 2 * math.pi * 0.35)
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            standing(pen, x, feet, size, facing, t, [(-5, 4), (5, 4)], [(-12 - 2 * br, 18), (12 + 2 * br, 18)],
+                     bob=br * size * 0.006, glasses=bool(glasses), backpack=bool(backpack))
+        elif action == "run":
+            legs, arms, bob = walk_pose(phase * 1.0, amp)
+            legs = tuple((a * 1.7, b * 1.8 + 10) for a, b in legs)
+            arms = tuple((a * 2.4, 75) for a, b in arms)
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            standing(pen, x, feet, size, facing, t, legs, arms, bob=bob * size * 1.6, lean=0.07 * min(1, amp * 2),
+                     glasses=bool(glasses), backpack=bool(backpack))
+            if amp > 0.2:                     # speed lines + dust
+                for k in range(3):
+                    yy = feet - size * (0.45 + 0.22 * k)
+                    xx = x - facing * size * (0.35 + 0.08 * k)
+                    pen.line((xx, yy), (xx - facing * size * (0.25 + 0.1 * (k % 2)), yy), (255, 255, 255, 210), 5)
+                for k in range(2):
+                    ph_ = (t * 2.5 + k * 0.5) % 1
+                    pen.circle((x - facing * size * (0.2 + ph_ * 0.3), feet - size * 0.03 - ph_ * size * 0.08),
+                               size * (0.03 + ph_ * 0.05), (235, 225, 205, int(190 * (1 - ph_))), None)
+        elif action == "sit":                 # sitting on an edge (dock, wall, rock) – y = the edge surface
+            sw = 14 * math.sin(t * 2 * math.pi * 0.6)
+            leg_L = size * 0.44
+            standing(pen, x, feet + leg_L, size, facing, t, [(88, 95 + sw), (88, 95 - sw)], [(-25, 0), (30, 20)],
+                     glasses=bool(glasses), backpack=bool(backpack))
+        elif action == "hammock":             # lies in a hammock hung between x0 and x1 at height y
+            ax0, ax1 = W * x0, W * x1
+            sway = math.sin(t * 2 * math.pi * 0.25) * size * 0.04
+            sag = size * 0.32
+            pts_top, pts_bot = [], []
+            for k in range(21):
+                u = k / 20
+                xx = ax0 + (ax1 - ax0) * (0.12 + 0.76 * u) + sway
+                yy = feet + sag * math.sin(math.pi * u) ** 1.3
+                pts_top.append((xx, yy - size * 0.02))
+                pts_bot.append((xx, yy + size * 0.07 + size * 0.04 * math.sin(math.pi * u)))
+            pen.stroke((ax0, feet - size * 0.05), pts_top[0], width=lw * 0.6)
+            pen.stroke((ax1, feet - size * 0.05), pts_top[-1], width=lw * 0.6)
+            mid = pts_top[10]
+            hc = (pts_top[4][0], pts_top[4][1] - size * 0.11)
+            hip = (pts_top[12][0], pts_top[12][1] - size * 0.02)
+            neck = (pts_top[6][0], pts_top[6][1] - size * 0.04)
+            torso(pen, neck, hip, size, lw)
+            pen.stroke(neck, (hc[0] - size * 0.02, hc[1] - size * 0.2), (hc[0] - size * 0.14, hc[1] - size * 0.06))
+            knee = (pts_top[15][0], pts_top[15][1] - size * 0.2)
+            pen.stroke(hip, knee, (pts_top[18][0], pts_top[18][1] - size * 0.05))
+            pen.stroke(hip, (pts_top[18][0] + size * 0.04, pts_top[18][1] - size * 0.1))
+            head(pen, hc, size * 0.11, 1, t, glasses=True)
+            cap(pen, hc, size * 0.11, 1)
+            pen.poly(pts_top + pts_bot[::-1], (255, 140, 90, 235), DARK, 4)
+            for k in (5, 10, 15):
+                pen.line(pts_top[k], pts_bot[k], (255, 210, 80, 255), 5)
+            zt = (t * 0.5) % 1
+            zx, zy = hc[0] + size * 0.15 + zt * size * 0.2, hc[1] - size * 0.25 - zt * size * 0.3
+            fz = int(size * 0.08)
+            pen.line((zx, zy), (zx + fz, zy), WHITE, 5)
+            pen.line((zx + fz, zy), (zx, zy + fz), WHITE, 5)
+            pen.line((zx, zy + fz), (zx + fz, zy + fz), WHITE, 5)
+        elif action == "shrug":
+            u = smooth(abs(math.sin(t * 2 * math.pi * 0.45)))
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            standing(pen, x, feet, size, facing, t, [(-5, 4), (5, 4)], [(-60 - 20 * u, -95), (60 + 20 * u, 95)],
+                     bob=-u * size * 0.015, tilt=0.15 * u, mood="smile")
+        elif action == "selfie":
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-6, 4), (8, 10)], [(-150, -40), (128, -15)],
+                                  tilt=0.12, glasses=bool(glasses))
+            pen.rrect((hf[0] - size * 0.04, hf[1] - size * 0.075, hf[0] + size * 0.04, hf[1] + size * 0.075),
+                      size * 0.015, NAVY, DARK, 4)
+            for k in (-1, 1):                 # peace sign
+                pen.stroke(hb, (hb[0] + k * size * 0.03, hb[1] - size * 0.07), width=lw * 0.6)
+            if (t % 1.8) < 0.12:
+                pen.circle((hf[0], hf[1]), size * 0.08, (255, 255, 230, 220), None)
+        elif action == "scared":              # jumps back, shakes, sweat drops and "!"
+            jb = math.sin(min(1, t / 0.45) * math.pi) * size * 0.18 if t < 0.45 else 0
+            back = -facing * size * 0.15 * smooth(min(1, t / 0.45))
+            sh_ = math.sin(t * 2 * math.pi * 9) * size * 0.008 if t > 0.45 else 0
+            xx = x + back + sh_
+            shadow(pen, xx, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, xx, feet - jb, size, facing, t, [(-14, 18), (16, 22)],
+                                  [(-150, -40), (150, 40)], mood="wow", lean=-0.04)
+            for k in range(2):
+                ph_ = (t * 1.2 + k * 0.5) % 1
+                dx_ = hc[0] - facing * size * (0.16 + 0.06 * k)
+                dy_ = hc[1] - size * 0.08 + ph_ * size * 0.12
+                pen.poly([(dx_, dy_ - size * 0.04), (dx_ - size * 0.022, dy_), (dx_ + size * 0.022, dy_)],
+                         (130, 200, 255, int(255 * (1 - ph_))), None)
+                pen.circle((dx_, dy_), size * 0.022, (130, 200, 255, int(255 * (1 - ph_))), None)
+            ex_ = (hc[0] + facing * size * 0.05, hc[1] - size * 0.42 - abs(math.sin(t * 6)) * size * 0.03)
+            pen.rrect((ex_[0] - size * 0.025, ex_[1] - size * 0.12, ex_[0] + size * 0.025, ex_[1]), size * 0.01,
+                      YELLOW, DARK, 3)
+            pen.circle((ex_[0], ex_[1] + size * 0.045), size * 0.025, YELLOW, DARK, 3)
+        elif action == "laugh":
+            b_ = abs(math.sin(t * 2 * math.pi * 1.6))
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            standing(pen, x, feet, size, facing, t, [(-6, 6), (6, 6)], [(-35, -60), (35, 60)],
+                     bob=b_ * size * 0.02, lean=-0.03, tilt=-0.15, mood="laugh")
+        elif action == "eat":
+            cyc = (t % 2.4) / 2.4
+            lift = smooth(min(1, cyc / 0.3)) * (1 - smooth(max(0, (cyc - 0.55) / 0.3)))
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-4, 4), (4, 4)],
+                                  [(55, 60), (45 + 100 * lift, 75 + 30 * lift)], tilt=-0.08 * lift)
+            pc = (hb[0] + facing * size * 0.06, hb[1])         # plate with a fried fish + patacón
+            pen.ellipse((pc[0] - size * 0.15, pc[1] - size * 0.035, pc[0] + size * 0.15, pc[1] + size * 0.035),
+                        (250, 250, 250, 255), DARK, 3)
+            pen.ellipse((pc[0] - size * 0.1, pc[1] - size * 0.06, pc[0] + size * 0.05, pc[1] - size * 0.005),
+                        (230, 140, 50, 255), DARK, 3)
+            pen.poly([(pc[0] + size * 0.04, pc[1] - size * 0.033), (pc[0] + size * 0.1, pc[1] - size * 0.07),
+                      (pc[0] + size * 0.1, pc[1] + size * 0.0)], (230, 140, 50, 255), DARK, 3)
+            pen.circle((pc[0] + size * 0.09, pc[1] - size * 0.01), size * 0.03, (240, 200, 90, 255), DARK, 2)
+            pen.line(hf, (hf[0] + facing * size * 0.06, hf[1] - size * 0.06), (200, 205, 215, 255), 4)  # fork
+        elif action == "kayak":
+            L = size
+            pr = t * 2 * math.pi * 0.9
+            hull_y = feet
+            pen.ellipse((x - L * 0.75, hull_y - L * 0.08, x + L * 0.75, hull_y + L * 0.08), YELLOW, DARK, 6)
+            pen.ellipse((x - L * 0.18, hull_y - L * 0.05, x + L * 0.18, hull_y + L * 0.02), (60, 60, 70, 255), None)
+            hip = (x, hull_y - L * 0.03)
+            neck = (x + facing * L * 0.04, hip[1] - L * 0.3)
+            torso(pen, neck, hip, L, lw)
+            hcx = (neck[0] + facing * L * 0.01, neck[1] - L * 0.11)
+            dxp, dyp = math.cos(pr) * L * 0.45, math.sin(pr) * L * 0.12
+            c_ = (neck[0] + facing * L * 0.12, neck[1] + L * 0.12)
+            pa, pb = (c_[0] - dxp, c_[1] - dyp), (c_[0] + dxp, c_[1] + dyp)
+            pen.stroke(pa, pb, width=lw * 0.6, color=(120, 80, 40, 255))
+            for pp_ in (pa, pb):
+                pen.ellipse((pp_[0] - L * 0.05, pp_[1] - L * 0.03, pp_[0] + L * 0.05, pp_[1] + L * 0.03), CORAL, DARK, 3)
+            for k in (-0.18, 0.18):
+                hpt = (c_[0] + (pa[0] - c_[0]) * 0.4 * (1 if k < 0 else -1) * -1, c_[1] + (pa[1] - c_[1]) * 0.4 * (1 if k < 0 else -1) * -1)
+                pen.stroke((neck[0], neck[1] + L * 0.05), hpt)
+                hand(pen, hpt, L * 0.035)
+            head(pen, hcx, L * 0.11, facing, t, glasses=True)
+            cap(pen, hcx, L * 0.11, facing)
+            water_over(pen, x, hull_y + L * 0.03, L * 0.85, L * 0.35, t)
+        elif action == "parachute":
+            pl = min(1.0, p / 0.55)
+            landed = pl >= 1
+            if not landed:
+                cy_ = feet - size * 1.45
+                pen.poly([(x - size * 0.55 + k * size * 0.11, cy_ - math.sin(math.pi * k / 10) * size * 0.32)
+                          for k in range(11)] + [(x + size * 0.55, cy_ + size * 0.04), (x - size * 0.55, cy_ + size * 0.04)],
+                         CORAL, DARK, 5)
+                for k in (3, 7):
+                    xs_ = x - size * 0.55 + k * size * 0.11
+                    pen.line((xs_, cy_ - math.sin(math.pi * k / 10) * size * 0.32), (xs_, cy_ + size * 0.04), YELLOW, 6)
+                for sx_ in (-0.5, -0.2, 0.2, 0.5):
+                    pen.line((x + sx_ * size, cy_ + size * 0.04), (x, feet - size * 0.7), (240, 240, 240, 255), 3)
+                standing(pen, x, feet, size, facing, t, [(-10, 15), (10, 15)], [(-165, 0), (165, 0)], mood="wow")
+            else:
+                age = (p - 0.55) * n / fps
+                sq = math.exp(-age * 6) * math.sin(age * 18) * size * 0.03
+                if age < 0.6:
+                    for k in range(4):        # landing dust
+                        ph_ = min(1, age / 0.6)
+                        pen.circle((x + (k - 1.5) * size * 0.12 * (1 + ph_), feet - ph_ * size * 0.05), size * 0.04 * (1 + ph_),
+                                   (235, 225, 205, int(200 * (1 - ph_))), None)
+                shadow(pen, x, feet + size * 0.02, size * 0.2)
+                w_ = 22 * math.sin(t * 2 * math.pi * 0.8)
+                standing(pen, x, feet, size, facing, t, [(-4, 4), (4, 4)], [(-14, 20), (98 + w_ * 0.6, 45)], bob=sq)
         elif action == "drive":
             L = size
             body, hood, wr, cy = jeep(pen, x, feet, L, facing, t)

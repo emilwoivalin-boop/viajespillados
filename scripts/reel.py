@@ -247,15 +247,12 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
 
     tag_img = tag_png(tag) if tag else None
     n = int(dur * FPS) + 2
-    gen = stickman.frames(st.get("action", "none"), n, FPS, x0=st.get("x0", 0.3), x1=st.get("x1", st.get("x0", 0.3)),
-                          feet=int(st.get("y", 0.7) * H), feet1=int(st.get("y1", st.get("y", 0.7)) * H),
-                          size=st.get("size", 330), size1=st.get("size1"), facing=st.get("facing", 1), band_h=H)
-    extra = [stickman.frames(c.get("action", "wave"), n, FPS, x0=c.get("x0", 0.5), x1=c.get("x1", c.get("x0", 0.5)),
-                             feet=int(c.get("y", 0.7) * H), feet1=int(c.get("y1", c.get("y", 0.7)) * H),
-                             size=c.get("size", 300), facing=c.get("facing", 1), band_h=H, speed=c.get("speed", 1.0))
-             for c in (crowd or [])]
+    has_main = bool(st.get("beats")) or st.get("action", "none") != "none"
+    gen = figure_frames(st, n)
+    extra = [figure_frames({"action": "wave", **c}, n) for c in (crowd or [])]
     # zoom centre: keep the stick man's area in view
-    sx = (st.get("x0", 0.5) + st.get("x1", 0.5)) / 2 if st.get("action", "none") != "none" else 0.5
+    sx = (st.get("x0", 0.5) + st.get("x1", st.get("x0", 0.5))) / 2 if has_main else 0.5
+    sx = min(0.85, max(0.15, sx))
     cx0, cy0 = W * (0.5 + (sx - 0.5) * 0.35), H * (0.5 + (st.get("y", 0.5) - 0.5) * 0.35)
     cmd = ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", out]
@@ -266,7 +263,7 @@ def photo_scene(src, dur, out, st=None, pops=None, zoom_in=True, focus=0.5, zoom
         fr = base.copy()
         for g in extra:                          # other people in the scene (drawn behind the main figure)
             fr.alpha_composite(next(g))
-        if st.get("action", "none") != "none":
+        if has_main:
             fr.alpha_composite(band)
         bw, bh = W / z, H / z
         x0 = min(max(cx0 - bw / 2, 0), W - bw)
@@ -312,6 +309,61 @@ def add_stickman(clip, st, dur, out, pops=None):
         raise RuntimeError("ffmpeg stickman overlay failed")
 
 
+def resolve_beats(st, words, dur):
+    """Give each beat of a figure ({"beats": [...]}) its start time "t" (scene seconds): from the spoken word
+    ("word"), seconds ("at") or a fraction of the scene ("frac"). Beats without one are spread evenly."""
+    beats = (st or {}).get("beats")
+    if not beats:
+        return
+    last = 0.0
+    for k, b in enumerate(beats):
+        default = dur * k / len(beats)
+        if k == 0:
+            t = 0.0
+        elif b.get("word"):
+            t = word_time(words, b["word"], default) - b.get("lead", 0.15)
+        elif "at" in b:
+            t = b["at"]
+        elif "frac" in b:
+            t = b["frac"] * dur
+        else:
+            t = default
+        t = min(max(t, last + 0.3 if k else 0.0), max(0.0, dur - 0.3))
+        b["t"] = round(t, 3)
+        last = t
+
+
+def figure_frames(st, n):
+    """Frames of one stick figure for a scene: a single move, or a sequence of "beats" (each with its own move
+    and position; a beat starts where the previous one ended unless it says otherwise)."""
+    st = st or {}
+    beats = st.get("beats")
+    if not beats:
+        yield from stickman.frames(st.get("action", "none"), n, FPS, x0=st.get("x0", 0.3),
+                                   x1=st.get("x1", st.get("x0", 0.3)), feet=int(st.get("y", 0.7) * H),
+                                   feet1=int(st.get("y1", st.get("y", 0.7)) * H), size=st.get("size", 330),
+                                   size1=st.get("size1"), facing=st.get("facing", 1), band_h=H,
+                                   speed=st.get("speed", 1.0), look=st.get("look", "hero"), mood=st.get("mood"))
+        return
+    cx, cy, cs, cf = st.get("x0", 0.5), st.get("y", 0.8), st.get("size", 330), st.get("facing", 1)
+    starts = [int(b.get("t", 0) * FPS) for b in beats] + [n]
+    starts[0] = 0
+    for k, b in enumerate(beats):
+        seg = max(1, starts[k + 1] - starts[k])
+        x0 = b.get("x0", cx)
+        x1 = b.get("x1", x0)
+        y0 = b.get("y", cy)
+        y1 = b.get("y1", y0)
+        s0 = b.get("size", cs)
+        s1 = b.get("size1", s0)
+        f = b.get("facing", cf)
+        yield from stickman.frames(b.get("action", "stand"), seg, FPS, x0=x0, x1=x1, feet=int(y0 * H),
+                                   feet1=int(y1 * H), size=s0, size1=s1 if s1 != s0 else None, facing=f, band_h=H,
+                                   speed=b.get("speed", st.get("speed", 1.0)), look=b.get("look", st.get("look", "hero")),
+                                   mood=b.get("mood"))
+        cx, cy, cs, cf = x1, y1, s1, f
+
+
 def word_time(words, word, default):
     """Start time (scene seconds) of the first spoken word that matches `word`."""
     key = re.sub(r"[^a-z0-9áéíóúñ]", "", word.lower())
@@ -337,7 +389,18 @@ def scene_sfx(sc, t0, dur, pops):
         if at < dur:
             ev.append((t0 + at, e["kind"], e.get("gain", 0.25)))
     st = sc.get("stick") or {}
-    act = st.get("action", "none")
+    beats = st.get("beats") or []
+    BEAT_SFX = {"photo": [(0.3, "shutter", 0.32)], "selfie": [(0.4, "shutter", 0.32)], "celebrate": [(0.15, "boing", 0.2)],
+                "scared": [(0.0, "whoosh", 0.22), (0.05, "boing", 0.18)], "run": [(0.0, "whoosh", 0.2)],
+                "laugh": [(0.1, "boing", 0.14)], "sip": [(0.6, "bubbles", 0.14)], "kayak": [(0.4, "bubbles", 0.16)],
+                "parachute": [(0.0, "whoosh", 0.2), ("land", "boing", 0.22)], "dive": [("dive", "splash", 0.32)]}
+    for k, b in enumerate(beats):
+        b0 = b.get("t", 0.0)
+        b1 = beats[k + 1].get("t", dur) if k + 1 < len(beats) else dur
+        for when, kind, g in BEAT_SFX.get(b.get("action", ""), []):
+            off = {"land": 0.55 * (b1 - b0), "dive": 0.42 * (b1 - b0)}.get(when, when)
+            ev.append((t0 + b0 + off, kind, g))
+    act = st.get("action", "none") if not beats else "beats"
     if act in ("walk", "suitcase") and sc.get("steps", False):
         n = int(dur * FPS) + 2
         y0, y1 = st.get("y", 0.7) * H, st.get("y1", st.get("y", 0.7)) * H
@@ -566,6 +629,8 @@ def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
         for k, pp in enumerate(sc.get("pops", [])):
             pt = word_time(words, pp["word"], dur * (k + 1) / 3) if pp.get("word") else pp.get("at", 0.5) * dur
             pops.append({**pp, "t": pt})
+        for fig in [sc.get("stick")] + list(sc.get("crowd") or []):
+            resolve_beats(fig, words, dur)
         sfx += scene_sfx(sc, t, dur, pops)
         audios.append((wav, dur))
         m = sc["media"]

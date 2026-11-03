@@ -16,11 +16,29 @@
     "en": "San Andrés in three days? This island is closer to Nicaragua than to the rest of Colombia, and the sea has seven colors. Here's the full plan, parce."
    },
    "stick": {
-    "action": "wave",
-    "x0": 0.5,
+    "x0": 0.55,
     "y": 0.88,
     "size": 430,
-    "facing": 1
+    "beats": [
+     {
+      "action": "parachute"
+     },
+     {
+      "action": "lookout",
+      "word": {
+       "es": "siete",
+       "en": "seven"
+      }
+     },
+     {
+      "action": "run",
+      "word": {
+       "es": "Pilla",
+       "en": "Here's"
+      },
+      "x1": 1.25
+     }
+    ]
    },
    "pop": {
     "icon": "pin",
@@ -35,6 +53,34 @@
    "ambience": [
     "waves",
     "steeldrum"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.28,
+     "y": 0.9,
+     "size": 400,
+     "beats": [
+      {
+       "action": "none"
+      },
+      {
+       "action": "parachute",
+       "word": {
+        "es": "Nicaragua",
+        "en": "Nicaragua"
+       }
+      },
+      {
+       "action": "run",
+       "word": {
+        "es": "Pilla",
+        "en": "Here's"
+       },
+       "x1": 1.25
+      }
+     ]
+    }
    ]
   },
   {
@@ -49,19 +95,65 @@
     "en": "Day one: head up to La Loma, one of the oldest Raizal neighborhoods. On top is the First Baptist Church, built of wood, with the best view on the island."
    },
    "stick": {
-    "action": "lookout",
-    "x0": 0.42,
     "y": 0.87,
     "size": 400,
-    "facing": 1
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.45
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "Primera",
+       "en": "First"
+      }
+     },
+     {
+      "action": "selfie",
+      "word": {
+       "es": "mejor",
+       "en": "best"
+      }
+     }
+    ]
    },
-   "steps": false,
    "ambience": "birds",
    "sfx": [
     {
      "kind": "bell",
      "at": 0.4,
      "gain": 0.22
+    }
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.9,
+     "size": 380,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": -0.25,
+       "x1": 0.2
+      },
+      {
+       "action": "photo",
+       "word": {
+        "es": "Iglesia",
+        "en": "Church"
+       }
+      },
+      {
+       "action": "selfie",
+       "word": {
+        "es": "mejor",
+        "en": "best"
+       },
+       "facing": 1
+      }
+     ]
     }
    ]
   },
@@ -77,13 +169,68 @@
     "en": "And listen up: locals speak Creole, a sing-song Caribbean English with African roots that sounds a lot like Jamaican. It's been official since 1991, and many Raizales also speak Spanish and English. Total calm."
    },
    "stick": {
-    "action": "wave",
-    "x0": 0.55,
+    "x0": 0.6,
     "y": 0.88,
     "size": 420,
-    "facing": -1
+    "facing": -1,
+    "beats": [
+     {
+      "action": "wave"
+     },
+     {
+      "action": "laugh",
+      "word": {
+       "es": "cantadito",
+       "en": "sing-song"
+      }
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "oficial",
+       "en": "official"
+      },
+      "facing": -1
+     },
+     {
+      "action": "shrug",
+      "word": {
+       "es": "también",
+       "en": "also"
+      }
+     }
+    ]
    },
-   "ambience": "birds"
+   "ambience": "birds",
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.28,
+     "y": 0.9,
+     "size": 390,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "Jamaica",
+        "en": "Jamaican"
+       }
+      },
+      {
+       "action": "dance",
+       "word": {
+        "es": "Calma",
+        "en": "calm"
+       },
+       "speed": 0.7
+      }
+     ]
+    }
+   ]
   },
   {
    "key": "bigpond",
@@ -97,14 +244,57 @@
     "en": "Then down to Big Pond, a freshwater lagoon in the jungle. Total quiet, birds singing, turtles sunbathing, iguanas in the trees and caimans poking their noses out. Careful, keep your hands out of the water!"
    },
    "stick": {
-    "action": "photo",
-    "x0": 0.4,
     "y": 0.81,
     "size": 360,
-    "facing": 1
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.62,
+      "x1": 0.45,
+      "facing": -1
+     },
+     {
+      "action": "photo",
+      "word": {
+       "es": "tortugas",
+       "en": "turtles"
+      },
+      "facing": 1
+     },
+     {
+      "action": "scared",
+      "word": {
+       "es": "caimanes",
+       "en": "caimans"
+      },
+      "facing": 1
+     }
+    ]
    },
    "ambience": "birds",
-   "action_sfx": true
+   "action_sfx": true,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.26,
+     "y": 0.79,
+     "size": 330,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "sit"
+      },
+      {
+       "action": "scared",
+       "word": {
+        "es": "caimanes",
+        "en": "caimans"
+       },
+       "y": 0.81
+      }
+     ]
+    }
+   ]
   },
   {
    "key": "johnnycay",
@@ -118,11 +308,32 @@
     "en": "Day two: boat to Johnny Cay, a palm-covered islet about a mile off town. Reggae playing, people sunbathing, coco locos everywhere and fried fish with patacón. Go early, it's packed by noon."
    },
    "stick": {
-    "action": "dance",
-    "x0": 0.45,
-    "y": 0.55,
-    "size": 260,
-    "facing": 1
+    "size": 290,
+    "beats": [
+     {
+      "action": "kayak",
+      "x0": -0.2,
+      "x1": 0.35,
+      "y": 0.63,
+      "size": 300
+     },
+     {
+      "action": "dance",
+      "word": {
+       "es": "Reggae",
+       "en": "Reggae"
+      },
+      "x0": 0.45,
+      "y": 0.55
+     },
+     {
+      "action": "eat",
+      "word": {
+       "es": "pescado",
+       "en": "fish"
+      }
+     }
+    ]
    },
    "pop": {
     "icon": "fish",
@@ -155,11 +366,25 @@
      "speed": 0.8
     },
     {
-     "action": "sip",
+     "look": "buddy",
      "x0": 0.76,
      "y": 0.525,
-     "size": 240,
-     "facing": -1
+     "size": 250,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "dance",
+       "speed": 1.1
+      },
+      {
+       "action": "sip",
+       "word": {
+        "es": "coco",
+        "en": "coco"
+       },
+       "mood": "love"
+      }
+     ]
     },
     {
      "action": "dance",
@@ -190,14 +415,59 @@
     "en": "Next, El Acuario: a sandbar with knee-deep water, colorful fish and stingrays gliding past your feet. Wade across to Haynes Cay and just float. So good!"
    },
    "stick": {
-    "action": "float",
-    "x0": 0.45,
     "y": 0.8,
-    "size": 300,
-    "facing": 1
+    "size": 360,
+    "beats": [
+     {
+      "action": "wade",
+      "x0": 0.12,
+      "x1": 0.4
+     },
+     {
+      "action": "float",
+      "word": {
+       "es": "flotando",
+       "en": "float"
+      },
+      "x0": 0.45
+     }
+    ]
    },
    "ambience": "waves",
-   "action_sfx": false
+   "action_sfx": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.72,
+     "size": 300,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "swim",
+       "x0": 0.85,
+       "x1": 0.65
+      },
+      {
+       "action": "wade",
+       "word": {
+        "es": "Caminas",
+        "en": "Wade"
+       },
+       "x0": 0.7,
+       "x1": 0.6,
+       "y": 0.78
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "chimba",
+        "en": "good"
+       },
+       "y": 0.78
+      }
+     ]
+    }
+   ]
   },
   {
    "key": "rockycay",
@@ -211,12 +481,30 @@
     "en": "Day three: start at San Luis, the quiet side of the island, and walk through the water to Rocky Cay. Right next to it sits the sunken ship, rusty and full of fish. Bring a snorkel, it's worth it."
    },
    "stick": {
-    "action": "wade",
-    "x0": 0.15,
-    "x1": 0.45,
     "y": 0.86,
     "size": 340,
-    "facing": 1
+    "beats": [
+     {
+      "action": "wade",
+      "x0": 0.12,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "barco",
+       "en": "ship"
+      }
+     },
+     {
+      "action": "swim",
+      "word": {
+       "es": "careta",
+       "en": "snorkel"
+      },
+      "x1": 0.6
+     }
+    ]
    },
    "pop": {
     "icon": "camera",
@@ -240,6 +528,31 @@
      "at": 2.2,
      "gain": 0.1
     }
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.7,
+     "size": 300,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "kayak",
+       "x0": 1.2,
+       "x1": 0.7
+      },
+      {
+       "action": "kayak",
+       "word": {
+        "es": "barco",
+        "en": "ship"
+       },
+       "x0": 0.7,
+       "x1": 0.6,
+       "speed": 0.6
+      }
+     ]
+    }
    ]
   },
   {
@@ -254,16 +567,64 @@
     "en": "In the afternoon, West View: a natural pool with crystal-clear water. Jump off the diving board, take the slide, and at La Piscinita the fish eat bread from your hand. Tip: wear water shoes, it's rock and coral."
    },
    "stick": {
-    "action": "dive",
-    "x0": 0.6,
-    "x1": 0.3,
-    "y": 0.665,
-    "y1": 0.83,
     "size": 260,
-    "facing": -1
+    "beats": [
+     {
+      "action": "stand",
+      "x0": 0.6,
+      "y": 0.665,
+      "facing": -1
+     },
+     {
+      "action": "dive",
+      "word": {
+       "es": "tiras",
+       "en": "Jump"
+      },
+      "x1": 0.3,
+      "y1": 0.83
+     },
+     {
+      "action": "swim",
+      "word": {
+       "es": "Piscinita",
+       "en": "Piscinita"
+      },
+      "x0": 0.3,
+      "x1": 0.2,
+      "y": 0.83
+     }
+    ]
    },
    "ambience": "waves",
-   "action_sfx": true
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.72,
+     "y": 0.6,
+     "size": 230,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "celebrate",
+       "word": {
+        "es": "tiras",
+        "en": "Jump"
+       }
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "pan",
+        "en": "bread"
+       }
+      }
+     ]
+    }
+   ]
   },
   {
    "key": "atardecer",
@@ -277,11 +638,23 @@
     "en": "And finish on the west coast with a coco loco: rum, vodka and tequila served in a coconut. Caribbean music, a sea breeze, and the sun sinking into the sea."
    },
    "stick": {
-    "action": "sip",
     "x0": 0.3,
     "y": 0.965,
     "size": 620,
-    "facing": 1
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sip"
+     },
+     {
+      "action": "sip",
+      "word": {
+       "es": "sol",
+       "en": "sun"
+      },
+      "mood": "love"
+     }
+    ]
    },
    "pop": {
     "icon": "heart",
@@ -306,12 +679,24 @@
    ],
    "crowd": [
     {
-     "action": "dance",
+     "look": "buddy",
      "x0": 0.74,
      "y": 0.95,
-     "size": 520,
+     "size": 540,
      "facing": -1,
-     "speed": 0.9
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "dance",
+       "word": {
+        "es": "Música",
+        "en": "music"
+       },
+       "speed": 0.9
+      }
+     ]
     }
    ]
   },
@@ -323,17 +708,53 @@
     "en": "Three days, seven colors, zero stress. Save this for your trip!"
    },
    "stick": {
-    "action": "celebrate",
-    "x0": 0.68,
     "y": 0.9,
     "size": 420,
-    "facing": -1
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.2,
+      "x1": 0.68,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": {
+       "es": "Guárdalo",
+       "en": "Save"
+      },
+      "facing": -1
+     }
+    ]
    },
    "ambience": [
     "waves",
     "steeldrum"
    ],
-   "action_sfx": true
+   "action_sfx": true,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.92,
+     "size": 400,
+     "beats": [
+      {
+       "action": "run",
+       "x0": -0.35,
+       "x1": 0.45,
+       "facing": 1
+      },
+      {
+       "action": "wave",
+       "word": {
+        "es": "Guárdalo",
+        "en": "Save"
+       },
+       "facing": 1
+      }
+     ]
+    }
+   ]
   }
  ],
  "caption": {
