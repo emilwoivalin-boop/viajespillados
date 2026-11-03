@@ -60,7 +60,8 @@ este plan, parce." The last scene wraps up + "Guárdalo pa' tu viaje" and may en
 **English (en)** – the same content and rhythm, natural punchy English (a Colombian word here and there is
 fine, e.g. "parce"), "Day one:", "Day two:"… **No Viajes Pillados, no website, no logo.** Ends with
 "Save this for your trip!" or similar.
-Only facts you are sure of; no prices, no airlines, no dates.
+Only facts you are sure of (the picked facts have a source; historic years from them are fine); no prices,
+no airlines, no travel dates.
 
 **Picture prompts** (English, one per scene, numbered 1…N in scene order). These can be more detailed than
 the daily Reels. Each = style block + scene + layout rule:
