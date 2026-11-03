@@ -15,6 +15,20 @@
  },
  {
   "kind": "photos",
+  "title": "Portada: San Andrés en 3 días",
+  "files": [
+   "trips/san-andres-3-dias/cover_es.jpg",
+   "trips/san-andres-3-dias/cover_en.jpg"
+  ],
+  "caption": "Portada del video de San Andrés (ES con viajespillados.com, EN sin marca). Úsala como miniatura en YouTube o portada en TikTok.",
+  "yt_title": "",
+  "instagram": "https://www.instagram.com/reel/DfTAXpNFH_t/",
+  "at": "2026-11-03 17:57",
+  "id": "photos-2026-11-03 17:57-cover",
+  "destinos": []
+ },
+ {
+  "kind": "photos",
   "title": "Ofertas: Puerto Plata, Santiago de Chile",
   "files": [
    "instagram/img/puerto-plata-2026-11-03-715639.jpg",
