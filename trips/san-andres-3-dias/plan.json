@@ -766,5 +766,9 @@
   "en": "+38%"
  },
  "pad": 0.08,
- "end_hold": 1.0
+ "end_hold": 1.0,
+ "publish_caption": {
+  "es": "San Andrés en 3 días 🌴 La Loma y el creole raizal, la laguna Big Pond, Johnny Cay, El Acuario, Rocky Cay y su barco hundido, West View y un atardecer con coco loco. Guárdalo pa' tu viaje 🇨🇴\n\nLos vuelos baratos desde Bogotá, en viajespillados.com – link en la bio.\n\n#viajespillados #sanandres #sanandresisla #viajesencolombia #caribecolombiano #planesdeviaje #mardesietecolores"
+ },
+ "thumb_offset_ms": 2500
 }

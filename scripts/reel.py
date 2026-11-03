@@ -811,6 +811,46 @@ def publish(rid):
     ig.summary(f"✅ Reel publicado: {permalink}")
 
 
+def publish_trip(tid, lang="es"):
+    """Post a finished travel-plan video (branch trip-videos) as an Instagram Reel – only when the owner asks.
+    The video is copied to main (trips/<id>/video_<lang>.mp4) so the website can serve it to Instagram/X/Facebook."""
+    base = os.path.join(ROOT, "trips", tid)
+    done = os.path.join(base, f"published_{lang}.json")
+    if os.path.exists(done):
+        ig.summary(f"{tid} ({lang}) ya estaba publicado: {open(done).read()}")
+        return
+    rel = f"trips/{tid}/video_{lang}.mp4"
+    with open(os.path.join(ROOT, rel), "wb") as f:
+        f.write(subprocess.run(["git", "show", f"origin/trip-videos:{tid}/video_{lang}.mp4"], cwd=ROOT,
+                               check=True, capture_output=True).stdout)
+    ig.commit_push([rel], f"Travel video for Instagram: {tid} ({lang})")
+    url = ig.public_image_url(rel)
+    plan = json.load(open(os.path.join(base, "plan.json")))
+    caption = (plan.get("publish_caption") or {}).get(lang) or (plan.get("caption") or {}).get(lang, "")
+    uid = os.environ["IG_USER_ID"]
+    c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=caption, share_to_feed="true",
+               thumb_offset=str(plan.get("thumb_offset_ms", 2500)))["id"]
+    for _ in range(90):
+        st = ig.api("GET", c, fields="status_code,status")
+        if st.get("status_code") == "FINISHED":
+            break
+        if st.get("status_code") in ("ERROR", "EXPIRED"):
+            raise RuntimeError(f"Instagram no pudo procesar el video: {st}")
+        time.sleep(10)
+    media_id, permalink = ig.finish(c)
+    with open(done, "w") as f:
+        json.dump({"media_id": media_id, "permalink": permalink}, f)
+    import tiktok_feed
+    feed = tiktok_feed.add("video", f"Plan de viaje: {plan.get('destino', tid)}", [rel], caption, permalink,
+                           destinos=[plan["destino"]] if plan.get("destino") else None)
+    import x_post
+    xp = x_post.share_latest()
+    import fb_post
+    xp += fb_post.share_latest()
+    ig.commit_push([done, feed] + xp, f"Travel video publicado: {tid} ({lang})")
+    ig.summary(f"✅ Travel video publicado: {permalink}")
+
+
 if __name__ == "__main__":
     import traceback
     mode, rid = sys.argv[1], sys.argv[2]
@@ -858,11 +898,15 @@ if __name__ == "__main__":
             ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
         elif mode == "publish":
             publish(rid)
+        elif mode == "trip-publish":   # travel-plan video, Spanish, on the owner's request only
+            subprocess.run(["git", "fetch", "-q", "origin", "trip-videos:refs/remotes/origin/trip-videos"], cwd=ROOT,
+                           check=True)
+            publish_trip(rid, "es")
     except Exception as e:
         err = traceback.format_exc()
         if isinstance(e, subprocess.CalledProcessError) and e.stderr:
             err += "\n--- ffmpeg ---\n" + e.stderr.decode(errors="ignore")[-3000:]
-        path = os.path.join(ROOT, "trips" if mode == "trip" else "reels", rid, "error.txt")
+        path = os.path.join(ROOT, "trips" if mode.startswith("trip") else "reels", rid, "error.txt")
         with open(path, "w") as f:
             f.write(err)
         ig.commit_push([path], f"Reel: error {rid}")

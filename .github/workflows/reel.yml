@@ -7,7 +7,7 @@ on:
       mode:
         description: "render = solo crear el video (vista previa) · publish = crear y publicar en Instagram"
         type: choice
-        options: [render, publish, images, fetch]
+        options: [render, publish, images, fetch, trip-publish]
         default: render
       id:
         description: "Carpeta del reel en reels/ (ej. aruba-abril-2027)"
@@ -23,7 +23,7 @@ concurrency:
 jobs:
   reel:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6

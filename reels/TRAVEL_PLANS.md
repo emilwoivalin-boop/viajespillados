@@ -119,4 +119,7 @@ If the owner asks for changes, edit and resend only what changed.
    `~/Movies/Viajes Pillados - Travel plans/<Destino>/<Destino> – ES.mp4`, same for EN, plus the captions as
    `captions.txt`). Reply in 2–3 lines: where they are, length of each video, and offer one tweak.
 
-Never publish these videos anywhere and never commit them to `main` (the website serves `main`).
+Don't publish these videos unless the owner asks for a specific one. When asked: add `publish_caption` {es} (and optional
+`thumb_offset_ms`) to `trips/<id>/plan.json`, then run reel.yml with mode `trip-publish` and the trip id – it posts the Spanish
+video as a Reel on Viajes Pillados (and the usual X/Facebook/TikTok feed) and writes `trips/<id>/published_es.json`.
+Otherwise keep them off `main` (the website serves `main`).
