@@ -10,8 +10,7 @@ and returns the time left for layovers:
     -> {"verdict": "ok", "layover_h": 3.0, "flying_h": 8.0, "via": "PTY", ...}
 
 verdict: "ok"       est. layover < 3.5 h (2+ stops: < 3.5 h per stop on average)  -> post
-         "reject"   1 stop, est. layover 4.5–6.5 h (the forbidden 4–6 h band)          -> don't post
-         "review"   1 stop, 3.5–4.5 h (borderline) or >= 6.5 h (maybe a day to explore); 2+ stops with longer
+         "review"   1 stop, 3.5 h or more (borderline, 4–6 h, or long/overnight); 2+ stops with longer
                     layovers; or travel time/airport unknown                            -> owner checks it
 Non-stop flights are always "ok". The estimate is about ±1 h (Google rounds the travel time to whole hours).
 """
@@ -108,7 +107,7 @@ def check(orig, dest, airline, stops, total_h):
         elif lay < 4.5:
             verdict, why = "review", f"~{lay:.1f} h layover via {via} – borderline (limit 4 h)"
         elif lay < 6.5:
-            verdict, why = "reject", f"~{lay:.0f} h layover via {via} – 4–6 h, no time to leave the airport"
+            verdict, why = "review", f"~{lay:.0f} h layover via {via} – 4–6 h: check if it works"
         else:
             verdict, why = "review", f"~{lay:.0f} h layover via {via} – long: check if there is daytime to explore"
     else:
