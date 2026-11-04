@@ -6,7 +6,7 @@
 main{max-width:640px;margin:0 auto;padding:20px 16px 60px}h1{font-size:26px;margin:6px 0 4px}p.sub{color:var(--muted);margin:0 0 18px}
 .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}.card.done{opacity:.55}
 .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.top b{font-size:17px}.top small{color:var(--muted);white-space:nowrap}
-.media{display:flex;gap:8px;overflow-x:auto;margin:12px 0;padding-bottom:4px}.media img{height:180px;border-radius:10px}.media video{width:100%;max-height:420px;border-radius:10px;background:#000}
+.media{display:flex;gap:8px;overflow-x:auto;margin:12px 0;padding-bottom:4px}.media img{height:180px;border-radius:10px}.media video{flex:1 1 auto;min-width:0;width:100%;max-height:420px;border-radius:10px;background:#000}.media video+img{height:auto;max-height:420px;width:34%;object-fit:cover}
 button,a.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:999px;padding:11px 16px;font:700 15px system-ui,sans-serif;cursor:pointer;text-decoration:none;margin:4px 6px 4px 0}
 .primary{background:var(--coral);color:#fff}.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)!important}
 textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:10px;padding:10px;font:14px/1.4 system-ui,sans-serif;color:var(--navy);margin-top:8px}
@@ -57,14 +57,14 @@ fetch("feed.json?_="+Date.now()).then(r=>r.json()).then(feed=>{
     const allDone=()=>done[it.id]&&(!yt||done[it.id+"|yt"]);
     const c=document.createElement("div");c.className="card"+(allDone()?" done":"");
     const media=it.kind==="video"
-      ?`<video src="${esc(url(it.files[0]))}" controls playsinline preload="metadata"></video>`
+      ?`<video src="${esc(url(it.files[0]))}" controls playsinline preload="metadata"></video>`+it.files.slice(1).map(p=>`<img src="${esc(url(p))}" alt="Portada" loading="lazy">`).join("")
       :it.files.map(p=>`<img src="${esc(url(p))}" alt="" loading="lazy">`).join("");
     c.innerHTML=`<div class="top"><b>${esc(it.title)}</b><small>${esc(it.at)}</small></div>
       <div class="media">${media}</div>
-      <button class="primary sh">${it.kind==="video"?"Guardar video":"Guardar "+it.files.length+" fotos"}</button>
+      <button class="primary sh">${it.kind==="video"?(it.files.length>1?"Guardar video + portada":"Guardar video"):"Guardar "+it.files.length+" fotos"}</button>
       <button class="ghost cp">Copiar texto</button>${yt?`<button class="ghost ct">Copiar título (YouTube)</button>`:""}
       <textarea readonly>${esc(it.caption)}</textarea>
-      <div class="links">${it.files.map((p,i)=>`<a href="${esc(url(p))}" download>Archivo ${i+1}</a>`).join(" · ")}${it.instagram?` · <a href="${esc(it.instagram)}" target="_blank" rel="noopener">Ver en Instagram</a>`:""}</div>
+      <div class="links">${it.files.map((p,i)=>`<a href="${esc(url(p))}" download>${it.kind==="video"?(i?"Portada":"Video"):"Archivo "+(i+1)}</a>`).join(" · ")}${it.instagram?` · <a href="${esc(it.instagram)}" target="_blank" rel="noopener">Ver en Instagram</a>`:""}</div>
       <label class="chk"><input type="checkbox" class="tk" ${done[it.id]?"checked":""}> En TikTok</label>${yt?`<label class="chk"><input type="checkbox" class="yt" ${done[it.id+"|yt"]?"checked":""}> En YouTube</label>`:""}`;
     c.querySelector(".sh").onclick=e=>share(it,e.currentTarget);
     c.querySelector(".cp").onclick=e=>{const t=c.querySelector("textarea");

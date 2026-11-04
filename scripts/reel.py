@@ -820,7 +820,8 @@ def publish(rid):
         destino = [json.load(open(os.path.join(base, "plan.json")))["offer"]["destino"]]
     except Exception:
         destino = None
-    feed = tiktok_feed.add("video", "Reel: " + sb.get("end", {}).get("title", rid), [rel], sb.get("caption", ""),
+    files = [rel] + ([f"reels/{rid}/cover_ig.jpg"] if os.path.exists(os.path.join(base, "cover_ig.jpg")) else [])
+    feed = tiktok_feed.add("video", "Reel: " + sb.get("end", {}).get("title", rid), files, sb.get("caption", ""),
                            permalink, destinos=destino)
     import x_post        # same Reel on X (skipped if the X keys are not set)
     xp = x_post.share_latest()
