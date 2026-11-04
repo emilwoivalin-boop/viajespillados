@@ -125,8 +125,9 @@ def age_days(date_str):
 
 def approved(o):
     """Every offer shown on the website is posted on Instagram:
-    only "no" in column A (Publicar) or column N (Instagram) keeps it off Instagram."""
-    return slug(o["publicar"]) != "no" and slug(o["instagram"]) != "no"
+    only "no" in column A (Publicar) or column N (Instagram) keeps it off Instagram; "revisar" in A means the
+    owner still has to check the layovers, so it stays off too until it is changed to "sí"."""
+    return slug(o["publicar"]) not in ("no", "revisar") and slug(o["instagram"]) != "no"
 
 
 # ---------------------------------------------------------------- state

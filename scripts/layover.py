@@ -1,5 +1,6 @@
-"""Layover check for flight deals (owner's rule: no layover of 4 hours or more – 4–6 h is too short to leave the
-airport and too long to wait, and longer ones are usually overnight).
+"""Layover check for flight deals. Owner's rule: layovers under 4 h are fine; 4–6 h is forbidden (too short to
+leave the airport, too long to wait); longer layovers (also overnight) are fine ONLY if the traveller gets daytime to
+explore the layover city – the alerts don't show clock times, so those go to the owner for a manual check.
 
 Google Flights alerts only give the total travel time, the number of stops and the end airports
 ("COPA · 1 stop · BOG–CNF · 11 hrs"). This script estimates the pure flying time through the airline's hub(s)
@@ -8,9 +9,10 @@ and returns the time left for layovers:
     python scripts/layover.py BOG CNF "COPA" 1 11
     -> {"verdict": "ok", "layover_h": 3.0, "flying_h": 8.0, "via": "PTY", ...}
 
-verdict: "ok"         estimated layover(s) below the limit -> may be posted
-         "too_long"   1 stop: >= 4 h of layover; 2+ stops: >= 3.5 h per stop on average (=> one of them is long)
-         "unknown"    travel time or airports missing -> can't verify, don't post a deal with stops
+verdict: "ok"       est. layover < 3.5 h (2+ stops: < 3.5 h per stop on average)  -> post
+         "reject"   1 stop, est. layover 4.5–6.5 h (the forbidden 4–6 h band)          -> don't post
+         "review"   1 stop, 3.5–4.5 h (borderline) or >= 6.5 h (maybe a day to explore); 2+ stops with longer
+                    layovers; or travel time/airport unknown                            -> owner checks it
 Non-stop flights are always "ok". The estimate is about ±1 h (Google rounds the travel time to whole hours).
 """
 import csv
@@ -22,8 +24,6 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LIMIT_1 = 4.0          # hours of layover with one stop
-LIMIT_AVG = 3.5        # average hours per stop with two or more stops
 
 # main connection airports per airline (lowercase name fragments)
 HUBS = {
@@ -86,7 +86,7 @@ def check(orig, dest, airline, stops, total_h):
     if stops == 0:
         return {"verdict": "ok", "layover_h": 0.0, "why": "non-stop"}
     if not total_h or orig not in airports() or dest not in airports():
-        return {"verdict": "unknown", "why": "no travel time" if not total_h else "unknown airport"}
+        return {"verdict": "review", "layover_h": None, "why": "travel time unknown – check the layovers" if not total_h else "unknown airport – check the layovers"}
     total_h = float(total_h)
     hubs = [h for h in hubs_for(airline) if h in airports() and h not in (orig, dest)]
     need = min(stops, 2)
@@ -102,10 +102,23 @@ def check(orig, dest, airline, stops, total_h):
             best = (fly, "–".join(combo))
     fly, via = best
     lay = max(0.0, total_h - fly)
-    too_long = lay >= LIMIT_1 if stops == 1 else lay / stops >= LIMIT_AVG
-    return {"verdict": "too_long" if too_long else "ok", "layover_h": round(lay, 1), "flying_h": round(fly, 1),
+    if stops == 1:
+        if lay < 3.5:
+            verdict, why = "ok", f"~{lay:.0f} h layover via {via}"
+        elif lay < 4.5:
+            verdict, why = "review", f"~{lay:.1f} h layover via {via} – borderline (limit 4 h)"
+        elif lay < 6.5:
+            verdict, why = "reject", f"~{lay:.0f} h layover via {via} – 4–6 h, no time to leave the airport"
+        else:
+            verdict, why = "review", f"~{lay:.0f} h layover via {via} – long: check if there is daytime to explore"
+    else:
+        if lay / stops < 3.5:
+            verdict, why = "ok", f"~{lay:.0f} h of layovers in total ({stops} stops)"
+        else:
+            verdict, why = "review", f"~{lay:.0f} h of layovers in total ({stops} stops) – check them"
+    return {"verdict": verdict, "layover_h": round(lay, 1), "flying_h": round(fly, 1),
             "via": via, "stops": stops, "total_h": total_h,
-            "why": f"~{lay:.0f} h of layover via {via}" + (" (limit 4 h)" if too_long else "")}
+            "why": why}
 
 
 def parse_alert_line(line):

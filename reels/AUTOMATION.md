@@ -45,7 +45,7 @@ Common facts
 
 1. Today = Bogotá date. If `reels/daily.json` already has today with status other than `skipped`, stop (already done).
 2. **Pick the offer** ("best tracked offer"):
-   - Candidates = rows of `Ofertas` with A Publicar ≠ "no", a ROUND-TRIP date in P (`YYYY-MM-DD/YYYY-MM-DD`), departure at least
+   - Candidates = rows of `Ofertas` with A Publicar = "sí" (never "no" or "revisar"), a ROUND-TRIP date in P (`YYYY-MM-DD/YYYY-MM-DD`), departure at least
      4 days from today, and the Destino present in column A of `Qué hacer (captions)`.
    - Exclude destinations that already had a daily Reel in the last 14 days (`reels/daily.json`, statuses other than `skipped`),
      and the exact same offer (destino + dates) ever.

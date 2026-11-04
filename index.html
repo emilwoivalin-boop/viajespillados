@@ -272,7 +272,7 @@ function renderFilters(){
 
 (async()=>{
   const offers=await loadOffers();
-  ALL=offers.filter(o=>!/^no$/i.test(String(o.publicar||"").trim()))
+  ALL=offers.filter(o=>!/^(no|revisar)$/i.test(String(o.publicar||"").trim()))
             .map(o=>({...o, age:ageDays(o.publicado)}))
             .filter(o=>o.age>=0 && o.age<CONFIG.KEEP_DAYS)   // más de 3 semanas: ya no se muestra
             .sort((a,b)=>a.age-b.age);
