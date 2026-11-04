@@ -1,0 +1,235 @@
+{
+ "id": "caracas-2027-04-01",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Jueves 1 de abril. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Caracas!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Dos horas de vuelo directo, y abajo aparecen montañas verdes cayendo al mar Caribe.",
+   "media": {
+    "type": "file",
+    "path": "reels/caracas-2027-04-01/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Caracas! Aterrizas junto al mar, con la montaña verde de El Ávila justo enfrente.",
+   "media": {
+    "type": "file",
+    "path": "reels/caracas-2027-04-01/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.86,
+    "size": 420,
+    "beats": [
+     {
+      "action": "parachute",
+      "x0": 0.55,
+      "facing": -1
+     },
+     {
+      "action": "point",
+      "word": "Ávila",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Ávila",
+     "x": 0.33,
+     "y": 0.4,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: subes en teleférico a El Ávila y ves toda Caracas de un lado y el mar del otro.",
+   "media": {
+    "type": "file",
+    "path": "reels/caracas-2027-04-01/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.92,
+    "size": 460,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.15,
+      "x1": 0.45,
+      "facing": 1
+     },
+     {
+      "action": "point",
+      "word": "Caracas",
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "mar"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día dos: recorres el centro histórico y descansas en la Plaza Bolívar, a la sombra, junto a la catedral.",
+   "media": {
+    "type": "file",
+    "path": "reels/caracas-2027-04-01/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.25,
+      "x1": 0.5,
+      "y": 0.96,
+      "y1": 0.82,
+      "size": 480,
+      "size1": 360
+     },
+     {
+      "action": "selfie",
+      "word": "catedral",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "bell",
+     "frac": 0.85
+    }
+   ],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día tres: vuelas a Los Roques y te tiras en arena blanquísima frente a un mar turquesa transparente.",
+   "media": {
+    "type": "file",
+    "path": "reels/caracas-2027-04-01/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.55,
+    "y": 0.86,
+    "size": 440,
+    "facing": -1,
+    "mood": "love"
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "Roques",
+     "x": 0.8,
+     "y": 0.1,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El miércoles aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Wingo, por solo 708 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "7 días en Caracas",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$707.897",
+  "detail": "ida y vuelta · 1 abr – 7 abr",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/caracas-2027-04-01/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Caracas desde Bogotá ✈️ Sube en teleférico al Ávila, recorre el centro histórico y vuela al archipiélago de Los Roques. Ida y vuelta con Wingo desde $707.897 (1 abr – 7 abr). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #caracas #ofertasdevuelos"
+}
