@@ -9,7 +9,8 @@ approved for Instagram, and publishes it with the Instagram API (Instagram Login
 Sheet columns (row 1 = headers):
   A Publicar | B Publicado (AAAA-MM-DD) | C Destino | D Aerolínea | E Precio (COP) | F Tipo
   G Escalas | H Mes de viaje | I Categoría | J Link vuelo | K Foto (URL) | L Crédito foto
-  M Link crédito | N Instagram | O Texto Instagram
+  M Link crédito | N Instagram | O Texto Instagram | P Fechas | Q Escala larga (layover city with time to
+  explore it, e.g. "Toronto" – adds a line to the caption)
 Column N decides Instagram:  "sí"/"auto" = publish,  "revisar" or empty = wait for approval,
 "no" = never.  Column O is the caption (optional; a basic caption is built if empty).
 
@@ -56,7 +57,7 @@ def load_offers():
     if not rows or not re.match(r"publicar", rows[0][0], re.I):
         sys.exit("La hoja no tiene el formato esperado (A1 = Publicar).")
     keys = ["publicar", "publicado", "destino", "aerolinea", "precio", "tipo", "escalas", "mes",
-            "categoria", "link", "foto", "credito", "credito_link", "instagram", "texto", "fechas"]
+            "categoria", "link", "foto", "credito", "credito_link", "instagram", "texto", "fechas", "escala_larga"]
     offers = []
     for i, row in enumerate(rows[1:], start=2):
         row = (row + [""] * len(keys))[: len(keys)]
@@ -381,13 +382,19 @@ def destination_caption(destinos):
         return None
 
 
+def with_layover(text, offers):
+    """Long layover the owner approved (column Q "Escala larga" = city): say there is time to explore it."""
+    import tiktok_feed
+    return tiktok_feed.with_extra(text, tiktok_feed.layover_lines(offers))[:2200]
+
+
 def caption(o):
     """Single post: text about the destination (sheet tab "Qué hacer (captions)") + hashtags.
     Column O of "Ofertas" (Texto Instagram) still overrides everything."""
     if not o["texto"]:
         text = destination_caption([o["destino"]])
         if text:
-            return text[:2200]
+            return with_layover(text, [o])
     if o["texto"]:
         body = o["texto"].replace("\\n", "\n").strip()
     else:
@@ -400,20 +407,20 @@ def caption(o):
                 parts.append(f"Ojo: {ojo}")
             parts.append("Revisa la información del vuelo en la web.")
             body = " ".join(parts)
-    return f"{headline(o)}\n\n{body}\n\n{hashtags([o])}"[:2200]
+    return with_layover(f"{headline(o)}\n\n{body}\n\n{hashtags([o])}", [o])
 
 
 def caption_carousel(offers):
     text = destination_caption(dict.fromkeys(o["destino"] for o in offers))
     if text:
-        return text[:2200]
+        return with_layover(text, offers)
     lines = ["Vuelos baratos desde Bogotá pillados hoy:", ""]
     for o in offers:
         det = ", ".join(x for x in [o["tipo"], o["escalas"], dates_short(o)] if x)
         badge = " – sin pedir días libres" if no_days_off(o) else ""
         lines.append(f"• {o['destino']} con {o['aerolinea']}: {cop(o['precio_num'])} ({det}){badge}")
     lines += ["", "Desliza para verlas todas. Revisa la información de los vuelos en la web.", "", hashtags(offers)]
-    return "\n".join(lines)[:2200]
+    return with_layover("\n".join(lines), offers)
 
 
 # ---------------------------------------------------------------- git + hosting
@@ -635,7 +642,7 @@ def main():
     import tiktok_feed   # same post, ready to repost on TikTok by hand
     text = caption(todo[0]) if len(todo) == 1 else caption_carousel(todo)
     feed = tiktok_feed.add("photos", "Ofertas: " + names, rels, text, permalink,
-                           destinos=[o["destino"] for o in todo])
+                           destinos=[o["destino"] for o in todo], extra=tiktok_feed.layover_lines(todo))
     import x_post        # same post on X (skipped if the X keys are not set)
     xp = x_post.share_latest()
     import fb_post       # and on the Facebook Page (skipped if not connected)

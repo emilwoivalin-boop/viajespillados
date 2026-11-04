@@ -204,7 +204,7 @@ async function loadOffers(){
     const list=rows.slice(1).filter(r=>r[2]).map(r=>({
       publicar:r[0], publicado:r[1], destino:r[2], aerolinea:r[3],
       precio:Number(String(r[4]).replace(/[^\d]/g,"")), tipo:r[5], escalas:r[6], mes:r[7],
-      categoria:r[8], link:r[9], foto:r[10], credito:r[11], credito_link:r[12]
+      categoria:r[8], link:r[9], foto:r[10], credito:r[11], credito_link:r[12], escala_larga:(r[16]||"").trim()
     }));
     if(list.length) await addLibraryPhotos(list);
     return list.length ? list : FALLBACK;
@@ -244,7 +244,7 @@ function render(){
   if(!list.length){grid.innerHTML='<p class="empty">No hay ofertas en esta región ahora mismo. Suscríbete y te avisamos.</p>';return;}
   grid.innerHTML=list.map(o=>{
     const link=safeUrl(o.link), foto=photo(o.foto), cl=safeUrl(o.credito_link);
-    const sub=[o.tipo,o.escalas,o.mes].filter(Boolean).join(" · ");
+    const sub=[o.tipo,o.escala_larga?`${o.escalas} (con tiempo para conocer ${o.escala_larga})`:o.escalas,o.mes].filter(Boolean).join(" · ");
     return `<article class="card">
       <a class="post" href="${esc(link)||"#"}" target="_blank" rel="noopener" data-dest="${esc(o.destino)}" ${foto?`style="background-image:url('${esc(foto)}')"`:""} aria-label="Ver vuelos a ${esc(o.destino)}">
         <div class="t">

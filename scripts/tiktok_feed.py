@@ -83,9 +83,35 @@ def destination_text(destinos, tips=None):
     return text[:2200], title[:100]
 
 
-def add(kind, title, files, caption, permalink="", destinos=None, yt_title=""):
+def layover_lines(offers):
+    """Offers with a long layover the owner approved (sheet column Q = layover city) -> one caption line each."""
+    out = []
+    for o in offers:
+        city = (o.get("escala_larga") or "").strip()
+        if not city:
+            continue
+        if len(offers) == 1:
+            out.append(f"🗺️ Bonus: la escala larga en {city} te deja tiempo para salir a conocer la ciudad.")
+        else:
+            out.append(f"🗺️ {o['destino']}: escala larga en {city}, con tiempo para salir a conocerla.")
+    return "\n".join(out)
+
+
+def with_extra(text, extra):
+    """Insert `extra` as its own paragraph before the closing question (¿Con quién irías? / ¿Cuál eliges?),
+    or before the last paragraph (hashtags)."""
+    if not extra or not text:
+        return text
+    parts = text.split("\n\n")
+    i = next((k for k, p in enumerate(parts) if p.startswith("¿")), max(len(parts) - 1, 0))
+    parts.insert(i, extra)
+    return "\n\n".join(parts)[:2200]
+
+
+def add(kind, title, files, caption, permalink="", destinos=None, yt_title="", extra=""):
     """kind: "photos" (offer images) or "video" (Reel). files: repo-relative paths.
-    destinos: destination names – used to write the TikTok/YouTube text (falls back to `caption`)."""
+    destinos: destination names – used to write the TikTok/YouTube text (falls back to `caption`).
+    extra: optional paragraph added to that text (e.g. the long-layover line)."""
     try:
         feed = json.load(open(PATH))
     except Exception:
@@ -93,7 +119,7 @@ def add(kind, title, files, caption, permalink="", destinos=None, yt_title=""):
     if destinos and not yt_title:
         text, yt = destination_text(destinos)
         if text:
-            caption, yt_title = text, yt
+            caption, yt_title = with_extra(text, extra), yt
     now = datetime.now(timezone(timedelta(hours=-5))).strftime("%Y-%m-%d %H:%M")
     feed.insert(0, {"kind": kind, "title": title, "files": files, "caption": caption, "yt_title": yt_title,
                     "instagram": permalink, "at": now, "id": f"{kind}-{now}",
