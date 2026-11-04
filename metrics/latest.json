@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-04 06:59",
+ "generado": "2026-11-04 08:17",
  "errores": {},
  "filas": [
   {
@@ -240,7 +240,7 @@
    "titulo": "",
    "enlace": "",
    "metrica": "seguidores",
-   "valor": 235
+   "valor": 245
   },
   {
    "fecha": "2026-11-04",
@@ -348,7 +348,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "me_gusta",
-   "valor": 204
+   "valor": 238
   },
   {
    "fecha": "2026-11-04",
@@ -360,7 +360,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "comentarios",
-   "valor": 4
+   "valor": 5
   },
   {
    "fecha": "2026-11-04",
@@ -372,7 +372,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "alcance",
-   "valor": 4996
+   "valor": 5575
   },
   {
    "fecha": "2026-11-04",
@@ -384,7 +384,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "vistas",
-   "valor": 5869
+   "valor": 6475
   },
   {
    "fecha": "2026-11-04",
@@ -396,7 +396,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "guardados",
-   "valor": 69
+   "valor": 83
   },
   {
    "fecha": "2026-11-04",
@@ -408,7 +408,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "compartidos",
-   "valor": 93
+   "valor": 107
   },
   {
    "fecha": "2026-11-04",
@@ -420,7 +420,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "interacciones",
-   "valor": 379
+   "valor": 442
   },
   {
    "fecha": "2026-11-04",
@@ -456,139 +456,175 @@
    "titulo": "Puerto Plata, Santiago de Chile",
    "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
    "metrica": "alcance",
+   "valor": 13
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18119868083095191",
+   "publicado": "2026-11-03 19:28",
+   "destinos": "Puerto Plata, Santiago de Chile",
+   "titulo": "Puerto Plata, Santiago de Chile",
+   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
+   "metrica": "vistas",
+   "valor": 47
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18119868083095191",
+   "publicado": "2026-11-03 19:28",
+   "destinos": "Puerto Plata, Santiago de Chile",
+   "titulo": "Puerto Plata, Santiago de Chile",
+   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18119868083095191",
+   "publicado": "2026-11-03 19:28",
+   "destinos": "Puerto Plata, Santiago de Chile",
+   "titulo": "Puerto Plata, Santiago de Chile",
+   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18119868083095191",
+   "publicado": "2026-11-03 19:28",
+   "destinos": "Puerto Plata, Santiago de Chile",
+   "titulo": "Puerto Plata, Santiago de Chile",
+   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
+   "metrica": "interacciones",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17913946392515064",
+   "publicado": "2026-11-03 17:21",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "metrica": "me_gusta",
+   "valor": 68
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17913946392515064",
+   "publicado": "2026-11-03 17:21",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "metrica": "comentarios",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17913946392515064",
+   "publicado": "2026-11-03 17:21",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "metrica": "alcance",
+   "valor": 2441
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17913946392515064",
+   "publicado": "2026-11-03 17:21",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "metrica": "vistas",
+   "valor": 2827
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17913946392515064",
+   "publicado": "2026-11-03 17:21",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "metrica": "guardados",
    "valor": 12
   },
   {
    "fecha": "2026-11-04",
    "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18119868083095191",
-   "publicado": "2026-11-03 19:28",
-   "destinos": "Puerto Plata, Santiago de Chile",
-   "titulo": "Puerto Plata, Santiago de Chile",
-   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
-   "metrica": "vistas",
-   "valor": 43
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18119868083095191",
-   "publicado": "2026-11-03 19:28",
-   "destinos": "Puerto Plata, Santiago de Chile",
-   "titulo": "Puerto Plata, Santiago de Chile",
-   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18119868083095191",
-   "publicado": "2026-11-03 19:28",
-   "destinos": "Puerto Plata, Santiago de Chile",
-   "titulo": "Puerto Plata, Santiago de Chile",
-   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
+   "tipo": "reel",
+   "id": "17913946392515064",
+   "publicado": "2026-11-03 17:21",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
    "metrica": "compartidos",
+   "valor": 9
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "17913946392515064",
+   "publicado": "2026-11-03 17:21",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "metrica": "interacciones",
+   "valor": 91
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18112411292617762",
+   "publicado": "2026-11-03 03:57",
+   "destinos": "Montego Bay, São Paulo",
+   "titulo": "Montego Bay, São Paulo",
+   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
+   "metrica": "me_gusta",
    "valor": 0
   },
   {
    "fecha": "2026-11-04",
    "canal": "instagram",
    "tipo": "carrusel",
-   "id": "18119868083095191",
-   "publicado": "2026-11-03 19:28",
-   "destinos": "Puerto Plata, Santiago de Chile",
-   "titulo": "Puerto Plata, Santiago de Chile",
-   "enlace": "https://www.instagram.com/p/DfSoemUHb80/",
-   "metrica": "interacciones",
-   "valor": 1
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "17913946392515064",
-   "publicado": "2026-11-03 17:21",
-   "destinos": "Montego Bay",
-   "titulo": "Montego Bay",
-   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
-   "metrica": "me_gusta",
-   "valor": 66
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "17913946392515064",
-   "publicado": "2026-11-03 17:21",
-   "destinos": "Montego Bay",
-   "titulo": "Montego Bay",
-   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "id": "18112411292617762",
+   "publicado": "2026-11-03 03:57",
+   "destinos": "Montego Bay, São Paulo",
+   "titulo": "Montego Bay, São Paulo",
+   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
    "metrica": "comentarios",
-   "valor": 1
+   "valor": 0
   },
   {
    "fecha": "2026-11-04",
    "canal": "instagram",
-   "tipo": "reel",
-   "id": "17913946392515064",
-   "publicado": "2026-11-03 17:21",
-   "destinos": "Montego Bay",
-   "titulo": "Montego Bay",
-   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
+   "tipo": "carrusel",
+   "id": "18112411292617762",
+   "publicado": "2026-11-03 03:57",
+   "destinos": "Montego Bay, São Paulo",
+   "titulo": "Montego Bay, São Paulo",
+   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
    "metrica": "alcance",
-   "valor": 2414
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "17913946392515064",
-   "publicado": "2026-11-03 17:21",
-   "destinos": "Montego Bay",
-   "titulo": "Montego Bay",
-   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
-   "metrica": "vistas",
-   "valor": 2799
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "17913946392515064",
-   "publicado": "2026-11-03 17:21",
-   "destinos": "Montego Bay",
-   "titulo": "Montego Bay",
-   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
-   "metrica": "guardados",
-   "valor": 11
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "17913946392515064",
-   "publicado": "2026-11-03 17:21",
-   "destinos": "Montego Bay",
-   "titulo": "Montego Bay",
-   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
-   "metrica": "compartidos",
-   "valor": 7
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "reel",
-   "id": "17913946392515064",
-   "publicado": "2026-11-03 17:21",
-   "destinos": "Montego Bay",
-   "titulo": "Montego Bay",
-   "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
-   "metrica": "interacciones",
-   "valor": 86
+   "valor": 17
   },
   {
    "fecha": "2026-11-04",
@@ -599,6 +635,54 @@
    "destinos": "Montego Bay, São Paulo",
    "titulo": "Montego Bay, São Paulo",
    "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
+   "metrica": "vistas",
+   "valor": 46
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18112411292617762",
+   "publicado": "2026-11-03 03:57",
+   "destinos": "Montego Bay, São Paulo",
+   "titulo": "Montego Bay, São Paulo",
+   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18112411292617762",
+   "publicado": "2026-11-03 03:57",
+   "destinos": "Montego Bay, São Paulo",
+   "titulo": "Montego Bay, São Paulo",
+   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18112411292617762",
+   "publicado": "2026-11-03 03:57",
+   "destinos": "Montego Bay, São Paulo",
+   "titulo": "Montego Bay, São Paulo",
+   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
+   "metrica": "interacciones",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-04",
+   "canal": "instagram",
+   "tipo": "carrusel",
+   "id": "18145618024581464",
+   "publicado": "2026-11-02 21:41",
+   "destinos": "La Habana, Aruba",
+   "titulo": "La Habana, Aruba",
+   "enlace": "https://www.instagram.com/p/DfQS7GFAT41/",
    "metrica": "me_gusta",
    "valor": 0
   },
@@ -606,11 +690,11 @@
    "fecha": "2026-11-04",
    "canal": "instagram",
    "tipo": "carrusel",
-   "id": "18112411292617762",
-   "publicado": "2026-11-03 03:57",
-   "destinos": "Montego Bay, São Paulo",
-   "titulo": "Montego Bay, São Paulo",
-   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
+   "id": "18145618024581464",
+   "publicado": "2026-11-02 21:41",
+   "destinos": "La Habana, Aruba",
+   "titulo": "La Habana, Aruba",
+   "enlace": "https://www.instagram.com/p/DfQS7GFAT41/",
    "metrica": "comentarios",
    "valor": 0
   },
@@ -618,11 +702,11 @@
    "fecha": "2026-11-04",
    "canal": "instagram",
    "tipo": "carrusel",
-   "id": "18112411292617762",
-   "publicado": "2026-11-03 03:57",
-   "destinos": "Montego Bay, São Paulo",
-   "titulo": "Montego Bay, São Paulo",
-   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
+   "id": "18145618024581464",
+   "publicado": "2026-11-02 21:41",
+   "destinos": "La Habana, Aruba",
+   "titulo": "La Habana, Aruba",
+   "enlace": "https://www.instagram.com/p/DfQS7GFAT41/",
    "metrica": "alcance",
    "valor": 16
   },
@@ -630,97 +714,13 @@
    "fecha": "2026-11-04",
    "canal": "instagram",
    "tipo": "carrusel",
-   "id": "18112411292617762",
-   "publicado": "2026-11-03 03:57",
-   "destinos": "Montego Bay, São Paulo",
-   "titulo": "Montego Bay, São Paulo",
-   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
-   "metrica": "vistas",
-   "valor": 38
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18112411292617762",
-   "publicado": "2026-11-03 03:57",
-   "destinos": "Montego Bay, São Paulo",
-   "titulo": "Montego Bay, São Paulo",
-   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18112411292617762",
-   "publicado": "2026-11-03 03:57",
-   "destinos": "Montego Bay, São Paulo",
-   "titulo": "Montego Bay, São Paulo",
-   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
-   "metrica": "compartidos",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18112411292617762",
-   "publicado": "2026-11-03 03:57",
-   "destinos": "Montego Bay, São Paulo",
-   "titulo": "Montego Bay, São Paulo",
-   "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
-   "metrica": "interacciones",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18145618024581464",
-   "publicado": "2026-11-02 21:41",
-   "destinos": "La Habana, Aruba",
-   "titulo": "La Habana, Aruba",
-   "enlace": "https://www.instagram.com/p/DfQS7GFAT41/",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18145618024581464",
-   "publicado": "2026-11-02 21:41",
-   "destinos": "La Habana, Aruba",
-   "titulo": "La Habana, Aruba",
-   "enlace": "https://www.instagram.com/p/DfQS7GFAT41/",
-   "metrica": "comentarios",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
-   "id": "18145618024581464",
-   "publicado": "2026-11-02 21:41",
-   "destinos": "La Habana, Aruba",
-   "titulo": "La Habana, Aruba",
-   "enlace": "https://www.instagram.com/p/DfQS7GFAT41/",
-   "metrica": "alcance",
-   "valor": 15
-  },
-  {
-   "fecha": "2026-11-04",
-   "canal": "instagram",
-   "tipo": "carrusel",
    "id": "18145618024581464",
    "publicado": "2026-11-02 21:41",
    "destinos": "La Habana, Aruba",
    "titulo": "La Habana, Aruba",
    "enlace": "https://www.instagram.com/p/DfQS7GFAT41/",
    "metrica": "vistas",
-   "valor": 30
+   "valor": 31
   },
   {
    "fecha": "2026-11-04",
@@ -768,7 +768,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "me_gusta",
-   "valor": 295
+   "valor": 299
   },
   {
    "fecha": "2026-11-04",
@@ -792,7 +792,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "alcance",
-   "valor": 13608
+   "valor": 13916
   },
   {
    "fecha": "2026-11-04",
@@ -804,7 +804,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "vistas",
-   "valor": 16973
+   "valor": 17221
   },
   {
    "fecha": "2026-11-04",
@@ -828,7 +828,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "compartidos",
-   "valor": 208
+   "valor": 212
   },
   {
    "fecha": "2026-11-04",
@@ -840,7 +840,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "interacciones",
-   "valor": 648
+   "valor": 657
   },
   {
    "fecha": "2026-11-04",
@@ -876,7 +876,7 @@
    "titulo": "Leticia, Cusco, Asunción",
    "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
    "metrica": "alcance",
-   "valor": 18
+   "valor": 20
   },
   {
    "fecha": "2026-11-04",
@@ -888,7 +888,7 @@
    "titulo": "Leticia, Cusco, Asunción",
    "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
    "metrica": "vistas",
-   "valor": 50
+   "valor": 53
   },
   {
    "fecha": "2026-11-04",
@@ -972,7 +972,7 @@
    "titulo": "Leticia",
    "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
    "metrica": "vistas",
-   "valor": 3667
+   "valor": 3674
   },
   {
    "fecha": "2026-11-04",
@@ -1128,7 +1128,7 @@
    "titulo": "París",
    "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
    "metrica": "alcance",
-   "valor": 246
+   "valor": 250
   },
   {
    "fecha": "2026-11-04",
@@ -1140,7 +1140,7 @@
    "titulo": "París",
    "enlace": "https://www.instagram.com/reel/DfKrAVqEhVr/",
    "metrica": "vistas",
-   "valor": 282
+   "valor": 290
   },
   {
    "fecha": "2026-11-04",
@@ -1380,7 +1380,7 @@
    "titulo": "Reikiavik, Vancouver",
    "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
    "metrica": "alcance",
-   "valor": 10
+   "valor": 12
   },
   {
    "fecha": "2026-11-04",
@@ -1392,7 +1392,7 @@
    "titulo": "Reikiavik, Vancouver",
    "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
    "metrica": "vistas",
-   "valor": 22
+   "valor": 27
   },
   {
    "fecha": "2026-11-04",
@@ -1464,7 +1464,7 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/reel/DfIGYX6ieE7/",
    "metrica": "alcance",
-   "valor": 316
+   "valor": 321
   },
   {
    "fecha": "2026-11-04",
@@ -1476,7 +1476,7 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/reel/DfIGYX6ieE7/",
    "metrica": "vistas",
-   "valor": 375
+   "valor": 384
   },
   {
    "fecha": "2026-11-04",
@@ -1548,7 +1548,7 @@
    "titulo": "Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",
    "enlace": "https://www.instagram.com/p/DfGL63vDs3W/",
    "metrica": "alcance",
-   "valor": 9
+   "valor": 10
   },
   {
    "fecha": "2026-11-04",
@@ -1560,7 +1560,7 @@
    "titulo": "Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",
    "enlace": "https://www.instagram.com/p/DfGL63vDs3W/",
    "metrica": "vistas",
-   "valor": 24
+   "valor": 27
   },
   {
    "fecha": "2026-11-04",
@@ -1632,7 +1632,7 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "alcance",
-   "valor": 216
+   "valor": 220
   },
   {
    "fecha": "2026-11-04",
@@ -1644,7 +1644,7 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "vistas",
-   "valor": 247
+   "valor": 253
   },
   {
    "fecha": "2026-11-04",
@@ -1884,7 +1884,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
    "metrica": "alcance",
-   "valor": 15
+   "valor": 16
   },
   {
    "fecha": "2026-11-04",
@@ -1896,7 +1896,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/p/De-GApqn7vm/",
    "metrica": "vistas",
-   "valor": 27
+   "valor": 28
   },
   {
    "fecha": "2026-11-04",
@@ -2028,7 +2028,7 @@
    "titulo": "San Andrés en 3 días: plan completo 🌴",
    "enlace": "https://youtube.com/shorts/8XPibnlfRRQ",
    "metrica": "vistas",
-   "valor": 226
+   "valor": 227
   },
   {
    "fecha": "2026-11-04",
