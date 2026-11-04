@@ -360,6 +360,28 @@
       "image": "https://viajespillados.com/instagram/img/santiago-de-chile-2026-11-03-1012430.jpg",
       "published_at": "2026-11-03 14:28",
       "carousel": true
+    },
+    {
+      "id": "mendoza-2026-11-03-1467390",
+      "destino": "Mendoza",
+      "precio": 1467390,
+      "sheet_row": 48,
+      "media_id": "17996515167106052",
+      "permalink": "https://www.instagram.com/p/DfTcQLvDrjJ/",
+      "image": "https://viajespillados.com/instagram/img/mendoza-2026-11-03-1467390.jpg",
+      "published_at": "2026-11-03 22:00",
+      "carousel": true
+    },
+    {
+      "id": "buenos-aires-2026-11-03-1728790",
+      "destino": "Buenos Aires",
+      "precio": 1728790,
+      "sheet_row": 49,
+      "media_id": "17996515167106052",
+      "permalink": "https://www.instagram.com/p/DfTcQLvDrjJ/",
+      "image": "https://viajespillados.com/instagram/img/buenos-aires-2026-11-03-1728790.jpg",
+      "published_at": "2026-11-03 22:00",
+      "carousel": true
     }
   ]
 }
