@@ -122,7 +122,7 @@ If the owner asks for changes, edit and resend only what changed.
 Don't publish these videos unless the owner asks for a specific one. When asked: add `publish_caption` {es} (and optional
 `thumb_offset_ms`) to `trips/<id>/plan.json`, then run reel.yml with mode `trip-publish` and the trip id – it posts the Spanish
 video as a Reel on Viajes Pillados (and the usual X/Facebook/TikTok feed) and writes `trips/<id>/published_es.json`.
-Then tick column G (Video de viaje) and put the permalink in H for that destination in the tab `Reels por destino` of the
+Then tick column F (Video de viaje) and put the permalink in G for that destination in the tab `Reels por destino` of the
 Price log spreadsheet (see AUTOMATION.md, step C.3a).
 Every render also makes a designed cover per language (`cover_es.jpg` / `cover_en.jpg`: hook picture, "PLAN DE N DÍAS",
 destination, a short promise, the stick man – and the buddy if she is in the video; English has no brand). trip-publish uploads

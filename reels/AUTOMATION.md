@@ -181,10 +181,10 @@ automatically (plus the occasion, if any); the offer posts and carousels do the 
 2. Run the workflow with mode `publish` and id. When it succeeds, `git pull` and read `reels/<id>/published.json` (permalink).
 3. Set status `published` (+ permalink) in `reels/daily.json`, commit + push.
 3a. **Tick the destination** in the Price log spreadsheet (`1SO2lHr3GvY01kRaBNPLtGPZ-OgWoNblqm7XtTIJO9PY`), tab
-   `Reels por destino` (A Región, B Destino in Spanish, C name in the Price log, D Reel diario ☑, E Fecha reel, F Link reel,
-   G Video de viaje ☑, H Link video): find the row whose B (or C) is the Reel's destination, set D = TRUE, E = today
-   (`'YYYY-MM-DD`, keep the latest date if it already had one) and F = the permalink (update_values). If the destination has no
-   row, append one (with its región, the Spanish name in B and the Price log name in C) and give D/G checkboxes like the rows above.
+   `Reels por destino` (A Región, B Destino in Spanish, C name in the Price log, D Reel diario ☑, E Link reel,
+   F Video de viaje ☑, G Link video – no dates, it only shows whether a destination has a Reel): find the row whose B (or C) is
+   the Reel's destination, set D = TRUE and E = the permalink (update_values; if it already had one, keep the newest link). If the
+   destination has no row, append one (its región, the Spanish name in B, the Price log name in C) with D/F checkboxes like the rows above.
 4. **TikTok (manual for now)**: automatic TikTok drafts are OFF until TikTok approves the app (the sandbox app does not
    deliver drafts to the phone) – do NOT run tiktok.yml. The publish step already added the Reel to `tiktok/feed.json`, which feeds
    https://viajespillados.com/tiktok/hoy.html (the owner saves the video there and posts it in TikTok and YouTube Shorts by hand).
