@@ -50,8 +50,11 @@ Common facts
    - Exclude destinations that already had a daily Reel in the last 14 days (`reels/daily.json`, statuses other than `skipped`),
      and the exact same offer (destino + dates) ever.
    - Rank: find the matching `Price log` row (same depart/return dates and price within 3 %; destination names are English there,
-     e.g. "Panama City" = "Ciudad de Panamá") and use its Score (X), highest first; ties → fewer workdays off (S) → bigger
-     "% below usual low" (L) → newest Publicado (B). An offer without a matching log row ranks after all matched ones.
+     e.g. "Panama City" = "Ciudad de Panamá") and use its Score (X).
+   - **Owner's rule: prefer trips that leave soon.** Reel score = Score (X) + a "soon" bonus from the days until departure:
+     4–30 days **+2**, 31–60 days **+1**, 61–120 days **0**, more than 120 days **−1**. Highest Reel score first; ties → earlier
+     departure → fewer workdays off (S) → bigger "% below usual low" (L) → newest Publicado (B). An offer without a matching
+     log row ranks after all matched ones (among them: earlier departure first). Say the days until departure in the note.
    - If there is no candidate: add today as `skipped` with note "no tracked round-trip offer", commit, and tell the owner in one line. Stop.
 3. `id` = `<slug-destino>-<ida>` (e.g. `lima-2027-01-16`). Create `reels/<id>/plan.json` (format in `scripts/reel_plan.py`):
    `offer` = destino, aerolinea, precio (number), escalas ("directo" / "1 escala" / "N escalas"), ida, vuelta, link (J), sheet_row;
@@ -101,7 +104,7 @@ Common facts
    parentId above) with a Google Doc "Prompts" containing the 5 prompts numbered 1–5 (vuelo, llegada, dia1, dia2, dia3); save its id
    as `drive_folder_id` in plan.json and in `reels/daily.json` with status `prompts_sent`. Commit + push.
 7. **Final output** (the owner reads this on the phone; keep it short, Spanish is fine): destino, fechas, precio, why it was picked
-   (score / % below usual), the occasion if any, and whether it is a buddy Reel.
+   (Reel score, days until departure, % below usual), the occasion if any, and whether it is a buddy Reel.
    - `pictures_ready`: "Las imágenes ya están hechas con Picsart – no tienes que subir nada. El Reel se arma a las 11:23 y se
      publica a las 12:14." If you can send files, send a contact sheet of the 6 pictures
      (`python -c` with PIL, 6 thumbnails side by side) so the owner can see them.
