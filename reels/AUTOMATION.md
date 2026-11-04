@@ -161,7 +161,7 @@ Common facts
    fix anything that looks wrong (floating stick man, sticker on top of something, stick man hidden, buddy overlapping him).
    The preview shows two moments for pictures with beats. Commit + push.
 6. Run the workflow with mode `render` (it also makes the grid cover `reels/<id>/cover_ig.jpg`: the `cover` picture – or dia1 –
-   with "DESDE BOGOTÁ", the destination, days, price and the stick man; step C uploads it as the Reel's cover). `git pull`, Read
+   with "DESDE BOGOTÁ", the destination, days and the stick man – no price; step C uploads it as the Reel's cover). `git pull`, Read
    `cover_ig.jpg` and check the text is readable and nothing important is hidden. Check `reels/<id>/reel.mp4` exists (duration 30–55 s) and look at a contact
    sheet: `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/3,scale=216:-1,tile=8x2" -frames:v 1 /tmp/sheet.jpg`. If something is clearly
    broken, fix and render again (time allows one retry).

@@ -4,7 +4,7 @@
     python scripts/cover.py trip <id> [es en]   # -> trips/<id>/cover_es.jpg, cover_en.jpg (travel-plan videos)
 
 Background: reels/<id>/img/cover.jpg (Picsart picture) or the dia1 picture. On top: "DESDE BOGOTÁ", the
-destination, "<N> días · ida y vuelta", the price, the stick man celebrating (and the travel buddy on buddy
+destination, "<N> días · ida y vuelta" (no price – owner's rule), the stick man celebrating (and the travel buddy on buddy
 Reels) and viajespillados.com. All text is drawn here, so names and prices are always exact.
 The important part sits in the middle (Instagram's grid crops the top and bottom of a 9:16 cover).
 """
@@ -57,7 +57,7 @@ def make(rid, out=None):
     shade = Image.new("L", (W, H), 0)
     sd = ImageDraw.Draw(shade)
     for y in range(H):
-        t = abs(y - 860) / 520
+        t = abs(y - 900) / 480
         sd.line([(0, y), (W, y)], fill=int(150 * max(0.0, 1 - t * t)))
     img.alpha_composite(Image.merge("RGBA", (Image.new("L", (W, H), 0),) * 3 + (shade.filter(ImageFilter.GaussianBlur(30)),)))
 
@@ -73,13 +73,14 @@ def make(rid, out=None):
     chip = "DESDE BOGOTÁ"
     f = ig.font("ExtraBold", 46)
     cw = d.textlength(chip, font=f) + 70
-    d.rounded_rectangle(((W - cw) / 2, 470, (W + cw) / 2, 545), 38, fill=YELLOW)
-    d.text(((W - cw) / 2 + 35, 478), chip, font=f, fill=DARK)
+    top = 600        # text block centred on the grid crop (no price pill any more)
+    d.rounded_rectangle(((W - cw) / 2, top, (W + cw) / 2, top + 75), 38, fill=YELLOW)
+    d.text(((W - cw) / 2 + 35, top + 8), chip, font=f, fill=DARK)
     # destination
     dest = o["destino"].upper()
     fd = ig.fit_font(d, dest, "Black", 190, 960, 90)
-    text_c(d, 575, dest, fd, stroke=9)
-    yb = 575 + fd.size + 30
+    text_c(d, top + 105, dest, fd, stroke=9)
+    yb = top + 105 + fd.size + 30
     sub = f"{inf['dias']} DÍAS · IDA Y VUELTA"
     oc = ((plan.get("ocasion") or {}).get("nombre") or "").split("(")[0].strip()
     text_c(d, yb, sub, ig.fit_font(d, sub, "Bold", 64, 900, 40), stroke=5)
@@ -87,14 +88,6 @@ def make(rid, out=None):
     if oc:
         text_c(d, yb, oc.upper(), ig.fit_font(d, oc.upper(), "Bold", 54, 960, 26), fill=YELLOW, stroke=5)
         yb += 80
-    # price pill
-    price = ig.cop(int(o["precio"]))
-    fp = ig.font("Black", 120)
-    pw = d.textlength(price, font=fp) + 110
-    py = yb + 20
-    d.rounded_rectangle(((W - pw) / 2 + 8, py + 10, (W + pw) / 2 + 8, py + 170), 40, fill=(0, 0, 0, 120))
-    d.rounded_rectangle(((W - pw) / 2, py, (W + pw) / 2, py + 160), 40, fill=YELLOW, outline=DARK, width=6)
-    d.text(((W - pw) / 2 + 55, py + 8), price, font=fp, fill=DARK)
     text_c(d, H - 120, "viajespillados.com", ig.font("Bold", 46), stroke=4)
     out = out or os.path.join(base, "cover_ig.jpg")
     img.convert("RGB").save(out, quality=90)
