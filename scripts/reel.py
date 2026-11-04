@@ -794,15 +794,24 @@ def publish(rid):
     extra = {}
     if os.path.exists(os.path.join(base, "cover_ig.jpg")):       # designed cover (destination + price)
         extra["cover_url"] = ig.public_image_url(f"reels/{rid}/cover_ig.jpg")
-    c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=sb.get("caption", ""),
-               share_to_feed="true", **extra)["id"]
-    for _ in range(60):
-        st = ig.api("GET", c, fields="status_code,status")
-        if st.get("status_code") == "FINISHED":
-            break
-        if st.get("status_code") in ("ERROR", "EXPIRED"):
-            raise RuntimeError(f"Instagram no pudo procesar el video: {st}")
-        time.sleep(10)
+    def container(**cover):
+        c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=sb.get("caption", ""),
+                   share_to_feed="true", **cover)["id"]
+        for _ in range(60):
+            st = ig.api("GET", c, fields="status_code,status")
+            if st.get("status_code") == "FINISHED":
+                return c
+            if st.get("status_code") in ("ERROR", "EXPIRED"):
+                raise RuntimeError(f"Instagram no pudo procesar el video: {st}")
+            time.sleep(10)
+        raise RuntimeError("Instagram tardó demasiado en procesar el video")
+    try:
+        c = container(**extra)
+    except RuntimeError as e:
+        if not extra:
+            raise
+        print("Con portada falló, se intenta sin portada:", e)   # the designed cover can make Instagram reject the Reel
+        c = container()
     media_id, permalink = ig.finish(c)
     with open(os.path.join(base, "published.json"), "w") as f:
         json.dump({"media_id": media_id, "permalink": permalink}, f)

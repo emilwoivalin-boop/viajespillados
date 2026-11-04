@@ -435,7 +435,7 @@ def commit_push(paths, message):
     git("commit", "-m", message)
     for attempt in range(3):
         try:
-            git("pull", "--rebase", "-q")
+            git("pull", "--rebase", "--autostash", "-q")
             git("push", "-q")
             return
         except subprocess.CalledProcessError:
