@@ -1,0 +1,32 @@
+{
+ "id": "caracas-2027-04-01",
+ "offer": {
+  "destino": "Caracas",
+  "aerolinea": "Wingo",
+  "precio": 707897,
+  "escalas": "directo",
+  "ida": "2027-04-01",
+  "vuelta": "2027-04-07",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20CCS%20from%20BOG%20on%202027-04-01%20through%202027-04-07&curr=COP&hl=es-419",
+  "sheet_row": 21
+ },
+ "hora_salida": null,
+ "buddy": false,
+ "que_hacer": "Sube en teleférico al Ávila, recorre el centro histórico y vuela al archipiélago de Los Roques.",
+ "lines": {
+  "vuelo": "Dos horas de vuelo directo, y abajo aparecen montañas verdes cayendo al mar Caribe.",
+  "llegada": "¡Bienvenido a Caracas! Aterrizas junto al mar, con la montaña verde de El Ávila justo enfrente.",
+  "dia1": "Día uno: subes en teleférico a El Ávila y ves toda Caracas de un lado y el mar del otro.",
+  "dia2": "Día dos: recorres el centro histórico y descansas en la Plaza Bolívar, a la sombra, junto a la catedral.",
+  "dia3": "Día tres: vuelas a Los Roques y te tiras en arena blanquísima frente a un mar turquesa transparente."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a long green mountain range rising straight out of the bright blue Caribbean Sea, with a thin strip of coast and a small town at its foot, sunny blue sky. Keep the lower half open with the sea and the green mountains clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a modern airport terminal on the Caribbean coast of Venezuela, with a long low terminal building, a few tall palm trees, a huge steep green mountain range right behind it and a bright blue sky with small white clouds. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. On top of a high green mountain above Caracas: a red cable car gondola hanging on a cable that goes down the slope, below it a big valley full of small colourful buildings and tall towers on one side, green forest, sunny blue sky with a few clouds. A wide empty grassy viewpoint with a low wooden railing in the lower third of the picture, clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A historic Spanish colonial square in Caracas: a white colonial cathedral with a tall bell tower at the side, low colonial buildings with red tile roofs, big leafy green trees giving shade, a small round fountain, a few park benches, sunny blue sky. The light stone paving in the lower half of the picture is clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Los Roques archipelago in Venezuela: a flat tiny island with dazzling white sand, calm crystal-clear turquoise and light-blue shallow sea, a small wooden fishing boat floating near the shore, a couple of low green bushes, sunny bright blue sky. The white sand beach in the lower half of the picture is clearly visible and empty.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The most iconic view of Caracas: a big bright green mountain range (El Ávila) in the background behind a city of colourful buildings and a few tall towers in the middle distance, bright daylight and a wide calm open blue sky filling the upper and middle part of the picture. An empty light stone plaza with a few green trees at the sides in the bottom fifth of the picture."
+ },
+ "end_image": "dia1"
+}
