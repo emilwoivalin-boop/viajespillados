@@ -24,7 +24,7 @@ import instagram as ig  # noqa: E402
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL = os.environ.get("PICSART_MODEL", "gemini-3.1-flash-image")       # Nano Banana 2
 FALLBACK = os.environ.get("PICSART_FALLBACK", "gemini-3-pro-image")     # Nano Banana Pro
-REELS_ORDER = ["vuelo", "llegada", "dia1", "dia2", "dia3", "cover"]
+REELS_ORDER = ["vuelo", "llegada", "dia1", "dia2", "dia3", "dia4", "dia5", "cover"]
 
 
 def summary(text):

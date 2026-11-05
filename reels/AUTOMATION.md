@@ -5,7 +5,7 @@ Aruba Reel (`reels/aruba-abril-2027-cartoon-es`). Three scheduled tasks run it:
 
 | Bogotá time | Task | What it does |
 |---|---|---|
-| 06:41 | **A · prepare** | picks the offer, writes the script and 6 picture prompts, makes the pictures with Picsart (automatic), checks them, tells the owner |
+| 06:41 | **A · prepare** | picks the offer, writes the script and 6 picture prompts (8 on trips of 5+ days), makes the pictures with Picsart (automatic), checks them, tells the owner |
 | (owner) | — | nothing – only if Picsart failed: makes the 5 pictures in the Gemini app and uploads them to today's Drive folder **before 11:20** |
 | 11:23 | **B · build** | downloads the pictures, places stick man / sticker / sound, renders the video, checks it |
 | 12:14 | **C · post** | publishes the rendered Reel on Instagram |
@@ -75,6 +75,11 @@ Common facts
    - `dia1`, `dia2`, `dia3`: start with "Día uno:", "Día dos:", "Día tres:" (for trips of 2–3 days use "Primer día:", "Luego:",
      "Antes de volver:"), one activity each, taken from the three activities in `Qué hacer` column D, in that order, with one
      concrete vivid detail. Only facts you are sure about.
+   - **Trips of 5 days or more (owner's rule): two extra days**, `dia4` and `dia5` ("Día cuatro:", "Día cinco:"), each with
+     its own picture (prompts `dia4`, `dia5`, same rules as dia1–3). `Qué hacer` only has three activities, so pick two more
+     that are different and real (a day trip, a beach or nature spot, a local food or market, a famous neighbourhood); check
+     anything you are not sure of with a web search. `reel_plan.py build` refuses a 5+ day trip without them. Trips of 2–4 days
+     keep the three day scenes.
    The opening line (date + El Dorado), the return line (with the workdays-off sentence) and the price ending are added
    automatically by `reel_plan.py build` – don't write them.
 4a. **4a · Fechas y ocasiones.** The storyline must take the trip dates (ida–vuelta) into account. Check whether the trip overlaps
@@ -94,7 +99,7 @@ Common facts
    - Style block: `Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16.`
    - `vuelo`: view from high above the clouds with a small white airplane, and the landscape of the destination region far below (sea and islands, mountains, city…) – generic for the region, no recognisable landmark of the destination (it is revealed at landing).
    - `llegada`: outside the destination's airport or arrival spot, with a typical local detail (palms, mountains, skyline…), with an empty sidewalk in the lower third.
-   - `dia1`/`dia2`/`dia3`: the place of that day's activity, recognisable (landmark shapes, colours, nature), and a clear empty area where a small stick figure can stand / sit / walk (say where: "empty sand in the lower half", "the trail is clearly visible and empty"). On a buddy Reel ask for room for two figures ("wide empty area for two small figures"). If a line has a hammock, a dock or a wall to sit on, mention it so the stick man can use it (hammock between two palms, wooden dock edge).
+   - `dia1`/`dia2`/`dia3` (+ `dia4`/`dia5` on 5+ day trips): the place of that day's activity, recognisable (landmark shapes, colours, nature), and a clear empty area where a small stick figure can stand / sit / walk (say where: "empty sand in the lower half", "the trail is clearly visible and empty"). On a buddy Reel ask for room for two figures ("wide empty area for two small figures"). If a line has a hammock, a dock or a wall to sit on, mention it so the stick man can use it (hammock between two palms, wooden dock edge).
    - `cover` (the grid cover / thumbnail): the single most iconic, colourful view of the destination, bright daylight, the middle
      of the picture calm (open sky or sea – a big title goes there), an empty beach / plaza / path in the bottom fifth.
    - Use the time of day that fits the line (evening activities → sunset sky).
@@ -106,12 +111,12 @@ Common facts
    If all pictures are fine: set today's entry in `reels/daily.json` to status `pictures_ready` (no Drive folder needed). Commit + push.
    **Fallback** (Picsart run failed, sign-in expired, no credits, or fewer than 5 usable pictures after the redos): do the old
    manual flow – in the Drive parent folder create a folder `<YYYY-MM-DD> <Destino>` (Drive tool create_file, mimeType folder,
-   parentId above) with a Google Doc "Prompts" containing the 5 prompts numbered 1–5 (vuelo, llegada, dia1, dia2, dia3); save its id
+   parentId above) with a Google Doc "Prompts" containing the prompts numbered 1–5 (vuelo, llegada, dia1, dia2, dia3; 1–7 with dia4, dia5 on 5+ day trips); save its id
    as `drive_folder_id` in plan.json and in `reels/daily.json` with status `prompts_sent`. Commit + push.
 7. **Final output** (the owner reads this on the phone; keep it short, Spanish is fine): destino, fechas, precio, why it was picked
    (Reel score, days until departure, % below usual), the occasion if any, and whether it is a buddy Reel.
    - `pictures_ready`: "Las imágenes ya están hechas con Picsart – no tienes que subir nada. El Reel se arma a las 11:23 y se
-     publica a las 12:14." If you can send files, send a contact sheet of the 6 pictures
+     publica a las 12:14." If you can send files, send a contact sheet of all the pictures
      (`python -c` with PIL, 6 thumbnails side by side) so the owner can see them.
    - `prompts_sent` (fallback): say why Picsart failed, then the Drive folder link `https://drive.google.com/drive/folders/<id>`
      and the 5 prompts numbered 1–5, each in its own code block, and "Sube las 5 imágenes a la carpeta en este orden (o nómbralas
@@ -122,7 +127,7 @@ Common facts
 1. Load today's entry from `reels/daily.json`. If status is `pictures_ready`, the pictures are already in `reels/<id>/img/` –
    skip steps 2–3. If status is `prompts_sent` (manual fallback), do steps 2–3. Any other status: stop.
 2. List the images in the Drive folder (search_files `parentId = '<folder>' and mimeType contains 'image/'`, excludeContentSnippets).
-   Order: files whose names start with 1–5 by that number, otherwise by createdTime (oldest first). Map to vuelo, llegada, dia1, dia2, dia3.
+   Order: files whose names start with 1–5 by that number, otherwise by createdTime (oldest first). Map to vuelo, llegada, dia1, dia2, dia3 (+ dia4, dia5 on 5+ day trips).
    - If fewer than 5 images: if it is before 11:50, wait 5 minutes and check again (up to 5 times). Still missing → set status
      `skipped` with note "faltaron imágenes (N/5)", commit, tell the owner in one line, stop.
 3. Write `drive_files` {key: fileId} into plan.json, commit + push, run the workflow with mode `fetch`. `git pull`; the pictures are
@@ -140,7 +145,7 @@ Common facts
      (music notes – parties, festivals), `swim` (snorkel – `y` is the water level of his body), `wade` (knee-deep in the sea),
      `float` (on his back in the water), `dive` (jumps from x0/y into the water at x1/y1, splash), `kayak` (on water, x0→x1),
      `drive` (jeep on a road), `parachute` (drops in from above and lands at y – fun for the arrival), `none` (flight scene).
-     **Several moves in one picture** (`beats`), timed to the words of the line – use them on at least 2 of the 5 pictures:
+     **Several moves in one picture** (`beats`), timed to the words of the line – use them on at least 2 of the pictures:
      `"stick": {"y": .87, "size": 400, "beats": [{"action": "run", "x0": -0.15, "x1": .45},
      {"action": "point", "word": "iglesia"}, {"action": "selfie", "word": "vista"}]}` – each beat starts when the voice says its
      `word` (a word of that line) and starts where the previous beat ended unless it gives its own x0/y/size/facing. Optional
@@ -158,7 +163,7 @@ Common facts
    - `pop` (optional, max 1, only when it adds meaning): one sticker `{icon, word, x, y, size}` – icons: sun, heart, sparkle, pin,
      plane, fish, suitcase, clock, camera. `word` must be a word of that scene's line (it pops when the voice says it); put it next
      to the thing it refers to (sun in the sky, pin on the place, sparkle on a sign…), not on the stick man and not in y .18–.33.
-     Size 170–230. Use stickers on at most 3 of the 5 pictures.
+     Size 170–230. Use stickers on at most 3 pictures.
    - `ambience` (optional, one or a list): `waves` (beach / sea), `crickets` (warm night), `birds` (nature, parks, jungle),
      `steeldrum` (beach party / Caribbean vibe, sunsets), `underwater`. `sfx` (optional): one-off sounds
      `[{"kind": "bell" | "splash" | "clink" | "engine" | "bubbles" | "shutter" | "boing" | "chime", "at": seconds or "frac": 0–1}]`.
@@ -170,7 +175,7 @@ Common facts
    The preview shows two moments for pictures with beats. Commit + push.
 6. Run the workflow with mode `render` (it also makes the grid cover `reels/<id>/cover_ig.jpg`: the `cover` picture – or dia1 –
    with "DESDE BOGOTÁ", the destination, days and the stick man – no price; step C uploads it as the Reel's cover). `git pull`, Read
-   `cover_ig.jpg` and check the text is readable and nothing important is hidden. Check `reels/<id>/reel.mp4` exists (duration 30–55 s) and look at a contact
+   `cover_ig.jpg` and check the text is readable and nothing important is hidden. Check `reels/<id>/reel.mp4` exists (duration 30–55 s; up to 70 s on 5+ day trips) and look at a contact
    sheet: `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/3,scale=216:-1,tile=8x2" -frames:v 1 /tmp/sheet.jpg`. If something is clearly
    broken, fix and render again (time allows one retry).
 7. Set status `rendered`, commit + push. Output one short line: "Reel de <Destino> listo, se publica a las 12:14", plus any problem.

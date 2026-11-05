@@ -15,7 +15,7 @@ plan.json (written by the morning task, completed by the build task):
   "teaser": null,                            # optional: how the opening names the destination before landing,
                                              # e.g. "el Caribe" -> "nos vamos pa'l Caribe" (default: from offer.region)
   "drive_folder_id": "...",
-  "lines":   {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},
+  "lines":   {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},   # + "dia4", "dia5" on 5+ day trips
   "prompts": {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},
   "buddy": false,                            # every third Reel: true (see `buddy`) – the travel buddy joins him
   "scenes":  {"vuelo":   {"stick": {...} | null, "pop": {...} | null, "ambience": "waves" | ["waves", "steeldrum"] | null,
@@ -34,6 +34,17 @@ import instagram as ig  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEYS = ["vuelo", "llegada", "dia1", "dia2", "dia3"]
+EXTRA = ["dia4", "dia5"]      # owner's rule: trips of 5+ days get two more day scenes (2 more pictures)
+
+
+def keys_for(plan):
+    """Scene keys of this plan: the 5 basic ones, plus dia4 + dia5 on trips of 5 days or more."""
+    o = plan["offer"]
+    long_trip = info(o["ida"], o["vuelta"])["dias"] >= 5
+    if long_trip:
+        missing = [k for k in EXTRA if not (plan.get("lines") or {}).get(k)]
+        assert not missing, f"viaje de 5+ días: faltan las líneas {missing} (Día cuatro / Día cinco)"
+    return KEYS + (EXTRA if long_trip else [])
 ICONS = {"sun", "heart", "sparkle", "pin", "plane", "fish", "suitcase", "clock", "camera"}
 AMBIENCE = {"waves", "crickets", "underwater", "birds", "steeldrum"}
 SFX = {"bell", "splash", "clink", "engine", "bubbles", "shutter", "boing", "chime", "sparkle", "pop"}
@@ -141,7 +152,7 @@ def build(rid):
     scenes = [{"text": salida, "media": {"type": "file", "path": "reels/common/eldorado-day.jpg", "focus": 0.5},
                "stick": SALIDA_STICK, "pops": [], "ambience": [],
                "crowd": [SALIDA_BUDDY] if plan.get("buddy") else []}]
-    for k in KEYS:
+    for k in keys_for(plan):
         sc = (plan.get("scenes") or {}).get(k) or {}
         st = sc.get("stick") or {"action": "none"}
         check_figure(st, plan["lines"][k], k)
