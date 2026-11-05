@@ -1,0 +1,605 @@
+{
+ "id": "aruba-3-dias-es",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+48%",
+ "pad": 0.08,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Sabías que en Aruba hubo fiebre del oro antes que en California? Parce, esta isla tiene oro, flamingos y un barco hundido gigante. Pilla este plan de tres días.",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/hook.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "x0": 0.38,
+    "y": 0.87,
+    "size": 430,
+    "beats": [
+     {
+      "action": "parachute"
+     },
+     {
+      "action": "point",
+      "word": "barco"
+     },
+     {
+      "action": "run",
+      "word": "Pilla",
+      "x1": 1.25
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Aruba",
+     "x": 0.3,
+     "y": 0.5,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.15,
+     "y": 0.9,
+     "size": 400,
+     "beats": [
+      {
+       "action": "none"
+      },
+      {
+       "action": "parachute",
+       "word": "California"
+      },
+      {
+       "action": "run",
+       "word": "Pilla",
+       "x1": 1.25
+      }
+     ]
+    }
+   ],
+   "tag": "ARUBA · 3 DÍAS"
+  },
+  {
+   "text": "Día uno: arrancas en Oranjestad, la capital, con casitas de colores estilo holandés. Aruba es su propio país dentro del Reino de los Países Bajos desde 1986, y aquí casi todos hablan cuatro idiomas. Te reciben con un \"¡Bon bini!\".",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/oranjestad.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.42
+     },
+     {
+      "action": "point",
+      "word": "propio"
+     },
+     {
+      "action": "wave",
+      "word": "Bon"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.25,
+     "gain": 0.1
+    },
+    {
+     "kind": "bell",
+     "frac": 0.55,
+     "gain": 0.12
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.93,
+     "size": 390,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": -0.3,
+       "x1": 0.18
+      },
+      {
+       "action": "selfie",
+       "word": "colores"
+      },
+      {
+       "action": "wave",
+       "word": "Bon"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 1"
+  },
+  {
+   "text": "Pa' comer, pide keshi yena: un queso Edam ahuecado, relleno de carne, aceitunas y alcaparras, y horneado entero. Y pa' picar, pastechi, una empanadita frita de queso. ¡Qué delicia, parce!",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/comida.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "x0": 0.17,
+    "y": 0.97,
+    "size": 470,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "stand"
+     },
+     {
+      "action": "point",
+      "word": "keshi"
+     },
+     {
+      "action": "eat",
+      "word": "pastechi"
+     },
+     {
+      "action": "laugh",
+      "word": "delicia"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.08,
+     "gain": 0.25
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.83,
+     "y": 0.97,
+     "size": 440,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "sip"
+      },
+      {
+       "action": "eat",
+       "word": "pastechi"
+      },
+      {
+       "action": "laugh",
+       "word": "delicia",
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 1"
+  },
+  {
+   "text": "Día dos: vamos pa' Casibari, unas rocas gigantes en medio del desierto, entre cactus. Subes por escaleritas entre las piedras y arriba ves toda la isla. Pilas: ve temprano, que a mediodía el sol es berraco.",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/casibari.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.3,
+      "x1": 0.5
+     },
+     {
+      "action": "lookout",
+      "word": "arriba"
+     },
+     {
+      "action": "shrug",
+      "word": "Pilas"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": true,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.94,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 0.05,
+       "x1": 0.24
+      },
+      {
+       "action": "photo",
+       "word": "arriba"
+      },
+      {
+       "action": "laugh",
+       "word": "Pilas"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 2"
+  },
+  {
+   "text": "Luego, la costa norte, salvaje y ventosa, con las ruinas del molino de oro de Bushiribana. En Aruba encontraron oro en 1824, más de veinte años antes que en California. Olas reventando y viento en la cara.",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/bushiribana.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.36
+     },
+     {
+      "action": "point",
+      "word": "ruinas"
+     },
+     {
+      "action": "celebrate",
+      "word": "encontraron"
+     },
+     {
+      "action": "scared",
+      "word": "Olas"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "oro",
+     "x": 0.62,
+     "y": 0.42,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.85,
+     "gain": 0.25
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.72,
+     "y": 0.92,
+     "size": 390,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "photo",
+       "word": "ruinas"
+      },
+      {
+       "action": "scared",
+       "word": "Olas"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 2"
+  },
+  {
+   "text": "Y cierras en Eagle Beach, una de las playas más lindas del mundo: arena blanca y árboles torcidos que el viento peina hacia el oeste. Toalla, sol y un atardecer tranquilo.",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/eagle.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.08,
+      "x1": 0.33
+     },
+     {
+      "action": "point",
+      "word": "árboles"
+     },
+     {
+      "action": "relax",
+      "word": "Toalla",
+      "x0": 0.3,
+      "y": 0.9
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.62,
+     "y": 0.9,
+     "size": 410,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "sip",
+       "word": "Toalla"
+      },
+      {
+       "action": "sip",
+       "word": "atardecer",
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 2"
+  },
+  {
+   "text": "Día tres: Flamingo Beach, en una isla privada donde los flamingos rosados caminan entre las asoleadoras. Pilas: el pase de un día sale los sábados a las nueve de la mañana y se agota rapidito.",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/flamingo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.94,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.1,
+      "x1": 0.22
+     },
+     {
+      "action": "photo",
+      "word": "flamingos"
+     },
+     {
+      "action": "point",
+      "word": "Pilas"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "flamingos",
+     "x": 0.3,
+     "y": 0.42,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves",
+    "birds"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.45,
+     "y": 0.97,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "selfie",
+       "word": "flamingos"
+      },
+      {
+       "action": "laugh",
+       "word": "rapidito"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 3"
+  },
+  {
+   "text": "Por la tarde, catamarán al Antilla, el naufragio más grande del Caribe: ciento veintiún metros. Su capitán alemán lo hundió a propósito en 1940, y hoy está lleno de coral y peces. Snorkel, música y atardecer en el mar.",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/antilla.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "size": 230,
+    "beats": [
+     {
+      "action": "stand",
+      "x0": 0.47,
+      "y": 0.66,
+      "facing": 1
+     },
+     {
+      "action": "point",
+      "word": "Antilla"
+     },
+     {
+      "action": "dive",
+      "word": "Snorkel",
+      "x1": 0.22,
+      "y1": 0.86,
+      "facing": -1
+     },
+     {
+      "action": "swim",
+      "word": "atardecer",
+      "x0": 0.22,
+      "x1": 0.12,
+      "y": 0.86,
+      "facing": -1,
+      "size": 300
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.36,
+     "y": 0.655,
+     "size": 215,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "dance",
+       "word": "música"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 3"
+  },
+  {
+   "text": "Oro, flamingos, playa y un barco fantasma: plan completico, parce. Guárdalo pa' tu viaje... y los vuelos baratos, en viajespillados punto com.",
+   "media": {
+    "type": "file",
+    "path": "trips/aruba-3-dias/img/cierre.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 430,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.2,
+      "x1": 0.42,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": "Guárdalo",
+      "facing": -1
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.93,
+     "size": 400,
+     "beats": [
+      {
+       "action": "run",
+       "x0": -0.35,
+       "x1": 0.17,
+       "facing": 1
+      },
+      {
+       "action": "wave",
+       "word": "Guárdalo",
+       "facing": 1
+      }
+     ]
+    }
+   ],
+   "hold": 1.0
+  }
+ ],
+ "end": null,
+ "caption": "Aruba en 3 días 🌴 Oranjestad, keshi yena, Casibari, el molino de oro de Bushiribana, Eagle Beach, Flamingo Beach y el naufragio del Antilla. Guárdalo pa' tu viaje 🇦🇼",
+ "outro": {
+  "text": "viajespillados.com",
+  "dur": 3.0
+ }
+}

@@ -1,0 +1,700 @@
+{
+ "id": "aruba-3-dias",
+ "destino": "Aruba",
+ "pais": "Aruba",
+ "dias": 3,
+ "rate": {
+  "es": "+48%",
+  "en": "+38%"
+ },
+ "pad": 0.08,
+ "end_hold": 1.0,
+ "scenes": [
+  {
+   "key": "hook",
+   "img": "hook",
+   "text": {
+    "es": "¿Sabías que en Aruba hubo fiebre del oro antes que en California? Parce, esta isla tiene oro, flamingos y un barco hundido gigante. Pilla este plan de tres días.",
+    "en": "Did you know Aruba had a gold rush before California? This island has gold, flamingos and a giant shipwreck. Here's your three-day plan, parce."
+   },
+   "stick": {
+    "x0": 0.38,
+    "y": 0.87,
+    "size": 430,
+    "beats": [
+     {
+      "action": "parachute"
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "barco",
+       "en": "shipwreck"
+      }
+     },
+     {
+      "action": "run",
+      "word": {
+       "es": "Pilla",
+       "en": "Here's"
+      },
+      "x1": 1.25
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.15,
+     "y": 0.9,
+     "size": 400,
+     "beats": [
+      {
+       "action": "none"
+      },
+      {
+       "action": "parachute",
+       "word": {
+        "es": "California",
+        "en": "California"
+       }
+      },
+      {
+       "action": "run",
+       "word": {
+        "es": "Pilla",
+        "en": "Here's"
+       },
+       "x1": 1.25
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "pin",
+    "word": {
+     "es": "Aruba",
+     "en": "Aruba"
+    },
+    "x": 0.3,
+    "y": 0.5,
+    "size": 190
+   },
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "tag": {
+    "es": "ARUBA · 3 DÍAS",
+    "en": "ARUBA · 3 DAYS"
+   }
+  },
+  {
+   "key": "oranjestad",
+   "img": "oranjestad",
+   "text": {
+    "es": "Día uno: arrancas en Oranjestad, la capital, con casitas de colores estilo holandés. Aruba es su propio país dentro del Reino de los Países Bajos desde 1986, y aquí casi todos hablan cuatro idiomas. Te reciben con un \"¡Bon bini!\".",
+    "en": "Day one: start in Oranjestad, the capital, with colorful Dutch-style houses. Aruba has been its own country within the Kingdom of the Netherlands since 1986, and most locals speak four languages. They'll greet you with \"Bon bini!\""
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.42
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "propio",
+       "en": "own"
+      }
+     },
+     {
+      "action": "wave",
+      "word": {
+       "es": "Bon",
+       "en": "Bon"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.93,
+     "size": 390,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": -0.3,
+       "x1": 0.18
+      },
+      {
+       "action": "selfie",
+       "word": {
+        "es": "colores",
+        "en": "colorful"
+       }
+      },
+      {
+       "action": "wave",
+       "word": {
+        "es": "Bon",
+        "en": "Bon"
+       }
+      }
+     ]
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.25,
+     "gain": 0.1
+    },
+    {
+     "kind": "bell",
+     "frac": 0.55,
+     "gain": 0.12
+    }
+   ],
+   "ambience": "birds",
+   "tag": {
+    "es": "DÍA 1",
+    "en": "DAY 1"
+   }
+  },
+  {
+   "key": "comida",
+   "img": "comida",
+   "text": {
+    "es": "Pa' comer, pide keshi yena: un queso Edam ahuecado, relleno de carne, aceitunas y alcaparras, y horneado entero. Y pa' picar, pastechi, una empanadita frita de queso. ¡Qué delicia, parce!",
+    "en": "For food, order keshi yena: a hollowed-out Edam cheese stuffed with meat, olives and capers, baked whole. For a snack, pastechi, a fried pastry filled with cheese. So good!"
+   },
+   "stick": {
+    "x0": 0.17,
+    "y": 0.97,
+    "size": 470,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "stand"
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "keshi",
+       "en": "keshi"
+      }
+     },
+     {
+      "action": "eat",
+      "word": {
+       "es": "pastechi",
+       "en": "pastechi"
+      }
+     },
+     {
+      "action": "laugh",
+      "word": {
+       "es": "delicia",
+       "en": "good"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.83,
+     "y": 0.97,
+     "size": 440,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "sip"
+      },
+      {
+       "action": "eat",
+       "word": {
+        "es": "pastechi",
+        "en": "pastechi"
+       }
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "delicia",
+        "en": "good"
+       },
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.08,
+     "gain": 0.25
+    }
+   ],
+   "ambience": "steeldrum",
+   "tag": {
+    "es": "DÍA 1",
+    "en": "DAY 1"
+   }
+  },
+  {
+   "key": "casibari",
+   "img": "casibari",
+   "text": {
+    "es": "Día dos: vamos pa' Casibari, unas rocas gigantes en medio del desierto, entre cactus. Subes por escaleritas entre las piedras y arriba ves toda la isla. Pilas: ve temprano, que a mediodía el sol es berraco.",
+    "en": "Day two: head to Casibari, giant boulders in the middle of the cactus desert. Climb the little stairs between the rocks for a view of the whole island. Tip: go early, the midday sun is brutal."
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.3,
+      "x1": 0.5
+     },
+     {
+      "action": "lookout",
+      "word": {
+       "es": "arriba",
+       "en": "view"
+      }
+     },
+     {
+      "action": "shrug",
+      "word": {
+       "es": "Pilas",
+       "en": "Tip"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.94,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 0.05,
+       "x1": 0.24
+      },
+      {
+       "action": "photo",
+       "word": {
+        "es": "arriba",
+        "en": "view"
+       }
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "Pilas",
+        "en": "Tip"
+       }
+      }
+     ]
+    }
+   ],
+   "ambience": "birds",
+   "steps": true,
+   "tag": {
+    "es": "DÍA 2",
+    "en": "DAY 2"
+   }
+  },
+  {
+   "key": "bushiribana",
+   "img": "bushiribana",
+   "text": {
+    "es": "Luego, la costa norte, salvaje y ventosa, con las ruinas del molino de oro de Bushiribana. En Aruba encontraron oro en 1824, más de veinte años antes que en California. Olas reventando y viento en la cara.",
+    "en": "Then the wild, windy north coast and the ruins of the Bushiribana gold mill. Gold was found in Aruba in 1824, more than twenty years before California. Waves crashing, wind in your face."
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.36
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "ruinas",
+       "en": "ruins"
+      }
+     },
+     {
+      "action": "celebrate",
+      "word": {
+       "es": "encontraron",
+       "en": "found"
+      }
+     },
+     {
+      "action": "scared",
+      "word": {
+       "es": "Olas",
+       "en": "Waves"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.72,
+     "y": 0.92,
+     "size": 390,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "photo",
+       "word": {
+        "es": "ruinas",
+        "en": "ruins"
+       }
+      },
+      {
+       "action": "scared",
+       "word": {
+        "es": "Olas",
+        "en": "Waves"
+       }
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "sparkle",
+    "word": {
+     "es": "oro",
+     "en": "Gold"
+    },
+    "x": 0.62,
+    "y": 0.42,
+    "size": 200
+   },
+   "ambience": "waves",
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.85,
+     "gain": 0.25
+    }
+   ],
+   "tag": {
+    "es": "DÍA 2",
+    "en": "DAY 2"
+   }
+  },
+  {
+   "key": "eagle",
+   "img": "eagle",
+   "text": {
+    "es": "Y cierras en Eagle Beach, una de las playas más lindas del mundo: arena blanca y árboles torcidos que el viento peina hacia el oeste. Toalla, sol y un atardecer tranquilo.",
+    "en": "And end at Eagle Beach, one of the most beautiful beaches in the world: white sand and twisted trees combed west by the wind. Towel, sun and a calm sunset."
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.08,
+      "x1": 0.33
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "árboles",
+       "en": "trees"
+      }
+     },
+     {
+      "action": "relax",
+      "word": {
+       "es": "Toalla",
+       "en": "Towel"
+      },
+      "x0": 0.3,
+      "y": 0.9
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.62,
+     "y": 0.9,
+     "size": 410,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "sip",
+       "word": {
+        "es": "Toalla",
+        "en": "Towel"
+       }
+      },
+      {
+       "action": "sip",
+       "word": {
+        "es": "atardecer",
+        "en": "sunset"
+       },
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "tag": {
+    "es": "DÍA 2",
+    "en": "DAY 2"
+   }
+  },
+  {
+   "key": "flamingo",
+   "img": "flamingo",
+   "text": {
+    "es": "Día tres: Flamingo Beach, en una isla privada donde los flamingos rosados caminan entre las asoleadoras. Pilas: el pase de un día sale los sábados a las nueve de la mañana y se agota rapidito.",
+    "en": "Day three: Flamingo Beach, on a private island where pink flamingos stroll between the sunbeds. Tip: day passes drop on Saturdays at 9 a.m. and sell out fast."
+   },
+   "stick": {
+    "y": 0.94,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.1,
+      "x1": 0.22
+     },
+     {
+      "action": "photo",
+      "word": {
+       "es": "flamingos",
+       "en": "flamingos"
+      }
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "Pilas",
+       "en": "Tip"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.45,
+     "y": 0.97,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "selfie",
+       "word": {
+        "es": "flamingos",
+        "en": "flamingos"
+       }
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "rapidito",
+        "en": "fast"
+       }
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "heart",
+    "word": {
+     "es": "flamingos",
+     "en": "flamingos"
+    },
+    "x": 0.3,
+    "y": 0.42,
+    "size": 190
+   },
+   "ambience": [
+    "waves",
+    "birds"
+   ],
+   "tag": {
+    "es": "DÍA 3",
+    "en": "DAY 3"
+   }
+  },
+  {
+   "key": "antilla",
+   "img": "antilla",
+   "text": {
+    "es": "Por la tarde, catamarán al Antilla, el naufragio más grande del Caribe: ciento veintiún metros. Su capitán alemán lo hundió a propósito en 1940, y hoy está lleno de coral y peces. Snorkel, música y atardecer en el mar.",
+    "en": "In the afternoon, take a catamaran to the Antilla, the biggest shipwreck in the Caribbean, 121 meters long. Its German captain sank it on purpose in 1940, and now it's full of coral and fish. Snorkeling, music and a sunset at sea."
+   },
+   "stick": {
+    "size": 230,
+    "beats": [
+     {
+      "action": "stand",
+      "x0": 0.47,
+      "y": 0.66,
+      "facing": 1
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "Antilla",
+       "en": "Antilla"
+      }
+     },
+     {
+      "action": "dive",
+      "word": {
+       "es": "Snorkel",
+       "en": "Snorkeling"
+      },
+      "x1": 0.22,
+      "y1": 0.86,
+      "facing": -1
+     },
+     {
+      "action": "swim",
+      "word": {
+       "es": "atardecer",
+       "en": "sunset"
+      },
+      "x0": 0.22,
+      "x1": 0.12,
+      "y": 0.86,
+      "facing": -1,
+      "size": 300
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.36,
+     "y": 0.655,
+     "size": 215,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "dance",
+       "word": {
+        "es": "música",
+        "en": "music"
+       }
+      }
+     ]
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "tag": {
+    "es": "DÍA 3",
+    "en": "DAY 3"
+   }
+  },
+  {
+   "key": "cierre",
+   "img": "cierre",
+   "text": {
+    "es": "Oro, flamingos, playa y un barco fantasma: plan completico, parce. Guárdalo pa' tu viaje... y los vuelos baratos, en viajespillados punto com.",
+    "en": "Gold, flamingos, beaches and a ghost ship. Save this for your trip!"
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 430,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.2,
+      "x1": 0.42,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": {
+       "es": "Guárdalo",
+       "en": "Save"
+      },
+      "facing": -1
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.93,
+     "size": 400,
+     "beats": [
+      {
+       "action": "run",
+       "x0": -0.35,
+       "x1": 0.17,
+       "facing": 1
+      },
+      {
+       "action": "wave",
+       "word": {
+        "es": "Guárdalo",
+        "en": "Save"
+       },
+       "facing": 1
+      }
+     ]
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ]
+  }
+ ],
+ "caption": {
+  "es": "Aruba en 3 días 🌴 Oranjestad, keshi yena, Casibari, el molino de oro de Bushiribana, Eagle Beach, Flamingo Beach y el naufragio del Antilla. Guárdalo pa' tu viaje 🇦🇼",
+  "en": "Aruba in 3 days 🌴 Oranjestad, keshi yena, Casibari, the Bushiribana gold mill, Eagle Beach, Flamingo Beach and the Antilla shipwreck. Save this for your trip!"
+ }
+}
