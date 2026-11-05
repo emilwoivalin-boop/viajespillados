@@ -2,6 +2,7 @@
  "id": "miami-2026-11-13",
  "offer": {
   "destino": "Miami",
+  "region": "Norteamérica",
   "aerolinea": "COPA",
   "precio": 938100,
   "escalas": "1 escala",
@@ -19,7 +20,7 @@
  },
  "que_hacer": "Puente festivo en Miami. Pasea por South Beach, recorre los murales de Wynwood y haz un tour en hidrodeslizador por los Everglades.",
  "lines": {
-  "vuelo": "Seis horas de viaje con una escala, y abajo el mar de la Florida se pone turquesa.",
+  "vuelo": "Seis horas de viaje con una escala, y abajo el mar se pone turquesa.",
   "llegada": "¡Bienvenido a Miami en pleno puente festivo! Sales del aeropuerto y te recibe el calorcito entre palmeras.",
   "dia1": "En el puente festivo: caminas por South Beach, entre casetas de salvavidas de colores y arena blanca.",
   "dia2": "Día dos: recorres Wynwood, donde cada pared es un mural gigante lleno de colores.",
