@@ -172,6 +172,87 @@ def svg_chart(cid, label, xs, series, kind="line", note=""):
             f'{f"<div class=sub>{e(note)}</div>" if note else ""}{table}</div>')
 
 
+def next_trip(rows, today):
+    """Which destination to make the next travel-plan video about (videos not tied to an offer), from the numbers:
+    how each destination's posts do compared with the average post of the same format (views, likes, saves, shares,
+    comments), how often it was posted, and its offer clicks on the website. Destinations that already have a travel
+    video (trips/*/plan.json) are skipped. Returns a list of (destino, score, facts) best first, or [] if data is thin."""
+    import glob
+    import re
+    made = set()
+    for pj in glob.glob(os.path.join(ROOT, "trips", "*", "plan.json")):
+        try:
+            made.add(json.load(open(pj)).get("destino", ""))
+        except Exception:
+            pass
+
+    def names(s):
+        out = []
+        for d in (s or "").split(","):
+            d = re.sub(r"^\s*(Plan de viaje|Portada|Reel):\s*", "", d).strip()
+            if d and not re.search(r"[0-9:🌴✈]", d):
+                out.append(d)
+        return out
+
+    W = {"vistas": 1, "me_gusta": 10, "comentarios": 15, "guardados": 30, "compartidos": 30}
+    last = {}
+    for r in rows:                                   # latest snapshot of every post
+        if r["canal"] in ("instagram", "youtube", "x", "facebook") and r["tipo"] not in ("cuenta",) and r["metrica"] in W:
+            k = (r["canal"], r["tipo"], r["id"])
+            last.setdefault(k, {"destinos": r["destinos"], "fecha": "", "m": {}})
+            if r["fecha"] >= last[k]["fecha"]:
+                if r["fecha"] > last[k]["fecha"]:
+                    last[k]["m"] = {}
+                last[k]["fecha"] = r["fecha"]
+                last[k]["m"][r["metrica"]] = num(r["valor"])
+    pts = {k: sum(W[m] * v for m, v in p["m"].items()) for k, p in last.items()}
+    fmt_avg = defaultdict(list)
+    for k, v in pts.items():
+        fmt_avg[(k[0], k[1])].append(v)
+    fmt_avg = {k: (sum(v) / len(v)) or 1 for k, v in fmt_avg.items()}
+    rel, views, eng, posts = defaultdict(list), defaultdict(float), defaultdict(float), defaultdict(int)
+    for k, p in last.items():
+        ds = names(p["destinos"])
+        for d in ds:
+            if k[0] in ("instagram", "youtube"):     # X/Facebook numbers are too small to compare
+                rel[d].append(pts[k] / fmt_avg[(k[0], k[1])] / len(ds))
+            views[d] += p["m"].get("vistas", 0) / len(ds)
+            eng[d] += (p["m"].get("guardados", 0) + p["m"].get("compartidos", 0)) / len(ds)
+            posts[d] += 1
+    clicks = defaultdict(float)
+    for r in rows:
+        if r["canal"] == "web" and r["tipo"] == "clic_oferta":
+            for d in names(r["destinos"]):
+                clicks[d] += num(r["valor"])
+    cands = []
+    for d in set(rel) | set(clicks):
+        if d in made:
+            continue
+        import math
+        r_ = rel.get(d, [])
+        perf = min(3.0, sum(r_) / len(r_)) if r_ else 0.0
+        # real reach + how much people kept/shared it + how its posts did vs. the average + website interest
+        score = (0.5 * math.log1p(views[d]) + 1.0 * math.log1p(eng[d]) + 1.0 * perf + 0.6 * math.log1p(clicks[d]) * 2)
+        cands.append((d, score, {"posts": posts[d], "views": views[d], "saves_shares": eng[d], "clicks": clicks[d],
+                                 "vs_avg": perf}))
+    cands.sort(key=lambda c: -c[1])
+    if len(cands) < 3 or sum(c[2]["posts"] for c in cands) < 5:
+        return []
+    return cands
+
+
+def next_trip_text(c):
+    d, _, f = c
+    bits = []
+    if f["posts"]:
+        bits.append(f"{f['posts']} posts, {fmt(f['views'])} views ({f['vs_avg']:.1f}× the average post)")
+    if f["saves_shares"]:
+        bits.append(f"{fmt(f['saves_shares'])} saves/shares")
+    if f["clicks"]:
+        bits.append(f"{fmt(f['clicks'])} offer clicks on the website")
+    return f"{d} – " + ", ".join(bits)
+
+
 def insights(rows, tr, today):
     """Data-based conclusions and recommendations. Returns list of (conclusion, recommendation)."""
     out = []
@@ -325,6 +406,9 @@ def build():
           f"X {fmt(x_f)}" + (f" ({sign(x_fd)})" if x_fd else "") if x_f is not None else None,
           f"Facebook {fmt(fb_f)}" + (f" ({sign(fb_fd)})" if fb_fd else "") if fb_f is not None else None]
     s.append("👥 Followers: " + " · ".join(x for x in fl if x) + ".")
+    nt = next_trip(rows, today)
+    if nt:
+        s.append("🎬 Next travel video: " + next_trip_text(nt[0]) + ". Then: " + ", ".join(c[0] for c in nt[1:3]) + ".")
     if errors:
         s.append("⚠️ No data from: " + ", ".join(errors) + ".")
     summary = "\n".join(s)
@@ -375,6 +459,11 @@ def build():
                   note=("X and Facebook: " + " · ".join(f"{n} {fmt(t[-1][1])}" for n, t in (("X", tr["x"]), ("Facebook", tr["fb"])) if t)) if tr["x"] or tr["fb"] else ""),
     ])
     ins = insights(rows, tr, today)
+    if nt:
+        top3 = "; ".join(next_trip_text(c) for c in nt[:3])
+        ins.insert(0, (f"Best destinations for the next travel-plan video (no travel video yet, ranked by how their posts did "
+                       f"vs. the average post of the same format + website offer clicks): {top3}.",
+                       f"Make the next travel video about {nt[0][0]}."))
     insrow = "".join(f'<li><b>{e(c)}</b><br><span class="rec">→ {e(r)}</span></li>' for c, r in ins) or '<li class="muted">Not enough data yet.</li>'
 
     page = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
