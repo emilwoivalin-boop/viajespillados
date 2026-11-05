@@ -9,9 +9,11 @@ same structure as the approved Aruba Reel, and makes a quick placement preview.
 plan.json (written by the morning task, completed by the build task):
 {
   "id": "lima-2027-01-16",
-  "offer": {"destino": "Lima", "aerolinea": "JetSMART", "precio": 608490, "escalas": "directo",
+  "offer": {"destino": "Lima", "region": "Sudamérica", "aerolinea": "JetSMART", "precio": 608490, "escalas": "directo",
             "ida": "2027-01-16", "vuelta": "2027-01-20", "link": "https://...", "sheet_row": 14},
   "hora_salida": null,                       # e.g. "4 de la tarde" ONLY if verified, else null
+  "teaser": null,                            # optional: how the opening names the destination before landing,
+                                             # e.g. "el Caribe" -> "nos vamos pa'l Caribe" (default: from offer.region)
   "drive_folder_id": "...",
   "lines":   {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},
   "prompts": {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},
@@ -102,6 +104,20 @@ def days_off_line(n):
     return ""
 
 
+# Owner's rule: the destination is a surprise until the "llegada" scene – before that only the region is named.
+REGION_TEASER = {"caribe e islas": "el Caribe", "centroamérica": "Centroamérica", "norteamérica": "Norteamérica",
+                 "sudamérica": "Sudamérica", "europa": "Europa", "asia": "Asia", "oceanía": "Oceanía",
+                 "áfrica y medio oriente": "el otro lado del mundo", "colombia": "un rincón de Colombia"}
+
+
+def teaser(plan):
+    """'el Caribe' -> "pa'l Caribe", 'Europa' -> "pa' Europa" (plan["teaser"] overrides the region from the sheet)."""
+    t = plan.get("teaser") or REGION_TEASER.get((plan["offer"].get("region") or "").strip().lower())
+    if not t:
+        return "de viaje. ¿Adivinas pa' dónde?"
+    return "pa'l " + t[3:] if t.startswith("el ") else f"pa' {t}"
+
+
 def cap(s):
     return s[:1].upper() + s[1:]
 
@@ -116,7 +132,10 @@ def build(rid):
 
     hora = plan.get("hora_salida")
     salida = (f"{cap(ig.DIAS[a.weekday()])} {a.day} de {ig.MESES[a.month - 1]}" + (f", {hora}" if hora else "")
-              + f". Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' {o['destino']}!")
+              + f". Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos {teaser(plan)}!")
+    dest = o["destino"].lower()
+    for k in ("vuelo",):             # no spoilers before landing
+        assert dest not in plan["lines"][k].lower(), f"{k}: no digas el destino antes de aterrizar ({o['destino']})"
     regreso = f"El {ig.DIAS[b.weekday()]} aterrizas en Bogotá, feliz y descansado. {days_off_line(inf['dias_libres'])}".strip()
 
     scenes = [{"text": salida, "media": {"type": "file", "path": "reels/common/eldorado-day.jpg", "focus": 0.5},

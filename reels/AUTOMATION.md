@@ -57,7 +57,9 @@ Common facts
      log row ranks after all matched ones (among them: earlier departure first). Say the days until departure in the note.
    - If there is no candidate: add today as `skipped` with note "no tracked round-trip offer", commit, and tell the owner in one line. Stop.
 3. `id` = `<slug-destino>-<ida>` (e.g. `lima-2027-01-16`). Create `reels/<id>/plan.json` (format in `scripts/reel_plan.py`):
-   `offer` = destino, aerolinea, precio (number), escalas ("directo" / "1 escala" / "N escalas"), ida, vuelta, link (J), sheet_row;
+   `offer` = destino, aerolinea, precio (number), escalas ("directo" / "1 escala" / "N escalas"), ida, vuelta, link (J), sheet_row,
+   region (column I Categoría, e.g. "Caribe e islas" – the opening says "nos vamos pa'l Caribe" instead of the destination;
+   optional `teaser` in plan.json overrides it, e.g. "el Pacífico" or "la costa", never the destination's name);
    `hora_salida` = null (only fill it, e.g. "4 de la tarde", if you verified the airline's scheduled departure time for that
    weekday from a reliable timetable page; otherwise leave null); `que_hacer` = column D of `Qué hacer`; `end_image` = "dia1";
    `buddy` = true if `python scripts/reel_plan.py buddy` prints "yes" (every third Reel that was actually made has the travel
@@ -66,7 +68,10 @@ Common facts
 4. **Script lines** (`lines`, Spanish from Colombia, tú, short and lively like the Aruba Reel; 8–20 words each; no prices, no airline):
    - `vuelo`: the flight, e.g. "Dos horas de vuelo directo, y el mar abajo se pone turquesa." Only state the flight time if you
      know it (Price log Notes "N hrs"); say "directo" only for non-stop.
-   - `llegada`: "¡Bienvenido a <Destino>! …" + one sensory detail of arriving there.
+   - **No spoilers (owner's rule):** the destination is revealed only in `llegada`. The `vuelo` line must not name the destination,
+     its country or a landmark that gives it away – tease the region instead (e.g. "Vuelo directo de dos horas… ¿y abajo? Mar
+     turquesa del Caribe."). `reel_plan.py build` refuses a `vuelo` line that contains the destination's name.
+   - `llegada`: the reveal – "¡Bienvenido a <Destino>! …" + one sensory detail of arriving there.
    - `dia1`, `dia2`, `dia3`: start with "Día uno:", "Día dos:", "Día tres:" (for trips of 2–3 days use "Primer día:", "Luego:",
      "Antes de volver:"), one activity each, taken from the three activities in `Qué hacer` column D, in that order, with one
      concrete vivid detail. Only facts you are sure about.
@@ -87,7 +92,7 @@ Common facts
    about. If nothing applies, change nothing.
 5. **Picture prompts** (`prompts`, English, one per key). Every prompt = this style block + scene description + layout rule:
    - Style block: `Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16.`
-   - `vuelo`: view from high above the clouds with a small white airplane, and the landscape of the destination region far below (sea and islands, mountains, city…).
+   - `vuelo`: view from high above the clouds with a small white airplane, and the landscape of the destination region far below (sea and islands, mountains, city…) – generic for the region, no recognisable landmark of the destination (it is revealed at landing).
    - `llegada`: outside the destination's airport or arrival spot, with a typical local detail (palms, mountains, skyline…), with an empty sidewalk in the lower third.
    - `dia1`/`dia2`/`dia3`: the place of that day's activity, recognisable (landmark shapes, colours, nature), and a clear empty area where a small stick figure can stand / sit / walk (say where: "empty sand in the lower half", "the trail is clearly visible and empty"). On a buddy Reel ask for room for two figures ("wide empty area for two small figures"). If a line has a hammock, a dock or a wall to sit on, mention it so the stick man can use it (hammock between two palms, wooden dock edge).
    - `cover` (the grid cover / thumbnail): the single most iconic, colourful view of the destination, bright daylight, the middle
