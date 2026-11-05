@@ -57,8 +57,8 @@ practical tip in 2–3 scenes. The hook should use the strongest fun fact.
 (question, bold promise or surprising fact), e.g. "¿Medellín en tres días sin perder ni un minuto? Pilla
 este plan, parce." The last scene wraps up + "Guárdalo pa' tu viaje" and may end very softly with
 "…y los vuelos baratos, en viajespillados punto com." (only once, only at the end).
-**English (en)** – the same content and rhythm, natural punchy English (a Colombian word here and there is
-fine, e.g. "parce"), "Day one:", "Day two:"… **No Viajes Pillados, no website, no logo.** Ends with
+**English (en)** – the same content and rhythm in natural, neutral English for an international audience: no Colombian
+slang or Spanish words (no "parce", "bacano", "pilas"…) – only local names and dishes stay as they are. "Day one:", "Day two:"… **No Viajes Pillados, no website, no logo.** Ends with
 "Save this for your trip!" or similar.
 Only facts you are sure of (the picked facts have a source; historic years from them are fine); no prices,
 no airlines, no travel dates.
