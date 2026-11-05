@@ -15,7 +15,7 @@ plan.json (written by the morning task, completed by the build task):
   "teaser": null,                            # optional: how the opening names the destination before landing,
                                              # e.g. "el Caribe" -> "nos vamos pa'l Caribe" (default: from offer.region)
   "drive_folder_id": "...",
-  "lines":   {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},   # + "dia4", "dia5" on 5+ day trips
+  "lines":   {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},   # + "dia4" (4-day trips), + "dia5" (5+ days)
   "prompts": {"vuelo": "...", "llegada": "...", "dia1": "...", "dia2": "...", "dia3": "..."},
   "buddy": false,                            # every third Reel: true (see `buddy`) – the travel buddy joins him
   "scenes":  {"vuelo":   {"stick": {...} | null, "pop": {...} | null, "ambience": "waves" | ["waves", "steeldrum"] | null,
@@ -34,17 +34,17 @@ import instagram as ig  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KEYS = ["vuelo", "llegada", "dia1", "dia2", "dia3"]
-EXTRA = ["dia4", "dia5"]      # owner's rule: trips of 5+ days get two more day scenes (2 more pictures)
+EXTRA = ["dia4", "dia5"]      # owner's rule: a 4-day trip gets day 4, trips of 5+ days get days 4 and 5
 
 
 def keys_for(plan):
-    """Scene keys of this plan: the 5 basic ones, plus dia4 + dia5 on trips of 5 days or more."""
+    """Scene keys of this plan: the 5 basic ones, plus dia4 (4-day trips) or dia4 + dia5 (5+ days)."""
     o = plan["offer"]
-    long_trip = info(o["ida"], o["vuelta"])["dias"] >= 5
-    if long_trip:
-        missing = [k for k in EXTRA if not (plan.get("lines") or {}).get(k)]
-        assert not missing, f"viaje de 5+ días: faltan las líneas {missing} (Día cuatro / Día cinco)"
-    return KEYS + (EXTRA if long_trip else [])
+    dias = info(o["ida"], o["vuelta"])["dias"]
+    extra = EXTRA[:max(0, min(dias, 5) - 3)]
+    missing = [k for k in extra if not (plan.get("lines") or {}).get(k)]
+    assert not missing, f"viaje de {dias} días: faltan las líneas {missing} (Día cuatro / Día cinco)"
+    return KEYS + extra
 ICONS = {"sun", "heart", "sparkle", "pin", "plane", "fish", "suitcase", "clock", "camera"}
 AMBIENCE = {"waves", "crickets", "underwater", "birds", "steeldrum"}
 SFX = {"bell", "splash", "clink", "engine", "bubbles", "shutter", "boing", "chime", "sparkle", "pop"}
