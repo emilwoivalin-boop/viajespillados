@@ -796,7 +796,7 @@ def publish(rid):
         extra["cover_url"] = ig.public_image_url(f"reels/{rid}/cover_ig.jpg")
     def container(**cover):
         c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=sb.get("caption", ""),
-                   share_to_feed="true", **cover)["id"]
+                   share_to_feed="false", **cover)["id"]   # owner: Reels stay off the profile grid (Reels tab only)
         for _ in range(60):
             st = ig.api("GET", c, fields="status_code,status")
             if st.get("status_code") == "FINISHED":
@@ -855,7 +855,7 @@ def publish_trip(tid, lang="es"):
     plan = json.load(open(os.path.join(base, "plan.json")))
     caption = (plan.get("publish_caption") or {}).get(lang) or (plan.get("caption") or {}).get(lang, "")
     uid = os.environ["IG_USER_ID"]
-    c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=caption, share_to_feed="true",
+    c = ig.api("POST", f"{uid}/media", media_type="REELS", video_url=url, caption=caption, share_to_feed="false",
                cover_url=ig.public_image_url(crel))["id"]
     for _ in range(90):
         st = ig.api("GET", c, fields="status_code,status")
