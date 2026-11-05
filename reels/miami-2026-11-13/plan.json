@@ -34,5 +34,158 @@
   "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Florida Everglades: a wide flat river of tall green sawgrass with calm shallow water channels, a few small tree islands, an empty flat-bottomed airboat with a big round rear fan cage resting on the water in the middle distance, a green alligator head peeking out of the water at the side, white herons, sunny blue sky. A wide calm open water channel in the lower half of the picture, clearly visible and empty.",
   "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The most iconic view of Miami Beach: a bright pastel pink and turquoise wooden lifeguard tower on wide white sand, a turquoise sea, tall palm trees at the sides, bright daylight and a wide calm open blue sky filling the upper and middle part of the picture. An empty white sand beach in the bottom fifth of the picture."
  },
- "end_image": "dia1"
+ "end_image": "dia1",
+ "scenes": {
+  "vuelo": {
+   "stick": {
+    "action": "none"
+   },
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "beats": [
+     {
+      "action": "parachute",
+      "x0": 0.5,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": "festivo",
+      "mood": "laugh"
+     },
+     {
+      "action": "wave",
+      "word": "palmeras"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "sun",
+    "word": "calorcito",
+    "x": 0.22,
+    "y": 0.1,
+    "size": 210
+   },
+   "ambience": "birds"
+  },
+  "dia1": {
+   "stick": {
+    "y": 0.9,
+    "size": 440,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.12,
+      "x1": 0.42,
+      "facing": 1
+     },
+     {
+      "action": "point",
+      "word": "casetas",
+      "facing": -1,
+      "mood": "wow"
+     },
+     {
+      "action": "relax",
+      "word": "arena",
+      "x0": 0.33,
+      "y": 0.86,
+      "mood": "love"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "action": "relax",
+     "x0": 0.78,
+     "y": 0.72,
+     "size": 250,
+     "facing": -1
+    },
+    {
+     "action": "sip",
+     "x0": 0.9,
+     "y": 0.8,
+     "size": 310,
+     "facing": -1
+    },
+    {
+     "action": "wave",
+     "x0": 0.68,
+     "y": 0.64,
+     "size": 200,
+     "facing": -1
+    }
+   ],
+   "pop": {
+    "icon": "sparkle",
+    "word": "colores",
+    "x": 0.6,
+    "y": 0.41,
+    "size": 180
+   },
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ]
+  },
+  "dia2": {
+   "stick": {
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.18,
+      "x1": 0.42,
+      "y": 0.86,
+      "y1": 0.78,
+      "size": 440,
+      "size1": 380
+     },
+     {
+      "action": "selfie",
+      "word": "mural",
+      "mood": "laugh"
+     },
+     {
+      "action": "dance",
+      "word": "colores"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": null
+  },
+  "dia3": {
+   "stick": {
+    "y": 0.445,
+    "size": 190,
+    "beats": [
+     {
+      "action": "sit",
+      "x0": 0.64,
+      "facing": -1
+     },
+     {
+      "action": "scared",
+      "word": "caimán",
+      "mood": "scared"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ]
+  }
+ }
 }
