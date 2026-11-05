@@ -1,0 +1,37 @@
+{
+ "id": "miami-2026-11-13",
+ "offer": {
+  "destino": "Miami",
+  "aerolinea": "COPA",
+  "precio": 938100,
+  "escalas": "1 escala",
+  "ida": "2026-11-13",
+  "vuelta": "2026-11-22",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20MIA%20from%20BOG%20on%202026-11-13%20through%202026-11-22&curr=COP&hl=es-419",
+  "sheet_row": 25
+ },
+ "hora_salida": null,
+ "buddy": false,
+ "ocasion": {
+  "nombre": "Puente festivo de la Independencia de Cartagena (lunes 16 de noviembre)",
+  "fechas": "2026-11-14 a 2026-11-16",
+  "fuente": "fecha fija (Price log, pestaña Holidays)"
+ },
+ "que_hacer": "Puente festivo en Miami. Pasea por South Beach, recorre los murales de Wynwood y haz un tour en hidrodeslizador por los Everglades.",
+ "lines": {
+  "vuelo": "Seis horas de viaje con una escala, y abajo el mar de la Florida se pone turquesa.",
+  "llegada": "¡Bienvenido a Miami en pleno puente festivo! Sales del aeropuerto y te recibe el calorcito entre palmeras.",
+  "dia1": "En el puente festivo: caminas por South Beach, entre casetas de salvavidas de colores y arena blanca.",
+  "dia2": "Día dos: recorres Wynwood, donde cada pared es un mural gigante lleno de colores.",
+  "dia3": "Día tres: cruzas los Everglades en hidrodeslizador y un caimán te mira desde el agua."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below the long flat coast of South Florida: a thin strip of white beach, a row of small tall white buildings along the shore, and a bright turquoise and blue sea, sunny blue sky. Keep the lower half open with the turquoise sea and the coastline clearly visible.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a big modern airport terminal in Miami, Florida: a long low white terminal building with large glass windows, a row of tall slim palm trees in front, a bright blue sky with a few small white clouds, warm sunny light. An empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. South Beach in Miami Beach: wide white sand beach, a colourful wooden lifeguard tower painted in bright pastel pink, yellow and turquoise standing on the sand, calm turquoise sea, a few palm trees and low pastel Art Deco buildings in the background, sunny blue sky. A wide stretch of empty white sand in the lower half of the picture, clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Wynwood Walls street art district in Miami: low warehouse buildings whose walls are covered with huge colourful abstract murals of big flowers, geometric shapes and bright colour splashes (no letters, no words, no graffiti writing), a couple of palm trees, sunny blue sky. An empty wide light-grey sidewalk in front of the murals in the lower third of the picture.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The Florida Everglades: a wide flat river of tall green sawgrass with calm shallow water channels, a few small tree islands, an empty flat-bottomed airboat with a big round rear fan cage resting on the water in the middle distance, a green alligator head peeking out of the water at the side, white herons, sunny blue sky. A wide calm open water channel in the lower half of the picture, clearly visible and empty.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The most iconic view of Miami Beach: a bright pastel pink and turquoise wooden lifeguard tower on wide white sand, a turquoise sea, tall palm trees at the sides, bright daylight and a wide calm open blue sky filling the upper and middle part of the picture. An empty white sand beach in the bottom fifth of the picture."
+ },
+ "end_image": "dia1"
+}
