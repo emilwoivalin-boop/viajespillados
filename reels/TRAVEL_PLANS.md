@@ -7,7 +7,11 @@ description: Make a Viajes Pillados stick-man travel-plan video (hook + itinerar
 
 Short vertical stick-man videos with a hook and a travel itinerary, NOT tied to a flight offer. Two versions:
 **Spanish** (very Colombian, low-key Viajes Pillados sign-off) and **English** (no brand at all). They are not
-published: they are saved on the owner's computer in `~/Movies/Viajes Pillados - Travel plans/<Destino>/`.
+published unless asked: they are sent to the owner in the chat (SendUserFile).
+
+**One chat per video (saves usage).** Everything lives in `trips/<id>/` and the tracking list, so a new chat can pick up
+any video ("get the Cartagena videos", "publish the Cartagena one", or the pictures for a script made earlier): find
+`trips/<id>/` and continue from where it stands. Read only what the next step needs.
 
 Three rounds with the owner. Keep every message short and easy to answer on a phone.
 
@@ -17,9 +21,7 @@ Three rounds with the owner. Keep every message short and easy to answer on a ph
   `41898282+github-actions[bot]@users.noreply.github.com`. `git pull --rebase` before every commit.
 - Code: `scripts/trip_plan.py` (plan.json → storyboard_es.json + storyboard_en.json, and a preview),
   `scripts/reel.py trip <id>` (renderer), workflow `.github/workflows/trip.yml` (input `id`).
-- Folder on the computer: `~/Movies/Viajes Pillados - Travel plans/` (remote-devices tools). If the
-  computer isn't linked or the folder isn't connected, ask for access to `~/Movies` with
-  device_request_folder_access. If it can't be reached, send the files with SendUserFile instead.
+- Files go to the owner with SendUserFile. Do not ask for access to the computer (the owner declined it).
 
 ## Round 1 – destination → activities to pick
 1. The owner names a destination (and maybe the number of days; default 3).
@@ -75,8 +77,8 @@ the daily Reels. Each = style block + scene + layout rule:
 - Hook picture: the most iconic view of the destination, wide.
 
 Deliver in chat: the Spanish script (numbered, with the day chip for each scene), the English script, and the
-N prompts each in its own code block, and a short **Facts used** list (fact → source link). Save the same as `script.md` in the computer folder
-`~/Movies/Viajes Pillados - Travel plans/<Destino>/` (write it there with device_bash). Ask for the
+N prompts each in its own code block, and a short **Facts used** list (fact → source link). Save the same as `trips/<id>/script.md` in the
+repo, commit + push (a later chat continues from it). Ask for the
 pictures: "Make the N pictures in Gemini and attach them here in order (or name them 1–N)."
 **The owner makes the travel-video pictures by hand – do NOT generate them with Picsart** (its credits are kept for the daily Reels).
 If the owner asks for changes, edit and resend only what changed.
@@ -108,17 +110,18 @@ If the owner asks for changes, edit and resend only what changed.
 3. `python scripts/trip_plan.py build <id>` and `python scripts/trip_plan.py preview <id> /tmp/p.jpg`; Read
    the preview, fix placements. Commit + push.
 4. Render: `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/trip.yml/dispatches -f ref=main -f 'inputs[id]=<id>'`,
-   find the run (`gh run list -R emilwoivalin-boop/viajespillados -w trip.yml -L 1`) and poll every 20 s
-   (Monitor until-loop, ~6–12 min). On failure: `git pull` and read `trips/<id>/error.txt`; a
-   `NoAudioReceived` error is the free TTS service hiccuping – just dispatch again once.
+   check after ~1 min that the run started (`gh run list -R emilwoivalin-boop/viajespillados -w trip.yml -L 1`), then
+   **do not wait for it** (a render takes ~30 min and polling costs a lot of usage): tell the owner "ready in ~30 min –
+   come back and say 'get the <Destino> videos'" and end the turn. On failure: `git pull` and read `trips/<id>/error.txt`;
+   `NoAudioReceived` = the free TTS service hiccuping – dispatch again; a finished language is kept, so redo only the
+   missing one with `-f 'inputs[langs]=en'` (or `es`).
 5. Get the videos from the branch `trip-videos` (never published, not on the website):
    `git fetch origin trip-videos:refs/remotes/origin/trip-videos && git show origin/trip-videos:<id>/video_es.mp4 > /mnt/user-data/outputs/<id>_es.mp4`
    (same for `_en`). Check each with a contact sheet
    (`ffmpeg -i X.mp4 -vf "fps=1/3,scale=216:-1,tile=8x2" -frames:v 1 /tmp/s.jpg`) and fix + re-render if
    something is clearly broken.
-6. Save to the computer with device_commit_files (stagedPath `/mnt/user-data/outputs/<id>_es.mp4` →
-   `~/Movies/Viajes Pillados - Travel plans/<Destino>/<Destino> – ES.mp4`, same for EN, plus the captions as
-   `captions.txt`). Reply in 2–3 lines: where they are, length of each video, and offer one tweak.
+6. Send both videos and both covers (`cover_es.jpg` / `cover_en.jpg` from `trip-videos`) with SendUserFile in one call,
+   tick "Video hecho" in the tracking list. Reply in 2–3 lines: length of each video, and offer one tweak.
 
 Don't publish these videos unless the owner asks for a specific one. When asked: add `publish_caption` {es} (and optional
 `thumb_offset_ms`) to `trips/<id>/plan.json`, then run reel.yml with mode `trip-publish` and the trip id – it posts the Spanish
