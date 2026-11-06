@@ -490,7 +490,10 @@ def end_png(e, path):
     img.alpha_composite(logo, (W // 2 - 75, 300))
     y = 560
     if e.get("title"):
-        d.text((W // 2, y), e["title"], font=ig.font("Black", 100), fill="white", anchor="mm"); y += 110
+        fs = 100                                  # shrink long titles ("7 días en Santiago de Chile") to fit the frame
+        while fs > 56 and d.textlength(e["title"], font=ig.font("Black", fs)) > W - 90:
+            fs -= 4
+        d.text((W // 2, y), e["title"], font=ig.font("Black", fs), fill="white", anchor="mm"); y += 110
     if e.get("kicker"):
         d.text((W // 2, y), e["kicker"], font=ig.font("Bold", 50), fill="white", anchor="mm"); y += 90
     if e.get("airline"):
