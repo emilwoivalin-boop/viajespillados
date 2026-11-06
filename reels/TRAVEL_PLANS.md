@@ -66,11 +66,12 @@ no airlines, no travel dates.
 **Picture prompts** (English, one per scene, numbered 1…N in scene order). These can be more detailed than
 the daily Reels. Each = style block + scene + layout rule:
 - Style block: `Detailed flat cartoon illustration, clean outlines, rich warm colors, soft shading,
-  recognizable landmark shapes and local details, no people, no text, no letters, vertical 9:16.`
+  recognizable landmark shapes and local details. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16.`
 - Scene: the exact place of that line, recognisable (landmark shapes, colours, nature, food), time of day
   that fits the line (night plans → night sky).
-- Layout: a clear empty area where a small stick figure can stand/sit/walk (say where, e.g. "empty plaza in
-  the lower third"); keep the top 30 % calm (sky/wall) because captions and the day chip sit there.
+- Layout: a clear empty area where our stick figures will be added later (say where, e.g. "empty plaza in
+  the lower third, nothing standing there"); **never write "figure", "person", "stick man" or "room for…" in the
+  prompt – Gemini then draws them**, describe only the empty space; keep the top 30 % calm (sky/wall) because captions and the day chip sit there.
 - Hook picture: the most iconic view of the destination, wide.
 
 Deliver in chat: the Spanish script (numbered, with the day chip for each scene), the English script, and the
