@@ -53,7 +53,7 @@ def build(plan):
     o = plan["offer"]
     dest = o["destino"]
     parts = [c["hook"].strip()]
-    place = f"{dest}, {c['pais']}" if c.get("pais") and _slug(c["pais"]) != _slug(dest) else dest
+    place = f"{dest}, {c['pais']}" if c.get("pais") and _slug(c["pais"]) not in _slug(dest) else dest
     parts.append(f"📍 {place}. {c.get('intro', '').strip()}".strip())
     days = [f"Día {i} – {d['titulo'].strip()}: {d['texto'].strip()}" for i, d in enumerate(c["dias"], 1)]
     if c.get("bonus"):
