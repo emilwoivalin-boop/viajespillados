@@ -66,8 +66,9 @@
  "2026-11-06": {
   "id": "santiago-de-chile-2027-03-05",
   "destino": "Santiago de Chile",
-  "status": "rendered",
+  "status": "published",
   "buddy": true,
-  "note": "Santiago de Chile 5–11 mar (score 7 + 0 por salir en 119 días = 7; 30% bajo el mínimo usual, JetSMART directo 6 h, 4 días libres) es la mejor oferta; Aruba, La Habana, París, Leticia, Montego Bay, Caracas, Miami y Tijuana omitidos (Reel hace menos de 14 días). Siguiente: San Andrés 9–15 may (7 − 1 = 6). Sin ocasión (Lollapalooza Chile es 12–14 mar, después del regreso; no hay festivo colombiano)."
+  "note": "Santiago de Chile 5–11 mar (score 7 + 0 por salir en 119 días = 7; 30% bajo el mínimo usual, JetSMART directo 6 h, 4 días libres) es la mejor oferta; Aruba, La Habana, París, Leticia, Montego Bay, Caracas, Miami y Tijuana omitidos (Reel hace menos de 14 días). Siguiente: San Andrés 9–15 may (7 − 1 = 6). Sin ocasión (Lollapalooza Chile es 12–14 mar, después del regreso; no hay festivo colombiano). | Publicado en Instagram (run 42260109626), X https://x.com/viajespillados/status/2118756181892055378 y Facebook https://www.facebook.com/videos/917563961322706, pero el push del resultado falló (conflicto con el travel video de Montego Bay): permalink de IG no recuperado; tiktok/feed.json, x/ y fb/published.json sin actualizar.",
+  "permalink": null
  }
 }
