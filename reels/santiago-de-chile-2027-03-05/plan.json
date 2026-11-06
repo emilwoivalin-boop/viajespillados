@@ -1,0 +1,37 @@
+{
+ "id": "santiago-de-chile-2027-03-05",
+ "offer": {
+  "destino": "Santiago de Chile",
+  "region": "Sudamérica",
+  "aerolinea": "JetSMART",
+  "precio": 1012430,
+  "escalas": "directo",
+  "ida": "2027-03-05",
+  "vuelta": "2027-03-11",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20SCL%20from%20BOG%20on%202027-03-05%20through%202027-03-11&curr=COP&hl=es-419",
+  "sheet_row": 47
+ },
+ "hora_salida": null,
+ "buddy": true,
+ "que_hacer": "Sube al cerro San Cristóbal, visita viñedos del valle del Maipo y escápate a los cerros de colores de Valparaíso.",
+ "lines": {
+  "vuelo": "Seis horas de vuelo directo hacia el sur… ¿y abajo? Montañas nevadas que no se acaban.",
+  "llegada": "¡Bienvenido a Santiago de Chile! Sales del aeropuerto y la cordillera de los Andes te saluda de frente.",
+  "dia1": "Día uno: subes en funicular al cerro San Cristóbal y ves toda la ciudad a los pies de los Andes.",
+  "dia2": "Día dos: recorres viñedos del valle del Maipo, entre racimos de uva y barricas de vino.",
+  "dia3": "Día tres: te escapas a Valparaíso y subes en ascensor entre cerros llenos de casas de colores.",
+  "dia4": "Día cuatro: subes al Cajón del Maipo hasta el embalse El Yeso, un lago turquesa entre montañas.",
+  "dia5": "Día cinco: almuerzas una paila marina en el Mercado Central, bajo su viejo techo de hierro."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a long chain of huge snow-capped mountains with brown rocky slopes and green valleys, generic South American mountain landscape, no city, no landmark, sunny blue sky. Keep the lower half open with the snowy mountain range clearly visible. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Outside a modern airport terminal with a curved glass and white roof, a few young trees in front, and behind it a huge wall of brown and grey mountains with snowy peaks under a bright blue sky, warm sunny light. A wide empty light-grey sidewalk across the lower third of the picture, wide enough for two small figures.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The top of San Cristóbal Hill in Santiago de Chile: a big white statue of the Virgin Mary on a tall stone pedestal at one side, a red funicular cabin on a steep track coming up the green hill, and below a wide city of small buildings and green trees in a valley, with a long chain of snow-capped Andes mountains behind, sunny blue sky. A wide empty stone viewpoint terrace with a low railing in the lower third of the picture, wide empty area for two small figures.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. A sunny vineyard in the Maipo Valley of Chile: long straight rows of green grape vines with bunches of purple grapes, a white colonial winery house with a red tile roof, a stack of wooden wine barrels at the side, brown mountains in the background, blue sky. An empty dirt path between the vine rows in the lower half of the picture, clearly visible and empty, wide enough for two small figures.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Valparaíso, Chile: steep hills covered with small houses painted in bright red, yellow, blue, green and pink, a small old wooden funicular car (ascensor) on a steep track going up the hill, the blue Pacific harbour with a few boats at the bottom, sunny blue sky. An empty cobblestone street with a low wall in the lower third of the picture, wide empty area for two small figures.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The El Yeso reservoir in the Cajón del Maipo, Chile: a calm bright turquoise mountain lake surrounded by huge bare brown and grey mountains with snowy peaks, clear blue sky. An empty flat gravel shore along the lake in the lower third of the picture, clearly visible and empty, wide enough for two small figures.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Inside the old Mercado Central of Santiago de Chile: a big hall with a tall ornate green-painted iron roof structure and skylights, simple seafood stalls with crates of fish, mussels and lemons at the sides, a small wooden restaurant table in front with two steaming clay bowls of seafood stew. An empty tiled floor in the lower third of the picture, wide empty area for two small figures.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The most iconic view of Santiago de Chile: the green San Cristóbal hill with a tall white statue on top at one side, a city of small buildings below, and a long chain of huge snow-capped Andes mountains, bright daylight, a wide calm open blue sky filling the upper and middle part of the picture. An empty park path with green grass in the bottom fifth of the picture."
+ },
+ "end_image": "dia1"
+}
