@@ -9,6 +9,10 @@ on:
       id:
         description: "Folder in trips/ (e.g. medellin-3-dias)"
         required: true
+      langs:
+        description: "Languages to render (default: es en)"
+        required: false
+        default: "es en"
 
 permissions:
   contents: write
@@ -36,7 +40,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Render
         run: python scripts/reel.py trip "${{ github.event.inputs.id }}"
+        env:
+          LANGS: ${{ github.event.inputs.langs || 'es en' }}
       - name: Save videos to branch trip-videos
+        if: always()   # keep a finished language even if the other one failed
         run: |
           ID="${{ github.event.inputs.id }}"
           if git ls-remote --exit-code --heads origin trip-videos >/dev/null; then
@@ -48,7 +55,8 @@ jobs:
             cd /tmp/tv
           fi
           mkdir -p "$ID"
-          cp "$GITHUB_WORKSPACE/trips/$ID"/video_*.mp4 "$GITHUB_WORKSPACE/trips/$ID"/video_*_cover.jpg "$ID"/
+          cp "$GITHUB_WORKSPACE/trips/$ID"/video_*.mp4 "$ID"/ || exit 0
+          cp "$GITHUB_WORKSPACE/trips/$ID"/video_*_cover.jpg "$ID"/ 2>/dev/null || true
           cp "$GITHUB_WORKSPACE/trips/$ID"/cover_*.jpg "$ID"/ 2>/dev/null || true
           git add "$ID"
           git commit -q -m "Travel plan videos: $ID"

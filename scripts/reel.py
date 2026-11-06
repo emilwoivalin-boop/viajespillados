@@ -70,14 +70,14 @@ async def _tts(text, voice, mp3, rate):
 
 def tts(text, voice, mp3, rate="+15%"):
     text = text.replace("…", "...")
-    for attempt in range(5):   # the free Edge TTS service sometimes returns no audio: retry
+    for attempt in range(8):   # the free Edge TTS service sometimes returns no audio: retry, waiting longer each time
         try:
             return asyncio.run(_tts(text, voice, mp3, rate))
         except Exception as e:
-            if attempt == 4:
+            if attempt == 7:
                 raise
             print(f"TTS reintento {attempt + 1}: {e}")
-            time.sleep(3 * (attempt + 1))
+            time.sleep(10 * (attempt + 1))
 
 
 def tight_voice(text, voice, mp3, rate):
@@ -916,7 +916,7 @@ if __name__ == "__main__":
             ig.commit_push([f"reels/{rid}/img"], f"Reel: imágenes de Drive {rid}")
         elif mode == "trip":   # travel plan videos: trips/<id>/storyboard_es.json + storyboard_en.json
             import cover
-            for lang in ("es", "en"):
+            for lang in os.environ.get("LANGS", "es en").split():
                 if os.path.exists(os.path.join(ROOT, "trips", rid, f"storyboard_{lang}.json")):
                     render(rid, "trips", f"storyboard_{lang}.json", f"video_{lang}.mp4")
                     try:
