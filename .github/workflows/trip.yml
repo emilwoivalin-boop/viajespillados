@@ -23,8 +23,16 @@ concurrency:
 
 jobs:
   trip:
+    # Spanish and English render at the same time on two machines (each saves its own files)
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [es, en]
     runs-on: ubuntu-latest
     timeout-minutes: 50
+    env:
+      L: ${{ matrix.lang }}
+      WANTED: ${{ github.event.inputs.langs || 'es en' }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -39,9 +47,9 @@ jobs:
           git config user.name "viajespillados-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Render
-        run: python scripts/reel.py trip "${{ github.event.inputs.id }}"
-        env:
-          LANGS: ${{ github.event.inputs.langs || 'es en' }}
+        run: |
+          case " $WANTED " in *" $L "*) ;; *) echo "skip $L (not asked)"; exit 0;; esac
+          LANGS="$L" python scripts/reel.py trip "${{ github.event.inputs.id }}"
       - name: Save videos to branch trip-videos
         if: always()   # keep a finished language even if the other one failed
         run: |
@@ -55,9 +63,9 @@ jobs:
             cd /tmp/tv
           fi
           mkdir -p "$ID"
-          cp "$GITHUB_WORKSPACE/trips/$ID"/video_*.mp4 "$ID"/ || exit 0
-          cp "$GITHUB_WORKSPACE/trips/$ID"/video_*_cover.jpg "$ID"/ 2>/dev/null || true
-          cp "$GITHUB_WORKSPACE/trips/$ID"/cover_*.jpg "$ID"/ 2>/dev/null || true
+          cp "$GITHUB_WORKSPACE/trips/$ID/video_$L.mp4" "$ID"/ || exit 0
+          cp "$GITHUB_WORKSPACE/trips/$ID/video_${L}_cover.jpg" "$ID"/ 2>/dev/null || true
+          cp "$GITHUB_WORKSPACE/trips/$ID/cover_$L.jpg" "$ID"/ 2>/dev/null || true
           git add "$ID"
-          git commit -q -m "Travel plan videos: $ID"
-          for i in 1 2 3; do git push -q origin trip-videos && break; git pull -q --rebase origin trip-videos; done
+          git commit -q -m "Travel plan video: $ID ($L)"
+          for i in 1 2 3 4 5; do git push -q origin trip-videos && break; git pull -q --rebase origin trip-videos; done
