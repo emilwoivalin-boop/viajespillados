@@ -1,0 +1,694 @@
+{
+ "id": "montego-bay-3-dias-es",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+48%",
+ "pad": 0.08,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Un mar que brilla en la oscuridad, una cascada que cae directo al mar y la casa de Bob Marley? Todo eso queda en Jamaica, parce. Pilla este plan de tres días en Montego Bay.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/hook.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "x0": 0.42,
+    "y": 0.88,
+    "size": 430,
+    "beats": [
+     {
+      "action": "stand"
+     },
+     {
+      "action": "point",
+      "word": "brilla"
+     },
+     {
+      "action": "celebrate",
+      "word": "Jamaica"
+     },
+     {
+      "action": "run",
+      "word": "Pilla",
+      "x1": 1.25
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Jamaica",
+     "x": 0.62,
+     "y": 0.5,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.2,
+     "y": 0.9,
+     "size": 410,
+     "beats": [
+      {
+       "action": "wave"
+      },
+      {
+       "action": "selfie",
+       "word": "cascada"
+      },
+      {
+       "action": "run",
+       "word": "Pilla",
+       "x1": 1.25
+      }
+     ]
+    }
+   ],
+   "tag": "MONTEGO BAY · 3 DÍAS"
+  },
+  {
+   "text": "Día uno: arrancas en el Hip Strip, la calle de playa, música y puestos de comida. Dato bacano: los españoles le decían \"Bahía de Manteca\", porque desde aquí mandaban manteca de cerdo hasta Cartagena. Pide un patty, una empanada jamaiquina picantica.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/hipstrip.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.91,
+    "size": 420,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.5
+     },
+     {
+      "action": "point",
+      "word": "Manteca"
+     },
+     {
+      "action": "eat",
+      "word": "patty"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": true,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.94,
+     "size": 400,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": -0.3,
+       "x1": 0.25
+      },
+      {
+       "action": "dance",
+       "word": "música"
+      },
+      {
+       "action": "eat",
+       "word": "patty",
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 1"
+  },
+  {
+   "text": "Al ladito, Doctor's Cave Beach: agua turquesa, quietica y clarita. En los años veinte un médico inglés dijo que esta agua curaba, y así se hizo famosa Montego Bay. Toalla, sol y a flotar.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/doctors.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.05,
+      "x1": 0.3
+     },
+     {
+      "action": "point",
+      "word": "médico"
+     },
+     {
+      "action": "relax",
+      "word": "Toalla",
+      "x0": 0.28,
+      "y": 0.92
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "waves"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.8,
+     "gain": 0.2
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.78,
+     "y": 0.86,
+     "size": 360,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "wade"
+      },
+      {
+       "action": "float",
+       "word": "flotar",
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 1"
+  },
+  {
+   "text": "Por la tarde, Rose Hall, una mansión de hacia 1770 sobre la colina. Cuenta la leyenda que aquí vivió Annie Palmer, la \"Bruja Blanca\", que mató a tres esposos... y que su fantasma todavía anda por los pasillos. Uy, ¡qué susto!",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/rosehall.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": "mansión"
+     },
+     {
+      "action": "scared",
+      "word": "fantasma",
+      "mood": "scared"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "crickets"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "boing",
+     "frac": 0.82,
+     "gain": 0.15
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.68,
+     "y": 0.92,
+     "size": 400,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "photo",
+       "word": "Bruja"
+      },
+      {
+       "action": "scared",
+       "word": "susto",
+       "mood": "scared"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 1"
+  },
+  {
+   "text": "De noche, la Laguna Luminosa: donde el río Martha Brae se junta con el mar, millones de microorganismos brillan. Mueves la mano y el agua se prende azul. Pilas: ve en noche sin luna. Y de día, ese mismo río se baja en balsa de bambú.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/lagoon.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "x0": 0.55,
+    "y": 0.9,
+    "size": 400,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "sit"
+     },
+     {
+      "action": "point",
+      "word": "brillan"
+     },
+     {
+      "action": "sit",
+      "word": "azul",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "brillan",
+     "x": 0.45,
+     "y": 0.62,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "crickets"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.5,
+     "gain": 0.15
+    },
+    {
+     "kind": "sparkle",
+     "frac": 0.52,
+     "gain": 0.2
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.3,
+     "y": 0.92,
+     "size": 390,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "sit"
+      },
+      {
+       "action": "laugh",
+       "word": "azul",
+       "mood": "love"
+      },
+      {
+       "action": "shrug",
+       "word": "Pilas"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 1"
+  },
+  {
+   "text": "Día dos, desayuno de campeones: ackee con bacalao salado, el plato nacional. El idioma oficial es el inglés, pero en la calle casi todos hablan patois: \"nyam\" es comer, y viene de un idioma africano. Suena cantadito, como reggae.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/breakfast.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "x0": 0.22,
+    "y": 0.93,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sit"
+     },
+     {
+      "action": "eat",
+      "word": "ackee"
+     },
+     {
+      "action": "laugh",
+      "word": "nyam"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.06,
+     "gain": 0.25
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.86,
+     "y": 0.97,
+     "size": 430,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "sip"
+      },
+      {
+       "action": "eat",
+       "word": "nyam"
+      },
+      {
+       "action": "dance",
+       "word": "reggae",
+       "mood": "laugh"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 2"
+  },
+  {
+   "text": "Luego, Dunn's River Falls, por Ocho Ríos: cincuenta y cinco metros de cascada que subes como una escalera natural, agarrados de la mano. Es de las poquitas cascadas del mundo que caen directo al mar. Pilas: lleva zapatos de agua.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/dunns.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.86,
+    "size": 400,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.2,
+      "x1": 0.5
+     },
+     {
+      "action": "celebrate",
+      "word": "mar"
+     },
+     {
+      "action": "point",
+      "word": "Pilas"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "waves",
+    "birds"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.55,
+     "gain": 0.2
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.88,
+     "size": 390,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 0.02,
+       "x1": 0.32
+      },
+      {
+       "action": "wade",
+       "word": "mar"
+      },
+      {
+       "action": "laugh",
+       "word": "zapatos"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 2"
+  },
+  {
+   "text": "Y subes a las montañas, a Nine Mile, el pueblito donde nació Bob Marley en 1945. Ahí está su casita y ahí mismo está enterrado, junto a su mamá. Reggae sonando, verde, amarillo y rojo por todas partes, y paz total.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/ninemile.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": "nació"
+     },
+     {
+      "action": "dance",
+      "word": "Reggae"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "Marley",
+     "x": 0.55,
+     "y": 0.45,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "birds",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": true,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.68,
+     "y": 0.92,
+     "size": 400,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "photo",
+       "word": "casita"
+      },
+      {
+       "action": "dance",
+       "word": "Reggae",
+       "speed": 0.9,
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "tag": "DÍA 2"
+  },
+  {
+   "text": "Día tres: vamos pa' Negril, playa larga y tranquila, y al atardecer, Rick's Café: la gente se tira de los acantilados al mar mientras suena el reggae. Te saludan con un \"¡Wah gwaan!\" y tú respondes \"¡Irie!\", o sea, todo bien.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/ricks.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "size": 380,
+    "beats": [
+     {
+      "action": "stand",
+      "x0": 0.6,
+      "y": 0.86,
+      "facing": -1
+     },
+     {
+      "action": "point",
+      "word": "acantilados"
+     },
+     {
+      "action": "dive",
+      "word": "tira",
+      "x1": 0.14,
+      "y1": 0.74,
+      "facing": -1
+     },
+     {
+      "action": "swim",
+      "word": "Wah",
+      "x0": 0.14,
+      "x1": 0.06,
+      "y": 0.74,
+      "facing": -1,
+      "size": 270
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.68,
+     "gain": 0.3
+    }
+   ],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.78,
+     "y": 0.88,
+     "size": 390,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "sip"
+      },
+      {
+       "action": "dance",
+       "word": "reggae"
+      },
+      {
+       "action": "wave",
+       "word": "Irie",
+       "mood": "laugh"
+      }
+     ]
+    },
+    {
+     "x0": 0.93,
+     "y": 0.86,
+     "size": 300,
+     "facing": -1,
+     "action": "dance",
+     "speed": 1.15
+    }
+   ],
+   "tag": "DÍA 3"
+  },
+  {
+   "text": "Agua que brilla, una cascada al mar y la tierra de Bob Marley: plan completico, parce. Guárdalo pa' tu viaje... y los vuelos baratos, en viajespillados punto com.",
+   "media": {
+    "type": "file",
+    "path": "trips/montego-bay-3-dias/img/cierre.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 430,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.2,
+      "x1": 0.42,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": "Guárdalo",
+      "facing": -1
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "action_sfx": false,
+   "sfx": [],
+   "steps": false,
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.93,
+     "size": 400,
+     "beats": [
+      {
+       "action": "run",
+       "x0": -0.35,
+       "x1": 0.17,
+       "facing": 1
+      },
+      {
+       "action": "wave",
+       "word": "Guárdalo",
+       "facing": 1
+      }
+     ]
+    }
+   ],
+   "hold": 1.0
+  }
+ ],
+ "end": null,
+ "caption": "Montego Bay en 3 días 🌴 Hip Strip, Doctor's Cave, Rose Hall, la Laguna Luminosa, Dunn's River Falls, Nine Mile y Rick's Café en Negril. Guárdalo pa' tu viaje 🇯🇲",
+ "outro": {
+  "text": "viajespillados.com",
+  "dur": 3.0
+ }
+}

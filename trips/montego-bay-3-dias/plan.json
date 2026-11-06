@@ -1,0 +1,802 @@
+{
+ "id": "montego-bay-3-dias",
+ "destino": "Montego Bay",
+ "pais": "Jamaica",
+ "dias": 3,
+ "rate": {
+  "es": "+48%",
+  "en": "+38%"
+ },
+ "pad": 0.08,
+ "end_hold": 1.0,
+ "caption": {
+  "es": "Montego Bay en 3 días 🌴 Hip Strip, Doctor's Cave, Rose Hall, la Laguna Luminosa, Dunn's River Falls, Nine Mile y Rick's Café en Negril. Guárdalo pa' tu viaje 🇯🇲",
+  "en": "Montego Bay in 3 days 🌴 Hip Strip, Doctor's Cave, Rose Hall, the Luminous Lagoon, Dunn's River Falls, Nine Mile and Rick's Café in Negril. Save this for your trip!"
+ },
+ "yt_title": "Montego Bay en 3 días: plan completo 🌴 #shorts",
+ "scenes": [
+  {
+   "key": "hook",
+   "img": "hook",
+   "text": {
+    "es": "¿Un mar que brilla en la oscuridad, una cascada que cae directo al mar y la casa de Bob Marley? Todo eso queda en Jamaica, parce. Pilla este plan de tres días en Montego Bay.",
+    "en": "A sea that glows in the dark, a waterfall that pours straight into the ocean, and Bob Marley's home? It's all in Jamaica. Here's your three-day plan for Montego Bay."
+   },
+   "stick": {
+    "x0": 0.42,
+    "y": 0.88,
+    "size": 430,
+    "beats": [
+     {
+      "action": "stand"
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "brilla",
+       "en": "glows"
+      }
+     },
+     {
+      "action": "celebrate",
+      "word": {
+       "es": "Jamaica",
+       "en": "Jamaica"
+      }
+     },
+     {
+      "action": "run",
+      "word": {
+       "es": "Pilla",
+       "en": "Here's"
+      },
+      "x1": 1.25
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.2,
+     "y": 0.9,
+     "size": 410,
+     "beats": [
+      {
+       "action": "wave"
+      },
+      {
+       "action": "selfie",
+       "word": {
+        "es": "cascada",
+        "en": "waterfall"
+       }
+      },
+      {
+       "action": "run",
+       "word": {
+        "es": "Pilla",
+        "en": "Here's"
+       },
+       "x1": 1.25
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "pin",
+    "word": {
+     "es": "Jamaica",
+     "en": "Jamaica"
+    },
+    "x": 0.62,
+    "y": 0.5,
+    "size": 190
+   },
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "tag": {
+    "es": "MONTEGO BAY · 3 DÍAS",
+    "en": "MONTEGO BAY · 3 DAYS"
+   }
+  },
+  {
+   "key": "hipstrip",
+   "img": "hipstrip",
+   "text": {
+    "es": "Día uno: arrancas en el Hip Strip, la calle de playa, música y puestos de comida. Dato bacano: los españoles le decían \"Bahía de Manteca\", porque desde aquí mandaban manteca de cerdo hasta Cartagena. Pide un patty, una empanada jamaiquina picantica.",
+    "en": "Day one: start on the Hip Strip, the beach street full of music and food stalls. Fun fact: the Spanish called this place \"Lard Bay\", because they shipped pork lard from here all the way to Cartagena. Grab a patty, a spicy Jamaican pastry."
+   },
+   "stick": {
+    "y": 0.91,
+    "size": 420,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.5
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "Manteca",
+       "en": "Lard"
+      }
+     },
+     {
+      "action": "eat",
+      "word": {
+       "es": "patty",
+       "en": "patty"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.94,
+     "size": 400,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": -0.3,
+       "x1": 0.25
+      },
+      {
+       "action": "dance",
+       "word": {
+        "es": "música",
+        "en": "music"
+       }
+      },
+      {
+       "action": "eat",
+       "word": {
+        "es": "patty",
+        "en": "patty"
+       },
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "ambience": "steeldrum",
+   "steps": true,
+   "tag": {
+    "es": "DÍA 1",
+    "en": "DAY 1"
+   }
+  },
+  {
+   "key": "doctors",
+   "img": "doctors",
+   "text": {
+    "es": "Al ladito, Doctor's Cave Beach: agua turquesa, quietica y clarita. En los años veinte un médico inglés dijo que esta agua curaba, y así se hizo famosa Montego Bay. Toalla, sol y a flotar.",
+    "en": "Right next door, Doctor's Cave Beach: calm, crystal-clear turquoise water. In the 1920s a British doctor claimed this water could heal, and that made Montego Bay famous. Towel, sun and a lazy float."
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.05,
+      "x1": 0.3
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "médico",
+       "en": "doctor"
+      }
+     },
+     {
+      "action": "relax",
+      "word": {
+       "es": "Toalla",
+       "en": "Towel"
+      },
+      "x0": 0.28,
+      "y": 0.92
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.78,
+     "y": 0.86,
+     "size": 360,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "wade"
+      },
+      {
+       "action": "float",
+       "word": {
+        "es": "flotar",
+        "en": "float"
+       },
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "ambience": "waves",
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.8,
+     "gain": 0.2
+    }
+   ],
+   "tag": {
+    "es": "DÍA 1",
+    "en": "DAY 1"
+   }
+  },
+  {
+   "key": "rosehall",
+   "img": "rosehall",
+   "text": {
+    "es": "Por la tarde, Rose Hall, una mansión de hacia 1770 sobre la colina. Cuenta la leyenda que aquí vivió Annie Palmer, la \"Bruja Blanca\", que mató a tres esposos... y que su fantasma todavía anda por los pasillos. Uy, ¡qué susto!",
+    "en": "In the afternoon, Rose Hall, a hilltop mansion from around 1770. Legend says Annie Palmer, the \"White Witch\", lived here and killed three husbands... and her ghost still walks the halls. Spooky!"
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "mansión",
+       "en": "mansion"
+      }
+     },
+     {
+      "action": "scared",
+      "word": {
+       "es": "fantasma",
+       "en": "ghost"
+      },
+      "mood": "scared"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.68,
+     "y": 0.92,
+     "size": 400,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "photo",
+       "word": {
+        "es": "Bruja",
+        "en": "Witch"
+       }
+      },
+      {
+       "action": "scared",
+       "word": {
+        "es": "susto",
+        "en": "Spooky"
+       },
+       "mood": "scared"
+      }
+     ]
+    }
+   ],
+   "ambience": "crickets",
+   "sfx": [
+    {
+     "kind": "boing",
+     "frac": 0.82,
+     "gain": 0.15
+    }
+   ],
+   "tag": {
+    "es": "DÍA 1",
+    "en": "DAY 1"
+   }
+  },
+  {
+   "key": "lagoon",
+   "img": "lagoon",
+   "text": {
+    "es": "De noche, la Laguna Luminosa: donde el río Martha Brae se junta con el mar, millones de microorganismos brillan. Mueves la mano y el agua se prende azul. Pilas: ve en noche sin luna. Y de día, ese mismo río se baja en balsa de bambú.",
+    "en": "At night, the Luminous Lagoon: where the Martha Brae River meets the sea, millions of tiny organisms glow. Move your hand and the water lights up blue. Tip: go on a moonless night. By day, you can float down the same river on a bamboo raft."
+   },
+   "stick": {
+    "x0": 0.55,
+    "y": 0.9,
+    "size": 400,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "sit"
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "brillan",
+       "en": "glow"
+      }
+     },
+     {
+      "action": "sit",
+      "word": {
+       "es": "azul",
+       "en": "blue"
+      },
+      "mood": "wow"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.3,
+     "y": 0.92,
+     "size": 390,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "sit"
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "azul",
+        "en": "blue"
+       },
+       "mood": "love"
+      },
+      {
+       "action": "shrug",
+       "word": {
+        "es": "Pilas",
+        "en": "Tip"
+       }
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "sparkle",
+    "word": {
+     "es": "brillan",
+     "en": "glow"
+    },
+    "x": 0.45,
+    "y": 0.62,
+    "size": 200
+   },
+   "ambience": "crickets",
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.5,
+     "gain": 0.15
+    },
+    {
+     "kind": "sparkle",
+     "frac": 0.52,
+     "gain": 0.2
+    }
+   ],
+   "tag": {
+    "es": "DÍA 1",
+    "en": "DAY 1"
+   }
+  },
+  {
+   "key": "breakfast",
+   "img": "breakfast",
+   "text": {
+    "es": "Día dos, desayuno de campeones: ackee con bacalao salado, el plato nacional. El idioma oficial es el inglés, pero en la calle casi todos hablan patois: \"nyam\" es comer, y viene de un idioma africano. Suena cantadito, como reggae.",
+    "en": "Day two, breakfast of champions: ackee and saltfish, the national dish. The official language is English, but on the street almost everyone speaks Patois: \"nyam\" means to eat, and it comes from an African language. It sounds sing-song, like reggae."
+   },
+   "stick": {
+    "x0": 0.22,
+    "y": 0.93,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sit"
+     },
+     {
+      "action": "eat",
+      "word": {
+       "es": "ackee",
+       "en": "ackee"
+      }
+     },
+     {
+      "action": "laugh",
+      "word": {
+       "es": "nyam",
+       "en": "nyam"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.86,
+     "y": 0.97,
+     "size": 430,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "sip"
+      },
+      {
+       "action": "eat",
+       "word": {
+        "es": "nyam",
+        "en": "nyam"
+       }
+      },
+      {
+       "action": "dance",
+       "word": {
+        "es": "reggae",
+        "en": "reggae"
+       },
+       "mood": "laugh"
+      }
+     ]
+    }
+   ],
+   "ambience": [
+    "birds",
+    "steeldrum"
+   ],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.06,
+     "gain": 0.25
+    }
+   ],
+   "tag": {
+    "es": "DÍA 2",
+    "en": "DAY 2"
+   }
+  },
+  {
+   "key": "dunns",
+   "img": "dunns",
+   "text": {
+    "es": "Luego, Dunn's River Falls, por Ocho Ríos: cincuenta y cinco metros de cascada que subes como una escalera natural, agarrados de la mano. Es de las poquitas cascadas del mundo que caen directo al mar. Pilas: lleva zapatos de agua.",
+    "en": "Then Dunn's River Falls near Ocho Rios: fifty-five meters of waterfall you climb like natural stairs, holding hands in a chain. It's one of the very few waterfalls in the world that flows straight into the sea. Tip: bring water shoes."
+   },
+   "stick": {
+    "y": 0.86,
+    "size": 400,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.2,
+      "x1": 0.5
+     },
+     {
+      "action": "celebrate",
+      "word": {
+       "es": "mar",
+       "en": "sea"
+      }
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "Pilas",
+       "en": "Tip"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.88,
+     "size": 390,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 0.02,
+       "x1": 0.32
+      },
+      {
+       "action": "wade",
+       "word": {
+        "es": "mar",
+        "en": "sea"
+       }
+      },
+      {
+       "action": "laugh",
+       "word": {
+        "es": "zapatos",
+        "en": "shoes"
+       }
+      }
+     ]
+    }
+   ],
+   "ambience": [
+    "waves",
+    "birds"
+   ],
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.55,
+     "gain": 0.2
+    }
+   ],
+   "tag": {
+    "es": "DÍA 2",
+    "en": "DAY 2"
+   }
+  },
+  {
+   "key": "ninemile",
+   "img": "ninemile",
+   "text": {
+    "es": "Y subes a las montañas, a Nine Mile, el pueblito donde nació Bob Marley en 1945. Ahí está su casita y ahí mismo está enterrado, junto a su mamá. Reggae sonando, verde, amarillo y rojo por todas partes, y paz total.",
+    "en": "Head up into the hills to Nine Mile, the village where Bob Marley was born in 1945. You'll see his little house, and he's buried right there, next to his mother. Reggae playing, green, gold and red everywhere, total peace."
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "nació",
+       "en": "born"
+      }
+     },
+     {
+      "action": "dance",
+      "word": {
+       "es": "Reggae",
+       "en": "Reggae"
+      }
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.68,
+     "y": 0.92,
+     "size": 400,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand"
+      },
+      {
+       "action": "photo",
+       "word": {
+        "es": "casita",
+        "en": "house"
+       }
+      },
+      {
+       "action": "dance",
+       "word": {
+        "es": "Reggae",
+        "en": "Reggae"
+       },
+       "speed": 0.9,
+       "mood": "love"
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "heart",
+    "word": {
+     "es": "Marley",
+     "en": "Marley"
+    },
+    "x": 0.55,
+    "y": 0.45,
+    "size": 190
+   },
+   "ambience": [
+    "birds",
+    "steeldrum"
+   ],
+   "steps": true,
+   "tag": {
+    "es": "DÍA 2",
+    "en": "DAY 2"
+   }
+  },
+  {
+   "key": "ricks",
+   "img": "ricks",
+   "text": {
+    "es": "Día tres: vamos pa' Negril, playa larga y tranquila, y al atardecer, Rick's Café: la gente se tira de los acantilados al mar mientras suena el reggae. Te saludan con un \"¡Wah gwaan!\" y tú respondes \"¡Irie!\", o sea, todo bien.",
+    "en": "Day three: go to Negril for a long, quiet beach, and at sunset, Rick's Café, where people jump off the cliffs into the sea while reggae plays. Locals greet you with \"Wah gwaan!\" and you answer \"Irie!\", meaning all good."
+   },
+   "stick": {
+    "size": 380,
+    "beats": [
+     {
+      "action": "stand",
+      "x0": 0.6,
+      "y": 0.86,
+      "facing": -1
+     },
+     {
+      "action": "point",
+      "word": {
+       "es": "acantilados",
+       "en": "cliffs"
+      }
+     },
+     {
+      "action": "dive",
+      "word": {
+       "es": "tira",
+       "en": "jump"
+      },
+      "x1": 0.14,
+      "y1": 0.74,
+      "facing": -1
+     },
+     {
+      "action": "swim",
+      "word": {
+       "es": "Wah",
+       "en": "Wah"
+      },
+      "x0": 0.14,
+      "x1": 0.06,
+      "y": 0.74,
+      "facing": -1,
+      "size": 270
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "x0": 0.78,
+     "y": 0.88,
+     "size": 390,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "sip"
+      },
+      {
+       "action": "dance",
+       "word": {
+        "es": "reggae",
+        "en": "reggae"
+       }
+      },
+      {
+       "action": "wave",
+       "word": {
+        "es": "Irie",
+        "en": "Irie"
+       },
+       "mood": "laugh"
+      }
+     ]
+    },
+    {
+     "x0": 0.93,
+     "y": 0.86,
+     "size": 300,
+     "facing": -1,
+     "action": "dance",
+     "speed": 1.15
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.68,
+     "gain": 0.3
+    }
+   ],
+   "tag": {
+    "es": "DÍA 3",
+    "en": "DAY 3"
+   }
+  },
+  {
+   "key": "cierre",
+   "img": "cierre",
+   "text": {
+    "es": "Agua que brilla, una cascada al mar y la tierra de Bob Marley: plan completico, parce. Guárdalo pa' tu viaje... y los vuelos baratos, en viajespillados punto com.",
+    "en": "Glowing water, a waterfall into the sea and Bob Marley's homeland. Save this for your trip!"
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 430,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.2,
+      "x1": 0.42,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": {
+       "es": "Guárdalo",
+       "en": "Save"
+      },
+      "facing": -1
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.93,
+     "size": 400,
+     "beats": [
+      {
+       "action": "run",
+       "x0": -0.35,
+       "x1": 0.17,
+       "facing": 1
+      },
+      {
+       "action": "wave",
+       "word": {
+        "es": "Guárdalo",
+        "en": "Save"
+       },
+       "facing": 1
+      }
+     ]
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ]
+  }
+ ]
+}
