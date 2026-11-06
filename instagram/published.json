@@ -503,6 +503,39 @@
       "image": "https://viajespillados.com/instagram/img/ciudad-de-mexico-2026-11-05-862979.jpg",
       "published_at": "2026-11-05 22:25",
       "carousel": true
+    },
+    {
+      "id": "santiago-de-chile-2026-11-06-1092120",
+      "destino": "Santiago de Chile",
+      "precio": 1092120,
+      "sheet_row": 62,
+      "media_id": "18112924871167245",
+      "permalink": "https://www.instagram.com/p/DfaV3BeFLk5/",
+      "image": "https://raw.githubusercontent.com/emilwoivalin-boop/viajespillados/main/instagram/img/santiago-de-chile-2026-11-06-1092120.jpg",
+      "published_at": "2026-11-06 14:19",
+      "carousel": true
+    },
+    {
+      "id": "hong-kong-2026-11-06-5001460",
+      "destino": "Hong Kong",
+      "precio": 5001460,
+      "sheet_row": 63,
+      "media_id": "18112924871167245",
+      "permalink": "https://www.instagram.com/p/DfaV3BeFLk5/",
+      "image": "https://viajespillados.com/instagram/img/hong-kong-2026-11-06-5001460.jpg",
+      "published_at": "2026-11-06 14:19",
+      "carousel": true
+    },
+    {
+      "id": "el-cairo-2026-11-06-4792700",
+      "destino": "El Cairo",
+      "precio": 4792700,
+      "sheet_row": 64,
+      "media_id": "18112924871167245",
+      "permalink": "https://www.instagram.com/p/DfaV3BeFLk5/",
+      "image": "https://viajespillados.com/instagram/img/el-cairo-2026-11-06-4792700.jpg",
+      "published_at": "2026-11-06 14:19",
+      "carousel": true
     }
   ]
 }
