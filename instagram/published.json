@@ -470,6 +470,39 @@
       "image": "https://viajespillados.com/instagram/img/belo-horizonte-2026-11-05-1723135.jpg",
       "published_at": "2026-11-05 14:50",
       "carousel": true
+    },
+    {
+      "id": "tijuana-2026-11-05-855657",
+      "destino": "Tijuana",
+      "precio": 855657,
+      "sheet_row": 58,
+      "media_id": "18119060378329155",
+      "permalink": "https://www.instagram.com/p/DfYopnJFqWj/",
+      "image": "https://viajespillados.com/instagram/img/tijuana-2026-11-05-855657.jpg",
+      "published_at": "2026-11-05 22:25",
+      "carousel": true
+    },
+    {
+      "id": "puerto-vallarta-2026-11-05-932533",
+      "destino": "Puerto Vallarta",
+      "precio": 932533,
+      "sheet_row": 59,
+      "media_id": "18119060378329155",
+      "permalink": "https://www.instagram.com/p/DfYopnJFqWj/",
+      "image": "https://viajespillados.com/instagram/img/puerto-vallarta-2026-11-05-932533.jpg",
+      "published_at": "2026-11-05 22:25",
+      "carousel": true
+    },
+    {
+      "id": "ciudad-de-mexico-2026-11-05-862979",
+      "destino": "Ciudad de México",
+      "precio": 862979,
+      "sheet_row": 60,
+      "media_id": "18119060378329155",
+      "permalink": "https://www.instagram.com/p/DfYopnJFqWj/",
+      "image": "https://viajespillados.com/instagram/img/ciudad-de-mexico-2026-11-05-862979.jpg",
+      "published_at": "2026-11-05 22:25",
+      "carousel": true
     }
   ]
 }
