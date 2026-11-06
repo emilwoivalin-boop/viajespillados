@@ -2,16 +2,19 @@ name: Reel – video de viaje
 
 # Crea un Reel vertical (voz IA + subtítulos + fotos/videos reales) a partir de reels/<id>/storyboard.json.
 on:
+  schedule:
+    - cron: "14 17 * * *"   # 12:14 Bogotá: step C, publish today's daily Reel if it is rendered
   workflow_dispatch:
     inputs:
       mode:
         description: "render = solo crear el video (vista previa) · publish = crear y publicar en Instagram"
         type: choice
-        options: [render, publish, images, fetch, trip-publish]
+        options: [render, publish, images, fetch, trip-publish, daily-post]
         default: render
       id:
-        description: "Carpeta del reel en reels/ (ej. aruba-abril-2027)"
+        description: "Carpeta del reel en reels/ (ej. aruba-abril-2027; para daily-post: today)"
         required: true
+        default: today
 
 permissions:
   contents: write
@@ -50,4 +53,4 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python scripts/reel.py "${{ github.event.inputs.mode }}" "${{ github.event.inputs.id }}"
+        run: python scripts/reel.py "${{ github.event.inputs.mode || 'daily-post' }}" "${{ github.event.inputs.id || 'today' }}"

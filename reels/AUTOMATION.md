@@ -207,14 +207,16 @@ few emojis and never the flight offer (the video shows it at the end). `reel.py 
 `caption_es` it falls back to the "Qué hacer (captions)" text. Offer posts and carousels keep the "Qué hacer" text.
 
 
-1. Load today's entry; continue only if status is `rendered` (if `prompts_sent`: tell the owner the Reel wasn't built; stop).
-2. Run the workflow with mode `publish` and id. When it succeeds, `git pull` and read `reels/<id>/published.json` (permalink).
-3. Set status `published` (+ permalink) in `reels/daily.json`, commit + push.
-3a. **Tick the destination** in the Price log spreadsheet (`1SO2lHr3GvY01kRaBNPLtGPZ-OgWoNblqm7XtTIJO9PY`), tab
-   `Reels por destino` (A Región, B Destino in Spanish, C name in the Price log, D Reel diario ☑, E Link reel – no dates,
-   it only shows whether a destination has a daily offer Reel; travel videos have their own tab `Videos de viaje`): find the row whose B (or C) is
-   the Reel's destination, set D = TRUE and E = the permalink (update_values; if it already had one, keep the newest link). If the
-   destination has no row, append one (its región, the Spanish name in B, the Price log name in C) with a D checkbox like the rows above.
+**Automatic since 2026-11-06 – no Claude session.** The schedule in `.github/workflows/reel.yml` runs
+`scripts/reel.py daily-post today` every day at 12:14 Bogotá (GitHub may start it a few minutes late). It:
+1. loads today's entry in `reels/daily.json`; publishes only if the status is `rendered` (never twice: `published.json` guards it).
+   Any other status → the run fails with the reason in `reels/daily_error.txt` and GitHub emails the failure;
+2. publishes on Instagram + X + Facebook and adds the Reel to the download page (`tiktok/feed.json`);
+3. sets status `published` + permalink in `reels/daily.json` and rewrites `reels/reels_por_destino.csv`;
+3a. the Price log tab `Reels por destino` fills columns D (☑) and E (link) by itself from that CSV
+   (IMPORTDATA of https://viajespillados.com/reels/reels_por_destino.csv; a destination name matches column B,
+   or its first part before " / "). Do not type in D/E. A new destination only needs a row with A–C.
+To run it by hand (e.g. after fixing a late render): reel.yml with mode `daily-post`, id `today`.
 4. **TikTok (manual for now)**: automatic TikTok drafts are OFF until TikTok approves the app (the sandbox app does not
    deliver drafts to the phone) – do NOT run tiktok.yml. The publish step already added the Reel to `tiktok/feed.json`, which feeds
    https://viajespillados.com/tiktok/hoy.html (the owner saves the video there and posts it in TikTok and YouTube Shorts by hand).

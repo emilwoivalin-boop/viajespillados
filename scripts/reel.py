@@ -772,6 +772,49 @@ def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
 
 
 # ---------------------------------------------------------------- publish
+def write_reels_csv(daily):
+    """reels/reels_por_destino.csv: every destination with a published daily Reel + its newest link.
+    The "Reels por destino" tab of the Price log reads it with IMPORTDATA (no Claude needed)."""
+    import csv
+    last = {}
+    for day in sorted(daily):
+        d = daily[day]
+        if d.get("status") == "published" and d.get("destino"):
+            last[d["destino"]] = d.get("permalink") or last.get(d["destino"], "")
+    with open(os.path.join(ROOT, "reels", "reels_por_destino.csv"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["destino", "link"])
+        for k in sorted(last):
+            w.writerow([k, last[k]])
+
+
+def daily_post():
+    """Step C of the daily Reel, run by the schedule in reel.yml at 12:14 Bogotá (no Claude needed):
+    publish today's Reel if it is rendered, mark it published in reels/daily.json and update
+    reels/reels_por_destino.csv (read by the "Reels por destino" tab of the Price log with IMPORTDATA)."""
+    from datetime import datetime, timedelta, timezone
+    today = (datetime.now(timezone.utc) - timedelta(hours=5)).strftime("%Y-%m-%d")
+    path = os.path.join(ROOT, "reels", "daily.json")
+    daily = json.load(open(path))
+    e = daily.get(today)
+    if not e:
+        raise RuntimeError(f"No hay Reel para hoy ({today}) en reels/daily.json: el paso A no corrió.")
+    if e.get("status") == "published":
+        ig.summary(f"Reel de {e.get('destino')} ya estaba publicado: {e.get('permalink')}")
+        return
+    if e.get("status") != "rendered":
+        raise RuntimeError(f"El Reel de hoy ({e.get('destino')}) no está listo: estado '{e.get('status')}'. No se publicó.")
+    publish(e["id"])
+    pub = json.load(open(os.path.join(ROOT, "reels", e["id"], "published.json")))
+    daily = json.load(open(path))              # publish() pulled: reload before changing
+    daily[today].update(status="published", permalink=pub.get("permalink", ""))
+    json.dump(daily, open(path, "w"), ensure_ascii=False, indent=1)
+    write_reels_csv(daily)
+    ig.commit_push(["reels/daily.json", "reels/reels_por_destino.csv"], f"Reel diario publicado: {e['id']}")
+    ig.summary(f"✅ Reel de {e.get('destino')} publicado: {pub.get('permalink')}\n"
+               f"📲 Para TikTok y YouTube: https://viajespillados.com/tiktok/hoy.html")
+
+
 def publish(rid):
     base = os.path.join(ROOT, "reels", rid)
     if os.path.exists(os.path.join(base, "published.json")):     # never post the same Reel twice
@@ -940,6 +983,8 @@ if __name__ == "__main__":
             ig.commit_push([f"reels/{rid}"], f"Reel (vista previa): {rid}")
         elif mode == "publish":
             publish(rid)
+        elif mode == "daily-post":   # scheduled step C (reel.yml cron)
+            daily_post()
         elif mode == "trip-publish":   # travel-plan video, Spanish, on the owner's request only
             subprocess.run(["git", "fetch", "-q", "origin", "trip-videos:refs/remotes/origin/trip-videos"], cwd=ROOT,
                            check=True)
@@ -949,6 +994,8 @@ if __name__ == "__main__":
         if isinstance(e, subprocess.CalledProcessError) and e.stderr:
             err += "\n--- ffmpeg ---\n" + e.stderr.decode(errors="ignore")[-3000:]
         path = os.path.join(ROOT, "trips" if mode.startswith("trip") else "reels", rid, "error.txt")
+        if mode == "daily-post":
+            path = os.path.join(ROOT, "reels", "daily_error.txt")
         with open(path, "w") as f:
             f.write(err)
         ig.commit_push([path], f"Reel: error {rid}")
