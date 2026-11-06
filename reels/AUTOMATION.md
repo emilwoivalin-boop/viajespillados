@@ -23,6 +23,9 @@ Common facts
   `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/reel.yml/dispatches -f ref=main -f 'inputs[mode]=<render|publish|fetch>' -f 'inputs[id]=<id>'`
   then find the run with `gh run list -R emilwoivalin-boop/viajespillados -w reel.yml -L 1` and poll `gh run view <run> --json status,conclusion` every 20 s.
   On failure read `reels/<id>/error.txt` (after `git pull`).
+- Where Next Atlas (the owner's travel site, English): `data/wherenext.json` – ~280 destinations with tagline, `todo`
+  (activities), fact, best months, good/skip, similar places and airport `iata`. A copy of the artifact
+  https://claude.ai/artifact/Bv5dZXxTTX2totQ3HcWA54 – refreshed when the owner asks.
 - Offers sheet: `1us2JZr8rQRmeYlMTke9k2nPU26Cp6MLYQbtz3fHeL3c` (tab `Ofertas`, columns A Publicar … P Fechas; tab `Qué hacer (captions)`:
   A Destino, B País, C Región, D Qué hacer, E Ojo).
   Price log: `1SO2lHr3GvY01kRaBNPLtGPZ-OgWoNblqm7XtTIJO9PY` tab `Price log` (headers row 4; C Destination (English), D Trip type,
@@ -73,8 +76,10 @@ Common facts
      turquesa del Caribe."). `reel_plan.py build` refuses a `vuelo` line that contains the destination's name.
    - `llegada`: the reveal – "¡Bienvenido a <Destino>! …" + one sensory detail of arriving there.
    - `dia1`, `dia2`, `dia3`: start with "Día uno:", "Día dos:", "Día tres:" (for trips of 2–3 days use "Primer día:", "Luego:",
-     "Antes de volver:"), one activity each, taken from the three activities in `Qué hacer` column D, in that order, with one
-     concrete vivid detail. Only facts you are sure about.
+     "Antes de volver:"), one activity each, with one concrete vivid detail. Only facts you are sure about.
+     **Source of the activities:** first the Where Next Atlas data – `python scripts/reel_caption.py find <IATA>` (the IATA
+     code from the offer's link, column J), or `find "<name>"` with the English name (e.g. "Havana") – and its `todo` list
+     (4 activities with a short description); otherwise the three activities in `Qué hacer` column D, in that order.
    - **Longer trips get more days (owner's rule):** a 4-day trip gets `dia4` ("Día cuatro:"); trips of 5 days or more get
      `dia4` and `dia5` ("Día cuatro:", "Día cinco:"), each with its own picture (prompts `dia4`, `dia5`, same rules as dia1–3).
      `Qué hacer` only has three activities, so pick the extra ones yourself – different and real (a day trip, a beach or nature
@@ -95,6 +100,19 @@ Common facts
    streamers – still no people, no text); start "que_hacer" (it becomes the start of the Instagram caption) with a short sentence
    such as "Navidad en La Habana."; and mention the occasion in the final message to the owner. Only state facts you are sure
    about. If nothing applies, change nothing.
+4b. **Instagram caption** (`caption_es`, owner's format – see `scripts/reel_caption.py` for the fields and the Madrid example).
+   Written in Colombian Spanish (tú, natural, like the script), **few emojis** (the builder adds only 📍 and ✈️ – write none
+   yourself) and **no flight offer** (no price, airline or dates – the offer is only shown at the end of the Reel).
+   - `hook`: one punchy line, e.g. "¿Madrid en 3 días sin perder ni un minuto? Pilla este plan, parce." (use the number of day
+     scenes; mention the occasion here if there is one).
+   - `intro` (from Where Next `tagline`), `pais` (country in Spanish), `dias` = one `{titulo, texto}` per day scene, the SAME
+     activities and order as `dia1`, `dia2`… (titulo 2–5 words, texto one short sentence), optional `bonus` (another `todo`
+     item, e.g. nightlife), `dato` (from `fact`, without "¿Sabías que"), `epoca` (from `months`, e.g. "abril a junio y
+     septiembre a octubre"), `para` (from `good`, "te gusta…"), `no_para` (from `skip`, "odias… / quieres…"), `versus` (the
+     Spanish name of one `similar` place) and 2–4 `hashtags` (destination, country, #quehaceren<destino>).
+   - Translate and adapt – don't add facts that aren't in the data unless you are sure of them. If the destination is not in
+     Where Next, fill what you can from `Qué hacer` (que_hacer → dias, ojo → no_para) and leave the rest out.
+   - Check it with `python scripts/reel_caption.py show <id>` (it runs automatically at publish time).
 5. **Picture prompts** (`prompts`, English, one per key). Every prompt = this style block + scene description + layout rule:
    - Style block: `Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16.`
    - `vuelo`: view from high above the clouds with a small white airplane, and the landscape of the destination region far below (sea and islands, mountains, city…) – generic for the region, no recognisable landmark of the destination (it is revealed at landing).
@@ -182,9 +200,10 @@ Common facts
 
 ## C · post (12:14)
 
-Caption rule (owner): Instagram captions talk about the destination (what to do + a practical tip from the sheet tab
-"Qué hacer (captions)" + hashtags), never the flight – the video already shows price and dates. `reel.py publish` builds it
-automatically (plus the occasion, if any); the offer posts and carousels do the same.
+Caption rule (owner): Reel captions are a destination plan in the owner's format (`caption_es` in plan.json, built by
+`scripts/reel_caption.py`: hook, plan per day, fun fact, best months, who it suits, question, website line, hashtags) –
+few emojis and never the flight offer (the video shows it at the end). `reel.py publish` builds it automatically; without
+`caption_es` it falls back to the "Qué hacer (captions)" text. Offer posts and carousels keep the "Qué hacer" text.
 
 
 1. Load today's entry; continue only if status is `rendered` (if `prompts_sent`: tell the owner the Reel wasn't built; stop).

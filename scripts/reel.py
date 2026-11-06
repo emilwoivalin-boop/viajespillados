@@ -785,7 +785,13 @@ def publish(rid):
     sb = json.load(open(os.path.join(base, "storyboard.json")))
     try:                     # owner's rule: the caption is about the destination, not the flight
         plan = json.load(open(os.path.join(base, "plan.json")))
-        text = ig.destination_caption([plan["offer"]["destino"]])
+        import reel_caption           # owner's format: plan from Where Next, few emojis, no flight offer
+        full = reel_caption.build(plan)
+        text = None if full else ig.destination_caption([plan["offer"]["destino"]])
+        if full:
+            sb["caption"] = full
+            sb["yt_title"] = f"Qué hacer en {plan['offer']['destino']} ✈️"
+            json.dump(sb, open(os.path.join(base, "storyboard.json"), "w"), ensure_ascii=False, indent=1)
         if text:
             oc = (plan.get("ocasion") or {}).get("nombre")
             oc = (oc or "").split("(")[0].strip()
@@ -825,7 +831,7 @@ def publish(rid):
         destino = None
     files = [rel] + ([f"reels/{rid}/cover_ig.jpg"] if os.path.exists(os.path.join(base, "cover_ig.jpg")) else [])
     feed = tiktok_feed.add("video", "Reel: " + sb.get("end", {}).get("title", rid), files, sb.get("caption", ""),
-                           permalink, destinos=destino)
+                           permalink, destinos=destino, yt_title=sb.get("yt_title", ""))   # yt_title set = keep the full caption
     import x_post        # same Reel on X (skipped if the X keys are not set)
     xp = x_post.share_latest()
     import fb_post       # and on the Facebook Page (skipped if not connected)
