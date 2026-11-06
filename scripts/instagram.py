@@ -441,14 +441,58 @@ def commit_push(paths, message):
     if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT).returncode == 0:
         return
     git("commit", "-m", message)
-    for attempt in range(3):
+    for attempt in range(4):
         try:
             git("pull", "--rebase", "--autostash", "-q")
             git("push", "-q")
             return
         except subprocess.CalledProcessError:
-            time.sleep(5)
+            # another workflow changed the same log files (feed.json, published.json…) at the same time:
+            # take the remote version and merge our new entries into it instead of failing
+            subprocess.run(["git", "rebase", "--abort"], cwd=ROOT, capture_output=True)
+            _merge_onto_remote(paths, message)
+            time.sleep(3)
     raise RuntimeError("git push failed")
+
+
+def _merge_json(ours, theirs):
+    if isinstance(ours, list) and isinstance(theirs, list):
+        seen = {json.dumps(x, sort_keys=True) for x in theirs}
+        keys = {(x.get("id") or x.get("feed_id")) for x in theirs if isinstance(x, dict)} - {None}
+        new = [x for x in ours if json.dumps(x, sort_keys=True) not in seen
+               and not (isinstance(x, dict) and (x.get("id") or x.get("feed_id")) in keys)]
+        return new + theirs
+    if isinstance(ours, dict) and isinstance(theirs, dict):
+        out = dict(theirs)
+        for k, v in ours.items():
+            out[k] = _merge_json(v, theirs[k]) if k in theirs else v
+        return out
+    return ours
+
+
+def _merge_onto_remote(paths, message):
+    """Rebuild our commit on top of origin/main: JSON files are merged, other files are ours."""
+    mine = {}
+    for p in paths:
+        fp = os.path.join(ROOT, p)
+        if os.path.isfile(fp):
+            mine[p] = open(fp, "rb").read()
+    git("fetch", "-q", "origin")
+    git("reset", "-q", "--hard", "origin/main")
+    for p, data in mine.items():
+        fp = os.path.join(ROOT, p)
+        if p.endswith(".json") and os.path.isfile(fp):
+            try:
+                merged = _merge_json(json.loads(data), json.load(open(fp)))
+                json.dump(merged, open(fp, "w"), ensure_ascii=False, indent=1)
+                continue
+            except ValueError:
+                pass
+        os.makedirs(os.path.dirname(fp), exist_ok=True)
+        open(fp, "wb").write(data)
+    git("add", *mine)
+    if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT).returncode != 0:
+        git("commit", "-q", "-m", message)
 
 
 def public_image_url(rel_path, wait_s=240):
