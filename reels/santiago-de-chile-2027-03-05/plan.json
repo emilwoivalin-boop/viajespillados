@@ -279,5 +279,43 @@
     }
    ]
   }
+ },
+ "caption_es": {
+  "hook": "¿Santiago de Chile en 5 días sin perder ni un minuto? Pilla este plan, parce.",
+  "intro": "Una capital rodeada por la cordillera de los Andes, con cerros para subir y vino a la vuelta de la esquina.",
+  "pais": "Chile",
+  "dias": [
+   {
+    "titulo": "Cerro San Cristóbal",
+    "texto": "sube en funicular y mira la ciudad a los pies de los Andes."
+   },
+   {
+    "titulo": "Valle del Maipo",
+    "texto": "recorre viñedos entre racimos de uva y barricas de vino."
+   },
+   {
+    "titulo": "Valparaíso",
+    "texto": "escápate a la costa y sube en ascensor entre cerros de casas de colores."
+   },
+   {
+    "titulo": "Cajón del Maipo",
+    "texto": "llega hasta el embalse El Yeso, un lago turquesa entre montañas."
+   },
+   {
+    "titulo": "Mercado Central",
+    "texto": "almuerza una paila marina bajo su viejo techo de hierro."
+   }
+  ],
+  "bonus": "Prueba una empanada de pino, rellena de carne y cebolla, recién salida del horno.",
+  "dato": "el funicular del San Cristóbal lleva pasajeros desde 1925",
+  "epoca": "marzo a abril y octubre a noviembre",
+  "para": "te gustan las vistas de los Andes, los museos y caminar por los cerros",
+  "no_para": "buscas un pueblito tranquilo de montaña o playa dentro de la ciudad",
+  "versus": "Quito",
+  "hashtags": [
+   "#santiagodechile",
+   "#chile",
+   "#quehacerensantiago"
+  ]
  }
 }
