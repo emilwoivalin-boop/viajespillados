@@ -33,5 +33,251 @@
   "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. Inside the old Mercado Central of Santiago de Chile: a big hall with a tall ornate green-painted iron roof structure and skylights, simple seafood stalls with crates of fish, mussels and lemons at the sides, a small wooden restaurant table in front with two steaming clay bowls of seafood stew. An empty tiled floor in the lower third of the picture, wide empty area for two small figures.",
   "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style, no people, no text, no letters, vertical 9:16. The most iconic view of Santiago de Chile: the green San Cristóbal hill with a tall white statue on top at one side, a city of small buildings below, and a long chain of huge snow-capped Andes mountains, bright daylight, a wide calm open blue sky filling the upper and middle part of the picture. An empty park path with green grass in the bottom fifth of the picture."
  },
- "end_image": "dia1"
+ "end_image": "dia1",
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 0.3,
+      "x1": 0.58
+     },
+     {
+      "action": "point",
+      "word": "cordillera"
+     },
+     {
+      "action": "wave",
+      "word": "saluda",
+      "mood": "wow"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.88,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "suitcase",
+       "x0": 0.08,
+       "x1": 0.32
+      },
+      {
+       "action": "photo",
+       "word": "Andes"
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "pin",
+    "word": "Santiago",
+    "x": 0.55,
+    "y": 0.4,
+    "size": 200
+   },
+   "ambience": null
+  },
+  "dia1": {
+   "stick": {
+    "y": 0.92,
+    "size": 430,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.85,
+      "x1": 0.62
+     },
+     {
+      "action": "point",
+      "word": "ciudad"
+     },
+     {
+      "action": "selfie",
+      "word": "Andes",
+      "mood": "wow"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.33,
+     "y": 0.9,
+     "size": 410,
+     "facing": 1
+    }
+   ],
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia2": {
+   "stick": {
+    "y": 0.95,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.42,
+      "x1": 0.52,
+      "y1": 0.8,
+      "size1": 340
+     },
+     {
+      "action": "point",
+      "word": "racimos",
+      "facing": -1
+     },
+     {
+      "action": "laugh",
+      "word": "vino",
+      "mood": "love"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia3": {
+   "stick": {
+    "y": 0.93,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": "ascensor"
+     },
+     {
+      "action": "photo",
+      "word": "colores"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "wave",
+     "x0": 0.68,
+     "y": 0.91,
+     "size": 420,
+     "facing": -1
+    }
+   ],
+   "pop": {
+    "icon": "pin",
+    "word": "Valparaíso",
+    "x": 0.16,
+    "y": 0.44,
+    "size": 190
+   },
+   "ambience": "waves",
+   "sfx": [
+    {
+     "kind": "bell",
+     "frac": 0.45
+    }
+   ]
+  },
+  "dia4": {
+   "stick": {
+    "action": "relax",
+    "x0": 0.64,
+    "y": 0.88,
+    "size": 400,
+    "facing": -1,
+    "mood": "love"
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.87,
+     "size": 410,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 0.05,
+       "x1": 0.28
+      },
+      {
+       "action": "selfie",
+       "word": "turquesa",
+       "mood": "wow"
+      }
+     ]
+    }
+   ],
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia5": {
+   "stick": {
+    "y": 0.93,
+    "size": 440,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.1,
+      "x1": 0.66
+     },
+     {
+      "action": "eat",
+      "word": "paila",
+      "mood": "love"
+     },
+     {
+      "action": "point",
+      "word": "hierro"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "eat",
+     "x0": 0.36,
+     "y": 0.92,
+     "size": 420,
+     "facing": 1,
+     "mood": "love"
+    }
+   ],
+   "pop": {
+    "icon": "fish",
+    "word": "marina",
+    "x": 0.5,
+    "y": 0.46,
+    "size": 180
+   },
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.6
+    }
+   ]
+  }
+ }
 }

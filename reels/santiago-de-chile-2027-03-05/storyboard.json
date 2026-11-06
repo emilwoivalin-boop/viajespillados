@@ -1,0 +1,416 @@
+{
+ "id": "santiago-de-chile-2027-03-05",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Viernes 5 de marzo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Sudamérica!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.05,
+     "x1": 0.36,
+     "y": 0.99,
+     "y1": 0.7,
+     "size": 480,
+     "size1": 245
+    }
+   ]
+  },
+  {
+   "text": "Seis horas de vuelo directo hacia el sur… ¿y abajo? Montañas nevadas que no se acaban.",
+   "media": {
+    "type": "file",
+    "path": "reels/santiago-de-chile-2027-03-05/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Santiago de Chile! Sales del aeropuerto y la cordillera de los Andes te saluda de frente.",
+   "media": {
+    "type": "file",
+    "path": "reels/santiago-de-chile-2027-03-05/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 0.3,
+      "x1": 0.58
+     },
+     {
+      "action": "point",
+      "word": "cordillera"
+     },
+     {
+      "action": "wave",
+      "word": "saluda",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Santiago",
+     "x": 0.55,
+     "y": 0.4,
+     "size": 200
+    }
+   ],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.88,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "suitcase",
+       "x0": 0.08,
+       "x1": 0.32
+      },
+      {
+       "action": "photo",
+       "word": "Andes"
+      }
+     ]
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: subes en funicular al cerro San Cristóbal y ves toda la ciudad a los pies de los Andes.",
+   "media": {
+    "type": "file",
+    "path": "reels/santiago-de-chile-2027-03-05/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.92,
+    "size": 430,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.85,
+      "x1": 0.62
+     },
+     {
+      "action": "point",
+      "word": "ciudad"
+     },
+     {
+      "action": "selfie",
+      "word": "Andes",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.33,
+     "y": 0.9,
+     "size": 410,
+     "facing": 1
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día dos: recorres viñedos del valle del Maipo, entre racimos de uva y barricas de vino.",
+   "media": {
+    "type": "file",
+    "path": "reels/santiago-de-chile-2027-03-05/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.95,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.42,
+      "x1": 0.52,
+      "y1": 0.8,
+      "size1": 340
+     },
+     {
+      "action": "point",
+      "word": "racimos",
+      "facing": -1
+     },
+     {
+      "action": "laugh",
+      "word": "vino",
+      "mood": "love"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día tres: te escapas a Valparaíso y subes en ascensor entre cerros llenos de casas de colores.",
+   "media": {
+    "type": "file",
+    "path": "reels/santiago-de-chile-2027-03-05/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.93,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": "ascensor"
+     },
+     {
+      "action": "photo",
+      "word": "colores"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Valparaíso",
+     "x": 0.16,
+     "y": 0.44,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "wave",
+     "x0": 0.68,
+     "y": 0.91,
+     "size": 420,
+     "facing": -1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "bell",
+     "frac": 0.45
+    }
+   ],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día cuatro: subes al Cajón del Maipo hasta el embalse El Yeso, un lago turquesa entre montañas.",
+   "media": {
+    "type": "file",
+    "path": "reels/santiago-de-chile-2027-03-05/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.64,
+    "y": 0.88,
+    "size": 400,
+    "facing": -1,
+    "mood": "love"
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.87,
+     "size": 410,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 0.05,
+       "x1": 0.28
+      },
+      {
+       "action": "selfie",
+       "word": "turquesa",
+       "mood": "wow"
+      }
+     ]
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día cinco: almuerzas una paila marina en el Mercado Central, bajo su viejo techo de hierro.",
+   "media": {
+    "type": "file",
+    "path": "reels/santiago-de-chile-2027-03-05/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.93,
+    "size": 440,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.1,
+      "x1": 0.66
+     },
+     {
+      "action": "eat",
+      "word": "paila",
+      "mood": "love"
+     },
+     {
+      "action": "point",
+      "word": "hierro"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "fish",
+     "word": "marina",
+     "x": 0.5,
+     "y": 0.46,
+     "size": 180
+    }
+   ],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "eat",
+     "x0": 0.36,
+     "y": 0.92,
+     "size": 420,
+     "facing": 1,
+     "mood": "love"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.6
+    }
+   ],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El jueves aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.36,
+     "x1": 0.58,
+     "y": 0.7,
+     "y1": 0.99,
+     "size": 245,
+     "size1": 480
+    }
+   ]
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con JetSMART, por solo un millón 12 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "7 días en Santiago de Chile",
+  "kicker": "",
+  "airline": "JetSMART · vuelo directo",
+  "price": "$1.012.430",
+  "detail": "ida y vuelta · 5 mar – 11 mar",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/santiago-de-chile-2027-03-05/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Santiago de Chile desde Bogotá ✈️ Sube al cerro San Cristóbal, visita viñedos del valle del Maipo y escápate a los cerros de colores de Valparaíso. Ida y vuelta con JetSMART desde $1.012.430 (5 mar – 11 mar). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #santiagodechile #ofertasdevuelos"
+}
