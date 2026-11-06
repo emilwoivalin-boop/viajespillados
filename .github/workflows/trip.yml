@@ -2,7 +2,10 @@ name: Travel plan – render videos
 
 # Renders trips/<id>/storyboard_es.json and storyboard_en.json into video_es.mp4 / video_en.mp4.
 # The videos are NOT published anywhere and are NOT put on the website: they go to the branch
-# "trip-videos" (folder <id>/), from where they are copied to the owner's computer.
+# "trip-videos" (folder <id>/).
+# Where: on the owner's Mac (self-hosted runner with label "mac-render") when it is online and idle,
+# otherwise on two GitHub machines (Spanish and English in parallel). The "pick" job checks this with the
+# secret RUNNER_CHECK_TOKEN (fine-grained token, this repo, "Administration: read"); without it GitHub is used.
 on:
   workflow_dispatch:
     inputs:
@@ -13,6 +16,11 @@ on:
         description: "Languages to render (default: es en)"
         required: false
         default: "es en"
+      where:
+        description: "auto = Mac if online, else GitHub · github = always GitHub"
+        type: choice
+        options: [auto, github]
+        default: auto
 
 permissions:
   contents: write
@@ -22,8 +30,67 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  pick:
+    runs-on: ubuntu-latest
+    outputs:
+      mac: ${{ steps.c.outputs.mac }}
+    steps:
+      - id: c
+        env:
+          T: ${{ secrets.RUNNER_CHECK_TOKEN }}
+          WHERE: ${{ github.event.inputs.where || 'auto' }}
+        run: |
+          mac=false
+          if [ "$WHERE" = auto ] && [ -n "$T" ]; then
+            n=$(curl -s -H "Authorization: Bearer $T" -H "Accept: application/vnd.github+json" \
+                "https://api.github.com/repos/${{ github.repository }}/actions/runners" |
+                jq '[.runners[]? | select(.status=="online" and .busy==false and ([.labels[].name] | index("mac-render")))] | length')
+            [ "${n:-0}" -gt 0 ] && mac=true
+          fi
+          echo "Mac online: $mac"
+          echo "mac=$mac" >> "$GITHUB_OUTPUT"
+
+  mac:
+    needs: pick
+    if: needs.pick.outputs.mac == 'true'
+    runs-on: [self-hosted, macOS, mac-render]
+    timeout-minutes: 50
+    env:
+      WANTED: ${{ github.event.inputs.langs || 'es en' }}
+      ID: ${{ github.event.inputs.id }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Tools (installed once, then reused)
+        run: |
+          export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+          which ffmpeg || brew install ffmpeg
+          V="$HOME/.viajespillados-venv"
+          [ -x "$V/bin/python" ] || python3 -m venv "$V"
+          "$V/bin/pip" install --quiet --upgrade pillow requests edge-tts
+          echo "$V/bin" >> "$GITHUB_PATH"
+          echo "/opt/homebrew/bin" >> "$GITHUB_PATH"
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Render (languages in parallel, each in its own copy)
+        run: |
+          pids=""
+          for L in $WANTED; do
+            D="$RUNNER_TEMP/r-$L"; rm -rf "$D"; cp -R "$GITHUB_WORKSPACE" "$D"
+            ( cd "$D" && LANGS="$L" python scripts/reel.py trip "$ID" > "$RUNNER_TEMP/log-$L.txt" 2>&1 ) &
+            pids="$pids $!"
+          done
+          ok=0; for p in $pids; do wait $p || ok=1; done
+          for L in $WANTED; do echo "=== $L ==="; tail -20 "$RUNNER_TEMP/log-$L.txt"
+            cp "$RUNNER_TEMP/r-$L/trips/$ID/"*"$L"* "trips/$ID/" 2>/dev/null || true; done
+          exit $ok
+      - name: Save videos to branch trip-videos
+        if: always()
+        run: scripts/save_trip_videos.sh "$ID" $WANTED
+
   trip:
-    # Spanish and English render at the same time on two machines (each saves its own files)
+    needs: pick
+    if: needs.pick.outputs.mac != 'true'
+    # Spanish and English render at the same time on two GitHub machines (each saves its own files)
     strategy:
       fail-fast: false
       matrix:
@@ -33,6 +100,7 @@ jobs:
     env:
       L: ${{ matrix.lang }}
       WANTED: ${{ github.event.inputs.langs || 'es en' }}
+      ID: ${{ github.event.inputs.id }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -49,23 +117,7 @@ jobs:
       - name: Render
         run: |
           case " $WANTED " in *" $L "*) ;; *) echo "skip $L (not asked)"; exit 0;; esac
-          LANGS="$L" python scripts/reel.py trip "${{ github.event.inputs.id }}"
+          LANGS="$L" python scripts/reel.py trip "$ID"
       - name: Save videos to branch trip-videos
         if: always()   # keep a finished language even if the other one failed
-        run: |
-          ID="${{ github.event.inputs.id }}"
-          if git ls-remote --exit-code --heads origin trip-videos >/dev/null; then
-            git fetch -q origin trip-videos
-            git worktree add /tmp/tv origin/trip-videos
-            cd /tmp/tv && git checkout -q -B trip-videos
-          else
-            git worktree add --orphan -b trip-videos /tmp/tv
-            cd /tmp/tv
-          fi
-          mkdir -p "$ID"
-          cp "$GITHUB_WORKSPACE/trips/$ID/video_$L.mp4" "$ID"/ || exit 0
-          cp "$GITHUB_WORKSPACE/trips/$ID/video_${L}_cover.jpg" "$ID"/ 2>/dev/null || true
-          cp "$GITHUB_WORKSPACE/trips/$ID/cover_$L.jpg" "$ID"/ 2>/dev/null || true
-          git add "$ID"
-          git commit -q -m "Travel plan video: $ID ($L)"
-          for i in 1 2 3 4 5; do git push -q origin trip-videos && break; git pull -q --rebase origin trip-videos; done
+        run: scripts/save_trip_videos.sh "$ID" "$L"
