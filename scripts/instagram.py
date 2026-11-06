@@ -312,6 +312,14 @@ def render(o, out_path):
         box = [cx - tw / 2 - 30, y, cx + tw / 2 + 30, y + 72]
         ImageDraw.Draw(img).rounded_rectangle(box, radius=36, fill=YELLOW)
         ImageDraw.Draw(img).text((cx, y + 36), badge, font=fbg, fill=NAVY, anchor="mm")
+        y += 72 + 18
+    if (o.get("escala_larga") or "").strip():      # owner: a long layover the owner approved is shown on the picture too
+        badge = f"ESCALA LARGA: CONOCE {o['escala_larga'].strip().upper()}"
+        fbg = fit_font(d, badge, "Black", 40, max_w - 60, 26)
+        tw = d.textlength(badge, font=fbg)
+        box = [cx - tw / 2 - 30, y, cx + tw / 2 + 30, y + 72]
+        ImageDraw.Draw(img).rounded_rectangle(box, radius=36, fill="white")
+        ImageDraw.Draw(img).text((cx, y + 36), badge, font=fbg, fill=NAVY, anchor="mm")
 
     # bottom: logo + site, photo credit
     logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((84, 84), Image.LANCZOS)

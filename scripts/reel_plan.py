@@ -178,6 +178,8 @@ def build(rid):
                    "crowd": [REGRESO_BUDDY] if plan.get("buddy") else []})
 
     escalas = "vuelo directo" if o["escalas"] == "directo" else o["escalas"]
+    if (o.get("escala_larga") or "").strip():          # owner: long layover with time to explore it (Ofertas column Q)
+        escalas += f" · escala larga en {o['escala_larga'].strip()}"
     fechas = f"{a.day} {ig.MESES[a.month - 1][:3]} – {b.day} {ig.MESES[b.month - 1][:3]}"
     title = f"{inf['dias']} días en {o['destino']}"
     tips = plan.get("que_hacer", "")

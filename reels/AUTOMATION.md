@@ -61,7 +61,8 @@ Common facts
    - If there is no candidate: add today as `skipped` with note "no tracked round-trip offer", commit, and tell the owner in one line. Stop.
 3. `id` = `<slug-destino>-<ida>` (e.g. `lima-2027-01-16`). Create `reels/<id>/plan.json` (format in `scripts/reel_plan.py`):
    `offer` = destino, aerolinea, precio (number), escalas ("directo" / "1 escala" / "N escalas"), ida, vuelta, link (J), sheet_row,
-   region (column I Categoría, e.g. "Caribe e islas" – the opening says "nos vamos pa'l Caribe" instead of the destination;
+   escala_larga (column Q, the layover city with time to explore – empty for most offers; the end card then says
+   "escala larga en <ciudad>" and the `regreso` or a day line may mention it), region (column I Categoría, e.g. "Caribe e islas" – the opening says "nos vamos pa'l Caribe" instead of the destination;
    optional `teaser` in plan.json overrides it, e.g. "el Pacífico" or "la costa", never the destination's name);
    `hora_salida` = null (only fill it, e.g. "4 de la tarde", if you verified the airline's scheduled departure time for that
    weekday from a reliable timetable page; otherwise leave null); `que_hacer` = column D of `Qué hacer`; `end_image` = "dia1";
