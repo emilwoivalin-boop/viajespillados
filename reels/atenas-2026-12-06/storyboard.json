@@ -1,0 +1,190 @@
+{
+ "id": "atenas-2026-12-06",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Domingo 6 de diciembre. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Europa!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Cruzamos el océano con una escala… ¿y abajo? El Mediterráneo, azul intenso y lleno de islitas.",
+   "media": {
+    "type": "file",
+    "path": "reels/atenas-2026-12-06/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Atenas! Sol de invierno, olivos por todos lados y, a lo lejos, la Acrópolis esperándote.",
+   "media": {
+    "type": "file",
+    "path": "reels/atenas-2026-12-06/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: subes temprano a la Acrópolis y el Partenón brilla blanquito contra el cielo azul.",
+   "media": {
+    "type": "file",
+    "path": "reels/atenas-2026-12-06/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día dos: recorres el Ágora antigua y el templo de Hefesto, uno de los mejor conservados de Grecia.",
+   "media": {
+    "type": "file",
+    "path": "reels/atenas-2026-12-06/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día tres: subes la colina de Filopapo al atardecer y tienes la Acrópolis ahí enfrentico.",
+   "media": {
+    "type": "file",
+    "path": "reels/atenas-2026-12-06/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día cuatro: te vas al cabo Sunión y ves caer el sol detrás del templo de Poseidón.",
+   "media": {
+    "type": "file",
+    "path": "reels/atenas-2026-12-06/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día cinco: te pierdes por las callecitas de Plaka y te comes un souvlaki calientico en pan pita.",
+   "media": {
+    "type": "file",
+    "path": "reels/atenas-2026-12-06/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El lunes aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Air Canada, por solo 4 millones 433 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "9 días en Atenas",
+  "kicker": "",
+  "airline": "Air Canada · 1 escala",
+  "price": "$4.433.099",
+  "detail": "ida y vuelta · 6 dic – 14 dic",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/atenas-2026-12-06/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "9 días en Atenas desde Bogotá ✈️ Sube a la Acrópolis, recorre el barrio de Plaka y mira el atardecer en el templo de Poseidón en Sunión. Ida y vuelta con Air Canada desde $4.433.099 (6 dic – 14 dic). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #atenas #ofertasdevuelos"
+}
