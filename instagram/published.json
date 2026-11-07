@@ -536,6 +536,28 @@
       "image": "https://viajespillados.com/instagram/img/el-cairo-2026-11-06-4792700.jpg",
       "published_at": "2026-11-06 14:19",
       "carousel": true
+    },
+    {
+      "id": "buenos-aires-2026-11-06-1489210",
+      "destino": "Buenos Aires",
+      "precio": 1489210,
+      "sheet_row": 65,
+      "media_id": "18109674890218174",
+      "permalink": "https://www.instagram.com/p/DfbJwZ9DE6f/",
+      "image": "https://raw.githubusercontent.com/emilwoivalin-boop/viajespillados/main/instagram/img/buenos-aires-2026-11-06-1489210.jpg",
+      "published_at": "2026-11-06 21:52",
+      "carousel": true
+    },
+    {
+      "id": "rio-de-janeiro-2026-11-06-1848034",
+      "destino": "Río de Janeiro",
+      "precio": 1848034,
+      "sheet_row": 67,
+      "media_id": "18109674890218174",
+      "permalink": "https://www.instagram.com/p/DfbJwZ9DE6f/",
+      "image": "https://raw.githubusercontent.com/emilwoivalin-boop/viajespillados/main/instagram/img/rio-de-janeiro-2026-11-06-1848034.jpg",
+      "published_at": "2026-11-06 21:52",
+      "carousel": true
     }
   ]
 }
