@@ -1,0 +1,75 @@
+{
+ "id": "atenas-2026-12-06",
+ "offer": {
+  "destino": "Atenas",
+  "region": "Europa",
+  "aerolinea": "Air Canada",
+  "precio": 4433099,
+  "escalas": "1 escala",
+  "ida": "2026-12-06",
+  "vuelta": "2026-12-14",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20ATH%20from%20BOG%20on%202026-12-06%20through%202026-12-14&curr=COP&hl=es-419",
+  "sheet_row": 30,
+  "escala_larga": ""
+ },
+ "hora_salida": null,
+ "buddy": false,
+ "que_hacer": "Sube a la Acrópolis, recorre el barrio de Plaka y mira el atardecer en el templo de Poseidón en Sunión.",
+ "lines": {
+  "vuelo": "Cruzamos el océano con una escala… ¿y abajo? El Mediterráneo, azul intenso y lleno de islitas.",
+  "llegada": "¡Bienvenido a Atenas! Sol de invierno, olivos por todos lados y, a lo lejos, la Acrópolis esperándote.",
+  "dia1": "Día uno: subes temprano a la Acrópolis y el Partenón brilla blanquito contra el cielo azul.",
+  "dia2": "Día dos: recorres el Ágora antigua y el templo de Hefesto, uno de los mejor conservados de Grecia.",
+  "dia3": "Día tres: subes la colina de Filopapo al atardecer y tienes la Acrópolis ahí enfrentico.",
+  "dia4": "Día cuatro: te vas al cabo Sunión y ves caer el sol detrás del templo de Poseidón.",
+  "dia5": "Día cinco: te pierdes por las callecitas de Plaka y te comes un souvlaki calientico en pan pita."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a deep blue sea with several small rocky islands with white villages, generic Mediterranean seascape, no city, no ruins, no landmark, sunny blue sky. Keep the lower half open with the sea and islands clearly visible. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a modern low airport terminal building with a flat roof and big glass windows, a few silvery-green olive trees and dry hills behind, a rocky hill far away in the distance with small ancient white temple columns on top, bright blue winter sky, sunny. A wide empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The Acropolis of Athens in the morning: the Parthenon, a large ancient white marble temple with many tall columns and a triangular roof, standing on top of a rocky hill, a few olive trees, bright clear blue sky. A wide flat empty stone plaza of light marble slabs in the lower third of the picture, clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The Ancient Agora of Athens: the Temple of Hephaestus, a complete ancient honey-coloured marble temple with columns all around, on a small green hill with olive and cypress trees, scattered old stone ruins on the grass, sunny blue sky. An empty dirt path through the grass in the lower half of the picture, clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Sunset view from Philopappos Hill in Athens: across the valley the Acropolis rocky hill with the white Parthenon temple on top, glowing in warm orange light, the white city spreading below, orange and pink sunset sky, pine trees at the sides. An empty flat rocky viewpoint with a low stone wall in the lower third of the picture, clearly visible and empty.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Cape Sounion in Greece at sunset: the ruins of the white Temple of Poseidon, a row of tall white columns on top of a high cliff above the deep blue sea, a big orange sun setting over the sea, orange and purple sky. An empty flat rocky ground with dry grass in the lower third of the picture, clearly visible and empty.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A narrow street in the Plaka neighbourhood of Athens: small white and pastel houses with blue wooden shutters and balconies, potted plants, a small taverna with two empty wooden chairs and a little table with a plate of souvlaki in pita bread, a rocky hill with ancient columns far above in the background, sunny blue sky. An empty stone-paved street in the lower third of the picture, clearly visible and empty.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of Athens: the Acropolis rocky hill with the white Parthenon temple on top, seen from a distance above the white city, olive trees in front, bright daylight, a wide calm open blue sky filling the upper and middle part of the picture. An empty stone path with dry grass in the bottom fifth of the picture."
+ },
+ "end_image": "dia1",
+ "caption_es": {
+  "hook": "¿Atenas en 5 días sin perder ni un minuto? Pilla este plan, parce.",
+  "intro": "Templos antiguos en lo alto de una ciudad que se estira hasta el mar.",
+  "pais": "Grecia",
+  "dias": [
+   {
+    "titulo": "Acrópolis",
+    "texto": "sube temprano y mira el Partenón antes de que llegue la gente."
+   },
+   {
+    "titulo": "Ágora antigua",
+    "texto": "camina entre las ruinas del centro de la vida pública y el templo de Hefesto."
+   },
+   {
+    "titulo": "Colina de Filopapo",
+    "texto": "sube por los senderos al atardecer para ver la Acrópolis de frente."
+   },
+   {
+    "titulo": "Cabo Sunión",
+    "texto": "mira caer el sol detrás del templo de Poseidón, sobre el mar."
+   },
+   {
+    "titulo": "Plaka y souvlaki",
+    "texto": "piérdete por sus callecitas y pide un souvlaki en pan pita."
+   }
+  ],
+  "dato": "el Partenón estaba dedicado a Atenea, la diosa protectora de la ciudad",
+  "epoca": "abril a junio y septiembre a octubre",
+  "para": "te gusta la historia antigua, las vistas desde las colinas y comer al aire libre",
+  "no_para": "odias las subidas empinadas, el calor fuerte del verano o las multitudes en la Acrópolis",
+  "versus": "Nápoles",
+  "hashtags": [
+   "#atenas",
+   "#grecia",
+   "#quehacerenatenas"
+  ]
+ }
+}
