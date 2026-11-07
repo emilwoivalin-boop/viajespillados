@@ -56,14 +56,42 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.87,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 0.12,
+      "x1": 0.42
+     },
+     {
+      "action": "celebrate",
+      "word": "Sol",
+      "mood": "wow"
+     },
+     {
+      "action": "point",
+      "word": "Acrópolis"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Acrópolis",
+     "x": 0.79,
+     "y": 0.13,
+     "size": 180
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día uno: subes temprano a la Acrópolis y el Partenón brilla blanquito contra el cielo azul.",
@@ -73,14 +101,34 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 450,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.15,
+      "x1": 0.42
+     },
+     {
+      "action": "point",
+      "word": "Partenón"
+     },
+     {
+      "action": "photo",
+      "word": "cielo",
+      "mood": "wow"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día dos: recorres el Ágora antigua y el templo de Hefesto, uno de los mejor conservados de Grecia.",
@@ -90,14 +138,33 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.96,
+    "size": 460,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.78,
+      "x1": 0.42,
+      "y1": 0.8,
+      "size1": 340
+     },
+     {
+      "action": "point",
+      "word": "Hefesto",
+      "facing": 1,
+      "mood": "wow"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día tres: subes la colina de Filopapo al atardecer y tienes la Acrópolis ahí enfrentico.",
@@ -107,14 +174,21 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "sit",
+    "x0": 0.4,
+    "y": 0.665,
+    "size": 330,
+    "facing": 1,
+    "mood": "love"
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "crickets"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día cuatro: te vas al cabo Sunión y ves caer el sol detrás del templo de Poseidón.",
@@ -124,14 +198,35 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.88,
+    "size": 430,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.95,
+      "x1": 0.55
+     },
+     {
+      "action": "point",
+      "word": "sol",
+      "facing": 1
+     },
+     {
+      "action": "selfie",
+      "word": "Poseidón",
+      "mood": "love"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "waves"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día cinco: te pierdes por las callecitas de Plaka y te comes un souvlaki calientico en pan pita.",
@@ -141,12 +236,43 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.95,
+    "size": 460,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.2,
+      "x1": 0.36
+     },
+     {
+      "action": "point",
+      "word": "souvlaki"
+     },
+     {
+      "action": "laugh",
+      "word": "calientico",
+      "mood": "love"
+     }
+    ]
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "souvlaki",
+     "x": 0.72,
+     "y": 0.7,
+     "size": 170
+    }
+   ],
    "ambience": [],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.7
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
