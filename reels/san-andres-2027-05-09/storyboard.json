@@ -56,14 +56,42 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": -0.12,
+      "x1": 0.42
+     },
+     {
+      "action": "celebrate",
+      "word": "Calorcito"
+     },
+     {
+      "action": "point",
+      "word": "palmeras",
+      "mood": "wow"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "Calorcito",
+     "x": 0.82,
+     "y": 0.1,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día uno: lancha a El Acuario y Haynes Cay, y haces snorkel entre peces de colores en agua clarita.",
@@ -73,14 +101,44 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.5,
+    "size": 260,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "dive",
+      "x0": 0.3,
+      "y": 0.5,
+      "x1": 0.48,
+      "y1": 0.62
+     },
+     {
+      "action": "swim",
+      "word": "snorkel",
+      "x0": 0.3,
+      "x1": 0.62,
+      "y": 0.78,
+      "size": 380,
+      "mood": "wow"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "fish",
+     "word": "peces",
+     "x": 0.82,
+     "y": 0.62,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "El lunes festivo: le das la vuelta a la isla en mula, con la brisa del mar en la cara.",
@@ -90,12 +148,26 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "drive",
+    "x0": 0.58,
+    "x1": 0.42,
+    "y": 0.66,
+    "y1": 0.97,
+    "size": 170,
+    "size1": 460,
+    "facing": -1
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "waves"
+   ],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
@@ -107,14 +179,42 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.665,
+    "size": 300,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": 0.08,
+      "x1": 0.7
+     },
+     {
+      "action": "dive",
+      "word": "tiras",
+      "x0": 0.74,
+      "y": 0.665,
+      "x1": 0.86,
+      "y1": 0.86
+     },
+     {
+      "action": "float",
+      "word": "atardecer",
+      "x0": 0.7,
+      "y": 0.86,
+      "size": 300,
+      "mood": "love"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día cuatro: cruzas a Johnny Cay, un cayito de arena blanca y palmeras, con reggae de fondo.",
@@ -124,14 +224,67 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.1,
+      "x1": 0.35
+     },
+     {
+      "action": "point",
+      "word": "palmeras"
+     },
+     {
+      "action": "dance",
+      "word": "reggae",
+      "mood": "laugh"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Johnny",
+     "x": 0.5,
+     "y": 0.4,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.62,
+     "y": 0.8,
+     "size": 300,
+     "facing": -1,
+     "speed": 0.9
+    },
+    {
+     "action": "dance",
+     "x0": 0.82,
+     "y": 0.83,
+     "size": 320,
+     "facing": -1,
+     "speed": 1.15
+    },
+    {
+     "action": "sip",
+     "x0": 0.15,
+     "y": 0.76,
+     "size": 260,
+     "facing": 1
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día cinco: ves el Hoyo Soplador echar agua pa' arriba y almuerzas un rondón con leche de coco.",
@@ -141,14 +294,41 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.84,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.02,
+      "x1": 0.25
+     },
+     {
+      "action": "scared",
+      "word": "agua"
+     },
+     {
+      "action": "eat",
+      "word": "almuerzas",
+      "x0": 0.42,
+      "y": 0.86,
+      "mood": "love"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "waves"
+   ],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.3
+    }
+   ],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "El sábado aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",

@@ -76,5 +76,224 @@
       "#colombia",
       "#quehacerensanandres"
     ]
+  },
+  "scenes": {
+    "vuelo": {
+      "stick": null,
+      "pop": null,
+      "ambience": null
+    },
+    "llegada": {
+      "stick": {
+        "y": 0.88,
+        "size": 420,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "suitcase",
+            "x0": -0.12,
+            "x1": 0.42
+          },
+          {
+            "action": "celebrate",
+            "word": "Calorcito"
+          },
+          {
+            "action": "point",
+            "word": "palmeras",
+            "mood": "wow"
+          }
+        ]
+      },
+      "pop": {
+        "icon": "sun",
+        "word": "Calorcito",
+        "x": 0.82,
+        "y": 0.1,
+        "size": 200
+      },
+      "ambience": "birds"
+    },
+    "dia1": {
+      "stick": {
+        "y": 0.5,
+        "size": 260,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "dive",
+            "x0": 0.3,
+            "y": 0.5,
+            "x1": 0.48,
+            "y1": 0.62
+          },
+          {
+            "action": "swim",
+            "word": "snorkel",
+            "x0": 0.3,
+            "x1": 0.62,
+            "y": 0.78,
+            "size": 380,
+            "mood": "wow"
+          }
+        ]
+      },
+      "pop": {
+        "icon": "fish",
+        "word": "peces",
+        "x": 0.82,
+        "y": 0.62,
+        "size": 190
+      },
+      "ambience": "waves"
+    },
+    "dia2": {
+      "stick": {
+        "action": "drive",
+        "x0": 0.58,
+        "x1": 0.42,
+        "y": 0.66,
+        "y1": 0.97,
+        "size": 170,
+        "size1": 460,
+        "facing": -1
+      },
+      "pop": null,
+      "ambience": "waves",
+      "action_sfx": true,
+      "sfx": [
+        {
+          "kind": "engine",
+          "frac": 0.05
+        }
+      ]
+    },
+    "dia3": {
+      "stick": {
+        "y": 0.665,
+        "size": 300,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "run",
+            "x0": 0.08,
+            "x1": 0.7
+          },
+          {
+            "action": "dive",
+            "word": "tiras",
+            "x0": 0.74,
+            "y": 0.665,
+            "x1": 0.86,
+            "y1": 0.86
+          },
+          {
+            "action": "float",
+            "word": "atardecer",
+            "x0": 0.7,
+            "y": 0.86,
+            "size": 300,
+            "mood": "love"
+          }
+        ]
+      },
+      "pop": null,
+      "ambience": [
+        "waves",
+        "steeldrum"
+      ]
+    },
+    "dia4": {
+      "stick": {
+        "y": 0.88,
+        "size": 420,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": -0.1,
+            "x1": 0.35
+          },
+          {
+            "action": "point",
+            "word": "palmeras"
+          },
+          {
+            "action": "dance",
+            "word": "reggae",
+            "mood": "laugh"
+          }
+        ]
+      },
+      "crowd": [
+        {
+          "action": "dance",
+          "x0": 0.62,
+          "y": 0.8,
+          "size": 300,
+          "facing": -1,
+          "speed": 0.9
+        },
+        {
+          "action": "dance",
+          "x0": 0.82,
+          "y": 0.83,
+          "size": 320,
+          "facing": -1,
+          "speed": 1.15
+        },
+        {
+          "action": "sip",
+          "x0": 0.15,
+          "y": 0.76,
+          "size": 260,
+          "facing": 1
+        }
+      ],
+      "pop": {
+        "icon": "pin",
+        "word": "Johnny",
+        "x": 0.5,
+        "y": 0.4,
+        "size": 190
+      },
+      "ambience": [
+        "waves",
+        "steeldrum"
+      ]
+    },
+    "dia5": {
+      "stick": {
+        "y": 0.84,
+        "size": 420,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": 0.02,
+            "x1": 0.25
+          },
+          {
+            "action": "scared",
+            "word": "agua"
+          },
+          {
+            "action": "eat",
+            "word": "almuerzas",
+            "x0": 0.42,
+            "y": 0.86,
+            "mood": "love"
+          }
+        ]
+      },
+      "pop": null,
+      "ambience": "waves",
+      "sfx": [
+        {
+          "kind": "splash",
+          "frac": 0.3
+        }
+      ]
+    }
   }
 }
