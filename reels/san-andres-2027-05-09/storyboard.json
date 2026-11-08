@@ -1,0 +1,190 @@
+{
+ "id": "san-andres-2027-05-09",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Domingo 9 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa'l Caribe!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Vuelo directo desde Bogotá… ¿y abajo? El mar Caribe, con mil tonos de azul y turquesa.",
+   "media": {
+    "type": "file",
+    "path": "reels/san-andres-2027-05-09/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a San Andrés en pleno puente festivo! Calorcito, brisa de mar y palmeras apenas sales del avión.",
+   "media": {
+    "type": "file",
+    "path": "reels/san-andres-2027-05-09/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: lancha a El Acuario y Haynes Cay, y haces snorkel entre peces de colores en agua clarita.",
+   "media": {
+    "type": "file",
+    "path": "reels/san-andres-2027-05-09/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El lunes festivo: le das la vuelta a la isla en mula, con la brisa del mar en la cara.",
+   "media": {
+    "type": "file",
+    "path": "reels/san-andres-2027-05-09/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día tres: en West View te tiras al agua desde el trampolín y te quedas hasta el atardecer.",
+   "media": {
+    "type": "file",
+    "path": "reels/san-andres-2027-05-09/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día cuatro: cruzas a Johnny Cay, un cayito de arena blanca y palmeras, con reggae de fondo.",
+   "media": {
+    "type": "file",
+    "path": "reels/san-andres-2027-05-09/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día cinco: ves el Hoyo Soplador echar agua pa' arriba y almuerzas un rondón con leche de coco.",
+   "media": {
+    "type": "file",
+    "path": "reels/san-andres-2027-05-09/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El sábado aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con JetSMART, por solo 232 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "7 días en San Andrés",
+  "kicker": "",
+  "airline": "JetSMART · vuelo directo",
+  "price": "$232.500",
+  "detail": "ida y vuelta · 9 may – 15 may",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/san-andres-2027-05-09/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en San Andrés desde Bogotá ✈️ Puente festivo en San Andrés. Haz snorkel en El Acuario y Haynes Cay, recorre la isla en mula (carrito de golf) y mira el atardecer en West View. Ida y vuelta con JetSMART desde $232.500 (9 may – 15 may). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #sanandres #ofertasdevuelos"
+}

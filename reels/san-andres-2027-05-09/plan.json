@@ -1,0 +1,80 @@
+{
+  "id": "san-andres-2027-05-09",
+  "offer": {
+    "destino": "San Andrés",
+    "region": "Caribe e islas",
+    "aerolinea": "JetSMART",
+    "precio": 232500,
+    "escalas": "directo",
+    "ida": "2027-05-09",
+    "vuelta": "2027-05-15",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20ADZ%20from%20BOG%20on%202027-05-09%20through%202027-05-15&curr=COP&hl=es-419",
+    "sheet_row": 54,
+    "escala_larga": ""
+  },
+  "hora_salida": null,
+  "buddy": false,
+  "ocasion": {
+    "nombre": "Puente festivo de la Ascensión (lunes 10 de mayo)",
+    "fechas": "2027-05-08/2027-05-10",
+    "fuente": "fecha fija (Price log, pestaña Holidays)"
+  },
+  "que_hacer": "Puente festivo en San Andrés. Haz snorkel en El Acuario y Haynes Cay, recorre la isla en mula (carrito de golf) y mira el atardecer en West View.",
+  "lines": {
+    "vuelo": "Vuelo directo desde Bogotá… ¿y abajo? El mar Caribe, con mil tonos de azul y turquesa.",
+    "llegada": "¡Bienvenido a San Andrés en pleno puente festivo! Calorcito, brisa de mar y palmeras apenas sales del avión.",
+    "dia1": "Día uno: lancha a El Acuario y Haynes Cay, y haces snorkel entre peces de colores en agua clarita.",
+    "dia2": "El lunes festivo: le das la vuelta a la isla en mula, con la brisa del mar en la cara.",
+    "dia3": "Día tres: en West View te tiras al agua desde el trampolín y te quedas hasta el atardecer.",
+    "dia4": "Día cuatro: cruzas a Johnny Cay, un cayito de arena blanca y palmeras, con reggae de fondo.",
+    "dia5": "Día cinco: ves el Hoyo Soplador echar agua pa' arriba y almuerzas un rondón con leche de coco."
+  },
+  "prompts": {
+    "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a calm Caribbean sea in many shades of blue and turquoise with a few small generic green islands and coral reefs, no city, no landmark, sunny blue sky. Keep the lower half open with the sea clearly visible. The top third is calm blue sky.",
+    "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small low tropical island airport terminal building with a flat roof and big glass windows, tall green coconut palm trees around it, bright turquoise sea visible in the distance, sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
+    "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A shallow crystal-clear turquoise Caribbean sea next to a tiny islet of white sand with a few palm trees, the water so clear you can see the sandy bottom with colourful little fish and some coral, a small empty wooden boat anchored to the side, sunny blue sky. A wide stretch of empty clear shallow water across the lower half of the picture, clearly visible and empty.",
+    "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A narrow coastal road on a small Caribbean island, running along the turquoise sea, with tall coconut palms and a few small colourful wooden houses on the other side, and an empty white open-top golf cart parked on the road, sunny blue sky. The road in the lower third of the picture is clearly visible and empty.",
+    "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A rocky coral coast on a Caribbean island at sunset: a small wooden diving platform at the edge of the cliff above deep clear turquoise water, a big orange sun setting over the sea, orange and pink sky, a few palm trees on the left. The flat wooden deck of the platform in the lower third of the picture is clearly visible and empty.",
+    "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A tiny round Caribbean islet covered with tall coconut palm trees and white sand, surrounded by bright turquoise water, a small empty beach bar hut with a straw roof under the palms, sunny blue sky. A wide empty stretch of white sand across the lower third of the picture, clearly visible and empty.",
+    "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A rugged dark coral rock coast on a Caribbean island where a tall jet of white sea water shoots straight up out of a hole in the rocks like a fountain, turquoise sea and waves behind, a small empty wooden table at the side with a bowl of fish stew with yuca and plantain, sunny blue sky. An empty flat rocky ground in the lower third of the picture, clearly visible and empty.",
+    "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of San Andrés island in Colombia: a sea of seven colours, bands of turquoise, light blue and deep blue water, with a small islet of white sand and coconut palms in the distance, bright daylight, a wide calm open blue sky filling the upper and middle part of the picture. An empty white sand beach in the bottom fifth of the picture."
+  },
+  "end_image": "dia1",
+  "caption_es": {
+    "hook": "¿San Andrés en 5 días aprovechando el puente festivo? Pilla este plan, parce.",
+    "intro": "Mar de siete colores, arena blanca y brisa caribe todo el día.",
+    "pais": "Colombia",
+    "dias": [
+      {
+        "titulo": "El Acuario y Haynes Cay",
+        "texto": "lancha, snorkel y peces de colores en agua clarita."
+      },
+      {
+        "titulo": "Vuelta en mula",
+        "texto": "recorre la isla en carrito de golf, parando donde te guste."
+      },
+      {
+        "titulo": "West View",
+        "texto": "tírate al agua desde el trampolín y quédate pa'l atardecer."
+      },
+      {
+        "titulo": "Johnny Cay",
+        "texto": "un cayito de arena blanca y palmeras, con reggae de fondo."
+      },
+      {
+        "titulo": "Hoyo Soplador y rondón",
+        "texto": "mira el chorro de agua salir de las rocas y almuerza un rondón."
+      }
+    ],
+    "bonus": "Ojo: al llegar se paga la tarjeta de turismo de la isla; es más rápido pagarla antes en el aeropuerto de Bogotá.",
+    "dato": "San Andrés hace parte de la Reserva de Biosfera Seaflower de la UNESCO",
+    "para": "te gusta el mar, el snorkel y andar en chanclas todo el día",
+    "no_para": "odias el sol fuerte o quieres un viaje de museos y ciudad",
+    "versus": "Providencia",
+    "hashtags": [
+      "#sanandres",
+      "#colombia",
+      "#quehacerensanandres"
+    ]
+  }
+}
