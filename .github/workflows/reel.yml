@@ -4,6 +4,10 @@ name: Reel – video de viaje
 on:
   schedule:
     - cron: "14 17 * * *"   # 12:14 Bogotá: step C, publish today's daily Reel if it is rendered
+    # GitHub sometimes starts scheduled runs hours late or skips them: two backups. A run after the Reel
+    # is published does nothing ("ya estaba publicado"), so the Reel is never posted twice.
+    - cron: "44 18 * * *"   # 13:44 Bogotá (backup)
+    - cron: "14 20 * * *"   # 15:14 Bogotá (backup)
   workflow_dispatch:
     inputs:
       mode:

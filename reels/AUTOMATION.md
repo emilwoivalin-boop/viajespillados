@@ -208,7 +208,8 @@ few emojis and never the flight offer (the video shows it at the end). `reel.py 
 
 
 **Automatic since 2026-11-06 – no Claude session.** The schedule in `.github/workflows/reel.yml` runs
-`scripts/reel.py daily-post today` every day at 12:14 Bogotá (GitHub may start it a few minutes late). It:
+`scripts/reel.py daily-post today` every day at 12:14 Bogotá, with backup runs at 13:44 and 15:14 because GitHub sometimes
+starts scheduled runs hours late or skips them (a run after the Reel is published does nothing). It:
 1. loads today's entry in `reels/daily.json`; publishes only if the status is `rendered` (never twice: `published.json` guards it).
    Any other status → the run fails with the reason in `reels/daily_error.txt` and GitHub emails the failure;
 2. publishes on Instagram + X + Facebook and adds the Reel to the download page (`tiktok/feed.json`);
