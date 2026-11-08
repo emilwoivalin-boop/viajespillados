@@ -558,6 +558,17 @@
       "image": "https://raw.githubusercontent.com/emilwoivalin-boop/viajespillados/main/instagram/img/rio-de-janeiro-2026-11-06-1848034.jpg",
       "published_at": "2026-11-06 21:52",
       "carousel": true
+    },
+    {
+      "id": "la-habana-2026-11-07-645805",
+      "destino": "La Habana",
+      "precio": 645805,
+      "sheet_row": 68,
+      "media_id": "18164699107498077",
+      "permalink": "https://www.instagram.com/p/DfdrJjeFtR_/",
+      "image": "https://viajespillados.com/instagram/img/la-habana-2026-11-07-645805.jpg",
+      "published_at": "2026-11-07 21:23",
+      "carousel": false
     }
   ]
 }
