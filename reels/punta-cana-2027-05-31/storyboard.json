@@ -1,0 +1,212 @@
+{
+ "id": "punta-cana-2027-05-31",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Lunes 31 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa'l Caribe!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.05,
+     "x1": 0.36,
+     "y": 0.99,
+     "y1": 0.7,
+     "size": 480,
+     "size1": 245
+    }
+   ]
+  },
+  {
+   "text": "Tres horitas de vuelo directo… ¿y abajo? El mar Caribe, turquesa hasta donde alcanza la vista.",
+   "media": {
+    "type": "file",
+    "path": "reels/punta-cana-2027-05-31/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Punta Cana en pleno puente festivo! Calorcito caribe, brisa de mar y techos de paja apenas llegas.",
+   "media": {
+    "type": "file",
+    "path": "reels/punta-cana-2027-05-31/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Festivo de llegada: caminas por la playa de Bávaro, arena blanquita y cocoteros inclinados sobre el mar.",
+   "media": {
+    "type": "file",
+    "path": "reels/punta-cana-2027-05-31/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día dos: excursión a Isla Saona y una piscina natural de agua bajita llena de estrellas de mar.",
+   "media": {
+    "type": "file",
+    "path": "reels/punta-cana-2027-05-31/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día tres: haces snorkel en el arrecife, entre corales y peces de colores en agua clarita.",
+   "media": {
+    "type": "file",
+    "path": "reels/punta-cana-2027-05-31/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día cuatro: en Ojos Indígenas caminas por el bosque hasta lagunas de agua dulce, transparentes y fresquitas.",
+   "media": {
+    "type": "file",
+    "path": "reels/punta-cana-2027-05-31/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día cinco: te bañas en el Hoyo Azul, un cenote turquesa al pie de un acantilado gigante.",
+   "media": {
+    "type": "file",
+    "path": "reels/punta-cana-2027-05-31/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.36,
+     "x1": 0.58,
+     "y": 0.7,
+     "y1": 0.99,
+     "size": 245,
+     "size1": 480
+    }
+   ]
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Wingo, por solo un millón 7 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "7 días en Punta Cana",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$1.006.968",
+  "detail": "ida y vuelta · 31 may – 6 jun",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/punta-cana-2027-05-31/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Punta Cana desde Bogotá ✈️ Puente festivo en Punta Cana. Descansa en la playa de Bávaro, haz la excursión a Isla Saona y nada en el cenote Hoyo Azul. Ida y vuelta con Wingo desde $1.006.968 (31 may – 6 jun). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #puntacana #ofertasdevuelos"
+}
