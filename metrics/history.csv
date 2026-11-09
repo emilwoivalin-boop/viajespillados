@@ -2076,3 +2076,380 @@ fecha,canal,tipo,id,publicado,destinos,titulo,enlace,metrica,valor
 2026-11-08,facebook,reel,938942612420788,2026-10-31 12:16,París,Reel: 7 días en París,https://www.facebook.com/1480839581771583/videos/938942612420788,vistas,0
 2026-11-08,facebook,carrusel,1480839581771583_122101345923529435,2026-10-31 12:09,"La Habana, Tijuana","Ofertas: La Habana, Tijuana",https://www.facebook.com/1480839581771583_122101345923529435,vistas,0
 2026-11-08,facebook,carrusel,1480839581771583_122100773943529435,2026-10-30 22:11,"Lisboa, Seúl","Ofertas: Lisboa, Seúl",https://www.facebook.com/1480839581771583_122100773943529435,vistas,2
+2026-11-08,web,web,total,,,,,visitas,7
+2026-11-08,web,web,total,,,,,eventos,1
+2026-11-08,web,pagina,/,,,Viajes Pillados,,visitas,6
+2026-11-08,web,clic_oferta,oferta/atenas,,Atenas,Clic oferta: Atenas,,clics,1
+2026-11-08,web,origen,ig,,,ig,,visitas,6
+2026-11-08,web,origen,l.instagram.com,,,l.instagram.com,,visitas,1
+2026-11-09,instagram,cuenta,17841432973721368,,,,,seguidores,431
+2026-11-09,instagram,cuenta,17841432973721368,,,,,publicaciones,25
+2026-11-09,instagram,post,18507262699103951,2026-11-09 02:37,Leticia,Leticia,https://www.instagram.com/p/DfgRkmym5wN/,me_gusta,0
+2026-11-09,instagram,post,18507262699103951,2026-11-09 02:37,Leticia,Leticia,https://www.instagram.com/p/DfgRkmym5wN/,comentarios,0
+2026-11-09,instagram,post,18507262699103951,2026-11-09 02:37,Leticia,Leticia,https://www.instagram.com/p/DfgRkmym5wN/,alcance,10
+2026-11-09,instagram,post,18507262699103951,2026-11-09 02:37,Leticia,Leticia,https://www.instagram.com/p/DfgRkmym5wN/,vistas,21
+2026-11-09,instagram,post,18507262699103951,2026-11-09 02:37,Leticia,Leticia,https://www.instagram.com/p/DfgRkmym5wN/,guardados,0
+2026-11-09,instagram,post,18507262699103951,2026-11-09 02:37,Leticia,Leticia,https://www.instagram.com/p/DfgRkmym5wN/,compartidos,0
+2026-11-09,instagram,post,18507262699103951,2026-11-09 02:37,Leticia,Leticia,https://www.instagram.com/p/DfgRkmym5wN/,interacciones,0
+2026-11-09,instagram,reel,18453550570124110,2026-11-08 20:55,San Andrés,San Andrés,https://www.instagram.com/reel/DffqXLLD6lN/,me_gusta,61
+2026-11-09,instagram,reel,18453550570124110,2026-11-08 20:55,San Andrés,San Andrés,https://www.instagram.com/reel/DffqXLLD6lN/,comentarios,2
+2026-11-09,instagram,reel,18453550570124110,2026-11-08 20:55,San Andrés,San Andrés,https://www.instagram.com/reel/DffqXLLD6lN/,alcance,2470
+2026-11-09,instagram,reel,18453550570124110,2026-11-08 20:55,San Andrés,San Andrés,https://www.instagram.com/reel/DffqXLLD6lN/,vistas,2960
+2026-11-09,instagram,reel,18453550570124110,2026-11-08 20:55,San Andrés,San Andrés,https://www.instagram.com/reel/DffqXLLD6lN/,guardados,22
+2026-11-09,instagram,reel,18453550570124110,2026-11-08 20:55,San Andrés,San Andrés,https://www.instagram.com/reel/DffqXLLD6lN/,compartidos,9
+2026-11-09,instagram,reel,18453550570124110,2026-11-08 20:55,San Andrés,San Andrés,https://www.instagram.com/reel/DffqXLLD6lN/,interacciones,96
+2026-11-09,instagram,post,18167934631478555,2026-11-08 17:52,Toronto,Toronto,https://www.instagram.com/p/DffVe-ZG0sx/,me_gusta,0
+2026-11-09,instagram,post,18167934631478555,2026-11-08 17:52,Toronto,Toronto,https://www.instagram.com/p/DffVe-ZG0sx/,comentarios,0
+2026-11-09,instagram,post,18167934631478555,2026-11-08 17:52,Toronto,Toronto,https://www.instagram.com/p/DffVe-ZG0sx/,alcance,14
+2026-11-09,instagram,post,18167934631478555,2026-11-08 17:52,Toronto,Toronto,https://www.instagram.com/p/DffVe-ZG0sx/,vistas,21
+2026-11-09,instagram,post,18167934631478555,2026-11-08 17:52,Toronto,Toronto,https://www.instagram.com/p/DffVe-ZG0sx/,guardados,0
+2026-11-09,instagram,post,18167934631478555,2026-11-08 17:52,Toronto,Toronto,https://www.instagram.com/p/DffVe-ZG0sx/,compartidos,0
+2026-11-09,instagram,post,18167934631478555,2026-11-08 17:52,Toronto,Toronto,https://www.instagram.com/p/DffVe-ZG0sx/,interacciones,0
+2026-11-09,instagram,post,18164699107498077,2026-11-08 02:23,La Habana,La Habana,https://www.instagram.com/p/DfdrJjeFtR_/,me_gusta,1
+2026-11-09,instagram,post,18164699107498077,2026-11-08 02:23,La Habana,La Habana,https://www.instagram.com/p/DfdrJjeFtR_/,comentarios,0
+2026-11-09,instagram,post,18164699107498077,2026-11-08 02:23,La Habana,La Habana,https://www.instagram.com/p/DfdrJjeFtR_/,alcance,18
+2026-11-09,instagram,post,18164699107498077,2026-11-08 02:23,La Habana,La Habana,https://www.instagram.com/p/DfdrJjeFtR_/,vistas,34
+2026-11-09,instagram,post,18164699107498077,2026-11-08 02:23,La Habana,La Habana,https://www.instagram.com/p/DfdrJjeFtR_/,guardados,0
+2026-11-09,instagram,post,18164699107498077,2026-11-08 02:23,La Habana,La Habana,https://www.instagram.com/p/DfdrJjeFtR_/,compartidos,0
+2026-11-09,instagram,post,18164699107498077,2026-11-08 02:23,La Habana,La Habana,https://www.instagram.com/p/DfdrJjeFtR_/,interacciones,1
+2026-11-09,instagram,reel,18172722166467281,2026-11-07 20:54,Atenas,Atenas,https://www.instagram.com/reel/DfdFd3cAura/,me_gusta,55
+2026-11-09,instagram,reel,18172722166467281,2026-11-07 20:54,Atenas,Atenas,https://www.instagram.com/reel/DfdFd3cAura/,comentarios,0
+2026-11-09,instagram,reel,18172722166467281,2026-11-07 20:54,Atenas,Atenas,https://www.instagram.com/reel/DfdFd3cAura/,alcance,2057
+2026-11-09,instagram,reel,18172722166467281,2026-11-07 20:54,Atenas,Atenas,https://www.instagram.com/reel/DfdFd3cAura/,vistas,2401
+2026-11-09,instagram,reel,18172722166467281,2026-11-07 20:54,Atenas,Atenas,https://www.instagram.com/reel/DfdFd3cAura/,guardados,11
+2026-11-09,instagram,reel,18172722166467281,2026-11-07 20:54,Atenas,Atenas,https://www.instagram.com/reel/DfdFd3cAura/,compartidos,13
+2026-11-09,instagram,reel,18172722166467281,2026-11-07 20:54,Atenas,Atenas,https://www.instagram.com/reel/DfdFd3cAura/,interacciones,80
+2026-11-09,instagram,carrusel,18109674890218174,2026-11-07 02:52,"Buenos Aires, Río de Janeiro","Buenos Aires, Río de Janeiro",https://www.instagram.com/p/DfbJwZ9DE6f/,me_gusta,0
+2026-11-09,instagram,carrusel,18109674890218174,2026-11-07 02:52,"Buenos Aires, Río de Janeiro","Buenos Aires, Río de Janeiro",https://www.instagram.com/p/DfbJwZ9DE6f/,comentarios,0
+2026-11-09,instagram,carrusel,18109674890218174,2026-11-07 02:52,"Buenos Aires, Río de Janeiro","Buenos Aires, Río de Janeiro",https://www.instagram.com/p/DfbJwZ9DE6f/,alcance,17
+2026-11-09,instagram,carrusel,18109674890218174,2026-11-07 02:52,"Buenos Aires, Río de Janeiro","Buenos Aires, Río de Janeiro",https://www.instagram.com/p/DfbJwZ9DE6f/,vistas,47
+2026-11-09,instagram,carrusel,18109674890218174,2026-11-07 02:52,"Buenos Aires, Río de Janeiro","Buenos Aires, Río de Janeiro",https://www.instagram.com/p/DfbJwZ9DE6f/,guardados,0
+2026-11-09,instagram,carrusel,18109674890218174,2026-11-07 02:52,"Buenos Aires, Río de Janeiro","Buenos Aires, Río de Janeiro",https://www.instagram.com/p/DfbJwZ9DE6f/,compartidos,0
+2026-11-09,instagram,carrusel,18109674890218174,2026-11-07 02:52,"Buenos Aires, Río de Janeiro","Buenos Aires, Río de Janeiro",https://www.instagram.com/p/DfbJwZ9DE6f/,interacciones,0
+2026-11-09,instagram,carrusel,18112924871167245,2026-11-06 19:19,"Santiago de Chile, Hong Kong, El Cairo","Santiago de Chile, Hong Kong, El Cairo",https://www.instagram.com/p/DfaV3BeFLk5/,me_gusta,1
+2026-11-09,instagram,carrusel,18112924871167245,2026-11-06 19:19,"Santiago de Chile, Hong Kong, El Cairo","Santiago de Chile, Hong Kong, El Cairo",https://www.instagram.com/p/DfaV3BeFLk5/,comentarios,0
+2026-11-09,instagram,carrusel,18112924871167245,2026-11-06 19:19,"Santiago de Chile, Hong Kong, El Cairo","Santiago de Chile, Hong Kong, El Cairo",https://www.instagram.com/p/DfaV3BeFLk5/,alcance,13
+2026-11-09,instagram,carrusel,18112924871167245,2026-11-06 19:19,"Santiago de Chile, Hong Kong, El Cairo","Santiago de Chile, Hong Kong, El Cairo",https://www.instagram.com/p/DfaV3BeFLk5/,vistas,42
+2026-11-09,instagram,carrusel,18112924871167245,2026-11-06 19:19,"Santiago de Chile, Hong Kong, El Cairo","Santiago de Chile, Hong Kong, El Cairo",https://www.instagram.com/p/DfaV3BeFLk5/,guardados,0
+2026-11-09,instagram,carrusel,18112924871167245,2026-11-06 19:19,"Santiago de Chile, Hong Kong, El Cairo","Santiago de Chile, Hong Kong, El Cairo",https://www.instagram.com/p/DfaV3BeFLk5/,compartidos,0
+2026-11-09,instagram,carrusel,18112924871167245,2026-11-06 19:19,"Santiago de Chile, Hong Kong, El Cairo","Santiago de Chile, Hong Kong, El Cairo",https://www.instagram.com/p/DfaV3BeFLk5/,interacciones,1
+2026-11-09,instagram,reels,18110182430251021,2026-11-06 17:23,,reels,https://www.instagram.com/reel/DfaIjmdiKqg/,me_gusta,79
+2026-11-09,instagram,reels,18110182430251021,2026-11-06 17:23,,reels,https://www.instagram.com/reel/DfaIjmdiKqg/,comentarios,0
+2026-11-09,instagram,reels,18110182430251021,2026-11-06 17:23,,reels,https://www.instagram.com/reel/DfaIjmdiKqg/,alcance,2445
+2026-11-09,instagram,reels,18110182430251021,2026-11-06 17:23,,reels,https://www.instagram.com/reel/DfaIjmdiKqg/,vistas,2799
+2026-11-09,instagram,reels,18110182430251021,2026-11-06 17:23,,reels,https://www.instagram.com/reel/DfaIjmdiKqg/,guardados,18
+2026-11-09,instagram,reels,18110182430251021,2026-11-06 17:23,,reels,https://www.instagram.com/reel/DfaIjmdiKqg/,compartidos,6
+2026-11-09,instagram,reels,18110182430251021,2026-11-06 17:23,,reels,https://www.instagram.com/reel/DfaIjmdiKqg/,interacciones,103
+2026-11-09,instagram,reels,18144301291614505,2026-11-06 17:21,,reels,https://www.instagram.com/reel/DfaIRLqjWiI/,me_gusta,57
+2026-11-09,instagram,reels,18144301291614505,2026-11-06 17:21,,reels,https://www.instagram.com/reel/DfaIRLqjWiI/,comentarios,1
+2026-11-09,instagram,reels,18144301291614505,2026-11-06 17:21,,reels,https://www.instagram.com/reel/DfaIRLqjWiI/,alcance,1466
+2026-11-09,instagram,reels,18144301291614505,2026-11-06 17:21,,reels,https://www.instagram.com/reel/DfaIRLqjWiI/,vistas,1714
+2026-11-09,instagram,reels,18144301291614505,2026-11-06 17:21,,reels,https://www.instagram.com/reel/DfaIRLqjWiI/,guardados,19
+2026-11-09,instagram,reels,18144301291614505,2026-11-06 17:21,,reels,https://www.instagram.com/reel/DfaIRLqjWiI/,compartidos,31
+2026-11-09,instagram,reels,18144301291614505,2026-11-06 17:21,,reels,https://www.instagram.com/reel/DfaIRLqjWiI/,interacciones,110
+2026-11-09,instagram,carrusel,18119060378329155,2026-11-06 03:25,"Tijuana, Puerto Vallarta, Ciudad de México","Tijuana, Puerto Vallarta, Ciudad de México",https://www.instagram.com/p/DfYopnJFqWj/,me_gusta,1
+2026-11-09,instagram,carrusel,18119060378329155,2026-11-06 03:25,"Tijuana, Puerto Vallarta, Ciudad de México","Tijuana, Puerto Vallarta, Ciudad de México",https://www.instagram.com/p/DfYopnJFqWj/,comentarios,0
+2026-11-09,instagram,carrusel,18119060378329155,2026-11-06 03:25,"Tijuana, Puerto Vallarta, Ciudad de México","Tijuana, Puerto Vallarta, Ciudad de México",https://www.instagram.com/p/DfYopnJFqWj/,alcance,17
+2026-11-09,instagram,carrusel,18119060378329155,2026-11-06 03:25,"Tijuana, Puerto Vallarta, Ciudad de México","Tijuana, Puerto Vallarta, Ciudad de México",https://www.instagram.com/p/DfYopnJFqWj/,vistas,36
+2026-11-09,instagram,carrusel,18119060378329155,2026-11-06 03:25,"Tijuana, Puerto Vallarta, Ciudad de México","Tijuana, Puerto Vallarta, Ciudad de México",https://www.instagram.com/p/DfYopnJFqWj/,guardados,0
+2026-11-09,instagram,carrusel,18119060378329155,2026-11-06 03:25,"Tijuana, Puerto Vallarta, Ciudad de México","Tijuana, Puerto Vallarta, Ciudad de México",https://www.instagram.com/p/DfYopnJFqWj/,compartidos,0
+2026-11-09,instagram,carrusel,18119060378329155,2026-11-06 03:25,"Tijuana, Puerto Vallarta, Ciudad de México","Tijuana, Puerto Vallarta, Ciudad de México",https://www.instagram.com/p/DfYopnJFqWj/,interacciones,1
+2026-11-09,instagram,carrusel,18310308766305200,2026-11-05 19:50,"San Andrés, Cancún, Madrid, Belo Horizonte","San Andrés, Cancún, Madrid, Belo Horizonte",https://www.instagram.com/p/DfX0mOege95/,me_gusta,2
+2026-11-09,instagram,carrusel,18310308766305200,2026-11-05 19:50,"San Andrés, Cancún, Madrid, Belo Horizonte","San Andrés, Cancún, Madrid, Belo Horizonte",https://www.instagram.com/p/DfX0mOege95/,comentarios,0
+2026-11-09,instagram,carrusel,18310308766305200,2026-11-05 19:50,"San Andrés, Cancún, Madrid, Belo Horizonte","San Andrés, Cancún, Madrid, Belo Horizonte",https://www.instagram.com/p/DfX0mOege95/,alcance,15
+2026-11-09,instagram,carrusel,18310308766305200,2026-11-05 19:50,"San Andrés, Cancún, Madrid, Belo Horizonte","San Andrés, Cancún, Madrid, Belo Horizonte",https://www.instagram.com/p/DfX0mOege95/,vistas,34
+2026-11-09,instagram,carrusel,18310308766305200,2026-11-05 19:50,"San Andrés, Cancún, Madrid, Belo Horizonte","San Andrés, Cancún, Madrid, Belo Horizonte",https://www.instagram.com/p/DfX0mOege95/,guardados,0
+2026-11-09,instagram,carrusel,18310308766305200,2026-11-05 19:50,"San Andrés, Cancún, Madrid, Belo Horizonte","San Andrés, Cancún, Madrid, Belo Horizonte",https://www.instagram.com/p/DfX0mOege95/,compartidos,0
+2026-11-09,instagram,carrusel,18310308766305200,2026-11-05 19:50,"San Andrés, Cancún, Madrid, Belo Horizonte","San Andrés, Cancún, Madrid, Belo Horizonte",https://www.instagram.com/p/DfX0mOege95/,interacciones,2
+2026-11-09,instagram,reels,17877177054588091,2026-11-05 18:06,,reels,https://www.instagram.com/reel/DfXoqnLDBPq/,me_gusta,28
+2026-11-09,instagram,reels,17877177054588091,2026-11-05 18:06,,reels,https://www.instagram.com/reel/DfXoqnLDBPq/,comentarios,2
+2026-11-09,instagram,reels,17877177054588091,2026-11-05 18:06,,reels,https://www.instagram.com/reel/DfXoqnLDBPq/,alcance,1114
+2026-11-09,instagram,reels,17877177054588091,2026-11-05 18:06,,reels,https://www.instagram.com/reel/DfXoqnLDBPq/,vistas,1311
+2026-11-09,instagram,reels,17877177054588091,2026-11-05 18:06,,reels,https://www.instagram.com/reel/DfXoqnLDBPq/,guardados,11
+2026-11-09,instagram,reels,17877177054588091,2026-11-05 18:06,,reels,https://www.instagram.com/reel/DfXoqnLDBPq/,compartidos,11
+2026-11-09,instagram,reels,17877177054588091,2026-11-05 18:06,,reels,https://www.instagram.com/reel/DfXoqnLDBPq/,interacciones,53
+2026-11-09,instagram,reel,18646033519037670,2026-11-05 17:17,Miami,Miami,https://www.instagram.com/reel/DfXjH-Ziuja/,me_gusta,71
+2026-11-09,instagram,reel,18646033519037670,2026-11-05 17:17,Miami,Miami,https://www.instagram.com/reel/DfXjH-Ziuja/,comentarios,0
+2026-11-09,instagram,reel,18646033519037670,2026-11-05 17:17,Miami,Miami,https://www.instagram.com/reel/DfXjH-Ziuja/,alcance,2211
+2026-11-09,instagram,reel,18646033519037670,2026-11-05 17:17,Miami,Miami,https://www.instagram.com/reel/DfXjH-Ziuja/,vistas,2569
+2026-11-09,instagram,reel,18646033519037670,2026-11-05 17:17,Miami,Miami,https://www.instagram.com/reel/DfXjH-Ziuja/,guardados,7
+2026-11-09,instagram,reel,18646033519037670,2026-11-05 17:17,Miami,Miami,https://www.instagram.com/reel/DfXjH-Ziuja/,compartidos,9
+2026-11-09,instagram,reel,18646033519037670,2026-11-05 17:17,Miami,Miami,https://www.instagram.com/reel/DfXjH-Ziuja/,interacciones,87
+2026-11-09,instagram,carrusel,18650653180009355,2026-11-05 03:28,"Singapur, París","Singapur, París",https://www.instagram.com/p/DfWERNYGy7-/,me_gusta,1
+2026-11-09,instagram,carrusel,18650653180009355,2026-11-05 03:28,"Singapur, París","Singapur, París",https://www.instagram.com/p/DfWERNYGy7-/,comentarios,1
+2026-11-09,instagram,carrusel,18650653180009355,2026-11-05 03:28,"Singapur, París","Singapur, París",https://www.instagram.com/p/DfWERNYGy7-/,alcance,28
+2026-11-09,instagram,carrusel,18650653180009355,2026-11-05 03:28,"Singapur, París","Singapur, París",https://www.instagram.com/p/DfWERNYGy7-/,vistas,67
+2026-11-09,instagram,carrusel,18650653180009355,2026-11-05 03:28,"Singapur, París","Singapur, París",https://www.instagram.com/p/DfWERNYGy7-/,guardados,0
+2026-11-09,instagram,carrusel,18650653180009355,2026-11-05 03:28,"Singapur, París","Singapur, París",https://www.instagram.com/p/DfWERNYGy7-/,compartidos,0
+2026-11-09,instagram,carrusel,18650653180009355,2026-11-05 03:28,"Singapur, París","Singapur, París",https://www.instagram.com/p/DfWERNYGy7-/,interacciones,3
+2026-11-09,instagram,carrusel,18130778272871482,2026-11-04 19:39,"San Juan, Punta Cana","San Juan, Punta Cana",https://www.instagram.com/p/DfVOnIAm9Kl/,me_gusta,4
+2026-11-09,instagram,carrusel,18130778272871482,2026-11-04 19:39,"San Juan, Punta Cana","San Juan, Punta Cana",https://www.instagram.com/p/DfVOnIAm9Kl/,comentarios,0
+2026-11-09,instagram,carrusel,18130778272871482,2026-11-04 19:39,"San Juan, Punta Cana","San Juan, Punta Cana",https://www.instagram.com/p/DfVOnIAm9Kl/,alcance,508
+2026-11-09,instagram,carrusel,18130778272871482,2026-11-04 19:39,"San Juan, Punta Cana","San Juan, Punta Cana",https://www.instagram.com/p/DfVOnIAm9Kl/,vistas,748
+2026-11-09,instagram,carrusel,18130778272871482,2026-11-04 19:39,"San Juan, Punta Cana","San Juan, Punta Cana",https://www.instagram.com/p/DfVOnIAm9Kl/,guardados,0
+2026-11-09,instagram,carrusel,18130778272871482,2026-11-04 19:39,"San Juan, Punta Cana","San Juan, Punta Cana",https://www.instagram.com/p/DfVOnIAm9Kl/,compartidos,5
+2026-11-09,instagram,carrusel,18130778272871482,2026-11-04 19:39,"San Juan, Punta Cana","San Juan, Punta Cana",https://www.instagram.com/p/DfVOnIAm9Kl/,interacciones,10
+2026-11-09,instagram,reel,18116299547029147,2026-11-04 18:29,Caracas,Caracas,https://www.instagram.com/reel/DfVGj6pDSYf/,me_gusta,76
+2026-11-09,instagram,reel,18116299547029147,2026-11-04 18:29,Caracas,Caracas,https://www.instagram.com/reel/DfVGj6pDSYf/,comentarios,2
+2026-11-09,instagram,reel,18116299547029147,2026-11-04 18:29,Caracas,Caracas,https://www.instagram.com/reel/DfVGj6pDSYf/,alcance,2304
+2026-11-09,instagram,reel,18116299547029147,2026-11-04 18:29,Caracas,Caracas,https://www.instagram.com/reel/DfVGj6pDSYf/,vistas,2637
+2026-11-09,instagram,reel,18116299547029147,2026-11-04 18:29,Caracas,Caracas,https://www.instagram.com/reel/DfVGj6pDSYf/,guardados,3
+2026-11-09,instagram,reel,18116299547029147,2026-11-04 18:29,Caracas,Caracas,https://www.instagram.com/reel/DfVGj6pDSYf/,compartidos,11
+2026-11-09,instagram,reel,18116299547029147,2026-11-04 18:29,Caracas,Caracas,https://www.instagram.com/reel/DfVGj6pDSYf/,interacciones,95
+2026-11-09,instagram,carrusel,17996515167106052,2026-11-04 03:00,"Mendoza, Buenos Aires","Mendoza, Buenos Aires",https://www.instagram.com/p/DfTcQLvDrjJ/,me_gusta,2
+2026-11-09,instagram,carrusel,17996515167106052,2026-11-04 03:00,"Mendoza, Buenos Aires","Mendoza, Buenos Aires",https://www.instagram.com/p/DfTcQLvDrjJ/,comentarios,0
+2026-11-09,instagram,carrusel,17996515167106052,2026-11-04 03:00,"Mendoza, Buenos Aires","Mendoza, Buenos Aires",https://www.instagram.com/p/DfTcQLvDrjJ/,alcance,26
+2026-11-09,instagram,carrusel,17996515167106052,2026-11-04 03:00,"Mendoza, Buenos Aires","Mendoza, Buenos Aires",https://www.instagram.com/p/DfTcQLvDrjJ/,vistas,54
+2026-11-09,instagram,carrusel,17996515167106052,2026-11-04 03:00,"Mendoza, Buenos Aires","Mendoza, Buenos Aires",https://www.instagram.com/p/DfTcQLvDrjJ/,guardados,0
+2026-11-09,instagram,carrusel,17996515167106052,2026-11-04 03:00,"Mendoza, Buenos Aires","Mendoza, Buenos Aires",https://www.instagram.com/p/DfTcQLvDrjJ/,compartidos,0
+2026-11-09,instagram,carrusel,17996515167106052,2026-11-04 03:00,"Mendoza, Buenos Aires","Mendoza, Buenos Aires",https://www.instagram.com/p/DfTcQLvDrjJ/,interacciones,3
+2026-11-09,instagram,reels,18117268130110534,2026-11-03 22:57,,reels,https://www.instagram.com/reel/DfTAXpNFH_t/,me_gusta,523
+2026-11-09,instagram,reels,18117268130110534,2026-11-03 22:57,,reels,https://www.instagram.com/reel/DfTAXpNFH_t/,comentarios,12
+2026-11-09,instagram,reels,18117268130110534,2026-11-03 22:57,,reels,https://www.instagram.com/reel/DfTAXpNFH_t/,alcance,11121
+2026-11-09,instagram,reels,18117268130110534,2026-11-03 22:57,,reels,https://www.instagram.com/reel/DfTAXpNFH_t/,vistas,13368
+2026-11-09,instagram,reels,18117268130110534,2026-11-03 22:57,,reels,https://www.instagram.com/reel/DfTAXpNFH_t/,guardados,226
+2026-11-09,instagram,reels,18117268130110534,2026-11-03 22:57,,reels,https://www.instagram.com/reel/DfTAXpNFH_t/,compartidos,289
+2026-11-09,instagram,reels,18117268130110534,2026-11-03 22:57,,reels,https://www.instagram.com/reel/DfTAXpNFH_t/,interacciones,1072
+2026-11-09,instagram,carrusel,18119868083095191,2026-11-03 19:28,"Puerto Plata, Santiago de Chile","Puerto Plata, Santiago de Chile",https://www.instagram.com/p/DfSoemUHb80/,me_gusta,3
+2026-11-09,instagram,carrusel,18119868083095191,2026-11-03 19:28,"Puerto Plata, Santiago de Chile","Puerto Plata, Santiago de Chile",https://www.instagram.com/p/DfSoemUHb80/,comentarios,0
+2026-11-09,instagram,carrusel,18119868083095191,2026-11-03 19:28,"Puerto Plata, Santiago de Chile","Puerto Plata, Santiago de Chile",https://www.instagram.com/p/DfSoemUHb80/,alcance,21
+2026-11-09,instagram,carrusel,18119868083095191,2026-11-03 19:28,"Puerto Plata, Santiago de Chile","Puerto Plata, Santiago de Chile",https://www.instagram.com/p/DfSoemUHb80/,vistas,67
+2026-11-09,instagram,carrusel,18119868083095191,2026-11-03 19:28,"Puerto Plata, Santiago de Chile","Puerto Plata, Santiago de Chile",https://www.instagram.com/p/DfSoemUHb80/,guardados,0
+2026-11-09,instagram,carrusel,18119868083095191,2026-11-03 19:28,"Puerto Plata, Santiago de Chile","Puerto Plata, Santiago de Chile",https://www.instagram.com/p/DfSoemUHb80/,compartidos,0
+2026-11-09,instagram,carrusel,18119868083095191,2026-11-03 19:28,"Puerto Plata, Santiago de Chile","Puerto Plata, Santiago de Chile",https://www.instagram.com/p/DfSoemUHb80/,interacciones,3
+2026-11-09,instagram,reel,17913946392515064,2026-11-03 17:21,Montego Bay,Montego Bay,https://www.instagram.com/reel/DfSZ6Ddju46/,me_gusta,73
+2026-11-09,instagram,reel,17913946392515064,2026-11-03 17:21,Montego Bay,Montego Bay,https://www.instagram.com/reel/DfSZ6Ddju46/,comentarios,1
+2026-11-09,instagram,reel,17913946392515064,2026-11-03 17:21,Montego Bay,Montego Bay,https://www.instagram.com/reel/DfSZ6Ddju46/,alcance,2690
+2026-11-09,instagram,reel,17913946392515064,2026-11-03 17:21,Montego Bay,Montego Bay,https://www.instagram.com/reel/DfSZ6Ddju46/,vistas,3105
+2026-11-09,instagram,reel,17913946392515064,2026-11-03 17:21,Montego Bay,Montego Bay,https://www.instagram.com/reel/DfSZ6Ddju46/,guardados,14
+2026-11-09,instagram,reel,17913946392515064,2026-11-03 17:21,Montego Bay,Montego Bay,https://www.instagram.com/reel/DfSZ6Ddju46/,compartidos,11
+2026-11-09,instagram,reel,17913946392515064,2026-11-03 17:21,Montego Bay,Montego Bay,https://www.instagram.com/reel/DfSZ6Ddju46/,interacciones,100
+2026-11-09,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,me_gusta,2
+2026-11-09,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,comentarios,0
+2026-11-09,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,alcance,27
+2026-11-09,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,vistas,63
+2026-11-09,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,guardados,0
+2026-11-09,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,compartidos,0
+2026-11-09,instagram,carrusel,18112411292617762,2026-11-03 03:57,"Montego Bay, São Paulo","Montego Bay, São Paulo",https://www.instagram.com/p/DfQ97f8FGbV/,interacciones,2
+2026-11-09,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,me_gusta,2
+2026-11-09,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,comentarios,0
+2026-11-09,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,alcance,27
+2026-11-09,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,vistas,47
+2026-11-09,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,guardados,0
+2026-11-09,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,compartidos,0
+2026-11-09,instagram,carrusel,18145618024581464,2026-11-02 21:41,"La Habana, Aruba","La Habana, Aruba",https://www.instagram.com/p/DfQS7GFAT41/,interacciones,2
+2026-11-09,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,me_gusta,336
+2026-11-09,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,comentarios,4
+2026-11-09,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,alcance,15749
+2026-11-09,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,vistas,19414
+2026-11-09,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,guardados,146
+2026-11-09,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,compartidos,258
+2026-11-09,instagram,reel,18130306318861890,2026-11-02 17:38,Aruba,Aruba,https://www.instagram.com/reel/DfP3HvTlJNd/,interacciones,752
+2026-11-09,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,me_gusta,2
+2026-11-09,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,comentarios,0
+2026-11-09,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,alcance,27
+2026-11-09,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,vistas,75
+2026-11-09,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,guardados,0
+2026-11-09,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,compartidos,0
+2026-11-09,instagram,carrusel,18034688081675419,2026-11-02 02:25,"Leticia, Cusco, Asunción","Leticia, Cusco, Asunción",https://www.instagram.com/p/DfOOnZgFvL5/,interacciones,2
+2026-11-09,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,me_gusta,101
+2026-11-09,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,comentarios,2
+2026-11-09,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,alcance,3255
+2026-11-09,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,vistas,3759
+2026-11-09,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,guardados,12
+2026-11-09,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,compartidos,11
+2026-11-09,instagram,reel,17998055907023303,2026-11-01 17:16,Leticia,Leticia,https://www.instagram.com/reel/DfNP1urj26b/,interacciones,127
+2026-11-09,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,me_gusta,1
+2026-11-09,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,comentarios,0
+2026-11-09,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,alcance,22
+2026-11-09,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,vistas,56
+2026-11-09,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,guardados,0
+2026-11-09,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,compartidos,0
+2026-11-09,instagram,carrusel,18083183573406144,2026-11-01 02:09,"Lima, Santiago de Chile","Lima, Santiago de Chile",https://www.instagram.com/p/DfLn_zllRCz/,interacciones,1
+2026-11-09,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,me_gusta,5
+2026-11-09,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,comentarios,0
+2026-11-09,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,alcance,274
+2026-11-09,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,vistas,324
+2026-11-09,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,guardados,0
+2026-11-09,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,compartidos,0
+2026-11-09,instagram,reel,18114315866165626,2026-10-31 17:16,París,París,https://www.instagram.com/reel/DfKrAVqEhVr/,interacciones,5
+2026-11-09,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,me_gusta,1
+2026-11-09,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,comentarios,0
+2026-11-09,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,alcance,19
+2026-11-09,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,vistas,33
+2026-11-09,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,guardados,0
+2026-11-09,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,compartidos,0
+2026-11-09,instagram,carrusel,18102870617383509,2026-10-31 17:09,"La Habana, Tijuana","La Habana, Tijuana",https://www.instagram.com/p/DfKqOThFDWF/,interacciones,1
+2026-11-09,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,me_gusta,0
+2026-11-09,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,comentarios,0
+2026-11-09,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,alcance,26
+2026-11-09,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,vistas,51
+2026-11-09,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,guardados,0
+2026-11-09,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,compartidos,0
+2026-11-09,instagram,carrusel,18118479626079848,2026-10-31 02:18,"Lisboa, Seúl","Lisboa, Seúl",https://www.instagram.com/p/DfJEOINlgIH/,interacciones,0
+2026-11-09,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,me_gusta,0
+2026-11-09,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,comentarios,0
+2026-11-09,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,alcance,17
+2026-11-09,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,vistas,37
+2026-11-09,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,guardados,0
+2026-11-09,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,compartidos,0
+2026-11-09,instagram,carrusel,18436903321181256,2026-10-30 18:02,"Reikiavik, Vancouver","Reikiavik, Vancouver",https://www.instagram.com/p/DfILjHNmCQ_/,interacciones,0
+2026-11-09,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,me_gusta,10
+2026-11-09,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,comentarios,0
+2026-11-09,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,alcance,347
+2026-11-09,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,vistas,425
+2026-11-09,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,guardados,1
+2026-11-09,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,compartidos,0
+2026-11-09,instagram,reel,18189817093415031,2026-10-30 17:18,La Habana,La Habana,https://www.instagram.com/reel/DfIGYX6ieE7/,interacciones,11
+2026-11-09,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,me_gusta,2
+2026-11-09,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,comentarios,0
+2026-11-09,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,alcance,15
+2026-11-09,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,vistas,40
+2026-11-09,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,guardados,0
+2026-11-09,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,compartidos,0
+2026-11-09,instagram,carrusel,18134113765708603,2026-10-29 23:27,"Salvador de Bahía, Puerto Vallarta, Toronto, Atenas","Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",https://www.instagram.com/p/DfGL63vDs3W/,interacciones,2
+2026-11-09,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,me_gusta,4
+2026-11-09,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,comentarios,0
+2026-11-09,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,alcance,245
+2026-11-09,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,vistas,294
+2026-11-09,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,guardados,1
+2026-11-09,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,compartidos,0
+2026-11-09,instagram,reel,18136855627637205,2026-10-29 21:11,Tijuana,Tijuana,https://www.instagram.com/reel/DfF8PkxDqkw/,interacciones,6
+2026-11-09,instagram,carrusel,17916341055530218,2026-10-28 13:41,"La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta","La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",https://www.instagram.com/p/DfCkCiQFXkf/,me_gusta,1
+2026-11-09,instagram,carrusel,17916341055530218,2026-10-28 13:41,"La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta","La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",https://www.instagram.com/p/DfCkCiQFXkf/,comentarios,0
+2026-11-09,instagram,carrusel,17916341055530218,2026-10-28 13:41,"La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta","La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",https://www.instagram.com/p/DfCkCiQFXkf/,alcance,16
+2026-11-09,instagram,carrusel,17916341055530218,2026-10-28 13:41,"La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta","La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",https://www.instagram.com/p/DfCkCiQFXkf/,vistas,37
+2026-11-09,instagram,carrusel,17916341055530218,2026-10-28 13:41,"La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta","La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",https://www.instagram.com/p/DfCkCiQFXkf/,guardados,0
+2026-11-09,instagram,carrusel,17916341055530218,2026-10-28 13:41,"La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta","La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",https://www.instagram.com/p/DfCkCiQFXkf/,compartidos,0
+2026-11-09,instagram,carrusel,17916341055530218,2026-10-28 13:41,"La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta","La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",https://www.instagram.com/p/DfCkCiQFXkf/,interacciones,1
+2026-11-09,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,me_gusta,0
+2026-11-09,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,comentarios,0
+2026-11-09,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,alcance,19
+2026-11-09,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,vistas,41
+2026-11-09,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,guardados,0
+2026-11-09,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,compartidos,0
+2026-11-09,instagram,post,18122189984029691,2026-10-27 13:58,Santiago de los Caballeros,Santiago de los Caballeros,https://www.instagram.com/p/DfABOhslNB0/,interacciones,0
+2026-11-09,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,me_gusta,0
+2026-11-09,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,comentarios,0
+2026-11-09,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,alcance,21
+2026-11-09,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,vistas,37
+2026-11-09,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,guardados,0
+2026-11-09,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,compartidos,0
+2026-11-09,instagram,post,18129399827490350,2026-10-26 20:02,Aruba,Aruba,https://www.instagram.com/p/De-GApqn7vm/,interacciones,0
+2026-11-08,instagram,cuenta,17841432973721368,,,,,alcance_dia,3821
+2026-11-08,instagram,cuenta,17841432973721368,,,,,visitas_perfil,31
+2026-11-08,instagram,cuenta,17841432973721368,,,,,clics_web,4
+2026-11-08,instagram,cuenta,17841432973721368,,,,,cuentas_interactuaron,163
+2026-11-09,youtube,cuenta,UCUaIRv98Akt5tvHvsmPd1kQ,,,,,suscriptores,5
+2026-11-09,youtube,cuenta,UCUaIRv98Akt5tvHvsmPd1kQ,,,,,vistas_total,4108
+2026-11-09,youtube,cuenta,UCUaIRv98Akt5tvHvsmPd1kQ,,,,,videos,11
+2026-11-09,youtube,short,XERv8UOrvMI,2026-11-06 19:08,Santiago de Chile,Qué hacer en Santiago de Chile ✈️,https://youtube.com/shorts/XERv8UOrvMI,vistas,709
+2026-11-09,youtube,short,XERv8UOrvMI,2026-11-06 19:08,Santiago de Chile,Qué hacer en Santiago de Chile ✈️,https://youtube.com/shorts/XERv8UOrvMI,me_gusta,8
+2026-11-09,youtube,short,XERv8UOrvMI,2026-11-06 19:08,Santiago de Chile,Qué hacer en Santiago de Chile ✈️,https://youtube.com/shorts/XERv8UOrvMI,comentarios,0
+2026-11-09,youtube,short,Ywk3F_gLIX0,2026-11-06 18:45,en 3 días: plan completo 🌴,Aruba en 3 días: plan completo 🌴,https://youtube.com/shorts/Ywk3F_gLIX0,vistas,201
+2026-11-09,youtube,short,Ywk3F_gLIX0,2026-11-06 18:45,en 3 días: plan completo 🌴,Aruba en 3 días: plan completo 🌴,https://youtube.com/shorts/Ywk3F_gLIX0,me_gusta,3
+2026-11-09,youtube,short,Ywk3F_gLIX0,2026-11-06 18:45,en 3 días: plan completo 🌴,Aruba en 3 días: plan completo 🌴,https://youtube.com/shorts/Ywk3F_gLIX0,comentarios,0
+2026-11-09,youtube,short,h5Uo9KolwPg,2026-11-05 17:56,Miami,"Qué hacer en Miami, EE. UU. ✈️",https://youtube.com/shorts/h5Uo9KolwPg,vistas,50
+2026-11-09,youtube,short,h5Uo9KolwPg,2026-11-05 17:56,Miami,"Qué hacer en Miami, EE. UU. ✈️",https://youtube.com/shorts/h5Uo9KolwPg,me_gusta,0
+2026-11-09,youtube,short,h5Uo9KolwPg,2026-11-05 17:56,Miami,"Qué hacer en Miami, EE. UU. ✈️",https://youtube.com/shorts/h5Uo9KolwPg,comentarios,0
+2026-11-09,youtube,short,XoFfu_QEVfg,2026-11-04 19:33,Caracas,"Qué hacer en Caracas, Venezuela ✈️",https://youtube.com/shorts/XoFfu_QEVfg,vistas,317
+2026-11-09,youtube,short,XoFfu_QEVfg,2026-11-04 19:33,Caracas,"Qué hacer en Caracas, Venezuela ✈️",https://youtube.com/shorts/XoFfu_QEVfg,me_gusta,3
+2026-11-09,youtube,short,XoFfu_QEVfg,2026-11-04 19:33,Caracas,"Qué hacer en Caracas, Venezuela ✈️",https://youtube.com/shorts/XoFfu_QEVfg,comentarios,0
+2026-11-09,youtube,short,8XPibnlfRRQ,2026-11-03 23:19,3 días: plan completo 🌴,San Andrés en 3 días: plan completo 🌴,https://youtube.com/shorts/8XPibnlfRRQ,vistas,243
+2026-11-09,youtube,short,8XPibnlfRRQ,2026-11-03 23:19,3 días: plan completo 🌴,San Andrés en 3 días: plan completo 🌴,https://youtube.com/shorts/8XPibnlfRRQ,me_gusta,4
+2026-11-09,youtube,short,8XPibnlfRRQ,2026-11-03 23:19,3 días: plan completo 🌴,San Andrés en 3 días: plan completo 🌴,https://youtube.com/shorts/8XPibnlfRRQ,comentarios,0
+2026-11-09,youtube,short,1QuyT4Agjok,2026-11-03 17:55,Montego Bay,"Qué hacer en Montego Bay, Jamaica ✈️",https://youtube.com/shorts/1QuyT4Agjok,vistas,167
+2026-11-09,youtube,short,1QuyT4Agjok,2026-11-03 17:55,Montego Bay,"Qué hacer en Montego Bay, Jamaica ✈️",https://youtube.com/shorts/1QuyT4Agjok,me_gusta,2
+2026-11-09,youtube,short,1QuyT4Agjok,2026-11-03 17:55,Montego Bay,"Qué hacer en Montego Bay, Jamaica ✈️",https://youtube.com/shorts/1QuyT4Agjok,comentarios,0
+2026-11-09,youtube,short,Y5kyHpjkS3A,2026-11-02 17:56,Aruba,Qué hacer en Aruba ✈️,https://youtube.com/shorts/Y5kyHpjkS3A,vistas,267
+2026-11-09,youtube,short,Y5kyHpjkS3A,2026-11-02 17:56,Aruba,Qué hacer en Aruba ✈️,https://youtube.com/shorts/Y5kyHpjkS3A,me_gusta,2
+2026-11-09,youtube,short,Y5kyHpjkS3A,2026-11-02 17:56,Aruba,Qué hacer en Aruba ✈️,https://youtube.com/shorts/Y5kyHpjkS3A,comentarios,0
+2026-11-09,youtube,short,M0Uh-QdE8rU,2026-11-01 20:26,Leticia,"Qué hacer en Leticia, Colombia ✈️",https://youtube.com/shorts/M0Uh-QdE8rU,vistas,108
+2026-11-09,youtube,short,M0Uh-QdE8rU,2026-11-01 20:26,Leticia,"Qué hacer en Leticia, Colombia ✈️",https://youtube.com/shorts/M0Uh-QdE8rU,me_gusta,3
+2026-11-09,youtube,short,M0Uh-QdE8rU,2026-11-01 20:26,Leticia,"Qué hacer en Leticia, Colombia ✈️",https://youtube.com/shorts/M0Uh-QdE8rU,comentarios,0
+2026-11-09,youtube,short,X5I6CktS3ZE,2026-11-01 20:26,París,"Qué hacer en París, Francia ✈️",https://youtube.com/shorts/X5I6CktS3ZE,vistas,999
+2026-11-09,youtube,short,X5I6CktS3ZE,2026-11-01 20:26,París,"Qué hacer en París, Francia ✈️",https://youtube.com/shorts/X5I6CktS3ZE,me_gusta,13
+2026-11-09,youtube,short,X5I6CktS3ZE,2026-11-01 20:26,París,"Qué hacer en París, Francia ✈️",https://youtube.com/shorts/X5I6CktS3ZE,comentarios,0
+2026-11-09,youtube,short,phxH2z4O7aA,2026-10-30 18:59,La Habana,"Qué hacer en La Habana, Cuba ✈️",https://youtube.com/shorts/phxH2z4O7aA,vistas,568
+2026-11-09,youtube,short,phxH2z4O7aA,2026-10-30 18:59,La Habana,"Qué hacer en La Habana, Cuba ✈️",https://youtube.com/shorts/phxH2z4O7aA,me_gusta,8
+2026-11-09,youtube,short,phxH2z4O7aA,2026-10-30 18:59,La Habana,"Qué hacer en La Habana, Cuba ✈️",https://youtube.com/shorts/phxH2z4O7aA,comentarios,0
+2026-11-09,youtube,short,GBVrnwM7A4E,2026-10-30 17:35,Tijuana,"Qué hacer en Tijuana, México ✈️",https://youtube.com/shorts/GBVrnwM7A4E,vistas,481
+2026-11-09,youtube,short,GBVrnwM7A4E,2026-10-30 17:35,Tijuana,"Qué hacer en Tijuana, México ✈️",https://youtube.com/shorts/GBVrnwM7A4E,me_gusta,3
+2026-11-09,youtube,short,GBVrnwM7A4E,2026-10-30 17:35,Tijuana,"Qué hacer en Tijuana, México ✈️",https://youtube.com/shorts/GBVrnwM7A4E,comentarios,1
+2026-11-09,x,cuenta,2116232271464218624,,,,,seguidores,0
+2026-11-09,x,cuenta,2116232271464218624,,,,,posts,30
+2026-11-09,x,carrusel,2119620325235380450,2026-11-08 21:37,Leticia,Ofertas: Leticia,https://x.com/viajespillados/status/2119620325235380450,vistas,0
+2026-11-09,x,carrusel,2119620325235380450,2026-11-08 21:37,Leticia,Ofertas: Leticia,https://x.com/viajespillados/status/2119620325235380450,me_gusta,0
+2026-11-09,x,carrusel,2119620325235380450,2026-11-08 21:37,Leticia,Ofertas: Leticia,https://x.com/viajespillados/status/2119620325235380450,reposts,0
+2026-11-09,x,carrusel,2119620325235380450,2026-11-08 21:37,Leticia,Ofertas: Leticia,https://x.com/viajespillados/status/2119620325235380450,respuestas,0
+2026-11-09,x,carrusel,2119620325235380450,2026-11-08 21:37,Leticia,Ofertas: Leticia,https://x.com/viajespillados/status/2119620325235380450,guardados,0
+2026-11-09,x,reel,2119534235123892385,2026-11-08 15:55,San Andrés,Reel: 7 días en San Andrés,https://x.com/viajespillados/status/2119534235123892385,vistas,0
+2026-11-09,x,reel,2119534235123892385,2026-11-08 15:55,San Andrés,Reel: 7 días en San Andrés,https://x.com/viajespillados/status/2119534235123892385,me_gusta,0
+2026-11-09,x,reel,2119534235123892385,2026-11-08 15:55,San Andrés,Reel: 7 días en San Andrés,https://x.com/viajespillados/status/2119534235123892385,reposts,0
+2026-11-09,x,reel,2119534235123892385,2026-11-08 15:55,San Andrés,Reel: 7 días en San Andrés,https://x.com/viajespillados/status/2119534235123892385,respuestas,0
+2026-11-09,x,reel,2119534235123892385,2026-11-08 15:55,San Andrés,Reel: 7 días en San Andrés,https://x.com/viajespillados/status/2119534235123892385,guardados,0
+2026-11-09,x,carrusel,2119488188993389020,2026-11-08 12:52,Toronto,Ofertas: Toronto,https://x.com/viajespillados/status/2119488188993389020,vistas,0
+2026-11-09,x,carrusel,2119488188993389020,2026-11-08 12:52,Toronto,Ofertas: Toronto,https://x.com/viajespillados/status/2119488188993389020,me_gusta,0
+2026-11-09,x,carrusel,2119488188993389020,2026-11-08 12:52,Toronto,Ofertas: Toronto,https://x.com/viajespillados/status/2119488188993389020,reposts,0
+2026-11-09,x,carrusel,2119488188993389020,2026-11-08 12:52,Toronto,Ofertas: Toronto,https://x.com/viajespillados/status/2119488188993389020,respuestas,0
+2026-11-09,x,carrusel,2119488188993389020,2026-11-08 12:52,Toronto,Ofertas: Toronto,https://x.com/viajespillados/status/2119488188993389020,guardados,0
+2026-11-09,x,carrusel,2119254356146913386,2026-11-07 21:23,La Habana,Ofertas: La Habana,https://x.com/viajespillados/status/2119254356146913386,vistas,0
+2026-11-09,x,carrusel,2119254356146913386,2026-11-07 21:23,La Habana,Ofertas: La Habana,https://x.com/viajespillados/status/2119254356146913386,me_gusta,0
+2026-11-09,x,carrusel,2119254356146913386,2026-11-07 21:23,La Habana,Ofertas: La Habana,https://x.com/viajespillados/status/2119254356146913386,reposts,0
+2026-11-09,x,carrusel,2119254356146913386,2026-11-07 21:23,La Habana,Ofertas: La Habana,https://x.com/viajespillados/status/2119254356146913386,respuestas,0
+2026-11-09,x,carrusel,2119254356146913386,2026-11-07 21:23,La Habana,Ofertas: La Habana,https://x.com/viajespillados/status/2119254356146913386,guardados,0
+2026-11-09,x,reel,2119171633071993290,2026-11-07 15:54,Atenas,Reel: 9 días en Atenas,https://x.com/viajespillados/status/2119171633071993290,vistas,0
+2026-11-09,x,reel,2119171633071993290,2026-11-07 15:54,Atenas,Reel: 9 días en Atenas,https://x.com/viajespillados/status/2119171633071993290,me_gusta,0
+2026-11-09,x,reel,2119171633071993290,2026-11-07 15:54,Atenas,Reel: 9 días en Atenas,https://x.com/viajespillados/status/2119171633071993290,reposts,0
+2026-11-09,x,reel,2119171633071993290,2026-11-07 15:54,Atenas,Reel: 9 días en Atenas,https://x.com/viajespillados/status/2119171633071993290,respuestas,0
+2026-11-09,x,reel,2119171633071993290,2026-11-07 15:54,Atenas,Reel: 9 días en Atenas,https://x.com/viajespillados/status/2119171633071993290,guardados,0
+2026-11-09,x,carrusel,2118899457550897464,2026-11-06 21:52,"Buenos Aires, Río de Janeiro","Ofertas: Buenos Aires, Río de Janeiro",https://x.com/viajespillados/status/2118899457550897464,vistas,0
+2026-11-09,x,carrusel,2118899457550897464,2026-11-06 21:52,"Buenos Aires, Río de Janeiro","Ofertas: Buenos Aires, Río de Janeiro",https://x.com/viajespillados/status/2118899457550897464,me_gusta,0
+2026-11-09,x,carrusel,2118899457550897464,2026-11-06 21:52,"Buenos Aires, Río de Janeiro","Ofertas: Buenos Aires, Río de Janeiro",https://x.com/viajespillados/status/2118899457550897464,reposts,0
+2026-11-09,x,carrusel,2118899457550897464,2026-11-06 21:52,"Buenos Aires, Río de Janeiro","Ofertas: Buenos Aires, Río de Janeiro",https://x.com/viajespillados/status/2118899457550897464,respuestas,0
+2026-11-09,x,carrusel,2118899457550897464,2026-11-06 21:52,"Buenos Aires, Río de Janeiro","Ofertas: Buenos Aires, Río de Janeiro",https://x.com/viajespillados/status/2118899457550897464,guardados,0
+2026-11-09,x,carrusel,2118785327280128110,2026-11-06 14:19,"Santiago de Chile, Hong Kong, El Cairo","Ofertas: Santiago de Chile, Hong Kong, El Cairo",https://x.com/viajespillados/status/2118785327280128110,vistas,0
+2026-11-09,x,carrusel,2118785327280128110,2026-11-06 14:19,"Santiago de Chile, Hong Kong, El Cairo","Ofertas: Santiago de Chile, Hong Kong, El Cairo",https://x.com/viajespillados/status/2118785327280128110,me_gusta,0
+2026-11-09,x,carrusel,2118785327280128110,2026-11-06 14:19,"Santiago de Chile, Hong Kong, El Cairo","Ofertas: Santiago de Chile, Hong Kong, El Cairo",https://x.com/viajespillados/status/2118785327280128110,reposts,0
+2026-11-09,x,carrusel,2118785327280128110,2026-11-06 14:19,"Santiago de Chile, Hong Kong, El Cairo","Ofertas: Santiago de Chile, Hong Kong, El Cairo",https://x.com/viajespillados/status/2118785327280128110,respuestas,0
+2026-11-09,x,carrusel,2118785327280128110,2026-11-06 14:19,"Santiago de Chile, Hong Kong, El Cairo","Ofertas: Santiago de Chile, Hong Kong, El Cairo",https://x.com/viajespillados/status/2118785327280128110,guardados,0
+2026-11-09,x,carrusel,2118755663689986521,2026-11-06 12:21,Plan de viaje: Montego Bay,Plan de viaje: Montego Bay,https://x.com/viajespillados/status/2118755663689986521,vistas,0
+2026-11-09,x,carrusel,2118755663689986521,2026-11-06 12:21,Plan de viaje: Montego Bay,Plan de viaje: Montego Bay,https://x.com/viajespillados/status/2118755663689986521,me_gusta,0
+2026-11-09,x,carrusel,2118755663689986521,2026-11-06 12:21,Plan de viaje: Montego Bay,Plan de viaje: Montego Bay,https://x.com/viajespillados/status/2118755663689986521,reposts,0
+2026-11-09,x,carrusel,2118755663689986521,2026-11-06 12:21,Plan de viaje: Montego Bay,Plan de viaje: Montego Bay,https://x.com/viajespillados/status/2118755663689986521,respuestas,0
+2026-11-09,x,carrusel,2118755663689986521,2026-11-06 12:21,Plan de viaje: Montego Bay,Plan de viaje: Montego Bay,https://x.com/viajespillados/status/2118755663689986521,guardados,0
+2026-11-09,x,reel,2118756181892055378,2026-11-06 12:20,Santiago de Chile,Reel: 7 días en Santiago de Chile,https://x.com/viajespillados/status/2118756181892055378,vistas,0
+2026-11-09,x,reel,2118756181892055378,2026-11-06 12:20,Santiago de Chile,Reel: 7 días en Santiago de Chile,https://x.com/viajespillados/status/2118756181892055378,me_gusta,0
+2026-11-09,x,reel,2118756181892055378,2026-11-06 12:20,Santiago de Chile,Reel: 7 días en Santiago de Chile,https://x.com/viajespillados/status/2118756181892055378,reposts,0
+2026-11-09,x,reel,2118756181892055378,2026-11-06 12:20,Santiago de Chile,Reel: 7 días en Santiago de Chile,https://x.com/viajespillados/status/2118756181892055378,respuestas,0
+2026-11-09,x,reel,2118756181892055378,2026-11-06 12:20,Santiago de Chile,Reel: 7 días en Santiago de Chile,https://x.com/viajespillados/status/2118756181892055378,guardados,0
+2026-11-09,facebook,cuenta,1480839581771583,,,,,seguidores,0
+2026-11-09,facebook,carrusel,1480839581771583_122108211711529435,2026-11-08 21:37,Leticia,Ofertas: Leticia,https://www.facebook.com/1480839581771583_122108211711529435,vistas,0
+2026-11-09,facebook,reel,1721335826086172,2026-11-08 15:55,San Andrés,Reel: 7 días en San Andrés,https://www.facebook.com/1480839581771583/videos/1721335826086172,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122108048739529435,2026-11-08 12:52,Toronto,Ofertas: Toronto,https://www.facebook.com/1480839581771583_122108048739529435,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122107778139529435,2026-11-07 21:23,La Habana,Ofertas: La Habana,https://www.facebook.com/1480839581771583_122107778139529435,vistas,0
+2026-11-09,facebook,reel,1644514167157487,2026-11-07 15:54,Atenas,Reel: 9 días en Atenas,https://www.facebook.com/1480839581771583/videos/1644514167157487,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122107221687529435,2026-11-06 21:53,"Buenos Aires, Río de Janeiro","Ofertas: Buenos Aires, Río de Janeiro",https://www.facebook.com/1480839581771583_122107221687529435,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122107113165529435,2026-11-06 14:19,"Santiago de Chile, Hong Kong, El Cairo","Ofertas: Santiago de Chile, Hong Kong, El Cairo",https://www.facebook.com/1480839581771583_122107113165529435,vistas,0
+2026-11-09,facebook,reel,1133757142535462,2026-11-06 12:21,Plan de viaje: Montego Bay,Plan de viaje: Montego Bay,https://www.facebook.com/1480839581771583/videos/1133757142535462,vistas,0
+2026-11-09,facebook,reel,917563961322706,2026-11-06 12:20,Santiago de Chile,Reel: 7 días en Santiago de Chile,https://www.facebook.com/videos/917563961322706,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122106731727529435,2026-11-05 22:25,"Tijuana, Puerto Vallarta, Ciudad de México","Ofertas: Tijuana, Puerto Vallarta, Ciudad de México",https://www.facebook.com/1480839581771583_122106731727529435,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122106557235529435,2026-11-05 14:50,"San Andrés, Cancún, Madrid, Belo Horizonte","Ofertas: San Andrés, Cancún, Madrid, Belo Horizonte",https://www.facebook.com/1480839581771583_122106557235529435,vistas,0
+2026-11-09,facebook,reel,1805951130674540,2026-11-05 13:06,Plan de viaje: Aruba,Plan de viaje: Aruba,https://www.facebook.com/1480839581771583/videos/1805951130674540,vistas,0
+2026-11-09,facebook,reel,1632575065079054,2026-11-05 12:18,Miami,Reel: 10 días en Miami,https://www.facebook.com/1480839581771583/videos/1632575065079054,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122105777487529435,2026-11-04 22:28,"Singapur, París","Ofertas: Singapur, París",https://www.facebook.com/1480839581771583_122105777487529435,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122105505285529435,2026-11-04 14:39,"San Juan, Punta Cana","Ofertas: San Juan, Punta Cana",https://www.facebook.com/1480839581771583_122105505285529435,vistas,0
+2026-11-09,facebook,reel,1022194220896696,2026-11-04 13:30,Caracas,Reel: 7 días en Caracas,https://www.facebook.com/1480839581771583/videos/1022194220896696,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122104765587529435,2026-11-03 22:00,"Mendoza, Buenos Aires","Ofertas: Mendoza, Buenos Aires",https://www.facebook.com/1480839581771583_122104765587529435,vistas,0
+2026-11-09,facebook,reel,1643184913917098,2026-11-03 17:57,Plan de viaje: San Andrés,Plan de viaje: San Andrés,https://www.facebook.com/1480839581771583/videos/1643184913917098,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122104516743529435,2026-11-03 14:28,"Puerto Plata, Santiago de Chile","Ofertas: Puerto Plata, Santiago de Chile",https://www.facebook.com/1480839581771583_122104516743529435,vistas,0
+2026-11-09,facebook,reel,977786258221282,2026-11-03 12:21,Montego Bay,Reel: 8 días en Montego Bay,https://www.facebook.com/1480839581771583/videos/977786258221282,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122103739941529435,2026-11-02 22:57,"Montego Bay, São Paulo","Ofertas: Montego Bay, São Paulo",https://www.facebook.com/1480839581771583_122103739941529435,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122103476013529435,2026-11-02 16:41,"La Habana, Aruba","Ofertas: La Habana, Aruba",https://www.facebook.com/1480839581771583_122103476013529435,vistas,0
+2026-11-09,facebook,reel,1672962430878364,2026-11-02 12:38,Aruba,Reel: 4 días en Aruba,https://www.facebook.com/1480839581771583/videos/1672962430878364,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122102520789529435,2026-11-01 21:25,"Leticia, Cusco, Asunción","Ofertas: Leticia, Cusco, Asunción",https://www.facebook.com/1480839581771583_122102520789529435,vistas,0
+2026-11-09,facebook,reel,1666843071785584,2026-11-01 12:17,Leticia,Reel: 7 días en Leticia,https://www.facebook.com/1480839581771583/videos/1666843071785584,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122101624803529435,2026-10-31 21:09,"Lima, Santiago de Chile","Ofertas: Lima, Santiago de Chile",https://www.facebook.com/1480839581771583_122101624803529435,vistas,0
+2026-11-09,facebook,reel,938942612420788,2026-10-31 12:16,París,Reel: 7 días en París,https://www.facebook.com/1480839581771583/videos/938942612420788,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122101345923529435,2026-10-31 12:09,"La Habana, Tijuana","Ofertas: La Habana, Tijuana",https://www.facebook.com/1480839581771583_122101345923529435,vistas,0
+2026-11-09,facebook,carrusel,1480839581771583_122100773943529435,2026-10-30 22:11,"Lisboa, Seúl","Ofertas: Lisboa, Seúl",https://www.facebook.com/1480839581771583_122100773943529435,vistas,2
