@@ -1,90 +1,97 @@
 {
- "2026-10-29": {
-  "id": "tijuana-2027-03-26",
-  "destino": "Tijuana",
-  "status": "published",
-  "drive_folder_id": "1oQXtVWh4xQM11jVh6jsxyE-0KQ4PfJOs",
-  "note": "preparado tarde (15:37 Bogotá); Aruba 29 abr–2 may (score 9) omitido porque ya es el Reel aprobado",
-  "permalink": "https://www.instagram.com/reel/DfF8PkxDqkw/"
- },
- "2026-10-30": {
-  "id": "la-habana-2026-12-19",
-  "destino": "La Habana",
-  "status": "published",
-  "drive_folder_id": "1Iigj8r-7MOMUCXOtfjblpGHwuiTrWtmh",
-  "note": "Aruba 29 abr–2 may (score 9) omitido otra vez porque ya es el Reel aprobado; La Habana empata con Caracas y París (score 6) y gana por menos días libres y 27% bajo el mínimo usual",
-  "permalink": "https://www.instagram.com/reel/DfIGYX6ieE7/"
- },
- "2026-10-31": {
-  "id": "paris-2026-12-07",
-  "destino": "París",
-  "status": "published",
-  "drive_folder_id": "11pMqPcBFzr4SDadRg4gDIl7S0kLLXSxZ",
-  "note": "Aruba 29 abr–2 may (score 9) omitido porque ya es el Reel aprobado; La Habana 30 ene–6 feb (score 8) omitida por Reel de La Habana hace menos de 14 días; París empata con Caracas (score 6) y gana por menos días libres (4 vs 5). Ocasión: Navidad (luces de los Campos Elíseos)",
-  "permalink": "https://www.instagram.com/reel/DfKrAVqEhVr/"
- },
- "2026-11-01": {
-  "id": "leticia-2026-12-07",
-  "destino": "Leticia",
-  "status": "published",
-  "drive_folder_id": "1qBr4V_1GVxkm3eHh0c2Gn_al4BWCimup",
-  "note": "Leticia empata con Caracas (score 6) y gana por menos días libres (4 vs 5); 25% bajo el mínimo usual. Aruba omitido (Reel aprobado); La Habana y París omitidos (Reel hace menos de 14 días). Ocasión: Noche de Velitas (7 dic)",
-  "permalink": "https://www.instagram.com/reel/DfNP1urj26b/"
- },
- "2026-11-02": {
-  "id": "aruba-2027-05-20",
-  "destino": "Aruba",
-  "status": "published",
-  "drive_folder_id": "1HU_3Kz9iAt6FrcF8VSFvHGtMCN0SVyg4",
-  "note": "Aruba 20–23 may (score 9, 44% bajo el mínimo usual, solo 2 días libres) es la mejor oferta; es una oferta nueva, distinta del Reel aprobado (29 abr–2 may). Siguiente: Montego Bay (score 8). Sin ocasión (Soul Beach Festival es el fin de semana de Memorial Day, 28–31 may).",
-  "permalink": "https://www.instagram.com/reel/DfP3HvTlJNd/"
- },
- "2026-11-03": {
-  "id": "montego-bay-2027-05-31",
-  "destino": "Montego Bay",
-  "status": "published",
-  "drive_folder_id": "1vpKNBU-HvhIEVlPoruGZ1R1Bdaif1OnH",
-  "note": "Montego Bay 31 may–7 jun (score 8, 49% bajo el mínimo usual, 4 días libres) es la mejor oferta; Aruba, La Habana, París, Leticia y Tijuana omitidos (Reel hace menos de 14 días). Siguiente: Caracas (score 6). Ocasión: doble puente festivo (Corpus Christi 31 may, Sagrado Corazón 7 jun).",
-  "permalink": "https://www.instagram.com/reel/DfSZ6Ddju46/"
- },
- "2026-11-04": {
-  "id": "caracas-2027-04-01",
-  "destino": "Caracas",
-  "status": "published",
-  "buddy": false,
-  "note": "Caracas 1–7 abr (score 6, 24% bajo el mínimo usual, 5 días libres, directo) es la mejor oferta; Aruba, La Habana, París, Leticia, Tijuana y Montego Bay omitidos (Reel hace menos de 14 días). Siguiente: Miami (score 5). Sin ocasión (Semana Santa 2027 termina el 28 mar; no hay festivo colombiano en esas fechas).",
-  "permalink": "https://www.instagram.com/reel/DfVGj6pDSYf/"
- },
- "2026-11-05": {
-  "id": "miami-2026-11-13",
-  "destino": "Miami",
-  "status": "published",
-  "buddy": false,
-  "note": "Miami 13–22 nov (score 5 + 2 por salir en 8 días = 7; 22% bajo el mínimo usual, 4 días libres, COPA 1 escala) es la mejor oferta; Aruba, La Habana, París, Leticia, Montego Bay, Caracas y Tijuana omitidos (Reel hace menos de 14 días); Atenas y Singapur sin fila en Qué hacer. Siguiente: São Paulo (4 − 1 = 3). Ocasión: puente festivo de la Independencia de Cartagena (lunes 16 nov).",
-  "permalink": "https://www.instagram.com/reel/DfXjH-Ziuja/"
- },
- "2026-11-06": {
-  "id": "santiago-de-chile-2027-03-05",
-  "destino": "Santiago de Chile",
-  "status": "published",
-  "buddy": true,
-  "note": "Santiago de Chile 5–11 mar (score 7 + 0 por salir en 119 días = 7; 30% bajo el mínimo usual, JetSMART directo 6 h, 4 días libres) es la mejor oferta; Aruba, La Habana, París, Leticia, Montego Bay, Caracas, Miami y Tijuana omitidos (Reel hace menos de 14 días). Siguiente: San Andrés 9–15 may (7 − 1 = 6). Sin ocasión (Lollapalooza Chile es 12–14 mar, después del regreso; no hay festivo colombiano). | Publicado en Instagram (run 42260109626), X https://x.com/viajespillados/status/2118756181892055378 y Facebook https://www.facebook.com/videos/917563961322706, pero el push del resultado falló (conflicto con el travel video de Montego Bay): permalink de IG no recuperado; tiktok/feed.json, x/ y fb/published.json sin actualizar.",
-  "permalink": null
- },
- "2026-11-07": {
-  "id": "atenas-2026-12-06",
-  "destino": "Atenas",
-  "status": "published",
-  "buddy": false,
-  "note": "Atenas 6–14 dic (score 4 + 2 por salir en 29 días = 6; 15% bajo el mínimo usual, Air Canada 1 escala ~19 h, 5 días libres) empata con San Andrés 9–15 may (7 − 1 = 6) y gana por salir antes; La Habana, París, Leticia, Aruba, Montego Bay, Caracas, Miami, Santiago de Chile y Tijuana omitidos (Reel hace menos de 14 días). Sin ocasión (Navidad 24–25 dic queda fuera; fecha 2026 del encendido del árbol de Síntagma no confirmada). Imágenes Picsart: 8/8 bien a la primera.",
-  "permalink": "https://www.instagram.com/reel/DfdFd3cAura/"
- },
- "2026-11-08": {
-  "id": "san-andres-2027-05-09",
-  "destino": "San Andrés",
-  "status": "published",
-  "buddy": false,
-  "note": "San Andrés 9–15 may (score 7 − 1 por salir en 182 días = 6; 37% bajo el mínimo usual, JetSMART directo, 4 días libres) es la mejor oferta; La Habana, París, Leticia, Aruba, Montego Bay, Caracas, Miami, Santiago de Chile, Atenas y Tijuana omitidos (Reel hace menos de 14 días). Siguientes: Punta Cana, Cancún, Madrid, Puerto Vallarta, Buenos Aires (5). Ocasión: puente festivo de la Ascensión (lunes 10 may). Imágenes Picsart: 8/8, cover rehecho (sol con cara).",
-  "permalink": "https://www.instagram.com/reel/DffqXLLD6lN/"
- }
+  "2026-10-29": {
+    "id": "tijuana-2027-03-26",
+    "destino": "Tijuana",
+    "status": "published",
+    "drive_folder_id": "1oQXtVWh4xQM11jVh6jsxyE-0KQ4PfJOs",
+    "note": "preparado tarde (15:37 Bogotá); Aruba 29 abr–2 may (score 9) omitido porque ya es el Reel aprobado",
+    "permalink": "https://www.instagram.com/reel/DfF8PkxDqkw/"
+  },
+  "2026-10-30": {
+    "id": "la-habana-2026-12-19",
+    "destino": "La Habana",
+    "status": "published",
+    "drive_folder_id": "1Iigj8r-7MOMUCXOtfjblpGHwuiTrWtmh",
+    "note": "Aruba 29 abr–2 may (score 9) omitido otra vez porque ya es el Reel aprobado; La Habana empata con Caracas y París (score 6) y gana por menos días libres y 27% bajo el mínimo usual",
+    "permalink": "https://www.instagram.com/reel/DfIGYX6ieE7/"
+  },
+  "2026-10-31": {
+    "id": "paris-2026-12-07",
+    "destino": "París",
+    "status": "published",
+    "drive_folder_id": "11pMqPcBFzr4SDadRg4gDIl7S0kLLXSxZ",
+    "note": "Aruba 29 abr–2 may (score 9) omitido porque ya es el Reel aprobado; La Habana 30 ene–6 feb (score 8) omitida por Reel de La Habana hace menos de 14 días; París empata con Caracas (score 6) y gana por menos días libres (4 vs 5). Ocasión: Navidad (luces de los Campos Elíseos)",
+    "permalink": "https://www.instagram.com/reel/DfKrAVqEhVr/"
+  },
+  "2026-11-01": {
+    "id": "leticia-2026-12-07",
+    "destino": "Leticia",
+    "status": "published",
+    "drive_folder_id": "1qBr4V_1GVxkm3eHh0c2Gn_al4BWCimup",
+    "note": "Leticia empata con Caracas (score 6) y gana por menos días libres (4 vs 5); 25% bajo el mínimo usual. Aruba omitido (Reel aprobado); La Habana y París omitidos (Reel hace menos de 14 días). Ocasión: Noche de Velitas (7 dic)",
+    "permalink": "https://www.instagram.com/reel/DfNP1urj26b/"
+  },
+  "2026-11-02": {
+    "id": "aruba-2027-05-20",
+    "destino": "Aruba",
+    "status": "published",
+    "drive_folder_id": "1HU_3Kz9iAt6FrcF8VSFvHGtMCN0SVyg4",
+    "note": "Aruba 20–23 may (score 9, 44% bajo el mínimo usual, solo 2 días libres) es la mejor oferta; es una oferta nueva, distinta del Reel aprobado (29 abr–2 may). Siguiente: Montego Bay (score 8). Sin ocasión (Soul Beach Festival es el fin de semana de Memorial Day, 28–31 may).",
+    "permalink": "https://www.instagram.com/reel/DfP3HvTlJNd/"
+  },
+  "2026-11-03": {
+    "id": "montego-bay-2027-05-31",
+    "destino": "Montego Bay",
+    "status": "published",
+    "drive_folder_id": "1vpKNBU-HvhIEVlPoruGZ1R1Bdaif1OnH",
+    "note": "Montego Bay 31 may–7 jun (score 8, 49% bajo el mínimo usual, 4 días libres) es la mejor oferta; Aruba, La Habana, París, Leticia y Tijuana omitidos (Reel hace menos de 14 días). Siguiente: Caracas (score 6). Ocasión: doble puente festivo (Corpus Christi 31 may, Sagrado Corazón 7 jun).",
+    "permalink": "https://www.instagram.com/reel/DfSZ6Ddju46/"
+  },
+  "2026-11-04": {
+    "id": "caracas-2027-04-01",
+    "destino": "Caracas",
+    "status": "published",
+    "buddy": false,
+    "note": "Caracas 1–7 abr (score 6, 24% bajo el mínimo usual, 5 días libres, directo) es la mejor oferta; Aruba, La Habana, París, Leticia, Tijuana y Montego Bay omitidos (Reel hace menos de 14 días). Siguiente: Miami (score 5). Sin ocasión (Semana Santa 2027 termina el 28 mar; no hay festivo colombiano en esas fechas).",
+    "permalink": "https://www.instagram.com/reel/DfVGj6pDSYf/"
+  },
+  "2026-11-05": {
+    "id": "miami-2026-11-13",
+    "destino": "Miami",
+    "status": "published",
+    "buddy": false,
+    "note": "Miami 13–22 nov (score 5 + 2 por salir en 8 días = 7; 22% bajo el mínimo usual, 4 días libres, COPA 1 escala) es la mejor oferta; Aruba, La Habana, París, Leticia, Montego Bay, Caracas y Tijuana omitidos (Reel hace menos de 14 días); Atenas y Singapur sin fila en Qué hacer. Siguiente: São Paulo (4 − 1 = 3). Ocasión: puente festivo de la Independencia de Cartagena (lunes 16 nov).",
+    "permalink": "https://www.instagram.com/reel/DfXjH-Ziuja/"
+  },
+  "2026-11-06": {
+    "id": "santiago-de-chile-2027-03-05",
+    "destino": "Santiago de Chile",
+    "status": "published",
+    "buddy": true,
+    "note": "Santiago de Chile 5–11 mar (score 7 + 0 por salir en 119 días = 7; 30% bajo el mínimo usual, JetSMART directo 6 h, 4 días libres) es la mejor oferta; Aruba, La Habana, París, Leticia, Montego Bay, Caracas, Miami y Tijuana omitidos (Reel hace menos de 14 días). Siguiente: San Andrés 9–15 may (7 − 1 = 6). Sin ocasión (Lollapalooza Chile es 12–14 mar, después del regreso; no hay festivo colombiano). | Publicado en Instagram (run 42260109626), X https://x.com/viajespillados/status/2118756181892055378 y Facebook https://www.facebook.com/videos/917563961322706, pero el push del resultado falló (conflicto con el travel video de Montego Bay): permalink de IG no recuperado; tiktok/feed.json, x/ y fb/published.json sin actualizar.",
+    "permalink": null
+  },
+  "2026-11-07": {
+    "id": "atenas-2026-12-06",
+    "destino": "Atenas",
+    "status": "published",
+    "buddy": false,
+    "note": "Atenas 6–14 dic (score 4 + 2 por salir en 29 días = 6; 15% bajo el mínimo usual, Air Canada 1 escala ~19 h, 5 días libres) empata con San Andrés 9–15 may (7 − 1 = 6) y gana por salir antes; La Habana, París, Leticia, Aruba, Montego Bay, Caracas, Miami, Santiago de Chile y Tijuana omitidos (Reel hace menos de 14 días). Sin ocasión (Navidad 24–25 dic queda fuera; fecha 2026 del encendido del árbol de Síntagma no confirmada). Imágenes Picsart: 8/8 bien a la primera.",
+    "permalink": "https://www.instagram.com/reel/DfdFd3cAura/"
+  },
+  "2026-11-08": {
+    "id": "san-andres-2027-05-09",
+    "destino": "San Andrés",
+    "status": "published",
+    "buddy": false,
+    "note": "San Andrés 9–15 may (score 7 − 1 por salir en 182 días = 6; 37% bajo el mínimo usual, JetSMART directo, 4 días libres) es la mejor oferta; La Habana, París, Leticia, Aruba, Montego Bay, Caracas, Miami, Santiago de Chile, Atenas y Tijuana omitidos (Reel hace menos de 14 días). Siguientes: Punta Cana, Cancún, Madrid, Puerto Vallarta, Buenos Aires (5). Ocasión: puente festivo de la Ascensión (lunes 10 may). Imágenes Picsart: 8/8, cover rehecho (sol con cara).",
+    "permalink": "https://www.instagram.com/reel/DffqXLLD6lN/"
+  },
+  "2026-11-09": {
+    "id": "punta-cana-2027-05-31",
+    "destino": "Punta Cana",
+    "status": "pictures_ready",
+    "buddy": true,
+    "note": "Punta Cana 31 may–6 jun (score 6 − 1 por salir en 203 días + 0 por 4 días libres + 0 por 7 días = 5; 28% bajo el mínimo usual, Wingo directo ~3 h) es la mejor oferta; Aruba, Montego Bay, La Habana, Leticia, Santiago de Chile, Atenas, San Andrés, Miami, Caracas, París y Tijuana omitidos (Reel hace menos de 14 días). Siguientes: Puerto Vallarta y Ciudad de México (4). Ocasión: puente festivo de Corpus Christi (lunes 31 may). Imágenes Picsart: 8/8, cover rehecho (salió con marco)."
+  }
 }
