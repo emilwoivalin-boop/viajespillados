@@ -67,14 +67,65 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 1.05,
+      "x1": 0.68
+     },
+     {
+      "action": "celebrate",
+      "word": "festivo",
+      "mood": "wow"
+     },
+     {
+      "action": "point",
+      "word": "paja",
+      "facing": -1
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Punta",
+     "x": 0.55,
+     "y": 0.42,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.89,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "suitcase",
+       "x0": 0.0,
+       "x1": 0.38
+      },
+      {
+       "action": "dance",
+       "word": "festivo"
+      },
+      {
+       "action": "photo",
+       "word": "paja"
+      }
+     ]
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Festivo de llegada: caminas por la playa de Bávaro, arena blanquita y cocoteros inclinados sobre el mar.",
@@ -84,14 +135,66 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.05,
+      "x1": 0.3
+     },
+     {
+      "action": "point",
+      "word": "cocoteros"
+     },
+     {
+      "action": "selfie",
+      "word": "mar",
+      "mood": "wow"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "relax",
+     "x0": 0.72,
+     "y": 0.97,
+     "size": 380,
+     "facing": -1,
+     "mood": "love"
+    },
+    {
+     "action": "wade",
+     "x0": 0.14,
+     "y": 0.66,
+     "size": 170,
+     "facing": 1
+    },
+    {
+     "action": "relax",
+     "x0": 0.86,
+     "y": 0.72,
+     "size": 200,
+     "facing": -1
+    },
+    {
+     "action": "sip",
+     "x0": 0.62,
+     "y": 0.73,
+     "size": 200,
+     "facing": -1
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día dos: excursión a Isla Saona y una piscina natural de agua bajita llena de estrellas de mar.",
@@ -101,14 +204,57 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.8,
+    "size": 380,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "wade",
+      "x0": 0.8,
+      "x1": 0.6
+     },
+     {
+      "action": "photo",
+      "word": "estrellas",
+      "mood": "wow"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Saona",
+     "x": 0.8,
+     "y": 0.39,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.82,
+     "size": 390,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "wade",
+       "x0": 0.1,
+       "x1": 0.3
+      },
+      {
+       "action": "point",
+       "word": "estrellas",
+       "mood": "love"
+      }
+     ]
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día tres: haces snorkel en el arrecife, entre corales y peces de colores en agua clarita.",
@@ -118,14 +264,35 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "swim",
+    "x0": 0.05,
+    "x1": 0.6,
+    "y": 0.48,
+    "size": 380,
+    "facing": 1,
+    "mood": "wow"
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "fish",
+     "word": "peces",
+     "x": 0.5,
+     "y": 0.63,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "underwater"
+   ],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "bubbles",
+     "frac": 0.3
+    }
+   ],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día cuatro: en Ojos Indígenas caminas por el bosque hasta lagunas de agua dulce, transparentes y fresquitas.",
@@ -135,14 +302,44 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.98,
+    "size": 450,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.28,
+      "x1": 0.4,
+      "y1": 0.82,
+      "size1": 330
+     },
+     {
+      "action": "point",
+      "word": "lagunas",
+      "mood": "wow"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "walk",
+     "x0": 0.12,
+     "x1": 0.22,
+     "y": 1.0,
+     "y1": 0.92,
+     "size": 470,
+     "size1": 420,
+     "facing": 1
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día cinco: te bañas en el Hoyo Azul, un cenote turquesa al pie de un acantilado gigante.",
@@ -152,14 +349,40 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "size": 320,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "dive",
+      "x0": 0.3,
+      "x1": 0.62,
+      "y": 0.83,
+      "y1": 0.76
+     },
+     {
+      "action": "float",
+      "word": "turquesa",
+      "mood": "love"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "laugh",
+     "x0": 0.14,
+     "y": 0.85,
+     "size": 330,
+     "facing": 1
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",

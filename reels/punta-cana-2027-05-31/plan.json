@@ -1,81 +1,343 @@
 {
- "id": "punta-cana-2027-05-31",
- "offer": {
-  "destino": "Punta Cana",
-  "region": "Caribe e islas",
-  "aerolinea": "Wingo",
-  "precio": 1006968,
-  "escalas": "directo",
-  "ida": "2027-05-31",
-  "vuelta": "2027-06-06",
-  "link": "https://www.google.com/travel/flights?q=Flights%20to%20PUJ%20from%20BOG%20on%202027-05-31%20through%202027-06-06&curr=COP&hl=es-419",
-  "sheet_row": 50,
-  "escala_larga": ""
- },
- "hora_salida": null,
- "buddy": true,
- "ocasion": {
-  "nombre": "Puente festivo de Corpus Christi (lunes 31 de mayo)",
-  "fechas": "2027-05-29/2027-05-31",
-  "fuente": "fecha fija (Price log, pestaña Holidays)"
- },
- "que_hacer": "Puente festivo en Punta Cana. Descansa en la playa de Bávaro, haz la excursión a Isla Saona y nada en el cenote Hoyo Azul.",
- "lines": {
-  "vuelo": "Tres horitas de vuelo directo… ¿y abajo? El mar Caribe, turquesa hasta donde alcanza la vista.",
-  "llegada": "¡Bienvenido a Punta Cana en pleno puente festivo! Calorcito caribe, brisa de mar y techos de paja apenas llegas.",
-  "dia1": "Festivo de llegada: caminas por la playa de Bávaro, arena blanquita y cocoteros inclinados sobre el mar.",
-  "dia2": "Día dos: excursión a Isla Saona y una piscina natural de agua bajita llena de estrellas de mar.",
-  "dia3": "Día tres: haces snorkel en el arrecife, entre corales y peces de colores en agua clarita.",
-  "dia4": "Día cuatro: en Ojos Indígenas caminas por el bosque hasta lagunas de agua dulce, transparentes y fresquitas.",
-  "dia5": "Día cinco: te bañas en el Hoyo Azul, un cenote turquesa al pie de un acantilado gigante."
- },
- "prompts": {
-  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a calm Caribbean sea in shades of turquoise and deep blue with a long generic green tropical coastline and white beaches, no city, no landmark, sunny blue sky. Keep the lower half open with the sea and the coast clearly visible. The top third is calm blue sky.",
-  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small open-air tropical airport terminal with tall pointed roofs thatched with dry palm leaves, wooden posts, tall green coconut palms and bright pink bougainvillea flowers around it, sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
-  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Bávaro Beach in the Dominican Republic in the soft morning light: a very long wide beach of powdery white sand, many tall coconut palms leaning over the beach, calm turquoise sea with small gentle waves, light blue morning sky. A wide, empty stretch of white sand across the lower third of the picture, clearly visible and empty.",
-  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A natural pool in the middle of the Caribbean sea near Saona Island: very shallow, crystal-clear light turquoise water over white sand with several big orange-red starfish on the sandy bottom, an empty white catamaran anchored nearby, a low green island with palm trees on the horizon, sunny blue sky. A wide stretch of empty shallow clear water across the lower half of the picture, clearly visible and empty.",
-  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Underwater view of a colourful Caribbean coral reef: bright pink, purple and yellow corals, sea fans, groups of small colourful tropical fish, clear turquoise water with rays of light, the wavy sea surface at the top and the sandy bottom below. A wide area of open, empty clear blue water across the middle of the picture, clearly visible and empty.",
-  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A freshwater lagoon in a tropical coastal forest reserve: a small round pool of crystal-clear turquoise water surrounded by grey limestone rocks, green tropical trees and ferns, a simple wooden staircase leading down to a small wooden deck at the water's edge, sunny sky between the leaves. The wooden deck and the earth trail in the lower third of the picture are clearly visible and empty.",
-  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Hoyo Azul cenote in the Dominican Republic: a small pool of bright electric-blue turquoise water at the foot of a tall vertical grey limestone cliff covered with green jungle plants and hanging vines, a few flat rocks and a small wooden platform at the water's edge, soft daylight. The flat rocks and the wooden platform in the lower third of the picture are clearly visible and empty.",
-  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Full-bleed picture that fills the whole canvas edge to edge: no border, no frame, no white margin, no picture inside a picture. The most iconic view of Punta Cana: a long white sand beach with tall coconut palms leaning over bright turquoise Caribbean water, bright daylight, no sun drawn in the sky (no faces on anything), a wide calm open blue sky and sea filling the upper and middle part of the picture. An empty white sand beach in the bottom fifth of the picture. The beach and the turquoise sea stretch across the full width of the picture."
- },
- "end_image": "dia1",
- "caption_es": {
-  "hook": "¿Punta Cana en 5 días aprovechando el puente festivo? Pilla este plan, parce.",
-  "intro": "Un día de playa y, después, un sendero por el bosque hasta lagunas de agua dulce.",
-  "pais": "República Dominicana",
-  "dias": [
-   {
-    "titulo": "Playa de Bávaro",
-    "texto": "camínala temprano, antes de que se llene."
-   },
-   {
-    "titulo": "Isla Saona",
-    "texto": "excursión en catamarán y piscina natural con estrellas de mar."
-   },
-   {
-    "titulo": "Snorkel en el arrecife",
-    "texto": "reserva una salida guiada y pregunta cómo está la visibilidad."
-   },
-   {
-    "titulo": "Ojos Indígenas",
-    "texto": "senderos por el bosque hasta lagunas de agua dulce."
-   },
-   {
-    "titulo": "Cenote Hoyo Azul",
-    "texto": "un baño en agua turquesa al pie de un acantilado."
-   }
-  ],
-  "bonus": "Almuerza una bandera dominicana: arroz, habichuelas y carne en un restaurante local.",
-  "dato": "la reserva Ojos Indígenas tiene 12 lagunas de agua dulce dentro de su bosque costero",
-  "epoca": "enero a abril",
-  "para": "te gustan los resorts, las caminatas largas por la playa y las salidas cortas a la naturaleza",
-  "no_para": "quieres un centro histórico para recorrer a pie o prefieres evitar los resorts grandes",
-  "versus": "Cancún",
-  "hashtags": [
-   "#puntacana",
-   "#republicadominicana",
-   "#quehacerenpuntacana"
-  ]
- }
+  "id": "punta-cana-2027-05-31",
+  "offer": {
+    "destino": "Punta Cana",
+    "region": "Caribe e islas",
+    "aerolinea": "Wingo",
+    "precio": 1006968,
+    "escalas": "directo",
+    "ida": "2027-05-31",
+    "vuelta": "2027-06-06",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20PUJ%20from%20BOG%20on%202027-05-31%20through%202027-06-06&curr=COP&hl=es-419",
+    "sheet_row": 50,
+    "escala_larga": ""
+  },
+  "hora_salida": null,
+  "buddy": true,
+  "ocasion": {
+    "nombre": "Puente festivo de Corpus Christi (lunes 31 de mayo)",
+    "fechas": "2027-05-29/2027-05-31",
+    "fuente": "fecha fija (Price log, pestaña Holidays)"
+  },
+  "que_hacer": "Puente festivo en Punta Cana. Descansa en la playa de Bávaro, haz la excursión a Isla Saona y nada en el cenote Hoyo Azul.",
+  "lines": {
+    "vuelo": "Tres horitas de vuelo directo… ¿y abajo? El mar Caribe, turquesa hasta donde alcanza la vista.",
+    "llegada": "¡Bienvenido a Punta Cana en pleno puente festivo! Calorcito caribe, brisa de mar y techos de paja apenas llegas.",
+    "dia1": "Festivo de llegada: caminas por la playa de Bávaro, arena blanquita y cocoteros inclinados sobre el mar.",
+    "dia2": "Día dos: excursión a Isla Saona y una piscina natural de agua bajita llena de estrellas de mar.",
+    "dia3": "Día tres: haces snorkel en el arrecife, entre corales y peces de colores en agua clarita.",
+    "dia4": "Día cuatro: en Ojos Indígenas caminas por el bosque hasta lagunas de agua dulce, transparentes y fresquitas.",
+    "dia5": "Día cinco: te bañas en el Hoyo Azul, un cenote turquesa al pie de un acantilado gigante."
+  },
+  "prompts": {
+    "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a calm Caribbean sea in shades of turquoise and deep blue with a long generic green tropical coastline and white beaches, no city, no landmark, sunny blue sky. Keep the lower half open with the sea and the coast clearly visible. The top third is calm blue sky.",
+    "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small open-air tropical airport terminal with tall pointed roofs thatched with dry palm leaves, wooden posts, tall green coconut palms and bright pink bougainvillea flowers around it, sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
+    "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Bávaro Beach in the Dominican Republic in the soft morning light: a very long wide beach of powdery white sand, many tall coconut palms leaning over the beach, calm turquoise sea with small gentle waves, light blue morning sky. A wide, empty stretch of white sand across the lower third of the picture, clearly visible and empty.",
+    "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A natural pool in the middle of the Caribbean sea near Saona Island: very shallow, crystal-clear light turquoise water over white sand with several big orange-red starfish on the sandy bottom, an empty white catamaran anchored nearby, a low green island with palm trees on the horizon, sunny blue sky. A wide stretch of empty shallow clear water across the lower half of the picture, clearly visible and empty.",
+    "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Underwater view of a colourful Caribbean coral reef: bright pink, purple and yellow corals, sea fans, groups of small colourful tropical fish, clear turquoise water with rays of light, the wavy sea surface at the top and the sandy bottom below. A wide area of open, empty clear blue water across the middle of the picture, clearly visible and empty.",
+    "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A freshwater lagoon in a tropical coastal forest reserve: a small round pool of crystal-clear turquoise water surrounded by grey limestone rocks, green tropical trees and ferns, a simple wooden staircase leading down to a small wooden deck at the water's edge, sunny sky between the leaves. The wooden deck and the earth trail in the lower third of the picture are clearly visible and empty.",
+    "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Hoyo Azul cenote in the Dominican Republic: a small pool of bright electric-blue turquoise water at the foot of a tall vertical grey limestone cliff covered with green jungle plants and hanging vines, a few flat rocks and a small wooden platform at the water's edge, soft daylight. The flat rocks and the wooden platform in the lower third of the picture are clearly visible and empty.",
+    "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Full-bleed picture that fills the whole canvas edge to edge: no border, no frame, no white margin, no picture inside a picture. The most iconic view of Punta Cana: a long white sand beach with tall coconut palms leaning over bright turquoise Caribbean water, bright daylight, no sun drawn in the sky (no faces on anything), a wide calm open blue sky and sea filling the upper and middle part of the picture. An empty white sand beach in the bottom fifth of the picture. The beach and the turquoise sea stretch across the full width of the picture."
+  },
+  "end_image": "dia1",
+  "caption_es": {
+    "hook": "¿Punta Cana en 5 días aprovechando el puente festivo? Pilla este plan, parce.",
+    "intro": "Un día de playa y, después, un sendero por el bosque hasta lagunas de agua dulce.",
+    "pais": "República Dominicana",
+    "dias": [
+      {
+        "titulo": "Playa de Bávaro",
+        "texto": "camínala temprano, antes de que se llene."
+      },
+      {
+        "titulo": "Isla Saona",
+        "texto": "excursión en catamarán y piscina natural con estrellas de mar."
+      },
+      {
+        "titulo": "Snorkel en el arrecife",
+        "texto": "reserva una salida guiada y pregunta cómo está la visibilidad."
+      },
+      {
+        "titulo": "Ojos Indígenas",
+        "texto": "senderos por el bosque hasta lagunas de agua dulce."
+      },
+      {
+        "titulo": "Cenote Hoyo Azul",
+        "texto": "un baño en agua turquesa al pie de un acantilado."
+      }
+    ],
+    "bonus": "Almuerza una bandera dominicana: arroz, habichuelas y carne en un restaurante local.",
+    "dato": "la reserva Ojos Indígenas tiene 12 lagunas de agua dulce dentro de su bosque costero",
+    "epoca": "enero a abril",
+    "para": "te gustan los resorts, las caminatas largas por la playa y las salidas cortas a la naturaleza",
+    "no_para": "quieres un centro histórico para recorrer a pie o prefieres evitar los resorts grandes",
+    "versus": "Cancún",
+    "hashtags": [
+      "#puntacana",
+      "#republicadominicana",
+      "#quehacerenpuntacana"
+    ]
+  },
+  "scenes": {
+    "vuelo": {
+      "stick": null,
+      "pop": null,
+      "ambience": null
+    },
+    "llegada": {
+      "stick": {
+        "y": 0.9,
+        "size": 420,
+        "facing": -1,
+        "beats": [
+          {
+            "action": "suitcase",
+            "x0": 1.05,
+            "x1": 0.68
+          },
+          {
+            "action": "celebrate",
+            "word": "festivo",
+            "mood": "wow"
+          },
+          {
+            "action": "point",
+            "word": "paja",
+            "facing": -1
+          }
+        ]
+      },
+      "crowd": [
+        {
+          "look": "buddy",
+          "y": 0.89,
+          "size": 400,
+          "facing": 1,
+          "beats": [
+            {
+              "action": "suitcase",
+              "x0": 0.0,
+              "x1": 0.38
+            },
+            {
+              "action": "dance",
+              "word": "festivo"
+            },
+            {
+              "action": "photo",
+              "word": "paja"
+            }
+          ]
+        }
+      ],
+      "pop": {
+        "icon": "pin",
+        "word": "Punta",
+        "x": 0.55,
+        "y": 0.42,
+        "size": 200
+      },
+      "ambience": "birds"
+    },
+    "dia1": {
+      "stick": {
+        "y": 0.9,
+        "size": 430,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": 0.05,
+            "x1": 0.3
+          },
+          {
+            "action": "point",
+            "word": "cocoteros"
+          },
+          {
+            "action": "selfie",
+            "word": "mar",
+            "mood": "wow"
+          }
+        ]
+      },
+      "crowd": [
+        {
+          "look": "buddy",
+          "action": "relax",
+          "x0": 0.72,
+          "y": 0.97,
+          "size": 380,
+          "facing": -1,
+          "mood": "love"
+        },
+        {
+          "action": "wade",
+          "x0": 0.14,
+          "y": 0.66,
+          "size": 170,
+          "facing": 1
+        },
+        {
+          "action": "relax",
+          "x0": 0.86,
+          "y": 0.72,
+          "size": 200,
+          "facing": -1
+        },
+        {
+          "action": "sip",
+          "x0": 0.62,
+          "y": 0.73,
+          "size": 200,
+          "facing": -1
+        }
+      ],
+      "pop": null,
+      "ambience": [
+        "waves",
+        "steeldrum"
+      ]
+    },
+    "dia2": {
+      "stick": {
+        "y": 0.8,
+        "size": 380,
+        "facing": -1,
+        "beats": [
+          {
+            "action": "wade",
+            "x0": 0.8,
+            "x1": 0.6
+          },
+          {
+            "action": "photo",
+            "word": "estrellas",
+            "mood": "wow"
+          }
+        ]
+      },
+      "crowd": [
+        {
+          "look": "buddy",
+          "y": 0.82,
+          "size": 390,
+          "facing": 1,
+          "beats": [
+            {
+              "action": "wade",
+              "x0": 0.1,
+              "x1": 0.3
+            },
+            {
+              "action": "point",
+              "word": "estrellas",
+              "mood": "love"
+            }
+          ]
+        }
+      ],
+      "pop": {
+        "icon": "pin",
+        "word": "Saona",
+        "x": 0.8,
+        "y": 0.39,
+        "size": 190
+      },
+      "ambience": "waves"
+    },
+    "dia3": {
+      "stick": {
+        "action": "swim",
+        "x0": 0.05,
+        "x1": 0.6,
+        "y": 0.48,
+        "size": 380,
+        "facing": 1,
+        "mood": "wow"
+      },
+      "pop": {
+        "icon": "fish",
+        "word": "peces",
+        "x": 0.5,
+        "y": 0.63,
+        "size": 190
+      },
+      "ambience": "underwater",
+      "sfx": [
+        {
+          "kind": "bubbles",
+          "frac": 0.3
+        }
+      ]
+    },
+    "dia4": {
+      "stick": {
+        "y": 0.98,
+        "size": 450,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": 0.28,
+            "x1": 0.4,
+            "y1": 0.82,
+            "size1": 330
+          },
+          {
+            "action": "point",
+            "word": "lagunas",
+            "mood": "wow"
+          }
+        ]
+      },
+      "crowd": [
+        {
+          "look": "buddy",
+          "action": "walk",
+          "x0": 0.12,
+          "x1": 0.22,
+          "y": 1.0,
+          "y1": 0.92,
+          "size": 470,
+          "size1": 420,
+          "facing": 1
+        }
+      ],
+      "pop": null,
+      "ambience": "birds"
+    },
+    "dia5": {
+      "stick": {
+        "size": 320,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "dive",
+            "x0": 0.3,
+            "x1": 0.62,
+            "y": 0.83,
+            "y1": 0.76
+          },
+          {
+            "action": "float",
+            "word": "turquesa",
+            "mood": "love"
+          }
+        ]
+      },
+      "crowd": [
+        {
+          "look": "buddy",
+          "action": "laugh",
+          "x0": 0.14,
+          "y": 0.85,
+          "size": 330,
+          "facing": 1
+        }
+      ],
+      "pop": null,
+      "ambience": "birds"
+    }
+  }
 }
