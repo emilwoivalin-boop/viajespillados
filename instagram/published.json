@@ -602,6 +602,17 @@
       "image": "https://viajespillados.com/instagram/img/montego-bay-2026-11-09-826959.jpg",
       "published_at": "2026-11-09 17:14",
       "carousel": false
+    },
+    {
+      "id": "aruba-2026-11-09-861805",
+      "destino": "Aruba",
+      "precio": 861805,
+      "sheet_row": 72,
+      "media_id": "18107654813577079",
+      "permalink": "https://www.instagram.com/p/DfjEa4QEbGO/",
+      "image": "https://raw.githubusercontent.com/emilwoivalin-boop/viajespillados/main/instagram/img/aruba-2026-11-09-861805.jpg",
+      "published_at": "2026-11-09 23:40",
+      "carousel": false
     }
   ]
 }
