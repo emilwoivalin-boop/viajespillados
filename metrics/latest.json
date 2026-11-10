@@ -1,9 +1,9 @@
 {
- "generado": "2026-11-09 09:20",
+ "generado": "2026-11-10 08:46",
  "errores": {},
  "filas": [
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "web",
    "tipo": "web",
    "id": "total",
@@ -12,10 +12,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "visitas",
-   "valor": 7
+   "valor": 3
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "web",
    "tipo": "web",
    "id": "total",
@@ -27,7 +27,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "web",
    "tipo": "pagina",
    "id": "/",
@@ -36,22 +36,34 @@
    "titulo": "Viajes Pillados",
    "enlace": "",
    "metrica": "visitas",
-   "valor": 6
+   "valor": 2
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "web",
    "tipo": "clic_oferta",
-   "id": "oferta/atenas",
+   "id": "oferta/montego-bay",
    "publicado": "",
-   "destinos": "Atenas",
-   "titulo": "Clic oferta: Atenas",
+   "destinos": "Montego Bay",
+   "titulo": "Clic oferta: Montego Bay",
    "enlace": "",
    "metrica": "clics",
    "valor": 1
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
+   "canal": "web",
+   "tipo": "origen",
+   "id": "Google",
+   "publicado": "",
+   "destinos": "",
+   "titulo": "Google",
+   "enlace": "",
+   "metrica": "visitas",
+   "valor": 2
+  },
+  {
+   "fecha": "2026-11-09",
    "canal": "web",
    "tipo": "origen",
    "id": "ig",
@@ -60,22 +72,10 @@
    "titulo": "ig",
    "enlace": "",
    "metrica": "visitas",
-   "valor": 6
-  },
-  {
-   "fecha": "2026-11-08",
-   "canal": "web",
-   "tipo": "origen",
-   "id": "l.instagram.com",
-   "publicado": "",
-   "destinos": "",
-   "titulo": "l.instagram.com",
-   "enlace": "",
-   "metrica": "visitas",
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -84,10 +84,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "seguidores",
-   "valor": 432
+   "valor": 442
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -96,10 +96,262 @@
    "titulo": "",
    "enlace": "",
    "metrica": "publicaciones",
-   "valor": 25
+   "valor": 27
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18107654813577079",
+   "publicado": "2026-11-10 04:40",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/DfjEa4QEbGO/",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18107654813577079",
+   "publicado": "2026-11-10 04:40",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/DfjEa4QEbGO/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18107654813577079",
+   "publicado": "2026-11-10 04:40",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/DfjEa4QEbGO/",
+   "metrica": "alcance",
+   "valor": 10
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18107654813577079",
+   "publicado": "2026-11-10 04:40",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/DfjEa4QEbGO/",
+   "metrica": "vistas",
+   "valor": 21
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18107654813577079",
+   "publicado": "2026-11-10 04:40",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/DfjEa4QEbGO/",
+   "metrica": "guardados",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18107654813577079",
+   "publicado": "2026-11-10 04:40",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/DfjEa4QEbGO/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18107654813577079",
+   "publicado": "2026-11-10 04:40",
+   "destinos": "Aruba",
+   "titulo": "Aruba",
+   "enlace": "https://www.instagram.com/p/DfjEa4QEbGO/",
+   "metrica": "interacciones",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18357590947271928",
+   "publicado": "2026-11-10 00:43",
+   "destinos": "Punta Cana",
+   "titulo": "Punta Cana",
+   "enlace": "https://www.instagram.com/reel/DfipWGKtUrX/",
+   "metrica": "me_gusta",
+   "valor": 38
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18357590947271928",
+   "publicado": "2026-11-10 00:43",
+   "destinos": "Punta Cana",
+   "titulo": "Punta Cana",
+   "enlace": "https://www.instagram.com/reel/DfipWGKtUrX/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18357590947271928",
+   "publicado": "2026-11-10 00:43",
+   "destinos": "Punta Cana",
+   "titulo": "Punta Cana",
+   "enlace": "https://www.instagram.com/reel/DfipWGKtUrX/",
+   "metrica": "alcance",
+   "valor": 1920
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18357590947271928",
+   "publicado": "2026-11-10 00:43",
+   "destinos": "Punta Cana",
+   "titulo": "Punta Cana",
+   "enlace": "https://www.instagram.com/reel/DfipWGKtUrX/",
+   "metrica": "vistas",
+   "valor": 2163
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18357590947271928",
+   "publicado": "2026-11-10 00:43",
+   "destinos": "Punta Cana",
+   "titulo": "Punta Cana",
+   "enlace": "https://www.instagram.com/reel/DfipWGKtUrX/",
+   "metrica": "guardados",
+   "valor": 6
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18357590947271928",
+   "publicado": "2026-11-10 00:43",
+   "destinos": "Punta Cana",
+   "titulo": "Punta Cana",
+   "enlace": "https://www.instagram.com/reel/DfipWGKtUrX/",
+   "metrica": "compartidos",
+   "valor": 7
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "reel",
+   "id": "18357590947271928",
+   "publicado": "2026-11-10 00:43",
+   "destinos": "Punta Cana",
+   "titulo": "Punta Cana",
+   "enlace": "https://www.instagram.com/reel/DfipWGKtUrX/",
+   "metrica": "interacciones",
+   "valor": 52
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18168242200493261",
+   "publicado": "2026-11-09 22:14",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/p/DfiYR9sD0zI/",
+   "metrica": "me_gusta",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18168242200493261",
+   "publicado": "2026-11-09 22:14",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/p/DfiYR9sD0zI/",
+   "metrica": "comentarios",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18168242200493261",
+   "publicado": "2026-11-09 22:14",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/p/DfiYR9sD0zI/",
+   "metrica": "alcance",
+   "valor": 18
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18168242200493261",
+   "publicado": "2026-11-09 22:14",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/p/DfiYR9sD0zI/",
+   "metrica": "vistas",
+   "valor": 32
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18168242200493261",
+   "publicado": "2026-11-09 22:14",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/p/DfiYR9sD0zI/",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18168242200493261",
+   "publicado": "2026-11-09 22:14",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/p/DfiYR9sD0zI/",
+   "metrica": "compartidos",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "instagram",
+   "tipo": "post",
+   "id": "18168242200493261",
+   "publicado": "2026-11-09 22:14",
+   "destinos": "Montego Bay",
+   "titulo": "Montego Bay",
+   "enlace": "https://www.instagram.com/p/DfiYR9sD0zI/",
+   "metrica": "interacciones",
+   "valor": 1
+  },
+  {
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18507262699103951",
@@ -108,10 +360,10 @@
    "titulo": "Leticia",
    "enlace": "https://www.instagram.com/p/DfgRkmym5wN/",
    "metrica": "me_gusta",
-   "valor": 0
+   "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18507262699103951",
@@ -123,7 +375,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18507262699103951",
@@ -132,10 +384,10 @@
    "titulo": "Leticia",
    "enlace": "https://www.instagram.com/p/DfgRkmym5wN/",
    "metrica": "alcance",
-   "valor": 12
+   "valor": 16
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18507262699103951",
@@ -144,10 +396,10 @@
    "titulo": "Leticia",
    "enlace": "https://www.instagram.com/p/DfgRkmym5wN/",
    "metrica": "vistas",
-   "valor": 29
+   "valor": 35
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18507262699103951",
@@ -159,7 +411,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18507262699103951",
@@ -171,7 +423,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18507262699103951",
@@ -180,10 +432,10 @@
    "titulo": "Leticia",
    "enlace": "https://www.instagram.com/p/DfgRkmym5wN/",
    "metrica": "interacciones",
-   "valor": 0
+   "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18453550570124110",
@@ -192,10 +444,10 @@
    "titulo": "San Andrés",
    "enlace": "https://www.instagram.com/reel/DffqXLLD6lN/",
    "metrica": "me_gusta",
-   "valor": 62
+   "valor": 73
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18453550570124110",
@@ -207,7 +459,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18453550570124110",
@@ -216,10 +468,10 @@
    "titulo": "San Andrés",
    "enlace": "https://www.instagram.com/reel/DffqXLLD6lN/",
    "metrica": "alcance",
-   "valor": 2504
+   "valor": 2656
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18453550570124110",
@@ -228,10 +480,10 @@
    "titulo": "San Andrés",
    "enlace": "https://www.instagram.com/reel/DffqXLLD6lN/",
    "metrica": "vistas",
-   "valor": 3005
+   "valor": 3195
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18453550570124110",
@@ -240,10 +492,10 @@
    "titulo": "San Andrés",
    "enlace": "https://www.instagram.com/reel/DffqXLLD6lN/",
    "metrica": "guardados",
-   "valor": 22
+   "valor": 27
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18453550570124110",
@@ -252,10 +504,10 @@
    "titulo": "San Andrés",
    "enlace": "https://www.instagram.com/reel/DffqXLLD6lN/",
    "metrica": "compartidos",
-   "valor": 9
+   "valor": 15
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18453550570124110",
@@ -264,10 +516,10 @@
    "titulo": "San Andrés",
    "enlace": "https://www.instagram.com/reel/DffqXLLD6lN/",
    "metrica": "interacciones",
-   "valor": 97
+   "valor": 119
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18167934631478555",
@@ -279,7 +531,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18167934631478555",
@@ -291,7 +543,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18167934631478555",
@@ -300,10 +552,10 @@
    "titulo": "Toronto",
    "enlace": "https://www.instagram.com/p/DffVe-ZG0sx/",
    "metrica": "alcance",
-   "valor": 14
+   "valor": 16
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18167934631478555",
@@ -312,10 +564,10 @@
    "titulo": "Toronto",
    "enlace": "https://www.instagram.com/p/DffVe-ZG0sx/",
    "metrica": "vistas",
-   "valor": 21
+   "valor": 23
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18167934631478555",
@@ -327,7 +579,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18167934631478555",
@@ -339,7 +591,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18167934631478555",
@@ -351,7 +603,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18164699107498077",
@@ -363,7 +615,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18164699107498077",
@@ -375,7 +627,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18164699107498077",
@@ -384,10 +636,10 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/p/DfdrJjeFtR_/",
    "metrica": "alcance",
-   "valor": 18
+   "valor": 19
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18164699107498077",
@@ -396,10 +648,10 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/p/DfdrJjeFtR_/",
    "metrica": "vistas",
-   "valor": 34
+   "valor": 36
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18164699107498077",
@@ -411,7 +663,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18164699107498077",
@@ -423,7 +675,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18164699107498077",
@@ -435,7 +687,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18172722166467281",
@@ -444,10 +696,10 @@
    "titulo": "Atenas",
    "enlace": "https://www.instagram.com/reel/DfdFd3cAura/",
    "metrica": "me_gusta",
-   "valor": 55
+   "valor": 56
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18172722166467281",
@@ -459,7 +711,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18172722166467281",
@@ -468,10 +720,10 @@
    "titulo": "Atenas",
    "enlace": "https://www.instagram.com/reel/DfdFd3cAura/",
    "metrica": "alcance",
-   "valor": 2060
+   "valor": 2071
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18172722166467281",
@@ -480,10 +732,10 @@
    "titulo": "Atenas",
    "enlace": "https://www.instagram.com/reel/DfdFd3cAura/",
    "metrica": "vistas",
-   "valor": 2402
+   "valor": 2412
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18172722166467281",
@@ -495,7 +747,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18172722166467281",
@@ -507,7 +759,7 @@
    "valor": 13
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18172722166467281",
@@ -516,10 +768,10 @@
    "titulo": "Atenas",
    "enlace": "https://www.instagram.com/reel/DfdFd3cAura/",
    "metrica": "interacciones",
-   "valor": 80
+   "valor": 81
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18109674890218174",
@@ -531,7 +783,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18109674890218174",
@@ -543,7 +795,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18109674890218174",
@@ -552,10 +804,10 @@
    "titulo": "Buenos Aires, Río de Janeiro",
    "enlace": "https://www.instagram.com/p/DfbJwZ9DE6f/",
    "metrica": "alcance",
-   "valor": 17
+   "valor": 18
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18109674890218174",
@@ -564,10 +816,10 @@
    "titulo": "Buenos Aires, Río de Janeiro",
    "enlace": "https://www.instagram.com/p/DfbJwZ9DE6f/",
    "metrica": "vistas",
-   "valor": 47
+   "valor": 48
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18109674890218174",
@@ -579,7 +831,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18109674890218174",
@@ -591,7 +843,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18109674890218174",
@@ -603,7 +855,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112924871167245",
@@ -615,7 +867,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112924871167245",
@@ -627,7 +879,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112924871167245",
@@ -636,10 +888,10 @@
    "titulo": "Santiago de Chile, Hong Kong, El Cairo",
    "enlace": "https://www.instagram.com/p/DfaV3BeFLk5/",
    "metrica": "alcance",
-   "valor": 13
+   "valor": 14
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112924871167245",
@@ -648,10 +900,10 @@
    "titulo": "Santiago de Chile, Hong Kong, El Cairo",
    "enlace": "https://www.instagram.com/p/DfaV3BeFLk5/",
    "metrica": "vistas",
-   "valor": 43
+   "valor": 45
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112924871167245",
@@ -663,7 +915,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112924871167245",
@@ -675,7 +927,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112924871167245",
@@ -687,7 +939,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18110182430251021",
@@ -699,7 +951,7 @@
    "valor": 79
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18110182430251021",
@@ -711,7 +963,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18110182430251021",
@@ -720,10 +972,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIjmdiKqg/",
    "metrica": "alcance",
-   "valor": 2446
+   "valor": 2451
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18110182430251021",
@@ -732,10 +984,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIjmdiKqg/",
    "metrica": "vistas",
-   "valor": 2801
+   "valor": 2804
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18110182430251021",
@@ -747,7 +999,7 @@
    "valor": 18
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18110182430251021",
@@ -759,7 +1011,7 @@
    "valor": 6
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18110182430251021",
@@ -771,7 +1023,7 @@
    "valor": 103
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18144301291614505",
@@ -780,10 +1032,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "me_gusta",
-   "valor": 57
+   "valor": 58
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18144301291614505",
@@ -795,7 +1047,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18144301291614505",
@@ -804,10 +1056,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "alcance",
-   "valor": 1466
+   "valor": 1476
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18144301291614505",
@@ -816,10 +1068,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "vistas",
-   "valor": 1719
+   "valor": 1742
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18144301291614505",
@@ -828,10 +1080,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "guardados",
-   "valor": 19
+   "valor": 20
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18144301291614505",
@@ -840,10 +1092,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "compartidos",
-   "valor": 31
+   "valor": 32
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18144301291614505",
@@ -852,10 +1104,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "interacciones",
-   "valor": 110
+   "valor": 113
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119060378329155",
@@ -867,7 +1119,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119060378329155",
@@ -879,7 +1131,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119060378329155",
@@ -891,7 +1143,7 @@
    "valor": 17
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119060378329155",
@@ -900,10 +1152,10 @@
    "titulo": "Tijuana, Puerto Vallarta, Ciudad de México",
    "enlace": "https://www.instagram.com/p/DfYopnJFqWj/",
    "metrica": "vistas",
-   "valor": 36
+   "valor": 37
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119060378329155",
@@ -915,7 +1167,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119060378329155",
@@ -927,7 +1179,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119060378329155",
@@ -939,7 +1191,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18310308766305200",
@@ -951,7 +1203,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18310308766305200",
@@ -963,7 +1215,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18310308766305200",
@@ -972,10 +1224,10 @@
    "titulo": "San Andrés, Cancún, Madrid, Belo Horizonte",
    "enlace": "https://www.instagram.com/p/DfX0mOege95/",
    "metrica": "alcance",
-   "valor": 15
+   "valor": 16
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18310308766305200",
@@ -984,10 +1236,10 @@
    "titulo": "San Andrés, Cancún, Madrid, Belo Horizonte",
    "enlace": "https://www.instagram.com/p/DfX0mOege95/",
    "metrica": "vistas",
-   "valor": 34
+   "valor": 36
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18310308766305200",
@@ -999,7 +1251,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18310308766305200",
@@ -1011,7 +1263,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18310308766305200",
@@ -1023,7 +1275,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "17877177054588091",
@@ -1035,7 +1287,7 @@
    "valor": 28
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "17877177054588091",
@@ -1047,7 +1299,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "17877177054588091",
@@ -1056,10 +1308,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfXoqnLDBPq/",
    "metrica": "alcance",
-   "valor": 1114
+   "valor": 1119
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "17877177054588091",
@@ -1068,10 +1320,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfXoqnLDBPq/",
    "metrica": "vistas",
-   "valor": 1311
+   "valor": 1314
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "17877177054588091",
@@ -1083,7 +1335,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "17877177054588091",
@@ -1095,7 +1347,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "17877177054588091",
@@ -1107,7 +1359,7 @@
    "valor": 53
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18646033519037670",
@@ -1119,7 +1371,7 @@
    "valor": 71
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18646033519037670",
@@ -1131,7 +1383,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18646033519037670",
@@ -1140,10 +1392,10 @@
    "titulo": "Miami",
    "enlace": "https://www.instagram.com/reel/DfXjH-Ziuja/",
    "metrica": "alcance",
-   "valor": 2211
+   "valor": 2213
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18646033519037670",
@@ -1152,10 +1404,10 @@
    "titulo": "Miami",
    "enlace": "https://www.instagram.com/reel/DfXjH-Ziuja/",
    "metrica": "vistas",
-   "valor": 2569
+   "valor": 2571
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18646033519037670",
@@ -1167,7 +1419,7 @@
    "valor": 7
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18646033519037670",
@@ -1179,7 +1431,7 @@
    "valor": 9
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18646033519037670",
@@ -1191,7 +1443,7 @@
    "valor": 87
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18650653180009355",
@@ -1203,7 +1455,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18650653180009355",
@@ -1215,7 +1467,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18650653180009355",
@@ -1224,10 +1476,10 @@
    "titulo": "Singapur, París",
    "enlace": "https://www.instagram.com/p/DfWERNYGy7-/",
    "metrica": "alcance",
-   "valor": 29
+   "valor": 31
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18650653180009355",
@@ -1236,10 +1488,10 @@
    "titulo": "Singapur, París",
    "enlace": "https://www.instagram.com/p/DfWERNYGy7-/",
    "metrica": "vistas",
-   "valor": 68
+   "valor": 72
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18650653180009355",
@@ -1251,7 +1503,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18650653180009355",
@@ -1263,7 +1515,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18650653180009355",
@@ -1275,7 +1527,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18130778272871482",
@@ -1287,7 +1539,7 @@
    "valor": 4
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18130778272871482",
@@ -1299,7 +1551,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18130778272871482",
@@ -1308,10 +1560,10 @@
    "titulo": "San Juan, Punta Cana",
    "enlace": "https://www.instagram.com/p/DfVOnIAm9Kl/",
    "metrica": "alcance",
-   "valor": 508
+   "valor": 509
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18130778272871482",
@@ -1320,10 +1572,10 @@
    "titulo": "San Juan, Punta Cana",
    "enlace": "https://www.instagram.com/p/DfVOnIAm9Kl/",
    "metrica": "vistas",
-   "valor": 748
+   "valor": 754
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18130778272871482",
@@ -1335,7 +1587,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18130778272871482",
@@ -1347,7 +1599,7 @@
    "valor": 5
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18130778272871482",
@@ -1359,7 +1611,7 @@
    "valor": 10
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18116299547029147",
@@ -1371,7 +1623,7 @@
    "valor": 76
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18116299547029147",
@@ -1383,7 +1635,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18116299547029147",
@@ -1392,10 +1644,10 @@
    "titulo": "Caracas",
    "enlace": "https://www.instagram.com/reel/DfVGj6pDSYf/",
    "metrica": "alcance",
-   "valor": 2304
+   "valor": 2307
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18116299547029147",
@@ -1404,10 +1656,10 @@
    "titulo": "Caracas",
    "enlace": "https://www.instagram.com/reel/DfVGj6pDSYf/",
    "metrica": "vistas",
-   "valor": 2637
+   "valor": 2639
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18116299547029147",
@@ -1419,7 +1671,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18116299547029147",
@@ -1431,7 +1683,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18116299547029147",
@@ -1443,7 +1695,7 @@
    "valor": 95
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17996515167106052",
@@ -1455,7 +1707,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17996515167106052",
@@ -1467,7 +1719,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17996515167106052",
@@ -1476,10 +1728,10 @@
    "titulo": "Mendoza, Buenos Aires",
    "enlace": "https://www.instagram.com/p/DfTcQLvDrjJ/",
    "metrica": "alcance",
-   "valor": 27
+   "valor": 28
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17996515167106052",
@@ -1488,10 +1740,10 @@
    "titulo": "Mendoza, Buenos Aires",
    "enlace": "https://www.instagram.com/p/DfTcQLvDrjJ/",
    "metrica": "vistas",
-   "valor": 56
+   "valor": 58
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17996515167106052",
@@ -1503,7 +1755,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17996515167106052",
@@ -1515,7 +1767,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17996515167106052",
@@ -1527,7 +1779,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18117268130110534",
@@ -1536,10 +1788,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "me_gusta",
-   "valor": 523
+   "valor": 529
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18117268130110534",
@@ -1551,7 +1803,7 @@
    "valor": 12
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18117268130110534",
@@ -1560,10 +1812,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "alcance",
-   "valor": 11126
+   "valor": 11238
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18117268130110534",
@@ -1572,10 +1824,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "vistas",
-   "valor": 13374
+   "valor": 13495
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18117268130110534",
@@ -1584,10 +1836,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "guardados",
-   "valor": 227
+   "valor": 230
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18117268130110534",
@@ -1596,10 +1848,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "compartidos",
-   "valor": 289
+   "valor": 295
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reels",
    "id": "18117268130110534",
@@ -1608,10 +1860,10 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "interacciones",
-   "valor": 1073
+   "valor": 1088
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119868083095191",
@@ -1623,7 +1875,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119868083095191",
@@ -1635,7 +1887,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119868083095191",
@@ -1647,7 +1899,7 @@
    "valor": 21
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119868083095191",
@@ -1659,7 +1911,7 @@
    "valor": 67
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119868083095191",
@@ -1671,7 +1923,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119868083095191",
@@ -1683,7 +1935,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18119868083095191",
@@ -1695,7 +1947,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17913946392515064",
@@ -1707,7 +1959,7 @@
    "valor": 73
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17913946392515064",
@@ -1719,7 +1971,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17913946392515064",
@@ -1728,10 +1980,10 @@
    "titulo": "Montego Bay",
    "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
    "metrica": "alcance",
-   "valor": 2690
+   "valor": 2694
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17913946392515064",
@@ -1740,10 +1992,10 @@
    "titulo": "Montego Bay",
    "enlace": "https://www.instagram.com/reel/DfSZ6Ddju46/",
    "metrica": "vistas",
-   "valor": 3105
+   "valor": 3108
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17913946392515064",
@@ -1755,7 +2007,7 @@
    "valor": 14
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17913946392515064",
@@ -1767,7 +2019,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17913946392515064",
@@ -1779,7 +2031,7 @@
    "valor": 100
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112411292617762",
@@ -1791,7 +2043,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112411292617762",
@@ -1803,7 +2055,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112411292617762",
@@ -1815,7 +2067,7 @@
    "valor": 27
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112411292617762",
@@ -1824,10 +2076,10 @@
    "titulo": "Montego Bay, São Paulo",
    "enlace": "https://www.instagram.com/p/DfQ97f8FGbV/",
    "metrica": "vistas",
-   "valor": 63
+   "valor": 64
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112411292617762",
@@ -1839,7 +2091,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112411292617762",
@@ -1851,7 +2103,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18112411292617762",
@@ -1863,7 +2115,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18145618024581464",
@@ -1875,7 +2127,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18145618024581464",
@@ -1887,7 +2139,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18145618024581464",
@@ -1899,7 +2151,7 @@
    "valor": 27
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18145618024581464",
@@ -1911,7 +2163,7 @@
    "valor": 47
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18145618024581464",
@@ -1923,7 +2175,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18145618024581464",
@@ -1935,7 +2187,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18145618024581464",
@@ -1947,7 +2199,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18130306318861890",
@@ -1956,10 +2208,10 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "me_gusta",
-   "valor": 336
+   "valor": 337
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18130306318861890",
@@ -1971,7 +2223,7 @@
    "valor": 4
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18130306318861890",
@@ -1980,10 +2232,10 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "alcance",
-   "valor": 15783
+   "valor": 15812
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18130306318861890",
@@ -1992,10 +2244,10 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "vistas",
-   "valor": 19461
+   "valor": 19544
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18130306318861890",
@@ -2004,10 +2256,10 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "guardados",
-   "valor": 146
+   "valor": 147
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18130306318861890",
@@ -2016,10 +2268,10 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "compartidos",
-   "valor": 258
+   "valor": 259
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18130306318861890",
@@ -2028,10 +2280,10 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/DfP3HvTlJNd/",
    "metrica": "interacciones",
-   "valor": 752
+   "valor": 755
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18034688081675419",
@@ -2043,7 +2295,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18034688081675419",
@@ -2055,7 +2307,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18034688081675419",
@@ -2064,10 +2316,10 @@
    "titulo": "Leticia, Cusco, Asunción",
    "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
    "metrica": "alcance",
-   "valor": 27
+   "valor": 28
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18034688081675419",
@@ -2076,10 +2328,10 @@
    "titulo": "Leticia, Cusco, Asunción",
    "enlace": "https://www.instagram.com/p/DfOOnZgFvL5/",
    "metrica": "vistas",
-   "valor": 75
+   "valor": 76
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18034688081675419",
@@ -2091,7 +2343,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18034688081675419",
@@ -2103,7 +2355,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18034688081675419",
@@ -2115,7 +2367,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17998055907023303",
@@ -2127,7 +2379,7 @@
    "valor": 101
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17998055907023303",
@@ -2139,7 +2391,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17998055907023303",
@@ -2148,10 +2400,10 @@
    "titulo": "Leticia",
    "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
    "metrica": "alcance",
-   "valor": 3255
+   "valor": 3259
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17998055907023303",
@@ -2160,10 +2412,10 @@
    "titulo": "Leticia",
    "enlace": "https://www.instagram.com/reel/DfNP1urj26b/",
    "metrica": "vistas",
-   "valor": 3759
+   "valor": 3761
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17998055907023303",
@@ -2175,7 +2427,7 @@
    "valor": 12
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17998055907023303",
@@ -2187,7 +2439,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "17998055907023303",
@@ -2199,7 +2451,7 @@
    "valor": 127
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -2211,7 +2463,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -2223,7 +2475,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -2232,10 +2484,10 @@
    "titulo": "Lima, Santiago de Chile",
    "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
    "metrica": "alcance",
-   "valor": 22
+   "valor": 24
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -2244,10 +2496,10 @@
    "titulo": "Lima, Santiago de Chile",
    "enlace": "https://www.instagram.com/p/DfLn_zllRCz/",
    "metrica": "vistas",
-   "valor": 56
+   "valor": 60
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -2259,7 +2511,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -2271,7 +2523,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18083183573406144",
@@ -2283,7 +2535,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18114315866165626",
@@ -2295,7 +2547,7 @@
    "valor": 5
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18114315866165626",
@@ -2307,7 +2559,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18114315866165626",
@@ -2319,7 +2571,7 @@
    "valor": 274
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18114315866165626",
@@ -2331,7 +2583,7 @@
    "valor": 324
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18114315866165626",
@@ -2343,7 +2595,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18114315866165626",
@@ -2355,7 +2607,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18114315866165626",
@@ -2367,7 +2619,7 @@
    "valor": 5
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18102870617383509",
@@ -2379,7 +2631,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18102870617383509",
@@ -2391,7 +2643,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18102870617383509",
@@ -2403,7 +2655,7 @@
    "valor": 19
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18102870617383509",
@@ -2415,7 +2667,7 @@
    "valor": 37
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18102870617383509",
@@ -2427,7 +2679,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18102870617383509",
@@ -2439,7 +2691,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18102870617383509",
@@ -2451,7 +2703,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18118479626079848",
@@ -2463,7 +2715,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18118479626079848",
@@ -2475,7 +2727,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18118479626079848",
@@ -2487,7 +2739,7 @@
    "valor": 27
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18118479626079848",
@@ -2499,7 +2751,7 @@
    "valor": 52
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18118479626079848",
@@ -2511,7 +2763,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18118479626079848",
@@ -2523,7 +2775,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18118479626079848",
@@ -2535,7 +2787,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -2547,7 +2799,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -2559,7 +2811,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -2568,10 +2820,10 @@
    "titulo": "Reikiavik, Vancouver",
    "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
    "metrica": "alcance",
-   "valor": 17
+   "valor": 18
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -2580,10 +2832,10 @@
    "titulo": "Reikiavik, Vancouver",
    "enlace": "https://www.instagram.com/p/DfILjHNmCQ_/",
    "metrica": "vistas",
-   "valor": 37
+   "valor": 39
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -2595,7 +2847,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -2607,7 +2859,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18436903321181256",
@@ -2619,7 +2871,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -2631,7 +2883,7 @@
    "valor": 10
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -2643,7 +2895,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -2655,7 +2907,7 @@
    "valor": 347
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -2667,7 +2919,7 @@
    "valor": 425
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -2679,7 +2931,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -2691,7 +2943,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18189817093415031",
@@ -2703,7 +2955,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -2715,7 +2967,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -2727,7 +2979,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -2736,10 +2988,10 @@
    "titulo": "Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",
    "enlace": "https://www.instagram.com/p/DfGL63vDs3W/",
    "metrica": "alcance",
-   "valor": 15
+   "valor": 17
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -2748,10 +3000,10 @@
    "titulo": "Salvador de Bahía, Puerto Vallarta, Toronto, Atenas",
    "enlace": "https://www.instagram.com/p/DfGL63vDs3W/",
    "metrica": "vistas",
-   "valor": 40
+   "valor": 45
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -2763,7 +3015,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -2775,7 +3027,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "18134113765708603",
@@ -2787,7 +3039,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -2796,10 +3048,10 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "me_gusta",
-   "valor": 4
+   "valor": 5
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -2811,7 +3063,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -2820,10 +3072,10 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "alcance",
-   "valor": 245
+   "valor": 246
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -2832,10 +3084,10 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "vistas",
-   "valor": 294
+   "valor": 297
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -2847,7 +3099,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -2859,7 +3111,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "reel",
    "id": "18136855627637205",
@@ -2868,10 +3120,10 @@
    "titulo": "Tijuana",
    "enlace": "https://www.instagram.com/reel/DfF8PkxDqkw/",
    "metrica": "interacciones",
-   "valor": 6
+   "valor": 8
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -2883,7 +3135,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -2895,7 +3147,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -2904,10 +3156,10 @@
    "titulo": "La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",
    "enlace": "https://www.instagram.com/p/DfCkCiQFXkf/",
    "metrica": "alcance",
-   "valor": 16
+   "valor": 17
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -2916,10 +3168,10 @@
    "titulo": "La Habana, Aruba, Tijuana, Caracas, Ámsterdam, Roma, París, Miami, São Paulo, Malta",
    "enlace": "https://www.instagram.com/p/DfCkCiQFXkf/",
    "metrica": "vistas",
-   "valor": 37
+   "valor": 42
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -2931,7 +3183,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -2943,7 +3195,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "carrusel",
    "id": "17916341055530218",
@@ -2955,7 +3207,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -2967,7 +3219,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -2979,7 +3231,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -2988,10 +3240,10 @@
    "titulo": "Santiago de los Caballeros",
    "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
    "metrica": "alcance",
-   "valor": 19
+   "valor": 20
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -3000,10 +3252,10 @@
    "titulo": "Santiago de los Caballeros",
    "enlace": "https://www.instagram.com/p/DfABOhslNB0/",
    "metrica": "vistas",
-   "valor": 41
+   "valor": 42
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -3015,7 +3267,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -3027,7 +3279,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18122189984029691",
@@ -3039,7 +3291,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -3051,7 +3303,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -3063,7 +3315,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -3075,7 +3327,7 @@
    "valor": 21
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -3087,7 +3339,7 @@
    "valor": 37
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -3099,7 +3351,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -3111,7 +3363,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "instagram",
    "tipo": "post",
    "id": "18129399827490350",
@@ -3123,7 +3375,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -3132,10 +3384,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "alcance_dia",
-   "valor": 3821
+   "valor": 2366
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -3144,10 +3396,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "visitas_perfil",
-   "valor": 31
+   "valor": 5
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -3156,10 +3408,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "clics_web",
-   "valor": 4
+   "valor": 1
   },
   {
-   "fecha": "2026-11-08",
+   "fecha": "2026-11-09",
    "canal": "instagram",
    "tipo": "cuenta",
    "id": "17841432973721368",
@@ -3168,10 +3420,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "cuentas_interactuaron",
-   "valor": 163
+   "valor": 96
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "cuenta",
    "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
@@ -3183,7 +3435,7 @@
    "valor": 5
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "cuenta",
    "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
@@ -3192,10 +3444,10 @@
    "titulo": "",
    "enlace": "",
    "metrica": "vistas_total",
-   "valor": 4108
+   "valor": 4115
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "cuenta",
    "id": "UCUaIRv98Akt5tvHvsmPd1kQ",
@@ -3207,7 +3459,7 @@
    "valor": 11
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "XERv8UOrvMI",
@@ -3219,7 +3471,7 @@
    "valor": 709
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "XERv8UOrvMI",
@@ -3231,7 +3483,7 @@
    "valor": 8
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "XERv8UOrvMI",
@@ -3243,7 +3495,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "Ywk3F_gLIX0",
@@ -3252,10 +3504,10 @@
    "titulo": "Aruba en 3 días: plan completo 🌴",
    "enlace": "https://youtube.com/shorts/Ywk3F_gLIX0",
    "metrica": "vistas",
-   "valor": 201
+   "valor": 202
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "Ywk3F_gLIX0",
@@ -3267,7 +3519,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "Ywk3F_gLIX0",
@@ -3279,7 +3531,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "h5Uo9KolwPg",
@@ -3291,7 +3543,7 @@
    "valor": 50
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "h5Uo9KolwPg",
@@ -3303,7 +3555,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "h5Uo9KolwPg",
@@ -3315,7 +3567,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "XoFfu_QEVfg",
@@ -3324,10 +3576,10 @@
    "titulo": "Qué hacer en Caracas, Venezuela ✈️",
    "enlace": "https://youtube.com/shorts/XoFfu_QEVfg",
    "metrica": "vistas",
-   "valor": 317
+   "valor": 320
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "XoFfu_QEVfg",
@@ -3339,7 +3591,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "XoFfu_QEVfg",
@@ -3351,7 +3603,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "8XPibnlfRRQ",
@@ -3363,7 +3615,7 @@
    "valor": 243
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "8XPibnlfRRQ",
@@ -3375,7 +3627,7 @@
    "valor": 4
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "8XPibnlfRRQ",
@@ -3387,7 +3639,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "1QuyT4Agjok",
@@ -3396,10 +3648,10 @@
    "titulo": "Qué hacer en Montego Bay, Jamaica ✈️",
    "enlace": "https://youtube.com/shorts/1QuyT4Agjok",
    "metrica": "vistas",
-   "valor": 167
+   "valor": 168
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "1QuyT4Agjok",
@@ -3411,7 +3663,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "1QuyT4Agjok",
@@ -3423,7 +3675,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "Y5kyHpjkS3A",
@@ -3435,7 +3687,7 @@
    "valor": 267
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "Y5kyHpjkS3A",
@@ -3447,7 +3699,7 @@
    "valor": 2
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "Y5kyHpjkS3A",
@@ -3459,7 +3711,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "M0Uh-QdE8rU",
@@ -3468,10 +3720,10 @@
    "titulo": "Qué hacer en Leticia, Colombia ✈️",
    "enlace": "https://youtube.com/shorts/M0Uh-QdE8rU",
    "metrica": "vistas",
-   "valor": 108
+   "valor": 109
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "M0Uh-QdE8rU",
@@ -3483,7 +3735,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "M0Uh-QdE8rU",
@@ -3495,7 +3747,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "X5I6CktS3ZE",
@@ -3504,10 +3756,10 @@
    "titulo": "Qué hacer en París, Francia ✈️",
    "enlace": "https://youtube.com/shorts/X5I6CktS3ZE",
    "metrica": "vistas",
-   "valor": 999
+   "valor": 1001
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "X5I6CktS3ZE",
@@ -3519,7 +3771,7 @@
    "valor": 13
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "X5I6CktS3ZE",
@@ -3531,7 +3783,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "phxH2z4O7aA",
@@ -3543,7 +3795,7 @@
    "valor": 568
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "phxH2z4O7aA",
@@ -3555,7 +3807,7 @@
    "valor": 8
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "phxH2z4O7aA",
@@ -3567,7 +3819,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "GBVrnwM7A4E",
@@ -3579,7 +3831,7 @@
    "valor": 481
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "GBVrnwM7A4E",
@@ -3591,7 +3843,7 @@
    "valor": 3
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "youtube",
    "tipo": "short",
    "id": "GBVrnwM7A4E",
@@ -3603,7 +3855,7 @@
    "valor": 1
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "cuenta",
    "id": "2116232271464218624",
@@ -3615,7 +3867,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "cuenta",
    "id": "2116232271464218624",
@@ -3624,10 +3876,190 @@
    "titulo": "",
    "enlace": "",
    "metrica": "posts",
-   "valor": 30
+   "valor": 33
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2120013617995125066",
+   "publicado": "2026-11-09 23:40",
+   "destinos": "Aruba",
+   "titulo": "Ofertas: Aruba",
+   "enlace": "https://x.com/viajespillados/status/2120013617995125066",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2120013617995125066",
+   "publicado": "2026-11-09 23:40",
+   "destinos": "Aruba",
+   "titulo": "Ofertas: Aruba",
+   "enlace": "https://x.com/viajespillados/status/2120013617995125066",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2120013617995125066",
+   "publicado": "2026-11-09 23:40",
+   "destinos": "Aruba",
+   "titulo": "Ofertas: Aruba",
+   "enlace": "https://x.com/viajespillados/status/2120013617995125066",
+   "metrica": "reposts",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2120013617995125066",
+   "publicado": "2026-11-09 23:40",
+   "destinos": "Aruba",
+   "titulo": "Ofertas: Aruba",
+   "enlace": "https://x.com/viajespillados/status/2120013617995125066",
+   "metrica": "respuestas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2120013617995125066",
+   "publicado": "2026-11-09 23:40",
+   "destinos": "Aruba",
+   "titulo": "Ofertas: Aruba",
+   "enlace": "https://x.com/viajespillados/status/2120013617995125066",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2119954237656608951",
+   "publicado": "2026-11-09 19:44",
+   "destinos": "Punta Cana",
+   "titulo": "Reel: 7 días en Punta Cana",
+   "enlace": "https://x.com/viajespillados/status/2119954237656608951",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2119954237656608951",
+   "publicado": "2026-11-09 19:44",
+   "destinos": "Punta Cana",
+   "titulo": "Reel: 7 días en Punta Cana",
+   "enlace": "https://x.com/viajespillados/status/2119954237656608951",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2119954237656608951",
+   "publicado": "2026-11-09 19:44",
+   "destinos": "Punta Cana",
+   "titulo": "Reel: 7 días en Punta Cana",
+   "enlace": "https://x.com/viajespillados/status/2119954237656608951",
+   "metrica": "reposts",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2119954237656608951",
+   "publicado": "2026-11-09 19:44",
+   "destinos": "Punta Cana",
+   "titulo": "Reel: 7 días en Punta Cana",
+   "enlace": "https://x.com/viajespillados/status/2119954237656608951",
+   "metrica": "respuestas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "reel",
+   "id": "2119954237656608951",
+   "publicado": "2026-11-09 19:44",
+   "destinos": "Punta Cana",
+   "titulo": "Reel: 7 días en Punta Cana",
+   "enlace": "https://x.com/viajespillados/status/2119954237656608951",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2119916542758727786",
+   "publicado": "2026-11-09 17:14",
+   "destinos": "Montego Bay",
+   "titulo": "Ofertas: Montego Bay",
+   "enlace": "https://x.com/viajespillados/status/2119916542758727786",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2119916542758727786",
+   "publicado": "2026-11-09 17:14",
+   "destinos": "Montego Bay",
+   "titulo": "Ofertas: Montego Bay",
+   "enlace": "https://x.com/viajespillados/status/2119916542758727786",
+   "metrica": "me_gusta",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2119916542758727786",
+   "publicado": "2026-11-09 17:14",
+   "destinos": "Montego Bay",
+   "titulo": "Ofertas: Montego Bay",
+   "enlace": "https://x.com/viajespillados/status/2119916542758727786",
+   "metrica": "reposts",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2119916542758727786",
+   "publicado": "2026-11-09 17:14",
+   "destinos": "Montego Bay",
+   "titulo": "Ofertas: Montego Bay",
+   "enlace": "https://x.com/viajespillados/status/2119916542758727786",
+   "metrica": "respuestas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "x",
+   "tipo": "carrusel",
+   "id": "2119916542758727786",
+   "publicado": "2026-11-09 17:14",
+   "destinos": "Montego Bay",
+   "titulo": "Ofertas: Montego Bay",
+   "enlace": "https://x.com/viajespillados/status/2119916542758727786",
+   "metrica": "guardados",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119620325235380450",
@@ -3639,7 +4071,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119620325235380450",
@@ -3651,7 +4083,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119620325235380450",
@@ -3663,7 +4095,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119620325235380450",
@@ -3675,7 +4107,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119620325235380450",
@@ -3687,7 +4119,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119534235123892385",
@@ -3699,7 +4131,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119534235123892385",
@@ -3711,7 +4143,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119534235123892385",
@@ -3723,7 +4155,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119534235123892385",
@@ -3735,7 +4167,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119534235123892385",
@@ -3747,7 +4179,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119488188993389020",
@@ -3759,7 +4191,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119488188993389020",
@@ -3771,7 +4203,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119488188993389020",
@@ -3783,7 +4215,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119488188993389020",
@@ -3795,7 +4227,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119488188993389020",
@@ -3807,7 +4239,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119254356146913386",
@@ -3819,7 +4251,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119254356146913386",
@@ -3831,7 +4263,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119254356146913386",
@@ -3843,7 +4275,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119254356146913386",
@@ -3855,7 +4287,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "carrusel",
    "id": "2119254356146913386",
@@ -3867,7 +4299,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119171633071993290",
@@ -3879,7 +4311,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119171633071993290",
@@ -3891,7 +4323,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119171633071993290",
@@ -3903,7 +4335,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119171633071993290",
@@ -3915,7 +4347,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "x",
    "tipo": "reel",
    "id": "2119171633071993290",
@@ -3927,247 +4359,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118899457550897464",
-   "publicado": "2026-11-06 21:52",
-   "destinos": "Buenos Aires, Río de Janeiro",
-   "titulo": "Ofertas: Buenos Aires, Río de Janeiro",
-   "enlace": "https://x.com/viajespillados/status/2118899457550897464",
-   "metrica": "vistas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118899457550897464",
-   "publicado": "2026-11-06 21:52",
-   "destinos": "Buenos Aires, Río de Janeiro",
-   "titulo": "Ofertas: Buenos Aires, Río de Janeiro",
-   "enlace": "https://x.com/viajespillados/status/2118899457550897464",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118899457550897464",
-   "publicado": "2026-11-06 21:52",
-   "destinos": "Buenos Aires, Río de Janeiro",
-   "titulo": "Ofertas: Buenos Aires, Río de Janeiro",
-   "enlace": "https://x.com/viajespillados/status/2118899457550897464",
-   "metrica": "reposts",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118899457550897464",
-   "publicado": "2026-11-06 21:52",
-   "destinos": "Buenos Aires, Río de Janeiro",
-   "titulo": "Ofertas: Buenos Aires, Río de Janeiro",
-   "enlace": "https://x.com/viajespillados/status/2118899457550897464",
-   "metrica": "respuestas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118899457550897464",
-   "publicado": "2026-11-06 21:52",
-   "destinos": "Buenos Aires, Río de Janeiro",
-   "titulo": "Ofertas: Buenos Aires, Río de Janeiro",
-   "enlace": "https://x.com/viajespillados/status/2118899457550897464",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118785327280128110",
-   "publicado": "2026-11-06 14:19",
-   "destinos": "Santiago de Chile, Hong Kong, El Cairo",
-   "titulo": "Ofertas: Santiago de Chile, Hong Kong, El Cairo",
-   "enlace": "https://x.com/viajespillados/status/2118785327280128110",
-   "metrica": "vistas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118785327280128110",
-   "publicado": "2026-11-06 14:19",
-   "destinos": "Santiago de Chile, Hong Kong, El Cairo",
-   "titulo": "Ofertas: Santiago de Chile, Hong Kong, El Cairo",
-   "enlace": "https://x.com/viajespillados/status/2118785327280128110",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118785327280128110",
-   "publicado": "2026-11-06 14:19",
-   "destinos": "Santiago de Chile, Hong Kong, El Cairo",
-   "titulo": "Ofertas: Santiago de Chile, Hong Kong, El Cairo",
-   "enlace": "https://x.com/viajespillados/status/2118785327280128110",
-   "metrica": "reposts",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118785327280128110",
-   "publicado": "2026-11-06 14:19",
-   "destinos": "Santiago de Chile, Hong Kong, El Cairo",
-   "titulo": "Ofertas: Santiago de Chile, Hong Kong, El Cairo",
-   "enlace": "https://x.com/viajespillados/status/2118785327280128110",
-   "metrica": "respuestas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118785327280128110",
-   "publicado": "2026-11-06 14:19",
-   "destinos": "Santiago de Chile, Hong Kong, El Cairo",
-   "titulo": "Ofertas: Santiago de Chile, Hong Kong, El Cairo",
-   "enlace": "https://x.com/viajespillados/status/2118785327280128110",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118755663689986521",
-   "publicado": "2026-11-06 12:21",
-   "destinos": "Plan de viaje: Montego Bay",
-   "titulo": "Plan de viaje: Montego Bay",
-   "enlace": "https://x.com/viajespillados/status/2118755663689986521",
-   "metrica": "vistas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118755663689986521",
-   "publicado": "2026-11-06 12:21",
-   "destinos": "Plan de viaje: Montego Bay",
-   "titulo": "Plan de viaje: Montego Bay",
-   "enlace": "https://x.com/viajespillados/status/2118755663689986521",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118755663689986521",
-   "publicado": "2026-11-06 12:21",
-   "destinos": "Plan de viaje: Montego Bay",
-   "titulo": "Plan de viaje: Montego Bay",
-   "enlace": "https://x.com/viajespillados/status/2118755663689986521",
-   "metrica": "reposts",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118755663689986521",
-   "publicado": "2026-11-06 12:21",
-   "destinos": "Plan de viaje: Montego Bay",
-   "titulo": "Plan de viaje: Montego Bay",
-   "enlace": "https://x.com/viajespillados/status/2118755663689986521",
-   "metrica": "respuestas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "carrusel",
-   "id": "2118755663689986521",
-   "publicado": "2026-11-06 12:21",
-   "destinos": "Plan de viaje: Montego Bay",
-   "titulo": "Plan de viaje: Montego Bay",
-   "enlace": "https://x.com/viajespillados/status/2118755663689986521",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "reel",
-   "id": "2118756181892055378",
-   "publicado": "2026-11-06 12:20",
-   "destinos": "Santiago de Chile",
-   "titulo": "Reel: 7 días en Santiago de Chile",
-   "enlace": "https://x.com/viajespillados/status/2118756181892055378",
-   "metrica": "vistas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "reel",
-   "id": "2118756181892055378",
-   "publicado": "2026-11-06 12:20",
-   "destinos": "Santiago de Chile",
-   "titulo": "Reel: 7 días en Santiago de Chile",
-   "enlace": "https://x.com/viajespillados/status/2118756181892055378",
-   "metrica": "me_gusta",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "reel",
-   "id": "2118756181892055378",
-   "publicado": "2026-11-06 12:20",
-   "destinos": "Santiago de Chile",
-   "titulo": "Reel: 7 días en Santiago de Chile",
-   "enlace": "https://x.com/viajespillados/status/2118756181892055378",
-   "metrica": "reposts",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "reel",
-   "id": "2118756181892055378",
-   "publicado": "2026-11-06 12:20",
-   "destinos": "Santiago de Chile",
-   "titulo": "Reel: 7 días en Santiago de Chile",
-   "enlace": "https://x.com/viajespillados/status/2118756181892055378",
-   "metrica": "respuestas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "x",
-   "tipo": "reel",
-   "id": "2118756181892055378",
-   "publicado": "2026-11-06 12:20",
-   "destinos": "Santiago de Chile",
-   "titulo": "Reel: 7 días en Santiago de Chile",
-   "enlace": "https://x.com/viajespillados/status/2118756181892055378",
-   "metrica": "guardados",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "cuenta",
    "id": "1480839581771583",
@@ -4179,7 +4371,43 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
+   "canal": "facebook",
+   "tipo": "carrusel",
+   "id": "1480839581771583_122108657493529435",
+   "publicado": "2026-11-09 23:40",
+   "destinos": "Aruba",
+   "titulo": "Ofertas: Aruba",
+   "enlace": "https://www.facebook.com/1480839581771583_122108657493529435",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "facebook",
+   "tipo": "reel",
+   "id": "1637882578079412",
+   "publicado": "2026-11-09 19:44",
+   "destinos": "Punta Cana",
+   "titulo": "Reel: 7 días en Punta Cana",
+   "enlace": "https://www.facebook.com/1480839581771583/videos/1637882578079412",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
+   "canal": "facebook",
+   "tipo": "carrusel",
+   "id": "1480839581771583_122108570415529435",
+   "publicado": "2026-11-09 17:14",
+   "destinos": "Montego Bay",
+   "titulo": "Ofertas: Montego Bay",
+   "enlace": "https://www.facebook.com/1480839581771583_122108570415529435",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122108211711529435",
@@ -4191,7 +4419,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1721335826086172",
@@ -4203,7 +4431,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122108048739529435",
@@ -4215,7 +4443,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122107778139529435",
@@ -4227,7 +4455,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1644514167157487",
@@ -4239,7 +4467,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122107221687529435",
@@ -4251,7 +4479,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122107113165529435",
@@ -4263,7 +4491,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1133757142535462",
@@ -4275,7 +4503,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "917563961322706",
@@ -4287,7 +4515,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122106731727529435",
@@ -4299,7 +4527,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122106557235529435",
@@ -4311,7 +4539,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1805951130674540",
@@ -4323,7 +4551,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1632575065079054",
@@ -4335,7 +4563,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122105777487529435",
@@ -4347,7 +4575,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122105505285529435",
@@ -4359,7 +4587,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1022194220896696",
@@ -4371,7 +4599,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122104765587529435",
@@ -4383,7 +4611,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1643184913917098",
@@ -4395,7 +4623,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122104516743529435",
@@ -4407,7 +4635,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "977786258221282",
@@ -4419,7 +4647,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122103739941529435",
@@ -4431,7 +4659,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122103476013529435",
@@ -4443,7 +4671,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1672962430878364",
@@ -4455,7 +4683,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122102520789529435",
@@ -4467,7 +4695,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "1666843071785584",
@@ -4479,7 +4707,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "carrusel",
    "id": "1480839581771583_122101624803529435",
@@ -4491,7 +4719,7 @@
    "valor": 0
   },
   {
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "canal": "facebook",
    "tipo": "reel",
    "id": "938942612420788",
@@ -4501,30 +4729,6 @@
    "enlace": "https://www.facebook.com/1480839581771583/videos/938942612420788",
    "metrica": "vistas",
    "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "facebook",
-   "tipo": "carrusel",
-   "id": "1480839581771583_122101345923529435",
-   "publicado": "2026-10-31 12:09",
-   "destinos": "La Habana, Tijuana",
-   "titulo": "Ofertas: La Habana, Tijuana",
-   "enlace": "https://www.facebook.com/1480839581771583_122101345923529435",
-   "metrica": "vistas",
-   "valor": 0
-  },
-  {
-   "fecha": "2026-11-09",
-   "canal": "facebook",
-   "tipo": "carrusel",
-   "id": "1480839581771583_122100773943529435",
-   "publicado": "2026-10-30 22:11",
-   "destinos": "Lisboa, Seúl",
-   "titulo": "Ofertas: Lisboa, Seúl",
-   "enlace": "https://www.facebook.com/1480839581771583_122100773943529435",
-   "metrica": "vistas",
-   "valor": 2
   }
  ]
 }
