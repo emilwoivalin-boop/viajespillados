@@ -44,7 +44,12 @@
    "pops": [],
    "ambience": [],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
@@ -56,14 +61,35 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "x0": 0.45,
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "celebrate"
+     },
+     {
+      "action": "point",
+      "word": "montaña",
+      "facing": -1
+     },
+     {
+      "action": "stand",
+      "word": "tortillas",
+      "facing": 1,
+      "mood": "love"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Día uno: subes la Pirámide del Sol en Teotihuacán, y desde arriba ves la Calzada de los Muertos.",
@@ -73,9 +99,42 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "x0": 0.82,
+    "y": 0.98,
+    "size": 460,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.82,
+      "x1": 0.62,
+      "y": 0.98,
+      "y1": 0.82,
+      "size": 460,
+      "size1": 340
+     },
+     {
+      "action": "point",
+      "word": "Pirámide",
+      "facing": -1
+     },
+     {
+      "action": "photo",
+      "word": "Calzada",
+      "facing": 1,
+      "mood": "wow"
+     }
+    ]
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "Sol",
+     "x": 0.82,
+     "y": 0.1,
+     "size": 200
+    }
+   ],
    "ambience": [],
    "crowd": [],
    "sfx": [],
@@ -90,7 +149,25 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "x0": -0.12,
+    "y": 0.9,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.12,
+      "x1": 0.32
+     },
+     {
+      "action": "point",
+      "word": "bandera"
+     },
+     {
+      "action": "selfie",
+      "word": "centro"
+     }
+    ]
    },
    "pops": [],
    "ambience": [],
@@ -107,9 +184,32 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "x0": -0.1,
+    "y": 0.86,
+    "size": 400,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.1,
+      "x1": 0.26
+     },
+     {
+      "action": "point",
+      "word": "gigantesca",
+      "mood": "wow"
+     }
+    ]
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "Piedra",
+     "x": 0.74,
+     "y": 0.4,
+     "size": 180
+    }
+   ],
    "ambience": [],
    "crowd": [],
    "sfx": [],
@@ -124,11 +224,35 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "eat",
+    "x0": 0.5,
+    "y": 0.88,
+    "size": 440,
+    "facing": -1,
+    "mood": "love"
    },
-   "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "tacos",
+     "x": 0.2,
+     "y": 0.42,
+     "size": 180
+    }
+   ],
+   "ambience": [
+    "crickets"
+   ],
+   "crowd": [
+    {
+     "action": "eat",
+     "x0": 0.82,
+     "y": 0.8,
+     "size": 320,
+     "facing": -1,
+     "speed": 0.9
+    }
+   ],
    "sfx": [],
    "steps": false,
    "action_sfx": true
@@ -141,14 +265,45 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "x0": 0.5,
+    "y": 0.78,
+    "size": 320,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "wave"
+     },
+     {
+      "action": "dance",
+      "word": "mariachis"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.7,
+     "y": 0.75,
+     "size": 290,
+     "facing": -1,
+     "speed": 0.85
+    },
+    {
+     "action": "dance",
+     "x0": 0.32,
+     "y": 0.81,
+     "size": 310,
+     "facing": 1,
+     "speed": 1.15
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "El miércoles aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",

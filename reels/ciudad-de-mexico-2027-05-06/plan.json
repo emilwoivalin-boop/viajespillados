@@ -76,5 +76,203 @@
     "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A leafy street in the Roma neighbourhood of Mexico City in the early evening: colourful old two-storey houses with balconies, big green trees forming a canopy over a wide pedestrian path, a small taco stand with a bright orange awning and a vertical spit of red al pastor meat with a pineapple on top, warm orange sunset sky. The wide pedestrian path in the lower third of the picture is clearly visible and empty.",
     "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The canals of Xochimilco on a sunny day: several long flat wooden boats (trajineras) painted in bright colours with decorated arches on the front, floating on calm green water, green trees and grass on both banks, blue sky. A long wooden dock edge across the lower fifth of the picture and an empty trajinera in the foreground, clearly visible and empty.",
     "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The Palacio de Bellas Artes in Mexico City in bright daylight: a white marble palace with a big golden-orange dome, standing in the lower-middle part of the picture, green trees of the Alameda park at its sides, a large open bright blue sky above it filling the middle of the picture, calm and empty. An empty paved plaza in the bottom fifth of the picture."
+  },
+  "scenes": {
+    "vuelo": {
+      "stick": {
+        "action": "none"
+      },
+      "pop": null,
+      "ambience": null,
+      "sfx": [
+        {
+          "kind": "engine",
+          "frac": 0.05
+        }
+      ]
+    },
+    "llegada": {
+      "stick": {
+        "x0": 0.45,
+        "y": 0.88,
+        "size": 420,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "celebrate"
+          },
+          {
+            "action": "point",
+            "word": "montaña",
+            "facing": -1
+          },
+          {
+            "action": "stand",
+            "word": "tortillas",
+            "facing": 1,
+            "mood": "love"
+          }
+        ]
+      },
+      "pop": null,
+      "ambience": "birds"
+    },
+    "dia1": {
+      "stick": {
+        "x0": 0.82,
+        "y": 0.98,
+        "size": 460,
+        "facing": -1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": 0.82,
+            "x1": 0.62,
+            "y": 0.98,
+            "y1": 0.82,
+            "size": 460,
+            "size1": 340
+          },
+          {
+            "action": "point",
+            "word": "Pirámide",
+            "facing": -1
+          },
+          {
+            "action": "photo",
+            "word": "Calzada",
+            "facing": 1,
+            "mood": "wow"
+          }
+        ]
+      },
+      "pop": {
+        "icon": "sun",
+        "word": "Sol",
+        "x": 0.82,
+        "y": 0.1,
+        "size": 200
+      },
+      "ambience": null
+    },
+    "dia2": {
+      "stick": {
+        "x0": -0.12,
+        "y": 0.9,
+        "size": 430,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "run",
+            "x0": -0.12,
+            "x1": 0.32
+          },
+          {
+            "action": "point",
+            "word": "bandera"
+          },
+          {
+            "action": "selfie",
+            "word": "centro"
+          }
+        ]
+      },
+      "pop": null,
+      "ambience": null
+    },
+    "dia3": {
+      "stick": {
+        "x0": -0.1,
+        "y": 0.86,
+        "size": 400,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": -0.1,
+            "x1": 0.26
+          },
+          {
+            "action": "point",
+            "word": "gigantesca",
+            "mood": "wow"
+          }
+        ]
+      },
+      "pop": {
+        "icon": "sparkle",
+        "word": "Piedra",
+        "x": 0.74,
+        "y": 0.4,
+        "size": 180
+      },
+      "ambience": null
+    },
+    "dia4": {
+      "stick": {
+        "action": "eat",
+        "x0": 0.5,
+        "y": 0.88,
+        "size": 440,
+        "facing": -1,
+        "mood": "love"
+      },
+      "crowd": [
+        {
+          "action": "eat",
+          "x0": 0.82,
+          "y": 0.8,
+          "size": 320,
+          "facing": -1,
+          "speed": 0.9
+        }
+      ],
+      "pop": {
+        "icon": "heart",
+        "word": "tacos",
+        "x": 0.2,
+        "y": 0.42,
+        "size": 180
+      },
+      "ambience": "crickets",
+      "action_sfx": true
+    },
+    "dia5": {
+      "stick": {
+        "x0": 0.5,
+        "y": 0.78,
+        "size": 320,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "wave"
+          },
+          {
+            "action": "dance",
+            "word": "mariachis"
+          }
+        ]
+      },
+      "crowd": [
+        {
+          "action": "dance",
+          "x0": 0.7,
+          "y": 0.75,
+          "size": 290,
+          "facing": -1,
+          "speed": 0.85
+        },
+        {
+          "action": "dance",
+          "x0": 0.32,
+          "y": 0.81,
+          "size": 310,
+          "facing": 1,
+          "speed": 1.15
+        }
+      ],
+      "pop": null,
+      "ambience": "birds"
+    }
   }
 }
