@@ -1,0 +1,80 @@
+{
+  "id": "ciudad-de-mexico-2027-05-06",
+  "offer": {
+    "destino": "Ciudad de México",
+    "region": "Norteamérica",
+    "aerolinea": "Viva",
+    "precio": 862979,
+    "escalas": "1 escala",
+    "ida": "2027-05-06",
+    "vuelta": "2027-05-12",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20NLU%20from%20BOG%20on%202027-05-06%20through%202027-05-12&curr=COP&hl=es-419",
+    "sheet_row": 60,
+    "escala_larga": "Cancún"
+  },
+  "hora_salida": null,
+  "buddy": false,
+  "ocasion": {
+    "nombre": "Puente festivo de la Ascensión (lunes 10 de mayo)",
+    "fechas": "2027-05-08/2027-05-10",
+    "fuente": "fecha fija (Price log, pestaña Holidays)"
+  },
+  "que_hacer": "Puente festivo en Ciudad de México. Sube a las pirámides de Teotihuacán, pasea en trajinera por Xochimilco y come tacos en la Roma y la Condesa.",
+  "end_image": "dia1",
+  "lines": {
+    "vuelo": "Vuelo con una escala rumbo al norte… ¿y abajo? Montañas, valles secos y nubes enormes.",
+    "llegada": "¡Bienvenido a Ciudad de México en pleno puente festivo! Aire fresco de montaña y olor a tortillas recién hechas.",
+    "dia1": "Día uno: subes la Pirámide del Sol en Teotihuacán, y desde arriba ves la Calzada de los Muertos.",
+    "dia2": "Día dos: el Zócalo, una plaza gigante con la Catedral y una bandera enorme ondeando en el centro.",
+    "dia3": "Día tres: en el Museo de Antropología, en Chapultepec, te paras frente a la gigantesca Piedra del Sol.",
+    "dia4": "Día cuatro: tacos al pastor en la Roma y la Condesa, entre calles llenas de árboles.",
+    "dia5": "Y el lunes festivo: trajinera de colores por los canales de Xochimilco, con mariachis tocando al lado."
+  },
+  "caption_es": {
+    "hook": "¿Ciudad de México en 5 días aprovechando el puente festivo? Pilla este plan, parce.",
+    "intro": "Pirámides, museos gigantes, canales de colores y tacos en cada esquina.",
+    "pais": "México",
+    "dias": [
+      {
+        "titulo": "Teotihuacán",
+        "texto": "sube la Pirámide del Sol temprano, antes del calor y de la gente."
+      },
+      {
+        "titulo": "Zócalo y Centro Histórico",
+        "texto": "la Catedral, la plaza gigante y calles coloniales para caminar."
+      },
+      {
+        "titulo": "Museo de Antropología",
+        "texto": "la Piedra del Sol y todo el mundo prehispánico en el Bosque de Chapultepec."
+      },
+      {
+        "titulo": "Roma y Condesa",
+        "texto": "tacos, cafés y calles arborizadas para caminar sin afán."
+      },
+      {
+        "titulo": "Xochimilco",
+        "texto": "trajinera de colores por los canales, con música de mariachis."
+      }
+    ],
+    "bonus": "Pasa por Coyoacán y la Casa Azul de Frida Kahlo (reserva la entrada antes).",
+    "dato": "la Ciudad de México está construida sobre el antiguo lago de Texcoco, donde los mexicas fundaron Tenochtitlan",
+    "para": "te gustan la historia, los museos y comer en la calle",
+    "no_para": "odias las ciudades enormes y el tráfico",
+    "versus": "Buenos Aires",
+    "hashtags": [
+      "#ciudaddemexico",
+      "#mexico",
+      "#quehacerenciudaddemexico"
+    ]
+  },
+  "prompts": {
+    "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below a wide generic landscape of brown and green mountains, dry valleys and a few small lakes, no city, no landmark, no volcano, sunny blue sky. Keep the lower half open with the mountains and valleys clearly visible. The top third is calm blue sky.",
+    "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a modern airport terminal with a big curved light roof and large glass windows, rows of green palm-like yucca plants and pink-purple jacaranda trees in bloom in front of it, brown mountains far in the background, sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
+    "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Teotihuacán in Mexico in the morning: the huge stepped stone Pyramid of the Sun on the left with a steep staircase in the middle, the smaller Pyramid of the Moon in the distance at the end of a long wide straight stone avenue, dry green-brown valley and low hills, clear light blue sky. The wide stone avenue in the lower third of the picture is clearly visible and empty.",
+    "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The Zócalo main square in Mexico City on a sunny day: a huge open paved plaza, in the background the big baroque Metropolitan Cathedral with two bell towers, a very tall flagpole in the middle of the square with a large green, white and red flag waving (no emblem drawn, plain stripes), blue sky. The huge empty paved plaza fills the lower half of the picture, clearly visible and empty.",
+    "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Inside a big modern museum hall with a light stone floor: on the back wall a giant round grey stone disc with carved circular Aztec patterns (the Sun Stone), spotlights, a few stone sculptures on low pedestals at the sides, calm warm light. The light stone floor in the lower third of the picture is wide, clearly visible and empty.",
+    "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A leafy street in the Roma neighbourhood of Mexico City in the early evening: colourful old two-storey houses with balconies, big green trees forming a canopy over a wide pedestrian path, a small taco stand with a bright orange awning and a vertical spit of red al pastor meat with a pineapple on top, warm orange sunset sky. The wide pedestrian path in the lower third of the picture is clearly visible and empty.",
+    "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The canals of Xochimilco on a sunny day: several long flat wooden boats (trajineras) painted in bright colours with decorated arches on the front, floating on calm green water, green trees and grass on both banks, blue sky. A long wooden dock edge across the lower fifth of the picture and an empty trajinera in the foreground, clearly visible and empty.",
+    "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The Palacio de Bellas Artes in Mexico City in bright daylight: a white marble palace with a big golden-orange dome, standing in the lower-middle part of the picture, green trees of the Alameda park at its sides, a large open bright blue sky above it filling the middle of the picture, calm and empty. An empty paved plaza in the bottom fifth of the picture."
+  }
+}

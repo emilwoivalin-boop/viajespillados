@@ -1,0 +1,190 @@
+{
+ "id": "ciudad-de-mexico-2027-05-06",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Jueves 6 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Norteamérica!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Vuelo con una escala rumbo al norte… ¿y abajo? Montañas, valles secos y nubes enormes.",
+   "media": {
+    "type": "file",
+    "path": "reels/ciudad-de-mexico-2027-05-06/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Ciudad de México en pleno puente festivo! Aire fresco de montaña y olor a tortillas recién hechas.",
+   "media": {
+    "type": "file",
+    "path": "reels/ciudad-de-mexico-2027-05-06/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día uno: subes la Pirámide del Sol en Teotihuacán, y desde arriba ves la Calzada de los Muertos.",
+   "media": {
+    "type": "file",
+    "path": "reels/ciudad-de-mexico-2027-05-06/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día dos: el Zócalo, una plaza gigante con la Catedral y una bandera enorme ondeando en el centro.",
+   "media": {
+    "type": "file",
+    "path": "reels/ciudad-de-mexico-2027-05-06/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día tres: en el Museo de Antropología, en Chapultepec, te paras frente a la gigantesca Piedra del Sol.",
+   "media": {
+    "type": "file",
+    "path": "reels/ciudad-de-mexico-2027-05-06/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día cuatro: tacos al pastor en la Roma y la Condesa, entre calles llenas de árboles.",
+   "media": {
+    "type": "file",
+    "path": "reels/ciudad-de-mexico-2027-05-06/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Y el lunes festivo: trajinera de colores por los canales de Xochimilco, con mariachis tocando al lado.",
+   "media": {
+    "type": "file",
+    "path": "reels/ciudad-de-mexico-2027-05-06/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El miércoles aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Viva, por solo 863 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "7 días en Ciudad de México",
+  "kicker": "",
+  "airline": "Viva · 1 escala · escala larga en Cancún",
+  "price": "$862.979",
+  "detail": "ida y vuelta · 6 may – 12 may",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/ciudad-de-mexico-2027-05-06/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Ciudad de México desde Bogotá ✈️ Puente festivo en Ciudad de México. Sube a las pirámides de Teotihuacán, pasea en trajinera por Xochimilco y come tacos en la Roma y la Condesa. Ida y vuelta con Viva desde $862.979 (6 may – 12 may). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #ciudaddemexico #ofertasdevuelos"
+}
