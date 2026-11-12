@@ -139,6 +139,8 @@ def main(rid, query, rel=None):
     w, e = max(w, lon0 - 0.45), min(e, lon0 + 0.45)
     bb = f"({s},{w},{n},{e})"
     cb = f"({lat0 - 0.03},{lon0 - 0.045},{lat0 + 0.03},{lon0 + 0.045})"
+    if (n - s) < 0.25 and (e - w) < 0.3:        # small place (island, small town): full detail everywhere
+        cb = bb
     print("bbox", bb, "centre", cb)
     water = q(f'[out:json][timeout:250];(way["natural"="water"]{bb};relation["natural"="water"]{bb};'
               f'way["waterway"="riverbank"]{bb};relation["waterway"="riverbank"]{bb};'
