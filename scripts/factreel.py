@@ -63,7 +63,7 @@ class Feat:
     """A list of shapes in mercator metres, with a bbox per shape for fast culling."""
 
     def __init__(self, shapes):
-        self.shapes = []
+        self.shapes, self.per = [], []
         for rings in shapes:
             arrs = []
             for ring in rings:
@@ -73,6 +73,7 @@ class Feat:
                 x, y = merc(a[:, 0], a[:, 1])
                 arrs.append(np.stack([x, y], 1))
             if arrs:
+                self.per.append([float(np.abs(np.diff(r, axis=0)).sum()) for r in arrs])
                 self.shapes.append(arrs)
         if self.shapes:
             self.bb = np.array([[min(r[:, 0].min() for r in s), min(r[:, 1].min() for r in s),
@@ -87,7 +88,7 @@ class Feat:
         ok = (b[:, 2] >= vb[0]) & (b[:, 0] <= vb[2]) & (b[:, 3] >= vb[1]) & (b[:, 1] <= vb[3])
         if min_size:
             ok &= np.maximum(b[:, 2] - b[:, 0], b[:, 3] - b[:, 1]) >= min_size
-        return [self.shapes[i] for i in np.nonzero(ok)[0]]
+        return [(self.shapes[i], self.per[i]) for i in np.nonzero(ok)[0]]
 
 
 def load_map(base):
@@ -171,10 +172,10 @@ def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
     def path(shapes, close):
         c.save()
         c.set_matrix(mat)
-        for rings in shapes:
-            for r in rings:
-                step = max(1, int(len(r) / max(4, 4000 * len(r) / max(1, len(r)))))
-                pts = r[::step] if len(r) > 400 and step > 1 else r
+        for rings, per in shapes:
+            for r, pr in zip(rings, per):
+                keep = max(4, int(pr * s / 2.5))          # about one point every 2.5 screen pixels
+                pts = r if keep >= len(r) else np.concatenate([r[::int(math.ceil(len(r) / keep))], r[-1:]])
                 c.move_to(pts[0, 0], pts[0, 1])
                 for x, y in pts[1:]:
                     c.line_to(x, y)
@@ -214,17 +215,17 @@ def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
         c.stroke()
 
     w = cam.w
-    fill(m["green"], GREEN, GREEN_E, lerp_log(w, [(800, 2.0), (6000, 1.0), (20000, 0.0)]))
+    far = w > 6000
+    fill(m["green"], GREEN, None if w > 3000 else GREEN_E, 1.5, min_px=lerp_log(w, [(2000, 2.0), (8000, 5.0), (30000, 9.0)]))
     if w < 5000:
         a = lerp_log(w, [(1500, 1.0), (5000, 0.0)])
         fill(m["build"], (*BUILD,), BUILD_E if w < 2500 else None, 1.0, min_px=2)
-        if a < 1:   # fade buildings in while zooming
-            pass
-    fill(m["water"], WATER, WATER_E, lerp_log(w, [(800, 2.5), (6000, 1.2), (30000, 0.6)]), min_px=1)
+    fill(m["water"], WATER, None if far else WATER_E, lerp_log(w, [(800, 2.5), (6000, 1.2)]),
+         min_px=lerp_log(w, [(2000, 1.0), (8000, 3.0), (30000, 6.0)]))
     stroke(m["minor"], ROAD, lerp_log(w, [(600, 9.0), (1500, 4.5), (4000, 1.6), (8000, 0.0)]), ROAD_E, 2.0)
     stroke(m["rail"], (170, 160, 150), lerp_log(w, [(1000, 4.0), (8000, 2.0), (40000, 1.0)]))
-    stroke(m["major"], MAJOR, lerp_log(w, [(600, 14.0), (2000, 7.0), (8000, 3.5), (40000, 1.4)]), MAJOR_E,
-           lerp_log(w, [(1000, 3.0), (40000, 1.0)]))
+    stroke(m["major"], MAJOR, lerp_log(w, [(600, 14.0), (2000, 7.0), (8000, 3.0), (40000, 1.2)]),
+           None if far else MAJOR_E, lerp_log(w, [(1000, 3.0), (6000, 1.0)]), min_px=lerp_log(w, [(4000, 3), (30000, 25)]))
 
     # dim everything outside the city and draw its outline
     bd = m["boundary"].shapes
@@ -232,11 +233,9 @@ def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
         c.save()
         c.rectangle(0, 0, W, H)
         c.set_matrix(mat)
-        for r in bd[0]:
-            c.move_to(*r[0])
-            for x, y in r[1:]:
-                c.line_to(x, y)
-            c.close_path()
+        c.restore()
+        c.save()
+        path([(bd[0], m["boundary"].per[0])], True)
         c.restore()
         c.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
         c.set_source_rgba(0.08, 0.12, 0.2, 0.30 * dim)
@@ -245,7 +244,7 @@ def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
         lw = lerp_log(w, [(1500, 12.0), (8000, 8.0), (40000, 6.0)])
         total = sum(float(np.hypot(*np.diff(r, axis=0).T).sum()) for r in bd[0]) * s
         for col, width in ((WHITE_T, lw + 7), (LINE, lw)):
-            path([bd[0]], True)
+            path([(bd[0], m["boundary"].per[0])], True)
             if outline_frac < 1:
                 c.set_dash([total * outline_frac, total * 2])
             c.set_source_rgba(*rgb(col))
