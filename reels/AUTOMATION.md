@@ -66,7 +66,7 @@ Common facts
 3. `id` = `<slug-destino>-<ida>` (e.g. `lima-2027-01-16`). Create `reels/<id>/plan.json` (format in `scripts/reel_plan.py`):
    `offer` = destino, aerolinea, precio (number), escalas ("directo" / "1 escala" / "N escalas"), ida, vuelta, link (J), sheet_row,
    escala_larga (column Q, the layover city with time to explore – empty for most offers; the end card then says
-   "escala larga en <ciudad>" and the `regreso` or a day line may mention it), region (column I Categoría, e.g. "Caribe e islas" – the opening says "nos vamos pa'l Caribe" instead of the destination;
+   "escala larga en <ciudad>" and the `regreso` or a day line may mention it), pais (country in Spanish, e.g. "Perú", "México"), region (column I Categoría, e.g. "Caribe e islas" – the opening says "nos vamos pa'l Caribe" instead of the destination; owner's rule: Mexico and Central America → "pa' Centroamérica", South America → the country right away, "pa' Perú" (the city stays a surprise);
    optional `teaser` in plan.json overrides it, e.g. "el Pacífico" or "la costa", never the destination's name);
    `hora_salida` = null (only fill it, e.g. "4 de la tarde", if you verified the airline's scheduled departure time for that
    weekday from a reliable timetable page; otherwise leave null); `que_hacer` = column D of `Qué hacer`; `end_image` = "dia1";
@@ -78,7 +78,8 @@ Common facts
      know it (Price log Notes "N hrs"); say "directo" only for non-stop.
    - **No spoilers (owner's rule):** the destination is revealed only in `llegada`. The `vuelo` line must not name the destination,
      its country or a landmark that gives it away – tease the region instead (e.g. "Vuelo directo de dos horas… ¿y abajo? Mar
-     turquesa del Caribe."). `reel_plan.py build` refuses a `vuelo` line that contains the destination's name.
+     turquesa del Caribe."). Mexico and Central America are teased as "Centroamérica" (never "Norteamérica"). Exception: in
+     South America the country is named from the start ("nos vamos pa' Perú"), only the city is the surprise. `reel_plan.py build` refuses a `vuelo` line that contains the destination's name.
    - `llegada`: the reveal – "¡Bienvenido a <Destino>! …" + one sensory detail of arriving there.
    - `dia1`, `dia2`, `dia3`: start with "Día uno:", "Día dos:", "Día tres:" (for trips of 2–3 days use "Primer día:", "Luego:",
      "Antes de volver:"), one activity each, with one concrete vivid detail. Only facts you are sure about.

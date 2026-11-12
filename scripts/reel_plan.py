@@ -9,7 +9,7 @@ same structure as the approved Aruba Reel, and makes a quick placement preview.
 plan.json (written by the morning task, completed by the build task):
 {
   "id": "lima-2027-01-16",
-  "offer": {"destino": "Lima", "region": "Sudamérica", "aerolinea": "JetSMART", "precio": 608490, "escalas": "directo",
+  "offer": {"destino": "Lima", "pais": "Perú", "region": "Sudamérica", "aerolinea": "JetSMART", "precio": 608490, "escalas": "directo",
             "ida": "2027-01-16", "vuelta": "2027-01-20", "link": "https://...", "sheet_row": 14},
   "hora_salida": null,                       # e.g. "4 de la tarde" ONLY if verified, else null
   "teaser": null,                            # optional: how the opening names the destination before landing,
@@ -121,9 +121,29 @@ REGION_TEASER = {"caribe e islas": "el Caribe", "centroamérica": "Centroaméric
                  "áfrica y medio oriente": "el otro lado del mundo", "colombia": "un rincón de Colombia"}
 
 
+# Owner's rule: Mexico and the Central American countries are "Centroamérica" in the videos (not Norteamérica),
+# and South American trips name the country right away ("nos vamos pa' Perú"); the city stays a surprise.
+CENTRAL = {"mexico", "guatemala", "belice", "belize", "el-salvador", "honduras", "nicaragua", "costa-rica", "panama"}
+SOUTH = {"argentina", "bolivia", "brasil", "brazil", "chile", "ecuador", "paraguay", "peru", "uruguay", "venezuela",
+         "guyana", "surinam", "suriname"}
+
+
+def _s(x):
+    import unicodedata
+    x = unicodedata.normalize("NFKD", x or "").encode("ascii", "ignore").decode().lower()
+    return "-".join(w for w in x.replace(".", " ").split())
+
+
 def teaser(plan):
-    """'el Caribe' -> "pa'l Caribe", 'Europa' -> "pa' Europa" (plan["teaser"] overrides the region from the sheet)."""
-    t = plan.get("teaser") or REGION_TEASER.get((plan["offer"].get("region") or "").strip().lower())
+    """'el Caribe' -> "pa'l Caribe", 'Europa' -> "pa' Europa" (plan["teaser"] overrides everything)."""
+    o = plan["offer"]
+    pais, region = (o.get("pais") or "").strip(), (o.get("region") or "").strip().lower()
+    t = plan.get("teaser")
+    if not t and _s(pais) in CENTRAL:
+        t = "Centroamérica"
+    elif not t and (_s(pais) in SOUTH or (region == "sudamérica" and pais)):
+        t = pais
+    t = t or REGION_TEASER.get(region)
     if not t:
         return "de viaje. ¿Adivinas pa' dónde?"
     return "pa'l " + t[3:] if t.startswith("el ") else f"pa' {t}"
