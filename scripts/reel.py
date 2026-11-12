@@ -513,10 +513,11 @@ def end_png(e, path):
         d.text((x + lw_, y), val, font=fv, fill="white", anchor="lm"); y += 68
     y += 90
     cta = e.get("cta", "viajespillados.com")
-    fc = ig.font("Black", 56)
-    tw = d.textlength(cta, font=fc)
-    d.rounded_rectangle([W // 2 - tw / 2 - 46, y - 58, W // 2 + tw / 2 + 46, y + 58], radius=58, fill="white")
-    d.text((W // 2, y), cta, font=fc, fill=NAVY, anchor="mm"); y += 110
+    if cta:                                   # fact Reels: no website pill (owner's rule)
+        fc = ig.font("Black", 56)
+        tw = d.textlength(cta, font=fc)
+        d.rounded_rectangle([W // 2 - tw / 2 - 46, y - 58, W // 2 + tw / 2 + 46, y + 58], radius=58, fill="white")
+        d.text((W // 2, y), cta, font=fc, fill=NAVY, anchor="mm"); y += 110
     if e.get("small"):
         d.text((W // 2, y), e["small"], font=ig.font("SemiBold", 42), fill="white", anchor="mm")
     img.save(path)
@@ -828,6 +829,10 @@ def publish(rid):
     sb = json.load(open(os.path.join(base, "storyboard.json")))
     try:                     # owner's rule: the caption is about the destination, not the flight
         plan = json.load(open(os.path.join(base, "plan.json")))
+        if plan.get("kind") == "facts":        # fact Reel (every other day): caption written with the facts
+            sb["yt_title"] = sb.get("yt_title") or f"Datos curiosos de {plan['offer']['destino']} 📍"
+            json.dump(sb, open(os.path.join(base, "storyboard.json"), "w"), ensure_ascii=False, indent=1)
+            raise StopIteration
         import reel_caption           # owner's format: plan from Where Next, few emojis, no flight offer
         full = reel_caption.build(plan)
         text = None if full else ig.destination_caption([plan["offer"]["destino"]])
@@ -840,6 +845,8 @@ def publish(rid):
             oc = (oc or "").split("(")[0].strip()
             sb["caption"] = (f"{oc} en {plan['offer']['destino']} ✨\n\n" if oc else "") + text
             json.dump(sb, open(os.path.join(base, "storyboard.json"), "w"), ensure_ascii=False, indent=1)
+    except StopIteration:
+        pass
     except Exception as e:
         print("caption:", e)
     uid = os.environ["IG_USER_ID"]

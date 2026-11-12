@@ -1,0 +1,175 @@
+{
+  "id": "test-facts-san-andres",
+  "lang": "es",
+  "city": "San Andrés",
+  "country": "COL",
+  "place": "San Andrés, Colombia",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "facts": [
+    {
+      "text": "¿Sabías que San Andrés queda más cerca de Nicaragua que del resto de Colombia? Unos 180 kilómetros, contra más de 700 hasta Cartagena.",
+      "stickers": [
+        {
+          "emoji": "🧭",
+          "x": 0.27,
+          "y": 0.36,
+          "size": 220,
+          "at": "Nicaragua",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "180 km",
+        "small": "hasta Nicaragua",
+        "at": "180",
+        "x": 0.6,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://www.britannica.com/place/San-Andres-y-Providencia"
+    },
+    {
+      "text": "En el sur de la isla está el Hoyo Soplador: cuando pegan las olas, lanza chorros de agua de mar hasta de 20 metros.",
+      "lat": 12.48136,
+      "lon": -81.73111,
+      "view": 1100,
+      "label": "Hoyo Soplador",
+      "photo": "File:Hoyo soplador, San Andres.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://www.lonelyplanet.com/colombia/san-andres/attractions/hoyo-soplador/a/poi-sig/456091/363329"
+    },
+    {
+      "text": "Aquí no solo se habla español: los raizales hablan creole, y el inglés también es idioma oficial.",
+      "stickers": [
+        {
+          "emoji": "💬",
+          "x": 0.5,
+          "y": 0.45,
+          "size": 300,
+          "at": "creole",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🎶",
+          "x": 0.78,
+          "y": 0.3,
+          "size": 170,
+          "at": "inglés",
+          "sfx": "sparkle"
+        }
+      ],
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/San_Andr%C3%A9s_(island)"
+    },
+    {
+      "text": "A un kilómetro y medio del centro está Johnny Cay, un cayo de arena blanca lleno de palmeras.",
+      "lat": 12.6006,
+      "lon": -81.6893,
+      "view": 1300,
+      "label": "Johnny Cay",
+      "photo": "File:Johny Cay.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://lacgeo.com/san-andres-providencia-santa-catalina"
+    },
+    {
+      "text": "Y en el 2000, la UNESCO declaró el archipiélago Reserva de Biosfera Seaflower: ¡cerca del 10 por ciento del mar Caribe!",
+      "stickers": [
+        {
+          "emoji": "🐠",
+          "x": 0.3,
+          "y": 0.47,
+          "size": 250,
+          "at": "Seaflower",
+          "sfx": "bubbles"
+        },
+        {
+          "emoji": "🐢",
+          "x": 0.74,
+          "y": 0.5,
+          "size": 230,
+          "at": "mar",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "10 %",
+        "small": "del mar Caribe",
+        "at": "10",
+        "y": 0.3,
+        "count": false,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach",
+            "t": 0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/San_Andr%C3%A9s_(island)"
+    }
+  ],
+  "end": {
+    "text": "¿Cuál te sorprendió más?",
+    "line1": "¿Cuál te sorprendió más?",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    }
+  },
+  "caption": "5 datos de San Andrés que seguro no sabías 📍\n\n1. Queda más cerca de Nicaragua (unos 180 km) que de Cartagena\n2. El Hoyo Soplador lanza agua hasta 20 m de alto\n3. Los raizales hablan creole, y el inglés es idioma oficial\n4. Johnny Cay, arena blanca a 1,5 km del centro\n5. La Reserva Seaflower cubre cerca del 10 % del Caribe\n\n¿Cuál te sorprendió más? ✈️\n\nMapa © colaboradores de OpenStreetMap. Fotos de Wikimedia Commons: PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)\n\n#sanandres #colombia #datoscuriosos #caribe #viajespillados"
+}

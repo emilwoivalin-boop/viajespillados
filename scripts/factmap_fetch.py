@@ -1,6 +1,6 @@
 """Fetch OpenStreetMap data for a fact Reel map (runs in GitHub Actions – Overpass is not reachable elsewhere).
 
-    python scripts/factmap_fetch.py <id> "<city boundary name>" [admin_level] [centre_bbox s,w,n,e]
+    python scripts/factmap_fetch.py <id> "<City, Country>" [osm relation id]
 
 Writes reels/facts/<id>/map/osm.json.gz:
   {"boundary": [[ring of [lon,lat]], ...], "water": [...], "green": [...], "roads": {"major": [...], "minor": [...]},
@@ -84,39 +84,85 @@ def lines(elements):
     return [r5(e["geometry"]) for e in elements if e["type"] == "way" and e.get("geometry")]
 
 
-def main(rid, name, level="8", centre=None):
-    b = q(f'[out:json][timeout:200];relation["boundary"="administrative"]["admin_level"="{level}"]["name"="{name}"];out geom;')
-    if not b:
-        raise SystemExit("boundary not found")
-    rel = max(b, key=lambda e: len(e.get("members", [])))
-    outer = join_rings([r5(m["geometry"]) for m in rel["members"] if m.get("geometry") and m.get("role") == "outer"])
+def fact_dir(rid):
+    """A daily fact Reel lives in reels/<id>/ (next to its plan.json); test/one-off ones in reels/facts/<id>/."""
+    d = os.path.join(ROOT, "reels", rid)
+    return d if os.path.exists(os.path.join(d, "plan.json")) else os.path.join(ROOT, "reels", "facts", rid)
+
+
+def find_city(query):
+    """Nominatim → point; Overpass is_in → the city-sized administrative boundary around it (admin level 8, 7 or 6)."""
+    r = requests.get("https://nominatim.openstreetmap.org/search", headers=UA, timeout=60,
+                     params={"q": query, "format": "json", "limit": 1})
+    r.raise_for_status()
+    hit = r.json()[0]
+    lat, lon = float(hit["lat"]), float(hit["lon"])
+    print("nominatim", query, "→", hit.get("display_name"), lat, lon, hit.get("osm_type"), hit.get("osm_id"))
+    if hit.get("osm_type") == "relation" and hit.get("class") == "boundary":
+        return int(hit["osm_id"]), lat, lon
+    rels = q(f'[out:json][timeout:120];is_in({lat},{lon})->.a;'
+             f'rel(pivot.a)["boundary"="administrative"]["admin_level"~"^(6|7|8)$"];out tags;')
+    if not rels:
+        raise SystemExit(f"no administrative boundary around {query}")
+    rels.sort(key=lambda e: -int(e["tags"].get("admin_level", 0)))
+    best = rels[0]
+    print("boundary", best["id"], best["tags"].get("name"), "admin_level", best["tags"].get("admin_level"))
+    return best["id"], lat, lon
+
+
+def main(rid, query, rel=None):
+    """query: "Cartagena, Colombia" (or old style "Amsterdam|8"); rel: optional OSM relation id to force the outline."""
+    lat0 = lon0 = None
+    if query.startswith("rel:"):
+        rel = query[4:]
+    if rel:
+        rel = int(rel)
+    elif "|" in query:
+        name, level = (query.split("|") + ["8"])[:2]
+        b = q(f'[out:json][timeout:200];relation["boundary"="administrative"]["admin_level"="{level}"]["name"="{name}"];out ids;')
+        rel = b[0]["id"]
+    else:
+        rel, lat0, lon0 = find_city(query)
+    b = q(f'[out:json][timeout:200];relation({rel});out geom;')
+    relel = b[0]
+    outer = join_rings([r5(m["geometry"]) for m in relel["members"] if m.get("geometry") and m.get("role") == "outer"])
     lons = [p[0] for r in outer for p in r]
     lats = [p[1] for r in outer for p in r]
+    if lat0 is None:   # centre = the relation's admin_centre/label node, else the middle of the outline
+        cn = [m for m in relel["members"] if m["type"] == "node" and m.get("role") in ("admin_centre", "label")]
+        lat0, lon0 = (cn[0]["lat"], cn[0]["lon"]) if cn else ((min(lats) + max(lats)) / 2, (min(lons) + max(lons)) / 2)
     pad = 0.04
     s, w, n, e = min(lats) - pad, min(lons) - pad * 1.6, max(lats) + pad, max(lons) + pad * 1.6
+    # very big municipalities: keep the map data to ~70 km around the centre
+    s, n = max(s, lat0 - 0.32), min(n, lat0 + 0.32)
+    w, e = max(w, lon0 - 0.45), min(e, lon0 + 0.45)
     bb = f"({s},{w},{n},{e})"
-    cb = f"({centre})" if centre else bb
+    cb = f"({lat0 - 0.03},{lon0 - 0.045},{lat0 + 0.03},{lon0 + 0.045})"
     print("bbox", bb, "centre", cb)
     water = q(f'[out:json][timeout:250];(way["natural"="water"]{bb};relation["natural"="water"]{bb};'
               f'way["waterway"="riverbank"]{bb};relation["waterway"="riverbank"]{bb};'
-              f'way["landuse"~"^(reservoir|basin)$"]{bb};relation["natural"="bay"]{bb};);out geom;')
+              f'way["landuse"~"^(reservoir|basin)$"]{bb};);out geom;')
+    coast = q(f'[out:json][timeout:250];way["natural"="coastline"]{bb};out geom;')
     green = q(f'[out:json][timeout:250];(way["leisure"~"^(park|garden|golf_course|nature_reserve)$"]{bb};'
               f'relation["leisure"~"^(park|nature_reserve)$"]{bb};'
               f'way["landuse"~"^(grass|forest|meadow|recreation_ground|cemetery|allotments|village_green)$"]{bb};'
-              f'relation["landuse"~"^(forest|meadow|grass)$"]{bb};way["natural"~"^(wood|grassland|scrub)$"]{bb};);out geom;')
+              f'relation["landuse"~"^(forest|meadow|grass)$"]{bb};way["natural"~"^(wood|grassland|scrub|beach|sand)$"]{bb};);out geom;')
     major = q(f'[out:json][timeout:250];way["highway"~"^(motorway|trunk|primary|secondary)$"]{bb};out geom;')
     minor = q(f'[out:json][timeout:250];way["highway"~"^(tertiary|residential|unclassified|living_street|pedestrian)$"]{cb};out geom;')
     rail = q(f'[out:json][timeout:250];way["railway"="rail"]["service"!~"."]{bb};out geom;')
     bld = q(f'[out:json][timeout:250];way["building"]{cb};out geom;')
-    data = {"name": name, "bbox": [w, s, e, n], "boundary": outer, "water": polys(water), "green": polys(green),
-            "roads": {"major": lines(major), "minor": lines(minor)}, "rail": lines(rail),
+    sand = [p for p in polys([g for g in green if (g.get("tags") or {}).get("natural") in ("beach", "sand")])]
+    data = {"name": relel.get("tags", {}).get("name", query), "rel": rel, "centre": [lon0, lat0], "bbox": [w, s, e, n],
+            "boundary": outer, "water": polys(water), "coast": lines(coast),
+            "green": polys([g for g in green if (g.get("tags") or {}).get("natural") not in ("beach", "sand")]),
+            "sand": sand, "roads": {"major": lines(major), "minor": lines(minor)}, "rail": lines(rail),
             "buildings": [p["o"][0] for p in polys(bld)]}
-    d = os.path.join(ROOT, "reels", "facts", rid, "map")
+    d = os.path.join(fact_dir(rid), "map")
     os.makedirs(d, exist_ok=True)
     with gzip.open(os.path.join(d, "osm.json.gz"), "wt") as f:
         json.dump(data, f, separators=(",", ":"))
-    print({k: (len(v) if isinstance(v, list) else {a: len(b) for a, b in v.items()}) for k, v in data.items()
-           if k not in ("name", "bbox")})
+    print({k: (len(v) if isinstance(v, list) else v) for k, v in data.items() if k not in ("bbox", "centre")
+           and not isinstance(v, dict)})
 
 
 if __name__ == "__main__":

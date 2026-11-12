@@ -1,0 +1,16 @@
+{
+ "id": "test-facts-san-andres",
+ "kind": "facts",
+ "offer": {
+  "destino": "San Andrés",
+  "region": "Caribe e islas",
+  "aerolinea": "JetSMART",
+  "precio": 232500,
+  "escalas": "directo",
+  "ida": "2027-05-09",
+  "vuelta": "2027-05-15",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20ADZ%20from%20BOG%20on%202027-05-09%20through%202027-05-15&curr=COP&hl=es-419",
+  "sheet_row": 54,
+  "escala_larga": ""
+ }
+}

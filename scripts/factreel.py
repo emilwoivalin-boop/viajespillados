@@ -96,6 +96,12 @@ class Feat:
         return [(self.shapes[i], self.per[i]) for i in np.nonzero(ok)[0]]
 
 
+def fact_base(rid):
+    """Daily fact Reels live in reels/<id>/ (with plan.json), one-off/test ones in reels/facts/<id>/."""
+    d = os.path.join(ROOT, "reels", rid)
+    return d if os.path.exists(os.path.join(d, "plan.json")) else os.path.join(ROOT, "reels", "facts", rid)
+
+
 def load_map(base, iso=None):
     d = json.load(gzip.open(os.path.join(base, "map", "osm.json.gz"), "rt"))
     m = {
@@ -107,6 +113,8 @@ def load_map(base, iso=None):
         "rail": Feat([[ln] for ln in d["rail"]]),
         "build": Feat([[b] for b in d["buildings"]]),
         "bbox": d["bbox"],
+        "coast": [np.stack(merc(np.asarray(c)[:, 0], np.asarray(c)[:, 1]), 1) for c in d.get("coast", []) if len(c) > 1],
+        "sand": Feat([p["o"] + p["i"] for p in d.get("sand", [])]),
     }
     if iso:
         ne = json.load(gzip.open(os.path.join(ROOT, "data", "naturalearth.json.gz"), "rt"))
@@ -220,6 +228,61 @@ def _ctx_fns(c, mat, s, vb):
     return path, fill, stroke
 
 
+SAND = (246, 228, 172)
+
+
+def sea_fill(surf, coast, cam, s):
+    """OpenStreetMap coastlines have the land on their left: draw them, split the screen into regions and paint
+    the regions that lie on the right (water) side of a coastline."""
+    from scipy import ndimage
+    mask = cairo.ImageSurface(cairo.FORMAT_A8, W, H)
+    c = cairo.Context(mask)
+    c.set_line_width(2.5)
+    c.set_source_rgba(0, 0, 0, 1)
+    seeds = []
+    x0v, x1v = cam.tx - W / 2 / s, cam.tx + W / 2 / s
+    y0v, y1v = cam.ty - (H - cam.ay) / s, cam.ty + cam.ay / s
+    for ln in coast:
+        if ln[:, 0].max() < x0v or ln[:, 0].min() > x1v or ln[:, 1].max() < y0v or ln[:, 1].min() > y1v:
+            continue
+        sx = W / 2 + (ln[:, 0] - cam.tx) * s
+        sy = cam.ay - (ln[:, 1] - cam.ty) * s
+        c.move_to(sx[0], sy[0])
+        for a, b in zip(sx[1:], sy[1:]):
+            c.line_to(a, b)
+        c.stroke()
+        step = max(1, len(sx) // 40)
+        for i in range(0, len(sx) - 1, step):
+            dx, dy = sx[i + 1] - sx[i], sy[i + 1] - sy[i]
+            ln_ = math.hypot(dx, dy)
+            if ln_ < 0.5:
+                continue
+            # screen y points down, so the water (right of travel in map space) is on the left of travel on screen
+            nx, ny = dy / ln_, -dx / ln_
+            mx, my = (sx[i] + sx[i + 1]) / 2, (sy[i] + sy[i + 1]) / 2
+            seeds.append((mx - nx * 5, my - ny * 5, mx + nx * 5, my + ny * 5))
+    if not seeds:
+        return
+    mask.flush()
+    m = np.ndarray((H, mask.get_stride()), np.uint8, mask.get_data())[:, :W] > 0
+    lab, n = ndimage.label(~m)
+    votes = np.zeros(n + 1)
+    for wx, wy, lx, ly in seeds:
+        for px_, py_, v in ((wx, wy, 1), (lx, ly, -1)):
+            xi, yi = int(px_), int(py_)
+            if 0 <= xi < W and 0 <= yi < H:
+                votes[lab[yi, xi]] += v
+    sea = np.nonzero(votes > 0)[0]
+    sea = sea[sea > 0]
+    if not len(sea):
+        return
+    wm = np.isin(lab, sea)
+    wm = ndimage.binary_dilation(wm, iterations=2)        # cover the drawn coastline itself
+    buf = np.ndarray((H, W, 4), np.uint8, surf.get_data())
+    buf[wm] = (WATER[2], WATER[1], WATER[0], 255)
+    surf.mark_dirty()
+
+
 def _surface_np(surf):
     surf.flush()
     return np.ndarray((H, W, 4), np.uint8, surf.get_data())
@@ -259,7 +322,13 @@ def draw_map(m, cam, k, city_frac=1.0, country_frac=1.0):
         co.set_line_cap(cairo.LINE_CAP_ROUND)
         co.set_source_rgba(*rgb(LAND))
         co.paint()
+        if m.get("coast"):
+            sea_fill(so, m["coast"], cam, s)
+            co = cairo.Context(so)
+            co.set_line_join(cairo.LINE_JOIN_ROUND)
+            co.set_line_cap(cairo.LINE_CAP_ROUND)
         _, f2, s2 = _ctx_fns(co, mat, s, vb)
+        f2(m["sand"], SAND, None, 1.0, min_px=lerp_log(w, [(2000, 1.5), (30000, 6.0)]))
         far = w > 6000
         f2(m["green"], GREEN, None if w > 3000 else GREEN_E, 1.5,
            min_px=lerp_log(w, [(2000, 2.0), (8000, 5.0), (30000, 9.0), (120000, 14.0)]))
@@ -542,7 +611,7 @@ def fake_voice(text, work, i):
 
 # ------------------------------------------------------------------ photos
 def photos(rid):
-    base = os.path.join(ROOT, "reels", "facts", rid)
+    base = fact_base(rid)
     sb = json.load(open(os.path.join(base, "storyboard.json")))
     os.makedirs(os.path.join(base, "img"), exist_ok=True)
     cpath = os.path.join(base, "img", "credits.json")
@@ -581,12 +650,12 @@ def photos(rid):
 
 # ------------------------------------------------------------------ render
 def plan(rid, dry=False):
-    base = os.path.join(ROOT, "reels", "facts", rid)
+    base = fact_base(rid)
     sb = json.load(open(os.path.join(base, "storyboard.json")))
     work = os.path.join("/tmp", "factreel-" + rid)
     os.makedirs(work, exist_ok=True)
     TXT.update(LANG.get(sb.get("lang", "en"), LANG["en"]))
-    mbase = os.path.join(ROOT, "reels", "facts", sb["map_from"]) if sb.get("map_from") else base
+    mbase = fact_base(sb["map_from"]) if sb.get("map_from") else base
     m = load_map(mbase, sb.get("country"))
     credits = json.load(open(os.path.join(base, "img", "credits.json"))) if os.path.exists(
         os.path.join(base, "img", "credits.json")) else {}
@@ -605,7 +674,30 @@ def plan(rid, dry=False):
     voice, rate = sb.get("voice", "en-US-BrianNeural"), sb.get("rate", "+35%")
 
     scenes, t = [], 0.0
-    items = list(sb["facts"]) + [dict(sb.get("end", {}), end=True)]
+    end = dict(sb.get("end", {}), end=True)
+    offer = None
+    if os.path.exists(os.path.join(base, "plan.json")):        # daily fact Reel: ends with the offer (price card)
+        import reel_plan
+        plan_ = json.load(open(os.path.join(base, "plan.json")))
+        offer = plan_.get("offer")
+    if offer:
+        deal = reel_plan.deal_text(plan_, os.path.basename(base), offer["aerolinea"], reel_plan.pesos(offer["precio"]))
+        for plug in reel_plan.DEAL_PLUGS:                       # no website plug in fact Reels
+            deal = deal.replace(plug, "").strip()
+        end["q_words"] = len(end.get("text", "").split())
+        end["text"] = (end.get("text", "") + " " + deal).strip()
+        end["deal"] = deal
+        inf = reel_plan.info(offer["ida"], offer["vuelta"])
+        from datetime import date as _d
+        a_, b_ = _d.fromisoformat(offer["ida"]), _d.fromisoformat(offer["vuelta"])
+        esc = "vuelo directo" if offer["escalas"] == "directo" else offer["escalas"]
+        if (offer.get("escala_larga") or "").strip():
+            esc += f" · escala larga en {offer['escala_larga'].strip()}"
+        end["card"] = {"title": f"{inf['dias']} días en {offer['destino']}", "airline": f"{offer['aerolinea']} · {esc}",
+                       "price": reel_plan.cop(offer["precio"]),
+                       "detail": f"ida y vuelta · {a_.day} {ig.MESES[a_.month - 1][:3]} – {b_.day} {ig.MESES[b_.month - 1][:3]}",
+                       "cta": ""}
+    items = list(sb["facts"]) + [end]
     for i, fc in enumerate(items):
         if dry:
             wav, vdur, words = fake_voice(fc["text"], work, i)
@@ -655,6 +747,15 @@ class Renderer:
         self.polas = [polaroid(sc["photo"], sc["credit"], 640, (-3.0, 2.5)[sc["i"] % 2]) if sc["photo"] else None
                       for sc in self.scenes]
         self.endimg = end_layer(self.sb.get("end", {}))
+        self.card = None
+        esc = self.scenes[-1]
+        if esc["fc"].get("card"):
+            cp = os.path.join(self.work, "card.png")
+            reel.end_png(esc["fc"]["card"], cp)
+            self.card = Image.open(cp).convert("RGBA")
+            qn = esc["fc"].get("q_words", 0)
+            ws = esc["words"]
+            esc["card_t"] = esc["lead"] + (ws[qn][0] if qn < len(ws) else esc["vdur"] * 0.4)
         for sc in self.scenes:
             fc = sc["fc"]
             sc["stk"] = [dict(st, t=word_time(sc, st.get("at", 0.3))) for st in fc.get("stickers", [])]
@@ -757,7 +858,11 @@ class Renderer:
                 img = img.crop((m + d, m + d * 0.5, W - m + d, H - m + d * 0.5)).resize((W, H), Image.BILINEAR)
                 break
         # titles
-        if end:
+        if end and self.card is not None and lt >= sc["card_t"]:
+            k = min(1.0, (lt - sc["card_t"]) / 0.3)
+            lay = self.card if k >= 1 else Image.blend(Image.new("RGBA", (W, H), (0, 0, 0, 0)), self.card, k)
+            img.alpha_composite(lay)
+        elif end:
             img.alpha_composite(self.titles[0])
             ta = lt - 0.6
             if ta > 0:
@@ -840,8 +945,11 @@ def render(rid, dry=False):
         elif sc.get("loc"):
             sfx.append((sc["t0"] + sc["fly"] - 0.1, "pop", 0.28))
             sfx.append((sc["t0"] + sc["fly"] + 0.15, "pop", 0.22))
-        else:
+        elif sc["fc"].get("end"):
             sfx.append((sc["t0"] + 0.6, "chime", 0.3))
+            if sc.get("card_t") is not None:
+                sfx.append((sc["t0"] + sc["card_t"], "whoosh", 0.2))
+                sfx.append((sc["t0"] + sc["card_t"] + 1.3, "coin", 0.28))
     if subs:   # no caption gaps between scenes
         for i in range(len(subs) - 1):
             s, e, txt, hi = subs[i]
@@ -873,6 +981,14 @@ def render(rid, dry=False):
         cap = cap.replace("PHOTO_CREDITS", "; ".join(f"{v['author']} ({v['license']})" for _, v in sorted(cr.items())))
     with open(os.path.join(base, "caption.txt"), "w") as f:
         f.write(cap + "\n")
+    if os.path.exists(os.path.join(base, "plan.json")):      # daily fact Reel: reel.py publish reads these
+        sbp = os.path.join(base, "storyboard.json")
+        sbj = json.load(open(sbp))
+        sbj["caption"] = cap
+        sbj.setdefault("end", {})["title"] = f"Datos de {rd.sb['city']}"
+        json.dump(sbj, open(sbp, "w"), ensure_ascii=False, indent=2)
+        import shutil
+        shutil.copy(cover, os.path.join(base, "cover_ig.jpg"))
     print(f"Fact Reel listo: {final} ({rd.total:.1f} s)")
     return final
 
@@ -883,9 +999,16 @@ if __name__ == "__main__":
     if cmd == "photos":
         photos(rid)
     elif cmd == "render":
-        b = os.path.join(ROOT, "reels", "facts", rid)
         if not dry:
             photos(rid)
+        render(rid, dry)
+    elif cmd == "all":        # daily fact Reel in one go: map data (if missing) → photos → render
+        b = fact_base(rid)
+        sb = json.load(open(os.path.join(b, "storyboard.json")))
+        if not os.path.exists(os.path.join(b, "map", "osm.json.gz")) and not sb.get("map_from"):
+            import factmap_fetch
+            factmap_fetch.main(rid, sb["place"], sb.get("osm_rel"))
+        photos(rid)
         render(rid, dry)
     elif cmd == "frame":
         Renderer(rid, dry).frame(float(sys.argv[3])).save(sys.argv[4], quality=88)
