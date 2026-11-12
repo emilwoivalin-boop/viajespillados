@@ -398,7 +398,7 @@ def end_layer(e):
     f1 = ig.fit_font(d, e.get("line1", ""), "Black", 84, W - 140)
     f2 = ig.fit_font(d, e.get("line2", ""), "ExtraBold", 50, W - 160)
     y = 470
-    outlined_text(img, (W // 2, y), e.get("line1", ""), f1, YELLOW, (0, 0, 0), 8)
+    outlined_text(img, (W // 2, y), e.get("line1", ""), f1, (0, 0, 0), (255, 255, 255), 8)
     if e.get("line2"):
         tw = d.textlength(e["line2"], font=f2)
         d.rounded_rectangle((W / 2 - tw / 2 - 34, y + 80, W / 2 + tw / 2 + 34, y + 160), 40, fill=(0, 0, 0, 220))
@@ -596,7 +596,7 @@ def plan(rid, dry=False):
         ccx, ccy = (cb[0] + cb[2]) / 2, (cb[1] + cb[3]) / 2
         cw = max((cb[2] - cb[0]) / k * 1.6, (cb[3] - cb[1]) / k * 1.6 * W / 1300)
         intro = [Cam(ccx, ccy, sb.get("continent_view", 3.2e6), 1010), Cam(ccx, ccy, cw, 1010), city]
-    voice, rate = sb.get("voice", "en-US-BrianNeural"), sb.get("rate", "+10%")
+    voice, rate = sb.get("voice", "en-US-BrianNeural"), sb.get("rate", "+35%")
 
     scenes, t = [], 0.0
     items = list(sb["facts"]) + [dict(sb.get("end", {}), end=True)]
