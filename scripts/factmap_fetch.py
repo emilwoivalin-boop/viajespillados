@@ -98,14 +98,15 @@ def find_city(query):
     hit = r.json()[0]
     lat, lon = float(hit["lat"]), float(hit["lon"])
     print("nominatim", query, "→", hit.get("display_name"), lat, lon, hit.get("osm_type"), hit.get("osm_id"))
-    if hit.get("osm_type") == "relation" and hit.get("class") == "boundary":
+    if hit.get("osm_type") == "relation":       # a city boundary, an island…: use it as the outline
         return int(hit["osm_id"]), lat, lon
     rels = q(f'[out:json][timeout:120];is_in({lat},{lon})->.a;'
-             f'rel(pivot.a)["boundary"="administrative"]["admin_level"~"^(6|7|8)$"];out tags;')
+             f'rel(pivot.a)["boundary"="administrative"]["admin_level"~"^([4-9]|10)$"];out tags;')
     if not rels:
         raise SystemExit(f"no administrative boundary around {query}")
-    rels.sort(key=lambda e: -int(e["tags"].get("admin_level", 0)))
-    best = rels[0]
+    lv = lambda e: int(e["tags"].get("admin_level", 0))
+    city = sorted([e for e in rels if lv(e) <= 8], key=lambda e: -lv(e)) or sorted(rels, key=lv)
+    best = city[0]
     print("boundary", best["id"], best["tags"].get("name"), "admin_level", best["tags"].get("admin_level"))
     return best["id"], lat, lon
 
