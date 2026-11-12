@@ -1,0 +1,55 @@
+name: Fact Reel – mapa + datos curiosos
+
+# Fact Reels ("Did you know…", map + photos + stick man). fetch = OpenStreetMap data for the map;
+# render = build reels/facts/<id>/reel.mp4 from storyboard.json (voice needs the internet, so it runs here).
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [fetch, render]
+        default: render
+      id:
+        required: true
+        description: "Folder in reels/facts/ (e.g. amsterdam-en)"
+      args:
+        required: false
+        default: ""
+        description: "fetch: city boundary name | admin_level | centre bbox s,w,n,e"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: factreel-${{ github.event.inputs.id }}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Dependencies
+        run: |
+          which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          pip install --quiet pillow requests edge-tts numpy
+      - name: Git
+        run: |
+          git config user.name "viajespillados-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Fetch map data
+        if: github.event.inputs.mode == 'fetch'
+        run: |
+          IFS='|' read -r NAME LEVEL CENTRE <<< "${{ github.event.inputs.args }}"
+          python scripts/factmap_fetch.py "${{ github.event.inputs.id }}" "$NAME" "${LEVEL:-8}" $CENTRE
+      - name: Render
+        if: github.event.inputs.mode == 'render'
+        run: python scripts/factreel.py render "${{ github.event.inputs.id }}"
+      - name: Commit
+        run: |
+          git add -A reels/facts
+          git commit -m "Fact Reel ${{ github.event.inputs.mode }}: ${{ github.event.inputs.id }}" || exit 0
+          for i in 1 2 3 4; do git pull --rebase && git push && exit 0; sleep 5; done; exit 1
