@@ -496,6 +496,12 @@ def word_time(sc, key):
     for a, b, w in sc["words"]:
         if re.sub(r"[^\w]", "", w.lower()).startswith(k):
             return sc["lead"] + a
+    # numbers are often spoken as several words ("twelve seventy-five"): use the position in the text instead
+    toks = [re.sub(r"[^\w]", "", t.lower()) for t in sc["fc"]["text"].split()]
+    idx = next((i for i, t in enumerate(toks) if t.startswith(k)), None)
+    if idx is not None and sc["words"]:
+        j = min(len(sc["words"]) - 1, round(idx * len(sc["words"]) / max(1, len(toks))))
+        return sc["lead"] + sc["words"][j][0]
     return sc["lead"] + 0.4
 
 
