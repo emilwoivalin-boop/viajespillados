@@ -630,26 +630,35 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                     pen.circle(end, size * 0.022, CORAL, DARK, 2)
             head(pen, hc, size * 0.15, 0, t, mood="laugh")
         elif action == "knock":
-            # knocks on the screen glass: fist comes towards the viewer, two knocks every KNOCK_PERIOD
-            cyc = (t - KNOCK_FIRST) % KNOCK_PERIOD if t >= KNOCK_FIRST - 0.3 else -1
+            # knocks ONCE (knock-knock) on the screen glass with the tip of the pointer, then goes back to teaching
+            cyc = t - KNOCK_FIRST
             near = 0.0
             for k0 in (0.0, KNOCK_GAP):
                 dt = cyc - k0
-                if -0.18 < dt < 0.14:
-                    near = max(near, 1 - abs(dt) / (0.18 if dt < 0 else 0.14))
+                if -0.16 < dt < 0.12:
+                    near = max(near, 1 - abs(dt) / (0.16 if dt < 0 else 0.12))
+            ready = smooth(min(1.0, max(0.0, (cyc + 0.45) / 0.3))) * (1 - smooth(min(1.0, max(0.0, (cyc - KNOCK_GAP - 0.25) / 0.35))))
             shadow(pen, x, feet + size * 0.02, size * 0.2)
+            ang = POINT_AT + (150 - POINT_AT) * ready - 25 * near
             hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-8, 3), (8, 3)],
-                                  [(-30, 40), (118 - 18 * near, 95 - 40 * near)], tilt=0.0)
-            fr = size * (0.06 + 0.09 * near)
-            fc = (hf[0] + facing * size * 0.04 * near, hf[1] - size * 0.03 * near)
-            pen.circle(fc, fr, WHITE, DARK, max(3, size * 0.02))
-            if near > 0.85:
-                for ang in range(0, 360, 45):
-                    a = rad(ang)
-                    r0, r1 = fr * 1.35, fr * 1.9
-                    pen.line((fc[0] + math.sin(a) * r0, fc[1] + math.cos(a) * r0),
-                             (fc[0] + math.sin(a) * r1, fc[1] + math.cos(a) * r1), DARK, max(3, size * 0.014))
-            head(pen, hc, size * 0.15, 0, t, mood="wow" if near > 0.3 else "smile")
+                                  [(-38, 75), (ang + 8 - 30 * ready, -12 + 10 * ready)])
+            a = rad(ang)
+            L = size * 0.5 * (1 - 0.5 * near)                     # foreshortened: the tip comes at the viewer
+            tip = (hf[0] + facing * math.sin(a) * L, hf[1] + math.cos(a) * L)
+            pen.stroke(hf, tip, width=size * (0.022 + 0.03 * near), color=(132, 86, 44, 255), outline=DARK)
+            pen.circle(tip, size * (0.022 + 0.06 * near), CORAL, DARK, max(2, size * 0.01))
+            if near > 0.8:                                         # glass hit: ring + little cracks
+                rr = size * 0.15
+                pen.arc((tip[0] - rr, tip[1] - rr, tip[0] + rr, tip[1] + rr), 0, 360, (255, 255, 255, 230), max(3, size * 0.014))
+                for k, ang2 in enumerate(range(15, 375, 60)):
+                    a2 = rad(ang2)
+                    r0, r1 = rr * 1.15, rr * (1.6 + 0.25 * (k % 2))
+                    mid = (tip[0] + math.sin(a2 + 0.15) * (r0 + r1) / 2, tip[1] + math.cos(a2 + 0.15) * (r0 + r1) / 2)
+                    pen.stroke((tip[0] + math.sin(a2) * r0, tip[1] + math.cos(a2) * r0), mid,
+                               (tip[0] + math.sin(a2) * r1, tip[1] + math.cos(a2) * r1),
+                               width=max(3, size * 0.011), color=(255, 255, 255, 235), outline=DARK)
+            talk = (math.sin(t * 2 * math.pi * 3.1) + 0.4 * math.sin(t * 2 * math.pi * 4.7)) > 0.25
+            head(pen, hc, size * 0.15, 0, t, mood="wow" if (near > 0.2 or talk) else "smile")
         elif action == "tap":
             # taps the pointer on the map in front of him
             cyc = (t % 0.9) / 0.9

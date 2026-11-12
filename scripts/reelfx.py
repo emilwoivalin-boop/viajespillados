@@ -257,8 +257,8 @@ def synth(kind, dur=None):
         n = int(RATE * 0.16)
         for i in range(n):
             t = i / RATE
-            v = (math.sin(2 * math.pi * 190 * t) * 0.9 + math.sin(2 * math.pi * 520 * t) * 0.4 +
-                 rnd.uniform(-1, 1) * 0.35 * math.exp(-t * 120)) * math.exp(-t * 38)
+            v = (math.sin(2 * math.pi * 210 * t) * 0.7 + math.sin(2 * math.pi * 2350 * t) * 0.45 * math.exp(-t * 60) +
+                 rnd.uniform(-1, 1) * 0.4 * math.exp(-t * 140)) * math.exp(-t * 34)
             out.append(v * 0.9)
         return out
     if kind == "tick":                      # pointer tapping the map

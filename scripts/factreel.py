@@ -743,6 +743,13 @@ class Renderer:
         band = self.fig_frame(sc, int(lt * FPS))
         if band:
             img.alpha_composite(band[0], band[1])
+        # screen shake on a knock on the glass
+        for kt, kind, _ in sc.setdefault("_moves", move_sfx(sc)):
+            if kind == "knock" and 0 <= lt - kt < 0.14:
+                d = 9 if int((lt - kt) * 60) % 2 == 0 else -9
+                m = 14
+                img = img.crop((m + d, m + d * 0.5, W - m + d, H - m + d * 0.5)).resize((W, H), Image.BILINEAR)
+                break
         # titles
         if end:
             img.alpha_composite(self.titles[0])
@@ -764,11 +771,9 @@ def move_sfx(sc):
         t0 = b.get("t", 0)
         t1 = beats[k + 1].get("t", sc["dur"]) if k + 1 < len(beats) else sc["dur"]
         act = b.get("action", "teach")
-        if act == "knock":
+        if act == "knock":                       # once per beat
             c = t0 + stickman.KNOCK_FIRST
-            while c < t1 - 0.1:
-                out += [(c, "knock", 0.5), (c + stickman.KNOCK_GAP, "knock", 0.45)]
-                c += stickman.KNOCK_PERIOD
+            out += [(c, "knock", 0.6), (c + stickman.KNOCK_GAP, "knock", 0.55)]
         elif act == "tap":
             c = t0 + 0.45
             while c < t1:
