@@ -27,7 +27,21 @@
         "drumroll": false,
         "sfx": "ding"
       },
-      "source": "https://en.wikipedia.org/wiki/History_of_Amsterdam"
+      "source": "https://en.wikipedia.org/wiki/History_of_Amsterdam",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      }
     },
     {
       "text": "Amsterdam's Royal Palace stands on 13,659 wooden poles, driven deep into the swampy ground in the 1600s.",
@@ -36,7 +50,19 @@
       "view": 1100,
       "label": "Royal Palace",
       "photo": "File:Palacio Real, Ámsterdam, Países Bajos, 2016-05-30, DD 07-09 HDR.jpg",
-      "source": "https://en.wikipedia.org/wiki/Royal_Palace_of_Amsterdam"
+      "source": "https://en.wikipedia.org/wiki/Royal_Palace_of_Amsterdam",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      }
     },
     {
       "text": "People here own around 847,000 bicycles. That's almost one bike for every person in the city!",
@@ -56,7 +82,19 @@
         "at": "847,000",
         "y": 0.28
       },
-      "source": "https://en.wikipedia.org/wiki/Cycling_in_Amsterdam (CBS, 2015)"
+      "source": "https://en.wikipedia.org/wiki/Cycling_in_Amsterdam (CBS, 2015)",
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.2
+          }
+        ]
+      }
     },
     {
       "text": "The city has more than 100 kilometres of canals and about 1,500 bridges, and its 17th-century canal ring is a UNESCO World Heritage Site.",
@@ -65,7 +103,19 @@
       "view": 1300,
       "label": "Herengracht",
       "photo": "File:Herengracht, Amsterdam in the Blue Hour.jpg",
-      "source": "https://en.wikipedia.org/wiki/Canals_of_Amsterdam"
+      "source": "https://en.wikipedia.org/wiki/Canals_of_Amsterdam",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach",
+            "t": 0
+          },
+          {
+            "action": "knock",
+            "t": 3.2
+          }
+        ]
+      }
     },
     {
       "text": "Amsterdam is the capital of the Netherlands, but the government and parliament have been in The Hague since 1588.",
@@ -97,7 +147,19 @@
         "drumroll": false,
         "sfx": "ding"
       },
-      "source": "https://en.wikipedia.org/wiki/Capital_of_the_Netherlands"
+      "source": "https://en.wikipedia.org/wiki/Capital_of_the_Netherlands",
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.5
+          }
+        ]
+      }
     },
     {
       "text": "Behind a moving bookcase at Prinsengracht 263, Anne Frank and seven others hid for more than two years during the Second World War.",
@@ -106,7 +168,15 @@
       "view": 1100,
       "label": "Anne Frank House",
       "photo": "File:Amsterdam (NL), Anne-Frank-Huis -- 2015 -- 7185.jpg",
-      "source": "https://www.annefrank.org/en/about-us/how-it-all-began/"
+      "source": "https://www.annefrank.org/en/about-us/how-it-all-began/",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach",
+            "t": 0
+          }
+        ]
+      }
     },
     {
       "text": "And about a quarter of the Netherlands lies below sea level. Amsterdam itself sits about two metres under it!",
@@ -130,7 +200,25 @@
         "drumroll": true,
         "sfx": "ding"
       },
-      "source": "https://en.wikipedia.org/wiki/Geography_of_the_Netherlands; Amsterdam infobox elevation −2 m"
+      "source": "https://en.wikipedia.org/wiki/Geography_of_the_Netherlands; Amsterdam infobox elevation −2 m",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": 0.17,
+            "x1": 0.27,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.3
+          },
+          {
+            "action": "knock",
+            "t": 4.0
+          }
+        ]
+      }
     }
   ],
   "end": {

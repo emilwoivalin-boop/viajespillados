@@ -755,6 +755,35 @@ class Renderer:
         return img.convert("RGB")
 
 
+def move_sfx(sc):
+    """Sounds for the stick man's moves (knocks, pointer taps, baton swings), scene-relative."""
+    st = sc["fc"].get("stick", {})
+    beats = st.get("beats") or [dict(st, t=0)]
+    out = []
+    for k, b in enumerate(beats):
+        t0 = b.get("t", 0)
+        t1 = beats[k + 1].get("t", sc["dur"]) if k + 1 < len(beats) else sc["dur"]
+        act = b.get("action", "teach")
+        if act == "knock":
+            c = t0 + stickman.KNOCK_FIRST
+            while c < t1 - 0.1:
+                out += [(c, "knock", 0.5), (c + stickman.KNOCK_GAP, "knock", 0.45)]
+                c += stickman.KNOCK_PERIOD
+        elif act == "tap":
+            c = t0 + 0.45
+            while c < t1:
+                out.append((c, "tick", 0.35))
+                c += 0.9
+        elif act == "swing":
+            c = t0 + 0.2
+            while c < t1:
+                out.append((c, "whoosh", 0.07))
+                c += 0.8
+        elif act == "celebrate":
+            out.append((t0 + 0.1, "boing", 0.2))
+    return out
+
+
 def render(rid, dry=False):
     rd = Renderer(rid, dry)
     work, base = rd.work, rd.base
@@ -793,6 +822,7 @@ def render(rid, dry=False):
             if st.get("drumroll", True) and st["t"] > 0.85:
                 sfx.append((sc["t0"] + st["t"] - 0.8, "drumroll", 0.22))
             sfx.append((sc["t0"] + st["t"], st.get("sfx", "ding"), 0.3))
+        sfx += [(sc["t0"] + tt, kind, g) for tt, kind, g in move_sfx(sc)]
         if sc.get("intro"):
             sfx.append((sc["t0"] + INTRO_HOLD, "whoosh", 0.2))
             sfx.append((sc["t0"] + 2 * INTRO_HOLD + INTRO_FLY + 0.2, "whoosh", 0.2))

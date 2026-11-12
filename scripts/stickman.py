@@ -438,6 +438,7 @@ def step_times(n, fps, x0, x1, size, feet0=0, feet1=0, speed=1.0):
 
 
 # ---------------------------------------------------------------- main generator
+KNOCK_FIRST, KNOCK_PERIOD, KNOCK_GAP = 0.5, 2.6, 0.24   # knock: timing (s) – factreel adds the sound
 POINT_AT = 118     # teach: pointer angle from straight down (degrees, towards facing)
 
 
@@ -607,6 +608,63 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                 ph_ = (t * 0.45 + k / 3) % 1
                 note(pen, x + facing * size * (0.35 + 0.15 * k) + math.sin(t * 3 + k) * size * 0.03,
                      feet - size * (1.0 + ph_ * 0.45), size * 0.05, int(255 * (1 - ph_)))
+        elif action == "teach_walk":
+            # walks with the pointer resting on his shoulder
+            legs, arms, bob = walk_pose(phase, amp)
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, legs, (arms[0], (150, -40)), bob=bob * size)
+            a = rad(200)
+            tip = (hf[0] + facing * math.sin(a) * size * 0.5, hf[1] + math.cos(a) * size * 0.5)
+            pen.stroke(hf, tip, width=size * 0.022, color=(132, 86, 44, 255), outline=DARK)
+            pen.circle(tip, size * 0.022, CORAL, DARK, 2)
+        elif action == "swing":
+            # twirls the pointer like a baton over his head, facing the viewer
+            spin = t * 360 * 1.25
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-8, 3), (8, 3)], [(-30, 40), (150, 10)])
+            for sgn in (1, -1):
+                a = rad(spin + (0 if sgn == 1 else 180))
+                end = (hf[0] + math.sin(a) * size * 0.28, hf[1] + math.cos(a) * size * 0.28)
+                pen.stroke(hf, end, width=size * 0.022, color=(132, 86, 44, 255), outline=DARK)
+                if sgn == 1:
+                    pen.circle(end, size * 0.022, CORAL, DARK, 2)
+            head(pen, hc, size * 0.15, 0, t, mood="laugh")
+        elif action == "knock":
+            # knocks on the screen glass: fist comes towards the viewer, two knocks every KNOCK_PERIOD
+            cyc = (t - KNOCK_FIRST) % KNOCK_PERIOD if t >= KNOCK_FIRST - 0.3 else -1
+            near = 0.0
+            for k0 in (0.0, KNOCK_GAP):
+                dt = cyc - k0
+                if -0.18 < dt < 0.14:
+                    near = max(near, 1 - abs(dt) / (0.18 if dt < 0 else 0.14))
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-8, 3), (8, 3)],
+                                  [(-30, 40), (118 - 18 * near, 95 - 40 * near)], tilt=0.0)
+            fr = size * (0.06 + 0.09 * near)
+            fc = (hf[0] + facing * size * 0.04 * near, hf[1] - size * 0.03 * near)
+            pen.circle(fc, fr, WHITE, DARK, max(3, size * 0.02))
+            if near > 0.85:
+                for ang in range(0, 360, 45):
+                    a = rad(ang)
+                    r0, r1 = fr * 1.35, fr * 1.9
+                    pen.line((fc[0] + math.sin(a) * r0, fc[1] + math.cos(a) * r0),
+                             (fc[0] + math.sin(a) * r1, fc[1] + math.cos(a) * r1), DARK, max(3, size * 0.014))
+            head(pen, hc, size * 0.15, 0, t, mood="wow" if near > 0.3 else "smile")
+        elif action == "tap":
+            # taps the pointer on the map in front of him
+            cyc = (t % 0.9) / 0.9
+            down = math.exp(-((cyc - 0.5) / 0.12) ** 2)
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-8, 3), (8, 3)],
+                                  [(-38, 70), (48 + 18 * (1 - down), -12)])
+            a = rad(28 + 26 * (1 - down))
+            tip = (hf[0] + facing * math.sin(a) * size * 0.5, hf[1] + math.cos(a) * size * 0.5)
+            pen.stroke(hf, tip, width=size * 0.022, color=(132, 86, 44, 255), outline=DARK)
+            pen.circle(tip, size * 0.022, CORAL, DARK, 2)
+            if down > 0.8:
+                pen.arc((tip[0] - size * 0.09, tip[1] - size * 0.025, tip[0] + size * 0.09, tip[1] + size * 0.035),
+                        0, 360, (255, 90, 78, 200), max(3, size * 0.012))
+            head(pen, hc, size * 0.15, 0, t, mood="smile")
         elif action == "teach":
             # lecturer facing the viewer: glasses, pointer stick in the front hand aimed at the map,
             # the other hand explaining, mouth moving while he talks

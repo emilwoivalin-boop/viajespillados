@@ -253,6 +253,20 @@ def synth(kind, dur=None):
             hit = rnd.uniform(-1, 1) * math.exp(-ph * 9) * (0.25 + 0.6 * t / 0.8)
             out.append(hit)
         return out
+    if kind == "knock":                     # knuckle on glass/wood: short hollow thump
+        n = int(RATE * 0.16)
+        for i in range(n):
+            t = i / RATE
+            v = (math.sin(2 * math.pi * 190 * t) * 0.9 + math.sin(2 * math.pi * 520 * t) * 0.4 +
+                 rnd.uniform(-1, 1) * 0.35 * math.exp(-t * 120)) * math.exp(-t * 38)
+            out.append(v * 0.9)
+        return out
+    if kind == "tick":                      # pointer tapping the map
+        n = int(RATE * 0.06)
+        for i in range(n):
+            t = i / RATE
+            out.append((math.sin(2 * math.pi * 1800 * t) * 0.5 + rnd.uniform(-1, 1) * 0.5) * math.exp(-t * 90))
+        return out
     if kind == "ding":                      # bright quiz "ding" for a big number
         n = int(RATE * 0.9)
         for i in range(n):
