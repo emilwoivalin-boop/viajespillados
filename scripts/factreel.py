@@ -50,6 +50,9 @@ LINE = (255, 92, 72)
 YELLOW = (255, 214, 0)
 NAVY = (20, 34, 59)
 
+LANG = {"en": {"fact": "FACT", "photo": "Photo", "map": "Map © OpenStreetMap contributors"},
+        "es": {"fact": "DATO", "photo": "Foto", "map": "Mapa © colaboradores de OpenStreetMap"}}
+TXT = dict(LANG["en"])
 FLY_FIRST, FLY = 1.9, 1.3          # camera flight at the start of a scene (s)
 INTRO_HOLD, INTRO_FLY = 0.55, 1.5  # continent → country → city intro
 INTRO_T = 3 * INTRO_HOLD + 2 * INTRO_FLY + 0.2 - INTRO_HOLD
@@ -333,12 +336,12 @@ def title_layer(city, n, total):
     f = ig.fit_font(d, city.upper(), "Black", 112, W - 120)
     outlined_text(img, (W // 2, 175), city.upper(), f, YELLOW, (0, 0, 0), 9)
     if n:
-        lab = f"FACT {n}/{total}"
+        lab = f"{TXT['fact']} {n}/{total}"
         f2 = font("ExtraBold", 40)
         tw = d.textlength(lab, font=f2)
         d.rounded_rectangle((W / 2 - tw / 2 - 26, 255, W / 2 + tw / 2 + 26, 315), 30, fill=(0, 0, 0, 215))
         d.text((W / 2, 286), lab, font=f2, fill=(255, 255, 255), anchor="mm")
-    d.text((W - 24, H - 18), "Map © OpenStreetMap contributors", font=font("SemiBold", 22),
+    d.text((W - 24, H - 18), TXT["map"], font=font("SemiBold", 22),
            fill=(40, 40, 40, 170), anchor="rs")
     return img
 
@@ -477,14 +480,15 @@ def stat_img(big, small):
 
 
 def count_text(big, p):
-    """'847,000' at progress p → '423,500' (keeps prefix/suffix and thousands separators)."""
+    """'847,000' / '847.000' at progress p → '423,500' / '423.500' (keeps prefix/suffix and the thousands separator)."""
     m = re.search(r"\d[\d,\.]*", big)
     if not m or p >= 1:
         return big
     num = m.group(0)
-    v = float(num.replace(",", ""))
+    sep = "," if "," in num else ("." if re.fullmatch(r"\d{1,3}(\.\d{3})+", num) else "")
+    v = float(re.sub(r"\D", "", num)) if sep else float(num)
     cur = v * smooth(p)
-    txt = f"{int(round(cur)):,}" if "," in num else str(int(round(cur)))
+    txt = f"{int(round(cur)):,}".replace(",", sep) if sep else str(int(round(cur)))
     return big[:m.start()] + txt + big[m.end():]
 
 
@@ -581,7 +585,9 @@ def plan(rid, dry=False):
     sb = json.load(open(os.path.join(base, "storyboard.json")))
     work = os.path.join("/tmp", "factreel-" + rid)
     os.makedirs(work, exist_ok=True)
-    m = load_map(base, sb.get("country"))
+    TXT.update(LANG.get(sb.get("lang", "en"), LANG["en"]))
+    mbase = os.path.join(ROOT, "reels", "facts", sb["map_from"]) if sb.get("map_from") else base
+    m = load_map(mbase, sb.get("country"))
     credits = json.load(open(os.path.join(base, "img", "credits.json"))) if os.path.exists(
         os.path.join(base, "img", "credits.json")) else {}
     bb = m["boundary"].bb[0]
@@ -623,7 +629,7 @@ def plan(rid, dry=False):
             cam = Cam(float(x), float(y), fc.get("view", 1100), 1130)
         ph = os.path.join(base, "img", f"{i}.jpg")
         cr = credits.get(str(i), {})
-        credit = f"Photo: {cr.get('author', '')} · {cr.get('license', '')}" if cr else ""
+        credit = f"{TXT['photo']}: {cr.get('author', '')} · {cr.get('license', '')}" if cr else ""
         scenes.append({"i": i, "t0": t, "dur": dur, "lead": lead, "fly": fly_t, "cam": cam, "fc": fc,
                        "wav": wav, "vdur": vdur, "words": words,
                        "photo": ph if os.path.exists(ph) and "lat" in fc else None, "credit": credit,

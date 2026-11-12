@@ -1,0 +1,229 @@
+{
+  "id": "amsterdam-es",
+  "lang": "es",
+  "city": "Ámsterdam",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "facts": [
+    {
+      "text": "¿Sabías que Ámsterdam se llama así por un dique? Su nombre antiguo, Amestelledamme, significa dique en el Amstel, y aparece por primera vez en un documento de 1275.",
+      "stickers": [
+        {
+          "emoji": "📜",
+          "x": 0.27,
+          "y": 0.36,
+          "size": 230,
+          "at": "documento",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1275",
+        "small": "primer registro escrito",
+        "at": "1275",
+        "x": 0.6,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "source": "https://en.wikipedia.org/wiki/History_of_Amsterdam",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      }
+    },
+    {
+      "text": "El Palacio Real está parado sobre 13.659 pilotes de madera, clavados en un suelo pantanoso en el siglo diecisiete.",
+      "lat": 52.3731,
+      "lon": 4.8913,
+      "view": 1100,
+      "label": "Palacio Real",
+      "photo": "File:Palacio Real, Ámsterdam, Países Bajos, 2016-05-30, DD 07-09 HDR.jpg",
+      "source": "https://en.wikipedia.org/wiki/Royal_Palace_of_Amsterdam",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "text": "La gente de aquí tiene unas 847.000 bicicletas. ¡Casi una cicla por cada persona en la ciudad!",
+      "stickers": [
+        {
+          "emoji": "🚲",
+          "x": 0.5,
+          "y": 0.47,
+          "size": 320,
+          "at": "bicicletas",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "847.000",
+        "small": "bicicletas",
+        "at": "847.000",
+        "y": 0.28
+      },
+      "source": "https://en.wikipedia.org/wiki/Cycling_in_Amsterdam (CBS, 2015)",
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.2
+          }
+        ]
+      }
+    },
+    {
+      "text": "La ciudad tiene más de 100 kilómetros de canales y unos 1.500 puentes, y su anillo de canales del siglo diecisiete es Patrimonio de la Humanidad.",
+      "lat": 52.3652,
+      "lon": 4.8911,
+      "view": 1300,
+      "label": "Herengracht",
+      "photo": "File:Herengracht, Amsterdam in the Blue Hour.jpg",
+      "source": "https://en.wikipedia.org/wiki/Canals_of_Amsterdam",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach",
+            "t": 0
+          }
+        ]
+      }
+    },
+    {
+      "text": "Ámsterdam es la capital de los Países Bajos, pero el gobierno y el parlamento están en La Haya desde 1588.",
+      "stickers": [
+        {
+          "emoji": "👑",
+          "x": 0.3,
+          "y": 0.33,
+          "size": 230,
+          "at": "capital",
+          "sfx": "tada"
+        },
+        {
+          "emoji": "🏛️",
+          "x": 0.72,
+          "y": 0.47,
+          "size": 230,
+          "at": "gobierno",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1588",
+        "small": "gobierno en La Haya",
+        "at": "1588",
+        "x": 0.42,
+        "y": 0.52,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "source": "https://en.wikipedia.org/wiki/Capital_of_the_Netherlands",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      }
+    },
+    {
+      "text": "Detrás de una estantería giratoria, en Prinsengracht 263, Ana Frank y otras siete personas se escondieron por más de dos años durante la Segunda Guerra Mundial.",
+      "lat": 52.3752,
+      "lon": 4.884,
+      "view": 1100,
+      "label": "Casa de Ana Frank",
+      "photo": "File:Amsterdam (NL), Anne-Frank-Huis -- 2015 -- 7185.jpg",
+      "source": "https://www.annefrank.org/en/about-us/how-it-all-began/",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach",
+            "t": 0
+          }
+        ]
+      }
+    },
+    {
+      "text": "Y cerca de una cuarta parte de los Países Bajos está por debajo del nivel del mar. ¡Ámsterdam queda como a dos metros por debajo!",
+      "stickers": [
+        {
+          "emoji": "🌊",
+          "x": 0.5,
+          "y": 0.47,
+          "size": 300,
+          "at": "mar",
+          "sfx": "bubbles"
+        }
+      ],
+      "stat": {
+        "big": "-2 m",
+        "small": "bajo el nivel del mar",
+        "at": "dos",
+        "y": 0.29,
+        "x": 0.42,
+        "count": false,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "source": "https://en.wikipedia.org/wiki/Geography_of_the_Netherlands; Amsterdam infobox elevation −2 m",
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": 0.17,
+            "x1": 0.27,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.3
+          }
+        ]
+      }
+    }
+  ],
+  "end": {
+    "text": "¿Cuál te sorprendió más? ¡Cuéntame en los comentarios!",
+    "line1": "¿Cuál te sorprendió más?",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    }
+  },
+  "caption": "7 datos de Ámsterdam que seguro no sabías 📍\n\n1. Su nombre significa \"dique en el Amstel\" (primer registro: 1275)\n2. El Palacio Real está sobre 13.659 pilotes de madera\n3. La gente tiene unas 847.000 ciclas\n4. Más de 100 km de canales y unos 1.500 puentes\n5. Es la capital, pero el gobierno está en La Haya\n6. La Casa de Ana Frank, en Prinsengracht 263\n7. La ciudad queda como a 2 m bajo el nivel del mar\n\n¿Cuál te sorprendió más? ✈️\n\nMapa © colaboradores de OpenStreetMap. Fotos de Wikimedia Commons: PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)\n\n#amsterdam #paisesbajos #datoscuriosos #viajes #viajespillados #europa",
+  "country": "NLD",
+  "map_from": "amsterdam-en"
+}
