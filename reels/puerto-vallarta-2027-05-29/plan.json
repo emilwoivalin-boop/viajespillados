@@ -1,0 +1,79 @@
+{
+  "id": "puerto-vallarta-2027-05-29",
+  "offer": {
+    "destino": "Puerto Vallarta",
+    "region": "Norteamérica",
+    "aerolinea": "Viva",
+    "precio": 932533,
+    "escalas": "1 escala",
+    "ida": "2027-05-29",
+    "vuelta": "2027-06-06",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20PVR%20from%20BOG%20on%202027-05-29%20through%202027-06-06&curr=COP&hl=es-419",
+    "sheet_row": 59,
+    "escala_larga": "Ciudad de México"
+  },
+  "hora_salida": null,
+  "teaser": "el Pacífico",
+  "buddy": false,
+  "ocasion": {
+    "nombre": "Puente festivo de Corpus Christi (lunes 31 de mayo)",
+    "fechas": "2027-05-29/2027-05-31",
+    "fuente": "fecha fija (Price log, pestaña Holidays)"
+  },
+  "que_hacer": "Puente festivo en Puerto Vallarta. Pasea por el malecón, haz un tour en barco por la bahía de Banderas y escápate al pueblo surfero de Sayulita.",
+  "end_image": "dia1",
+  "lines": {
+    "vuelo": "Vuelo con una escala rumbo al norte… ¿y abajo? Montañas verdes cayendo directo al océano Pacífico.",
+    "llegada": "¡Bienvenido a Puerto Vallarta en pleno puente festivo! Calorcito, palmeras y la sierra verde pegada al mar.",
+    "dia1": "Día uno: caminas el malecón al atardecer, entre esculturas de bronce y con el mar de frente.",
+    "dia2": "Día dos: tour en barco por la bahía de Banderas hasta Los Arcos, y snorkel entre peces de colores.",
+    "dia3": "Día tres: te escapas a Sayulita, pueblo surfero con banderitas de colores colgando sobre las calles.",
+    "dia4": "Día cuatro: playa Los Muertos en la Zona Romántica, con su muelle en forma de vela.",
+    "dia5": "Día cinco: lancha hasta Yelapa, un pueblito sin carreteras, con una cascada escondida en la selva."
+  },
+  "caption_es": {
+    "hook": "¿Puerto Vallarta en 5 días aprovechando el puente festivo? Pilla este plan, parce.",
+    "intro": "Playa, sierra verde pegada al mar y pueblitos con alma surfera.",
+    "pais": "México",
+    "dias": [
+      {
+        "titulo": "Malecón",
+        "texto": "camínalo al atardecer, entre esculturas de bronce y con el mar al lado."
+      },
+      {
+        "titulo": "Bahía de Banderas",
+        "texto": "tour en barco hasta Los Arcos y snorkel en aguas cristalinas."
+      },
+      {
+        "titulo": "Sayulita",
+        "texto": "pueblo surfero con calles llenas de banderitas de colores."
+      },
+      {
+        "titulo": "Zona Romántica",
+        "texto": "playa Los Muertos y su muelle en forma de vela."
+      },
+      {
+        "titulo": "Yelapa",
+        "texto": "llegas en lancha a un pueblito sin carreteras y caminas hasta la cascada."
+      }
+    ],
+    "dato": "la película «La noche de la iguana» (1964) se filmó en Mismaloya, al sur de Puerto Vallarta, y puso al pueblo en el mapa",
+    "para": "te gustan la playa, el mar y los pueblitos con buena onda",
+    "no_para": "quieres ver ballenas: su temporada es de diciembre a marzo",
+    "hashtags": [
+      "#puertovallarta",
+      "#mexico",
+      "#quehacerenpuertovallarta"
+    ]
+  },
+  "prompts": {
+    "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane, not a biplane) flying, and far below a generic coastline of green jungle-covered mountains meeting a deep blue ocean, a long curved sandy shore, no city, no buildings, no landmark, sunny blue sky. Keep the lower half open with the green mountains and the blue ocean clearly visible. The top third is calm blue sky.",
+    "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small modern airport terminal with a light flat roof and large glass windows, tall green palm trees and pink bougainvillea flowers in front of it, green jungle-covered mountains in the background, hot sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
+    "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A seaside promenade (malecón) in a Mexican beach town at sunset: a wide paved walkway along a low sea wall, the calm ocean on the right with an orange and pink sunset sky, a few dark bronze abstract sculptures standing on the walkway at the sides, palm trees, white houses with red tile roofs and green mountains on the left. The wide paved walkway in the lower third of the picture is clearly visible and empty.",
+    "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A sunny tropical bay with calm turquoise and blue water: three big rocky islets with natural stone arches rising out of the sea in the middle distance, green jungle mountains along the shore behind, a white wooden tour boat floating near the rocks, colourful tropical fish visible under the clear water in the lower part. The open clear water in the lower half of the picture is wide and empty.",
+    "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A colourful street in a small Mexican surf town on a sunny day: low houses painted in bright pink, yellow and turquoise, rows of small colourful paper flags (papel picado) strung across the street overhead, a few surfboards leaning against a wall, palm trees, the beach and blue sea at the end of the street, blue sky. The sandy cobbled street in the lower third of the picture is wide, clearly visible and empty.",
+    "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A sunny city beach in Mexico: golden sand, blue sea, a long pier going out into the water with a tall white pointed spire shaped like a sail at its end, colourful beach umbrellas at the sides, green hills with white houses and red tile roofs in the background, blue sky. A wide empty stretch of sand across the lower third of the picture.",
+    "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A tall thin waterfall falling from a green jungle cliff into a small round natural pool, big tropical leaves and palm trees around it, large flat rocks at the edge of the pool, sunny blue sky above the jungle. A flat rock edge and the calm pool in the lower third of the picture are clearly visible and empty.",
+    "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A Mexican beach town on a big blue bay in bright daylight: white houses with red tile roofs climbing green jungle hills on the left, a white church tower topped by a large open crown standing among the roofs, the calm wide blue sea and a large open bright blue sky filling the middle of the picture, calm and empty. An empty golden sandy beach across the bottom fifth of the picture."
+  }
+}
