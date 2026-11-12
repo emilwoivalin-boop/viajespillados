@@ -1,0 +1,360 @@
+{
+ "id": "puerto-vallarta-2027-05-29",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "Sábado 29 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa'l Pacífico!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Vuelo con una escala rumbo al norte… ¿y abajo? Montañas verdes cayendo directo al océano Pacífico.",
+   "media": {
+    "type": "file",
+    "path": "reels/puerto-vallarta-2027-05-29/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Puerto Vallarta en pleno puente festivo! Calorcito, palmeras y la sierra verde pegada al mar.",
+   "media": {
+    "type": "file",
+    "path": "reels/puerto-vallarta-2027-05-29/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "parachute",
+      "x0": 0.42,
+      "x1": 0.42
+     },
+     {
+      "action": "celebrate",
+      "word": "festivo",
+      "mood": "laugh"
+     },
+     {
+      "action": "point",
+      "word": "sierra",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día uno: caminas el malecón al atardecer, entre esculturas de bronce y con el mar de frente.",
+   "media": {
+    "type": "file",
+    "path": "reels/puerto-vallarta-2027-05-29/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.95,
+    "size": 460,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.1,
+      "x1": 0.3,
+      "y": 0.97,
+      "y1": 0.9,
+      "size": 480,
+      "size1": 430
+     },
+     {
+      "action": "point",
+      "word": "bronce"
+     },
+     {
+      "action": "photo",
+      "word": "mar",
+      "mood": "love"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "atardecer",
+     "x": 0.86,
+     "y": 0.4,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día dos: tour en barco por la bahía de Banderas hasta Los Arcos, y snorkel entre peces de colores.",
+   "media": {
+    "type": "file",
+    "path": "reels/puerto-vallarta-2027-05-29/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.66,
+    "size": 360,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "swim",
+      "x0": 0.08,
+      "x1": 0.5
+     },
+     {
+      "action": "swim",
+      "word": "peces",
+      "x0": 0.5,
+      "x1": 0.62,
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "fish",
+     "word": "peces",
+     "x": 0.5,
+     "y": 0.86,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves",
+    "underwater"
+   ],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "bubbles",
+     "frac": 0.6
+    }
+   ],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día tres: te escapas a Sayulita, pueblo surfero con banderitas de colores colgando sobre las calles.",
+   "media": {
+    "type": "file",
+    "path": "reels/puerto-vallarta-2027-05-29/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.95,
+    "size": 460,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.12,
+      "x1": 0.4
+     },
+     {
+      "action": "point",
+      "word": "banderitas",
+      "mood": "wow"
+     },
+     {
+      "action": "selfie",
+      "word": "calles",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "colores",
+     "x": 0.5,
+     "y": 0.12,
+     "size": 180
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día cuatro: playa Los Muertos en la Zona Romántica, con su muelle en forma de vela.",
+   "media": {
+    "type": "file",
+    "path": "reels/puerto-vallarta-2027-05-29/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.55,
+    "y": 0.84,
+    "size": 420,
+    "facing": -1
+   },
+   "pops": [],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "crowd": [
+    {
+     "action": "sip",
+     "x0": 0.2,
+     "y": 0.74,
+     "size": 260,
+     "facing": 1
+    },
+    {
+     "action": "wade",
+     "x0": 0.8,
+     "y": 0.7,
+     "size": 200,
+     "facing": -1
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Día cinco: lancha hasta Yelapa, un pueblito sin carreteras, con una cascada escondida en la selva.",
+   "media": {
+    "type": "file",
+    "path": "reels/puerto-vallarta-2027-05-29/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.97,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.1,
+      "x1": 0.22
+     },
+     {
+      "action": "shrug",
+      "word": "carreteras"
+     },
+     {
+      "action": "point",
+      "word": "cascada",
+      "mood": "wow"
+     },
+     {
+      "action": "dive",
+      "word": "selva",
+      "x0": 0.22,
+      "y": 0.95,
+      "x1": 0.48,
+      "y1": 0.84,
+      "size": 420
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Viva, por solo 933 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com!",
+  "title": "9 días en Puerto Vallarta",
+  "kicker": "",
+  "airline": "Viva · 1 escala · escala larga en Ciudad de México",
+  "price": "$932.533",
+  "detail": "ida y vuelta · 29 may – 6 jun",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/puerto-vallarta-2027-05-29/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "9 días en Puerto Vallarta desde Bogotá ✈️ Puente festivo en Puerto Vallarta. Pasea por el malecón, haz un tour en barco por la bahía de Banderas y escápate al pueblo surfero de Sayulita. Ida y vuelta con Viva desde $932.533 (29 may – 6 jun). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #puertovallarta #ofertasdevuelos"
+}

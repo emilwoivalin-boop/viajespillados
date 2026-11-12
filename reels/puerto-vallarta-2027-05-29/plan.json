@@ -75,5 +75,213 @@
     "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A sunny city beach in Mexico: golden sand, blue sea, a long pier going out into the water with a tall white pointed spire shaped like a sail at its end, colourful beach umbrellas at the sides, green hills with white houses and red tile roofs in the background, blue sky. A wide empty stretch of sand across the lower third of the picture.",
     "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A tall thin waterfall falling from a green jungle cliff into a small round natural pool, big tropical leaves and palm trees around it, large flat rocks at the edge of the pool, sunny blue sky above the jungle. A flat rock edge and the calm pool in the lower third of the picture are clearly visible and empty.",
     "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A Mexican beach town on a big blue bay in bright daylight: white houses with red tile roofs climbing green jungle hills on the left, a white church tower topped by a large open crown standing among the roofs, the calm wide blue sea and a large open bright blue sky filling the middle of the picture, calm and empty. An empty golden sandy beach across the bottom fifth of the picture."
+  },
+  "scenes": {
+    "vuelo": {
+      "stick": null,
+      "pop": null,
+      "ambience": null,
+      "sfx": [
+        {
+          "kind": "engine",
+          "frac": 0.05
+        }
+      ]
+    },
+    "llegada": {
+      "stick": {
+        "y": 0.9,
+        "size": 420,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "parachute",
+            "x0": 0.42,
+            "x1": 0.42
+          },
+          {
+            "action": "celebrate",
+            "word": "festivo",
+            "mood": "laugh"
+          },
+          {
+            "action": "point",
+            "word": "sierra",
+            "mood": "wow"
+          }
+        ]
+      },
+      "pop": null,
+      "ambience": "birds"
+    },
+    "dia1": {
+      "stick": {
+        "y": 0.95,
+        "size": 460,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": -0.1,
+            "x1": 0.3,
+            "y": 0.97,
+            "y1": 0.9,
+            "size": 480,
+            "size1": 430
+          },
+          {
+            "action": "point",
+            "word": "bronce"
+          },
+          {
+            "action": "photo",
+            "word": "mar",
+            "mood": "love"
+          }
+        ]
+      },
+      "pop": {
+        "icon": "sun",
+        "word": "atardecer",
+        "x": 0.86,
+        "y": 0.4,
+        "size": 190
+      },
+      "ambience": "waves"
+    },
+    "dia2": {
+      "stick": {
+        "y": 0.66,
+        "size": 360,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "swim",
+            "x0": 0.08,
+            "x1": 0.5
+          },
+          {
+            "action": "swim",
+            "word": "peces",
+            "x0": 0.5,
+            "x1": 0.62,
+            "mood": "wow"
+          }
+        ]
+      },
+      "pop": {
+        "icon": "fish",
+        "word": "peces",
+        "x": 0.5,
+        "y": 0.86,
+        "size": 190
+      },
+      "ambience": [
+        "waves",
+        "underwater"
+      ],
+      "sfx": [
+        {
+          "kind": "bubbles",
+          "frac": 0.6
+        }
+      ]
+    },
+    "dia3": {
+      "stick": {
+        "y": 0.95,
+        "size": 460,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "run",
+            "x0": -0.12,
+            "x1": 0.4
+          },
+          {
+            "action": "point",
+            "word": "banderitas",
+            "mood": "wow"
+          },
+          {
+            "action": "selfie",
+            "word": "calles",
+            "mood": "laugh"
+          }
+        ]
+      },
+      "pop": {
+        "icon": "sparkle",
+        "word": "colores",
+        "x": 0.5,
+        "y": 0.12,
+        "size": 180
+      },
+      "ambience": "birds"
+    },
+    "dia4": {
+      "stick": {
+        "action": "relax",
+        "x0": 0.55,
+        "y": 0.84,
+        "size": 420,
+        "facing": -1
+      },
+      "crowd": [
+        {
+          "action": "sip",
+          "x0": 0.2,
+          "y": 0.74,
+          "size": 260,
+          "facing": 1
+        },
+        {
+          "action": "wade",
+          "x0": 0.8,
+          "y": 0.7,
+          "size": 200,
+          "facing": -1
+        }
+      ],
+      "pop": null,
+      "ambience": [
+        "waves",
+        "steeldrum"
+      ]
+    },
+    "dia5": {
+      "stick": {
+        "y": 0.97,
+        "size": 440,
+        "facing": 1,
+        "beats": [
+          {
+            "action": "walk",
+            "x0": -0.1,
+            "x1": 0.22
+          },
+          {
+            "action": "shrug",
+            "word": "carreteras"
+          },
+          {
+            "action": "point",
+            "word": "cascada",
+            "mood": "wow"
+          },
+          {
+            "action": "dive",
+            "word": "selva",
+            "x0": 0.22,
+            "y": 0.95,
+            "x1": 0.48,
+            "y1": 0.84,
+            "size": 420
+          }
+        ]
+      },
+      "pop": null,
+      "ambience": "birds"
+    }
   }
 }
