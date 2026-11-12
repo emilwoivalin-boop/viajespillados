@@ -428,6 +428,77 @@ def paste_scaled(fr, im, cx, cy, sc, alpha=1.0):
     fr.alpha_composite(im, (int(cx - im.width / 2), int(cy - im.height / 2)))
 
 
+# ------------------------------------------------------------------ stickers (Twemoji, CC BY 4.0)
+def emoji_code(e):
+    return "-".join(f"{ord(ch):x}" for ch in e if ord(ch) != 0xFE0F)
+
+
+_STK = {}
+
+
+def sticker_img(emoji, size):
+    key = (emoji, size)
+    if key not in _STK:
+        src = Image.open(os.path.join(ROOT, "assets", "stickers", emoji_code(emoji) + ".png")).convert("RGBA")
+        pad = int(size * 0.12)
+        im = Image.new("RGBA", (size + 2 * pad, size + 2 * pad), (0, 0, 0, 0))
+        im.alpha_composite(src.resize((size, size), Image.LANCZOS), (pad, pad))
+        a = im.split()[3]
+        border = a.filter(ImageFilter.MaxFilter(2 * (size // 22) + 1)).point(lambda v: 255 if v > 40 else 0)
+        out = Image.new("RGBA", im.size, (0, 0, 0, 0))
+        sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
+        sh.paste((0, 0, 0, 110), (0, 0), border)
+        sh = sh.filter(ImageFilter.GaussianBlur(size // 28))
+        out.alpha_composite(sh, (size // 40, size // 25))
+        white = Image.new("RGBA", im.size, (255, 255, 255, 0))
+        white.paste((255, 255, 255, 255), (0, 0), border)
+        out.alpha_composite(white)
+        out.alpha_composite(im)
+        _STK[key] = out
+    return _STK[key]
+
+
+def stat_img(big, small):
+    f1 = font("Black", 150)
+    f2 = font("ExtraBold", 46)
+    d0 = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    w1 = d0.textlength(big, font=f1)
+    if w1 > W - 120:
+        f1 = font("Black", int(150 * (W - 120) / w1))
+        w1 = d0.textlength(big, font=f1)
+    w2 = d0.textlength(small, font=f2) if small else 0
+    im = Image.new("RGBA", (int(max(w1, w2) + 120), 290), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.text((im.width / 2, 100), big, font=f1, fill=YELLOW, stroke_width=11, stroke_fill=(0, 0, 0), anchor="mm")
+    if small:
+        d.rounded_rectangle((im.width / 2 - w2 / 2 - 30, 205, im.width / 2 + w2 / 2 + 30, 275), 35, fill=(0, 0, 0, 225))
+        d.text((im.width / 2, 241), small, font=f2, fill=(255, 255, 255), anchor="mm")
+    return im
+
+
+def count_text(big, p):
+    """'847,000' at progress p → '423,500' (keeps prefix/suffix and thousands separators)."""
+    m = re.search(r"\d[\d,\.]*", big)
+    if not m or p >= 1:
+        return big
+    num = m.group(0)
+    v = float(num.replace(",", ""))
+    cur = v * smooth(p)
+    txt = f"{int(round(cur)):,}" if "," in num else str(int(round(cur)))
+    return big[:m.start()] + txt + big[m.end():]
+
+
+def word_time(sc, key):
+    """Scene-relative time of a cue: a number (s after the voice starts) or the first word starting with key."""
+    if isinstance(key, (int, float)):
+        return sc["lead"] + float(key)
+    k = re.sub(r"[^\w]", "", str(key).lower())
+    for a, b, w in sc["words"]:
+        if re.sub(r"[^\w]", "", w.lower()).startswith(k):
+            return sc["lead"] + a
+    return sc["lead"] + 0.4
+
+
 # ------------------------------------------------------------------ captions
 def ass(chunks, path):
     head = (
@@ -539,7 +610,7 @@ def plan(rid, dry=False):
             cam = Cam(city.tx, city.ty, city.w, 1010)
             dur += 1.6
         elif "lat" not in fc:
-            cam = city
+            cam = city if is_intro else Cam(city.tx, city.ty, city.w * fc.get("zoom", 0.62), 1080)
             dur = max(dur, fly_t + 0.8)
         else:
             x, y = merc(fc["lon"], fc["lat"])
@@ -572,6 +643,15 @@ class Renderer:
         self.polas = [polaroid(sc["photo"], sc["credit"], 640, (-3.0, 2.5)[sc["i"] % 2]) if sc["photo"] else None
                       for sc in self.scenes]
         self.endimg = end_layer(self.sb.get("end", {}))
+        for sc in self.scenes:
+            fc = sc["fc"]
+            sc["stk"] = [dict(st, t=word_time(sc, st.get("at", 0.3))) for st in fc.get("stickers", [])]
+            if fc.get("stat"):
+                sc["stat"] = dict(fc["stat"], t=word_time(sc, fc["stat"].get("at", 0.3)))
+                sc["stat_img"] = stat_img(fc["stat"]["big"], fc["stat"].get("small", ""))
+            if sc.get("intro"):           # cues in the intro wait for the arrival over the city
+                for st in sc["stk"] + ([sc["stat"]] if sc.get("stat") else []):
+                    st["t"] = max(st["t"], sc["fly"] + 0.2)
         self.figs = {}
         stickman.STYLE = self.sb.get("stick_style", "classic")
         stickman.POINT_AT = 132
@@ -635,6 +715,24 @@ class Renderer:
         if self.polas[sc["i"]] is not None:
             tp = lt - sc["fly"] - 0.15
             paste_scaled(img, self.polas[sc["i"]], W / 2, 640, pop_scale(tp))
+        # stickers + big number
+        if sc.get("stat"):
+            st = sc["stat"]
+            ta = lt - st["t"]
+            if ta > 0:
+                im = sc["stat_img"]
+                if st.get("count", True) and ta < 0.7:
+                    im = stat_img(count_text(st["big"], ta / 0.7), st.get("small", ""))
+                paste_scaled(img, im, W * st.get("x", 0.5), H * st.get("y", 0.31), pop_scale(ta))
+        for k, st in enumerate(sc["stk"]):
+            ta = lt - st["t"]
+            if ta <= 0:
+                continue
+            im = sticker_img(st["emoji"], st.get("size", 300))
+            ang = st.get("tilt", (-8, 7, -4)[k % 3]) + 5 * math.sin(2 * math.pi * 0.8 * ta + k)
+            im = im.rotate(ang, Image.BICUBIC, expand=True)
+            bob = 10 * math.sin(2 * math.pi * 0.6 * ta + k * 1.7)
+            paste_scaled(img, im, W * st.get("x", 0.5), H * st.get("y", 0.33) + bob, pop_scale(ta))
         # stick man
         band = self.fig_frame(sc, int(lt * FPS))
         if band:
@@ -682,6 +780,13 @@ def render(rid, dry=False):
         subs += [(s, e, txt, bool(nums.search(txt))) for s, e, txt in chunks]
         if sc["i"] > 0:
             sfx.append((sc["t0"], "whoosh", 0.22))
+        for st in sc.get("stk", []):
+            sfx.append((sc["t0"] + st["t"], st.get("sfx", "pop"), 0.35))
+        if sc.get("stat"):
+            st = sc["stat"]
+            if st.get("drumroll", True) and st["t"] > 0.85:
+                sfx.append((sc["t0"] + st["t"] - 0.8, "drumroll", 0.22))
+            sfx.append((sc["t0"] + st["t"], st.get("sfx", "ding"), 0.3))
         if sc.get("intro"):
             sfx.append((sc["t0"] + INTRO_HOLD, "whoosh", 0.2))
             sfx.append((sc["t0"] + 2 * INTRO_HOLD + INTRO_FLY + 0.2, "whoosh", 0.2))

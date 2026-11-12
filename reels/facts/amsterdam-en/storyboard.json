@@ -7,16 +7,64 @@
   "facts": [
     {
       "text": "Did you know Amsterdam is named after a dam? Its old name, Amestelledamme, means dam in the Amstel, and it first shows up in a document from 1275.",
+      "stickers": [
+        {
+          "emoji": "📜",
+          "x": 0.27,
+          "y": 0.36,
+          "size": 230,
+          "at": "document",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1275",
+        "small": "first written record",
+        "at": "1275",
+        "x": 0.6,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
       "source": "https://en.wikipedia.org/wiki/History_of_Amsterdam"
     },
     {
-      "text": "Did you know Amsterdam's Royal Palace stands on 13,659 wooden poles, driven deep into the swampy ground in the 1600s?",
+      "text": "Amsterdam's Royal Palace stands on 13,659 wooden poles, driven deep into the swampy ground in the 1600s.",
       "lat": 52.3731,
       "lon": 4.8913,
       "view": 1100,
       "label": "Royal Palace",
       "photo": "File:Palacio Real, Ámsterdam, Países Bajos, 2016-05-30, DD 07-09 HDR.jpg",
       "source": "https://en.wikipedia.org/wiki/Royal_Palace_of_Amsterdam"
+    },
+    {
+      "text": "People here own around 847,000 bicycles. That's almost one bike for every person in the city!",
+      "stickers": [
+        {
+          "emoji": "🚲",
+          "x": 0.5,
+          "y": 0.47,
+          "size": 320,
+          "at": "bicycles",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "😲",
+          "x": 0.8,
+          "y": 0.56,
+          "size": 170,
+          "at": "almost",
+          "sfx": "boing"
+        }
+      ],
+      "stat": {
+        "big": "847,000",
+        "small": "bicycles",
+        "at": "847,000",
+        "y": 0.28
+      },
+      "source": "https://en.wikipedia.org/wiki/Cycling_in_Amsterdam (CBS, 2015)"
     },
     {
       "text": "The city has more than 100 kilometres of canals and about 1,500 bridges, and its 17th-century canal ring is a UNESCO World Heritage Site.",
@@ -28,6 +76,38 @@
       "source": "https://en.wikipedia.org/wiki/Canals_of_Amsterdam"
     },
     {
+      "text": "Amsterdam is the capital of the Netherlands, but the government and parliament have been in The Hague since 1588.",
+      "stickers": [
+        {
+          "emoji": "👑",
+          "x": 0.3,
+          "y": 0.33,
+          "size": 230,
+          "at": "capital",
+          "sfx": "tada"
+        },
+        {
+          "emoji": "🏛️",
+          "x": 0.72,
+          "y": 0.47,
+          "size": 230,
+          "at": "government",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1588",
+        "small": "government in The Hague",
+        "at": "1588",
+        "x": 0.42,
+        "y": 0.52,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "source": "https://en.wikipedia.org/wiki/Capital_of_the_Netherlands"
+    },
+    {
       "text": "Behind a moving bookcase at Prinsengracht 263, Anne Frank and seven others hid for more than two years during the Second World War.",
       "lat": 52.3752,
       "lon": 4.884,
@@ -37,22 +117,36 @@
       "source": "https://www.annefrank.org/en/about-us/how-it-all-began/"
     },
     {
-      "text": "Vondelpark opened in 1865 on old marshland, and today around 10 million people visit it every year.",
-      "lat": 52.358,
-      "lon": 4.868,
-      "view": 1700,
-      "label": "Vondelpark",
-      "photo": "File:Amsterdam, Vondelpark, at the pond-2.jpg",
-      "source": "https://en.wikipedia.org/wiki/Vondelpark"
-    },
-    {
-      "text": "And under the water in front of Central Station, there's a garage for about 7,000 bicycles!",
-      "lat": 52.3772,
-      "lon": 4.8995,
-      "view": 1100,
-      "label": "Underwater bike garage",
-      "photo": "File:Fietsenstalling Stationsplein Amsterdam - Overzicht - (Q111657629).jpg",
-      "source": "https://dutchcycling.nl/knowledge/cycling-news/new-underwater-bike-parking-at-amsterdam-central-station/"
+      "text": "And about a quarter of the Netherlands lies below sea level. Amsterdam itself sits about two metres under it!",
+      "stickers": [
+        {
+          "emoji": "🌊",
+          "x": 0.5,
+          "y": 0.47,
+          "size": 300,
+          "at": "sea",
+          "sfx": "bubbles"
+        },
+        {
+          "emoji": "🤯",
+          "x": 0.8,
+          "y": 0.27,
+          "size": 170,
+          "at": "two",
+          "sfx": "whistle"
+        }
+      ],
+      "stat": {
+        "big": "-2 m",
+        "small": "below sea level",
+        "at": "two",
+        "y": 0.29,
+        "x": 0.42,
+        "count": false,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "source": "https://en.wikipedia.org/wiki/Geography_of_the_Netherlands; Amsterdam infobox elevation −2 m"
     }
   ],
   "end": {
@@ -66,6 +160,6 @@
       "size": 330
     }
   },
-  "caption": "6 things you probably didn't know about Amsterdam 📍\n\n1. The name means \"dam in the Amstel\" (first written in 1275)\n2. The Royal Palace stands on 13,659 wooden poles\n3. 100+ km of canals and about 1,500 bridges\n4. The Anne Frank House at Prinsengracht 263\n5. Vondelpark gets around 10 million visits a year\n6. An underwater garage for about 7,000 bikes\n\nWhich one surprised you? Plan your next trip with the link in bio ✈️\n\nMap © OpenStreetMap contributors. Photos from Wikimedia Commons: PHOTO_CREDITS\n\n#amsterdam #netherlands #travelfacts #didyouknow #traveltips #europetravel",
+  "caption": "7 things you probably didn't know about Amsterdam 📍\n\n1. The name means \"dam in the Amstel\" (first written in 1275)\n2. The Royal Palace stands on 13,659 wooden poles\n3. People here own around 847,000 bikes\n4. 100+ km of canals and about 1,500 bridges\n5. It's the capital, but the government sits in The Hague\n6. The Anne Frank House at Prinsengracht 263\n7. The city lies about 2 m below sea level\n\nWhich one surprised you? Plan your next trip with the link in bio ✈️\n\nMap © OpenStreetMap contributors. Photos from Wikimedia Commons: PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)\n\n#amsterdam #netherlands #travelfacts #didyouknow #traveltips #europetravel",
   "country": "NLD"
 }

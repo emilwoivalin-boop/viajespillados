@@ -243,6 +243,46 @@ def synth(kind, dur=None):
                     v += math.sin(2 * math.pi * f * (t - st)) * math.exp(-(t - st) * 14) * 0.35
             out.append(v)
         return out
+    if kind == "drumroll":                  # snare roll building up (0.8 s) – ends where the reveal lands
+        n = int(RATE * 0.8)
+        hit = 0.0
+        for i in range(n):
+            t = i / RATE
+            per = 0.045 - 0.02 * t / 0.8
+            ph = (t % per) / per
+            hit = rnd.uniform(-1, 1) * math.exp(-ph * 9) * (0.25 + 0.6 * t / 0.8)
+            out.append(hit)
+        return out
+    if kind == "ding":                      # bright quiz "ding" for a big number
+        n = int(RATE * 0.9)
+        for i in range(n):
+            t = i / RATE
+            v = (math.sin(2 * math.pi * 1568 * t) + 0.45 * math.sin(2 * math.pi * 3136 * t)
+                 + 0.2 * math.sin(2 * math.pi * 4704 * t)) * math.exp(-t * 5.5)
+            out.append(v * 0.42)
+        return out
+    if kind == "tada":                      # short fanfare chord (two hits)
+        n = int(RATE * 0.9)
+        for i in range(n):
+            t = i / RATE
+            v = 0.0
+            for st, chord in ((0.0, (523.3, 659.3, 784.0)), (0.13, (659.3, 784.0, 1046.5))):
+                if t >= st:
+                    tt = t - st
+                    for f in chord:
+                        v += (math.sin(2 * math.pi * f * tt) + 0.3 * math.sin(4 * math.pi * f * tt)) * \
+                             math.exp(-tt * (9 if st == 0 else 3.5)) * 0.16
+            out.append(v)
+        return out
+    if kind == "whistle":                   # slide whistle up – for a funny/surprising fact
+        n = int(RATE * 0.5)
+        ph = 0.0
+        for i in range(n):
+            t = i / RATE
+            f = 600 + 1400 * (t / 0.5) ** 1.4
+            ph += 2 * math.pi * f / RATE
+            out.append(math.sin(ph) * min(1, t * 30) * min(1, (0.5 - t) * 12) * 0.35)
+        return out
     if kind == "pop":
         n = int(RATE * 0.14)
         for i in range(n):
