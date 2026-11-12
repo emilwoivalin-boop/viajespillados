@@ -1,0 +1,651 @@
+#!/usr/bin/env python3
+"""
+Fact Reels – "Did you know…" videos on a cartoon map (1080x1920), in the Map Verse spirit but in the
+Viajes Pillados cartoon style: flat OpenStreetMap map, the city outline, a camera that flies from fact to
+fact, a pin, a real photo as a polaroid sticker, the stick man, AI voice + big captions.
+
+  reels/facts/<id>/storyboard.json  → reels/facts/<id>/reel.mp4 (+ cover.jpg, caption.txt)
+  reels/facts/<id>/map/osm.json.gz  (from scripts/factmap_fetch.py, GitHub workflow factreel.yml mode fetch)
+  reels/facts/<id>/img/<n>.jpg      (from `photos`, Wikimedia Commons, credits in img/credits.json)
+
+storyboard.json:
+{
+  "voice": "en-US-BrianNeural", "rate": "+10%", "city": "Amsterdam",
+  "facts": [{"text": "Did you know …", "lat": 52.37, "lon": 4.89, "view": 1100, "label": "Royal Palace",
+             "photo": "File:….jpg", "stick": {"action": "point"}}],
+  "end": {"text": "Which one surprised you the most?", "line1": "…", "line2": "…"},
+  "caption": "…"
+}
+
+Usage: python scripts/factreel.py photos <id>
+       python scripts/factreel.py render <id> [--dry]    (--dry: no TTS, estimated timing, silent – local tests)
+       python scripts/factreel.py frame <id> <t> <out.jpg> [--dry]   (one frame, to check the look)
+"""
+import gzip, io, json, math, os, re, subprocess, sys, time
+
+import cairo
+import numpy as np
+import requests
+from PIL import Image, ImageDraw, ImageFilter, ImageOps
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import instagram as ig  # noqa: E402
+import reel  # noqa: E402
+import reelfx  # noqa: E402
+import stickman  # noqa: E402
+
+W, H, FPS = 1080, 1920, 30
+R = 6378137.0
+UA = {"User-Agent": "ViajesPilladosBot/1.0 (https://viajespillados.com; fact reels)"}
+
+# cartoon palette
+LAND = (247, 238, 218)
+WATER, WATER_E = (122, 197, 235), (78, 158, 206)
+GREEN, GREEN_E = (172, 216, 128), (128, 184, 96)
+BUILD, BUILD_E = (236, 223, 199), (210, 192, 160)
+ROAD, ROAD_E = (255, 255, 255), (222, 206, 178)
+MAJOR, MAJOR_E = (255, 214, 102), (226, 168, 58)
+LINE = (255, 92, 72)
+YELLOW = (255, 214, 0)
+NAVY = (20, 34, 59)
+
+FLY_FIRST, FLY = 1.9, 1.3          # camera flight at the start of a scene (s)
+
+
+# ------------------------------------------------------------------ geometry
+def merc(lon, lat):
+    lon, lat = np.asarray(lon, float), np.asarray(lat, float)
+    return R * np.radians(lon), R * np.log(np.tan(np.pi / 4 + np.radians(lat) / 2))
+
+
+class Feat:
+    """A list of shapes in mercator metres, with a bbox per shape for fast culling."""
+
+    def __init__(self, shapes):
+        self.shapes = []
+        for rings in shapes:
+            arrs = []
+            for ring in rings:
+                a = np.asarray(ring, float)
+                if len(a) < 2:
+                    continue
+                x, y = merc(a[:, 0], a[:, 1])
+                arrs.append(np.stack([x, y], 1))
+            if arrs:
+                self.shapes.append(arrs)
+        if self.shapes:
+            self.bb = np.array([[min(r[:, 0].min() for r in s), min(r[:, 1].min() for r in s),
+                                 max(r[:, 0].max() for r in s), max(r[:, 1].max() for r in s)] for s in self.shapes])
+        else:
+            self.bb = np.zeros((0, 4))
+
+    def visible(self, vb, min_size=0.0):
+        if not len(self.bb):
+            return []
+        b = self.bb
+        ok = (b[:, 2] >= vb[0]) & (b[:, 0] <= vb[2]) & (b[:, 3] >= vb[1]) & (b[:, 1] <= vb[3])
+        if min_size:
+            ok &= np.maximum(b[:, 2] - b[:, 0], b[:, 3] - b[:, 1]) >= min_size
+        return [self.shapes[i] for i in np.nonzero(ok)[0]]
+
+
+def load_map(base):
+    d = json.load(gzip.open(os.path.join(base, "map", "osm.json.gz"), "rt"))
+    m = {
+        "boundary": Feat([d["boundary"]]),
+        "water": Feat([p["o"] + p["i"] for p in d["water"]]),
+        "green": Feat([p["o"] + p["i"] for p in d["green"]]),
+        "major": Feat([[ln] for ln in d["roads"]["major"]]),
+        "minor": Feat([[ln] for ln in d["roads"]["minor"]]),
+        "rail": Feat([[ln] for ln in d["rail"]]),
+        "build": Feat([[b] for b in d["buildings"]]),
+    }
+    return m
+
+
+# ------------------------------------------------------------------ camera
+class Cam:
+    """Point (tx, ty) (mercator) is drawn at screen (W/2, ay); w = ground metres across the screen width."""
+
+    def __init__(self, tx, ty, w, ay):
+        self.tx, self.ty, self.w, self.ay = tx, ty, w, ay
+
+    def scale(self, k):                       # px per mercator metre; k = 1/cos(lat)
+        return W / (self.w * k)
+
+
+def smooth(p):
+    p = min(1.0, max(0.0, p))
+    return p * p * (3 - 2 * p)
+
+
+def fly(a, b, p, k):
+    """Camera between a and b at progress p: log-zoom with a zoom-out bump when the points are far apart;
+    on big zoom changes the centre follows the zoom so the target doesn't slide."""
+    u = smooth(p)
+    dist = math.hypot(b.tx - a.tx, b.ty - a.ty) / k
+    la, lb = math.log(a.w), math.log(b.w)
+    bump = min(1.6, max(0.0, dist / max(a.w, b.w) * 1.1 - 0.3))
+    lw = la + (lb - la) * u + bump * math.sin(math.pi * u)
+    w = math.exp(lw)
+    ratio = max(a.w, b.w) / min(a.w, b.w)
+    if ratio > 3 and bump < 0.05:
+        uc = (1 / w - 1 / a.w) / (1 / b.w - 1 / a.w)
+        uc = min(1.0, max(0.0, uc))
+    else:
+        uc = u
+    return Cam(a.tx + (b.tx - a.tx) * uc, a.ty + (b.ty - a.ty) * uc, w, a.ay + (b.ay - a.ay) * u)
+
+
+# ------------------------------------------------------------------ map drawing
+def lerp_log(w, pts):
+    """pts: [(ground width m, value)] sorted by width; value interpolated in log(width)."""
+    lw = math.log(w)
+    if w <= pts[0][0]:
+        return pts[0][1]
+    for (w0, v0), (w1, v1) in zip(pts, pts[1:]):
+        if w <= w1:
+            f = (lw - math.log(w0)) / (math.log(w1) - math.log(w0))
+            return v0 + (v1 - v0) * f
+    return pts[-1][1]
+
+
+def rgb(c, a=1.0):
+    return (c[0] / 255, c[1] / 255, c[2] / 255, a)
+
+
+def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
+    s = cam.scale(k)
+    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    c = cairo.Context(surf)
+    c.set_source_rgb(*rgb(LAND)[:3])
+    c.paint()
+    hw, hh0, hh1 = W / 2 / s, cam.ay / s, (H - cam.ay) / s
+    vb = (cam.tx - hw, cam.ty - hh1, cam.tx + hw, cam.ty + hh0)
+    mat = cairo.Matrix(s, 0, 0, -s, W / 2 - cam.tx * s, cam.ay + cam.ty * s)
+    px = 1.0 / s                                    # one screen pixel in mercator metres
+    c.set_line_join(cairo.LINE_JOIN_ROUND)
+    c.set_line_cap(cairo.LINE_CAP_ROUND)
+
+    def path(shapes, close):
+        c.save()
+        c.set_matrix(mat)
+        for rings in shapes:
+            for r in rings:
+                step = max(1, int(len(r) / max(4, 4000 * len(r) / max(1, len(r)))))
+                pts = r[::step] if len(r) > 400 and step > 1 else r
+                c.move_to(pts[0, 0], pts[0, 1])
+                for x, y in pts[1:]:
+                    c.line_to(x, y)
+                if close:
+                    c.close_path()
+        c.restore()
+
+    def fill(feat, col, edge=None, ew=1.0, min_px=1.5):
+        sh = feat.visible(vb, min_px * px)
+        if not sh:
+            return
+        path(sh, True)
+        c.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
+        c.set_source_rgba(*rgb(col))
+        if edge:
+            c.fill_preserve()
+            c.set_source_rgba(*rgb(edge))
+            c.set_line_width(ew)
+            c.stroke()
+        else:
+            c.fill()
+
+    def stroke(feat, col, width, casing=None, cw=0.0, min_px=3):
+        if width < 0.4:
+            return
+        sh = feat.visible(vb, min_px * px)
+        if not sh:
+            return
+        if casing:
+            path(sh, False)
+            c.set_source_rgba(*rgb(casing))
+            c.set_line_width(width + cw)
+            c.stroke()
+        path(sh, False)
+        c.set_source_rgba(*rgb(col))
+        c.set_line_width(width)
+        c.stroke()
+
+    w = cam.w
+    fill(m["green"], GREEN, GREEN_E, lerp_log(w, [(800, 2.0), (6000, 1.0), (20000, 0.0)]))
+    if w < 5000:
+        a = lerp_log(w, [(1500, 1.0), (5000, 0.0)])
+        fill(m["build"], (*BUILD,), BUILD_E if w < 2500 else None, 1.0, min_px=2)
+        if a < 1:   # fade buildings in while zooming
+            pass
+    fill(m["water"], WATER, WATER_E, lerp_log(w, [(800, 2.5), (6000, 1.2), (30000, 0.6)]), min_px=1)
+    stroke(m["minor"], ROAD, lerp_log(w, [(600, 9.0), (1500, 4.5), (4000, 1.6), (8000, 0.0)]), ROAD_E, 2.0)
+    stroke(m["rail"], (170, 160, 150), lerp_log(w, [(1000, 4.0), (8000, 2.0), (40000, 1.0)]))
+    stroke(m["major"], MAJOR, lerp_log(w, [(600, 14.0), (2000, 7.0), (8000, 3.5), (40000, 1.4)]), MAJOR_E,
+           lerp_log(w, [(1000, 3.0), (40000, 1.0)]))
+
+    # dim everything outside the city and draw its outline
+    bd = m["boundary"].shapes
+    if bd and dim > 0:
+        c.save()
+        c.rectangle(0, 0, W, H)
+        c.set_matrix(mat)
+        for r in bd[0]:
+            c.move_to(*r[0])
+            for x, y in r[1:]:
+                c.line_to(x, y)
+            c.close_path()
+        c.restore()
+        c.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
+        c.set_source_rgba(0.08, 0.12, 0.2, 0.30 * dim)
+        c.fill()
+    if bd and outline_frac > 0:
+        lw = lerp_log(w, [(1500, 12.0), (8000, 8.0), (40000, 6.0)])
+        total = sum(float(np.hypot(*np.diff(r, axis=0).T).sum()) for r in bd[0]) * s
+        for col, width in ((WHITE_T, lw + 7), (LINE, lw)):
+            path([bd[0]], True)
+            if outline_frac < 1:
+                c.set_dash([total * outline_frac, total * 2])
+            c.set_source_rgba(*rgb(col))
+            c.set_line_width(width)
+            c.stroke()
+            c.set_dash([])
+    surf.flush()
+    buf = np.ndarray((H, W, 4), np.uint8, surf.get_data())
+    return Image.fromarray(buf[:, :, [2, 1, 0]].copy(), "RGB").convert("RGBA")
+
+
+WHITE_T = (255, 255, 255)
+
+
+# ------------------------------------------------------------------ overlays
+def font(name, size):
+    return ig.font(name, size)
+
+
+def outlined_text(img, xy, text, fnt, fill, stroke, sw, anchor="mm"):
+    d = ImageDraw.Draw(img)
+    d.text(xy, text, font=fnt, fill=fill, stroke_width=sw, stroke_fill=stroke, anchor=anchor)
+
+
+def title_layer(city, n, total):
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    f = ig.fit_font(d, city.upper(), "Black", 112, W - 120)
+    outlined_text(img, (W // 2, 175), city.upper(), f, YELLOW, (0, 0, 0), 9)
+    if n:
+        lab = f"FACT {n}/{total}"
+        f2 = font("ExtraBold", 40)
+        tw = d.textlength(lab, font=f2)
+        d.rounded_rectangle((W / 2 - tw / 2 - 26, 255, W / 2 + tw / 2 + 26, 315), 30, fill=(0, 0, 0, 215))
+        d.text((W / 2, 286), lab, font=f2, fill=(255, 255, 255), anchor="mm")
+    d.text((W - 24, H - 18), "Map © OpenStreetMap contributors", font=font("SemiBold", 22),
+           fill=(40, 40, 40, 170), anchor="rs")
+    return img
+
+
+def polaroid(path, credit, width=640, tilt=-3.0):
+    ph = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    pw, phh = width - 44, int((width - 44) * 0.72)
+    ph = ImageOps.fit(ph, (pw, phh), Image.LANCZOS, centering=(0.5, 0.45))
+    card = Image.new("RGBA", (width, phh + 22 + 64), (255, 255, 255, 255))
+    card.paste(ph, (22, 22))
+    d = ImageDraw.Draw(card)
+    f = font("SemiBold", 21)
+    txt = credit
+    while d.textlength(txt, font=f) > width - 40 and len(txt) > 10:
+        txt = txt[:-2]
+    if txt != credit:
+        txt = txt.rstrip() + "…"
+    d.text((width / 2, phh + 22 + 34), txt, font=f, fill=(110, 110, 110), anchor="mm")
+    card = card.rotate(tilt, Image.BICUBIC, expand=True)
+    sh = Image.new("RGBA", (card.width + 60, card.height + 60), (0, 0, 0, 0))
+    mask = card.split()[3].point(lambda v: int(v * 0.45))
+    sh.paste((0, 0, 0, 255), (36, 42), mask)
+    sh = sh.filter(ImageFilter.GaussianBlur(14))
+    sh.alpha_composite(card, (30, 30))
+    return sh
+
+
+def pin_img(size=120):
+    S = 4
+    s = size * S
+    im = Image.new("RGBA", (s, int(s * 1.35)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    r = s * 0.42
+    cx, cy = s / 2, r + s * 0.06
+    d.polygon([(cx - r * 0.78, cy + r * 0.55), (cx + r * 0.78, cy + r * 0.55), (cx, s * 1.3)], fill=(20, 20, 20))
+    d.ellipse((cx - r - S * 4, cy - r - S * 4, cx + r + S * 4, cy + r + S * 4), fill=(20, 20, 20))
+    d.polygon([(cx - r * 0.7, cy + r * 0.5), (cx + r * 0.7, cy + r * 0.5), (cx, s * 1.24)], fill=LINE)
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), fill=LINE)
+    d.ellipse((cx - r * 0.42, cy - r * 0.42, cx + r * 0.42, cy + r * 0.42), fill=(255, 255, 255))
+    return im.resize((size, int(size * 1.35)), Image.LANCZOS)
+
+
+def label_img(text):
+    f = font("ExtraBold", 40)
+    d0 = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    tw = int(d0.textlength(text, font=f))
+    im = Image.new("RGBA", (tw + 56, 76), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((3, 3, tw + 53, 73), 36, fill=(255, 255, 255), outline=(20, 20, 20), width=4)
+    d.text((im.width / 2, 39), text, font=f, fill=NAVY, anchor="mm")
+    return im
+
+
+def end_layer(e):
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    f1 = ig.fit_font(d, e.get("line1", ""), "Black", 84, W - 140)
+    f2 = ig.fit_font(d, e.get("line2", ""), "ExtraBold", 50, W - 160)
+    y = 470
+    outlined_text(img, (W // 2, y), e.get("line1", ""), f1, YELLOW, (0, 0, 0), 8)
+    if e.get("line2"):
+        tw = d.textlength(e["line2"], font=f2)
+        d.rounded_rectangle((W / 2 - tw / 2 - 34, y + 80, W / 2 + tw / 2 + 34, y + 160), 40, fill=(0, 0, 0, 220))
+        d.text((W / 2, y + 120), e["line2"], font=f2, fill=(255, 255, 255), anchor="mm")
+    return img
+
+
+def pop_scale(t):
+    """0 → overshoot → 1 over 0.35 s."""
+    if t <= 0:
+        return 0.0
+    if t >= 0.35:
+        return 1.0
+    p = t / 0.35
+    return 1 + 0.12 * math.sin(math.pi * p) - (1 - p) ** 3
+
+
+def paste_scaled(fr, im, cx, cy, sc, alpha=1.0):
+    if sc <= 0.02 or alpha <= 0.01:
+        return
+    if abs(sc - 1) > 0.01:
+        im = im.resize((max(1, int(im.width * sc)), max(1, int(im.height * sc))), Image.BICUBIC)
+    if alpha < 1:
+        a = im.split()[3].point(lambda v: int(v * alpha))
+        im = im.copy()
+        im.putalpha(a)
+    fr.alpha_composite(im, (int(cx - im.width / 2), int(cy - im.height / 2)))
+
+
+# ------------------------------------------------------------------ captions
+def ass(chunks, path):
+    head = (
+        "[Script Info]\nScriptType: v4.00+\nPlayResX: 1080\nPlayResY: 1920\nWrapStyle: 0\n\n"
+        "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, "
+        "BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, "
+        "Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
+        "Style: Sub,Inter Display Black,78,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,-1,0,0,0,100,100,0,0,1,"
+        "7,3,2,70,70,250,1\n"
+        "Style: Hi,Inter Display Black,78,&H0000D6FF,&H0000D6FF,&H00000000,&H78000000,-1,0,0,0,100,100,0,0,1,"
+        "7,3,2,70,70,250,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, "
+        "Effect, Text\n")
+    with open(path, "w") as f:
+        f.write(head)
+        for s, e, t, hi in chunks:
+            t = t.replace("{", "(").replace("}", ")")
+            f.write(f"Dialogue: 0,{reel.ass_time(s)},{reel.ass_time(e)},{'Hi' if hi else 'Sub'},,0,0,0,,{t}\n")
+
+
+def fake_voice(text, work, i):
+    """--dry: estimated word timings and silence (no internet needed)."""
+    words, t = [], 0.0
+    for w in text.split():
+        d = 0.12 + 0.055 * len(w)
+        words.append((t, t + d, w))
+        t += d + 0.04
+    wav = os.path.join(work, f"v{i}.wav")
+    reel.sh("ffmpeg", "-y", "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", f"{t:.3f}", wav)
+    return wav, t, words
+
+
+# ------------------------------------------------------------------ photos
+def photos(rid):
+    base = os.path.join(ROOT, "reels", "facts", rid)
+    sb = json.load(open(os.path.join(base, "storyboard.json")))
+    os.makedirs(os.path.join(base, "img"), exist_ok=True)
+    cpath = os.path.join(base, "img", "credits.json")
+    credits = json.load(open(cpath)) if os.path.exists(cpath) else {}
+    for i, fc in enumerate(sb["facts"]):
+        title = fc.get("photo")
+        dst = os.path.join(base, "img", f"{i}.jpg")
+        if not title or (os.path.exists(dst) and credits.get(str(i), {}).get("title") == title):
+            continue
+        for attempt in range(6):
+            r = requests.get("https://commons.wikimedia.org/w/api.php", headers=UA, timeout=60, params={
+                "action": "query", "format": "json", "titles": title, "prop": "imageinfo",
+                "iiprop": "url|extmetadata", "iiurlwidth": 1400})
+            if r.ok and r.text.startswith("{"):
+                break
+            time.sleep(10 * (attempt + 1))
+        page = next(iter(r.json()["query"]["pages"].values()))
+        ii = page["imageinfo"][0]
+        meta = ii.get("extmetadata", {})
+        clean = lambda h: re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", h or "")).strip()
+        author = clean(meta.get("Artist", {}).get("value"))
+        lic = clean(meta.get("LicenseShortName", {}).get("value"))
+        for attempt in range(6):
+            img = requests.get(ii["thumburl"], headers=UA, timeout=120)
+            if img.ok and img.headers.get("content-type", "").startswith("image"):
+                break
+            time.sleep(10 * (attempt + 1))
+        img.raise_for_status()
+        ImageOps.exif_transpose(Image.open(io.BytesIO(img.content))).convert("RGB").save(dst, "JPEG", quality=92)
+        credits[str(i)] = {"title": title, "author": author, "license": lic, "page": ii.get("descriptionurl")}
+        print(i, title, author, lic)
+        time.sleep(2)
+    json.dump(credits, open(cpath, "w"), indent=1, ensure_ascii=False)
+    return credits
+
+
+# ------------------------------------------------------------------ render
+def plan(rid, dry=False):
+    base = os.path.join(ROOT, "reels", "facts", rid)
+    sb = json.load(open(os.path.join(base, "storyboard.json")))
+    work = os.path.join("/tmp", "factreel-" + rid)
+    os.makedirs(work, exist_ok=True)
+    m = load_map(base)
+    credits = json.load(open(os.path.join(base, "img", "credits.json"))) if os.path.exists(
+        os.path.join(base, "img", "credits.json")) else {}
+    bb = m["boundary"].bb[0]
+    cx, cy = (bb[0] + bb[2]) / 2, (bb[1] + bb[3]) / 2
+    lat0 = math.degrees(2 * math.atan(math.exp(cy / R)) - math.pi / 2)
+    k = 1 / math.cos(math.radians(lat0))
+    city_w = max((bb[2] - bb[0]) / k * 1.12, (bb[3] - bb[1]) / k * 1.12 * W / 1250)
+    city = Cam(cx, cy, city_w, 1010)
+    voice, rate = sb.get("voice", "en-US-BrianNeural"), sb.get("rate", "+10%")
+
+    scenes, t = [], 0.0
+    items = list(sb["facts"]) + [dict(sb.get("end", {}), end=True)]
+    for i, fc in enumerate(items):
+        if dry:
+            wav, vdur, words = fake_voice(fc["text"], work, i)
+        else:
+            wav, vdur, words = reel.tight_voice(fc["text"], voice, os.path.join(work, f"v{i}.mp3"), rate)
+        fly_t = FLY_FIRST if i == 0 else FLY
+        lead = 0.0 if i == 0 else 0.35          # small breath between facts (camera already moving)
+        dur = lead + vdur + fc.get("hold", 0.45)
+        dur = max(dur, fly_t + 1.2)
+        if fc.get("end"):
+            cam = Cam(city.tx, city.ty, city.w, 1010)
+            dur += 1.6
+        else:
+            x, y = merc(fc["lon"], fc["lat"])
+            cam = Cam(float(x), float(y), fc.get("view", 1100), 1130)
+        ph = os.path.join(base, "img", f"{i}.jpg")
+        cr = credits.get(str(i), {})
+        credit = f"Photo: {cr.get('author', '')} · {cr.get('license', '')}" if cr else ""
+        scenes.append({"i": i, "t0": t, "dur": dur, "lead": lead, "fly": fly_t, "cam": cam, "fc": fc,
+                       "wav": wav, "vdur": vdur, "words": words,
+                       "photo": ph if os.path.exists(ph) else None, "credit": credit})
+        t += dur
+    return sb, base, work, m, k, city, scenes, t
+
+
+def scene_at(scenes, t):
+    for sc in scenes:
+        if t < sc["t0"] + sc["dur"]:
+            return sc
+    return scenes[-1]
+
+
+class Renderer:
+    def __init__(self, rid, dry=False):
+        (self.sb, self.base, self.work, self.m, self.k, self.city, self.scenes, self.total) = plan(rid, dry)
+        nfacts = len(self.sb["facts"])
+        self.titles = [title_layer(self.sb["city"], n, nfacts) for n in range(nfacts + 1)]
+        self.pin = pin_img(110)
+        self.labels = [label_img(sc["fc"]["label"]) if sc["fc"].get("label") else None for sc in self.scenes]
+        self.polas = [polaroid(sc["photo"], sc["credit"], 640, (-3.0, 2.5)[sc["i"] % 2]) if sc["photo"] else None
+                      for sc in self.scenes]
+        self.endimg = end_layer(self.sb.get("end", {}))
+        self.figs = {}
+        stickman.STYLE = self.sb.get("stick_style", "classic")
+
+    def cam_at(self, sc, t):
+        lt = t - sc["t0"]
+        prev = self.scenes[sc["i"] - 1]["cam"] if sc["i"] > 0 else self.city
+        return fly(prev, sc["cam"], lt / sc["fly"], self.k)
+
+    def fig_frame(self, sc, n_in_scene):
+        i = sc["i"]
+        if i not in self.figs:
+            st = {"action": "point", "x0": 0.17, "y": 0.80, "size": 300, "facing": 1}
+            st.update(sc["fc"].get("stick", {}))
+            n = int(sc["dur"] * FPS) + 3
+            self.figs[i] = list(reel.figure_frames(st, n, patch=True))
+        fr = self.figs[i]
+        return fr[min(n_in_scene, len(fr) - 1)]
+
+    def frame(self, t):
+        sc = scene_at(self.scenes, t)
+        lt = t - sc["t0"]
+        cam = self.cam_at(sc, t)
+        outline = min(1.0, t / 1.4) if sc["i"] == 0 else 1.0
+        img = draw_map(self.m, cam, self.k, outline_frac=outline)
+        end = sc["fc"].get("end")
+        # pin + label at the target
+        if not end:
+            s = cam.scale(self.k)
+            px = W / 2 + (sc["cam"].tx - cam.tx) * s
+            py = cam.ay - (sc["cam"].ty - cam.ty) * s
+            ta = lt - sc["fly"] + 0.1
+            if ta > 0:
+                drop = max(0.0, 1 - ta / 0.3) ** 2 * 260
+                bounce = abs(math.sin(min(ta, 0.6) * 8)) * 18 * max(0.0, 1 - ta / 0.6)
+                ring = (ta % 1.4) / 1.4
+                d = ImageDraw.Draw(img)
+                rr = 20 + ring * 70
+                d.ellipse((px - rr, py - rr * 0.45, px + rr, py + rr * 0.45), outline=(*LINE, int(220 * (1 - ring))),
+                          width=5)
+                img.alpha_composite(self.pin, (int(px - self.pin.width / 2), int(py - self.pin.height - drop - bounce + 6)))
+                if self.labels[sc["i"]] is not None:
+                    paste_scaled(img, self.labels[sc["i"]], px, py + 62, pop_scale(ta - 0.15))
+        # previous polaroid leaves, the new one pops in
+        if sc["i"] > 0 and lt < 0.45 and self.polas[sc["i"] - 1] is not None:
+            q = lt / 0.45
+            paste_scaled(img, self.polas[sc["i"] - 1], W / 2 - q * q * 900, 640, 1.0, 1 - q)
+        if self.polas[sc["i"]] is not None:
+            tp = lt - sc["fly"] - 0.15
+            paste_scaled(img, self.polas[sc["i"]], W / 2, 640, pop_scale(tp))
+        # stick man
+        band = self.fig_frame(sc, int(lt * FPS))
+        if band:
+            img.alpha_composite(band[0], band[1])
+        # titles
+        if end:
+            img.alpha_composite(self.titles[0])
+            ta = lt - 0.6
+            if ta > 0:
+                lay = self.endimg if ta > 0.4 else Image.blend(Image.new("RGBA", (W, H), (0, 0, 0, 0)), self.endimg, ta / 0.4)
+                img.alpha_composite(lay)
+        else:
+            img.alpha_composite(self.titles[sc["i"] + 1])
+        return img.convert("RGB")
+
+
+def render(rid, dry=False):
+    rd = Renderer(rid, dry)
+    work, base = rd.work, rd.base
+    n = int(rd.total * FPS)
+    video = os.path.join(work, "video.mp4")
+    cmd = ["ffmpeg", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+           "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", video]
+    p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    t0 = time.time()
+    for f in range(n):
+        p.stdin.write(rd.frame(f / FPS).tobytes())
+        if f % 150 == 0:
+            print(f"frame {f}/{n} ({time.time() - t0:.0f} s)")
+    p.stdin.close()
+    if p.wait() != 0:
+        raise RuntimeError("ffmpeg video failed")
+
+    # voice track: each line starts after its scene's lead-in
+    parts, subs, sfx = [], [], []
+    for sc in rd.scenes:
+        pw = os.path.join(work, f"vp{sc['i']}.wav")
+        reel.sh("ffmpeg", "-y", "-i", sc["wav"], "-af",
+                f"adelay={int(sc['lead'] * 1000)}|{int(sc['lead'] * 1000)},apad=whole_dur={sc['dur']:.3f}",
+                "-ar", "44100", "-ac", "2", pw)
+        parts.append(pw)
+        words = reel.attach_punctuation(sc["words"], sc["fc"]["text"])
+        chunks = reel.chunk_words(words, sc["t0"] + sc["lead"])
+        nums = re.compile(r"\d")
+        subs += [(s, e, txt, bool(nums.search(txt))) for s, e, txt in chunks]
+        if sc["i"] > 0:
+            sfx.append((sc["t0"], "whoosh", 0.22))
+        if not sc["fc"].get("end"):
+            sfx.append((sc["t0"] + sc["fly"] - 0.1, "pop", 0.28))
+            sfx.append((sc["t0"] + sc["fly"] + 0.15, "pop", 0.22))
+        else:
+            sfx.append((sc["t0"] + 0.6, "chime", 0.3))
+    if subs:   # no caption gaps between scenes
+        for i in range(len(subs) - 1):
+            s, e, txt, hi = subs[i]
+            if subs[i + 1][0] - e < 0.6:
+                subs[i] = (s, subs[i + 1][0], txt, hi)
+    with open(os.path.join(work, "audio.txt"), "w") as f:
+        f.writelines(f"file '{x}'\n" for x in parts)
+    voice = os.path.join(work, "voice.wav")
+    reel.sh("ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", os.path.join(work, "audio.txt"), voice)
+    fx = os.path.join(work, "sfx.wav")
+    reelfx.write_track(sfx, rd.total, fx)
+    mixed = os.path.join(work, "mix.wav")
+    reel.sh("ffmpeg", "-y", "-i", voice, "-i", fx, "-filter_complex",
+            "[0:a][1:a]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]", "-map", "[a]", mixed)
+    subf = os.path.join(work, "subs.ass")
+    ass(subs, subf)
+    final = os.path.join(base, "reel.mp4")
+    reel.sh("ffmpeg", "-y", "-i", video, "-i", mixed, "-filter_complex", f"[0:v]ass={subf}:fontsdir={ig.FONTS}[v]",
+            "-map", "[v]", "-map", "1:a", "-t", f"{rd.total:.2f}", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+            "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k",
+            "-movflags", "+faststart", final)
+    cover = os.path.join(base, "cover.jpg")
+    rd.frame(rd.scenes[0]["fly"] + 0.8).save(cover, quality=90)
+    cap = rd.sb.get("caption", "")
+    cpath = os.path.join(base, "img", "credits.json")
+    if os.path.exists(cpath):
+        cr = json.load(open(cpath))
+        cap = cap.replace("PHOTO_CREDITS", "; ".join(f"{v['author']} ({v['license']})" for _, v in sorted(cr.items())))
+    with open(os.path.join(base, "caption.txt"), "w") as f:
+        f.write(cap + "\n")
+    print(f"Fact Reel listo: {final} ({rd.total:.1f} s)")
+    return final
+
+
+if __name__ == "__main__":
+    cmd, rid = sys.argv[1], sys.argv[2]
+    dry = "--dry" in sys.argv
+    if cmd == "photos":
+        photos(rid)
+    elif cmd == "render":
+        b = os.path.join(ROOT, "reels", "facts", rid)
+        if not dry:
+            photos(rid)
+        render(rid, dry)
+    elif cmd == "frame":
+        Renderer(rid, dry).frame(float(sys.argv[3])).save(sys.argv[4], quality=88)

@@ -7,7 +7,7 @@ on:
     inputs:
       mode:
         type: choice
-        options: [fetch, render]
+        options: [fetch, photos, render]
         default: render
       id:
         required: true
@@ -35,7 +35,8 @@ jobs:
       - name: Dependencies
         run: |
           which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
-          pip install --quiet pillow requests edge-tts numpy
+          sudo apt-get install -y -qq libcairo2-dev pkg-config >/dev/null
+          pip install --quiet pillow requests edge-tts numpy pycairo
       - name: Git
         run: |
           git config user.name "viajespillados-bot"
@@ -45,6 +46,9 @@ jobs:
         run: |
           IFS='|' read -r NAME LEVEL CENTRE <<< "${{ github.event.inputs.args }}"
           python scripts/factmap_fetch.py "${{ github.event.inputs.id }}" "$NAME" "${LEVEL:-8}" $CENTRE
+      - name: Photos
+        if: github.event.inputs.mode == 'photos'
+        run: python scripts/factreel.py photos "${{ github.event.inputs.id }}"
       - name: Render
         if: github.event.inputs.mode == 'render'
         run: python scripts/factreel.py render "${{ github.event.inputs.id }}"
