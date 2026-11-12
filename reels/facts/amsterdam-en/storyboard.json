@@ -48,14 +48,6 @@
           "size": 320,
           "at": "bicycles",
           "sfx": "pop"
-        },
-        {
-          "emoji": "😲",
-          "x": 0.8,
-          "y": 0.56,
-          "size": 170,
-          "at": "almost",
-          "sfx": "boing"
         }
       ],
       "stat": {
@@ -126,14 +118,6 @@
           "size": 300,
           "at": "sea",
           "sfx": "bubbles"
-        },
-        {
-          "emoji": "🤯",
-          "x": 0.8,
-          "y": 0.27,
-          "size": 170,
-          "at": "two",
-          "sfx": "whistle"
         }
       ],
       "stat": {
@@ -152,7 +136,6 @@
   "end": {
     "text": "Which one surprised you the most? Tell me in the comments!",
     "line1": "Which one surprised you?",
-    "line2": "Plan your trip · link in bio",
     "stick": {
       "action": "wave",
       "x0": 0.5,
@@ -160,6 +143,6 @@
       "size": 330
     }
   },
-  "caption": "7 things you probably didn't know about Amsterdam 📍\n\n1. The name means \"dam in the Amstel\" (first written in 1275)\n2. The Royal Palace stands on 13,659 wooden poles\n3. People here own around 847,000 bikes\n4. 100+ km of canals and about 1,500 bridges\n5. It's the capital, but the government sits in The Hague\n6. The Anne Frank House at Prinsengracht 263\n7. The city lies about 2 m below sea level\n\nWhich one surprised you? Plan your next trip with the link in bio ✈️\n\nMap © OpenStreetMap contributors. Photos from Wikimedia Commons: PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)\n\n#amsterdam #netherlands #travelfacts #didyouknow #traveltips #europetravel",
+  "caption": "7 things you probably didn't know about Amsterdam 📍\n\n1. The name means \"dam in the Amstel\" (first written in 1275)\n2. The Royal Palace stands on 13,659 wooden poles\n3. People here own around 847,000 bikes\n4. 100+ km of canals and about 1,500 bridges\n5. It's the capital, but the government sits in The Hague\n6. The Anne Frank House at Prinsengracht 263\n7. The city lies about 2 m below sea level\n\nWhich one surprised you?\n\nMap © OpenStreetMap contributors. Photos from Wikimedia Commons: PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)\n\n#amsterdam #netherlands #travelfacts #didyouknow #traveltips #europetravel",
   "country": "NLD"
 }
