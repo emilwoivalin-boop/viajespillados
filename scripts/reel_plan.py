@@ -12,6 +12,8 @@ plan.json (written by the morning task, completed by the build task):
   "offer": {"destino": "Lima", "pais": "Perú", "region": "Sudamérica", "aerolinea": "JetSMART", "precio": 608490, "escalas": "directo",
             "ida": "2027-01-16", "vuelta": "2027-01-20", "link": "https://...", "sheet_row": 14},
   "hora_salida": null,                       # e.g. "4 de la tarde" ONLY if verified, else null
+  "hook": "¿Te imaginas un puente festivo entre volcanes y mar turquesa?",   # REQUIRED question, max 16 words, no destination
+  "deal_line": null,                         # optional: index into DEAL_LINES or own text with {a} and {p}; default rotates
   "teaser": null,                            # optional: how the opening names the destination before landing,
                                              # e.g. "el Caribe" -> "nos vamos pa'l Caribe" (default: from offer.region)
   "drive_folder_id": "...",
@@ -107,6 +109,64 @@ def cop(n):
     return "$" + f"{int(n):,}".replace(",", ".")
 
 
+# Owner's rule (Nov 2026): the price ending rotates – a different line every day, never the same as the last Reels.
+# {a} = airline, {p} = price in words. The website plug is added after it.
+DEAL_LINES = [
+    "¿Y el precio? Ida y vuelta con {a}, por solo {p}.",
+    "¿Y cuánto cuesta todo esto? Tranquilo, siéntate: ida y vuelta con {a}, {p}. ¡Vuelo pillado!",
+    "Todo este plan arranca con un vuelo de {p}, ida y vuelta con {a}. Sí, leíste bien.",
+    "Ida y vuelta con {a} por {p}. Eso es menos que muchos mercados, parce.",
+    "¿Cuánto? {p}, ida y vuelta con {a}. ¡Vuelo pillado!",
+    "El tiquete, ida y vuelta con {a}: {p}. Esto no se ve todos los días.",
+    "¿Lo mejor? El vuelo ida y vuelta con {a} sale en {p}. Pilas, que vuela.",
+    "Y ahora el dato que importa: ida y vuelta con {a}, por {p}.",
+    "Redoble de tambores… ida y vuelta con {a} por {p}. ¡Qué chimba!",
+    "Ida y vuelta con {a}, desde {p}. Si lo pillas, lo vuelas.",
+]
+DEAL_PLUGS = ["¡Mira esta oferta y muchas más en viajespillados punto com!",
+              "Pilla esta y más ofertas en viajespillados punto com.",
+              "Esta y más ofertas en viajespillados punto com. ¡Etiqueta a tu parcero de viaje!",
+              "El link está en el perfil: viajespillados punto com."]
+
+
+def recent_endings(rid, n=6):
+    """Deal lines used by the last n daily Reels (from their storyboards), so today's is different."""
+    try:
+        daily = json.load(open(os.path.join(ROOT, "reels", "daily.json")))
+    except Exception:
+        return []
+    out = []
+    for day in sorted(daily, reverse=True):
+        r = daily[day].get("id")
+        if not r or r == rid:
+            continue
+        try:
+            out.append(json.load(open(os.path.join(ROOT, "reels", r, "storyboard.json")))["end"]["text"])
+        except Exception:
+            pass
+        if len(out) >= n:
+            break
+    return out
+
+
+def deal_text(plan, rid, airline, price_words):
+    """plan["deal_line"] (index into DEAL_LINES, or own text with {a} and {p}) – else the first one not used lately."""
+    used = " ".join(recent_endings(rid))
+    choice = plan.get("deal_line")
+    if isinstance(choice, int):
+        line = DEAL_LINES[choice % len(DEAL_LINES)]
+    elif isinstance(choice, str) and choice.strip():
+        line = choice
+    else:
+        import zlib
+        start = zlib.crc32(rid.encode()) % len(DEAL_LINES)
+        order = DEAL_LINES[start:] + DEAL_LINES[:start]
+        line = next((l for l in order if l.split("{")[0].strip() not in used), order[0])
+    import zlib
+    plug = DEAL_PLUGS[zlib.crc32((rid + "plug").encode()) % len(DEAL_PLUGS)]
+    return line.format(a=airline, p=price_words) + " " + plug
+
+
 def days_off_line(n):
     if n == 0:
         return "¡Y sin pedir ni un día libre!"
@@ -162,9 +222,12 @@ def build(rid):
     img = lambda k: f"reels/{rid}/img/{k}.jpg"  # noqa: E731
 
     hora = plan.get("hora_salida")
-    salida = (f"{cap(ig.DIAS[a.weekday()])} {a.day} de {ig.MESES[a.month - 1]}" + (f", {hora}" if hora else "")
+    hook = (plan.get("hook") or "").strip()      # owner: every Reel opens with a question hook based on its script
+    assert hook.endswith("?") and len(hook.split()) <= 16, "falta 'hook': una pregunta corta (máx. 16 palabras) basada en el guion"
+    salida = (hook + " " + f"{cap(ig.DIAS[a.weekday()])} {a.day} de {ig.MESES[a.month - 1]}" + (f", {hora}" if hora else "")
               + f". Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos {teaser(plan)}!")
     dest = o["destino"].lower()
+    assert dest not in hook.lower(), "hook: no digas el destino antes de aterrizar"
     for k in ("vuelo",):             # no spoilers before landing
         assert dest not in plan["lines"][k].lower(), f"{k}: no digas el destino antes de aterrizar ({o['destino']})"
     regreso = f"El {ig.DIAS[b.weekday()]} aterrizas en Bogotá, feliz y descansado. {days_off_line(inf['dias_libres'])}".strip()
@@ -207,8 +270,7 @@ def build(rid):
         "id": rid, "offer_id": o.get("offer_id", ""), "voice": "es-CO-GonzaloNeural", "rate": "+35%", "pad": 0.3,
         "stick_style": "classic", "caption_margin": 400, "caption_align": 8, "banner": {"logo": False},
         "scenes": scenes,
-        "end": {"text": f"¿Y el precio? Ida y vuelta con {o['aerolinea']}, por solo {pesos(o['precio'])}. "
-                        "¡Mira esta oferta y muchas más en viajespillados punto com!",
+        "end": {"text": deal_text(plan, rid, o["aerolinea"], pesos(o["precio"])),
                 "title": title, "kicker": "", "airline": f"{o['aerolinea']} · {escalas}", "price": cop(o["precio"]),
                 "detail": f"ida y vuelta · {fechas}", "cta": "viajespillados.com",
                 "small": "Mira esta oferta y muchas más · link en la bio",

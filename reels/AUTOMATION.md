@@ -73,26 +73,51 @@ Common facts
    `buddy` = true if `python scripts/reel_plan.py buddy` prints "yes" (every third Reel that was actually made has the travel
    buddy – a second stick figure with a ponytail and a flower – walking next to him), else false. Also save `buddy` in today's
    `reels/daily.json` entry.
-4. **Script lines** (`lines`, Spanish from Colombia, tú, short and lively like the Aruba Reel; 8–20 words each; no prices, no airline):
-   - `vuelo`: the flight, e.g. "Dos horas de vuelo directo, y el mar abajo se pone turquesa." Only state the flight time if you
-     know it (Price log Notes "N hrs"); say "directo" only for non-stop.
+4. **Script lines** (`lines`, Spanish from Colombia, tú, short and lively like the Aruba Reel; 8–20 words each; no prices, no airline).
+   **Variety (owner's rule):** read the `hook` and `lines` of the last 5 daily Reels (reels/<id>/plan.json of the newest entries
+   in reels/daily.json) and do NOT repeat their hook type, tease, reveal or day openers – pick different ones from the lists
+   below (or write a new one in the same spirit). Catchphrases must still sound natural for this trip.
+   - `hook` (REQUIRED, the very first words of the Reel, before the date): ONE short question (max 16 words, ends with "?")
+     built from THIS script – its best activity, the trip length, the days off or the occasion – without naming the destination
+     (South America: the country is fine). Examples:
+     "¿Y si este puente festivo lo pasas buceando entre tortugas?" · "¿Siete días de playa sin pedir ni un día libre?" ·
+     "¿Te le mides a comer ceviche frente al Pacífico?" · "¿Cuántos países conoces donde el mar es de siete colores?" ·
+     "¿Vino, montañas y ciudad en un mismo viaje?" · "¿Te imaginas una Navidad entre ruinas mayas?" ·
+     "¿Qué harías con cuatro días en una isla sin carros?" · "¿Y si el próximo atardecer lo ves desde un volcán?"
+   - `vuelo` (the tease): the flight + a teasing hint of the region. Only state the flight time if you know it (Price log Notes
+     "N hrs"); say "directo" only for non-stop. Rotate openers such as:
+     "Agárrate, que esto se pone bueno…" · "Abróchate el cinturón y adivina…" · "Por la ventanilla ya se ve que va a ser épico:" ·
+     "Dos horas de vuelo y ya empieza el plan." · "Mira pa' abajo, parce…" · "Pista número uno:" · "Te doy una pista:" ·
+     "Sube, sube… y cuando bajas, ¡sorpresa!" · "Audífonos puestos y la ventanilla abierta:" · "¿Ya adivinaste? Otra pista:"
+     e.g. "Te doy una pista: dos horas de vuelo directo y abajo el mar se pone turquesa."
    - **No spoilers (owner's rule):** the destination is revealed only in `llegada`. The `vuelo` line must not name the destination,
      its country or a landmark that gives it away – tease the region instead (e.g. "Vuelo directo de dos horas… ¿y abajo? Mar
      turquesa del Caribe."). Mexico and Central America are teased as "Centroamérica" (never "Norteamérica"). Exception: in
      South America the country is named from the start ("nos vamos pa' Perú"), only the city is the surprise. `reel_plan.py build` refuses a `vuelo` line that contains the destination's name.
-   - `llegada`: the reveal – "¡Bienvenido a <Destino>! …" + one sensory detail of arriving there.
-   - `dia1`, `dia2`, `dia3`: start with "Día uno:", "Día dos:", "Día tres:" (for trips of 2–3 days use "Primer día:", "Luego:",
-     "Antes de volver:"), one activity each, with one concrete vivid detail. Only facts you are sure about.
+   - `llegada`: the reveal – the destination's name said with energy + one sensory detail of arriving there. Rotate:
+     "¡Aterrizamos en… Cartagena!" · "¿Adivinaste? ¡Es Lima, parce!" · "Señoras y señores… ¡La Habana!" ·
+     "Plot twist: estamos en Aruba." · "Redoble de tambores… ¡Cancún!" · "Pues sí, parce: ¡Madrid!" ·
+     "¡Bienvenido a Punta Cana!" · "Respira hondo… huele a sal: ¡San Andrés!" · "Y la respuesta es… ¡Santiago!" ·
+     "Abran la puerta, que llegamos a… ¡Miami!" · "Tierra a la vista: ¡Montego Bay!" · "¿Lo pillaste? ¡Es Buenos Aires!"
+     (a sticker/beat word must still be a word of the line).
+   - `dia1`, `dia2`, `dia3`… one activity each, with one concrete vivid detail. Only facts you are sure about. Mix the day
+     openers – never "Día uno: / Día dos: / Día tres:" in every scene. Use at most one "Día …:" opener per Reel and vary the rest:
+     "Arrancamos con…" · "Primer plan:" · "Al otro día…" · "Día dos arranca así:" · "Y el tercer día… lo mejor:" ·
+     "Mañanita de…" · "Por la tarde…" · "Ya de noche…" · "Pa' recargar pilas…" · "Último día, y se viene la joya:" ·
+     "Pa' cerrar con broche de oro…" · "Antes de volver…" · "¿Y el día cuatro? …" · "Plan B, por si llueve: no hay plan B:".
+     The day chip on screen still says the day number, so the voice doesn't have to.
      **Source of the activities:** first the Where Next Atlas data – `python scripts/reel_caption.py find <IATA>` (the IATA
      code from the offer's link, column J), or `find "<name>"` with the English name (e.g. "Havana") – and its `todo` list
      (4 activities with a short description); otherwise the three activities in `Qué hacer` column D, in that order.
-   - **Longer trips get more days (owner's rule):** a 4-day trip gets `dia4` ("Día cuatro:"); trips of 5 days or more get
-     `dia4` and `dia5` ("Día cuatro:", "Día cinco:"), each with its own picture (prompts `dia4`, `dia5`, same rules as dia1–3).
+   - **Longer trips get more days (owner's rule):** a 4-day trip gets `dia4`; trips of 5 days or more get
+     `dia4` and `dia5`, each with its own picture (prompts `dia4`, `dia5`, same rules as dia1–3).
      `Qué hacer` only has three activities, so pick the extra ones yourself – different and real (a day trip, a beach or nature
      spot, a local food or market, a famous neighbourhood); check anything you are not sure of with a web search.
      `reel_plan.py build` refuses a plan without them. Trips of 2–3 days keep the three day scenes.
-   The opening line (date + El Dorado), the return line (with the workdays-off sentence) and the price ending are added
-   automatically by `reel_plan.py build` – don't write them.
+   The opening line (hook + date + El Dorado), the return line (with the workdays-off sentence) and the price ending are added
+   automatically by `reel_plan.py build` – don't write them. The price ending rotates by itself through ten lines
+   (`DEAL_LINES` in reel_plan.py, e.g. "¿Y cuánto cuesta todo esto? Tranquilo, siéntate: … ¡Vuelo pillado!") and never repeats
+   the last Reels; set `deal_line` only to force one (an index, or your own text with {a} = airline and {p} = price).
 4a. **4a · Fechas y ocasiones.** The storyline must take the trip dates (ida–vuelta) into account. Check whether the trip overlaps
    (1) Nochebuena/Navidad (24–25 Dec), Nochevieja/Año Nuevo (31 Dec–1 Jan), Semana Santa, Halloween/Día de Muertos, or a Colombian
    holiday weekend (tab "Holidays" of the Price log), or (2) a famous local event or season at the destination (e.g. carnival,
