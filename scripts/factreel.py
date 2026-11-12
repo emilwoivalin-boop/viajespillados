@@ -51,11 +51,13 @@ YELLOW = (255, 214, 0)
 NAVY = (20, 34, 59)
 
 FLY_FIRST, FLY = 1.9, 1.3          # camera flight at the start of a scene (s)
+INTRO_HOLD, INTRO_FLY = 0.55, 1.5  # continent → country → city intro
+INTRO_T = 3 * INTRO_HOLD + 2 * INTRO_FLY + 0.2 - INTRO_HOLD
 
 
 # ------------------------------------------------------------------ geometry
 def merc(lon, lat):
-    lon, lat = np.asarray(lon, float), np.asarray(lat, float)
+    lon, lat = np.asarray(lon, float), np.clip(np.asarray(lat, float), -85, 85)
     return R * np.radians(lon), R * np.log(np.tan(np.pi / 4 + np.radians(lat) / 2))
 
 
@@ -91,7 +93,7 @@ class Feat:
         return [(self.shapes[i], self.per[i]) for i in np.nonzero(ok)[0]]
 
 
-def load_map(base):
+def load_map(base, iso=None):
     d = json.load(gzip.open(os.path.join(base, "map", "osm.json.gz"), "rt"))
     m = {
         "boundary": Feat([d["boundary"]]),
@@ -101,7 +103,15 @@ def load_map(base):
         "minor": Feat([[ln] for ln in d["roads"]["minor"]]),
         "rail": Feat([[ln] for ln in d["rail"]]),
         "build": Feat([[b] for b in d["buildings"]]),
+        "bbox": d["bbox"],
     }
+    if iso:
+        ne = json.load(gzip.open(os.path.join(ROOT, "data", "naturalearth.json.gz"), "rt"))
+        m["ne_countries"] = Feat([[r for p in c["polys"] for r in p] for c in ne["countries"]])
+        m["ne_lakes"] = Feat(ne["lakes"])
+        cn = next(c for c in ne["countries"] if c["iso"] == iso)
+        main = max(cn["polys"], key=lambda p: len(p[0]))          # mainland only (no overseas islands)
+        m["country"] = Feat([main])
     return m
 
 
@@ -156,18 +166,8 @@ def rgb(c, a=1.0):
     return (c[0] / 255, c[1] / 255, c[2] / 255, a)
 
 
-def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
-    s = cam.scale(k)
-    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
-    c = cairo.Context(surf)
-    c.set_source_rgb(*rgb(LAND)[:3])
-    c.paint()
-    hw, hh0, hh1 = W / 2 / s, cam.ay / s, (H - cam.ay) / s
-    vb = (cam.tx - hw, cam.ty - hh1, cam.tx + hw, cam.ty + hh0)
-    mat = cairo.Matrix(s, 0, 0, -s, W / 2 - cam.tx * s, cam.ay + cam.ty * s)
-    px = 1.0 / s                                    # one screen pixel in mercator metres
-    c.set_line_join(cairo.LINE_JOIN_ROUND)
-    c.set_line_cap(cairo.LINE_CAP_ROUND)
+def _ctx_fns(c, mat, s, vb):
+    px = 1.0 / s
 
     def path(shapes, close):
         c.save()
@@ -183,22 +183,22 @@ def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
                     c.close_path()
         c.restore()
 
-    def fill(feat, col, edge=None, ew=1.0, min_px=1.5):
+    def fill(feat, col, edge=None, ew=1.0, min_px=1.5, alpha=1.0):
         sh = feat.visible(vb, min_px * px)
         if not sh:
             return
         path(sh, True)
         c.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
-        c.set_source_rgba(*rgb(col))
+        c.set_source_rgba(*rgb(col, alpha))
         if edge:
             c.fill_preserve()
-            c.set_source_rgba(*rgb(edge))
+            c.set_source_rgba(*rgb(edge, alpha))
             c.set_line_width(ew)
             c.stroke()
         else:
             c.fill()
 
-    def stroke(feat, col, width, casing=None, cw=0.0, min_px=3):
+    def stroke(feat, col, width, casing=None, cw=0.0, min_px=3, alpha=1.0):
         if width < 0.4:
             return
         sh = feat.visible(vb, min_px * px)
@@ -206,53 +206,111 @@ def draw_map(m, cam, k, outline_frac=1.0, dim=1.0):
             return
         if casing:
             path(sh, False)
-            c.set_source_rgba(*rgb(casing))
+            c.set_source_rgba(*rgb(casing, alpha))
             c.set_line_width(width + cw)
             c.stroke()
         path(sh, False)
-        c.set_source_rgba(*rgb(col))
+        c.set_source_rgba(*rgb(col, alpha))
         c.set_line_width(width)
         c.stroke()
 
-    w = cam.w
-    far = w > 6000
-    fill(m["green"], GREEN, None if w > 3000 else GREEN_E, 1.5, min_px=lerp_log(w, [(2000, 2.0), (8000, 5.0), (30000, 9.0)]))
-    if w < 5000:
-        a = lerp_log(w, [(1500, 1.0), (5000, 0.0)])
-        fill(m["build"], (*BUILD,), BUILD_E if w < 2500 else None, 1.0, min_px=2)
-    fill(m["water"], WATER, None if far else WATER_E, lerp_log(w, [(800, 2.5), (6000, 1.2)]),
-         min_px=lerp_log(w, [(2000, 1.0), (8000, 3.0), (30000, 6.0)]))
-    stroke(m["minor"], ROAD, lerp_log(w, [(600, 9.0), (1500, 4.5), (4000, 1.6), (8000, 0.0)]), ROAD_E, 2.0)
-    stroke(m["rail"], (170, 160, 150), lerp_log(w, [(1000, 4.0), (8000, 2.0), (40000, 1.0)]))
-    stroke(m["major"], MAJOR, lerp_log(w, [(600, 14.0), (2000, 7.0), (8000, 3.0), (40000, 1.2)]),
-           None if far else MAJOR_E, lerp_log(w, [(1000, 3.0), (6000, 1.0)]), min_px=lerp_log(w, [(4000, 3), (30000, 25)]))
+    return path, fill, stroke
 
-    # dim everything outside the city and draw its outline
-    bd = m["boundary"].shapes
-    if bd and dim > 0:
-        c.save()
-        c.rectangle(0, 0, W, H)
-        c.set_matrix(mat)
-        c.restore()
-        c.save()
-        path([(bd[0], m["boundary"].per[0])], True)
-        c.restore()
-        c.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
-        c.set_source_rgba(0.08, 0.12, 0.2, 0.30 * dim)
-        c.fill()
-    if bd and outline_frac > 0:
-        lw = lerp_log(w, [(1500, 12.0), (8000, 8.0), (40000, 6.0)])
-        total = sum(float(np.hypot(*np.diff(r, axis=0).T).sum()) for r in bd[0]) * s
-        for col, width in ((WHITE_T, lw + 7), (LINE, lw)):
-            path([(bd[0], m["boundary"].per[0])], True)
-            if outline_frac < 1:
-                c.set_dash([total * outline_frac, total * 2])
-            c.set_source_rgba(*rgb(col))
-            c.set_line_width(width)
-            c.stroke()
-            c.set_dash([])
+
+def _surface_np(surf):
     surf.flush()
-    buf = np.ndarray((H, W, 4), np.uint8, surf.get_data())
+    return np.ndarray((H, W, 4), np.uint8, surf.get_data())
+
+
+def ramp(w, w_full, w_zero):
+    """1 when the view is at w_full, 0 at w_zero (log scale, either direction)."""
+    f = (math.log(w) - math.log(w_zero)) / (math.log(w_full) - math.log(w_zero))
+    return min(1.0, max(0.0, f))
+
+
+def draw_map(m, cam, k, city_frac=1.0, country_frac=1.0):
+    s = cam.scale(k)
+    hw, hh0, hh1 = W / 2 / s, cam.ay / s, (H - cam.ay) / s
+    vb = (cam.tx - hw, cam.ty - hh1, cam.tx + hw, cam.ty + hh0)
+    mat = cairo.Matrix(s, 0, 0, -s, W / 2 - cam.tx * s, cam.ay + cam.ty * s)
+    w = cam.w
+
+    # 1) world base (Natural Earth): sea, countries, lakes
+    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    c = cairo.Context(surf)
+    c.set_line_join(cairo.LINE_JOIN_ROUND)
+    c.set_line_cap(cairo.LINE_CAP_ROUND)
+    c.set_source_rgba(*rgb(WATER))
+    c.paint()
+    path, fill, stroke = _ctx_fns(c, mat, s, vb)
+    if "ne_countries" in m:
+        fill(m["ne_countries"], LAND, (255, 255, 255), lerp_log(w, [(60e3, 0.0), (300e3, 2.0), (3e6, 1.6)]), min_px=2)
+        fill(m["ne_lakes"], WATER, None, min_px=2)
+
+    # 2) city detail (OpenStreetMap) on its own layer, faded in while zooming and feathered at its edges
+    osm_a = ramp(w, 90e3, 220e3)
+    if osm_a > 0:
+        so = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+        co = cairo.Context(so)
+        co.set_line_join(cairo.LINE_JOIN_ROUND)
+        co.set_line_cap(cairo.LINE_CAP_ROUND)
+        co.set_source_rgba(*rgb(LAND))
+        co.paint()
+        _, f2, s2 = _ctx_fns(co, mat, s, vb)
+        far = w > 6000
+        f2(m["green"], GREEN, None if w > 3000 else GREEN_E, 1.5,
+           min_px=lerp_log(w, [(2000, 2.0), (8000, 5.0), (30000, 9.0), (120000, 14.0)]))
+        if w < 5000:
+            f2(m["build"], BUILD, BUILD_E if w < 2500 else None, 1.0, min_px=2)
+        f2(m["water"], WATER, None if far else WATER_E, lerp_log(w, [(800, 2.5), (6000, 1.2)]),
+           min_px=lerp_log(w, [(2000, 1.0), (8000, 3.0), (30000, 6.0), (120000, 10.0)]))
+        s2(m["minor"], ROAD, lerp_log(w, [(600, 9.0), (1500, 4.5), (4000, 1.6), (8000, 0.0)]), ROAD_E, 2.0)
+        s2(m["rail"], (170, 160, 150), lerp_log(w, [(1000, 4.0), (8000, 2.0), (40000, 1.0), (100000, 0.0)]))
+        s2(m["major"], MAJOR, lerp_log(w, [(600, 14.0), (2000, 7.0), (8000, 3.0), (40000, 1.2), (100000, 0.6)]),
+           None if far else MAJOR_E, lerp_log(w, [(1000, 3.0), (6000, 1.0)]),
+           min_px=lerp_log(w, [(4000, 3), (30000, 25), (100000, 40)]))
+        base, top = _surface_np(surf), _surface_np(so)
+        x0, y0 = merc(m["bbox"][0], m["bbox"][1])
+        x1, y1 = merc(m["bbox"][2], m["bbox"][3])
+        sx0, sx1 = W / 2 + (x0 - cam.tx) * s, W / 2 + (x1 - cam.tx) * s
+        sy0, sy1 = cam.ay - (y1 - cam.ty) * s, cam.ay - (y0 - cam.ty) * s
+        fe = max(40.0, min(220.0, (sx1 - sx0) * 0.08))
+        xs = np.arange(W, dtype=np.float32)
+        ys = np.arange(H, dtype=np.float32)
+        mx = np.clip(np.minimum(xs - sx0, sx1 - xs) / fe, 0, 1)
+        my = np.clip(np.minimum(ys - sy0, sy1 - ys) / fe, 0, 1)
+        mask = (my[:, None] * mx[None, :] * osm_a)[:, :, None]
+        base[:] = (base * (1 - mask) + top * mask).astype(np.uint8)
+        surf.mark_dirty()
+
+    # 3) highlight: dim outside the country (far) / the city (near), red outlines
+    c = cairo.Context(surf)
+    c.set_line_join(cairo.LINE_JOIN_ROUND)
+    c.set_line_cap(cairo.LINE_CAP_ROUND)
+    path, fill, stroke = _ctx_fns(c, mat, s, vb)
+    country_a = ramp(w, 120e3, 40e3) if "country" in m else 0.0
+    city_a = ramp(w, 40e3, 90e3)
+    for feat, a, frac in ((m.get("country"), country_a, country_frac), (m["boundary"], city_a, city_frac)):
+        if feat is None or a <= 0 or not feat.shapes:
+            continue
+        shp = [(feat.shapes[0], feat.per[0])]
+        c.rectangle(0, 0, W, H)
+        path(shp, True)
+        c.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)
+        c.set_source_rgba(0.08, 0.12, 0.2, 0.32 * a)
+        c.fill()
+        if frac > 0:
+            lw = lerp_log(w, [(1500, 12.0), (8000, 8.0), (40000, 6.0), (3e6, 6.0)])
+            total = sum(feat.per[0]) * s
+            for col, width in ((WHITE_T, lw + 7), (LINE, lw)):
+                path(shp, True)
+                if frac < 1:
+                    c.set_dash([total * frac, total * 2])
+                c.set_source_rgba(*rgb(col, a))
+                c.set_line_width(width)
+                c.stroke()
+                c.set_dash([])
+    buf = _surface_np(surf)
     return Image.fromarray(buf[:, :, [2, 1, 0]].copy(), "RGB").convert("RGBA")
 
 
@@ -446,7 +504,7 @@ def plan(rid, dry=False):
     sb = json.load(open(os.path.join(base, "storyboard.json")))
     work = os.path.join("/tmp", "factreel-" + rid)
     os.makedirs(work, exist_ok=True)
-    m = load_map(base)
+    m = load_map(base, sb.get("country"))
     credits = json.load(open(os.path.join(base, "img", "credits.json"))) if os.path.exists(
         os.path.join(base, "img", "credits.json")) else {}
     bb = m["boundary"].bb[0]
@@ -455,6 +513,12 @@ def plan(rid, dry=False):
     k = 1 / math.cos(math.radians(lat0))
     city_w = max((bb[2] - bb[0]) / k * 1.12, (bb[3] - bb[1]) / k * 1.12 * W / 1250)
     city = Cam(cx, cy, city_w, 1010)
+    intro = None
+    if "country" in m:                     # continent → country → city at the start
+        cb = m["country"].bb[0]
+        ccx, ccy = (cb[0] + cb[2]) / 2, (cb[1] + cb[3]) / 2
+        cw = max((cb[2] - cb[0]) / k * 1.6, (cb[3] - cb[1]) / k * 1.6 * W / 1300)
+        intro = [Cam(ccx, ccy, sb.get("continent_view", 3.2e6), 1010), Cam(ccx, ccy, cw, 1010), city]
     voice, rate = sb.get("voice", "en-US-BrianNeural"), sb.get("rate", "+10%")
 
     scenes, t = [], 0.0
@@ -465,12 +529,18 @@ def plan(rid, dry=False):
         else:
             wav, vdur, words = reel.tight_voice(fc["text"], voice, os.path.join(work, f"v{i}.mp3"), rate)
         fly_t = FLY_FIRST if i == 0 else FLY
+        is_intro = i == 0 and intro is not None and "lat" not in fc
+        if is_intro:
+            fly_t = INTRO_T
         lead = 0.0 if i == 0 else 0.35          # small breath between facts (camera already moving)
         dur = lead + vdur + fc.get("hold", 0.45)
         dur = max(dur, fly_t + 1.2)
         if fc.get("end"):
             cam = Cam(city.tx, city.ty, city.w, 1010)
             dur += 1.6
+        elif "lat" not in fc:
+            cam = city
+            dur = max(dur, fly_t + 0.8)
         else:
             x, y = merc(fc["lon"], fc["lat"])
             cam = Cam(float(x), float(y), fc.get("view", 1100), 1130)
@@ -479,7 +549,8 @@ def plan(rid, dry=False):
         credit = f"Photo: {cr.get('author', '')} · {cr.get('license', '')}" if cr else ""
         scenes.append({"i": i, "t0": t, "dur": dur, "lead": lead, "fly": fly_t, "cam": cam, "fc": fc,
                        "wav": wav, "vdur": vdur, "words": words,
-                       "photo": ph if os.path.exists(ph) else None, "credit": credit})
+                       "photo": ph if os.path.exists(ph) and "lat" in fc else None, "credit": credit,
+                       "intro": intro if is_intro else None, "loc": "lat" in fc})
         t += dur
     return sb, base, work, m, k, city, scenes, t
 
@@ -503,16 +574,26 @@ class Renderer:
         self.endimg = end_layer(self.sb.get("end", {}))
         self.figs = {}
         stickman.STYLE = self.sb.get("stick_style", "classic")
+        stickman.POINT_AT = 132
 
     def cam_at(self, sc, t):
         lt = t - sc["t0"]
+        if sc.get("intro"):
+            a, b, c = sc["intro"]
+            if lt < INTRO_HOLD:
+                return a
+            if lt < INTRO_HOLD + INTRO_FLY:
+                return fly(a, b, (lt - INTRO_HOLD) / INTRO_FLY, self.k)
+            if lt < 2 * INTRO_HOLD + INTRO_FLY + 0.2:
+                return b
+            return fly(b, c, (lt - 2 * INTRO_HOLD - INTRO_FLY - 0.2) / INTRO_FLY, self.k)
         prev = self.scenes[sc["i"] - 1]["cam"] if sc["i"] > 0 else self.city
         return fly(prev, sc["cam"], lt / sc["fly"], self.k)
 
     def fig_frame(self, sc, n_in_scene):
         i = sc["i"]
         if i not in self.figs:
-            st = {"action": "point", "x0": 0.17, "y": 0.80, "size": 300, "facing": 1}
+            st = {"action": "teach", "x0": 0.17, "y": 0.80, "size": 300, "facing": 1}
             st.update(sc["fc"].get("stick", {}))
             n = int(sc["dur"] * FPS) + 3
             self.figs[i] = list(reel.figure_frames(st, n, patch=True))
@@ -523,11 +604,15 @@ class Renderer:
         sc = scene_at(self.scenes, t)
         lt = t - sc["t0"]
         cam = self.cam_at(sc, t)
-        outline = min(1.0, t / 1.4) if sc["i"] == 0 else 1.0
-        img = draw_map(self.m, cam, self.k, outline_frac=outline)
+        if sc.get("intro"):
+            cf = min(1.0, max(0.0, (lt - 0.2) / 1.1))
+            tf = min(1.0, max(0.0, (lt - (2 * INTRO_HOLD + INTRO_FLY + 0.2 + INTRO_FLY * 0.55)) / 1.2))
+        else:
+            cf, tf = 1.0, (min(1.0, t / 1.4) if sc["i"] == 0 else 1.0)
+        img = draw_map(self.m, cam, self.k, city_frac=tf, country_frac=cf)
         end = sc["fc"].get("end")
         # pin + label at the target
-        if not end:
+        if sc.get("loc"):
             s = cam.scale(self.k)
             px = W / 2 + (sc["cam"].tx - cam.tx) * s
             py = cam.ay - (sc["cam"].ty - cam.ty) * s
@@ -597,7 +682,10 @@ def render(rid, dry=False):
         subs += [(s, e, txt, bool(nums.search(txt))) for s, e, txt in chunks]
         if sc["i"] > 0:
             sfx.append((sc["t0"], "whoosh", 0.22))
-        if not sc["fc"].get("end"):
+        if sc.get("intro"):
+            sfx.append((sc["t0"] + INTRO_HOLD, "whoosh", 0.2))
+            sfx.append((sc["t0"] + 2 * INTRO_HOLD + INTRO_FLY + 0.2, "whoosh", 0.2))
+        elif sc.get("loc"):
             sfx.append((sc["t0"] + sc["fly"] - 0.1, "pop", 0.28))
             sfx.append((sc["t0"] + sc["fly"] + 0.15, "pop", 0.22))
         else:
@@ -624,7 +712,8 @@ def render(rid, dry=False):
             "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k",
             "-movflags", "+faststart", final)
     cover = os.path.join(base, "cover.jpg")
-    rd.frame(rd.scenes[0]["fly"] + 0.8).save(cover, quality=90)
+    cs = next(sc for sc in rd.scenes if sc.get("photo"))
+    rd.frame(cs["t0"] + cs["fly"] + 1.0).save(cover, quality=90)
     cap = rd.sb.get("caption", "")
     cpath = os.path.join(base, "img", "credits.json")
     if os.path.exists(cpath):

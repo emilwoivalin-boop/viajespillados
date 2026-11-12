@@ -438,6 +438,9 @@ def step_times(n, fps, x0, x1, size, feet0=0, feet1=0, speed=1.0):
 
 
 # ---------------------------------------------------------------- main generator
+POINT_AT = 118     # teach: pointer angle from straight down (degrees, towards facing)
+
+
 def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, band_h=700, speed=1.0,
            glasses=None, backpack=None, style=None, feet1=None, size1=None, look="hero", mood=None, patch=False):
     """patch=True yields (small RGBA image, (x, y)) or None instead of full-width frames (much faster to composite)."""
@@ -604,6 +607,20 @@ def frames(action, n, fps=30, x0=0.25, x1=0.65, feet=600, size=340, facing=1, ba
                 ph_ = (t * 0.45 + k / 3) % 1
                 note(pen, x + facing * size * (0.35 + 0.15 * k) + math.sin(t * 3 + k) * size * 0.03,
                      feet - size * (1.0 + ph_ * 0.45), size * 0.05, int(255 * (1 - ph_)))
+        elif action == "teach":
+            # lecturer facing the viewer: glasses, pointer stick in the front hand aimed at the map,
+            # the other hand explaining, mouth moving while he talks
+            g = math.sin(t * 2 * math.pi * 0.9)
+            tap = 3.5 * math.sin(t * 2 * math.pi * 1.6)
+            shadow(pen, x, feet + size * 0.02, size * 0.2)
+            hb, hf, hc = standing(pen, x, feet, size, facing, t, [(-8, 3), (8, 3)],
+                                  [(-38 - 10 * g, 75 + 25 * g), (POINT_AT + 8 + tap, -12)])
+            a = rad(POINT_AT + tap)
+            tip = (hf[0] + facing * math.sin(a) * size * 0.5, hf[1] + math.cos(a) * size * 0.5)
+            pen.stroke(hf, tip, width=size * 0.022, color=(132, 86, 44, 255), outline=DARK)
+            pen.circle(tip, size * 0.022, CORAL, DARK, 2)
+            talk = (math.sin(t * 2 * math.pi * 3.1) + 0.4 * math.sin(t * 2 * math.pi * 4.7)) > 0.25
+            head(pen, hc, size * 0.15, 0, t, mood="wow" if talk else "smile")
         elif action == "lookout":
             pt = 4 * math.sin(t * 2 * math.pi * 0.3)
             shadow(pen, x, feet + size * 0.02, size * 0.2)
