@@ -42,11 +42,16 @@ Common facts
   `python scripts/reel_plan.py build <id>` (plan.json → storyboard.json), `python scripts/reel_plan.py preview <id> <out.jpg>`
   (one frame per scene with stick man + sticker – look at it with the Read tool).
 
+**Every other day it is a FACT REEL instead (owner's rule, from 13 Nov 2026):** `python scripts/reel_plan.py kind`
+prints `facts` or `plan` for today. On `facts` days step A follows section **F · fact Reel day** below (it makes and renders
+the whole video, no Picsart), step B does nothing, and step C posts it at 12:14 exactly like the travel-plan Reel.
+
 ---------------------------------------------------------------------------------------------------
 
 ## A · prepare (06:41)
 
 1. Today = Bogotá date. If `reels/daily.json` already has today with status other than `skipped`, stop (already done).
+   Run `python scripts/reel_plan.py kind`: if it prints `facts`, do section **F · fact Reel day** instead of the steps below.
 2. **Pick the offer** ("best tracked offer"):
    - Candidates = rows of `Ofertas` with A Publicar = "sí" (never "no" or "revisar"), a ROUND-TRIP date in P (`YYYY-MM-DD/YYYY-MM-DD`), departure at least
      4 days from today, and the Destino present in column A of `Qué hacer (captions)`.
@@ -173,6 +178,8 @@ Common facts
 
 ## B · build (11:23)
 
+0. If today's entry in `reels/daily.json` has `"kind": "facts"` (fact Reel day), do nothing: step A already rendered it.
+   Output one line ("Hoy es día de datos curiosos: el Reel ya está listo" or the problem if its status is not `rendered`) and stop.
 1. Load today's entry from `reels/daily.json`. If status is `pictures_ready`, the pictures are already in `reels/<id>/img/` –
    skip steps 2–3. If status is `prompts_sent` (manual fallback), do steps 2–3. Any other status: stop.
 2. List the images in the Drive folder (search_files `parentId = '<folder>' and mimeType contains 'image/'`, excludeContentSnippets).
@@ -255,6 +262,60 @@ To run it by hand (e.g. after fixing a late render): reel.yml with mode `daily-p
    "📲 Para TikTok y YouTube: https://viajespillados.com/tiktok/hoy.html (guardar video › copiar texto/título › subir)", followed by
    the YouTube title (`yt_title`) and the TikTok/YouTube text (`caption`) of the newest item in `tiktok/feed.json`, each in a code
    block so they are easy to copy. That text is about the destination (no price/airline/dates). On failure: the error in one line.
+
+## F · fact Reel day (step A on `facts` days)
+
+A short "datos curiosos" Reel (about 40 s) in the style of Map Verse, approved by the owner (example:
+`reels/test-facts-san-andres/storyboard.json`; longer English/Spanish examples in `reels/facts/amsterdam-*`): a cartoon map
+zooms from the continent to the country to the city, then 5 facts – the camera flies to a place with a pin and a real photo,
+or pulls back over the city with emoji stickers and a big number – the stick man as a teacher with a pointer, Colombian voice
++ captions, and at the end the offer's price card. No Picsart, no Drive, no step B. Keep the work short (it saves credits).
+
+1. **Pick the offer** exactly like A.2 (same candidates, exclusions and Reel score). `id` = `<slug-destino>-<ida>`.
+   Write `reels/<id>/plan.json`: `{"id": ..., "kind": "facts", "offer": {destino, pais, region, aerolinea, precio, escalas,
+   ida, vuelta, link, sheet_row, escala_larga}}` (same offer fields as A.3).
+2. **Five facts** (Spanish from Colombia, tú, lively; 12–25 words each; never price/airline/dates). Sources: first the
+   Where Next data (`python scripts/reel_caption.py find <IATA>` → `fact`, `todo`), then at most a few web searches. Only
+   facts you have checked; put the URL in each fact's `source`. Mix the topics: history, people/culture, government,
+   nature, attractions, record numbers. Do not repeat facts of earlier fact Reels of the same destination.
+   - Fact 1 (the hook): a general fact that starts with "¿Sabías que …?" – the ONLY "¿Sabías que" of the Reel. No location,
+     no photo (it is spoken while the map zooms in). Optional `stat` (e.g. a year or distance) and one sticker.
+   - Facts 2 and 4: tied to a place: `lat`, `lon` (check them), `view` (metres across the screen, 1000–1500), `label`
+     (short place name), `photo` = a Wikimedia Commons file title ("File:….jpg"; licence CC BY / CC BY-SA / CC0 / public
+     domain, at least 1600 px wide – search with web search "<place> site:commons.wikimedia.org").
+   - Facts 3 and 5: general facts (no location; the camera shows the whole city) with 1–2 `stickers` – OBJECT emoji only,
+     never faces (list: `python scripts/factreel.py stickers`) – and if there is a striking number a `stat`
+     `{"big": "847.000", "small": "bicicletas", "at": "<word of the line>", "count": true}` (count = the number counts up
+     with a drum roll; use `"count": false` for years and things like "-2 m"). Sticker/stat `at` = a word of that fact's
+     line (they pop when the voice says it), `x`/`y` fractions of the frame (keep y between .25 and .55), size 170–320,
+     optional `sfx`: pop, boing, sparkle, bubbles, tada, whistle, ding, chime.
+   - Stick man moves (`stick.beats`, each `{"action", "t"}` with t in seconds from the start of the fact): fact 1
+     `teach_walk` (x0 -0.15 → x1 0.17) then `teach` at 2.4; fact 2 `tap` then `teach` at 2.0; fact 3 `swing` then `teach`
+     at 2.0; fact 4 `knock` then `teach` at 1.7 – the ONE knock on the screen glass, around 55–60 % of the Reel, where
+     attention drops (owner's rule: only once); fact 5 `teach` (or `celebrate` then `teach`). Vary them a little between days.
+   - `end`: `{"text": "¿Cuál te sorprendió más?", "line1": "¿Cuál te sorprendió más?", "stick": {"action": "wave", "x0": 0.5,
+     "y": 0.86, "size": 330}}` – the rotating price line and the price card (airline, price, dates; no website, no "link en
+     la bio" – owner's rule) are added automatically from plan.json.
+3. Write `reels/<id>/storyboard.json` (copy the structure of `reels/test-facts-san-andres/storyboard.json`): `lang` "es",
+   `city` (as said in Spanish), `country` (ISO3 code used by Natural Earth: COL, MEX, DOM, PER, PAN, CUB, ABW, CUW, USA,
+   ESP, BRA, ARG, CHL…), `place` ("<city>, <country>" for the OpenStreetMap lookup; if the outline is wrong add
+   `"osm_rel": <relation id>`), `voice` "es-CO-GonzaloNeural", `rate` "+35%", `facts`, `end`, and `caption`:
+   "5 datos de <Destino> que seguro no sabías 📍" + blank line + the five facts as a short numbered list + blank line +
+   "¿Cuál te sorprendió más? ✈️" + blank line + "Mapa © colaboradores de OpenStreetMap. Fotos de Wikimedia Commons:
+   PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)" + blank line + 4–5 hashtags (#datoscuriosos #viajespillados + destination,
+   country). No flight offer in the caption. PHOTO_CREDITS is filled in automatically.
+   Add today to `reels/daily.json`: `{"id": <id>, "destino": ..., "kind": "facts", "status": "rendering"}`. Commit + push.
+4. **Render**: `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/factreel.yml/dispatches -f ref=main
+   -f 'inputs[mode]=all' -f 'inputs[id]=<id>'` (map data → photos → video, ≈ 15–20 min), poll it like reel.yml
+   (`-w factreel.yml`), `git pull`. On failure read the log (`gh run view <run> --log | tail -40`), fix the cause (wrong
+   place/outline → `osm_rel`; a photo that does not download → another file) and run it once more.
+5. **Check**: Read the 2 photos (`reels/<id>/img/<n>.jpg`: right place, no text/people close-ups) and a contact sheet
+   `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/2.5,scale=200:-1,tile=9x2" -frames:v 1 /tmp/sheet.jpg` (map with the city
+   outline, pins on the right spots, stickers not covering the title, price card at the end). Redo once if something is
+   clearly wrong. Then set today's status to `rendered`, commit + push. Step C publishes it at 12:14 (reel.py uses the
+   storyboard caption and `cover_ig.jpg`, a frame without price).
+6. **Final output** (short, Spanish): "Hoy toca Reel de datos curiosos: <Destino>", the 5 facts in one line each, the offer
+   (fechas, precio, why it was picked – Reel score) and "Se publica a las 12:14". Send the contact sheet if you can.
 
 ## Renew the Picsart sign-in (only when a Picsart run says it is not signed in)
 

@@ -5,6 +5,7 @@ same structure as the approved Aruba Reel, and makes a quick placement preview.
     python scripts/reel_plan.py preview <id>    # contact sheet of every scene with stick man + sticker
     python scripts/reel_plan.py info <ida> <vuelta>   # Spanish dates + workdays off, for writing the plan
     python scripts/reel_plan.py buddy [<YYYY-MM-DD>]  # "yes" if today's Reel is a travel-buddy Reel (every third)
+    python scripts/reel_plan.py kind [<YYYY-MM-DD>]   # "facts" (fact Reel day, every other day) or "plan"
 
 plan.json (written by the morning task, completed by the build task):
 {
@@ -71,6 +72,13 @@ def buddy_next(today=None):
     daily = json.load(open(os.path.join(ROOT, "reels", "daily.json")))
     made = sum(1 for k, v in daily.items() if k < today and v.get("status") != "skipped")
     return (made + 1) % 3 == 0
+
+
+def reel_kind(day=None):
+    """Owner's rule (Nov 2026): every other day the daily Reel is a fact Reel ("datos curiosos" on a map, scripts/
+    factreel.py) instead of the travel-plan Reel. Odd day numbers since 0001-01-01 (13 Nov 2026, 15 Nov…) = facts."""
+    d = date.fromisoformat(day) if day else date.today()
+    return "facts" if d.toordinal() % 2 == 1 else "plan"
 
 
 def check_figure(f, line, where):
@@ -329,6 +337,8 @@ if __name__ == "__main__":
         build(sys.argv[2])
     elif cmd == "preview":
         preview(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    elif cmd == "kind":          # "facts" or "plan" for a Bogotá date (default today)
+        print(reel_kind(sys.argv[2] if len(sys.argv) > 2 else None))
     elif cmd == "buddy":
         print("yes" if buddy_next(sys.argv[2] if len(sys.argv) > 2 else None) else "no")
     elif cmd == "info":

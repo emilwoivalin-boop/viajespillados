@@ -994,7 +994,7 @@ def render(rid, dry=False):
 
 
 if __name__ == "__main__":
-    cmd, rid = sys.argv[1], sys.argv[2]
+    cmd, rid = sys.argv[1], (sys.argv[2] if len(sys.argv) > 2 else "")
     dry = "--dry" in sys.argv
     if cmd == "photos":
         photos(rid)
@@ -1002,6 +1002,9 @@ if __name__ == "__main__":
         if not dry:
             photos(rid)
         render(rid, dry)
+    elif cmd == "stickers":   # emoji that can be used as stickers (Twemoji PNGs in assets/stickers)
+        names = sorted(f[:-4] for f in os.listdir(os.path.join(ROOT, "assets", "stickers")) if f.endswith(".png"))
+        print(" ".join("".join(chr(int(c, 16)) for c in n.split("-")) for n in names))
     elif cmd == "all":        # daily fact Reel in one go: map data (if missing) → photos → render
         b = fact_base(rid)
         sb = json.load(open(os.path.join(b, "storyboard.json")))

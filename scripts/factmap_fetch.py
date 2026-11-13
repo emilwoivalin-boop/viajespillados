@@ -17,10 +17,10 @@ UA = {"User-Agent": "ViajesPilladosBot/1.0 (https://viajespillados.com; fact ree
 
 
 def q(query):
-    for attempt in range(6):
+    for attempt in range(8):
         url = URLS[attempt % len(URLS)]
         try:
-            r = requests.post(url, data={"data": query}, headers=UA, timeout=300)
+            r = requests.post(url, data={"data": query}, headers=UA, timeout=320)
             if r.status_code == 200:
                 return r.json()["elements"]
             print("overpass", url, r.status_code, r.text[:200])
@@ -142,23 +142,33 @@ def main(rid, query, rel=None):
     if (n - s) < 0.25 and (e - w) < 0.3:        # small place (island, small town): full detail everywhere
         cb = bb
     print("bbox", bb, "centre", cb)
-    water = q(f'[out:json][timeout:250];(way["natural"="water"]{bb};relation["natural"="water"]{bb};'
-              f'way["waterway"="riverbank"]{bb};relation["waterway"="riverbank"]{bb};'
-              f'way["landuse"~"^(reservoir|basin)$"]{bb};);out geom;')
-    coast = q(f'[out:json][timeout:250];way["natural"="coastline"]{bb};out geom;')
-    green = q(f'[out:json][timeout:250];(way["leisure"~"^(park|garden|golf_course|nature_reserve)$"]{bb};'
-              f'relation["leisure"~"^(park|nature_reserve)$"]{bb};'
-              f'way["landuse"~"^(grass|forest|meadow|recreation_ground|cemetery|allotments|village_green)$"]{bb};'
-              f'relation["landuse"~"^(forest|meadow|grass)$"]{bb};way["natural"~"^(wood|grassland|scrub|beach|sand)$"]{bb};);out geom;')
-    major = q(f'[out:json][timeout:250];way["highway"~"^(motorway|trunk|primary|secondary)$"]{bb};out geom;')
-    minor = q(f'[out:json][timeout:250];way["highway"~"^(tertiary|residential|unclassified|living_street|pedestrian)$"]{cb};out geom;')
-    rail = q(f'[out:json][timeout:250];way["railway"="rail"]["service"!~"."]{bb};out geom;')
-    bld = q(f'[out:json][timeout:250];way["building"]{cb};out geom;')
-    sand = [p for p in polys([g for g in green if (g.get("tags") or {}).get("natural") in ("beach", "sand")])]
+    # ONE Overpass request for everything (the public servers are often busy – fewer requests, fewer retries)
+    els = q(f'[out:json][timeout:280];('
+            f'way["natural"="water"]{bb};relation["natural"="water"]{bb};way["waterway"="riverbank"]{bb};'
+            f'relation["waterway"="riverbank"]{bb};way["landuse"~"^(reservoir|basin)$"]{bb};'
+            f'way["natural"="coastline"]{bb};'
+            f'way["leisure"~"^(park|garden|golf_course|nature_reserve)$"]{bb};relation["leisure"~"^(park|nature_reserve)$"]{bb};'
+            f'way["landuse"~"^(grass|forest|meadow|recreation_ground|cemetery|allotments|village_green)$"]{bb};'
+            f'relation["landuse"~"^(forest|meadow|grass)$"]{bb};way["natural"~"^(wood|grassland|scrub|beach|sand)$"]{bb};'
+            f'way["highway"~"^(motorway|trunk|primary|secondary)$"]{bb};'
+            f'way["highway"~"^(tertiary|residential|unclassified|living_street|pedestrian)$"]{cb};'
+            f'way["railway"="rail"]["service"!~"."]{bb};way["building"]{cb};);out geom;')
+    T = lambda e: e.get("tags") or {}
+    water = [e for e in els if T(e).get("natural") == "water" or T(e).get("waterway") == "riverbank"
+             or T(e).get("landuse") in ("reservoir", "basin")]
+    coast = [e for e in els if T(e).get("natural") == "coastline"]
+    sandl = [e for e in els if T(e).get("natural") in ("beach", "sand")]
+    green = [e for e in els if T(e).get("leisure") in ("park", "garden", "golf_course", "nature_reserve")
+             or T(e).get("landuse") in ("grass", "forest", "meadow", "recreation_ground", "cemetery", "allotments",
+                                        "village_green") or T(e).get("natural") in ("wood", "grassland", "scrub")]
+    hw = lambda e: T(e).get("highway")
+    major = [e for e in els if hw(e) in ("motorway", "trunk", "primary", "secondary")]
+    minor = [e for e in els if hw(e) in ("tertiary", "residential", "unclassified", "living_street", "pedestrian")]
+    rail = [e for e in els if T(e).get("railway") == "rail"]
+    bld = [e for e in els if T(e).get("building") and e["type"] == "way"]
     data = {"name": relel.get("tags", {}).get("name", query), "rel": rel, "centre": [lon0, lat0], "bbox": [w, s, e, n],
             "boundary": outer, "water": polys(water), "coast": lines(coast),
-            "green": polys([g for g in green if (g.get("tags") or {}).get("natural") not in ("beach", "sand")]),
-            "sand": sand, "roads": {"major": lines(major), "minor": lines(minor)}, "rail": lines(rail),
+            "green": polys(green), "sand": polys(sandl), "roads": {"major": lines(major), "minor": lines(minor)}, "rail": lines(rail),
             "buildings": [p["o"][0] for p in polys(bld)]}
     d = os.path.join(fact_dir(rid), "map")
     os.makedirs(d, exist_ok=True)

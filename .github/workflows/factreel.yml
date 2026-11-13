@@ -26,6 +26,8 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    env:
+      PYTHONUNBUFFERED: "1"
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v5
