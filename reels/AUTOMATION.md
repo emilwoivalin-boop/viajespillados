@@ -1,14 +1,14 @@
 # Daily Reel – how it works
 
 One Spanish (Colombia) Reel per day about the best tracked offer, same format as the approved
-Aruba Reel (`reels/aruba-abril-2027-cartoon-es`). Three scheduled tasks run it:
+Aruba Reel (`reels/aruba-abril-2027-cartoon-es`). Three scheduled tasks run it (all moved 4 h earlier on 13 Nov 2026 so GitHub delays still leave time; the flight price check runs first, at 01:53):
 
 | Bogotá time | Task | What it does |
 |---|---|---|
-| 06:41 | **A · prepare** | picks the offer, writes the script and 6 picture prompts (7 on 4-day trips, 8 on 5+ days), makes the pictures with Picsart (automatic), checks them, tells the owner |
-| (owner) | — | nothing – only if Picsart failed: makes the 5 pictures in the Gemini app and uploads them to today's Drive folder **before 11:20** |
-| 11:23 | **B · build** | downloads the pictures, places stick man / sticker / sound, renders the video, checks it |
-| 12:14 | **C · post** | publishes the rendered Reel on Instagram |
+| 02:41 | **A · prepare** | picks the offer, writes the script and 6 picture prompts (7 on 4-day trips, 8 on 5+ days), makes the pictures with Picsart (automatic), checks them, tells the owner |
+| (owner) | — | nothing – only if Picsart failed: makes the 5 pictures in the Gemini app and uploads them to today's Drive folder **before 7:20** |
+| 07:23 | **B · build** | downloads the pictures, places stick man / sticker / sound, renders the video, checks it |
+| 08:14 | **C · post** | publishes the rendered Reel on Instagram |
 
 State lives in `reels/daily.json` (one entry per Bogotá date):
 `{"2026-10-30": {"id": "lima-2027-01-16", "destino": "Lima", "status": "prompts_sent", "drive_folder_id": "...", "note": ""}}`
@@ -44,11 +44,11 @@ Common facts
 
 **Every other day it is a FACT REEL instead (owner's rule, from 13 Nov 2026):** `python scripts/reel_plan.py kind`
 prints `facts` or `plan` for today. On `facts` days step A follows section **F · fact Reel day** below (it makes and renders
-the whole video, no Picsart), step B does nothing, and step C posts it at 12:14 exactly like the travel-plan Reel.
+the whole video, no Picsart), step B does nothing, and step C posts it at 8:14 exactly like the travel-plan Reel.
 
 ---------------------------------------------------------------------------------------------------
 
-## A · prepare (06:41)
+## A · prepare (02:41)
 
 1. Today = Bogotá date. If `reels/daily.json` already has today with status other than `skipped`, stop (already done).
    Run `python scripts/reel_plan.py kind`: if it prints `facts`, do section **F · fact Reel day** instead of the steps below.
@@ -169,14 +169,14 @@ the whole video, no Picsart), step B does nothing, and step C posts it at 12:14 
    as `drive_folder_id` in plan.json and in `reels/daily.json` with status `prompts_sent`. Commit + push.
 7. **Final output** (the owner reads this on the phone; keep it short, Spanish is fine): destino, fechas, precio, why it was picked
    (Reel score with its bonuses, days until departure, workdays off, % below usual), the occasion if any, and whether it is a buddy Reel.
-   - `pictures_ready`: "Las imágenes ya están hechas con Picsart – no tienes que subir nada. El Reel se arma a las 11:23 y se
-     publica a las 12:14." If you can send files, send a contact sheet of all the pictures
+   - `pictures_ready`: "Las imágenes ya están hechas con Picsart – no tienes que subir nada. El Reel se arma a las 7:23 y se
+     publica a las 8:14." If you can send files, send a contact sheet of all the pictures
      (`python -c` with PIL, 6 thumbnails side by side) so the owner can see them.
    - `prompts_sent` (fallback): say why Picsart failed, then the Drive folder link `https://drive.google.com/drive/folders/<id>`
      and the 5 prompts numbered 1–5, each in its own code block, and "Sube las 5 imágenes a la carpeta en este orden (o nómbralas
-     1–5) antes de las 11:20." If the Picsart sign-in expired, add: "Pídele a Claude que renueve el acceso a Picsart."
+     1–5) antes de las 7:20." If the Picsart sign-in expired, add: "Pídele a Claude que renueve el acceso a Picsart."
 
-## B · build (11:23)
+## B · build (07:23)
 
 0. If today's entry in `reels/daily.json` has `"kind": "facts"` (fact Reel day), do nothing: step A already rendered it.
    Output one line ("Hoy es día de datos curiosos: el Reel ya está listo" or the problem if its status is not `rendered`) and stop.
@@ -184,7 +184,7 @@ the whole video, no Picsart), step B does nothing, and step C posts it at 12:14 
    skip steps 2–3. If status is `prompts_sent` (manual fallback), do steps 2–3. Any other status: stop.
 2. List the images in the Drive folder (search_files `parentId = '<folder>' and mimeType contains 'image/'`, excludeContentSnippets).
    Order: files whose names start with 1–5 by that number, otherwise by createdTime (oldest first). Map to vuelo, llegada, dia1, dia2, dia3 (+ dia4 on 4-day trips, dia4 + dia5 on 5+ day trips).
-   - If fewer than 5 images: if it is before 11:50, wait 5 minutes and check again (up to 5 times). Still missing → set status
+   - If fewer than 5 images: if it is before 7:50, wait 5 minutes and check again (up to 5 times). Still missing → set status
      `skipped` with note "faltaron imágenes (N/5)", commit, tell the owner in one line, stop.
 3. Write `drive_files` {key: fileId} into plan.json, commit + push, run the workflow with mode `fetch`. `git pull`; the pictures are
    now in `reels/<id>/img/<key>.jpg`.
@@ -234,9 +234,9 @@ the whole video, no Picsart), step B does nothing, and step C posts it at 12:14 
    `cover_ig.jpg` and check the text is readable and nothing important is hidden. Check `reels/<id>/reel.mp4` exists (duration 30–55 s; up to 70 s on longer trips) and look at a contact
    sheet: `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/3,scale=216:-1,tile=8x2" -frames:v 1 /tmp/sheet.jpg`. If something is clearly
    broken, fix and render again (time allows one retry).
-7. Set status `rendered`, commit + push. Output one short line: "Reel de <Destino> listo, se publica a las 12:14", plus any problem.
+7. Set status `rendered`, commit + push. Output one short line: "Reel de <Destino> listo, se publica a las 8:14", plus any problem.
 
-## C · post (12:14)
+## C · post (08:14)
 
 Caption rule (owner): Reel captions are a destination plan in the owner's format (`caption_es` in plan.json, built by
 `scripts/reel_caption.py`: hook, plan per day, fun fact, best months, who it suits, question, website line, hashtags) –
@@ -245,7 +245,7 @@ few emojis and never the flight offer (the video shows it at the end). `reel.py 
 
 
 **Automatic since 2026-11-06 – no Claude session.** The schedule in `.github/workflows/reel.yml` runs
-`scripts/reel.py daily-post today` every day at 12:14 Bogotá, with backup runs at 13:44 and 15:14 because GitHub sometimes
+`scripts/reel.py daily-post today` every day at 08:14 Bogotá, with backup runs at 09:44 and 11:14 because GitHub sometimes
 starts scheduled runs hours late or skips them (a run after the Reel is published does nothing). It:
 1. loads today's entry in `reels/daily.json`; publishes only if the status is `rendered` (never twice: `published.json` guards it).
    Any other status → the run fails with the reason in `reels/daily_error.txt` and GitHub emails the failure;
@@ -313,10 +313,10 @@ or pulls back over the city with emoji stickers and a big number – the stick m
 5. **Check**: Read the 2 photos (`reels/<id>/img/<n>.jpg`: right place, no text/people close-ups) and a contact sheet
    `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/2.5,scale=200:-1,tile=9x2" -frames:v 1 /tmp/sheet.jpg` (map with the city
    outline, pins on the right spots, stickers not covering the title, price card at the end). Redo once if something is
-   clearly wrong. Then set today's status to `rendered`, commit + push. Step C publishes it at 12:14 (reel.py uses the
+   clearly wrong. Then set today's status to `rendered`, commit + push. Step C publishes it at 8:14 (reel.py uses the
    storyboard caption and `cover_ig.jpg`, a frame without price).
 6. **Final output** (short, Spanish): "Hoy toca Reel de datos curiosos: <Destino>", the 5 facts in one line each, the offer
-   (fechas, precio, why it was picked – Reel score) and "Se publica a las 12:14". Send the contact sheet if you can.
+   (fechas, precio, why it was picked – Reel score) and "Se publica a las 8:14". Send the contact sheet if you can.
 
 ## Renew the Picsart sign-in (only when a Picsart run says it is not signed in)
 

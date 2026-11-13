@@ -793,7 +793,7 @@ def write_reels_csv(daily):
 
 
 def daily_post():
-    """Step C of the daily Reel, run by the schedule in reel.yml at 12:14 Bogotá (no Claude needed):
+    """Step C of the daily Reel, run by the schedule in reel.yml at 08:14 Bogotá (backups 09:44, 11:14) (no Claude needed):
     publish today's Reel if it is rendered, mark it published in reels/daily.json and update
     reels/reels_por_destino.csv (read by the "Reels por destino" tab of the Price log with IMPORTDATA)."""
     from datetime import datetime, timedelta, timezone
