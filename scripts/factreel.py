@@ -50,8 +50,8 @@ LINE = (255, 92, 72)
 YELLOW = (255, 214, 0)
 NAVY = (20, 34, 59)
 
-LANG = {"en": {"fact": "FACT", "photo": "Photo", "map": "Map © OpenStreetMap contributors"},
-        "es": {"fact": "DATO", "photo": "Foto", "map": "Mapa © colaboradores de OpenStreetMap"}}
+LANG = {"en": {"fact": "FACT", "photo": "Photo", "map": "Map © OpenStreetMap contributors · Emoji: Twemoji (CC BY 4.0)"},
+        "es": {"fact": "DATO", "photo": "Foto", "map": "Mapa © colaboradores de OpenStreetMap · Emoji: Twemoji (CC BY 4.0)"}}
 TXT = dict(LANG["en"])
 FLY_FIRST, FLY = 1.9, 1.3          # camera flight at the start of a scene (s)
 INTRO_HOLD, INTRO_FLY = 0.55, 1.5  # continent → country → city intro
@@ -115,6 +115,7 @@ def load_map(base, iso=None):
         "bbox": d["bbox"],
         "coast": [np.stack(merc(np.asarray(c)[:, 0], np.asarray(c)[:, 1]), 1) for c in d.get("coast", []) if len(c) > 1],
         "sand": Feat([p["o"] + p["i"] for p in d.get("sand", [])]),
+        "centre": tuple(float(v) for v in merc(*d["centre"])) if d.get("centre") else None,
     }
     if iso:
         ne = json.load(gzip.open(os.path.join(ROOT, "data", "naturalearth.json.gz"), "rt"))
@@ -477,6 +478,34 @@ def label_img(text):
     return im
 
 
+def map_label_img(text, size, spaced=False, dot=False, fill=(46, 58, 82)):
+    """A place name the way a printed map writes it: dark letters with a white halo (optionally letter-spaced
+    capitals for a city seen up close, or a town dot + name when seen from far away)."""
+    f = font("Bold" if not spaced else "ExtraBold", size)
+    d0 = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    gap = size * 0.16 if spaced else 0.0
+    chars = list(text.upper() if spaced else text)
+    widths = [d0.textlength(ch, font=f) for ch in chars]
+    tw = sum(widths) + gap * (len(chars) - 1)
+    sw = max(4, size // 9)
+    dot_r = size * 0.3 if dot else 0
+    pad = sw + 6
+    lead = (dot_r * 2 + size * 0.35) if dot else 0
+    im = Image.new("RGBA", (int(lead + tw + 2 * pad), int(size * 1.5 + 2 * pad)), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    cy = im.height / 2
+    if dot:
+        r = dot_r
+        d.ellipse((pad, cy - r, pad + 2 * r, cy + r), fill=(255, 255, 255), outline=fill, width=max(4, int(r * 0.42)))
+    x = pad + lead
+    for ch, w_ in zip(chars, widths):
+        d.text((x, cy), ch, font=f, fill=(*fill, 255), stroke_width=sw, stroke_fill=(255, 255, 255, 235), anchor="lm")
+        x += w_ + gap
+    # anchor: the dot centre (far) or the middle of the word (near)
+    ax = pad + dot_r if dot else im.width / 2
+    return im, ax, cy
+
+
 def end_layer(e):
     img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
@@ -759,6 +788,9 @@ class Renderer:
         nfacts = len(self.sb["facts"])
         self.titles = [title_layer(self.sb["city"], n, nfacts) for n in range(nfacts + 1)]
         self.pin = pin_img(110)
+        name = self.sb.get("map_label", self.sb["city"])     # the city name written on the map itself
+        self.city_lab = (map_label_img(name, 46, dot=True), map_label_img(name, 62, spaced=True)) \
+            if self.m.get("centre") and name else None
         self.labels = [label_img(sc["fc"]["label"]) if sc["fc"].get("label") else None for sc in self.scenes]
         self.polas = [polaroid(sc["photo"], sc["credit"], 640, (-3.0, 2.5)[sc["i"] % 2]) if sc["photo"] else None
                       for sc in self.scenes]
@@ -808,6 +840,23 @@ class Renderer:
         prev = self.scenes[sc["i"] - 1]["cam"] if sc["i"] > 0 else self.city
         return fly(prev, sc["cam"], lt / sc["fly"], self.k)
 
+    def draw_city_label(self, img, cam):
+        """Like a real map: from far away a town dot + the name, over the city the name in spaced capitals.
+        It fades out when the camera is down at street level (fact places)."""
+        s = cam.scale(self.k)
+        cx, cy = self.m["centre"]
+        px, py = W / 2 + (cx - cam.tx) * s, cam.ay - (cy - cam.ty) * s
+        near = ramp(cam.w, 90e3, 170e3)            # 1 = over the city, 0 = country/continent view
+        vis = ramp(cam.w, 14e3, 5e3)               # 0 at street level
+        for (im, ax, ay), a in ((self.city_lab[0], (1 - near) * vis), (self.city_lab[1], near * vis)):
+            if a <= 0.02:
+                continue
+            x, y = int(px - ax), int(py - ay)
+            if x > W or y > H or x + im.width < 0 or y + im.height < 0:
+                continue
+            lay = im if a >= 0.98 else Image.blend(Image.new("RGBA", im.size, (0, 0, 0, 0)), im, a)
+            img.alpha_composite(lay, (x, y)) if x >= 0 and y >= 0 else img.paste(lay, (x, y), lay)
+
     def fig_frame(self, sc, n_in_scene):
         i = sc["i"]
         if i not in self.figs:
@@ -829,6 +878,8 @@ class Renderer:
             cf, tf = 1.0, (min(1.0, t / 1.4) if sc["i"] == 0 else 1.0)
         img = draw_map(self.m, cam, self.k, city_frac=tf, country_frac=cf)
         end = sc["fc"].get("end")
+        if self.city_lab:
+            self.draw_city_label(img, cam)
         # pin + label at the target
         if sc.get("loc"):
             s = cam.scale(self.k)
@@ -1001,11 +1052,11 @@ def render(rid, dry=False):
     cover = os.path.join(base, "cover.jpg")
     cs = next(sc for sc in rd.scenes if sc.get("photo"))
     rd.frame(cs["t0"] + cs["fly"] + 1.0).save(cover, quality=90)
+    # owner's rule (13 Nov 2026): no map/photo/emoji credits in the caption – they are shown in the video itself
+    # (photo credit on each polaroid, map + emoji credit in the bottom corner)
     cap = rd.sb.get("caption", "")
-    cpath = os.path.join(base, "img", "credits.json")
-    if os.path.exists(cpath):
-        cr = json.load(open(cpath))
-        cap = cap.replace("PHOTO_CREDITS", "; ".join(f"{v['author']} ({v['license']})" for _, v in sorted(cr.items())))
+    cap = "\n\n".join(p for p in re.split(r"\n\s*\n", cap)
+                       if not re.search(r"OpenStreetMap|PHOTO_CREDITS|Twemoji|Wikimedia", p)).strip()
     with open(os.path.join(base, "caption.txt"), "w") as f:
         f.write(cap + "\n")
     if os.path.exists(os.path.join(base, "plan.json")):      # daily fact Reel: reel.py publish reads these

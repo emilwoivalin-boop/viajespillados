@@ -302,9 +302,10 @@ or pulls back over the city with emoji stickers and a big number – the stick m
    ESP, BRA, ARG, CHL…), `place` ("<city>, <country>" for the OpenStreetMap lookup; if the outline is wrong add
    `"osm_rel": <relation id>`), `voice` "es-CO-GonzaloNeural", `rate` "+35%", `facts`, `end`, and `caption`:
    "5 datos de <Destino> que seguro no sabías 📍" + blank line + the five facts as a short numbered list + blank line +
-   "¿Cuál te sorprendió más? ✈️" + blank line + "Mapa © colaboradores de OpenStreetMap. Fotos de Wikimedia Commons:
-   PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)" + blank line + 4–5 hashtags (#datoscuriosos #viajespillados + destination,
-   country). No flight offer in the caption. PHOTO_CREDITS is filled in automatically.
+   "¿Cuál te sorprendió más? ✈️" + blank line + 4–5 hashtags (#datoscuriosos #viajespillados + destination,
+   country). No flight offer and **no credits** in the caption (owner's rule): the photo credits are printed on the
+   polaroids and the map + emoji credit in the corner of the video (factreel.py also drops any credits paragraph).
+   The city name is written on the map automatically (`map_label` in storyboard.json overrides the text).
    Add today to `reels/daily.json`: `{"id": <id>, "destino": ..., "kind": "facts", "status": "rendering"}`. Commit + push.
 4. **Render**: `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/factreel.yml/dispatches -f ref=main
    -f 'inputs[mode]=all' -f 'inputs[id]=<id>'` (map data → photos → video, ≈ 15–20 min), poll it like reel.yml
