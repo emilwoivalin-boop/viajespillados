@@ -231,7 +231,7 @@ def _ctx_fns(c, mat, s, vb):
 SAND = (246, 228, 172)
 
 
-def sea_fill(surf, coast, cam, s):
+def sea_fill(surf, coast, cam, s, bbox=None):
     """OpenStreetMap coastlines have the land on their left: draw them, split the screen into regions and paint
     the regions that lie on the right (water) side of a coastline."""
     from scipy import ndimage
@@ -263,6 +263,12 @@ def sea_fill(surf, coast, cam, s):
             seeds.append((mx - nx * 5, my - ny * 5, mx + nx * 5, my + ny * 5))
     if not seeds:
         return
+    if bbox:   # the coastline was only downloaded inside the map bbox: close the regions along its edges
+        bx0, by0 = merc(bbox[0], bbox[1])
+        bx1, by1 = merc(bbox[2], bbox[3])
+        c.rectangle(W / 2 + (float(bx0) - cam.tx) * s, cam.ay - (float(by1) - cam.ty) * s,
+                    (float(bx1) - float(bx0)) * s, (float(by1) - float(by0)) * s)
+        c.stroke()
     mask.flush()
     m = np.ndarray((H, mask.get_stride()), np.uint8, mask.get_data())[:, :W] > 0
     lab, n = ndimage.label(~m)
@@ -272,7 +278,14 @@ def sea_fill(surf, coast, cam, s):
             xi, yi = int(px_), int(py_)
             if 0 <= xi < W and 0 <= yi < H:
                 votes[lab[yi, xi]] += v
-    sea = np.nonzero(votes > 0)[0]
+    pos = np.zeros(n + 1)
+    neg = np.zeros(n + 1)
+    for wx, wy, lx, ly in seeds:
+        for px_, py_, arr in ((wx, wy, pos), (lx, ly, neg)):
+            xi, yi = int(px_), int(py_)
+            if 0 <= xi < W and 0 <= yi < H:
+                arr[lab[yi, xi]] += 1
+    sea = np.nonzero((pos > 0) & (pos >= 4 * neg))[0]
     sea = sea[sea > 0]
     if not len(sea):
         return
@@ -323,7 +336,7 @@ def draw_map(m, cam, k, city_frac=1.0, country_frac=1.0):
         co.set_source_rgba(*rgb(LAND))
         co.paint()
         if m.get("coast"):
-            sea_fill(so, m["coast"], cam, s)
+            sea_fill(so, m["coast"], cam, s, m["bbox"])
             co = cairo.Context(so)
             co.set_line_join(cairo.LINE_JOIN_ROUND)
             co.set_line_cap(cairo.LINE_CAP_ROUND)
