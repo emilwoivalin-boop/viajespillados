@@ -497,7 +497,10 @@ def end_png(e, path):
     if e.get("kicker"):
         d.text((W // 2, y), e["kicker"], font=ig.font("Bold", 50), fill="white", anchor="mm"); y += 90
     if e.get("airline"):
-        d.text((W // 2, y), e["airline"], font=ig.font("Bold", 58), fill=(220, 228, 240), anchor="mm"); y += 160
+        fs = 58                                  # shrink long lines (e.g. "escala larga en …") to fit the frame
+        while fs > 34 and d.textlength(e["airline"], font=ig.font("Bold", fs)) > W - 100:
+            fs -= 2
+        d.text((W // 2, y), e["airline"], font=ig.font("Bold", fs), fill=(220, 228, 240), anchor="mm"); y += 160
     if e.get("price"):
         fp = ig.font("Black", 120)
         tw = d.textlength(e["price"], font=fp)
