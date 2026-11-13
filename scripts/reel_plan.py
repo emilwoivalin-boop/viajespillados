@@ -172,7 +172,9 @@ def deal_text(plan, rid, airline, price_words):
         line = next((l for l in order if l.split("{")[0].strip() not in used), order[0])
     import zlib
     plug = DEAL_PLUGS[zlib.crc32((rid + "plug").encode()) % len(DEAL_PLUGS)]
-    return line.format(a=airline, p=price_words) + " " + plug
+    out = line.format(a=airline, p=price_words) + " " + plug
+    i = out.find("punto com")                # owner: the Reel stops right after "viajespillados punto com"
+    return out[:i + len("punto com")] + "." if i > 0 else out
 
 
 def days_off_line(n):

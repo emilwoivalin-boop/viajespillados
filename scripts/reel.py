@@ -675,7 +675,7 @@ def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
         end_audio = os.path.join(work, "vend.mp3")
         end_audio, edur, end_words = tight_voice(end["text"], voice, end_audio, rate)
         end["coin_at"] = word_time(end_words, "645", 1.4)
-        end_dur = edur + 0.9
+        end_dur = edur + 0.35                  # owner: stop right after "viajespillados punto com"
     else:
         end_dur = 3.0
     if has_end:
