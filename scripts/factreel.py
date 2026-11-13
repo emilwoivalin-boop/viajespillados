@@ -696,6 +696,9 @@ def plan(rid, dry=False):
     if offer:
         # owner's rule: the same ending as the travel-plan Reels (rotating price line + website plug + price card)
         deal = reel_plan.deal_text(plan_, os.path.basename(base), offer["aerolinea"], reel_plan.pesos(offer["precio"]))
+        i = deal.find("punto com")                 # owner: the Reel stops right after "viajespillados punto com"
+        if i > 0:
+            deal = deal[:i + len("punto com")] + "."
         end["q_words"] = 0
         end["price_n"] = offer["precio"]
         end["text"] = deal
@@ -725,7 +728,7 @@ def plan(rid, dry=False):
         dur = max(dur, fly_t + 1.2)
         if fc.get("end"):
             cam = Cam(city.tx, city.ty, city.w, 1010)
-            dur += 1.6
+            dur = lead + vdur + (0.35 if offer else 2.0)     # offer ending: stop right after the last word
         elif "lat" not in fc:
             cam = city if is_intro else Cam(city.tx, city.ty, city.w * fc.get("zoom", 0.62), 1080)
             dur = max(dur, fly_t + 0.8)
