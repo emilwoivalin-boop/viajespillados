@@ -293,9 +293,10 @@ or pulls back over the city with emoji stickers and a big number – the stick m
      `teach_walk` (x0 -0.15 → x1 0.17) then `teach` at 2.4; fact 2 `tap` then `teach` at 2.0; fact 3 `swing` then `teach`
      at 2.0; fact 4 `knock` then `teach` at 1.7 – the ONE knock on the screen glass, around 55–60 % of the Reel, where
      attention drops (owner's rule: only once); fact 5 `teach` (or `celebrate` then `teach`). Vary them a little between days.
-   - `end`: `{"text": "¿Cuál te sorprendió más?", "line1": "¿Cuál te sorprendió más?", "stick": {"action": "wave", "x0": 0.5,
-     "y": 0.86, "size": 330}}` – the rotating price line and the price card (airline, price, dates; no website, no "link en
-     la bio" – owner's rule) are added automatically from plan.json.
+   - `end`: `{"text": "", "stick": {"action": "wave", "x0": 0.5, "y": 0.86, "size": 330}}` – the ending is the SAME as in
+     the travel-plan Reels (owner's rule): the rotating price line + website plug and the price card (title, airline, price,
+     dates, viajespillados.com, "Mira esta oferta y muchas más · link en la bio") over the first photo, with the coin sound –
+     all added automatically from plan.json. The question "¿Cuál te sorprendió más?" goes in the caption only.
 3. Write `reels/<id>/storyboard.json` (copy the structure of `reels/test-facts-san-andres/storyboard.json`): `lang` "es",
    `city` (as said in Spanish), `country` (ISO3 code used by Natural Earth: COL, MEX, DOM, PER, PAN, CUB, ABW, CUW, USA,
    ESP, BRA, ARG, CHL…), `place` ("<city>, <country>" for the OpenStreetMap lookup; if the outline is wrong add

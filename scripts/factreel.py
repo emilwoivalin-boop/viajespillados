@@ -694,11 +694,11 @@ def plan(rid, dry=False):
         plan_ = json.load(open(os.path.join(base, "plan.json")))
         offer = plan_.get("offer")
     if offer:
+        # owner's rule: the same ending as the travel-plan Reels (rotating price line + website plug + price card)
         deal = reel_plan.deal_text(plan_, os.path.basename(base), offer["aerolinea"], reel_plan.pesos(offer["precio"]))
-        for plug in reel_plan.DEAL_PLUGS:                       # no website plug in fact Reels
-            deal = deal.replace(plug, "").strip()
-        end["q_words"] = len(end.get("text", "").split())
-        end["text"] = (end.get("text", "") + " " + deal).strip()
+        end["q_words"] = 0
+        end["price_n"] = offer["precio"]
+        end["text"] = deal
         end["deal"] = deal
         inf = reel_plan.info(offer["ida"], offer["vuelta"])
         from datetime import date as _d
@@ -709,7 +709,7 @@ def plan(rid, dry=False):
         end["card"] = {"title": f"{inf['dias']} días en {offer['destino']}", "airline": f"{offer['aerolinea']} · {esc}",
                        "price": reel_plan.cop(offer["precio"]),
                        "detail": f"ida y vuelta · {a_.day} {ig.MESES[a_.month - 1][:3]} – {b_.day} {ig.MESES[b_.month - 1][:3]}",
-                       "cta": ""}
+                       "cta": "viajespillados.com", "small": "Mira esta oferta y muchas más · link en la bio"}
     items = list(sb["facts"]) + [end]
     for i, fc in enumerate(items):
         if dry:
@@ -765,10 +765,19 @@ class Renderer:
         if esc["fc"].get("card"):
             cp = os.path.join(self.work, "card.png")
             reel.end_png(esc["fc"]["card"], cp)
-            self.card = Image.open(cp).convert("RGBA")
+            card = Image.open(cp).convert("RGBA")
+            ph = next((sc["photo"] for sc in self.scenes if sc.get("photo")), None)   # picture behind the card
+            if ph:
+                bg = ImageOps.fit(ImageOps.exif_transpose(Image.open(ph)).convert("RGBA"), (W, H), Image.LANCZOS)
+                bg.alpha_composite(card)
+                card = bg
+            self.card = card
             qn = esc["fc"].get("q_words", 0)
             ws = esc["words"]
             esc["card_t"] = esc["lead"] + (ws[qn][0] if qn < len(ws) else esc["vdur"] * 0.4)
+            pr = str(round(esc["fc"].get("price_n", 0) / 1000))       # the price is spoken as "856 mil pesos"
+            if pr != "0" and any(w.startswith(pr) for _, _, w in ws):
+                esc["coin_t"] = word_time(esc, pr)
         for sc in self.scenes:
             fc = sc["fc"]
             sc["stk"] = [dict(st, t=word_time(sc, st.get("at", 0.3))) for st in fc.get("stickers", [])]
@@ -959,10 +968,12 @@ def render(rid, dry=False):
             sfx.append((sc["t0"] + sc["fly"] - 0.1, "pop", 0.28))
             sfx.append((sc["t0"] + sc["fly"] + 0.15, "pop", 0.22))
         elif sc["fc"].get("end"):
-            sfx.append((sc["t0"] + 0.6, "chime", 0.3))
-            if sc.get("card_t") is not None:
-                sfx.append((sc["t0"] + sc["card_t"], "whoosh", 0.2))
-                sfx.append((sc["t0"] + sc["card_t"] + 1.3, "coin", 0.28))
+            if sc.get("card_t") is not None:        # like the travel-plan Reels: whoosh, chime, coin at the price
+                sfx.append((sc["t0"] + max(0.0, sc["card_t"] - 0.1), "whoosh", 0.22))
+                sfx.append((sc["t0"] + sc["card_t"] + 0.05, "chime", 0.3))
+                sfx.append((sc["t0"] + sc.get("coin_t", sc["card_t"] + 1.4), "coin", 0.28))
+            else:
+                sfx.append((sc["t0"] + 0.6, "chime", 0.3))
     if subs:   # no caption gaps between scenes
         for i in range(len(subs) - 1):
             s, e, txt, hi = subs[i]
