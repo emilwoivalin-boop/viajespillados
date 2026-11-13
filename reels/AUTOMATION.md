@@ -306,6 +306,10 @@ or pulls back over the city with emoji stickers and a big number – the stick m
    country). No flight offer and **no credits** in the caption (owner's rule): the photo credits are printed on the
    polaroids and the map + emoji credit in the corner of the video (factreel.py also drops any credits paragraph).
    The city name is written on the map automatically (`map_label` in storyboard.json overrides the text).
+   **Cover** (owner's rule): made automatically at render time – the city on the map with its red outline and a pin,
+   "DATOS CURIOSOS", "5 DATOS DE <CIUDAD>" and a **teaser question** in a speech bubble from the stick man; never the
+   price. The question is `cover_q` in storyboard.json (one short question, max ~12 words, ends with "?", e.g.
+   "¿La ensalada César nació en Tijuana?"); without it the first sentence of fact 1 is used. Check `cover_ig.jpg`.
    Add today to `reels/daily.json`: `{"id": <id>, "destino": ..., "kind": "facts", "status": "rendering"}`. Commit + push.
 4. **Render**: `gh api -X POST repos/emilwoivalin-boop/viajespillados/actions/workflows/factreel.yml/dispatches -f ref=main
    -f 'inputs[mode]=all' -f 'inputs[id]=<id>'` (map data → photos → video, ≈ 15–20 min), poll it like reel.yml
@@ -315,7 +319,7 @@ or pulls back over the city with emoji stickers and a big number – the stick m
    `ffmpeg -i reels/<id>/reel.mp4 -vf "fps=1/2.5,scale=200:-1,tile=9x2" -frames:v 1 /tmp/sheet.jpg` (map with the city
    outline, pins on the right spots, stickers not covering the title, price card at the end). Redo once if something is
    clearly wrong. Then set today's status to `rendered`, commit + push. Step C publishes it at 8:14 (reel.py uses the
-   storyboard caption and `cover_ig.jpg`, a frame without price).
+   storyboard caption and `cover_ig.jpg`, the teaser cover without price).
 6. **Final output** (short, Spanish): "Hoy toca Reel de datos curiosos: <Destino>", the 5 facts in one line each, the offer
    (fechas, precio, why it was picked – Reel score) and "Se publica a las 8:14". Send the contact sheet if you can.
 

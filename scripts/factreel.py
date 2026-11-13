@@ -308,7 +308,7 @@ def ramp(w, w_full, w_zero):
     return min(1.0, max(0.0, f))
 
 
-def draw_map(m, cam, k, city_frac=1.0, country_frac=1.0):
+def draw_map(m, cam, k, city_frac=1.0, country_frac=1.0, outline_a=None):
     s = cam.scale(k)
     hw, hh0, hh1 = W / 2 / s, cam.ay / s, (H - cam.ay) / s
     vb = (cam.tx - hw, cam.ty - hh1, cam.tx + hw, cam.ty + hh0)
@@ -375,7 +375,7 @@ def draw_map(m, cam, k, city_frac=1.0, country_frac=1.0):
     c.set_line_cap(cairo.LINE_CAP_ROUND)
     path, fill, stroke = _ctx_fns(c, mat, s, vb)
     country_a = ramp(w, 120e3, 40e3) if "country" in m else 0.0
-    city_a = ramp(w, 40e3, 90e3)
+    city_a = ramp(w, 40e3, 90e3) if outline_a is None else outline_a
     for feat, a, frac in ((m.get("country"), country_a, country_frac), (m["boundary"], city_a, city_frac)):
         if feat is None or a <= 0 or not feat.shapes:
             continue
@@ -775,6 +775,87 @@ def plan(rid, dry=False):
     return sb, base, work, m, k, city, scenes, t
 
 
+def cover_question(sb):
+    """The teaser question on the cover: storyboard "cover_q", else the first sentence of fact 1 when it is a
+    question ("¿Sabías que la ensalada César nació en Tijuana?")."""
+    q = (sb.get("cover_q") or "").strip()
+    if not q:
+        t = sb["facts"][0]["text"]
+        i = t.find("?")
+        q = t[:i + 1].strip() if t.lstrip().startswith("¿") and i > 0 else ""
+    return q
+
+
+def wrap(d, text, f, max_w):
+    lines, cur = [], ""
+    for w_ in text.split():
+        t = (cur + " " + w_).strip()
+        if cur and d.textlength(t, font=f) > max_w:
+            lines.append(cur)
+            cur = w_
+        else:
+            cur = t
+    return lines + ([cur] if cur else [])
+
+
+def make_cover(rd, out):
+    """Grid/Reel cover (owner's rule, 13 Nov 2026): the city on the cartoon map with its red outline, its name and a
+    pin, "DATOS CURIOSOS" badge + "5 DATOS DE <CIUDAD>", a teaser question in a speech bubble from the stick-man
+    teacher. Never the price. Key content stays inside the middle 1080x1350 (profile-grid crop)."""
+    sb, m = rd.sb, rd.m
+    es = sb.get("lang", "es") == "es"
+    city = sb["city"]
+    cx, cy = m["centre"] if m.get("centre") else (rd.city.tx, rd.city.ty)
+    cam = Cam(cx, cy, rd.city.w, 1150)
+    img = draw_map(m, cam, rd.k, outline_a=1.0)
+    img.alpha_composite(rd.pin, (int(W / 2 - rd.pin.width / 2), int(1150 - rd.pin.height + 6)))
+    d = ImageDraw.Draw(img)
+    # badge + title
+    badge = "DATOS CURIOSOS" if es else "FUN FACTS"
+    fb = font("Black", 44)
+    bw = d.textlength(badge, font=fb)
+    d.rounded_rectangle((W / 2 - bw / 2 - 34, 300, W / 2 + bw / 2 + 34, 370), 35, fill=LINE, outline=(0, 0, 0), width=5)
+    d.text((W / 2, 336), badge, font=fb, fill=(255, 255, 255), anchor="mm")
+    n = len(sb["facts"])
+    sub = f"{n} DATOS DE" if es else f"{n} FACTS ABOUT"
+    outlined_text(img, (W // 2, 430), sub, font("Black", 62), (255, 255, 255), (0, 0, 0), 7)
+    f = ig.fit_font(d, city.upper(), "Black", 150, W - 110)
+    outlined_text(img, (W // 2, 540), city.upper(), f, YELLOW, (0, 0, 0), 11)
+    # teaser question bubble
+    q = cover_question(sb)
+    if q:
+        fq = font("ExtraBold", 60)
+        lines = wrap(d, q, fq, W - 230)
+        if len(lines) > 3:
+            fq = font("ExtraBold", 50)
+            lines = wrap(d, q, fq, W - 210)
+        lh = fq.size * 1.22
+        bh = len(lines) * lh + 70
+        tw = max(d.textlength(l_, font=fq) for l_ in lines)
+        x0, x1 = W / 2 - tw / 2 - 50, W / 2 + tw / 2 + 50
+        y0 = 660
+        y1 = y0 + bh
+        tail = [(min(x0 + 120, W / 2 - 60), y1 - 4), (min(x0 + 230, W / 2 + 40), y1 - 4), (250, 1230)]
+        sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ds = ImageDraw.Draw(sh)
+        ds.rounded_rectangle((x0 + 10, y0 + 14, x1 + 10, y1 + 14), 46, fill=(0, 0, 0, 110))
+        img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)))
+        d = ImageDraw.Draw(img)
+        d.polygon(tail, fill=(0, 0, 0))
+        d.rounded_rectangle((x0, y0, x1, y1), 46, fill=(255, 255, 255), outline=(0, 0, 0), width=7)
+        d.polygon([(tail[0][0] + 9, tail[0][1] - 8), (tail[1][0] - 9, tail[1][1] - 8), (tail[2][0] + 10, tail[2][1] - 18)],
+                  fill=(255, 255, 255))
+        for i, l_ in enumerate(lines):
+            d.text((W / 2, y0 + 35 + lh * (i + 0.5)), l_, font=fq, fill=NAVY, anchor="mm")
+    # stick-man teacher, pointing up at the question
+    st = {"action": "teach", "x0": 0.2, "y": 0.83, "size": 330, "facing": 1}
+    fr = list(reel.figure_frames(st, 40, patch=True))
+    band = fr[18]
+    if band:
+        img.alpha_composite(band[0], band[1])
+    img.convert("RGB").save(out, quality=92)
+
+
 def scene_at(scenes, t):
     for sc in scenes:
         if t < sc["t0"] + sc["dur"]:
@@ -1050,8 +1131,7 @@ def render(rid, dry=False):
             "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k",
             "-movflags", "+faststart", final)
     cover = os.path.join(base, "cover.jpg")
-    cs = next(sc for sc in rd.scenes if sc.get("photo"))
-    rd.frame(cs["t0"] + cs["fly"] + 1.0).save(cover, quality=90)
+    make_cover(rd, cover)
     # owner's rule (13 Nov 2026): no map/photo/emoji credits in the caption – they are shown in the video itself
     # (photo credit on each polaroid, map + emoji credit in the bottom corner)
     cap = rd.sb.get("caption", "")
@@ -1091,5 +1171,7 @@ if __name__ == "__main__":
             factmap_fetch.main(rid, sb["place"], sb.get("osm_rel"))
         photos(rid)
         render(rid, dry)
+    elif cmd == "cover":      # only the cover: python scripts/factreel.py cover <id> [--dry]
+        make_cover(Renderer(rid, True), os.path.join(fact_base(rid), "cover.jpg") if not dry else "/tmp/cover.jpg")
     elif cmd == "frame":
         Renderer(rid, dry).frame(float(sys.argv[3])).save(sys.argv[4], quality=88)
