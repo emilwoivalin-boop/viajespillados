@@ -1,0 +1,18 @@
+{
+ "id": "tijuana-2027-05-29",
+ "kind": "facts",
+ "offer": {
+  "destino": "Tijuana",
+  "pais": "México",
+  "region": "Norteamérica",
+  "aerolinea": "Viva",
+  "precio": 855657,
+  "escalas": "1 escala",
+  "ida": "2027-05-29",
+  "vuelta": "2027-06-07",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20TIJ%20from%20BOG%20on%202027-05-29%20through%202027-06-07&curr=COP&hl=es-419",
+  "sheet_row": 58,
+  "escala_larga": "Ciudad de México"
+ },
+ "note": "score 7 − 1 (sale en 197 días) + 0 (4 días libres) − 1 (10 días) = 5"
+}
