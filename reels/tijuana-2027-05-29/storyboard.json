@@ -1,180 +1,180 @@
 {
- "id": "tijuana-2027-05-29",
- "lang": "es",
- "city": "Tijuana",
- "country": "MEX",
- "place": "Tijuana, México",
- "voice": "es-CO-GonzaloNeural",
- "rate": "+35%",
- "facts": [
-  {
-   "text": "¿Sabías que la ensalada César nació en Tijuana? La inventó el italiano César Cardini en su restaurante, en 1924.",
-   "stickers": [
+  "id": "tijuana-2027-05-29",
+  "lang": "es",
+  "city": "Tijuana",
+  "country": "MEX",
+  "place": "Tijuana, México",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "facts": [
     {
-     "emoji": "🧀",
-     "x": 0.27,
-     "y": 0.4,
-     "size": 230,
-     "at": "ensalada",
-     "sfx": "pop"
-    }
-   ],
-   "stat": {
-    "big": "1924",
-    "small": "nace la ensalada César",
-    "at": "1924",
-    "x": 0.62,
-    "y": 0.33,
-    "count": false,
-    "drumroll": false,
-    "sfx": "ding"
-   },
-   "stick": {
-    "beats": [
-     {
-      "action": "teach_walk",
-      "x0": -0.15,
-      "x1": 0.17,
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 2.4
-     }
-    ]
-   },
-   "source": "https://mexiconewsdaily.com/food/state-by-plate-baja-californias-history-of-the-caesar-salad/"
-  },
-  {
-   "text": "En Playas de Tijuana, el muro de la frontera con Estados Unidos se mete al océano Pacífico, justo al lado del malecón.",
-   "lat": 32.5343,
-   "lon": -117.1232,
-   "view": 1200,
-   "label": "Playas de Tijuana",
-   "photo": "File:Playas de Tijuana fisherman at border fence.jpg",
-   "stick": {
-    "beats": [
-     {
-      "action": "tap",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 2.0
-     }
-    ]
-   },
-   "source": "https://en.wikipedia.org/wiki/Friendship_Park_(San_Diego%E2%80%93Tijuana)"
-  },
-  {
-   "text": "Su garita con San Diego, San Ysidro, es el cruce fronterizo terrestre más transitado de todo el hemisferio occidental.",
-   "stickers": [
-    {
-     "emoji": "🧭",
-     "x": 0.3,
-     "y": 0.45,
-     "size": 280,
-     "at": "cruce",
-     "sfx": "pop"
+      "text": "¿Sabías que la ensalada César nació en Tijuana? La inventó el italiano César Cardini en su restaurante, en 1924.",
+      "stickers": [
+        {
+          "emoji": "🧀",
+          "x": 0.27,
+          "y": 0.4,
+          "size": 230,
+          "at": "ensalada",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1924",
+        "small": "nace la ensalada César",
+        "at": "1924",
+        "x": 0.62,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://mexiconewsdaily.com/food/state-by-plate-baja-californias-history-of-the-caesar-salad/"
     },
     {
-     "emoji": "📍",
-     "x": 0.75,
-     "y": 0.32,
-     "size": 190,
-     "at": "hemisferio",
-     "sfx": "sparkle"
-    }
-   ],
-   "stick": {
-    "beats": [
-     {
-      "action": "swing",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 2.0
-     }
-    ]
-   },
-   "source": "https://gsa.gov/SanYsidro"
-  },
-  {
-   "text": "El Centro Cultural Tijuana abrió en 1982, y su famosa \"Bola\" es una esfera gigante con una sala de cine de pantalla curva.",
-   "lat": 32.5298,
-   "lon": -117.0238,
-   "view": 1100,
-   "label": "Centro Cultural Tijuana",
-   "photo": "File:Centro Cultural Tijuana 01.jpg",
-   "stick": {
-    "beats": [
-     {
-      "action": "knock",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 1.7
-     }
-    ]
-   },
-   "source": "https://en.wikipedia.org/wiki/Tijuana_Cultural_Center"
-  },
-  {
-   "text": "Y Tijuana es la ciudad más poblada de Baja California: casi dos millones de personas, más que Mexicali, la capital del estado.",
-   "stickers": [
-    {
-     "emoji": "🏛",
-     "x": 0.74,
-     "y": 0.5,
-     "size": 230,
-     "at": "capital",
-     "sfx": "pop"
+      "text": "En Playas de Tijuana, el muro de la frontera con Estados Unidos se mete al océano Pacífico, justo al lado del malecón.",
+      "lat": 32.5343,
+      "lon": -117.1232,
+      "view": 1200,
+      "label": "Playas de Tijuana",
+      "photo": "File:Playas de Tijuana fisherman at border fence.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Friendship_Park_(San_Diego%E2%80%93Tijuana)"
     },
     {
-     "emoji": "🌮",
-     "x": 0.28,
-     "y": 0.5,
-     "size": 220,
-     "at": "poblada",
-     "sfx": "boing"
+      "text": "Su garita con San Diego, San Ysidro, es el cruce fronterizo terrestre más transitado de todo el hemisferio occidental.",
+      "stickers": [
+        {
+          "emoji": "🧭",
+          "x": 0.3,
+          "y": 0.45,
+          "size": 280,
+          "at": "cruce",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "📍",
+          "x": 0.75,
+          "y": 0.32,
+          "size": 190,
+          "at": "hemisferio",
+          "sfx": "sparkle"
+        }
+      ],
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://gsa.gov/SanYsidro"
+    },
+    {
+      "text": "El Centro Cultural Tijuana abrió en 1982, y su famosa \"Bola\" es una esfera gigante con una sala de cine de pantalla curva.",
+      "lat": 32.5298,
+      "lon": -117.0238,
+      "view": 1100,
+      "label": "Centro Cultural Tijuana",
+      "photo": "File:Centro Cultural Tijuana 01.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Tijuana_Cultural_Center"
+    },
+    {
+      "text": "Y Tijuana es la ciudad más poblada de Baja California: casi dos millones de personas, más que Mexicali, la capital del estado.",
+      "stickers": [
+        {
+          "emoji": "🏛",
+          "x": 0.74,
+          "y": 0.5,
+          "size": 230,
+          "at": "capital",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🌮",
+          "x": 0.28,
+          "y": 0.5,
+          "size": 220,
+          "at": "poblada",
+          "sfx": "boing"
+        }
+      ],
+      "stat": {
+        "big": "1.922.523",
+        "small": "habitantes (censo 2020)",
+        "at": "millones",
+        "y": 0.3,
+        "count": true,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.8
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Tijuana"
     }
-   ],
-   "stat": {
-    "big": "1.922.523",
-    "small": "habitantes (censo 2020)",
-    "at": "millones",
-    "y": 0.3,
-    "count": true,
-    "drumroll": true,
-    "sfx": "ding"
-   },
-   "stick": {
-    "beats": [
-     {
-      "action": "celebrate",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 1.8
-     }
-    ]
-   },
-   "source": "https://en.wikipedia.org/wiki/Tijuana"
-  }
- ],
- "end": {
-  "text": "¿Cuál te sorprendió más?",
-  "line1": "¿Cuál te sorprendió más?",
-  "stick": {
-   "action": "wave",
-   "x0": 0.5,
-   "y": 0.86,
-   "size": 330
+  ],
+  "end": {
+    "text": "¿Cuál te sorprendió más?",
+    "line1": "¿Cuál te sorprendió más?",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    },
+    "title": "Datos de Tijuana"
   },
-  "title": "Datos de Tijuana"
- },
- "caption": "5 datos de Tijuana que seguro no sabías 📍\n\n1. La ensalada César nació aquí, en 1924\n2. En Playas de Tijuana el muro fronterizo se mete al Pacífico\n3. San Ysidro es el cruce terrestre más transitado del hemisferio occidental\n4. \"La Bola\" del Centro Cultural Tijuana es un cine en una esfera gigante\n5. Es la ciudad más poblada de Baja California, más que la capital\n\n¿Cuál te sorprendió más? ✈️\n\nMapa © colaboradores de OpenStreetMap. Fotos de Wikimedia Commons: PHOTO_CREDITS. Emoji: Twemoji (CC BY 4.0)\n\n#tijuana #mexico #bajacalifornia #datoscuriosos #viajespillados"
+  "caption": "5 datos de Tijuana que seguro no sabías 📍\n\n1. La ensalada César nació aquí, en 1924\n2. En Playas de Tijuana el muro fronterizo se mete al Pacífico\n3. San Ysidro es el cruce terrestre más transitado del hemisferio occidental\n4. \"La Bola\" del Centro Cultural Tijuana es un cine en una esfera gigante\n5. Es la ciudad más poblada de Baja California, más que la capital\n\n¿Cuál te sorprendió más? ✈️\n\nMapa © colaboradores de OpenStreetMap. Fotos de Wikimedia Commons: Eekiv (CC BY-SA 3.0); WendyAvilesR (CC BY-SA 4.0). Emoji: Twemoji (CC BY 4.0)\n\n#tijuana #mexico #bajacalifornia #datoscuriosos #viajespillados"
 }
