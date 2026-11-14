@@ -1,0 +1,83 @@
+{
+  "id": "la-habana-2027-05-29",
+  "offer": {
+    "destino": "La Habana",
+    "pais": "Cuba",
+    "region": "Caribe e islas",
+    "aerolinea": "Wingo",
+    "precio": 645805,
+    "escalas": "directo",
+    "ida": "2027-05-29",
+    "vuelta": "2027-06-05",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20HAV%20from%20BOG%20on%202027-05-29%20through%202027-06-05&curr=COP&hl=es-419",
+    "sheet_row": 68,
+    "escala_larga": ""
+  },
+  "hora_salida": null,
+  "hook": "¿Ocho días de Caribe, fortalezas y música en vivo pidiendo solo cuatro días libres?",
+  "buddy": false,
+  "ocasion": {
+    "nombre": "Puente festivo de Corpus Christi (lunes 31 de mayo)",
+    "fechas": "2027-05-29/2027-05-31",
+    "fuente": "fecha fija (Price log, pestaña Holidays)"
+  },
+  "que_hacer": "Puente festivo en La Habana. Camina las plazas de La Habana Vieja, sube al castillo del Morro y relájate en las Playas del Este.",
+  "end_image": "dia1",
+  "lines": {
+    "vuelo": "Pista número uno: cuatro horas de vuelo directo, y abajo el Caribe se llena de cayitos y arrecifes.",
+    "llegada": "Redoble de tambores… ¡La Habana, con puente festivo incluido! Brisa de mar y carros clásicos de colores en la puerta.",
+    "dia1": "Arrancamos a pie por La Habana Vieja, de la Plaza de Armas a la Plaza Vieja, entre fachadas de colores.",
+    "dia2": "Al otro día, el castillo del Morro: desde sus murallas ves la ciudad entera al otro lado de la bahía.",
+    "dia3": "Y el lunes festivo, pa' recargar pilas: arena blanca y agua tibia en las Playas del Este.",
+    "dia4": "Pa' la panza: ropa vieja, arroz congrí y tostones en un paladar, un restaurante en casa de familia.",
+    "dia5": "Y pa' cerrar, ya de noche: son cubano en vivo y a bailar hasta que el cuerpo aguante."
+  },
+  "caption_es": {
+    "hook": "¿La Habana en 5 días con puente festivo incluido? Pilla este plan, parce.",
+    "intro": "Caminas de plazas de piedra centenarias hasta un malecón donde la ciudad se encuentra con las olas.",
+    "pais": "Cuba",
+    "dias": [
+      {
+        "titulo": "La Habana Vieja",
+        "texto": "arranca en la Plaza de Armas y sigue a pie hasta la Plaza Vieja."
+      },
+      {
+        "titulo": "Castillo del Morro",
+        "texto": "la fortaleza a la entrada de la bahía, con la mejor vista de la ciudad."
+      },
+      {
+        "titulo": "Playas del Este",
+        "texto": "arena blanca y agua tibia a un ratico del centro."
+      },
+      {
+        "titulo": "Almuerzo en un paladar",
+        "texto": "prueba la ropa vieja en un restaurante de familia."
+      },
+      {
+        "titulo": "Son cubano",
+        "texto": "busca un sitio con banda en vivo y quédate hasta el último set."
+      }
+    ],
+    "dato": "el centro histórico de La Habana es Patrimonio de la Humanidad, y no solo incluye la ciudad vieja: también las fortalezas al otro lado de la bahía",
+    "epoca": "enero a abril",
+    "para": "te gustan los paseos de arquitectura, la música cubana en vivo y la historia",
+    "no_para": "quieres un resort de playa o necesitas transporte y servicios predecibles",
+    "versus": "Ciudad de Panamá",
+    "hashtags": [
+      "#lahabana",
+      "#cuba",
+      "#quehacerenlahabana"
+    ]
+  },
+  "prompts": {
+    "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane, not a biplane) flying, and far below a generic tropical sea in many shades of turquoise and deep blue with a few tiny low sandy islets and coral reefs, no city, no buildings, no landmark, sunny blue sky. Keep the lower half open with the turquoise sea clearly visible. The top third is calm blue sky.",
+    "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small airport terminal in the Caribbean with a flat roof and big glass windows, tall royal palm trees in front, three shiny colourful 1950s classic cars (pink, turquoise and yellow) parked along the curb, hot sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
+    "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A colonial plaza in an old Caribbean city on a sunny day: grey cobblestones, low colonial buildings with arches, wooden balconies and facades painted pastel yellow, blue, pink and green, a small stone fountain on one side, a few green trees, blue sky. The wide cobblestone square in the lower half of the picture is clearly visible and empty.",
+    "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A big old Spanish stone fortress with thick sand-coloured walls and a white lighthouse tower on a rocky point at the entrance of a blue bay, seen from the top of its own wall: in the foreground a wide flat stone rampart with a couple of old black cannons at the sides, across the calm blue water a long seawall and a low colourful city skyline far away, sunny blue sky. The flat stone rampart in the lower third of the picture is wide, clearly visible and empty.",
+    "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A wide tropical beach on a sunny day: soft white sand, calm clear turquoise sea with small gentle waves, a few coconut palm trees and a straw beach umbrella at the sides, a couple of white clouds in a bright blue sky. A wide, empty stretch of white sand across the lower third of the picture.",
+    "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A cosy small restaurant inside an old colonial house in the Caribbean: high ceiling, tall open wooden doors with a view to a colourful street, a ceiling fan, plants, a wooden table in the front with a plate of shredded beef in tomato sauce, a bowl of rice with black beans and a plate of golden fried plantain slices, an empty wooden chair beside the table. The floor and the empty chair in the lower third of the picture are clearly visible.",
+    "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A lively bar with live music in an old Caribbean city at night: on a small wooden stage at the back stand instruments with nobody playing them (a double bass, conga drums, a guitar on a stand, maracas), warm yellow string lights and lanterns, colourful painted walls, a few small round tables at the sides, a dark blue night sky through an open arched window. A wide, empty tiled dance floor across the lower third of the picture.",
+    "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The seaside promenade of an old Caribbean capital in bright daylight: a long curved low white seawall along a calm blue sea on the right, a row of colourful old colonial buildings and a large white domed capitol building far away on the left, two shiny colourful 1950s classic cars on the road, the middle of the picture a large open bright blue sky, calm and empty. An empty wide promenade across the bottom fifth of the picture."
+  },
+  "scenes": {}
+}
