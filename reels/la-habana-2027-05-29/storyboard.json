@@ -1,0 +1,358 @@
+{
+ "id": "la-habana-2027-05-29",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Ocho días de Caribe, fortalezas y música en vivo pidiendo solo cuatro días libres? Sábado 29 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa'l Caribe!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Pista número uno: cuatro horas de vuelo directo, y abajo el Caribe se llena de cayitos y arrecifes.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2027-05-29/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Redoble de tambores… ¡La Habana, con puente festivo incluido! Brisa de mar y carros clásicos de colores en la puerta.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2027-05-29/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": -0.12,
+      "x1": 0.55,
+      "facing": 1
+     },
+     {
+      "action": "celebrate",
+      "word": "festivo",
+      "mood": "laugh"
+     },
+     {
+      "action": "point",
+      "word": "carros",
+      "facing": -1,
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Arrancamos a pie por La Habana Vieja, de la Plaza de Armas a la Plaza Vieja, entre fachadas de colores.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2027-05-29/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 440,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.12,
+      "x1": 0.55,
+      "facing": 1
+     },
+     {
+      "action": "photo",
+      "word": "fachadas",
+      "facing": 1,
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "colores",
+     "x": 0.8,
+     "y": 0.48,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "bell",
+     "frac": 0.08
+    }
+   ],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Al otro día, el castillo del Morro: desde sus murallas ves la ciudad entera al otro lado de la bahía.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2027-05-29/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.69,
+    "size": 300,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.3,
+      "x1": 0.5,
+      "facing": 1
+     },
+     {
+      "action": "point",
+      "word": "ciudad",
+      "facing": 1,
+      "mood": "wow"
+     },
+     {
+      "action": "selfie",
+      "word": "bahía",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Morro",
+     "x": 0.2,
+     "y": 0.37,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Y el lunes festivo, pa' recargar pilas: arena blanca y agua tibia en las Playas del Este.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2027-05-29/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "relax",
+    "x0": 0.36,
+    "y": 0.83,
+    "size": 420,
+    "facing": 1,
+    "mood": "love"
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "arena",
+     "x": 0.75,
+     "y": 0.12,
+     "size": 210
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
+   "crowd": [
+    {
+     "action": "wade",
+     "x0": 0.2,
+     "y": 0.69,
+     "size": 200,
+     "facing": 1
+    },
+    {
+     "action": "relax",
+     "x0": 0.62,
+     "y": 0.72,
+     "size": 230,
+     "facing": -1
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Pa' la panza: ropa vieja, arroz congrí y tostones en un paladar, un restaurante en casa de familia.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2027-05-29/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.83,
+    "size": 360,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "sit",
+      "x0": 0.8
+     },
+     {
+      "action": "eat",
+      "word": "tostones",
+      "mood": "love"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.6
+    }
+   ],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Y pa' cerrar, ya de noche: son cubano en vivo y a bailar hasta que el cuerpo aguante.",
+   "media": {
+    "type": "file",
+    "path": "reels/la-habana-2027-05-29/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.93,
+    "size": 460,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.15,
+      "x1": 0.48,
+      "facing": 1
+     },
+     {
+      "action": "dance",
+      "word": "bailar",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.22,
+     "y": 0.82,
+     "size": 280,
+     "speed": 0.85,
+     "facing": 1
+    },
+    {
+     "action": "dance",
+     "x0": 0.75,
+     "y": 0.83,
+     "size": 290,
+     "speed": 1.15,
+     "facing": -1
+    },
+    {
+     "action": "sip",
+     "x0": 0.9,
+     "y": 0.76,
+     "size": 240,
+     "facing": -1
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El sábado aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cuatro días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Lo mejor? El vuelo ida y vuelta con Wingo sale en 646 mil pesos. Pilas, que vuela. Pilla esta y más ofertas en viajespillados punto com.",
+  "title": "8 días en La Habana",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$645.805",
+  "detail": "ida y vuelta · 29 may – 5 jun",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/la-habana-2027-05-29/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "8 días en La Habana desde Bogotá ✈️ Puente festivo en La Habana. Camina las plazas de La Habana Vieja, sube al castillo del Morro y relájate en las Playas del Este. Ida y vuelta con Wingo desde $645.805 (29 may – 5 jun). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #lahabana #ofertasdevuelos"
+}
