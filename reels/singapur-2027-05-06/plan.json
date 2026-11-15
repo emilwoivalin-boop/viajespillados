@@ -1,0 +1,18 @@
+{
+  "id": "singapur-2027-05-06",
+  "kind": "facts",
+  "offer": {
+    "destino": "Singapur",
+    "pais": "Singapur",
+    "region": "Asia",
+    "aerolinea": "Avianca y Etihad",
+    "precio": 5020684,
+    "escalas": "2 escalas",
+    "ida": "2027-05-06",
+    "vuelta": "2027-05-12",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20SIN%20from%20BOG%20on%202027-05-06%20through%202027-05-12&curr=COP&hl=es-419",
+    "sheet_row": 51,
+    "escala_larga": ""
+  },
+  "note": "score 4 − 1 (sale en 172 días) + 0 (4 días libres) + 0 (7 días) = 3; empata con Cancún, Madrid, Buenos Aires y Toronto (3, pero 5 días libres) y gana por menos días libres; 25% bajo el mínimo usual"
+}

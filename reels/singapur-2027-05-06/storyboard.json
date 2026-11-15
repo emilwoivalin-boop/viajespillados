@@ -1,0 +1,189 @@
+{
+  "id": "singapur-2027-05-06",
+  "lang": "es",
+  "city": "Singapur",
+  "country": "SGP",
+  "place": "Singapore",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "cover_q": "¿Una cascada de 40 metros dentro de un aeropuerto?",
+  "facts": [
+    {
+      "text": "¿Sabías que Singapur no buscaba ser independiente? En 1965 la separaron de Malasia y, de un día pa' otro, se volvió país.",
+      "stickers": [
+        {
+          "emoji": "📜",
+          "x": 0.27,
+          "y": 0.4,
+          "size": 230,
+          "at": "Malasia",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1965",
+        "small": "se separa de Malasia",
+        "at": "1965",
+        "x": 0.62,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://www.britannica.com/place/Singapore/Independence"
+    },
+    {
+      "text": "En el aeropuerto Changi está el Rain Vortex: una cascada de 40 metros bajo techo, la más alta del mundo.",
+      "lat": 1.3602,
+      "lon": 103.9895,
+      "view": 1200,
+      "label": "Jewel Changi",
+      "photo": "File:At Jewel Changi, Singapore 2023 36.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Jewel_Changi_Airport"
+    },
+    {
+      "text": "Sus hawker centres, plazoletas llenas de puestos de comida callejera, son Patrimonio Cultural Inmaterial de la UNESCO desde 2020.",
+      "stickers": [
+        {
+          "emoji": "🦀",
+          "x": 0.28,
+          "y": 0.47,
+          "size": 260,
+          "at": "comida",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🏛",
+          "x": 0.75,
+          "y": 0.5,
+          "size": 200,
+          "at": "UNESCO",
+          "sfx": "sparkle"
+        }
+      ],
+      "stat": {
+        "big": "2020",
+        "small": "patrimonio de la UNESCO",
+        "at": "2020",
+        "y": 0.3,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://ich.unesco.org/en/RL/hawker-culture-in-singapore-community-dining-and-culinary-practices-in-a-multicultural-urban-context-01568"
+    },
+    {
+      "text": "En Gardens by the Bay hay superárboles de metal de hasta 50 metros, forrados de plantas vivas, que de noche se prenden con luces.",
+      "lat": 1.2816,
+      "lon": 103.8636,
+      "view": 1200,
+      "label": "Gardens by the Bay",
+      "photo": "File:Supertree Grove, Gardens by the Bay, Singapore - 20120712-02.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://www.sg101.gov.sg/resources/archives/til-supertrees-in-singapore/"
+    },
+    {
+      "text": "Y aquí hay cuatro idiomas oficiales: inglés, malayo, mandarín y tamil… ¡pero el himno nacional se canta en malayo!",
+      "stickers": [
+        {
+          "emoji": "💬",
+          "x": 0.28,
+          "y": 0.48,
+          "size": 260,
+          "at": "idiomas",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🎶",
+          "x": 0.76,
+          "y": 0.47,
+          "size": 210,
+          "at": "himno",
+          "sfx": "boing"
+        }
+      ],
+      "stat": {
+        "big": "4",
+        "small": "idiomas oficiales",
+        "at": "cuatro",
+        "y": 0.3,
+        "count": true,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.8
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Languages_of_Singapore"
+    }
+  ],
+  "end": {
+    "text": "",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    },
+    "title": "Datos de Singapur"
+  },
+  "caption": "5 datos de Singapur que seguro no sabías 📍\n\n1. No buscaba la independencia: en 1965 la separaron de Malasia\n2. En el aeropuerto Changi está la cascada bajo techo más alta del mundo (40 m)\n3. Sus hawker centres de comida callejera son patrimonio de la UNESCO desde 2020\n4. Los superárboles de Gardens by the Bay miden hasta 50 m y se iluminan de noche\n5. Tiene cuatro idiomas oficiales, pero el himno se canta en malayo\n\n¿Cuál te sorprendió más? ✈️\n\n#singapur #asia #datoscuriosos #viajespillados #quehacerensingapur"
+}
