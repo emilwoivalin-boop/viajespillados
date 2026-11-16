@@ -76,5 +76,260 @@
   "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A sunny street in a small tropical border town, low colorful houses and shops, palm trees, a simple painted border marker post in green and yellow on one side, blue sky with white clouds. The wide street in the lower third is clearly visible and empty.",
   "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm jungle lagoon on a sunny afternoon, covered with many enormous round flat green giant water lily leaves with raised rims, like huge floating trays, a few big white and pink water lily flowers, tall rainforest trees around, blue sky. A simple empty wooden dock edge across the lower third.",
   "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of the wide brown Amazon river winding through endless bright green rainforest under a bright blue daytime sky, one pink river dolphin jumping near the bank. The middle of the picture is calm open sky. An empty sandy river bank across the bottom fifth."
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ]
+  },
+  "llegada": {
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 0.42,
+      "x1": 0.36,
+      "y": 0.74,
+      "y1": 0.9,
+      "size": 260,
+      "size1": 420
+     },
+     {
+      "action": "celebrate",
+      "word": "Leticia",
+      "mood": "laugh"
+     },
+     {
+      "action": "shrug",
+      "word": "calor"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "wave",
+     "x0": 0.66,
+     "y": 0.88,
+     "size": 400,
+     "facing": -1
+    }
+   ],
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia1": {
+   "stick": {
+    "y": 0.9,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.12,
+      "x1": 0.3,
+      "y": 0.95,
+      "y1": 0.9,
+      "size": 470,
+      "size1": 440
+     },
+     {
+      "action": "point",
+      "word": "pericos",
+      "mood": "wow"
+     },
+     {
+      "action": "laugh",
+      "word": "chillando"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.6,
+     "y": 0.85,
+     "size": 400,
+     "facing": 1
+    }
+   ],
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia2": {
+   "stick": {
+    "y": 0.7,
+    "size": 300,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sit",
+      "x0": 0.36
+     },
+     {
+      "action": "point",
+      "word": "pueblito",
+      "mood": "wow"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "sit",
+     "x0": 0.62,
+     "y": 0.755,
+     "size": 300,
+     "facing": 1
+    }
+   ],
+   "pop": {
+    "icon": "pin",
+    "word": "pueblito",
+    "x": 0.78,
+    "y": 0.38,
+    "size": 180
+   },
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.1
+    }
+   ]
+  },
+  "dia3": {
+   "stick": {
+    "y": 0.79,
+    "size": 290,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sit",
+      "x0": 0.36
+     },
+     {
+      "action": "point",
+      "word": "delfines",
+      "mood": "love"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.62,
+     "y": 0.77,
+     "size": 290,
+     "facing": -1
+    }
+   ],
+   "pop": {
+    "icon": "heart",
+    "word": "rosados",
+    "x": 0.5,
+    "y": 0.5,
+    "size": 170
+   },
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.55
+    }
+   ]
+  },
+  "dia4": {
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.8,
+      "x1": 0.45,
+      "y": 0.84,
+      "y1": 0.9,
+      "size": 380,
+      "size1": 430
+     },
+     {
+      "action": "point",
+      "word": "frontera",
+      "mood": "wow"
+     },
+     {
+      "action": "shrug",
+      "word": "cuenta",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.86,
+     "size": 400,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 1.05,
+       "x1": 0.72
+      },
+      {
+       "action": "selfie",
+       "word": "Brasil"
+      }
+     ]
+    }
+   ],
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia5": {
+   "stick": {
+    "y": 0.93,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.12,
+      "x1": 0.28
+     },
+     {
+      "action": "point",
+      "word": "victoria",
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "bandejas"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "sparkle",
+    "word": "flotando",
+    "x": 0.6,
+    "y": 0.5,
+    "size": 180
+   },
+   "ambience": "birds"
+  }
  }
 }

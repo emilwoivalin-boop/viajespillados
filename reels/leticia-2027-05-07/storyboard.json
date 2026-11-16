@@ -55,7 +55,12 @@
    "pops": [],
    "ambience": [],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
@@ -67,14 +72,47 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 0.42,
+      "x1": 0.36,
+      "y": 0.74,
+      "y1": 0.9,
+      "size": 260,
+      "size1": 420
+     },
+     {
+      "action": "celebrate",
+      "word": "Leticia",
+      "mood": "laugh"
+     },
+     {
+      "action": "shrug",
+      "word": "calor"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "wave",
+     "x0": 0.66,
+     "y": 0.88,
+     "size": 400,
+     "facing": -1
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Arrancamos al atardecer en el parque Santander: miles de pericos llegan chillando a dormir en los árboles.",
@@ -84,14 +122,47 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.12,
+      "x1": 0.3,
+      "y": 0.95,
+      "y1": 0.9,
+      "size": 470,
+      "size1": 440
+     },
+     {
+      "action": "point",
+      "word": "pericos",
+      "mood": "wow"
+     },
+     {
+      "action": "laugh",
+      "word": "chillando"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.6,
+     "y": 0.85,
+     "size": 400,
+     "facing": 1
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Al otro día, lancha río arriba por el Amazonas hasta Puerto Nariño, el pueblito donde no hay carros.",
@@ -101,14 +172,51 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.7,
+    "size": 300,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sit",
+      "x0": 0.36
+     },
+     {
+      "action": "point",
+      "word": "pueblito",
+      "mood": "wow"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
-   "crowd": [],
-   "sfx": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "pueblito",
+     "x": 0.78,
+     "y": 0.38,
+     "size": 180
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "sit",
+     "x0": 0.62,
+     "y": 0.755,
+     "size": 300,
+     "facing": 1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.1
+    }
+   ],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Mañanita de canoa en los lagos de Tarapoto: los delfines rosados salen a respirar al ladito.",
@@ -118,14 +226,51 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.79,
+    "size": 290,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sit",
+      "x0": 0.36
+     },
+     {
+      "action": "point",
+      "word": "delfines",
+      "mood": "love"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
-   "crowd": [],
-   "sfx": [],
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "rosados",
+     "x": 0.5,
+     "y": 0.5,
+     "size": 170
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.62,
+     "y": 0.77,
+     "size": 290,
+     "facing": -1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.55
+    }
+   ],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Y el lunes festivo, a pie hasta Tabatinga, en Brasil: cruzas la frontera sin darte ni cuenta.",
@@ -135,14 +280,57 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.88,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.8,
+      "x1": 0.45,
+      "y": 0.84,
+      "y1": 0.9,
+      "size": 380,
+      "size1": 430
+     },
+     {
+      "action": "point",
+      "word": "frontera",
+      "mood": "wow"
+     },
+     {
+      "action": "shrug",
+      "word": "cuenta",
+      "mood": "laugh"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.86,
+     "size": 400,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "walk",
+       "x0": 1.05,
+       "x1": 0.72
+      },
+      {
+       "action": "selfie",
+       "word": "Brasil"
+      }
+     ]
+    }
+   ],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Pa' cerrar con broche de oro: hojas de victoria regia tan grandes que parecen bandejas flotando.",
@@ -152,14 +340,42 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.93,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.12,
+      "x1": 0.28
+     },
+     {
+      "action": "point",
+      "word": "victoria",
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "bandejas"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "flotando",
+     "x": 0.6,
+     "y": 0.5,
+     "size": 180
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "El jueves aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste tres días libres!",
