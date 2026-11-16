@@ -1,0 +1,212 @@
+{
+ "id": "leticia-2027-05-07",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Te le mides a buscar delfines rosados desde una canoa en plena selva? Viernes 7 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' la selva!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.05,
+     "x1": 0.36,
+     "y": 0.99,
+     "y1": 0.7,
+     "size": 480,
+     "size1": 245
+    }
+   ]
+  },
+  {
+   "text": "Mira pa' abajo, parce: vuelo directo, y el verde no se acaba… pura selva hasta el horizonte.",
+   "media": {
+    "type": "file",
+    "path": "reels/leticia-2027-05-07/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¿Lo pillaste? ¡Es Leticia, con festivo incluido! Apenas se abre la puerta te abraza el calor húmedo.",
+   "media": {
+    "type": "file",
+    "path": "reels/leticia-2027-05-07/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Arrancamos al atardecer en el parque Santander: miles de pericos llegan chillando a dormir en los árboles.",
+   "media": {
+    "type": "file",
+    "path": "reels/leticia-2027-05-07/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Al otro día, lancha río arriba por el Amazonas hasta Puerto Nariño, el pueblito donde no hay carros.",
+   "media": {
+    "type": "file",
+    "path": "reels/leticia-2027-05-07/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Mañanita de canoa en los lagos de Tarapoto: los delfines rosados salen a respirar al ladito.",
+   "media": {
+    "type": "file",
+    "path": "reels/leticia-2027-05-07/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Y el lunes festivo, a pie hasta Tabatinga, en Brasil: cruzas la frontera sin darte ni cuenta.",
+   "media": {
+    "type": "file",
+    "path": "reels/leticia-2027-05-07/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Pa' cerrar con broche de oro: hojas de victoria regia tan grandes que parecen bandejas flotando.",
+   "media": {
+    "type": "file",
+    "path": "reels/leticia-2027-05-07/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El jueves aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste tres días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.36,
+     "x1": 0.58,
+     "y": 0.7,
+     "y1": 0.99,
+     "size": 245,
+     "size1": 480
+    }
+   ]
+  }
+ ],
+ "end": {
+  "text": "Y ahora el dato que importa: ida y vuelta con LATAM, por 527 mil pesos. El link está en el perfil: viajespillados punto com.",
+  "title": "7 días en Leticia",
+  "kicker": "",
+  "airline": "LATAM · vuelo directo",
+  "price": "$526.900",
+  "detail": "ida y vuelta · 7 may – 13 may",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/leticia-2027-05-07/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Leticia desde Bogotá ✈️ Puente festivo en Leticia. Navega el Amazonas hasta Puerto Nariño, busca delfines rosados en los lagos de Tarapoto y cruza a pie a Tabatinga, en Brasil. Ida y vuelta con LATAM desde $526.900 (7 may – 13 may). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #leticia #ofertasdevuelos"
+}

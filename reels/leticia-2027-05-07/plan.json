@@ -1,0 +1,80 @@
+{
+ "id": "leticia-2027-05-07",
+ "offer": {
+  "destino": "Leticia",
+  "pais": "Colombia",
+  "region": "Colombia",
+  "aerolinea": "LATAM",
+  "precio": 526900,
+  "escalas": "directo",
+  "ida": "2027-05-07",
+  "vuelta": "2027-05-13",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20LET%20from%20BOG%20on%202027-05-07%20through%202027-05-13&curr=COP&hl=es-419",
+  "sheet_row": 70,
+  "escala_larga": ""
+ },
+ "teaser": "la selva",
+ "hora_salida": null,
+ "hook": "¿Te le mides a buscar delfines rosados desde una canoa en plena selva?",
+ "buddy": true,
+ "ocasion": {
+  "nombre": "Puente festivo de la Ascensión (lunes 10 de mayo)",
+  "fechas": "2027-05-08/2027-05-10",
+  "fuente": "fecha fija (Price log, pestaña Holidays)"
+ },
+ "que_hacer": "Puente festivo en Leticia. Navega el Amazonas hasta Puerto Nariño, busca delfines rosados en los lagos de Tarapoto y cruza a pie a Tabatinga, en Brasil.",
+ "end_image": "dia1",
+ "lines": {
+  "vuelo": "Mira pa' abajo, parce: vuelo directo, y el verde no se acaba… pura selva hasta el horizonte.",
+  "llegada": "¿Lo pillaste? ¡Es Leticia, con festivo incluido! Apenas se abre la puerta te abraza el calor húmedo.",
+  "dia1": "Arrancamos al atardecer en el parque Santander: miles de pericos llegan chillando a dormir en los árboles.",
+  "dia2": "Al otro día, lancha río arriba por el Amazonas hasta Puerto Nariño, el pueblito donde no hay carros.",
+  "dia3": "Mañanita de canoa en los lagos de Tarapoto: los delfines rosados salen a respirar al ladito.",
+  "dia4": "Y el lunes festivo, a pie hasta Tabatinga, en Brasil: cruzas la frontera sin darte ni cuenta.",
+  "dia5": "Pa' cerrar con broche de oro: hojas de victoria regia tan grandes que parecen bandejas flotando."
+ },
+ "caption_es": {
+  "hook": "¿Leticia en 5 días con puente festivo incluido? Pilla este plan, parce.",
+  "intro": "Ríos gigantes, delfines rosados y una selva que suena todo el día.",
+  "pais": "Colombia",
+  "dias": [
+   {
+    "titulo": "Parque Santander",
+    "texto": "llega al atardecer y mira cómo miles de pericos se acomodan en los árboles."
+   },
+   {
+    "titulo": "Puerto Nariño",
+    "texto": "sube en lancha por el Amazonas hasta este pueblito sin carros."
+   },
+   {
+    "titulo": "Lagos de Tarapoto",
+    "texto": "sal en canoa temprano a buscar delfines rosados."
+   },
+   {
+    "titulo": "Tabatinga, Brasil",
+    "texto": "cruza a pie la frontera y almuerza del lado brasileño."
+   },
+   {
+    "titulo": "Victoria regia",
+    "texto": "busca las hojas flotantes gigantes en las lagunas cerca del río."
+   }
+  ],
+  "no_para": "odias el calor húmedo y los mosquitos, o quieres playa",
+  "para": "te gustan la naturaleza, los ríos y los animales",
+  "hashtags": [
+   "#leticia",
+   "#amazonas",
+   "#quehacerenleticia"
+  ]
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white airplane flying, and far below an endless flat green rainforest with a wide winding brown river and a few small lakes, bright blue sky. Generic tropical jungle, no towns, no landmarks.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small low tropical airport terminal in the jungle in bright afternoon sun, tall palm trees and dense green rainforest behind it, a few bright tropical flowers, blue sky with big white clouds. A wide, empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A small tropical town park at sunset, a few big leafy trees full of hundreds of tiny green parrots perching on the branches and many more small green parrots flying in from the orange and pink sky, a low white gazebo and park benches in the background. A wide, empty paved park path across the lower third.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The wide brown Amazon river on a sunny morning, thick green jungle on both banks with tall trees, a small colorful wooden village with stilt houses on the river bank in the distance, white clouds in a blue sky. A long narrow wooden motorboat in the lower half floating on the river, clearly visible and empty, with room for two.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm dark lake in the Amazon rainforest early in the morning, soft mist, tall green trees standing in the flooded forest, two pink river dolphins arching out of the water, pale yellow and blue morning sky. A long simple empty wooden canoe floating on the water in the lower half, clearly visible.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A sunny street in a small tropical border town, low colorful houses and shops, palm trees, a simple painted border marker post in green and yellow on one side, blue sky with white clouds. The wide street in the lower third is clearly visible and empty.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm jungle lagoon on a sunny afternoon, covered with many enormous round flat green giant water lily leaves with raised rims, like huge floating trays, a few big white and pink water lily flowers, tall rainforest trees around, blue sky. A simple empty wooden dock edge across the lower third.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of the wide brown Amazon river winding through endless bright green rainforest under a bright blue daytime sky, one pink river dolphin jumping near the bank. The middle of the picture is calm open sky. An empty sandy river bank across the bottom fifth."
+ }
+}
