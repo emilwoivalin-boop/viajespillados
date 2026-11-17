@@ -1,0 +1,189 @@
+{
+  "id": "aruba-2027-04-29",
+  "lang": "es",
+  "city": "Aruba",
+  "country": "ABW",
+  "place": "Aruba",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "cover_q": "¿Una isla del Caribe a solo 24 km de Venezuela?",
+  "facts": [
+    {
+      "text": "¿Sabías que Aruba queda a solo 24 kilómetros de la costa de Venezuela? Menos de lo que hay entre Bogotá y Zipaquirá.",
+      "stickers": [
+        {
+          "emoji": "🧭",
+          "x": 0.27,
+          "y": 0.38,
+          "size": 220,
+          "at": "Venezuela",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "24 km",
+        "small": "hasta Venezuela",
+        "at": "24",
+        "x": 0.62,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://www.britannica.com/place/Aruba"
+    },
+    {
+      "text": "En la punta norte está el faro California, bautizado así por un barco de vapor británico que naufragó ahí cerquita en 1891.",
+      "lat": 12.6138,
+      "lon": -70.0514,
+      "view": 1200,
+      "label": "Faro California",
+      "photo": "File:Aruba Lighthouse in pink.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/California_Lighthouse"
+    },
+    {
+      "text": "Aquí se habla papiamento, una mezcla de portugués, español, neerlandés y lenguas africanas, y desde 2003 es idioma oficial.",
+      "stickers": [
+        {
+          "emoji": "💬",
+          "x": 0.28,
+          "y": 0.47,
+          "size": 270,
+          "at": "papiamento",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "📜",
+          "x": 0.76,
+          "y": 0.5,
+          "size": 200,
+          "at": "oficial",
+          "sfx": "sparkle"
+        }
+      ],
+      "stat": {
+        "big": "2003",
+        "small": "idioma oficial",
+        "at": "2003",
+        "y": 0.3,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Papiamento"
+    },
+    {
+      "text": "En Oranjestad está el Fuerte Zoutman, construido en 1798: es la construcción más antigua de toda la isla.",
+      "lat": 12.5178,
+      "lon": -70.0357,
+      "view": 1100,
+      "label": "Fuerte Zoutman",
+      "photo": "File:Willem III tower, Fort Zoutman, Oranjestad, ARUBA.JPG",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Fort_Zoutman"
+    },
+    {
+      "text": "Y desde 1986 Aruba tiene su estatus aparte: es un país propio dentro del Reino de los Países Bajos, con bandera y moneda propias.",
+      "stickers": [
+        {
+          "emoji": "👑",
+          "x": 0.28,
+          "y": 0.48,
+          "size": 250,
+          "at": "Reino",
+          "sfx": "tada"
+        },
+        {
+          "emoji": "🗳",
+          "x": 0.76,
+          "y": 0.47,
+          "size": 210,
+          "at": "país",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1986",
+        "small": "estatus aparte",
+        "at": "1986",
+        "y": 0.3,
+        "count": false,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.8
+          }
+        ]
+      },
+      "source": "https://www.britannica.com/place/Aruba"
+    }
+  ],
+  "end": {
+    "text": "",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    },
+    "title": "Datos de Aruba"
+  },
+  "caption": "5 datos de Aruba que seguro no sabías 📍\n\n1. Queda a solo 24 km de la costa de Venezuela\n2. El faro California lleva el nombre de un barco que naufragó ahí en 1891\n3. El papiamento es idioma oficial desde 2003\n4. El Fuerte Zoutman (1798) es la construcción más antigua de la isla\n5. Desde 1986 es un país propio dentro del Reino de los Países Bajos\n\n¿Cuál te sorprendió más? ✈️\n\n#aruba #caribe #datoscuriosos #viajespillados #onehappyisland"
+}
