@@ -139,7 +139,11 @@ def _log():
 
 
 def post_item(item, auth):
-    files = [os.path.join(ROOT, p) for p in item["files"]][: (1 if item["kind"] == "video" else MAX_IMAGES)]
+    # X takes max 4 images: the offer images first, the owner's flight screenshots ("-captura") only if room is left
+    paths = sorted(item["files"], key=lambda p: "-captura." in p) if item["kind"] != "video" else item["files"]
+    if item["kind"] != "video" and len(paths) <= MAX_IMAGES:
+        paths = item["files"]
+    files = [os.path.join(ROOT, p) for p in paths][: (1 if item["kind"] == "video" else MAX_IMAGES)]
     media_ids = [upload(p, auth) for p in files]
     text = build_text(item)
     res = _check(requests.post(f"{API}/tweets", auth=auth, timeout=60,

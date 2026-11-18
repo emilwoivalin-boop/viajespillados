@@ -10,7 +10,8 @@ Sheet columns (row 1 = headers):
   A Publicar | B Publicado (AAAA-MM-DD) | C Destino | D Aerolínea | E Precio (COP) | F Tipo
   G Escalas | H Mes de viaje | I Categoría | J Link vuelo | K Foto (URL) | L Crédito foto
   M Link crédito | N Instagram | O Texto Instagram | P Fechas | Q Escala larga (layover city with time to
-  explore it, e.g. "Toronto" – adds a line to the caption)
+  explore it, e.g. "Toronto" – adds a line to the caption) | R Captura (URL) (owner's screenshot of the flight, added on
+  the Offer check page; when set, the post gets an extra slide with it right after the offer image)
 Column N decides Instagram:  "sí"/"auto" = publish,  "revisar" or empty = wait for approval,
 "no" = never.  Column O is the caption (optional; a basic caption is built if empty).
 
@@ -57,7 +58,7 @@ def load_offers():
     if not rows or not re.match(r"publicar", rows[0][0], re.I):
         sys.exit("La hoja no tiene el formato esperado (A1 = Publicar).")
     keys = ["publicar", "publicado", "destino", "aerolinea", "precio", "tipo", "escalas", "mes",
-            "categoria", "link", "foto", "credito", "credito_link", "instagram", "texto", "fechas", "escala_larga"]
+            "categoria", "link", "foto", "credito", "credito_link", "instagram", "texto", "fechas", "escala_larga", "captura"]
     offers = []
     for i, row in enumerate(rows[1:], start=2):
         row = (row + [""] * len(keys))[: len(keys)]
@@ -337,6 +338,86 @@ def render(o, out_path):
 
     img.convert("RGB").save(out_path, "JPEG", quality=90, optimize=True, progressive=True)
     return out_path
+
+
+# ---------------------------------------------------------------- owner's flight screenshot (column R)
+def drive_download_url(url):
+    """Google Drive share/view links -> a direct download link; other https links are used as they are."""
+    m = re.search(r"(?:/d/|[?&]id=)([A-Za-z0-9_-]{20,})", url or "")
+    if m and "google.com" in url:
+        return f"https://drive.google.com/uc?export=download&id={m.group(1)}"
+    return url
+
+
+def download_screenshot(url):
+    """The owner's screenshot (or None if there is none or it can't be read: then the post keeps the old format)."""
+    if not (url or "").startswith("http"):
+        return None
+    try:
+        r = requests.get(drive_download_url(url), timeout=60, headers=UA)
+        r.raise_for_status()
+        im = Image.open(io.BytesIO(r.content))
+        return ImageOps.exif_transpose(im).convert("RGB")
+    except Exception as e:
+        print(f"Captura no disponible ({url}): {e}", file=sys.stderr)
+        return None
+
+
+def render_screenshot(o, shot, out_path):
+    """Slide 2 of an offer: the owner's screenshot of the flight on the offer's photo (blurred), with
+    "ASÍ LO PILLAMOS" and the date the price was seen."""
+    try:
+        bg = download_photo(o["foto"]) if o["foto"] else Image.new("RGB", (W, H), NAVY)
+    except Exception:
+        bg = Image.new("RGB", (W, H), NAVY)
+    img = bg.filter(ImageFilter.GaussianBlur(28)).convert("RGBA")
+    img.alpha_composite(Image.new("RGBA", (W, H), (10, 18, 34, 175)))
+    d = ImageDraw.Draw(img)
+    cx = W // 2
+    draw_text_with_shadow(img, (cx, 56), "ASÍ LO PILLAMOS", font("Black", 72), YELLOW)
+    seen = o["publicado"].lstrip("'")
+    try:
+        sd = datetime.strptime(seen, "%Y-%m-%d")
+        sub = f"{o['destino']} · precio visto el {fmt_long(sd)}"
+    except ValueError:
+        sub = o["destino"]
+    draw_text_with_shadow(img, (cx, 150), sub, fit_font(d, sub, "SemiBold", 40, W - 120, 28), "white")
+    # the screenshot, as large as fits, white frame + soft shadow
+    top, bottom = 230, H - 170
+    bw, bh = W - 120, bottom - top
+    sc = min(bw / shot.width, bh / shot.height)
+    sw_, sh_ = max(1, int(shot.width * sc)), max(1, int(shot.height * sc))
+    shot = shot.resize((sw_, sh_), Image.LANCZOS)
+    x, y = (W - sw_) // 2, top + (bh - sh_) // 2
+    pad, rad = 10, 30
+    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).rounded_rectangle((x - pad + 8, y - pad + 14, x + sw_ + pad + 8, y + sh_ + pad + 14), rad + pad,
+                                             fill=(0, 0, 0, 150))
+    img.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(16)))
+    ImageDraw.Draw(img).rounded_rectangle((x - pad, y - pad, x + sw_ + pad, y + sh_ + pad), rad + pad, fill="white")
+    mask = Image.new("L", (sw_, sh_), 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, sw_ - 1, sh_ - 1), rad, fill=255)
+    img.paste(shot, (x, y), mask)
+    fn = font("SemiBold", 30)
+    draw_text_with_shadow(img, (cx, bottom + 22), "Los precios cambian rápido · revisa el vuelo en la web", fn,
+                          (255, 255, 255))
+    logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((84, 84), Image.LANCZOS)
+    img.alpha_composite(logo, (48, H - 48 - 84))
+    draw_text_with_shadow(img, (48 + 84 + 18, H - 48 - 42), "viajespillados.com", font("ExtraBold", 40), "white",
+                          anchor="lm")
+    img.convert("RGB").save(out_path, "JPEG", quality=90, optimize=True, progressive=True)
+    return out_path
+
+
+def render_slides(o, folder):
+    """The offer image, plus the owner's screenshot slide when column R has one (else the old format: 1 image)."""
+    rels = [f"{folder}/{o['id']}.jpg"]
+    render(o, os.path.join(ROOT, rels[0]))
+    shot = download_screenshot(o.get("captura"))
+    if shot is not None:
+        rels.append(f"{folder}/{o['id']}-captura.jpg")
+        render_screenshot(o, shot, os.path.join(ROOT, rels[1]))
+    return rels
 
 
 # ---------------------------------------------------------------- caption
@@ -632,13 +713,14 @@ def main():
             summary("No hay ofertas aprobadas pendientes; muestro las 3 más recientes como ejemplo.")
         paths = []
         for o in todo[:MAX_CAROUSEL]:
-            rel = f"instagram/preview/{o['id']}.jpg"
-            render(o, os.path.join(ROOT, rel))
-            paths.append(rel)
+            slides = render_slides(o, "instagram/preview")
+            rel = slides[0]
+            paths += slides
             with open(os.path.join(ROOT, f"instagram/preview/{o['id']}.txt"), "w") as f:
                 f.write(caption(o) + "\n")
             paths.append(f"instagram/preview/{o['id']}.txt")
-            summary(f"### {o['destino']} ({o['id']})\n![]({RAW}/{rel})\n\n```\n{caption(o)}\n```\n")
+            summary(f"### {o['destino']} ({o['id']})\n" + "".join(f"![]({RAW}/{r})\n" for r in slides) +
+                    f"\n```\n{caption(o)}\n```\n")
         if len(todo) > 1:
             with open(os.path.join(ROOT, "instagram/preview/carrusel.txt"), "w") as f:
                 f.write(caption_carousel(todo[:MAX_CAROUSEL]) + "\n")
@@ -662,18 +744,21 @@ def main():
                 f"{max_age} días) y sin publicar.")
         return
 
-    rels = []
+    rels, per = [], []
     for o in todo:
-        rel = f"instagram/img/{o['id']}.jpg"
-        render(o, os.path.join(ROOT, rel))
-        rels.append(rel)
+        slides = render_slides(o, "instagram/img")
+        if rels and len(rels) + len(slides) > MAX_CAROUSEL:      # max 10 slides: later offers wait for the next post
+            break
+        rels += slides
+        per.append(slides)
+    todo = todo[:len(per)]
     commit_push(rels, "Instagram: imágenes " + ", ".join(o["destino"] for o in todo))
     urls = [public_image_url(r) for r in rels]
     try:
-        if len(todo) == 1:
+        if len(urls) == 1:
             media_id, permalink = publish_to_instagram(urls[0], caption(todo[0]))
         else:
-            media_id, permalink = publish_carousel(urls, caption_carousel(todo))
+            media_id, permalink = publish_carousel(urls, caption(todo[0]) if len(todo) == 1 else caption_carousel(todo))
     except BaseException as e:
         # keep the error in the repo so it can be read without the Actions logs
         with open(os.path.join(ROOT, "instagram/last_error.txt"), "w") as f:
@@ -683,12 +768,14 @@ def main():
 
     state = load_state()
     now = datetime.now(BOGOTA).strftime("%Y-%m-%d %H:%M")
-    for o, url in zip(todo, urls):
+    k = 0
+    for o, slides in zip(todo, per):
         state["posts"].append({
             "id": o["id"], "destino": o["destino"], "precio": o["precio_num"], "sheet_row": o["row"],
-            "media_id": media_id, "permalink": permalink, "image": url, "published_at": now,
-            "carousel": len(todo) > 1,
+            "media_id": media_id, "permalink": permalink, "image": urls[k], "published_at": now,
+            "carousel": len(urls) > 1, "captura": len(slides) > 1,
         })
+        k += len(slides)
     save_state(state)
     names = ", ".join(o["destino"] for o in todo)
     import tiktok_feed   # same post, ready to repost on TikTok by hand
@@ -700,7 +787,7 @@ def main():
     import fb_post       # and on the Facebook Page (skipped if not connected)
     xp += fb_post.share_latest()
     commit_push(["instagram/published.json", feed] + xp, f"Instagram: publicado {names}")
-    summary(f"✅ Publicado ({'carrusel de ' + str(len(todo)) if len(todo) > 1 else 'post'}): **{names}** – {permalink}")
+    summary(f"✅ Publicado ({'carrusel de ' + str(len(urls)) if len(urls) > 1 else 'post'}): **{names}** – {permalink}")
 
 
 if __name__ == "__main__":
