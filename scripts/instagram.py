@@ -341,26 +341,31 @@ def render(o, out_path):
 
 
 # ---------------------------------------------------------------- owner's flight screenshot (column R)
-def drive_download_url(url):
-    """Google Drive share/view links -> a direct download link; other https links are used as they are."""
+def drive_download_urls(url):
+    """Google Drive share/view links -> direct download links to try in order; other https links as they are."""
     m = re.search(r"(?:/d/|[?&]id=)([A-Za-z0-9_-]{20,})", url or "")
-    if m and "google.com" in url:
-        return f"https://drive.google.com/uc?export=download&id={m.group(1)}"
-    return url
+    if m and "google" in url:
+        fid = m.group(1)
+        return [f"https://drive.usercontent.google.com/download?id={fid}&export=download&confirm=t",
+                f"https://lh3.googleusercontent.com/d/{fid}=s2000",
+                f"https://drive.google.com/uc?export=download&id={fid}"]
+    return [url]
 
 
 def download_screenshot(url):
     """The owner's screenshot (or None if there is none or it can't be read: then the post keeps the old format)."""
     if not (url or "").startswith("http"):
         return None
-    try:
-        r = requests.get(drive_download_url(url), timeout=60, headers=UA)
-        r.raise_for_status()
-        im = Image.open(io.BytesIO(r.content))
-        return ImageOps.exif_transpose(im).convert("RGB")
-    except Exception as e:
-        print(f"Captura no disponible ({url}): {e}", file=sys.stderr)
-        return None
+    for u in drive_download_urls(url):
+        try:
+            r = requests.get(u, timeout=60, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) ViajesPillados"})
+            r.raise_for_status()
+            im = Image.open(io.BytesIO(r.content))
+            return ImageOps.exif_transpose(im).convert("RGB")
+        except Exception as e:
+            ct = getattr(locals().get("r"), "headers", {}).get("content-type", "?") if "r" in locals() else "?"
+            print(f"Captura no disponible ({u}): {type(e).__name__} {str(e)[:120]} [{ct}]", file=sys.stderr)
+    return None
 
 
 def render_screenshot(o, shot, out_path):
