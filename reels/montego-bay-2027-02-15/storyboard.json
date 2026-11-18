@@ -1,0 +1,190 @@
+{
+ "id": "montego-bay-2027-02-15",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Te imaginas cambiar el frío de Bogotá por una balsa de bambú en un río tropical? Lunes 15 de febrero. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa'l Caribe!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Abróchate el cinturón y adivina: tres horas de vuelo directo, y abajo el Caribe se pinta de mil azules.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-02-15/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Tierra a la vista: ¡Montego Bay! Apenas sales, suena reggae suavecito y te pega el calorcito del Caribe.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-02-15/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Primer plan: chapuzón en Doctor's Cave Beach, con el agua tan clarita que te ves los pies.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-02-15/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Día dos arranca así: snorkel en el parque marino de la bahía, entre corales y peces de colores.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-02-15/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Por la tarde, al centro: en la plaza Sam Sharpe está el monumento al héroe de la rebelión de 1831.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-02-15/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Hora de comer: pollo jerk ahumado y picantico, con festival, un pancito frito medio dulce.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-02-15/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Último día, y se viene la joya: bajas el río Martha Brae en una balsa de bambú, entre la selva.",
+   "media": {
+    "type": "file",
+    "path": "reels/montego-bay-2027-02-15/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "El tiquete, ida y vuelta con Wingo: 953 mil pesos. Esto no se ve todos los días. Esta y más ofertas en viajespillados punto com.",
+  "title": "7 días en Montego Bay",
+  "kicker": "",
+  "airline": "Wingo · vuelo directo",
+  "price": "$952.897",
+  "detail": "ida y vuelta · 15 feb – 21 feb",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/montego-bay-2027-02-15/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Montego Bay desde Bogotá ✈️ Relájate en Doctor's Cave Beach, ve hasta las playas de Negril y sube las cascadas de Dunn's River en Ocho Ríos. Ida y vuelta con Wingo desde $952.897 (15 feb – 21 feb). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #montegobay #ofertasdevuelos"
+}
