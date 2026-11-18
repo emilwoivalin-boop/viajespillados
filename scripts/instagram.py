@@ -11,7 +11,7 @@ Sheet columns (row 1 = headers):
   G Escalas | H Mes de viaje | I Categoría | J Link vuelo | K Foto (URL) | L Crédito foto
   M Link crédito | N Instagram | O Texto Instagram | P Fechas | Q Escala larga (layover city with time to
   explore it, e.g. "Toronto" – adds a line to the caption) | R Captura (URL) (1–2 links to the owner's screenshots of the flight,
-  separated by a space, added on the Offer check page; each one becomes an extra slide right after the offer image)
+  separated by a space, added on the Offer check page; the offer image then shows them – design C)
 Column N decides Instagram:  "sí"/"auto" = publish,  "revisar" or empty = wait for approval,
 "no" = never.  Column O is the caption (optional; a basic caption is built if empty).
 
@@ -368,65 +368,116 @@ def download_screenshot(url):
     return None
 
 
-def render_screenshot(o, shot, out_path, n=1, of=1):
-    """Slide 2 of an offer: the owner's screenshot of the flight on the offer's photo (blurred), with
-    "ASÍ LO PILLAMOS" and the date the price was seen."""
-    try:
-        bg = download_photo(o["foto"]) if o["foto"] else Image.new("RGB", (W, H), NAVY)
-    except Exception:
-        bg = Image.new("RGB", (W, H), NAVY)
-    img = bg.filter(ImageFilter.GaussianBlur(28)).convert("RGBA")
-    img.alpha_composite(Image.new("RGBA", (W, H), (10, 18, 34, 175)))
+CORAL = (255, 90, 78)
+
+
+def _shot_card(shot, width, label=None, pad=16, radius=26):
+    """A screenshot on a white rounded card with a soft shadow, optional chip ("IDA") on its top-left corner.
+    Returns the image and the offset of the card's own top-left corner inside it."""
+    sc = (width - 2 * pad) / shot.width
+    sw, sh = max(1, int(shot.width * sc)), max(1, int(shot.height * sc))
+    s = shot.resize((sw, sh), Image.LANCZOS)
+    top = 34 if label else 0
+    cw, ch = width, sh + 2 * pad
+    im = Image.new("RGBA", (cw + 40, ch + top + 40), (0, 0, 0, 0))
+    shadow = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).rounded_rectangle((24, top + 30, 20 + cw + 4, top + 20 + ch + 10), radius, fill=(0, 0, 0, 120))
+    im.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(12)))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((20, top + 20, 20 + cw, top + 20 + ch), radius, fill="white")
+    m = Image.new("L", (sw, sh), 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, sw - 1, sh - 1), max(4, radius - pad), fill=255)
+    im.paste(s, (20 + pad, top + 20 + pad), m)
+    if label:
+        f = font("Black", 30)
+        tw = d.textlength(label, font=f)
+        d.rounded_rectangle((38, 20, 38 + tw + 36, 72), 26, fill=CORAL)
+        d.text((38 + 18 + tw / 2, 46), label, font=f, fill="white", anchor="mm")
+    return im, 20, 20
+
+
+def render_with_shots(o, shots, out_path):
+    """Owner's rule (18 Nov 2026), design C "capturas protagonistas": when the offer has screenshots, they go INTO
+    the offer image – big, slightly tilted cards over the photo (IDA / VUELTA on round trips with 2 screenshots),
+    a yellow "DESDE <price>" sticker (the price must match the screenshot: the owner fixes it on the Offer check page)
+    and "Así lo pillamos en Google Flights · <date>"."""
+    photo = download_photo(o["foto"]) if o["foto"] else Image.new("RGB", (W, H), NAVY)
+    img = photo.convert("RGBA")
+    shade = Image.new("RGBA", (W, H), (10, 18, 34, 255))
+    img = Image.composite(shade, img, gradient([(0, .80), (.30, .45), (.6, .45), (1, .75)]))
     d = ImageDraw.Draw(img)
-    cx = W // 2
-    draw_text_with_shadow(img, (cx, 56), "ASÍ LO PILLAMOS", font("Black", 72), YELLOW)
+    cx, mw = W // 2, W - 120
+    city = o["destino"]
+    sub = " · ".join(x for x in [o["tipo"], o["escalas"]] if x)
+    when = dates_short(o)
+    f2 = fit_font(d, city, "Black", 128, mw, 64)
+    y = 70
+    draw_text_with_shadow(img, (cx, y), "VUELOS A", font("ExtraBold", 50), YELLOW); y += 62
+    draw_text_with_shadow(img, (cx, y), city, f2, "white"); y += f2.size + 14
+    draw_text_with_shadow(img, (cx, y), sub, fit_font(d, sub, "SemiBold", 44, mw, 28), "white"); y += 58
+    if when:
+        draw_text_with_shadow(img, (cx, y), when, fit_font(d, when, "Bold", 46, mw, 28), "white"); y += 60
+    if no_days_off(o):
+        draw_text_with_shadow(img, (cx, y), "SIN PEDIR DÍAS LIBRES", font("Black", 36), YELLOW); y += 54
+    if (o.get("escala_larga") or "").strip():
+        t = f"ESCALA LARGA: CONOCE {o['escala_larga'].strip().upper()}"
+        draw_text_with_shadow(img, (cx, y), t, fit_font(d, t, "Black", 34, mw, 24), "white"); y += 52
+    # the cards: as wide as possible, but together they must fit between the title and the footer
+    labs = ["IDA", "VUELTA"] if len(shots) == 2 and o["tipo"].startswith("ida y vuelta") else [None] * len(shots)
+    angles = [-2.2, 1.8] if len(shots) == 2 else [-1.5]
+    top = max(y + 40, 520)
+    avail = (H - 275) - top - 30 * (len(shots) - 1)
+    width = W - 90
+    for sh_ in shots:     # shrink tall (phone) screenshots so every card fits
+        hmax = avail / len(shots) - 2 * 16 - 34
+        width = min(width, int(hmax * sh_.width / sh_.height) + 32)
+    width = max(width, 260)
+    yb = top
+    for s, lab, a in zip(shots, labs, angles):
+        im, ox, oy = _shot_card(s, width, lab)
+        r = im.rotate(a, resample=Image.BICUBIC, expand=True)
+        img.alpha_composite(r, (int(W / 2 - r.width / 2), int(yb - (r.height - im.height) / 2 - oy)))
+        yb += im.height - 40 - 6
+    # price sticker
+    st = Image.new("RGBA", (420, 170), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(st)
+    sd.rounded_rectangle((10, 10, 410, 160), 40, fill=YELLOW, outline=NAVY, width=6)
+    sd.text((210, 58), "DESDE", font=font("ExtraBold", 30), fill=NAVY, anchor="mm")
+    price = cop(o["precio_num"])
+    sd.text((210, 108), price, font=fit_font(sd, price, "Black", 64, 370, 36), fill=NAVY, anchor="mm")
+    st = st.rotate(5, resample=Image.BICUBIC, expand=True)
+    img.alpha_composite(st, (W - st.width - 30, min(int(yb) + 10, H - 190 - st.height)))
     seen = o["publicado"].lstrip("'")
     try:
-        sd = datetime.strptime(seen, "%Y-%m-%d")
-        sub = f"{o['destino']} · precio visto el {fmt_long(sd)}"
+        sd_ = datetime.strptime(seen, "%Y-%m-%d")
+        line = f"Así lo pillamos en Google Flights · {sd_.day} {MESES[sd_.month - 1][:3]}"
     except ValueError:
-        sub = o["destino"]
-    if of > 1:
-        sub += f" · {n}/{of}"
-    draw_text_with_shadow(img, (cx, 150), sub, fit_font(d, sub, "SemiBold", 40, W - 120, 28), "white")
-    # the screenshot, as large as fits, white frame + soft shadow
-    top, bottom = 230, H - 170
-    bw, bh = W - 120, bottom - top
-    sc = min(bw / shot.width, bh / shot.height)
-    sw_, sh_ = max(1, int(shot.width * sc)), max(1, int(shot.height * sc))
-    shot = shot.resize((sw_, sh_), Image.LANCZOS)
-    x, y = (W - sw_) // 2, top + (bh - sh_) // 2
-    pad, rad = 10, 30
-    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    ImageDraw.Draw(shadow).rounded_rectangle((x - pad + 8, y - pad + 14, x + sw_ + pad + 8, y + sh_ + pad + 14), rad + pad,
-                                             fill=(0, 0, 0, 150))
-    img.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(16)))
-    ImageDraw.Draw(img).rounded_rectangle((x - pad, y - pad, x + sw_ + pad, y + sh_ + pad), rad + pad, fill="white")
-    mask = Image.new("L", (sw_, sh_), 0)
-    ImageDraw.Draw(mask).rounded_rectangle((0, 0, sw_ - 1, sh_ - 1), rad, fill=255)
-    img.paste(shot, (x, y), mask)
-    fn = font("SemiBold", 30)
-    draw_text_with_shadow(img, (cx, bottom + 22), "Los precios cambian rápido · revisa el vuelo en la web", fn,
-                          (255, 255, 255))
+        line = "Así lo pillamos en Google Flights"
+    draw_text_with_shadow(img, (cx, H - 205), line, font("Bold", 30), "white")
     logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((84, 84), Image.LANCZOS)
     img.alpha_composite(logo, (48, H - 48 - 84))
     draw_text_with_shadow(img, (48 + 84 + 18, H - 48 - 42), "viajespillados.com", font("ExtraBold", 40), "white",
                           anchor="lm")
+    if o["credito"]:
+        fc = font("SemiBold", 20)
+        c = "Foto: " + o["credito"]
+        while d.textlength(c, font=fc) > 520 and len(c) > 10:
+            c = c[:-2]
+        ImageDraw.Draw(img).text((W - 40, H - 30), c, font=fc, fill=(255, 255, 255, 190), anchor="rs")
     img.convert("RGB").save(out_path, "JPEG", quality=90, optimize=True, progressive=True)
     return out_path
 
 
 def render_slides(o, folder):
-    """The offer image, plus one slide per owner's screenshot in column R (max 2 links, separated by spaces);
-    no screenshot (or none readable) = the old format, 1 image."""
-    rels = [f"{folder}/{o['id']}.jpg"]
-    render(o, os.path.join(ROOT, rels[0]))
-    imgs = [im for im in (download_screenshot(u) for u in (o.get("captura") or "").split()[:2]) if im is not None]
-    for i, shot in enumerate(imgs, 1):
-        rel = f"{folder}/{o['id']}-captura{'' if i == 1 else i}.jpg"
-        render_screenshot(o, shot, os.path.join(ROOT, rel), i, len(imgs))
-        rels.append(rel)
-    return rels
+    """One image per offer: with the owner's screenshots (column R, max 2 links separated by spaces) the
+    "capturas protagonistas" design, without them (or if none can be read) the old format."""
+    rel = f"{folder}/{o['id']}.jpg"
+    shots = [im for im in (download_screenshot(u) for u in (o.get("captura") or "").split()[:2]) if im is not None]
+    if shots:
+        render_with_shots(o, shots, os.path.join(ROOT, rel))
+    else:
+        render(o, os.path.join(ROOT, rel))
+    return [rel]
 
 
 # ---------------------------------------------------------------- caption
@@ -663,9 +714,12 @@ def summary(md):
 
 def candidates(offers, state, destino=None, max_age=3):
     done = {p["id"] for p in state["posts"]}
+    # same sheet row + destination + date = same offer, even if the owner corrected its price afterwards
+    done_rows = {(p.get("sheet_row"), slug(p.get("destino", "")), p["id"].rsplit("-", 1)[0]) for p in state["posts"]}
     out = []
     for o in offers:
-        if o["id"] in done or not approved(o):
+        key = (o["row"], slug(o["destino"]), o["id"].rsplit("-", 1)[0])
+        if o["id"] in done or key in done_rows or not approved(o):
             continue
         if destino:
             if slug(o["destino"]) == slug(destino):
