@@ -13,7 +13,7 @@ use the offers accepted during the day, and posted the next morning. Three sched
 
 **"Today" in this file always means the Reel day** = the morning the Reel is posted: `python scripts/reel_plan.py day`
 (after 15:00 Bogotá that is tomorrow). Use it for the `reels/daily.json` key, `reel_plan.py kind`/`buddy`, "departure at least
-4 days from today", the Drive folder name and the date in messages. The flight price check still runs at 01:53.
+4 days from today", the Drive folder name and the date in messages. The flight price check runs at 06:27, so new offers are ready for the 7:00 post and for the owner to check during the day.
 
 State lives in `reels/daily.json` (one entry per Bogotá date):
 `{"2026-10-30": {"id": "lima-2027-01-16", "destino": "Lima", "status": "prompts_sent", "drive_folder_id": "...", "note": ""}}`
