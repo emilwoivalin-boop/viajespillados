@@ -482,8 +482,67 @@ def intro_png(it, path):
     img.save(path)
 
 
-def end_png(e, path):
-    """End card: the reveal (trip, airline, price, flight times) and the call to action."""
+_EXTRAS = {}
+
+
+def offer_extras(base):
+    """Owner's flight screenshots (Ofertas column R, added on the Offer check page) for the Reel's offer
+    (plan.json "offer"), and the sheet price when it was corrected to match them.
+    Returns (screenshots, new_price or None, plan_price, column R text). Nothing found = ([], None, plan_price, "")."""
+    if base in _EXTRAS:
+        return _EXTRAS[base]
+    res = ([], None, None, "")
+    try:
+        offer = (json.load(open(os.path.join(base, "plan.json"))).get("offer") or {})
+        if offer:
+            res = ([], None, offer.get("precio"), "")
+            fe = f"{offer.get('ida')}/{offer.get('vuelta')}" if offer.get("vuelta") else str(offer.get("ida"))
+            for o in ig.load_offers():
+                if ig.slug(o["destino"]) == ig.slug(offer["destino"]) and \
+                        (o["row"] == offer.get("sheet_row") or o["fechas"].lstrip("'") == fe):
+                    shots = [im for im in (ig.download_screenshot(u) for u in (o.get("captura") or "").split()[:2])
+                             if im is not None]
+                    newp = o["precio_num"] if shots and o["precio_num"] and o["precio_num"] != offer.get("precio") else None
+                    res = (shots, newp, offer.get("precio"), (o.get("captura") or "").strip())
+                    break
+    except Exception as e:
+        print(f"offer_extras: {e}", file=sys.stderr)
+    _EXTRAS[base] = res
+    return res
+
+
+def fix_end_price(end, old, new):
+    """The owner corrected the price to the one in the screenshots: use it on the card and in the spoken line."""
+    import reel_plan
+    end["price"] = reel_plan.cop(new)
+    if end.get("text") and old:
+        end["text"] = end["text"].replace(reel_plan.pesos(old), reel_plan.pesos(new))
+
+
+def shots_block(shots, top, bottom, labels=None):
+    """The screenshots as tilted white cards (same design as the offer posts), fitted between top and bottom."""
+    layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    if not shots:
+        return layer, top
+    labs = labels or [None] * len(shots)
+    angles = [-2.2, 1.8] if len(shots) == 2 else [-1.5]
+    avail = bottom - top - 24 * (len(shots) - 1)
+    width = W - 120
+    for s in shots:
+        width = min(width, int((avail / len(shots) - 2 * 16 - 34) * s.width / s.height) + 32)
+    width = max(width, 260)
+    y = top
+    for s, lab, a in zip(shots, labs, angles):
+        im, ox, oy = ig._shot_card(s, width, lab)
+        r = im.rotate(a, resample=Image.BICUBIC, expand=True)
+        layer.alpha_composite(r, (int(W / 2 - r.width / 2), int(y - (r.height - im.height) / 2 - oy)))
+        y += im.height - 40 - 6
+    return layer, y
+
+
+def end_png(e, path, shots=None):
+    """End card: the reveal (trip, airline, price, flight times) and the call to action. With the owner's flight
+    screenshots for the offer (owner's rule, 18 Nov 2026) they are shown as tilted cards under the price."""
     img = Image.new("RGBA", (W, H), (10, 18, 34, 225))
     d = ImageDraw.Draw(img)
     logo = Image.open(os.path.join(ROOT, "logo-icon.png")).convert("RGBA").resize((150, 150), Image.LANCZOS)
@@ -514,6 +573,12 @@ def end_png(e, path):
         x = W // 2 - (lw_ + vw) / 2
         d.text((x, y), label + "  ", font=fl, fill=YELLOW, anchor="lm")
         d.text((x + lw_, y), val, font=fv, fill="white", anchor="lm"); y += 68
+    if shots:
+        labs = ["IDA", "VUELTA"] if len(shots) == 2 and "vuelta" in (e.get("detail") or "") else None
+        layer, y = shots_block(shots, y - 10, 1380, labs)
+        img.alpha_composite(layer)
+        d = ImageDraw.Draw(img)
+        y += 30
     y += 90
     cta = e.get("cta", "viajespillados.com")
     if cta:                                   # fact Reels: no website pill (owner's rule)
@@ -668,6 +733,11 @@ def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
     # end card: reveal + call to action, optionally with its own voice line (travel plans have none)
     end = sb.get("end") or {}
     has_end = bool(end)
+    end_shots = []
+    if has_end:                       # owner's screenshots of the offer's flight + the price they show
+        end_shots, newp, oldp, _ = offer_extras(base)
+        if newp:
+            fix_end_price(end, oldp, newp)
     end_audio = None
     if not has_end:
         end_dur = 0.0
@@ -730,7 +800,7 @@ def render(rid, folder="reels", sb_file="storyboard.json", out_file="reel.mp4"):
     banner_png(sb["banner"], banner)
     endcard = os.path.join(work, "endcard.png")
     if has_end:
-        end_png(end, endcard)
+        end_png(end, endcard, end_shots)
     ass = os.path.join(work, "subs.ass")
     subtitles(subs, ass, sb.get("caption_margin", 300), sb.get("caption_align", 2))   # higher margin = captions further up
 

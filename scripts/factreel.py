@@ -723,6 +723,9 @@ def plan(rid, dry=False):
         plan_ = json.load(open(os.path.join(base, "plan.json")))
         offer = plan_.get("offer")
     if offer:
+        _shots, newp, _, _cap = reel.offer_extras(base)     # owner corrected the price to the one in the screenshots
+        if newp:
+            offer = dict(offer, precio=newp)
         # owner's rule: the same ending as the travel-plan Reels (rotating price line + website plug + price card)
         deal = reel_plan.deal_text(plan_, os.path.basename(base), offer["aerolinea"], reel_plan.pesos(offer["precio"]))
         i = deal.find("punto com")                 # owner: the Reel stops right after "viajespillados punto com"
@@ -880,7 +883,8 @@ class Renderer:
         esc = self.scenes[-1]
         if esc["fc"].get("card"):
             cp = os.path.join(self.work, "card.png")
-            reel.end_png(esc["fc"]["card"], cp)
+            reel.end_png(esc["fc"]["card"], cp, reel.offer_extras(self.base)[0] if os.path.exists(
+                os.path.join(self.base, "plan.json")) else None)
             card = Image.open(cp).convert("RGBA")
             ph = next((sc["photo"] for sc in self.scenes if sc.get("photo")), None)   # picture behind the card
             if ph:
@@ -1144,6 +1148,9 @@ def render(rid, dry=False):
         sbj = json.load(open(sbp))
         sbj["caption"] = cap
         sbj.setdefault("end", {})["title"] = f"Datos de {rd.sb['city']}"
+        if os.path.exists(os.path.join(base, "plan.json")):    # what the ending used: step B re-renders if it changed
+            shots_, newp_, oldp_, cap_ = reel.offer_extras(base)
+            sbj["end_extras"] = {"captura": cap_, "price": newp_ or oldp_, "shots": len(shots_)}
         json.dump(sbj, open(sbp, "w"), ensure_ascii=False, indent=2)
         import shutil
         shutil.copy(cover, os.path.join(base, "cover_ig.jpg"))

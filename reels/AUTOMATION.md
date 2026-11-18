@@ -236,6 +236,14 @@ the whole video, no Picsart), step B does nothing, and step C posts it at 8:14 e
    broken, fix and render again (time allows one retry).
 7. Set status `rendered`, commit + push. Output one short line: "Reel de <Destino> listo, se publica a las 8:14", plus any problem.
 
+### Owner's flight screenshots in the Reel ending (owner's rule, 18 Nov 2026)
+When the Reel's offer has screenshots in Ofertas column R (added on the Offer check page), the price card at the end shows
+them as tilted cards (IDA / VUELTA) under the price, and the card + spoken price use the sheet price (column E), which the
+owner sets to the price in the screenshots. `reel.py` / `factreel.py` read this automatically at render time
+(`reel.offer_extras`). Travel-plan Reels get whatever is there at 07:23. Fact Reels are rendered at 02:41, so step B checks
+on fact days: if column R or E of the offer row (plan.json offer.sheet_row) differs from `end_extras` in the storyboard
+({captura, price}), re-render with factreel.yml mode "render" before 08:14.
+
 ## C · post (08:14)
 
 Caption rule (owner): Reel captions are a destination plan in the owner's format (`caption_es` in plan.json, built by
