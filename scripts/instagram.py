@@ -10,8 +10,8 @@ Sheet columns (row 1 = headers):
   A Publicar | B Publicado (AAAA-MM-DD) | C Destino | D Aerolínea | E Precio (COP) | F Tipo
   G Escalas | H Mes de viaje | I Categoría | J Link vuelo | K Foto (URL) | L Crédito foto
   M Link crédito | N Instagram | O Texto Instagram | P Fechas | Q Escala larga (layover city with time to
-  explore it, e.g. "Toronto" – adds a line to the caption) | R Captura (URL) (owner's screenshot of the flight, added on
-  the Offer check page; when set, the post gets an extra slide with it right after the offer image)
+  explore it, e.g. "Toronto" – adds a line to the caption) | R Captura (URL) (1–2 links to the owner's screenshots of the flight,
+  separated by a space, added on the Offer check page; each one becomes an extra slide right after the offer image)
 Column N decides Instagram:  "sí"/"auto" = publish,  "revisar" or empty = wait for approval,
 "no" = never.  Column O is the caption (optional; a basic caption is built if empty).
 
@@ -368,7 +368,7 @@ def download_screenshot(url):
     return None
 
 
-def render_screenshot(o, shot, out_path):
+def render_screenshot(o, shot, out_path, n=1, of=1):
     """Slide 2 of an offer: the owner's screenshot of the flight on the offer's photo (blurred), with
     "ASÍ LO PILLAMOS" and the date the price was seen."""
     try:
@@ -386,6 +386,8 @@ def render_screenshot(o, shot, out_path):
         sub = f"{o['destino']} · precio visto el {fmt_long(sd)}"
     except ValueError:
         sub = o["destino"]
+    if of > 1:
+        sub += f" · {n}/{of}"
     draw_text_with_shadow(img, (cx, 150), sub, fit_font(d, sub, "SemiBold", 40, W - 120, 28), "white")
     # the screenshot, as large as fits, white frame + soft shadow
     top, bottom = 230, H - 170
@@ -415,13 +417,15 @@ def render_screenshot(o, shot, out_path):
 
 
 def render_slides(o, folder):
-    """The offer image, plus the owner's screenshot slide when column R has one (else the old format: 1 image)."""
+    """The offer image, plus one slide per owner's screenshot in column R (max 2 links, separated by spaces);
+    no screenshot (or none readable) = the old format, 1 image."""
     rels = [f"{folder}/{o['id']}.jpg"]
     render(o, os.path.join(ROOT, rels[0]))
-    shot = download_screenshot(o.get("captura"))
-    if shot is not None:
-        rels.append(f"{folder}/{o['id']}-captura.jpg")
-        render_screenshot(o, shot, os.path.join(ROOT, rels[1]))
+    imgs = [im for im in (download_screenshot(u) for u in (o.get("captura") or "").split()[:2]) if im is not None]
+    for i, shot in enumerate(imgs, 1):
+        rel = f"{folder}/{o['id']}-captura{'' if i == 1 else i}.jpg"
+        render_screenshot(o, shot, os.path.join(ROOT, rel), i, len(imgs))
+        rels.append(rel)
     return rels
 
 
