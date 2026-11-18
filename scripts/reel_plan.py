@@ -65,10 +65,19 @@ REGRESO_BUDDY = {"look": "buddy", "action": "suitcase", "x0": 0.36, "x1": 0.58, 
                  "size1": 480}
 
 
+def reel_day():
+    """The Reel's date = the Bogotá morning it is POSTED. Owner's rule (18 Nov 2026): the Reel is made the evening
+    before (22:17 / 23:03, so it can use the offers accepted during the day) and posted at 08:14 – so from 15:00 on the
+    Reel day is tomorrow, before 15:00 it is today (manual runs in the morning)."""
+    from datetime import datetime, timedelta, timezone
+    now = datetime.now(timezone.utc) - timedelta(hours=5)
+    return (now.date() + timedelta(days=1 if now.hour >= 15 else 0)).isoformat()
+
+
 def buddy_next(today=None):
     """True if the next daily Reel (the one being prepared today) is a 'buddy' Reel: every third Reel that was
     actually made (statuses other than skipped) has the travel buddy."""
-    today = today or date.today().isoformat()
+    today = today or reel_day()
     daily = json.load(open(os.path.join(ROOT, "reels", "daily.json")))
     made = sum(1 for k, v in daily.items() if k < today and v.get("status") != "skipped")
     return (made + 1) % 3 == 0
@@ -77,7 +86,7 @@ def buddy_next(today=None):
 def reel_kind(day=None):
     """Owner's rule (Nov 2026): every other day the daily Reel is a fact Reel ("datos curiosos" on a map, scripts/
     factreel.py) instead of the travel-plan Reel. Odd day numbers since 0001-01-01 (13 Nov 2026, 15 Nov…) = facts."""
-    d = date.fromisoformat(day) if day else date.today()
+    d = date.fromisoformat(day or reel_day())
     return "facts" if d.toordinal() % 2 == 1 else "plan"
 
 
@@ -339,7 +348,9 @@ if __name__ == "__main__":
         build(sys.argv[2])
     elif cmd == "preview":
         preview(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
-    elif cmd == "kind":          # "facts" or "plan" for a Bogotá date (default today)
+    elif cmd == "day":           # the Reel day (YYYY-MM-DD): the morning the Reel being made now is posted
+        print(reel_day())
+    elif cmd == "kind":          # "facts" or "plan" for a Bogotá date (default: the Reel day)
         print(reel_kind(sys.argv[2] if len(sys.argv) > 2 else None))
     elif cmd == "buddy":
         print("yes" if buddy_next(sys.argv[2] if len(sys.argv) > 2 else None) else "no")
