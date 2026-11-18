@@ -1,78 +1,286 @@
 {
-  "id": "montego-bay-2027-02-15",
-  "offer": {
-    "destino": "Montego Bay",
-    "pais": "Jamaica",
-    "region": "Caribe e islas",
-    "aerolinea": "Wingo",
-    "precio": 952897,
-    "escalas": "directo",
-    "ida": "2027-02-15",
-    "vuelta": "2027-02-21",
-    "link": "https://www.google.com/travel/flights?q=Flights%20to%20MBJ%20from%20BOG%20on%202027-02-15%20through%202027-02-21&curr=COP&hl=es-419",
-    "sheet_row": 83,
-    "escala_larga": ""
+ "id": "montego-bay-2027-02-15",
+ "offer": {
+  "destino": "Montego Bay",
+  "pais": "Jamaica",
+  "region": "Caribe e islas",
+  "aerolinea": "Wingo",
+  "precio": 952897,
+  "escalas": "directo",
+  "ida": "2027-02-15",
+  "vuelta": "2027-02-21",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20MBJ%20from%20BOG%20on%202027-02-15%20through%202027-02-21&curr=COP&hl=es-419",
+  "sheet_row": 83,
+  "escala_larga": ""
+ },
+ "hora_salida": null,
+ "hook": "¿Te imaginas cambiar el frío de Bogotá por una balsa de bambú en un río tropical?",
+ "buddy": false,
+ "que_hacer": "Relájate en Doctor's Cave Beach, ve hasta las playas de Negril y sube las cascadas de Dunn's River en Ocho Ríos.",
+ "end_image": "dia1",
+ "lines": {
+  "vuelo": "Abróchate el cinturón y adivina: tres horas de vuelo directo, y abajo el Caribe se pinta de mil azules.",
+  "llegada": "Tierra a la vista: ¡Montego Bay! Apenas sales, suena reggae suavecito y te pega el calorcito del Caribe.",
+  "dia1": "Primer plan: chapuzón en Doctor's Cave Beach, con el agua tan clarita que te ves los pies.",
+  "dia2": "Día dos arranca así: snorkel en el parque marino de la bahía, entre corales y peces de colores.",
+  "dia3": "Por la tarde, al centro: en la plaza Sam Sharpe está el monumento al héroe de la rebelión de 1831.",
+  "dia4": "Hora de comer: pollo jerk ahumado y picantico, con festival, un pancito frito medio dulce.",
+  "dia5": "Último día, y se viene la joya: bajas el río Martha Brae en una balsa de bambú, entre la selva."
+ },
+ "caption_es": {
+  "hook": "¿Montego Bay en 5 días entre playa, arrecifes y río? Pilla este plan, parce.",
+  "intro": "Nadas en una bahía protegida y después te vas al centro a conocer la historia de Jamaica.",
+  "pais": "Jamaica",
+  "dias": [
+   {
+    "titulo": "Doctor's Cave Beach",
+    "texto": "una mañana en agua clarita, a un ratico del centro."
+   },
+   {
+    "titulo": "Snorkel en el parque marino",
+    "texto": "sal con un operador local a ver el arrecife de la bahía."
+   },
+   {
+    "titulo": "Plaza Sam Sharpe",
+    "texto": "mira el monumento y aprende de la rebelión que Sharpe ayudó a liderar."
+   },
+   {
+    "titulo": "Pollo jerk",
+    "texto": "pídelo con festival, una masa frita un poquito dulce."
+   },
+   {
+    "titulo": "Río Martha Brae",
+    "texto": "bájalo en una balsa de bambú, tranquilo, entre la vegetación."
+   }
+  ],
+  "dato": "Doctor's Cave Beach debe su nombre a un médico y a una cueva que antes se usaba para bajar hasta la playa",
+  "epoca": "enero a abril",
+  "para": "te gustan las playas fáciles de llegar, los paseos al arrecife y la historia de Jamaica",
+  "no_para": "quieres una playa remota, lejos de los resorts, los cruceros y el ruido de la ciudad",
+  "versus": "Roatán",
+  "hashtags": [
+   "#montegobay",
+   "#jamaica",
+   "#quehacerenmontegobay"
+  ]
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane) flying, and far below a generic tropical sea in many shades of turquoise and deep blue with a green hilly island coastline at the edge, no city, no buildings, no landmark, sunny blue sky. Keep the lower half open with the turquoise sea clearly visible. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small tropical Caribbean airport terminal with a pitched roof and big glass windows, completely plain walls with no signs, no lettering, no words and no logos anywhere, tall coconut palm trees and bright red and pink hibiscus flowers in front, green rolling hills behind, hot sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A small sheltered tropical beach in a calm bay on a sunny morning: soft white sand, very clear shallow turquoise water where the sandy bottom is visible, a few coconut palm trees and a low wooden beach hut at the side, green hills far away, bright blue sky. A wide, empty stretch of white sand across the lower third of the picture.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Underwater view of a shallow Caribbean coral reef in clear turquoise water: colourful corals, sea fans, a few bright tropical fish (yellow, blue, striped), sunbeams from the surface, the water surface visible near the top. The open clear blue water in the middle of the picture is empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A small sunny town square in a Caribbean town: a round paved plaza with a low circular stone monument wall in the middle, a few palm trees and shade trees, old two-storey colonial buildings painted white, yellow and green with balconies around it, a small old stone building with a little dome at one side, blue sky. The paved plaza in the lower third of the picture is clearly visible and empty.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A roadside Jamaican jerk food stand on a sunny day: a big black oil-drum barbecue grill with smoke rising, a wooden counter with a plate of grilled spicy chicken pieces and golden fried dough sticks, a red, yellow and green striped awning, palm trees and the sea in the background, blue sky. Plain wooden boards with no signs, no letters and no words. The dirt ground in front of the stand in the lower third is clearly visible and empty.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm wide green jungle river on a sunny day: thick tropical trees and big leaves on both banks, a long narrow bamboo raft with a small bamboo seat floating on the calm water in the lower half, sunlight on the water, blue sky. The bamboo raft is empty and clearly visible.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of a Jamaican bay in bright daylight: a curved white-sand beach with coconut palm trees on the left, calm turquoise sea, lush green hills rising behind the bay, the middle of the picture a large open bright blue sky and calm sea, empty. An empty wide stretch of white sand across the bottom fifth of the picture."
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ]
   },
-  "hora_salida": null,
-  "hook": "¿Te imaginas cambiar el frío de Bogotá por una balsa de bambú en un río tropical?",
-  "buddy": false,
-  "que_hacer": "Relájate en Doctor's Cave Beach, ve hasta las playas de Negril y sube las cascadas de Dunn's River en Ocho Ríos.",
-  "end_image": "dia1",
-  "lines": {
-    "vuelo": "Abróchate el cinturón y adivina: tres horas de vuelo directo, y abajo el Caribe se pinta de mil azules.",
-    "llegada": "Tierra a la vista: ¡Montego Bay! Apenas sales, suena reggae suavecito y te pega el calorcito del Caribe.",
-    "dia1": "Primer plan: chapuzón en Doctor's Cave Beach, con el agua tan clarita que te ves los pies.",
-    "dia2": "Día dos arranca así: snorkel en el parque marino de la bahía, entre corales y peces de colores.",
-    "dia3": "Por la tarde, al centro: en la plaza Sam Sharpe está el monumento al héroe de la rebelión de 1831.",
-    "dia4": "Hora de comer: pollo jerk ahumado y picantico, con festival, un pancito frito medio dulce.",
-    "dia5": "Último día, y se viene la joya: bajas el río Martha Brae en una balsa de bambú, entre la selva."
-  },
-  "caption_es": {
-    "hook": "¿Montego Bay en 5 días entre playa, arrecifes y río? Pilla este plan, parce.",
-    "intro": "Nadas en una bahía protegida y después te vas al centro a conocer la historia de Jamaica.",
-    "pais": "Jamaica",
-    "dias": [
-      {
-        "titulo": "Doctor's Cave Beach",
-        "texto": "una mañana en agua clarita, a un ratico del centro."
-      },
-      {
-        "titulo": "Snorkel en el parque marino",
-        "texto": "sal con un operador local a ver el arrecife de la bahía."
-      },
-      {
-        "titulo": "Plaza Sam Sharpe",
-        "texto": "mira el monumento y aprende de la rebelión que Sharpe ayudó a liderar."
-      },
-      {
-        "titulo": "Pollo jerk",
-        "texto": "pídelo con festival, una masa frita un poquito dulce."
-      },
-      {
-        "titulo": "Río Martha Brae",
-        "texto": "bájalo en una balsa de bambú, tranquilo, entre la vegetación."
-      }
-    ],
-    "dato": "Doctor's Cave Beach debe su nombre a un médico y a una cueva que antes se usaba para bajar hasta la playa",
-    "epoca": "enero a abril",
-    "para": "te gustan las playas fáciles de llegar, los paseos al arrecife y la historia de Jamaica",
-    "no_para": "quieres una playa remota, lejos de los resorts, los cruceros y el ruido de la ciudad",
-    "versus": "Roatán",
-    "hashtags": [
-      "#montegobay",
-      "#jamaica",
-      "#quehacerenmontegobay"
+  "llegada": {
+   "stick": {
+    "y": 0.82,
+    "size": 380,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "parachute",
+      "x0": 0.48
+     },
+     {
+      "action": "celebrate",
+      "word": "Montego",
+      "mood": "laugh"
+     },
+     {
+      "action": "dance",
+      "word": "reggae"
+     }
     ]
+   },
+   "pop": null,
+   "ambience": "steeldrum"
   },
-  "prompts": {
-    "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane) flying, and far below a generic tropical sea in many shades of turquoise and deep blue with a green hilly island coastline at the edge, no city, no buildings, no landmark, sunny blue sky. Keep the lower half open with the turquoise sea clearly visible. The top third is calm blue sky.",
-    "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a small tropical Caribbean airport terminal with a pitched roof and big glass windows, completely plain walls with no signs, no lettering, no words and no logos anywhere, tall coconut palm trees and bright red and pink hibiscus flowers in front, green rolling hills behind, hot sunny blue sky with a few white clouds. A wide empty light-grey sidewalk across the lower third of the picture.",
-    "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A small sheltered tropical beach in a calm bay on a sunny morning: soft white sand, very clear shallow turquoise water where the sandy bottom is visible, a few coconut palm trees and a low wooden beach hut at the side, green hills far away, bright blue sky. A wide, empty stretch of white sand across the lower third of the picture.",
-    "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Underwater view of a shallow Caribbean coral reef in clear turquoise water: colourful corals, sea fans, a few bright tropical fish (yellow, blue, striped), sunbeams from the surface, the water surface visible near the top. The open clear blue water in the middle of the picture is empty.",
-    "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A small sunny town square in a Caribbean town: a round paved plaza with a low circular stone monument wall in the middle, a few palm trees and shade trees, old two-storey colonial buildings painted white, yellow and green with balconies around it, a small old stone building with a little dome at one side, blue sky. The paved plaza in the lower third of the picture is clearly visible and empty.",
-    "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A roadside Jamaican jerk food stand on a sunny day: a big black oil-drum barbecue grill with smoke rising, a wooden counter with a plate of grilled spicy chicken pieces and golden fried dough sticks, a red, yellow and green striped awning, palm trees and the sea in the background, blue sky. Plain wooden boards with no signs, no letters and no words. The dirt ground in front of the stand in the lower third is clearly visible and empty.",
-    "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm wide green jungle river on a sunny day: thick tropical trees and big leaves on both banks, a long narrow bamboo raft with a small bamboo seat floating on the calm water in the lower half, sunlight on the water, blue sky. The bamboo raft is empty and clearly visible.",
-    "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of a Jamaican bay in bright daylight: a curved white-sand beach with coconut palm trees on the left, calm turquoise sea, lush green hills rising behind the bay, the middle of the picture a large open bright blue sky and calm sea, empty. An empty wide stretch of white sand across the bottom fifth of the picture."
+  "dia1": {
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.42
+     },
+     {
+      "action": "dive",
+      "word": "chapuzón",
+      "x0": 0.42,
+      "y": 0.88,
+      "x1": 0.62,
+      "y1": 0.56,
+      "size": 420,
+      "size1": 300
+     },
+     {
+      "action": "float",
+      "word": "pies",
+      "x0": 0.62,
+      "y": 0.55,
+      "size": 300,
+      "mood": "laugh"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "action": "relax",
+     "x0": 0.8,
+     "y": 0.74,
+     "size": 300,
+     "facing": -1
+    },
+    {
+     "action": "sip",
+     "x0": 0.15,
+     "y": 0.66,
+     "size": 260,
+     "facing": 1
+    }
+   ],
+   "pop": null,
+   "ambience": "waves"
   },
-  "scenes": {}
+  "dia2": {
+   "stick": {
+    "y": 0.45,
+    "size": 380,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "swim",
+      "x0": -0.15,
+      "x1": 0.45
+     },
+     {
+      "action": "swim",
+      "word": "peces",
+      "x0": 0.45,
+      "x1": 0.72,
+      "mood": "wow"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "underwater",
+   "sfx": [
+    {
+     "kind": "bubbles",
+     "frac": 0.3
+    }
+   ]
+  },
+  "dia3": {
+   "stick": {
+    "y": 0.9,
+    "size": 430,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.12,
+      "x1": 0.72
+     },
+     {
+      "action": "point",
+      "word": "monumento",
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "héroe"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "pin",
+    "word": "plaza",
+    "x": 0.42,
+    "y": 0.6,
+    "size": 180
+   },
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "bell",
+     "frac": 0.15
+    }
+   ]
+  },
+  "dia4": {
+   "stick": {
+    "y": 0.9,
+    "size": 450,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "eat",
+      "x0": 0.3
+     },
+     {
+      "action": "scared",
+      "word": "picantico"
+     },
+     {
+      "action": "laugh",
+      "word": "dulce",
+      "mood": "love"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "steeldrum"
+  },
+  "dia5": {
+   "stick": {
+    "y": 0.775,
+    "size": 300,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "sit",
+      "x0": 0.45
+     },
+     {
+      "action": "point",
+      "word": "selva",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "sparkle",
+    "word": "joya",
+    "x": 0.5,
+    "y": 0.45,
+    "size": 180
+   },
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.5
+    }
+   ]
+  }
+ }
 }
