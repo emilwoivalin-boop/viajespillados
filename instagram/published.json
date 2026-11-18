@@ -734,6 +734,30 @@
       "image": "https://viajespillados.com/instagram/img/puerto-vallarta-2026-11-17-960855.jpg",
       "published_at": "2026-11-17 23:15",
       "carousel": true
+    },
+    {
+      "id": "ciudad-de-mexico-2026-11-18-1289682",
+      "destino": "Ciudad de México",
+      "precio": 1289682,
+      "sheet_row": 87,
+      "media_id": "18059982638568066",
+      "permalink": "https://www.instagram.com/p/Df5Wbe_lNRu/",
+      "image": "https://viajespillados.com/instagram/img/ciudad-de-mexico-2026-11-18-1289682.jpg",
+      "published_at": "2026-11-18 15:20",
+      "carousel": true,
+      "captura": false
+    },
+    {
+      "id": "paris-2026-11-18-4190940",
+      "destino": "París",
+      "precio": 4190940,
+      "sheet_row": 88,
+      "media_id": "18059982638568066",
+      "permalink": "https://www.instagram.com/p/Df5Wbe_lNRu/",
+      "image": "https://viajespillados.com/instagram/img/paris-2026-11-18-4190940.jpg",
+      "published_at": "2026-11-18 15:20",
+      "carousel": true,
+      "captura": false
     }
   ]
 }
