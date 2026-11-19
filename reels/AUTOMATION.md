@@ -72,6 +72,10 @@ the whole video, no Picsart), step B does nothing, and step C posts it at 8:14 e
      Highest Reel score first; ties → fewer workdays off (S) → earlier departure → bigger "% below usual low" (L) → newest
      Publicado (B). An offer without a matching log row ranks after all matched ones (among them: earlier departure first).
      Say the bonuses in the note, e.g. "score 6 + 2 (sale en 20 días) + 3 (0 días libres) + 1 (4 días) = 12".
+   - **Owner's rule (19 Nov 2026) – travel-plan Reels only, NOT fact Reels: prefer trips with 0 or 1 workdays off.**
+     If at least one candidate needs 0 or 1 workdays off (Price log S; for an offer without a matching log row use
+     `python scripts/reel_plan.py info <ida> <vuelta>`), pick only among those (ranked by Reel score as above). Only when
+     no candidate has 0–1 workdays off, rank all candidates. Say it in the note, e.g. "solo 1 día libre (preferido)".
    - If there is no candidate: add today as `skipped` with note "no tracked round-trip offer", commit, and tell the owner in one line. Stop.
 3. `id` = `<slug-destino>-<ida>` (e.g. `lima-2027-01-16`). Create `reels/<id>/plan.json` (format in `scripts/reel_plan.py`):
    `offer` = destino, aerolinea, precio (number), escalas ("directo" / "1 escala" / "N escalas"), ida, vuelta, link (J), sheet_row,
@@ -284,7 +288,8 @@ zooms from the continent to the country to the city, then 5 facts – the camera
 or pulls back over the city with emoji stickers and a big number – the stick man as a teacher with a pointer, Colombian voice
 + captions, and at the end the offer's price card. No Picsart, no Drive, no step B. Keep the work short (it saves credits).
 
-1. **Pick the offer** exactly like A.2 (same candidates, exclusions and Reel score). `id` = `<slug-destino>-<ida>`.
+1. **Pick the offer** exactly like A.2 (same candidates, exclusions and Reel score) but WITHOUT the 0–1 workdays-off
+   preference (owner's rule: it applies only to travel-plan Reels). `id` = `<slug-destino>-<ida>`.
    Write `reels/<id>/plan.json`: `{"id": ..., "kind": "facts", "offer": {destino, pais, region, aerolinea, precio, escalas,
    ida, vuelta, link, sheet_row, escala_larga}}` (same offer fields as A.3).
 2. **Five facts** (Spanish from Colombia, tú, lively; 12–25 words each; never price/airline/dates). Sources: first the
