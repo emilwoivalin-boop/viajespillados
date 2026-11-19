@@ -1,0 +1,18 @@
+{
+  "id": "caracas-2027-03-01",
+  "kind": "facts",
+  "offer": {
+    "destino": "Caracas",
+    "pais": "Venezuela",
+    "region": "Sudamérica",
+    "aerolinea": "Wingo",
+    "precio": 711947,
+    "escalas": "directo",
+    "ida": "2027-03-01",
+    "vuelta": "2027-03-07",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20CCS%20from%20BOG%20on%202027-03-01%20through%202027-03-07&curr=COP&hl=es-419",
+    "sheet_row": 75,
+    "escala_larga": ""
+  },
+  "note": "score 6 + 0 (sale en 102 días) − 2 (5 días libres) + 0 (7 días) = 4; 29% bajo el mínimo usual, Wingo directo ~2 h. Siguientes: Madrid 3–9 may, Cancún 22–28 may, Buenos Aires 28 feb–6 mar y Toronto 28 ene–3 feb (3). Excluidos por Reel en los últimos 14 días: Miami, Santiago de Chile, Atenas, San Andrés, Punta Cana, Ciudad de México, Puerto Vallarta, Tijuana, La Habana, Singapur, Leticia, Aruba, Montego Bay; París 7–13 dic y Caracas 1–7 abr ya tuvieron Reel."
+}
