@@ -1,0 +1,78 @@
+{
+ "id": "toronto-2027-01-28",
+ "offer": {
+  "destino": "Toronto",
+  "pais": "Canadá",
+  "region": "Norteamérica",
+  "aerolinea": "Arajet",
+  "precio": 1558767,
+  "escalas": "1 escala",
+  "ida": "2027-01-28",
+  "vuelta": "2027-02-03",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20YYZ%20from%20BOG%20on%202027-01-28%20through%202027-02-03&curr=COP&hl=es-419",
+  "sheet_row": 69,
+  "escala_larga": ""
+ },
+ "hora_salida": null,
+ "hook": "¿Te animas a cambiar el sol por patines sobre hielo y cataratas gigantes?",
+ "buddy": false,
+ "que_hacer": "Sube a la CN Tower, patina en Nathan Phillips Square, come en St. Lawrence Market y escápate a las cataratas del Niágara.",
+ "end_image": "dia1",
+ "lines": {
+  "vuelo": "Audífonos puestos: vuelo con una escala rumbo al norte, y abajo todo se va poniendo blanquito.",
+  "llegada": "Plot twist: estamos en Toronto. Se abre la puerta y el frío del invierno te pica en la nariz.",
+  "dia1": "Arrancamos en la CN Tower, de 553 metros: desde el mirador ves el lago Ontario y toda la ciudad.",
+  "dia2": "Al otro día, a patinar en la pista de hielo de Nathan Phillips Square, frente al Ayuntamiento.",
+  "dia3": "Pa' la panza: St. Lawrence Market y su famoso sándwich de peameal bacon, bien jugoso.",
+  "dia4": "Mañanita de museo: en el Royal Ontario Museum te reciben esqueletos de dinosaurios gigantes.",
+  "dia5": "Último día, y se viene la joya: las cataratas del Niágara, a unas dos horas, rugiendo entre hielo."
+ },
+ "caption_es": {
+  "hook": "¿Toronto en 5 días en pleno invierno, entre torre, hielo y cataratas? Pilla este plan, parce.",
+  "intro": "Cruzas el lago Ontario en ferry y te llevas la vista más clara del skyline.",
+  "pais": "Canadá",
+  "dias": [
+   {
+    "titulo": "CN Tower",
+    "texto": "mira la cuadrícula del centro y el lago Ontario desde el mirador."
+   },
+   {
+    "titulo": "Patinaje en Nathan Phillips Square",
+    "texto": "alquila patines y date unas vueltas frente al Ayuntamiento."
+   },
+   {
+    "titulo": "St. Lawrence Market",
+    "texto": "recorre los puestos y prueba el sándwich de peameal bacon."
+   },
+   {
+    "titulo": "Royal Ontario Museum",
+    "texto": "esqueletos de dinosaurios y galerías de arte y objetos de todo el mundo."
+   },
+   {
+    "titulo": "Cataratas del Niágara",
+    "texto": "escápate un día a verlas rodeadas de hielo y neblina."
+   }
+  ],
+  "bonus": "Si te queda tiempo, toma el ferry a las Toronto Islands y camina junto al lago con la ciudad de fondo.",
+  "dato": "la CN Tower mide unos 553 metros",
+  "epoca": "mayo, junio y septiembre",
+  "para": "te gustan los museos, almorzar en mercados y caminar por la orilla del lago",
+  "no_para": "quieres unas vacaciones tranquilas junto al lago, sin tráfico ni ruido de ciudad",
+  "versus": "Nueva York",
+  "hashtags": [
+   "#toronto",
+   "#canada",
+   "#quehacerentoronto"
+  ]
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane) flying, and far below a generic snowy northern landscape: white snow-covered flat land, dark green pine forests and a big frozen blue-grey lake at the edge, no city, no buildings, no landmark, clear pale blue winter sky. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a modern big-city airport terminal in winter, with a long glass facade and a flat roof, completely plain walls with no signs, no lettering, no words and no logos anywhere, fresh white snow on the roof and in piles at the sides, a few bare trees and snowy dark green pine trees, a distant city skyline faintly visible behind, crisp pale blue winter sky. A wide empty light-grey cleared sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A very tall slender concrete observation tower with a round pod near the top and a thin antenna spire, standing next to a cluster of downtown skyscrapers on the shore of a big blue lake in winter, a little snow on the rooftops, clear blue sky, sunny. In the foreground a wide snowy waterfront promenade; the snowy promenade in the lower third of the picture is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A large outdoor ice skating rink in a city square in winter, smooth light-blue ice, three white concrete arches spanning over the rink, a modern curved white city hall building with two curved towers of different heights behind, snowy trees with small string lights, late afternoon sky turning pink and orange. The smooth ice in the lower half of the picture is clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Inside a big old red-brick market hall with a high arched glass and iron roof, rows of colourful food stalls with fruit, cheeses and breads, a wooden counter in the front with a big sandwich of thick slices of pink peameal bacon in a soft bun on a paper plate. Plain stalls with no signs, no letters and no words. The tiled floor in the lower third of the picture is clearly visible and empty.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A large bright museum hall with a high ceiling and big windows, a huge complete dinosaur skeleton (a long-necked sauropod) and a smaller T-rex skeleton standing on low platforms, polished light wooden floor. Plain walls with no signs, no letters and no words. The polished floor in the lower third of the picture is clearly visible and empty.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A huge wide horseshoe-shaped waterfall in winter seen from the riverside viewpoint: white rushing water, big clouds of white mist rising, thick ice and snow covering the rocks and trees along the edges, a calm grey-blue river below, a pale blue winter sky. In the foreground a snowy viewpoint path with a low stone wall; the snowy path in the lower third of the picture is clearly visible and empty.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of the Toronto skyline from across the lake in bright winter daylight: a very tall slender concrete tower with a round pod and antenna among downtown skyscrapers on the far shore, calm blue lake water in front, the middle of the picture a large open bright blue sky and calm lake, empty. A wide empty snowy lakeshore across the bottom fifth of the picture."
+ }
+}
