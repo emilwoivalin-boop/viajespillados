@@ -74,5 +74,209 @@
   "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A large bright museum hall with a high ceiling and big windows, a huge complete dinosaur skeleton (a long-necked sauropod) and a smaller T-rex skeleton standing on low platforms, polished light wooden floor. Plain walls with no signs, no letters and no words. The polished floor in the lower third of the picture is clearly visible and empty.",
   "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A huge wide horseshoe-shaped waterfall in winter seen from the riverside viewpoint: white rushing water, big clouds of white mist rising, thick ice and snow covering the rocks and trees along the edges, a calm grey-blue river below, a pale blue winter sky. In the foreground a snowy viewpoint path with a low stone wall; the snowy path in the lower third of the picture is clearly visible and empty.",
   "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic view of the Toronto skyline from across the lake in bright winter daylight: a very tall slender concrete tower with a round pod and antenna among downtown skyscrapers on the far shore, calm blue lake water in front, the middle of the picture a large open bright blue sky and calm lake, empty. A wide empty snowy lakeshore across the bottom fifth of the picture."
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ]
+  },
+  "llegada": {
+   "stick": {
+    "y": 0.78,
+    "size": 380,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": -0.12,
+      "x1": 0.45
+     },
+     {
+      "action": "celebrate",
+      "word": "Toronto",
+      "mood": "laugh"
+     },
+     {
+      "action": "shrug",
+      "word": "frío",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": null
+  },
+  "dia1": {
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.12,
+      "x1": 0.62
+     },
+     {
+      "action": "point",
+      "word": "mirador",
+      "mood": "wow"
+     },
+     {
+      "action": "selfie",
+      "word": "ciudad"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "pin",
+    "word": "Tower",
+    "x": 0.62,
+    "y": 0.42,
+    "size": 180
+   },
+   "ambience": "waves"
+  },
+  "dia2": {
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.45
+     },
+     {
+      "action": "scared",
+      "word": "hielo",
+      "mood": "scared"
+     },
+     {
+      "action": "laugh",
+      "word": "Ayuntamiento",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "action": "run",
+     "x0": 1.1,
+     "x1": 0.68,
+     "y": 0.72,
+     "size": 220,
+     "facing": -1
+    }
+   ],
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "boing",
+     "frac": 0.5
+    }
+   ]
+  },
+  "dia3": {
+   "stick": {
+    "y": 0.93,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "eat",
+      "x0": 0.8
+     },
+     {
+      "action": "laugh",
+      "word": "jugoso",
+      "mood": "love"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "action": "walk",
+     "x0": 0.45,
+     "x1": 0.6,
+     "y": 0.6,
+     "size": 150,
+     "facing": 1
+    }
+   ],
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.3
+    }
+   ]
+  },
+  "dia4": {
+   "stick": {
+    "y": 0.9,
+    "size": 430,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.12,
+      "x1": 0.74
+     },
+     {
+      "action": "scared",
+      "word": "dinosaurios",
+      "mood": "scared"
+     },
+     {
+      "action": "photo",
+      "word": "gigantes"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": null
+  },
+  "dia5": {
+   "stick": {
+    "y": 0.9,
+    "size": 400,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.3
+     },
+     {
+      "action": "point",
+      "word": "cataratas",
+      "mood": "wow"
+     },
+     {
+      "action": "selfie",
+      "word": "rugiendo"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "sparkle",
+    "word": "joya",
+    "x": 0.42,
+    "y": 0.45,
+    "size": 180
+   },
+   "ambience": "waves"
+  }
  }
 }

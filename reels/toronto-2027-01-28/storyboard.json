@@ -44,7 +44,12 @@
    "pops": [],
    "ambience": [],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
@@ -56,7 +61,26 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.78,
+    "size": 380,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": -0.12,
+      "x1": 0.45
+     },
+     {
+      "action": "celebrate",
+      "word": "Toronto",
+      "mood": "laugh"
+     },
+     {
+      "action": "shrug",
+      "word": "frío",
+      "mood": "wow"
+     }
+    ]
    },
    "pops": [],
    "ambience": [],
@@ -73,14 +97,42 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.12,
+      "x1": 0.62
+     },
+     {
+      "action": "point",
+      "word": "mirador",
+      "mood": "wow"
+     },
+     {
+      "action": "selfie",
+      "word": "ciudad"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Tower",
+     "x": 0.62,
+     "y": 0.42,
+     "size": 180
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Al otro día, a patinar en la pista de hielo de Nathan Phillips Square, frente al Ayuntamiento.",
@@ -90,12 +142,45 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.45
+     },
+     {
+      "action": "scared",
+      "word": "hielo",
+      "mood": "scared"
+     },
+     {
+      "action": "laugh",
+      "word": "Ayuntamiento",
+      "mood": "laugh"
+     }
+    ]
    },
    "pops": [],
    "ambience": [],
-   "crowd": [],
-   "sfx": [],
+   "crowd": [
+    {
+     "action": "run",
+     "x0": 1.1,
+     "x1": 0.68,
+     "y": 0.72,
+     "size": 220,
+     "facing": -1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "boing",
+     "frac": 0.5
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
@@ -107,12 +192,39 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.93,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "eat",
+      "x0": 0.8
+     },
+     {
+      "action": "laugh",
+      "word": "jugoso",
+      "mood": "love"
+     }
+    ]
    },
    "pops": [],
    "ambience": [],
-   "crowd": [],
-   "sfx": [],
+   "crowd": [
+    {
+     "action": "walk",
+     "x0": 0.45,
+     "x1": 0.6,
+     "y": 0.6,
+     "size": 150,
+     "facing": 1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.3
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
@@ -124,7 +236,25 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 430,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.12,
+      "x1": 0.74
+     },
+     {
+      "action": "scared",
+      "word": "dinosaurios",
+      "mood": "scared"
+     },
+     {
+      "action": "photo",
+      "word": "gigantes"
+     }
+    ]
    },
    "pops": [],
    "ambience": [],
@@ -141,14 +271,42 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.9,
+    "size": 400,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.3
+     },
+     {
+      "action": "point",
+      "word": "cataratas",
+      "mood": "wow"
+     },
+     {
+      "action": "selfie",
+      "word": "rugiendo"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "joya",
+     "x": 0.42,
+     "y": 0.45,
+     "size": 180
+    }
+   ],
+   "ambience": [
+    "waves"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "El miércoles aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
