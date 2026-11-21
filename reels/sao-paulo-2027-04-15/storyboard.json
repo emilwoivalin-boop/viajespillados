@@ -1,0 +1,190 @@
+{
+  "id": "sao-paulo-2027-04-15",
+  "lang": "es",
+  "city": "São Paulo",
+  "country": "BRA",
+  "place": "São Paulo, Brasil",
+  "osm_rel": 298285,
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "cover_q": "¿Un museo que flota sobre cuatro pilares rojos?",
+  "facts": [
+    {
+      "text": "¿Sabías que São Paulo es la ciudad más grande de todo el hemisferio sur? Solo la ciudad tiene más de 11 millones de habitantes.",
+      "stickers": [
+        {
+          "emoji": "📍",
+          "x": 0.27,
+          "y": 0.4,
+          "size": 220,
+          "at": "hemisferio",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "11 millones",
+        "small": "de habitantes",
+        "at": "millones",
+        "x": 0.62,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/S%C3%A3o_Paulo"
+    },
+    {
+      "text": "En la Avenida Paulista, el museo MASP flota sobre cuatro pilares rojos: debajo queda una plaza de 74 metros sin una sola columna.",
+      "lat": -23.5614,
+      "lon": -46.6558,
+      "view": 1100,
+      "label": "MASP",
+      "photo": "File:MASP Brazil.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/S%C3%A3o_Paulo_Museum_of_Art"
+    },
+    {
+      "text": "Brasil tiene la comunidad japonesa más grande fuera de Japón, y su corazón está aquí: los primeros llegaron en barco en 1908.",
+      "stickers": [
+        {
+          "emoji": "💬",
+          "x": 0.28,
+          "y": 0.47,
+          "size": 240,
+          "at": "japonesa",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "⛵",
+          "x": 0.76,
+          "y": 0.5,
+          "size": 230,
+          "at": "barco",
+          "sfx": "whistle"
+        }
+      ],
+      "stat": {
+        "big": "1908",
+        "small": "llega el Kasato Maru",
+        "at": "1908",
+        "y": 0.3,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Japanese_Brazilians"
+    },
+    {
+      "text": "El Parque Ibirapuera se inauguró en 1954 para celebrar los 400 años de la ciudad, con edificios diseñados por Oscar Niemeyer.",
+      "lat": -23.5856,
+      "lon": -46.658,
+      "view": 1400,
+      "label": "Parque Ibirapuera",
+      "photo": "File:Lago no Parque Ibirapuera em abril de 2025.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Ibirapuera_Park"
+    },
+    {
+      "text": "Y todo empezó con una escuelita: el 25 de enero de 1554, unos jesuitas fundaron la ciudad en el Pátio do Colégio.",
+      "stickers": [
+        {
+          "emoji": "⛪",
+          "x": 0.28,
+          "y": 0.48,
+          "size": 250,
+          "at": "jesuitas",
+          "sfx": "chime"
+        },
+        {
+          "emoji": "📜",
+          "x": 0.76,
+          "y": 0.47,
+          "size": 210,
+          "at": "fundaron",
+          "sfx": "tada"
+        }
+      ],
+      "stat": {
+        "big": "1554",
+        "small": "año de fundación",
+        "at": "1554",
+        "y": 0.3,
+        "count": false,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.8
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/P%C3%A1tio_do_Col%C3%A9gio"
+    }
+  ],
+  "end": {
+    "text": "",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    },
+    "title": "Datos de São Paulo"
+  },
+  "caption": "5 datos de São Paulo que seguro no sabías 📍\n\n1. Es la ciudad más grande del hemisferio sur: más de 11 millones de habitantes\n2. El MASP flota sobre cuatro pilares rojos con 74 m libres debajo\n3. Brasil tiene la comunidad japonesa más grande fuera de Japón, y su corazón está en São Paulo (desde 1908)\n4. El Parque Ibirapuera abrió en 1954 con edificios de Oscar Niemeyer\n5. La ciudad nació el 25 de enero de 1554 en el Pátio do Colégio\n\n¿Cuál te sorprendió más? ✈️\n\n#saopaulo #brasil #datoscuriosos #viajespillados #masp"
+}
