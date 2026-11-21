@@ -1,5 +1,20 @@
 [
  {
+  "kind": "photos",
+  "title": "Ofertas: La Habana",
+  "files": [
+   "instagram/img/la-habana-2026-11-21-651199.jpg"
+  ],
+  "caption": "📍 La Habana, Cuba\n\nRecorre La Habana Vieja, pasea por el Malecón en un carro clásico y escápate al valle de Viñales.\n\n💡 Dato: Necesitas tarjeta de turista para entrar a Cuba; lleva efectivo, porque muchas tarjetas no funcionan.\n\n¿Con quién irías? 👇\nVuelos baratos desde Bogotá en viajespillados.com ✈️\n\n#lahabana #cuba #viajes #quehacer #viajespillados",
+  "yt_title": "Qué hacer en La Habana, Cuba ✈️",
+  "instagram": "https://www.instagram.com/p/DgA7xi_IIEw/",
+  "at": "2026-11-21 14:01",
+  "id": "photos-2026-11-21 14:01",
+  "destinos": [
+   "La Habana"
+  ]
+ },
+ {
   "kind": "video",
   "title": "Reel: 7 días en Toronto",
   "files": [
@@ -949,21 +964,6 @@
    "Puerto Vallarta",
    "Toronto",
    "Atenas"
-  ]
- },
- {
-  "kind": "video",
-  "title": "Reel: 10 días en Tijuana",
-  "files": [
-   "reels/tijuana-2027-03-26/reel.mp4"
-  ],
-  "caption": "📍 Tijuana, México\n\nRecorre la Avenida Revolución, prueba vinos en el Valle de Guadalupe y come langosta en Puerto Nuevo.\n\n💡 Dato: Si tienes visa de EE. UU., San Diego está al otro lado de la frontera, pero las filas para cruzar son largas.\n\n¿Con quién irías? 👇\nVuelos baratos desde Bogotá en viajespillados.com ✈️\n\n#tijuana #mexico #viajes #quehacer #viajespillados",
-  "instagram": "https://www.instagram.com/reel/DfF8PkxDqkw/",
-  "at": "2026-10-29 16:10",
-  "id": "video-2026-10-29 16:10",
-  "yt_title": "Qué hacer en Tijuana, México ✈️",
-  "destinos": [
-   "Tijuana"
   ]
  }
 ]

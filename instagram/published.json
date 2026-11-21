@@ -818,6 +818,18 @@
       "published_at": "2026-11-19 22:58",
       "carousel": true,
       "captura": false
+    },
+    {
+      "id": "la-habana-2026-11-21-651199",
+      "destino": "La Habana",
+      "precio": 651199,
+      "sheet_row": 95,
+      "media_id": "18097024364182531",
+      "permalink": "https://www.instagram.com/p/DgA7xi_IIEw/",
+      "image": "https://viajespillados.com/instagram/img/la-habana-2026-11-21-651199.jpg",
+      "published_at": "2026-11-21 14:01",
+      "carousel": false,
+      "captura": false
     }
   ]
 }
