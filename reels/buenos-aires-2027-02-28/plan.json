@@ -1,0 +1,79 @@
+{
+ "id": "buenos-aires-2027-02-28",
+ "offer": {
+  "destino": "Buenos Aires",
+  "pais": "Argentina",
+  "region": "Sudamérica",
+  "aerolinea": "JetSMART",
+  "precio": 1489210,
+  "escalas": "2 escalas",
+  "ida": "2027-02-28",
+  "vuelta": "2027-03-06",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20BUE%20from%20BOG%20on%202027-02-28%20through%202027-03-06&curr=COP&hl=es-419",
+  "sheet_row": 65,
+  "escala_larga": "Santiago de Chile"
+ },
+ "hora_salida": null,
+ "hook": "¿Cuántas noches de tango aguantas en una sola semana, parce?",
+ "buddy": true,
+ "que_hacer": "Recorre La Boca y San Telmo, ve un show de tango y come asado en Palermo.",
+ "end_image": "dia1",
+ "lines": {
+  "vuelo": "Por la ventanilla ya se ve que va a ser épico: cruzamos los Andes nevados y abajo aparece la pampa, plana, plana.",
+  "llegada": "Y la respuesta es… ¡Buenos Aires! Avenidas anchísimas, árboles por todo lado y olorcito a café.",
+  "dia1": "Arrancamos en La Boca: casitas de lata pintadas de todos los colores sobre la calle Caminito.",
+  "dia2": "Al otro día, almuerzo en el Mercado de San Telmo, entre puestos de comida bajo un techo de hierro antiguo.",
+  "dia3": "Pa' recargar pilas: senderos entre lagunas y pájaros en la Reserva Costanera Sur, al ladito de Puerto Madero.",
+  "dia4": "Ya de noche, a una milonga: parejas bailando tango bajo luces bajitas, y tú mirando con la boca abierta.",
+  "dia5": "Antes de volver, te escapas al Tigre: lancha por los ríos del delta, con casitas de madera en la orilla."
+ },
+ "caption_es": {
+  "hook": "¿Buenos Aires en 5 días, de La Boca a una milonga? Pilla este plan, parce.",
+  "intro": "De día caminas calles de mercados viejos y de noche ves a las parejas de tango compartir la pista.",
+  "pais": "Argentina",
+  "dias": [
+   {
+    "titulo": "La Boca y Caminito",
+    "texto": "camina entre las casitas pintadas de colores alrededor de Caminito."
+   },
+   {
+    "titulo": "Mercado de San Telmo",
+    "texto": "escoge un puesto pa' almorzar o pa' las onces."
+   },
+   {
+    "titulo": "Reserva Costanera Sur",
+    "texto": "sigue los senderos junto a las lagunas, cerquita de Puerto Madero."
+   },
+   {
+    "titulo": "Noche de milonga",
+    "texto": "busca una milonga que reciba visitantes y mira la pista de baile."
+   },
+   {
+    "titulo": "Delta del Tigre",
+    "texto": "escápate en lancha por los ríos del delta, entre casitas en la orilla."
+   }
+  ],
+  "bonus": "Si te queda tiempo, cómete un buen asado en Palermo.",
+  "dato": "la Unesco reconoce el tango como una tradición compartida de Argentina y Uruguay",
+  "epoca": "marzo a mayo y septiembre a noviembre",
+  "para": "te gustan las noches de tango, las paradas en cafés y caminar por los barrios",
+  "no_para": "quieres una estadía tranquila, con comida temprano y poco ruido en la calle",
+  "versus": "Montevideo",
+  "hashtags": [
+   "#buenosaires",
+   "#argentina",
+   "#quehacerenbuenosaires"
+  ]
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane) flying over a long chain of high snow-capped brown mountains, and beyond them far below a huge flat green-and-yellow plain stretching to the horizon, no city, no buildings, no landmark, clear bright blue sky. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a modern low airport terminal next to a wide brown river, long glass facade and flat roof, completely plain walls with no signs, no lettering, no words and no logos anywhere, a row of tall leafy green trees and a few palm trees, a distant city skyline of apartment towers behind, sunny summer blue sky. A wide empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A short colourful old harbour street lined with small two-storey houses made of corrugated metal sheets painted in bright mixed colours (yellow, red, blue, green) with little wooden balconies, plain walls with no signs and no words, sunny blue sky. The cobblestone street in the lower third of the picture is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Inside a big old covered food market with a high ornate green-painted iron and glass roof, rows of small colourful food stalls with fruit, empanadas, cheeses and grilled meat on simple counters, plain stalls with no signs, no letters and no words, warm daylight coming through the roof. The tiled floor in the lower third of the picture is clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A green nature reserve next to a big city: a calm blue lagoon with tall reeds and pampas grass, a few white herons and ducks on the water, a wide dirt trail along the water, modern glass skyscrapers far in the background, sunny blue sky. The dirt trail in the lower third of the picture is clearly visible and empty.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Inside an old-fashioned dance hall at night: a polished wooden dance floor, small round tables with white tablecloths and red chairs around the edges, warm dim yellow lights hanging from the ceiling, a small empty stage with an accordion-like bandoneon and a chair, plain walls with no posters, no signs and no words. A wide empty stretch of the polished wooden dance floor across the lower third of the picture.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm brown river in a green river delta, lush trees on both banks, small colourful wooden houses on stilts with little wooden docks along the shore, a wooden boat moored at one dock, sunny blue sky. In the foreground a wide empty wooden dock edge over the water in the lower third of the picture.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic colourful view of an old harbour neighbourhood in bright daylight: small houses made of corrugated metal painted in bright yellow, red, blue and green with little balconies on both sides, plain walls with no signs and no words, the middle of the picture a large open bright blue sky, calm and empty. A wide empty cobblestone street across the bottom fifth of the picture."
+ },
+ "note": "Buenos Aires 28 feb–6 mar (score 5 + 0 (sale en 98 días) − 2 (5 días libres) + 0 (7 días) = 3; 32% bajo el mínimo usual, JetSMART 2 escalas ~23 h vía Santiago de Chile). Ningún candidato con 0–1 días libres. Empata con Madrid 3–9 may, Santiago de Chile 3–9 may y Cancún 22–28 may (3) y gana por salir antes. París 7–13 dic, Santiago de Chile 5–11 mar y Atenas 6–14 dic ya tuvieron Reel (misma oferta). Sin ocasión (no hay festivo colombiano ni evento confirmado)."
+}
