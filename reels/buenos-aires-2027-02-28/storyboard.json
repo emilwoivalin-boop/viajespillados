@@ -1,0 +1,446 @@
+{
+ "id": "buenos-aires-2027-02-28",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Cuántas noches de tango aguantas en una sola semana, parce? Domingo 28 de febrero. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Argentina!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.05,
+     "x1": 0.36,
+     "y": 0.99,
+     "y1": 0.7,
+     "size": 480,
+     "size1": 245
+    }
+   ]
+  },
+  {
+   "text": "Por la ventanilla ya se ve que va a ser épico: cruzamos los Andes nevados y abajo aparece la pampa, plana, plana.",
+   "media": {
+    "type": "file",
+    "path": "reels/buenos-aires-2027-02-28/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Y la respuesta es… ¡Buenos Aires! Avenidas anchísimas, árboles por todo lado y olorcito a café.",
+   "media": {
+    "type": "file",
+    "path": "reels/buenos-aires-2027-02-28/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 0.28,
+      "x1": 0.52
+     },
+     {
+      "action": "celebrate",
+      "word": "Aires",
+      "mood": "wow"
+     },
+     {
+      "action": "point",
+      "word": "árboles",
+      "facing": -1
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Aires",
+     "x": 0.72,
+     "y": 0.4,
+     "size": 200
+    }
+   ],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.89,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "suitcase",
+       "x0": 0.04,
+       "x1": 0.27
+      },
+      {
+       "action": "wave",
+       "word": "café",
+       "mood": "laugh"
+      }
+     ]
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Arrancamos en La Boca: casitas de lata pintadas de todos los colores sobre la calle Caminito.",
+   "media": {
+    "type": "file",
+    "path": "reels/buenos-aires-2027-02-28/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.95,
+    "size": 450,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.38,
+      "x1": 0.46,
+      "y1": 0.84,
+      "size1": 360
+     },
+     {
+      "action": "point",
+      "word": "casitas",
+      "facing": -1
+     },
+     {
+      "action": "selfie",
+      "word": "colores",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.68,
+     "y": 0.93,
+     "size": 420,
+     "facing": -1
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Al otro día, almuerzo en el Mercado de San Telmo, entre puestos de comida bajo un techo de hierro antiguo.",
+   "media": {
+    "type": "file",
+    "path": "reels/buenos-aires-2027-02-28/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.94,
+    "size": 440,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.1,
+      "x1": 0.62
+     },
+     {
+      "action": "point",
+      "word": "puestos"
+     },
+     {
+      "action": "eat",
+      "word": "techo",
+      "mood": "love"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "eat",
+     "x0": 0.3,
+     "y": 0.93,
+     "size": 420,
+     "facing": 1,
+     "mood": "love"
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.75
+    }
+   ],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Pa' recargar pilas: senderos entre lagunas y pájaros en la Reserva Costanera Sur, al ladito de Puerto Madero.",
+   "media": {
+    "type": "file",
+    "path": "reels/buenos-aires-2027-02-28/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.93,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.28
+     },
+     {
+      "action": "point",
+      "word": "lagunas"
+     },
+     {
+      "action": "photo",
+      "word": "pájaros",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Ya de noche, a una milonga: parejas bailando tango bajo luces bajitas, y tú mirando con la boca abierta.",
+   "media": {
+    "type": "file",
+    "path": "reels/buenos-aires-2027-02-28/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.92,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.3
+     },
+     {
+      "action": "stand",
+      "word": "parejas",
+      "mood": "wow"
+     },
+     {
+      "action": "dance",
+      "word": "abierta",
+      "mood": "love"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "heart",
+     "word": "tango",
+     "x": 0.16,
+     "y": 0.46,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.91,
+     "size": 420,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand",
+       "x0": 0.62
+      },
+      {
+       "action": "dance",
+       "word": "tango",
+       "mood": "love"
+      }
+     ]
+    },
+    {
+     "action": "dance",
+     "x0": 0.44,
+     "y": 0.62,
+     "size": 230,
+     "facing": 1,
+     "speed": 0.9
+    },
+    {
+     "action": "dance",
+     "x0": 0.56,
+     "y": 0.62,
+     "size": 230,
+     "facing": -1,
+     "speed": 1.1
+    },
+    {
+     "action": "dance",
+     "x0": 0.8,
+     "y": 0.66,
+     "size": 250,
+     "facing": 1,
+     "speed": 1.0
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Antes de volver, te escapas al Tigre: lancha por los ríos del delta, con casitas de madera en la orilla.",
+   "media": {
+    "type": "file",
+    "path": "reels/buenos-aires-2027-02-28/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 400,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.08,
+      "x1": 0.36
+     },
+     {
+      "action": "point",
+      "word": "lancha"
+     },
+     {
+      "action": "wave",
+      "word": "orilla",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "sip",
+     "x0": 0.7,
+     "y": 0.88,
+     "size": 390,
+     "facing": -1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.35
+    }
+   ],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "El sábado aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.36,
+     "x1": 0.58,
+     "y": 0.7,
+     "y1": 0.99,
+     "size": 245,
+     "size1": 480
+    }
+   ]
+  }
+ ],
+ "end": {
+  "text": "Redoble de tambores… ida y vuelta con JetSMART por un millón 489 mil pesos. ¡Qué chimba! Pilla esta y más ofertas en viajespillados punto com.",
+  "title": "7 días en Buenos Aires",
+  "kicker": "",
+  "airline": "JetSMART · 2 escalas · escala larga en Santiago de Chile",
+  "price": "$1.489.210",
+  "detail": "ida y vuelta · 28 feb – 6 mar",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/buenos-aires-2027-02-28/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Buenos Aires desde Bogotá ✈️ Recorre La Boca y San Telmo, ve un show de tango y come asado en Palermo. Ida y vuelta con JetSMART desde $1.489.210 (28 feb – 6 mar). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #buenosaires #ofertasdevuelos"
+}

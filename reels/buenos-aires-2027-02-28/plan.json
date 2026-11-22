@@ -75,5 +75,285 @@
   "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm brown river in a green river delta, lush trees on both banks, small colourful wooden houses on stilts with little wooden docks along the shore, a wooden boat moored at one dock, sunny blue sky. In the foreground a wide empty wooden dock edge over the water in the lower third of the picture.",
   "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic colourful view of an old harbour neighbourhood in bright daylight: small houses made of corrugated metal painted in bright yellow, red, blue and green with little balconies on both sides, plain walls with no signs and no words, the middle of the picture a large open bright blue sky, calm and empty. A wide empty cobblestone street across the bottom fifth of the picture."
  },
- "note": "Buenos Aires 28 feb–6 mar (score 5 + 0 (sale en 98 días) − 2 (5 días libres) + 0 (7 días) = 3; 32% bajo el mínimo usual, JetSMART 2 escalas ~23 h vía Santiago de Chile). Ningún candidato con 0–1 días libres. Empata con Madrid 3–9 may, Santiago de Chile 3–9 may y Cancún 22–28 may (3) y gana por salir antes. París 7–13 dic, Santiago de Chile 5–11 mar y Atenas 6–14 dic ya tuvieron Reel (misma oferta). Sin ocasión (no hay festivo colombiano ni evento confirmado)."
+ "note": "Buenos Aires 28 feb–6 mar (score 5 + 0 (sale en 98 días) − 2 (5 días libres) + 0 (7 días) = 3; 32% bajo el mínimo usual, JetSMART 2 escalas ~23 h vía Santiago de Chile). Ningún candidato con 0–1 días libres. Empata con Madrid 3–9 may, Santiago de Chile 3–9 may y Cancún 22–28 may (3) y gana por salir antes. París 7–13 dic, Santiago de Chile 5–11 mar y Atenas 6–14 dic ya tuvieron Reel (misma oferta). Sin ocasión (no hay festivo colombiano ni evento confirmado).",
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null
+  },
+  "llegada": {
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 0.28,
+      "x1": 0.52
+     },
+     {
+      "action": "celebrate",
+      "word": "Aires",
+      "mood": "wow"
+     },
+     {
+      "action": "point",
+      "word": "árboles",
+      "facing": -1
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.89,
+     "size": 400,
+     "facing": 1,
+     "beats": [
+      {
+       "action": "suitcase",
+       "x0": 0.04,
+       "x1": 0.27
+      },
+      {
+       "action": "wave",
+       "word": "café",
+       "mood": "laugh"
+      }
+     ]
+    }
+   ],
+   "pop": {
+    "icon": "pin",
+    "word": "Aires",
+    "x": 0.72,
+    "y": 0.4,
+    "size": 200
+   },
+   "ambience": null
+  },
+  "dia1": {
+   "stick": {
+    "y": 0.95,
+    "size": 450,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.38,
+      "x1": 0.46,
+      "y1": 0.84,
+      "size1": 360
+     },
+     {
+      "action": "point",
+      "word": "casitas",
+      "facing": -1
+     },
+     {
+      "action": "selfie",
+      "word": "colores",
+      "mood": "wow"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "photo",
+     "x0": 0.68,
+     "y": 0.93,
+     "size": 420,
+     "facing": -1
+    }
+   ],
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia2": {
+   "stick": {
+    "y": 0.94,
+    "size": 440,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.1,
+      "x1": 0.62
+     },
+     {
+      "action": "point",
+      "word": "puestos"
+     },
+     {
+      "action": "eat",
+      "word": "techo",
+      "mood": "love"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "eat",
+     "x0": 0.3,
+     "y": 0.93,
+     "size": 420,
+     "facing": 1,
+     "mood": "love"
+    }
+   ],
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.75
+    }
+   ]
+  },
+  "dia3": {
+   "stick": {
+    "y": 0.93,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.28
+     },
+     {
+      "action": "point",
+      "word": "lagunas"
+     },
+     {
+      "action": "photo",
+      "word": "pájaros",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia4": {
+   "stick": {
+    "y": 0.92,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.3
+     },
+     {
+      "action": "stand",
+      "word": "parejas",
+      "mood": "wow"
+     },
+     {
+      "action": "dance",
+      "word": "abierta",
+      "mood": "love"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "y": 0.91,
+     "size": 420,
+     "facing": -1,
+     "beats": [
+      {
+       "action": "stand",
+       "x0": 0.62
+      },
+      {
+       "action": "dance",
+       "word": "tango",
+       "mood": "love"
+      }
+     ]
+    },
+    {
+     "action": "dance",
+     "x0": 0.44,
+     "y": 0.62,
+     "size": 230,
+     "facing": 1,
+     "speed": 0.9
+    },
+    {
+     "action": "dance",
+     "x0": 0.56,
+     "y": 0.62,
+     "size": 230,
+     "facing": -1,
+     "speed": 1.1
+    },
+    {
+     "action": "dance",
+     "x0": 0.8,
+     "y": 0.66,
+     "size": 250,
+     "facing": 1,
+     "speed": 1.0
+    }
+   ],
+   "pop": {
+    "icon": "heart",
+    "word": "tango",
+    "x": 0.16,
+    "y": 0.46,
+    "size": 190
+   },
+   "ambience": null
+  },
+  "dia5": {
+   "stick": {
+    "y": 0.88,
+    "size": 400,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.08,
+      "x1": 0.36
+     },
+     {
+      "action": "point",
+      "word": "lancha"
+     },
+     {
+      "action": "wave",
+      "word": "orilla",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "sip",
+     "x0": 0.7,
+     "y": 0.88,
+     "size": 390,
+     "facing": -1
+    }
+   ],
+   "pop": null,
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.35
+    }
+   ]
+  }
+ }
 }
