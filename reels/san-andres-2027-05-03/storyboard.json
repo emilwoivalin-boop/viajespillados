@@ -1,0 +1,187 @@
+{
+  "id": "san-andres-2027-05-03",
+  "lang": "es",
+  "city": "San Andrés",
+  "country": "COL",
+  "place": "San Andrés, Colombia",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "cover_q": "¿Un tesoro pirata escondido en una cueva?",
+  "facts": [
+    {
+      "text": "¿Sabías que al mar de San Andrés le dicen el mar de los siete colores? Sus azules y verdes salen del arrecife de coral.",
+      "stickers": [
+        {
+          "emoji": "🌊",
+          "x": 0.27,
+          "y": 0.38,
+          "size": 230,
+          "at": "colores",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🐠",
+          "x": 0.72,
+          "y": 0.34,
+          "size": 200,
+          "at": "coral",
+          "sfx": "bubbles"
+        }
+      ],
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://www.eltiempo.com/colombia/la-isla-a-2-horas-de-bogota-que-tiene-playas-de-colores-y-un-tesoro-de-piratas-3326342"
+    },
+    {
+      "text": "En La Loma está la Primera Iglesia Bautista: la armaron con madera de pino traída de Alabama, y desde su torre se ve media isla.",
+      "lat": 12.56183,
+      "lon": -81.71685,
+      "view": 1100,
+      "label": "Iglesia Bautista",
+      "photo": "File:Iglesia Bautista San Andrés.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://colombia.travel/en/san-andres-isla/baptist-church"
+    },
+    {
+      "text": "La isla mide unos 13 kilómetros de largo y apenas 3 de ancho: la carretera que le da toda la vuelta tiene 30 kilómetros.",
+      "stickers": [
+        {
+          "emoji": "🧭",
+          "x": 0.27,
+          "y": 0.47,
+          "size": 230,
+          "at": "ancho",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🌴",
+          "x": 0.76,
+          "y": 0.5,
+          "size": 230,
+          "at": "vuelta",
+          "sfx": "boing"
+        }
+      ],
+      "stat": {
+        "big": "30 km",
+        "small": "pa' darle la vuelta",
+        "at": "30",
+        "y": 0.3,
+        "count": false,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/San_Andr%C3%A9s_(island)"
+    },
+    {
+      "text": "Y aquí está la Cueva de Morgan: cuenta la leyenda que el pirata Henry Morgan escondió su tesoro adentro… ¡y nadie lo ha encontrado!",
+      "lat": 12.54262,
+      "lon": -81.72935,
+      "view": 1200,
+      "label": "Cueva de Morgan",
+      "photo": "File:Cueva de Morgan.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://showcaves.com/english/co/caves/Morgan.html"
+    },
+    {
+      "text": "En 1953 llegó Rojas Pinilla, el primer presidente en visitar la isla, y la declaró puerto libre: por eso es famosa pa' comprar sin impuestos.",
+      "stickers": [
+        {
+          "emoji": "⚓",
+          "x": 0.28,
+          "y": 0.48,
+          "size": 240,
+          "at": "puerto",
+          "sfx": "chime"
+        },
+        {
+          "emoji": "🏝",
+          "x": 0.76,
+          "y": 0.47,
+          "size": 220,
+          "at": "isla",
+          "sfx": "tada"
+        }
+      ],
+      "stat": {
+        "big": "1953",
+        "small": "puerto libre",
+        "at": "1953",
+        "y": 0.3,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.6
+          }
+        ]
+      },
+      "source": "https://radionacional.co/podcast/historias-de-onda-larga/rojas-pinilla-el-presidente-que-declaro-puerto-libre-san-andres"
+    }
+  ],
+  "end": {
+    "text": "",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    },
+    "title": "Datos de San Andrés"
+  },
+  "caption": "5 datos de San Andrés que seguro no sabías 📍\n\n1. Le dicen el mar de los siete colores por la barrera de coral\n2. La Primera Iglesia Bautista se armó con pino traído de Alabama\n3. La isla mide 13 km de largo y la vuelta completa son 30 km\n4. La leyenda dice que el tesoro del pirata Morgan sigue escondido en su cueva\n5. Es puerto libre desde 1953, cuando la visitó Rojas Pinilla\n\n¿Cuál te sorprendió más? ✈️\n\n#sanandres #colombia #datoscuriosos #caribe #viajespillados"
+}
