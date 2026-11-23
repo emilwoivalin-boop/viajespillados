@@ -1,8 +1,6 @@
 {
- "generado": "2026-11-23 07:01",
- "errores": {
-  "facebook_posts": "ninguna métrica válida – post_media_view: retry your request later.\",\"type\":\"OAuthException\",\"is_transient\":true,\"code\":2,\"fbtrace_id\":\"A5NH1DJrb1ZU9qovc_XrS_c\"}} | post_impressions_unique: ) The valu"
- },
+ "generado": "2026-11-23 11:29",
+ "errores": {},
  "filas": [
   {
    "fecha": "2026-11-22",
@@ -86,7 +84,7 @@
    "titulo": "Buenos Aires",
    "enlace": "https://www.instagram.com/reel/DgDpf48BI1I/",
    "metrica": "me_gusta",
-   "valor": 23
+   "valor": 34
   },
   {
    "fecha": "2026-11-23",
@@ -110,7 +108,7 @@
    "titulo": "Buenos Aires",
    "enlace": "https://www.instagram.com/reel/DgDpf48BI1I/",
    "metrica": "alcance",
-   "valor": 1049
+   "valor": 1493
   },
   {
    "fecha": "2026-11-23",
@@ -122,7 +120,7 @@
    "titulo": "Buenos Aires",
    "enlace": "https://www.instagram.com/reel/DgDpf48BI1I/",
    "metrica": "vistas",
-   "valor": 1245
+   "valor": 1710
   },
   {
    "fecha": "2026-11-23",
@@ -134,7 +132,7 @@
    "titulo": "Buenos Aires",
    "enlace": "https://www.instagram.com/reel/DgDpf48BI1I/",
    "metrica": "guardados",
-   "valor": 6
+   "valor": 8
   },
   {
    "fecha": "2026-11-23",
@@ -146,7 +144,7 @@
    "titulo": "Buenos Aires",
    "enlace": "https://www.instagram.com/reel/DgDpf48BI1I/",
    "metrica": "compartidos",
-   "valor": 5
+   "valor": 7
   },
   {
    "fecha": "2026-11-23",
@@ -158,7 +156,7 @@
    "titulo": "Buenos Aires",
    "enlace": "https://www.instagram.com/reel/DgDpf48BI1I/",
    "metrica": "interacciones",
-   "valor": 35
+   "valor": 50
   },
   {
    "fecha": "2026-11-23",
@@ -194,7 +192,7 @@
    "titulo": "São Paulo",
    "enlace": "https://www.instagram.com/reel/DgBC9UeukP2/",
    "metrica": "alcance",
-   "valor": 2262
+   "valor": 2264
   },
   {
    "fecha": "2026-11-23",
@@ -206,7 +204,7 @@
    "titulo": "São Paulo",
    "enlace": "https://www.instagram.com/reel/DgBC9UeukP2/",
    "metrica": "vistas",
-   "valor": 2483
+   "valor": 2484
   },
   {
    "fecha": "2026-11-23",
@@ -278,7 +276,7 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/p/DgA7xi_IIEw/",
    "metrica": "alcance",
-   "valor": 8
+   "valor": 9
   },
   {
    "fecha": "2026-11-23",
@@ -290,7 +288,7 @@
    "titulo": "La Habana",
    "enlace": "https://www.instagram.com/p/DgA7xi_IIEw/",
    "metrica": "vistas",
-   "valor": 12
+   "valor": 13
   },
   {
    "fecha": "2026-11-23",
@@ -374,7 +372,7 @@
    "titulo": "Toronto",
    "enlace": "https://www.instagram.com/reel/Df-lCqkBHnM/",
    "metrica": "vistas",
-   "valor": 1385
+   "valor": 1386
   },
   {
    "fecha": "2026-11-23",
@@ -1034,7 +1032,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/Df27YHfhJUW/",
    "metrica": "alcance",
-   "valor": 2000
+   "valor": 2001
   },
   {
    "fecha": "2026-11-23",
@@ -1046,7 +1044,7 @@
    "titulo": "Aruba",
    "enlace": "https://www.instagram.com/reel/Df27YHfhJUW/",
    "metrica": "vistas",
-   "valor": 2246
+   "valor": 2247
   },
   {
    "fecha": "2026-11-23",
@@ -3218,7 +3216,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "alcance",
-   "valor": 1673
+   "valor": 1675
   },
   {
    "fecha": "2026-11-23",
@@ -3230,7 +3228,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfaIRLqjWiI/",
    "metrica": "vistas",
-   "valor": 1975
+   "valor": 1978
   },
   {
    "fecha": "2026-11-23",
@@ -3974,7 +3972,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "alcance",
-   "valor": 12110
+   "valor": 12120
   },
   {
    "fecha": "2026-11-23",
@@ -3986,7 +3984,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "vistas",
-   "valor": 14687
+   "valor": 14695
   },
   {
    "fecha": "2026-11-23",
@@ -3998,7 +3996,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "guardados",
-   "valor": 256
+   "valor": 255
   },
   {
    "fecha": "2026-11-23",
@@ -4022,7 +4020,7 @@
    "titulo": "reels",
    "enlace": "https://www.instagram.com/reel/DfTAXpNFH_t/",
    "metrica": "interacciones",
-   "valor": 1205
+   "valor": 1204
   },
   {
    "fecha": "2026-11-23",
@@ -4370,7 +4368,7 @@
    "titulo": "Datos curiosos de São Paulo 📍",
    "enlace": "https://youtube.com/shorts/WIXmzNbXiAQ",
    "metrica": "vistas",
-   "valor": 1039
+   "valor": 1040
   },
   {
    "fecha": "2026-11-23",
@@ -4898,7 +4896,7 @@
    "titulo": "Reel: 7 días en Buenos Aires",
    "enlace": "https://x.com/viajespillados/status/2124598947247259910",
    "metrica": "vistas",
-   "valor": 90
+   "valor": 92
   },
   {
    "fecha": "2026-11-23",
@@ -4958,7 +4956,7 @@
    "titulo": "Reel: Datos de São Paulo",
    "enlace": "https://x.com/viajespillados/status/2124232741398990895",
    "metrica": "vistas",
-   "valor": 63
+   "valor": 64
   },
   {
    "fecha": "2026-11-23",
@@ -5018,7 +5016,7 @@
    "titulo": "Ofertas: La Habana",
    "enlace": "https://x.com/viajespillados/status/2124216735565795488",
    "metrica": "vistas",
-   "valor": 4
+   "valor": 7
   },
   {
    "fecha": "2026-11-23",
@@ -5078,7 +5076,7 @@
    "titulo": "Reel: 7 días en Toronto",
    "enlace": "https://x.com/viajespillados/status/2123885434510192706",
    "metrica": "vistas",
-   "valor": 19
+   "valor": 21
   },
   {
    "fecha": "2026-11-23",
@@ -5161,6 +5159,18 @@
    "destinos": "Reel: Datos de São Paulo",
    "titulo": "Reel: Datos de São Paulo",
    "enlace": "https://www.facebook.com/1480839581771583/videos/1509150847756613",
+   "metrica": "vistas",
+   "valor": 0
+  },
+  {
+   "fecha": "2026-11-23",
+   "canal": "facebook",
+   "tipo": "carrusel",
+   "id": "1480839581771583_122112945657529435",
+   "publicado": "2026-11-21 14:01",
+   "destinos": "La Habana",
+   "titulo": "Ofertas: La Habana",
+   "enlace": "https://www.facebook.com/1480839581771583_122112945657529435",
    "metrica": "vistas",
    "valor": 0
   },
