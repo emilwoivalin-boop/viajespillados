@@ -1,6 +1,11 @@
 """Daily performance report from metrics/history.csv (written by metrics.py).
 
-    python scripts/report.py <out.html> [<summary.md>]
+    python scripts/report.py <out.html> [<summary.md>] [--since YYYY-MM-DD] [--mark]
+
+Changes ("new views", follower deltas, website visits) are measured since the last check:
+the snapshot of the last report recorded in metrics/last_report.json (or --since). With
+--mark, today's snapshot is recorded there as the new last check (commit that file).
+Re-running on the same day keeps comparing against the check before today.
 
 The HTML is a self-contained page (no external requests) for the "Rendimiento diario" artifact;
 the summary is a few short lines in English for the owner's notification. Nothing is committed.
@@ -15,6 +20,7 @@ from datetime import date, datetime, timedelta, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HIST = os.path.join(ROOT, "metrics", "history.csv")
+STATE = os.path.join(ROOT, "metrics", "last_report.json")
 LATEST = os.path.join(ROOT, "metrics", "latest.json")
 BOG = timezone(timedelta(hours=-5))
 CH = {"instagram": "Instagram", "youtube": "YouTube", "x": "X", "facebook": "Facebook", "web": "Web"}
@@ -45,12 +51,54 @@ def nice_date(d):
     return f"{DIAS[d.weekday()]} {d.day} {MESES[d.month - 1]}"
 
 
-def load():
+def read_state():
+    try:
+        return json.load(open(STATE))
+    except Exception:
+        return {}
+
+
+def last_check(today, since=None):
+    """Date of the last check before today: --since, else metrics/last_report.json."""
+    if since:
+        return since
+    st = read_state()
+    last = st.get("last")
+    if last and last >= today:
+        last = st.get("prev")
+    return last
+
+
+def mark(today):
+    st = read_state()
+    if st.get("last") and st["last"] < today:
+        st["prev"] = st["last"]
+    st["last"] = today
+    with open(STATE, "w") as f:
+        json.dump(st, f, indent=1)
+        f.write("\n")
+
+
+def load(since=None):
     rows = list(csv.DictReader(open(HIST, newline="")))
     snaps = sorted({r["fecha"] for r in rows if r["canal"] != "web" and r["tipo"] != "cuenta" or r["metrica"] in ("seguidores", "suscriptores")})
     today = snaps[-1] if snaps else None
-    prev = snaps[-2] if len(snaps) > 1 else None
+    lc = last_check(today, since) if today else None
+    older = [d for d in snaps if d < today] if today else []
+    if lc:
+        cand = [d for d in older if d <= lc]
+        prev = cand[-1] if cand else (older[0] if older else None)
+    else:
+        prev = older[-1] if older else None
     return rows, today, prev
+
+
+def period_label(today, prev):
+    """'24 h' when the last check was yesterday, else 'since Sat 21 Nov (2 days)'."""
+    days = (date.fromisoformat(today) - date.fromisoformat(prev)).days
+    if days <= 1:
+        return "in 24 h", "24 h"
+    return f"since {nice_date(prev)} ({days} days)", f"Since {short_date(prev)}"
 
 
 def short_date(d):
@@ -326,8 +374,9 @@ def insights(rows, tr, today):
     return out
 
 
-def build():
-    rows, today, prev = load()
+def build(since=None):
+    rows, today, prev = load(since)
+    per_long, per_short = period_label(today, prev) if prev else ("", "")
     try:
         errors = json.load(open(LATEST)).get("errores", {})
     except Exception:
@@ -339,8 +388,12 @@ def build():
         if r["tipo"] not in ("cuenta", "web", "pagina", "evento", "origen", "clic_oferta"):
             info[(r["canal"], r["id"])] = r
     cur, old = snap.get(today, {}), snap.get(prev, {}) if prev else {}
+    # website rows are dated by the day of the visits: count the full days since the last check
     web_day = (date.fromisoformat(today) - timedelta(days=1)).isoformat() if today else None
-    wd = [r for r in rows if r["canal"] == "web" and r["fecha"] == web_day]
+    web_from = prev if prev and prev < web_day else web_day
+    wd = [r for r in rows if r["canal"] == "web" and web_from <= r["fecha"] <= web_day]
+    web_days = (date.fromisoformat(web_day) - date.fromisoformat(web_from)).days + 1 if today else 1
+    web_lbl = "yesterday" if web_days <= 1 else f"{short_date(web_from)}–{short_date(web_day)}"
 
     def acct(canal, metrica):
         k = next((k for k in cur if k[0] == canal and k[2] == metrica), None)
@@ -357,6 +410,8 @@ def build():
             continue
         v = cur[k]
         d = v - old[k] if k in old else None
+        if d is None and prev and r["publicado"][:10] >= prev:
+            d = v                           # published after the last check: all its views are new
         likes = cur.get((canal, pid, "me_gusta"), 0)
         posts.append(dict(canal=canal, tipo=r["tipo"], titulo=r["destinos"] or r["titulo"], enlace=r["enlace"],
                           publicado=r["publicado"][:10], vistas=v, delta=d, likes=likes,
@@ -392,14 +447,14 @@ def build():
     # ---------------------------------------------------------------- summary text
     s = [f"📊 Performance {nice_date(today)}"]
     if views_24h is not None:
-        s.append(f"👀 {fmt(views_24h)} new views in 24 h (total {fmt(views_total)}).")
+        s.append(f"👀 {fmt(views_24h)} new views {per_long} (total {fmt(views_total)}).")
     else:
         s.append(f"👀 {fmt(views_total)} views in total (first day: the 24 h change starts tomorrow).")
     if posts:
         b = posts[0]
         s.append(f"🏆 Top: {b['titulo']} on {CH[b['canal']]} – {fmt(b['vistas'])} views"
-                 + (f" ({sign(b['delta'])} today)." if b["delta"] is not None else "."))
-    s.append(f"🌐 Website yesterday: {fmt(web_visits)} visits, {fmt(web_clicks)} offer clicks"
+                 + (f" ({sign(b['delta'])} {'today' if per_short == '24 h' else per_long.split(' (')[0]})." if b["delta"] is not None else "."))
+    s.append(f"🌐 Website {web_lbl}: {fmt(web_visits)} visits, {fmt(web_clicks)} offer clicks"
              + (f"; top: {max(clicks, key=clicks.get)}." if clicks else "."))
     fl = [f"IG {fmt(ig_f)}" + (f" ({sign(ig_fd)})" if ig_fd else "") if ig_f is not None else None,
           f"YouTube {fmt(yt_f)}" + (f" ({sign(yt_fd)})" if yt_fd else "") if yt_f is not None else None,
@@ -421,9 +476,9 @@ def build():
         return f'<div class="tile"><div class="tl">{e(label)}</div><div class="tv">{value}{d}</div><div class="tn">{e(note)}</div></div>'
 
     tiles = "".join([
-        tile("Views in 24 h", fmt(views_24h) if views_24h is not None else "—", None,
+        tile(f"Views {per_long.split(' (')[0]}" if prev else "Views", fmt(views_24h) if views_24h is not None else "—", None,
              f"{fmt(views_total)} in total" if views_24h is not None else f"{fmt(views_total)} in total · change from tomorrow"),
-        tile("Website visits (yesterday)", fmt(web_visits), None, f"{fmt(web_clicks)} offer clicks"),
+        tile(f"Website visits ({web_lbl})", fmt(web_visits), None, f"{fmt(web_clicks)} offer clicks"),
         tile("Instagram followers", fmt(ig_f) if ig_f is not None else "—", ig_fd,
              f"reach yesterday {fmt(ig_day['alcance_dia'])}" if ig_day.get("alcance_dia") is not None else ""),
         tile("YouTube subscribers", fmt(yt_f) if yt_f is not None else "—", yt_fd),
@@ -445,7 +500,7 @@ def build():
     rrow = "".join(f'<tr><td>{e(n)}</td><td class="n">{fmt(v)}</td></tr>' for n, v in refs[:10]) or \
         '<tr><td colspan="2" class="muted">No visits recorded yet.</td></tr>'
     err = ('<div class="warn">No data today from: ' + e(", ".join(f"{k} ({v[:80]})" for k, v in errors.items())) + "</div>") if errors else ""
-    period = "new views in 24 h" if prev else "total views"
+    period = f"new views {per_long}" if prev else "total views"
     gen = datetime.now(BOG).strftime("%Y-%m-%d %H:%M")
     tr = trends(rows)
     charts = "".join([
@@ -504,13 +559,13 @@ pre{{white-space:pre-wrap;background:var(--card);border:1px solid var(--line);bo
 <h2>Trends</h2><div class="charts">{charts}</div><div id="tip" class="tip" hidden></div>
 <h2>Conclusions &amp; recommendations</h2><ol class="ins">{insrow}</ol>
 <h2>Posts</h2>
-<div class="card"><table class="pt"><thead><tr><th>Channel</th><th>Post</th><th class="n">Views</th><th class="n">24 h</th><th class="n">Likes</th></tr></thead>
+<div class="card"><table class="pt"><thead><tr><th>Channel</th><th>Post</th><th class="n">Views</th><th class="n">{e(per_short or "Change")}</th><th class="n">Likes</th></tr></thead>
 <tbody>{prow or '<tr><td colspan="5" class="muted">No data.</td></tr>'}</tbody></table></div>
 <div class="two">
-<div><h2>Destinations <span class="muted" style="font-weight:400;font-size:13px">({period}; website clicks from yesterday)</span></h2>
+<div><h2>Destinations <span class="muted" style="font-weight:400;font-size:13px">({period}; website clicks {"from yesterday" if web_days <= 1 else web_lbl})</span></h2>
 <div class="card"><table><thead><tr><th>Destination</th><th class="n">Instagram</th><th class="n">YouTube</th><th class="n">X</th><th class="n">Facebook</th><th class="n">Web clicks</th></tr></thead>
 <tbody>{drow or '<tr><td colspan="6" class="muted">No data.</td></tr>'}</tbody></table></div></div>
-<div><h2>Website visits by source (yesterday)</h2>
+<div><h2>Website visits by source ({web_lbl})</h2>
 <div class="card"><table><tbody>{rrow}</tbody></table></div></div>
 </div>
 <p class="muted" style="font-size:12.5px;margin-top:22px">Views: Instagram (views), YouTube (Short views), X (impressions of posts from the last 3 days). TikTok has no free statistics API. Website data: GoatCounter, no cookies.</p>
@@ -527,8 +582,19 @@ h.addEventListener('pointerleave',function(){{xh.style.opacity=0;tip.hidden=true
 
 
 if __name__ == "__main__":
-    page, summary = build()
-    open(sys.argv[1] if len(sys.argv) > 1 else "report.html", "w").write(page)
-    if len(sys.argv) > 2:
-        open(sys.argv[2], "w").write(summary)
+    args, since, do_mark = [], None, False
+    it = iter(sys.argv[1:])
+    for a in it:
+        if a == "--since":
+            since = next(it)
+        elif a == "--mark":
+            do_mark = True
+        else:
+            args.append(a)
+    page, summary = build(since)
+    open(args[0] if args else "report.html", "w").write(page)
+    if len(args) > 1:
+        open(args[1], "w").write(summary)
+    if do_mark:
+        mark(load(since)[1])
     print(summary)
