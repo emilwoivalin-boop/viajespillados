@@ -60,8 +60,15 @@ the whole video, no Picsart), step B does nothing, and step C posts it at 8:14 e
 2. **Pick the offer** ("best tracked offer"):
    - Candidates = rows of `Ofertas` with A Publicar = "sí" (never "no" or "revisar"), a ROUND-TRIP date in P (`YYYY-MM-DD/YYYY-MM-DD`), departure at least
      4 days from today, and the Destino present in column A of `Qué hacer (captions)`.
-   - Exclude destinations that already had a daily Reel in the last 14 days (`reels/daily.json`, statuses other than `skipped`),
-     and the exact same offer (destino + dates) ever.
+   - Exclude the exact same offer (destino + dates) ever.
+   - **Owner's rule (23 Nov 2026): always a NEW destination if possible** – for travel-plan AND fact Reels.
+     `python scripts/reel_plan.py used` lists every destination that already had a daily Reel (either kind, not skipped)
+     with its last Reel day (compare with `instagram.slug(destino)`). Order of preference:
+     1. destinations that never had a daily Reel;
+     2. only if there is none: destinations whose last Reel was at least 30 days ago, the longest ago first;
+     3. only if there is none of those either: the destination whose last Reel was longest ago (never the one of the
+        previous 2 Reels). Say it in the note, e.g. "destino nuevo" or "último Reel de Aruba hace 45 días".
+     The other rules (0–1 workdays off for travel-plan Reels, Reel score) choose WITHIN the best of these groups.
    - Rank: find the matching `Price log` row (same depart/return dates and price within 3 %; destination names are English there,
      e.g. "Panama City" = "Ciudad de Panamá") and use its Score (X).
    - **Owner's rule: prefer short trips that leave soon and need few (ideally 0) workdays off.**

@@ -74,6 +74,17 @@ def reel_day():
     return (now.date() + timedelta(days=1 if now.hour >= 15 else 0)).isoformat()
 
 
+def last_reels():
+    """{destino slug: last Reel day} for every destination that already had a daily Reel (travel-plan OR fact Reel,
+    statuses other than skipped). Owner's rule (23 Nov 2026): always a NEW destination if possible."""
+    daily = json.load(open(os.path.join(ROOT, "reels", "daily.json")))
+    out = {}
+    for day, v in sorted(daily.items()):
+        if v.get("status") != "skipped" and v.get("destino"):
+            out[ig.slug(v["destino"])] = day
+    return out
+
+
 def buddy_next(today=None):
     """True if the next daily Reel (the one being prepared today) is a 'buddy' Reel: every third Reel that was
     actually made (statuses other than skipped) has the travel buddy."""
@@ -348,6 +359,8 @@ if __name__ == "__main__":
         build(sys.argv[2])
     elif cmd == "preview":
         preview(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    elif cmd == "used":          # destinations that already had a daily Reel, oldest first: {"slug": "last day"}
+        print(json.dumps(dict(sorted(last_reels().items(), key=lambda kv: kv[1])), ensure_ascii=False, indent=0))
     elif cmd == "day":           # the Reel day (YYYY-MM-DD): the morning the Reel being made now is posted
         print(reel_day())
     elif cmd == "kind":          # "facts" or "plan" for a Bogotá date (default: the Reel day)
