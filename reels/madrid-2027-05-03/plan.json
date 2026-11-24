@@ -1,0 +1,78 @@
+{
+ "id": "madrid-2027-05-03",
+ "offer": {
+  "destino": "Madrid",
+  "pais": "España",
+  "region": "Europa",
+  "aerolinea": "Avianca",
+  "precio": 2482360,
+  "escalas": "directo",
+  "ida": "2027-05-03",
+  "vuelta": "2027-05-09",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20MAD%20from%20BOG%20on%202027-05-03%20through%202027-05-09&curr=COP&hl=es-419",
+  "sheet_row": 56,
+  "escala_larga": ""
+ },
+ "hora_salida": null,
+ "hook": "¿Y si en mayo te vas de museos, tapas y noches que terminan a las tres?",
+ "buddy": false,
+ "que_hacer": "Recorre la Plaza Mayor, visita el Museo del Prado y pasea por el parque del Retiro.",
+ "end_image": "dia1",
+ "lines": {
+  "vuelo": "Pista número uno: diez horas de vuelo directo cruzando el Atlántico, y abajo ya asoma Europa.",
+  "llegada": "Señoras y señores… ¡Madrid! Sales del aeropuerto y te recibe un cielo azulito de primavera.",
+  "dia1": "Arrancamos en la Plaza Mayor: edificios rojizos con balcones y un bocadillo de calamares en la mano.",
+  "dia2": "Mañanita de museo en el Prado: Las Meninas de Velázquez y las pinturas negras de Goya.",
+  "dia3": "Por la tarde, al Retiro: remas una barquita en el estanque y después te asomas al Palacio de Cristal.",
+  "dia4": "Ya de noche, de tapas por La Latina: de bar en bar, con croquetas y una caña bien fría.",
+  "dia5": "Antes de volver, te escapas en tren rápido a Toledo: calles medievales en un cerro sobre el río Tajo."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane) flying, and far below a generic European landscape: a patchwork of golden and green fields, low brown hills and a few tiny distant villages with red roofs, a wide blue ocean coastline at one edge, no big city, no landmark, clear blue sky. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a modern airport terminal with a long wavy wooden-coloured roof held up by tall colourful columns and a long glass facade, completely plain walls with no signs, no lettering, no words and no logos anywhere, a few young green trees and neat flower beds, dry golden hills far behind, bright blue spring sky. A wide empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A large rectangular old European city square completely enclosed by uniform three-storey reddish-brown buildings with many small iron balconies and arched arcades at ground level, a bronze statue of a rider on a horse on a stone pedestal in the middle, clear blue sky, sunny. In the foreground a wide stone-paved square; the paving in the lower third of the picture is clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The front of a grand long neoclassical art museum building made of pale stone and red brick, with a row of tall white columns at the entrance, green lawns and trimmed trees in front, a dark bronze statue of a seated painter on a pedestal, bright blue sky, sunny. Plain walls with no signs, no letters and no words. A wide empty light stone plaza in the lower third of the picture.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A big rectangular park lake with calm blue water and a few empty small blue rowing boats, in the background a delicate palace made entirely of glass and thin white iron frames reflected in a small pond, tall green trees around, late afternoon golden light. A wooden dock edge and the sandy lakeside path in the lower third of the picture are clearly visible and empty.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A narrow old European street at night with warm yellow lamps, small tapas bars with open wooden doors and little terrace tables, a wooden counter in the front with small plates of golden croquettes and a cold glass of beer, string lights overhead, dark blue night sky with a few stars. Plain storefronts with no signs, no letters and no words. The cobblestone street in the lower third of the picture is clearly visible and empty.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A medieval walled hilltop town seen from across a river gorge: a tall stone cathedral spire and a big square fortress with four corner towers on top of the hill, golden-brown old houses packed together, a green river winding around the base of the hill, an old stone arched bridge, bright blue sky. In the foreground a dry grassy viewpoint path with a low stone wall; the path in the lower third of the picture is clearly visible and empty.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A wide sunny European city view in bright daylight: an elegant white stone corner building with a round tower and a dome topped by a small statue, a grand boulevard with green trees, the middle of the picture a large open bright blue sky, calm and empty. A wide empty sunny pavement across the bottom fifth of the picture."
+ },
+ "caption_es": {
+  "hook": "¿Madrid en 5 días entre museos, tapas y una escapada a Toledo? Pilla este plan, parce.",
+  "intro": "La capital de España mezcla museos de talla mundial con almuerzos largos y noches que no terminan.",
+  "pais": "España",
+  "dias": [
+   {
+    "titulo": "Plaza Mayor",
+    "texto": "recorre la plaza de los balcones y pide un bocadillo de calamares."
+   },
+   {
+    "titulo": "Museo del Prado",
+    "texto": "mira cuadros de Velázquez, Goya y otros grandes maestros españoles."
+   },
+   {
+    "titulo": "Parque del Retiro",
+    "texto": "rema una barquita en el estanque y entra al Palacio de Cristal."
+   },
+   {
+    "titulo": "Tapas en La Latina",
+    "texto": "pide platicos pequeños de bar en bar."
+   },
+   {
+    "titulo": "Escapada a Toledo",
+    "texto": "toma el tren rápido y camina por sus calles medievales."
+   }
+  ],
+  "bonus": "Si te queda energía, sal de noche por Malasaña, que se llena después de la comida.",
+  "dato": "Madrid es la capital de España desde 1561",
+  "epoca": "abril a junio y septiembre a octubre",
+  "para": "te gusta el arte, comer rico y trasnochar",
+  "no_para": "odias los veranos muy calientes o quieres playa cerca",
+  "versus": "Barcelona",
+  "hashtags": [
+   "#madrid",
+   "#españa",
+   "#quehacerenmadrid"
+  ]
+ }
+}

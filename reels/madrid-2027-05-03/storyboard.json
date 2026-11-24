@@ -1,0 +1,190 @@
+{
+ "id": "madrid-2027-05-03",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Y si en mayo te vas de museos, tapas y noches que terminan a las tres? Lunes 3 de mayo. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Europa!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Pista número uno: diez horas de vuelo directo cruzando el Atlántico, y abajo ya asoma Europa.",
+   "media": {
+    "type": "file",
+    "path": "reels/madrid-2027-05-03/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Señoras y señores… ¡Madrid! Sales del aeropuerto y te recibe un cielo azulito de primavera.",
+   "media": {
+    "type": "file",
+    "path": "reels/madrid-2027-05-03/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Arrancamos en la Plaza Mayor: edificios rojizos con balcones y un bocadillo de calamares en la mano.",
+   "media": {
+    "type": "file",
+    "path": "reels/madrid-2027-05-03/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Mañanita de museo en el Prado: Las Meninas de Velázquez y las pinturas negras de Goya.",
+   "media": {
+    "type": "file",
+    "path": "reels/madrid-2027-05-03/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Por la tarde, al Retiro: remas una barquita en el estanque y después te asomas al Palacio de Cristal.",
+   "media": {
+    "type": "file",
+    "path": "reels/madrid-2027-05-03/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Ya de noche, de tapas por La Latina: de bar en bar, con croquetas y una caña bien fría.",
+   "media": {
+    "type": "file",
+    "path": "reels/madrid-2027-05-03/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Antes de volver, te escapas en tren rápido a Toledo: calles medievales en un cerro sobre el río Tajo.",
+   "media": {
+    "type": "file",
+    "path": "reels/madrid-2027-05-03/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Y el precio? Ida y vuelta con Avianca, por solo 2 millones 482 mil pesos. ¡Mira esta oferta y muchas más en viajespillados punto com.",
+  "title": "7 días en Madrid",
+  "kicker": "",
+  "airline": "Avianca · vuelo directo",
+  "price": "$2.482.360",
+  "detail": "ida y vuelta · 3 may – 9 may",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/madrid-2027-05-03/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Madrid desde Bogotá ✈️ Recorre la Plaza Mayor, visita el Museo del Prado y pasea por el parque del Retiro. Ida y vuelta con Avianca desde $2.482.360 (3 may – 9 may). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #madrid #ofertasdevuelos"
+}
