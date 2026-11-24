@@ -44,7 +44,12 @@
    "pops": [],
    "ambience": [],
    "crowd": [],
-   "sfx": [],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ],
    "steps": false,
    "action_sfx": true
   },
@@ -56,14 +61,43 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": -0.12,
+      "x1": 0.42
+     },
+     {
+      "action": "celebrate",
+      "word": "Madrid",
+      "mood": "laugh"
+     },
+     {
+      "action": "point",
+      "word": "cielo",
+      "mood": "wow"
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "primavera",
+     "x": 0.2,
+     "y": 0.1,
+     "size": 200
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Arrancamos en la Plaza Mayor: edificios rojizos con balcones y un bocadillo de calamares en la mano.",
@@ -73,11 +107,54 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.92,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.12,
+      "x1": 0.35
+     },
+     {
+      "action": "point",
+      "word": "balcones",
+      "mood": "wow"
+     },
+     {
+      "action": "eat",
+      "word": "bocadillo",
+      "mood": "love"
+     }
+    ]
    },
-   "pops": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Mayor",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 190
+    }
+   ],
    "ambience": [],
-   "crowd": [],
+   "crowd": [
+    {
+     "action": "walk",
+     "x0": 0.75,
+     "x1": 0.6,
+     "y": 0.7,
+     "size": 230,
+     "facing": -1
+    },
+    {
+     "action": "photo",
+     "x0": 0.28,
+     "y": 0.68,
+     "size": 210,
+     "facing": 1
+    }
+   ],
    "sfx": [],
    "steps": false,
    "action_sfx": true
@@ -90,14 +167,35 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.91,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.38
+     },
+     {
+      "action": "point",
+      "word": "Prado",
+      "mood": "wow"
+     },
+     {
+      "action": "scared",
+      "word": "negras",
+      "mood": "scared"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Por la tarde, al Retiro: remas una barquita en el estanque y después te asomas al Palacio de Cristal.",
@@ -107,14 +205,35 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "action": "kayak",
+    "x0": 0.3,
+    "x1": 0.78,
+    "y": 0.6,
+    "size": 300,
+    "facing": 1,
+    "mood": "love"
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
-   "sfx": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [
+    {
+     "action": "sit",
+     "x0": 0.83,
+     "y": 0.88,
+     "size": 300,
+     "facing": -1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.2
+    }
+   ],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Ya de noche, de tapas por La Latina: de bar en bar, con croquetas y una caña bien fría.",
@@ -124,14 +243,64 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.93,
+    "size": 440,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.12,
+      "x1": 0.76
+     },
+     {
+      "action": "eat",
+      "word": "croquetas",
+      "mood": "love"
+     },
+     {
+      "action": "sip",
+      "word": "fría",
+      "mood": "laugh"
+     }
+    ]
    },
    "pops": [],
-   "ambience": [],
-   "crowd": [],
-   "sfx": [],
+   "ambience": [
+    "crickets"
+   ],
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.47,
+     "y": 0.6,
+     "size": 190,
+     "facing": 1,
+     "speed": 0.8
+    },
+    {
+     "action": "dance",
+     "x0": 0.6,
+     "y": 0.62,
+     "size": 200,
+     "facing": -1,
+     "speed": 1.15
+    },
+    {
+     "action": "sip",
+     "x0": 0.84,
+     "y": 0.72,
+     "size": 260,
+     "facing": -1
+    }
+   ],
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.7
+    }
+   ],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "Antes de volver, te escapas en tren rápido a Toledo: calles medievales en un cerro sobre el río Tajo.",
@@ -141,14 +310,46 @@
     "focus": 0.5
    },
    "stick": {
-    "action": "none"
+    "y": 0.97,
+    "size": 450,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.6,
+      "x1": 0.74,
+      "y1": 0.86,
+      "size1": 360
+     },
+     {
+      "action": "point",
+      "word": "cerro",
+      "facing": -1,
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "Tajo",
+      "facing": -1
+     }
+    ]
    },
-   "pops": [],
-   "ambience": [],
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Toledo",
+     "x": 0.6,
+     "y": 0.38,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "birds"
+   ],
    "crowd": [],
    "sfx": [],
    "steps": false,
-   "action_sfx": true
+   "action_sfx": false
   },
   {
    "text": "El domingo aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",

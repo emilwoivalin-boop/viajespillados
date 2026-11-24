@@ -74,5 +74,245 @@
    "#españa",
    "#quehacerenmadrid"
   ]
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ]
+  },
+  "llegada": {
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": -0.12,
+      "x1": 0.42
+     },
+     {
+      "action": "celebrate",
+      "word": "Madrid",
+      "mood": "laugh"
+     },
+     {
+      "action": "point",
+      "word": "cielo",
+      "mood": "wow"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "sun",
+    "word": "primavera",
+    "x": 0.2,
+    "y": 0.1,
+    "size": 200
+   },
+   "ambience": "birds"
+  },
+  "dia1": {
+   "stick": {
+    "y": 0.92,
+    "size": 440,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.12,
+      "x1": 0.35
+     },
+     {
+      "action": "point",
+      "word": "balcones",
+      "mood": "wow"
+     },
+     {
+      "action": "eat",
+      "word": "bocadillo",
+      "mood": "love"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "action": "walk",
+     "x0": 0.75,
+     "x1": 0.6,
+     "y": 0.7,
+     "size": 230,
+     "facing": -1
+    },
+    {
+     "action": "photo",
+     "x0": 0.28,
+     "y": 0.68,
+     "size": 210,
+     "facing": 1
+    }
+   ],
+   "pop": {
+    "icon": "pin",
+    "word": "Mayor",
+    "x": 0.5,
+    "y": 0.42,
+    "size": 190
+   },
+   "ambience": null
+  },
+  "dia2": {
+   "stick": {
+    "y": 0.91,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": -0.15,
+      "x1": 0.38
+     },
+     {
+      "action": "point",
+      "word": "Prado",
+      "mood": "wow"
+     },
+     {
+      "action": "scared",
+      "word": "negras",
+      "mood": "scared"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia3": {
+   "stick": {
+    "action": "kayak",
+    "x0": 0.3,
+    "x1": 0.78,
+    "y": 0.6,
+    "size": 300,
+    "facing": 1,
+    "mood": "love"
+   },
+   "crowd": [
+    {
+     "action": "sit",
+     "x0": 0.83,
+     "y": 0.88,
+     "size": 300,
+     "facing": -1
+    }
+   ],
+   "pop": null,
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "splash",
+     "frac": 0.2
+    }
+   ]
+  },
+  "dia4": {
+   "stick": {
+    "y": 0.93,
+    "size": 440,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 1.12,
+      "x1": 0.76
+     },
+     {
+      "action": "eat",
+      "word": "croquetas",
+      "mood": "love"
+     },
+     {
+      "action": "sip",
+      "word": "fría",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.47,
+     "y": 0.6,
+     "size": 190,
+     "facing": 1,
+     "speed": 0.8
+    },
+    {
+     "action": "dance",
+     "x0": 0.6,
+     "y": 0.62,
+     "size": 200,
+     "facing": -1,
+     "speed": 1.15
+    },
+    {
+     "action": "sip",
+     "x0": 0.84,
+     "y": 0.72,
+     "size": 260,
+     "facing": -1
+    }
+   ],
+   "pop": null,
+   "ambience": "crickets",
+   "sfx": [
+    {
+     "kind": "clink",
+     "frac": 0.7
+    }
+   ]
+  },
+  "dia5": {
+   "stick": {
+    "y": 0.97,
+    "size": 450,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.6,
+      "x1": 0.74,
+      "y1": 0.86,
+      "size1": 360
+     },
+     {
+      "action": "point",
+      "word": "cerro",
+      "facing": -1,
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "Tajo",
+      "facing": -1
+     }
+    ]
+   },
+   "pop": {
+    "icon": "pin",
+    "word": "Toledo",
+    "x": 0.6,
+    "y": 0.38,
+    "size": 190
+   },
+   "ambience": "birds"
+  }
  }
 }
