@@ -1,188 +1,193 @@
 {
- "id": "cancun-2027-05-22",
- "lang": "es",
- "city": "Cancún",
- "country": "MEX",
- "place": "Cancún, Quintana Roo, México",
- "voice": "es-CO-GonzaloNeural",
- "rate": "+35%",
- "cover_q": "¿Un museo con un Volkswagen bajo el mar?",
- "facts": [
-  {
-   "text": "¿Sabías que cuando empezaron a construir Cancún, en 1970, en la isla vivían solo tres personas? Eran los cuidadores de un cocotal.",
-   "stickers": [
+  "id": "cancun-2027-05-22",
+  "lang": "es",
+  "city": "Cancún",
+  "country": "MEX",
+  "place": "Cancún, Quintana Roo, México",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "cover_q": "¿Un museo con un Volkswagen bajo el mar?",
+  "facts": [
     {
-     "emoji": "🥥",
-     "x": 0.27,
-     "y": 0.38,
-     "size": 230,
-     "at": "cocotal",
-     "sfx": "pop"
-    }
-   ],
-   "stat": {
-    "big": "3",
-    "small": "habitantes",
-    "at": "tres",
-    "x": 0.62,
-    "y": 0.33,
-    "count": false,
-    "drumroll": false,
-    "sfx": "ding"
-   },
-   "stick": {
-    "beats": [
-     {
-      "action": "teach_walk",
-      "x0": -0.15,
-      "x1": 0.17,
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 2.4
-     }
-    ]
-   },
-   "source": "https://en.wikipedia.org/wiki/Canc%C3%BAn"
-  },
-  {
-   "text": "En plena zona hotelera, entre resorts de lujo, el Museo Maya guarda las ruinas de San Miguelito, un antiguo asentamiento maya.",
-   "lat": 21.0724,
-   "lon": -86.7782,
-   "view": 1100,
-   "label": "San Miguelito",
-   "photo": "File:San Miguelito La pirámide.jpg",
-   "stick": {
-    "beats": [
-     {
-      "action": "tap",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 2.0
-     }
-    ]
-   },
-   "source": "https://yucatanmagazine.com/ancient-san-miguelito-is-cancuns-unknown-mayan-wonder/"
-  },
-  {
-   "text": "La zona hotelera es una franja de arena con forma de siete: unos 22 kilómetros entre el mar Caribe y la laguna Nichupté.",
-   "stickers": [
-    {
-     "emoji": "🏝",
-     "x": 0.28,
-     "y": 0.45,
-     "size": 260,
-     "at": "arena",
-     "sfx": "pop"
+      "text": "¿Sabías que cuando empezaron a construir Cancún, en 1970, en la isla vivían solo tres personas? Eran los cuidadores de un cocotal.",
+      "stickers": [
+        {
+          "emoji": "🥥",
+          "x": 0.27,
+          "y": 0.38,
+          "size": 230,
+          "at": "cocotal",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "3",
+        "small": "habitantes",
+        "at": "tres",
+        "x": 0.62,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Canc%C3%BAn"
     },
     {
-     "emoji": "🌊",
-     "x": 0.76,
-     "y": 0.48,
-     "size": 220,
-     "at": "Caribe",
-     "sfx": "bubbles"
-    }
-   ],
-   "stat": {
-    "big": "22 km",
-    "small": "de zona hotelera",
-    "at": "22",
-    "y": 0.3,
-    "count": false,
-    "drumroll": false,
-    "sfx": "ding"
-   },
-   "stick": {
-    "beats": [
-     {
-      "action": "swing",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 2.0
-     }
-    ]
-   },
-   "source": "https://en.wikipedia.org/wiki/Canc%C3%BAn"
-  },
-  {
-   "text": "Bajo el agua, frente a Cancún, está el MUSA: un museo con unas 500 esculturas sumergidas, ¡y hasta un escarabajo Volkswagen!",
-   "lat": 21.2135,
-   "lon": -86.7201,
-   "view": 1400,
-   "label": "MUSA",
-   "photo": "File:Volkswagen Underwater (21722501543).jpg",
-   "stick": {
-    "beats": [
-     {
-      "action": "knock",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 1.7
-     }
-    ]
-   },
-   "source": "https://en.wikipedia.org/wiki/Canc%C3%BAn_Underwater_Museum"
-  },
-  {
-   "text": "Y frente a esta costa arranca el Arrecife Mesoamericano, el segundo más grande del mundo: ¡casi mil kilómetros hasta Honduras!",
-   "stickers": [
-    {
-     "emoji": "🐠",
-     "x": 0.3,
-     "y": 0.47,
-     "size": 250,
-     "at": "Arrecife",
-     "sfx": "bubbles"
+      "text": "En plena zona hotelera, entre resorts de lujo, el Museo Maya guarda las ruinas de San Miguelito, un antiguo asentamiento maya.",
+      "lat": 21.0724,
+      "lon": -86.7782,
+      "view": 1100,
+      "label": "San Miguelito",
+      "photo": "File:San Miguelito La pirámide.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://yucatanmagazine.com/ancient-san-miguelito-is-cancuns-unknown-mayan-wonder/"
     },
     {
-     "emoji": "🐢",
-     "x": 0.74,
-     "y": 0.5,
-     "size": 230,
-     "at": "Honduras",
-     "sfx": "pop"
+      "text": "La zona hotelera es una franja de arena con forma de siete: unos 22 kilómetros entre el mar Caribe y la laguna Nichupté.",
+      "stickers": [
+        {
+          "emoji": "🏝",
+          "x": 0.28,
+          "y": 0.45,
+          "size": 260,
+          "at": "arena",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🌊",
+          "x": 0.76,
+          "y": 0.48,
+          "size": 220,
+          "at": "Caribe",
+          "sfx": "bubbles"
+        }
+      ],
+      "stat": {
+        "big": "22 km",
+        "small": "de zona hotelera",
+        "at": "22",
+        "y": 0.3,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Canc%C3%BAn"
+    },
+    {
+      "text": "Bajo el agua, frente a Cancún, está el MUSA: un museo con unas 500 esculturas sumergidas, ¡y hasta un escarabajo Volkswagen!",
+      "lat": 21.2135,
+      "lon": -86.7201,
+      "view": 1400,
+      "label": "MUSA",
+      "photo": "File:Volkswagen Underwater (21722501543).jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Canc%C3%BAn_Underwater_Museum"
+    },
+    {
+      "text": "Y frente a esta costa arranca el Arrecife Mesoamericano, el segundo más grande del mundo: ¡casi mil kilómetros hasta Honduras!",
+      "stickers": [
+        {
+          "emoji": "🐠",
+          "x": 0.3,
+          "y": 0.47,
+          "size": 250,
+          "at": "Arrecife",
+          "sfx": "bubbles"
+        },
+        {
+          "emoji": "🐢",
+          "x": 0.74,
+          "y": 0.5,
+          "size": 230,
+          "at": "Honduras",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "1.000 km",
+        "small": "de arrecife",
+        "at": "mil",
+        "y": 0.3,
+        "count": true,
+        "drumroll": true
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.8
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Mesoamerican_Barrier_Reef_System"
     }
-   ],
-   "stat": {
-    "big": "1.000 km",
-    "small": "de arrecife",
-    "at": "mil",
-    "y": 0.3,
-    "count": true,
-    "drumroll": true
-   },
-   "stick": {
-    "beats": [
-     {
-      "action": "celebrate",
-      "t": 0
-     },
-     {
-      "action": "teach",
-      "t": 1.8
-     }
-    ]
-   },
-   "source": "https://en.wikipedia.org/wiki/Mesoamerican_Barrier_Reef_System"
+  ],
+  "end": {
+    "text": "",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    },
+    "title": "Datos de Cancún"
+  },
+  "caption": "5 datos de Cancún que seguro no sabías 📍\n\n1. En 1970, cuando empezó a construirse, en la isla vivían solo tres personas\n2. El Museo Maya guarda las ruinas de San Miguelito en plena zona hotelera\n3. La zona hotelera tiene forma de 7 y mide unos 22 km\n4. Bajo el mar está el MUSA, con unas 500 esculturas y hasta un Volkswagen\n5. Frente a la costa arranca el Arrecife Mesoamericano, el segundo más grande del mundo\n\n¿Cuál te sorprendió más? ✈️\n\n#cancun #mexico #datoscuriosos #caribe #viajespillados",
+  "end_extras": {
+    "captura": "",
+    "price": 881576,
+    "shots": 0
   }
- ],
- "end": {
-  "text": "",
-  "stick": {
-   "action": "wave",
-   "x0": 0.5,
-   "y": 0.86,
-   "size": 330
-  },
-  "title": "Datos de Cancún"
- },
- "caption": "5 datos de Cancún que seguro no sabías 📍\n\n1. En 1970, cuando empezó a construirse, en la isla vivían solo tres personas\n2. El Museo Maya guarda las ruinas de San Miguelito en plena zona hotelera\n3. La zona hotelera tiene forma de 7 y mide unos 22 km\n4. Bajo el mar está el MUSA, con unas 500 esculturas y hasta un Volkswagen\n5. Frente a la costa arranca el Arrecife Mesoamericano, el segundo más grande del mundo\n\n¿Cuál te sorprendió más? ✈️\n\n#cancun #mexico #datoscuriosos #caribe #viajespillados"
 }
