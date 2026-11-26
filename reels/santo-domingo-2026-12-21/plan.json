@@ -1,0 +1,83 @@
+{
+ "id": "santo-domingo-2026-12-21",
+ "offer": {
+  "destino": "Santo Domingo",
+  "pais": "República Dominicana",
+  "region": "Caribe e islas",
+  "aerolinea": "Arajet",
+  "precio": 1072088,
+  "escalas": "directo",
+  "ida": "2026-12-21",
+  "vuelta": "2026-12-30",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20SDQ%20from%20BOG%20on%202026-12-21%20through%202026-12-30&curr=COP&hl=es-419",
+  "sheet_row": 103,
+  "escala_larga": ""
+ },
+ "hora_salida": null,
+ "hook": "¿Te imaginas una Nochebuena bailando merengue entre calles de piedra de hace 500 años?",
+ "buddy": false,
+ "ocasion": {
+  "nombre": "Nochebuena y Navidad",
+  "fechas": "24–25 de diciembre de 2026",
+  "fuente": "fecha fija"
+ },
+ "que_hacer": "Navidad en Santo Domingo. Camina por la Zona Colonial, baja a las cuevas de Los Tres Ojos y escápate a la playa de Boca Chica.",
+ "end_image": "dia1",
+ "lines": {
+  "vuelo": "Abróchate el cinturón y adivina: unas tres horas de vuelo directo y abajo el mar del Caribe se pone azul intenso.",
+  "llegada": "¡Bienvenido a Santo Domingo en plena Navidad! Sales del aeropuerto y te pega la brisa calientita del mar.",
+  "dia1": "Arrancamos en la Zona Colonial: calles empedradas, casitas de colores y la Catedral Primada, la más antigua de América.",
+  "dia2": "Al otro día, desayuno de mangú y subes a la torre de la Fortaleza Ozama, mirando el río.",
+  "dia3": "Pa' recargar pilas: bajas por escaleras de piedra a Los Tres Ojos, lagos de agua clarita dentro de cuevas.",
+  "dia4": "En Nochebuena: luces de Navidad en la Zona Colonial, cena con cerdo asado y merengue hasta tarde.",
+  "dia5": "Antes de volver, playa en Boca Chica: agua tibia, bajita y tranquila, con un coco frío en la mano."
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane) flying, and far below a generic tropical Caribbean sea: deep blue and turquoise water with a few tiny green islands and white sand edges, no city, no landmark, clear blue sky. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a modern tropical airport terminal, low white building with a long glass facade and a wide flat roof, completely plain walls with no signs, no lettering, no words and no logos anywhere, tall coconut palm trees, bright pink bougainvillea flowers, a small decorated green Christmas tree with red ornaments next to the entrance, bright blue sunny sky. A wide empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A sunny old Spanish colonial plaza in the Caribbean: a wide golden-beige coral-stone cathedral with a big arched doorway and thick walls, low colonial houses painted yellow, turquoise and pink with wooden balconies, a few tall palm trees, small Christmas garlands with red bows on the balconies, clear blue sky. In the foreground wide cobblestone paving; the stones in the lower third of the picture are clearly visible and empty.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. An old stone fortress tower: a tall square medieval-looking tower of grey-beige stone with battlements on top, thick stone walls, an old cannon on the wall, a wide brown river with green banks beside it, a few palm trees, bright morning blue sky. In the foreground a wide empty grassy esplanade with a stone path; the path in the lower third of the picture is clearly visible and empty.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Inside a large open limestone cave sinkhole in a tropical park: a calm lake of clear turquoise-green water inside a cave with rocky walls, hanging green vines and roots coming down from above, small stalactites, sunlight coming in from an opening at the top. In the foreground a natural stone walkway along the water with a few stone steps going down; the walkway in the lower third of the picture is clearly visible and empty.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A Caribbean colonial street at night decorated for Christmas: low colourful colonial houses with wooden balconies, warm yellow string lights and glowing star-shaped lanterns hanging across the street, a decorated Christmas tree with red and gold ornaments in a small plaza, a wooden table with a roast pork dish on the side, dark blue night sky with stars. Plain walls with no signs, no letters and no words. The cobblestone street in the lower third of the picture is clearly visible and empty.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A calm tropical beach: very shallow, clear turquoise water with tiny gentle waves, a small green island far out, a few leaning coconut palm trees, a green coconut with a straw lying on the sand, bright sunny blue sky. A wide empty stretch of white sand across the lower third of the picture.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A bright sunny view of an old Spanish colonial city by the Caribbean sea: golden coral-stone colonial buildings with arches and a cathedral bell gable, colourful low houses, tall palm trees, blue sea at one side, bright daylight. The middle of the picture a large open bright blue sky, calm and empty. A wide empty sunny cobblestone plaza across the bottom fifth of the picture."
+ },
+ "caption_es": {
+  "hook": "¿Navidad en el Caribe con 5 días de historia, merengue y playa? Pilla este plan, parce.",
+  "intro": "La capital dominicana tiene las calles coloniales más antiguas de América.",
+  "pais": "República Dominicana",
+  "dias": [
+   {
+    "titulo": "Zona Colonial",
+    "texto": "camina sus calles empedradas y mira la Catedral Primada y el Alcázar de Colón."
+   },
+   {
+    "titulo": "Fortaleza Ozama",
+    "texto": "desayuna mangú y sube a la torre de la vieja fortaleza."
+   },
+   {
+    "titulo": "Los Tres Ojos",
+    "texto": "baja a los lagos de agua clarita escondidos dentro de cuevas."
+   },
+   {
+    "titulo": "Nochebuena criolla",
+    "texto": "disfruta las luces de la Zona Colonial, la cena y el merengue."
+   },
+   {
+    "titulo": "Playa de Boca Chica",
+    "texto": "métete al agua tibia y bajita, a unos 30 km de la ciudad."
+   }
+  ],
+  "bonus": "Si te queda energía, sal a bailar merengue con los locales en un bar de la Zona Colonial.",
+  "dato": "Santo Domingo tiene la catedral más antigua de América",
+  "epoca": "diciembre a abril",
+  "para": "te gusta la historia, la música y caminar la ciudad",
+  "no_para": "quieres un resort de playa todo incluido",
+  "versus": "San Juan",
+  "hashtags": [
+   "#santodomingo",
+   "#republicadominicana",
+   "#quehacerensantodomingo"
+  ]
+ }
+}
