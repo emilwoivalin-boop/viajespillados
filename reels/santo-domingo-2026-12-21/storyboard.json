@@ -1,0 +1,392 @@
+{
+ "id": "santo-domingo-2026-12-21",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Te imaginas una Nochebuena bailando merengue entre calles de piedra de hace 500 años? Lunes 21 de diciembre. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa'l Caribe!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  },
+  {
+   "text": "Abróchate el cinturón y adivina: unas tres horas de vuelo directo y abajo el mar del Caribe se pone azul intenso.",
+   "media": {
+    "type": "file",
+    "path": "reels/santo-domingo-2026-12-21/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¡Bienvenido a Santo Domingo en plena Navidad! Sales del aeropuerto y te pega la brisa calientita del mar.",
+   "media": {
+    "type": "file",
+    "path": "reels/santo-domingo-2026-12-21/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.86,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 1.12,
+      "x1": 0.58
+     },
+     {
+      "action": "celebrate",
+      "word": "Navidad",
+      "mood": "laugh"
+     },
+     {
+      "action": "stand",
+      "word": "brisa",
+      "mood": "love"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Arrancamos en la Zona Colonial: calles empedradas, casitas de colores y la Catedral Primada, la más antigua de América.",
+   "media": {
+    "type": "file",
+    "path": "reels/santo-domingo-2026-12-21/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.5
+     },
+     {
+      "action": "point",
+      "word": "Catedral",
+      "facing": -1,
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "antigua"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "pin",
+     "word": "Catedral",
+     "x": 0.3,
+     "y": 0.43,
+     "size": 190
+    }
+   ],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "bell",
+     "frac": 0.55
+    }
+   ],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Al otro día, desayuno de mangú y subes a la torre de la Fortaleza Ozama, mirando el río.",
+   "media": {
+    "type": "file",
+    "path": "reels/santo-domingo-2026-12-21/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "eat",
+      "x0": 0.3
+     },
+     {
+      "action": "walk",
+      "word": "torre",
+      "x0": 0.3,
+      "x1": 0.6,
+      "y": 0.9,
+      "y1": 0.78,
+      "size": 420,
+      "size1": 330
+     },
+     {
+      "action": "point",
+      "word": "río",
+      "facing": -1,
+      "mood": "wow"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Pa' recargar pilas: bajas por escaleras de piedra a Los Tres Ojos, lagos de agua clarita dentro de cuevas.",
+   "media": {
+    "type": "file",
+    "path": "reels/santo-domingo-2026-12-21/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.76,
+    "size": 260,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.2,
+      "x1": 0.4,
+      "y1": 0.93,
+      "size1": 400
+     },
+     {
+      "action": "point",
+      "word": "lagos",
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "cuevas"
+     }
+    ]
+   },
+   "pops": [],
+   "ambience": [
+    "birds"
+   ],
+   "crowd": [],
+   "sfx": [
+    {
+     "kind": "bubbles",
+     "frac": 0.6
+    }
+   ],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "En Nochebuena: luces de Navidad en la Zona Colonial, cena con cerdo asado y merengue hasta tarde.",
+   "media": {
+    "type": "file",
+    "path": "reels/santo-domingo-2026-12-21/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.92,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.45
+     },
+     {
+      "action": "point",
+      "word": "luces",
+      "mood": "wow"
+     },
+     {
+      "action": "eat",
+      "word": "cena",
+      "mood": "love"
+     },
+     {
+      "action": "dance",
+      "word": "merengue",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "sparkle",
+     "word": "Navidad",
+     "x": 0.7,
+     "y": 0.43,
+     "size": 190
+    }
+   ],
+   "ambience": [
+    "crickets"
+   ],
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.22,
+     "y": 0.78,
+     "size": 290,
+     "facing": 1,
+     "speed": 0.9
+    },
+    {
+     "action": "dance",
+     "x0": 0.68,
+     "y": 0.8,
+     "size": 290,
+     "facing": -1,
+     "speed": 1.15
+    },
+    {
+     "action": "dance",
+     "x0": 0.47,
+     "y": 0.7,
+     "size": 220,
+     "facing": 1,
+     "speed": 1.0
+    }
+   ],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "Antes de volver, playa en Boca Chica: agua tibia, bajita y tranquila, con un coco frío en la mano.",
+   "media": {
+    "type": "file",
+    "path": "reels/santo-domingo-2026-12-21/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": 1.12,
+      "x1": 0.62
+     },
+     {
+      "action": "wade",
+      "word": "agua",
+      "x0": 0.72,
+      "y": 0.68,
+      "size": 300
+     },
+     {
+      "action": "sip",
+      "word": "coco",
+      "mood": "love"
+     }
+    ]
+   },
+   "pops": [
+    {
+     "icon": "sun",
+     "word": "playa",
+     "x": 0.8,
+     "y": 0.12,
+     "size": 210
+    }
+   ],
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": false
+  },
+  {
+   "text": "El miércoles aterrizas en Bogotá, feliz y descansado.",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": []
+  }
+ ],
+ "end": {
+  "text": "¿Y cuánto cuesta todo esto? Tranquilo, siéntate: ida y vuelta con Arajet, un millón 72 mil pesos. ¡Vuelo pillado! Esta y más ofertas en viajespillados punto com.",
+  "title": "10 días en Santo Domingo",
+  "kicker": "",
+  "airline": "Arajet · vuelo directo",
+  "price": "$1.072.088",
+  "detail": "ida y vuelta · 21 dic – 30 dic",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/santo-domingo-2026-12-21/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "10 días en Santo Domingo desde Bogotá ✈️ Navidad en Santo Domingo. Camina por la Zona Colonial, baja a las cuevas de Los Tres Ojos y escápate a la playa de Boca Chica. Ida y vuelta con Arajet desde $1.072.088 (21 dic – 30 dic). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #santodomingo #ofertasdevuelos"
+}

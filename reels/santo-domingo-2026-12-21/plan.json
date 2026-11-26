@@ -79,5 +79,246 @@
    "#republicadominicana",
    "#quehacerensantodomingo"
   ]
+ },
+ "scenes": {
+  "vuelo": {
+   "stick": null,
+   "pop": null,
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "engine",
+     "frac": 0.05
+    }
+   ]
+  },
+  "llegada": {
+   "stick": {
+    "y": 0.86,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "suitcase",
+      "x0": 1.12,
+      "x1": 0.58
+     },
+     {
+      "action": "celebrate",
+      "word": "Navidad",
+      "mood": "laugh"
+     },
+     {
+      "action": "stand",
+      "word": "brisa",
+      "mood": "love"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia1": {
+   "stick": {
+    "y": 0.88,
+    "size": 430,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.5
+     },
+     {
+      "action": "point",
+      "word": "Catedral",
+      "facing": -1,
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "antigua"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "pin",
+    "word": "Catedral",
+    "x": 0.3,
+    "y": 0.43,
+    "size": 190
+   },
+   "ambience": null,
+   "sfx": [
+    {
+     "kind": "bell",
+     "frac": 0.55
+    }
+   ]
+  },
+  "dia2": {
+   "stick": {
+    "y": 0.9,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "eat",
+      "x0": 0.3
+     },
+     {
+      "action": "walk",
+      "word": "torre",
+      "x0": 0.3,
+      "x1": 0.6,
+      "y": 0.9,
+      "y1": 0.78,
+      "size": 420,
+      "size1": 330
+     },
+     {
+      "action": "point",
+      "word": "río",
+      "facing": -1,
+      "mood": "wow"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "birds"
+  },
+  "dia3": {
+   "stick": {
+    "y": 0.76,
+    "size": 260,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": 0.2,
+      "x1": 0.4,
+      "y1": 0.93,
+      "size1": 400
+     },
+     {
+      "action": "point",
+      "word": "lagos",
+      "mood": "wow"
+     },
+     {
+      "action": "photo",
+      "word": "cuevas"
+     }
+    ]
+   },
+   "pop": null,
+   "ambience": "birds",
+   "sfx": [
+    {
+     "kind": "bubbles",
+     "frac": 0.6
+    }
+   ]
+  },
+  "dia4": {
+   "stick": {
+    "y": 0.92,
+    "size": 420,
+    "facing": 1,
+    "beats": [
+     {
+      "action": "walk",
+      "x0": -0.15,
+      "x1": 0.45
+     },
+     {
+      "action": "point",
+      "word": "luces",
+      "mood": "wow"
+     },
+     {
+      "action": "eat",
+      "word": "cena",
+      "mood": "love"
+     },
+     {
+      "action": "dance",
+      "word": "merengue",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "crowd": [
+    {
+     "action": "dance",
+     "x0": 0.22,
+     "y": 0.78,
+     "size": 290,
+     "facing": 1,
+     "speed": 0.9
+    },
+    {
+     "action": "dance",
+     "x0": 0.68,
+     "y": 0.8,
+     "size": 290,
+     "facing": -1,
+     "speed": 1.15
+    },
+    {
+     "action": "dance",
+     "x0": 0.47,
+     "y": 0.7,
+     "size": 220,
+     "facing": 1,
+     "speed": 1.0
+    }
+   ],
+   "pop": {
+    "icon": "sparkle",
+    "word": "Navidad",
+    "x": 0.7,
+    "y": 0.43,
+    "size": 190
+   },
+   "ambience": "crickets"
+  },
+  "dia5": {
+   "stick": {
+    "y": 0.88,
+    "size": 420,
+    "facing": -1,
+    "beats": [
+     {
+      "action": "run",
+      "x0": 1.12,
+      "x1": 0.62
+     },
+     {
+      "action": "wade",
+      "word": "agua",
+      "x0": 0.72,
+      "y": 0.68,
+      "size": 300
+     },
+     {
+      "action": "sip",
+      "word": "coco",
+      "mood": "love"
+     }
+    ]
+   },
+   "pop": {
+    "icon": "sun",
+    "word": "playa",
+    "x": 0.8,
+    "y": 0.12,
+    "size": 210
+   },
+   "ambience": [
+    "waves",
+    "steeldrum"
+   ]
+  }
  }
 }
