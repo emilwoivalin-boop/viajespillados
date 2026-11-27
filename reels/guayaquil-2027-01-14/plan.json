@@ -1,0 +1,18 @@
+{
+  "id": "guayaquil-2027-01-14",
+  "kind": "facts",
+  "offer": {
+    "destino": "Guayaquil",
+    "pais": "Ecuador",
+    "region": "Sudamérica",
+    "aerolinea": "Avianca",
+    "precio": 971850,
+    "escalas": "directo",
+    "ida": "2027-01-14",
+    "vuelta": "2027-01-20",
+    "link": "https://www.google.com/travel/flights?q=Flights%20to%20GYE%20from%20BOG%20on%202027-01-14%20through%202027-01-20&curr=COP&hl=es-419",
+    "sheet_row": 110,
+    "escala_larga": ""
+  },
+  "note": "Guayaquil 14–20 ene, destino nuevo (score 6 + 1 (sale en 48 días) − 2 (5 días libres) + 0 (7 días) = 5; 22% bajo el mínimo usual, Avianca directo ~2 h). Otros destinos nuevos: Hong Kong 10–17 may y Río 28 ene–3 feb (0), Belo Horizonte 1–8 abr y El Cairo 4–10 abr (−1). Guayaquil no está en Where Next: datos de UNESCO, El Comercio, Lonely Planet y Wikipedia."
+}

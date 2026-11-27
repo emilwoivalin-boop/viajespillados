@@ -1,0 +1,180 @@
+{
+  "id": "guayaquil-2027-01-14",
+  "lang": "es",
+  "city": "Guayaquil",
+  "country": "ECU",
+  "place": "Guayaquil, Guayas, Ecuador",
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+35%",
+  "cover_q": "¿Un parque lleno de iguanas en pleno centro?",
+  "facts": [
+    {
+      "text": "¿Sabías que el famoso sombrero Panamá no es de Panamá? Se teje en Ecuador con paja toquilla, y la UNESCO lo declaró patrimonio en 2012.",
+      "stickers": [
+        {
+          "emoji": "🌴",
+          "x": 0.27,
+          "y": 0.38,
+          "size": 230,
+          "at": "paja",
+          "sfx": "pop"
+        }
+      ],
+      "stat": {
+        "big": "2012",
+        "small": "patrimonio UNESCO",
+        "at": "2012",
+        "x": 0.62,
+        "y": 0.33,
+        "count": false,
+        "drumroll": false,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "teach_walk",
+            "x0": -0.15,
+            "x1": 0.17,
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.4
+          }
+        ]
+      },
+      "source": "https://ich.unesco.org/en/RL/weaving-of-the-ecuadorian-toquilla-straw-hat-00729"
+    },
+    {
+      "text": "En pleno centro, en el Parque Seminario, decenas de iguanas verdes viven sueltas: bajan de los árboles y caminan entre la gente.",
+      "lat": -2.19575,
+      "lon": -79.88262,
+      "view": 1100,
+      "label": "Parque Seminario",
+      "photo": "File:Ecuador - Guayaquil - Parque seminario - Parque de las iguanas.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "tap",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://www.elcomercio.com/tendencias/iguana-verde-lazo-historico-guayaquil-parque-especies-reptiles/"
+    },
+    {
+      "text": "Ecuador es el mayor exportador de banano del mundo, y buena parte sale en barco desde el puerto de Guayaquil.",
+      "stickers": [
+        {
+          "emoji": "⚓",
+          "x": 0.28,
+          "y": 0.45,
+          "size": 250,
+          "at": "puerto",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "⛵",
+          "x": 0.75,
+          "y": 0.48,
+          "size": 220,
+          "at": "barco",
+          "sfx": "whistle"
+        }
+      ],
+      "stick": {
+        "beats": [
+          {
+            "action": "swing",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 2.0
+          }
+        ]
+      },
+      "source": "https://www.bizlatinhub.com/guides/ecuador/exports-ecuador-bananas/"
+    },
+    {
+      "text": "En el barrio Las Peñas, 444 escalones numerados suben el cerro Santa Ana hasta un faro con vista a toda la ciudad.",
+      "lat": -2.1835,
+      "lon": -79.8756,
+      "view": 1300,
+      "label": "Cerro Santa Ana",
+      "photo": "File:Faro de Guayaquil.jpg",
+      "stick": {
+        "beats": [
+          {
+            "action": "knock",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.7
+          }
+        ]
+      },
+      "source": "https://www.lonelyplanet.com/points-of-interest/lighthouse/1169304"
+    },
+    {
+      "text": "Y el 9 de octubre de 1820 Guayaquil se independizó de España: cada octubre todavía lo celebra con desfiles y fiesta.",
+      "stickers": [
+        {
+          "emoji": "📜",
+          "x": 0.3,
+          "y": 0.47,
+          "size": 250,
+          "at": "independizó",
+          "sfx": "pop"
+        },
+        {
+          "emoji": "🎶",
+          "x": 0.74,
+          "y": 0.5,
+          "size": 220,
+          "at": "fiesta",
+          "sfx": "tada"
+        }
+      ],
+      "stat": {
+        "big": "1820",
+        "small": "independencia",
+        "at": "1820",
+        "y": 0.3,
+        "count": false,
+        "drumroll": true,
+        "sfx": "ding"
+      },
+      "stick": {
+        "beats": [
+          {
+            "action": "celebrate",
+            "t": 0
+          },
+          {
+            "action": "teach",
+            "t": 1.8
+          }
+        ]
+      },
+      "source": "https://en.wikipedia.org/wiki/Guayaquil"
+    }
+  ],
+  "end": {
+    "text": "",
+    "stick": {
+      "action": "wave",
+      "x0": 0.5,
+      "y": 0.86,
+      "size": 330
+    },
+    "title": "Datos de Guayaquil"
+  },
+  "caption": "5 datos de Guayaquil que seguro no sabías 📍\n\n1. El sombrero Panamá en realidad se teje en Ecuador, con paja toquilla\n2. En el Parque Seminario viven decenas de iguanas sueltas\n3. Ecuador es el mayor exportador de banano del mundo\n4. 444 escalones numerados suben al faro del cerro Santa Ana\n5. Guayaquil se independizó de España el 9 de octubre de 1820\n\n¿Cuál te sorprendió más? ✈️\n\n#guayaquil #ecuador #datoscuriosos #sudamerica #viajespillados"
+}
