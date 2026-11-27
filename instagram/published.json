@@ -950,6 +950,30 @@
       "published_at": "2026-11-26 16:21",
       "carousel": true,
       "captura": false
+    },
+    {
+      "id": "tijuana-2026-11-26-958446",
+      "destino": "Tijuana",
+      "precio": 958446,
+      "sheet_row": 109,
+      "media_id": "18123950026963093",
+      "permalink": "https://www.instagram.com/p/DgO4QUwDgox/",
+      "image": "https://viajespillados.com/instagram/img/tijuana-2026-11-26-958446.jpg",
+      "published_at": "2026-11-27 00:00",
+      "carousel": true,
+      "captura": false
+    },
+    {
+      "id": "ciudad-de-mexico-2026-11-26-955598",
+      "destino": "Ciudad de México",
+      "precio": 955598,
+      "sheet_row": 110,
+      "media_id": "18123950026963093",
+      "permalink": "https://www.instagram.com/p/DgO4QUwDgox/",
+      "image": "https://viajespillados.com/instagram/img/ciudad-de-mexico-2026-11-26-955598.jpg",
+      "published_at": "2026-11-27 00:00",
+      "carousel": true,
+      "captura": false
     }
   ]
 }
