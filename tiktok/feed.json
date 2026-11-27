@@ -1,6 +1,21 @@
 [
  {
   "kind": "photos",
+  "title": "Ofertas: Bucaramanga",
+  "files": [
+   "instagram/img/bucaramanga-2026-11-27-61780.jpg"
+  ],
+  "caption": "📍 Bucaramanga, Colombia\n\nVuela en parapente sobre el Cañón del Chicamocha, haz rafting en San Gil y camina el pueblo colonial de Barichara.\n\n💡 Dato: San Gil y Barichara quedan a unas 2–3 horas por carretera; sal temprano o alquila carro.\n\n¿Con quién irías? 👇\nVuelos baratos desde Bogotá en viajespillados.com ✈️\n\n#bucaramanga #colombia #viajes #quehacer #viajespillados",
+  "yt_title": "Qué hacer en Bucaramanga, Colombia ✈️",
+  "instagram": "https://www.instagram.com/p/DgQmXNUCdpo/",
+  "at": "2026-11-27 16:02",
+  "id": "photos-2026-11-27 16:02",
+  "destinos": [
+   "Bucaramanga"
+  ]
+ },
+ {
+  "kind": "photos",
   "title": "Ofertas: Tijuana, Ciudad de México",
   "files": [
    "instagram/img/tijuana-2026-11-26-958446.jpg",
@@ -941,19 +956,6 @@
   "instagram": "https://www.instagram.com/reel/DfTAXpNFH_t/",
   "at": "2026-11-03 17:57",
   "id": "video-2026-11-03 17:57",
-  "destinos": []
- },
- {
-  "kind": "photos",
-  "title": "Portada: San Andrés en 3 días",
-  "files": [
-   "trips/san-andres-3-dias/cover_es.jpg"
-  ],
-  "caption": "Portada del video de San Andrés. Úsala como miniatura en YouTube o portada en TikTok.",
-  "yt_title": "",
-  "instagram": "https://www.instagram.com/reel/DfTAXpNFH_t/",
-  "at": "2026-11-03 17:57",
-  "id": "photos-2026-11-03 17:57-cover",
   "destinos": []
  }
 ]

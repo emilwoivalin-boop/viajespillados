@@ -974,6 +974,18 @@
       "published_at": "2026-11-27 00:00",
       "carousel": true,
       "captura": false
+    },
+    {
+      "id": "bucaramanga-2026-11-27-61780",
+      "destino": "Bucaramanga",
+      "precio": 61780,
+      "sheet_row": 112,
+      "media_id": "18152889364483788",
+      "permalink": "https://www.instagram.com/p/DgQmXNUCdpo/",
+      "image": "https://viajespillados.com/instagram/img/bucaramanga-2026-11-27-61780.jpg",
+      "published_at": "2026-11-27 16:02",
+      "carousel": false,
+      "captura": false
     }
   ]
 }
