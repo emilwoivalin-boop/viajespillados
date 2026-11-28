@@ -1,0 +1,212 @@
+{
+ "id": "rio-de-janeiro-2027-01-28",
+ "offer_id": "",
+ "voice": "es-CO-GonzaloNeural",
+ "rate": "+35%",
+ "pad": 0.3,
+ "stick_style": "classic",
+ "caption_margin": 400,
+ "caption_align": 8,
+ "banner": {
+  "logo": false
+ },
+ "scenes": [
+  {
+   "text": "¿Qué harías con una semana entre playa, montañas y samba en la misma ciudad? Jueves 28 de enero. Llegas al aeropuerto El Dorado. ¡Agarra la maleta, que nos vamos pa' Brasil!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-day.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.2,
+    "x1": 0.5,
+    "y": 0.97,
+    "y1": 0.68,
+    "size": 520,
+    "size1": 260
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.05,
+     "x1": 0.36,
+     "y": 0.99,
+     "y1": 0.7,
+     "size": 480,
+     "size1": 245
+    }
+   ]
+  },
+  {
+   "text": "Te doy una pista: nos vamos pa' Brasil, y abajo se ven montañas verdes que se meten al mar.",
+   "media": {
+    "type": "file",
+    "path": "reels/rio-de-janeiro-2027-01-28/img/vuelo.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¿Lo pillaste? ¡Es Río de Janeiro! Sales del aeropuerto y te abraza un calorcito húmedo de verano.",
+   "media": {
+    "type": "file",
+    "path": "reels/rio-de-janeiro-2027-01-28/img/llegada.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Pa' empezar, chanclas puestas: playa de Ipanema, con el morro Dos Hermanos al fondo.",
+   "media": {
+    "type": "file",
+    "path": "reels/rio-de-janeiro-2027-01-28/img/dia1.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Segundo día, pa' arriba: teleférico al Pan de Azúcar y toda la bahía de Guanabara a tus pies.",
+   "media": {
+    "type": "file",
+    "path": "reels/rio-de-janeiro-2027-01-28/img/dia2.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Y el tercer día… lo mejor: subes al Cristo Redentor, con los brazos abiertos sobre toda la ciudad.",
+   "media": {
+    "type": "file",
+    "path": "reels/rio-de-janeiro-2027-01-28/img/dia3.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "¿Y el día cuatro? Feria callejera: pastel recién frito, bien crocante, con un jugo de caña helado.",
+   "media": {
+    "type": "file",
+    "path": "reels/rio-de-janeiro-2027-01-28/img/dia4.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "Pa' cerrar con broche de oro: samba en vivo en Lapa, bajo los arcos blancos del viejo acueducto.",
+   "media": {
+    "type": "file",
+    "path": "reels/rio-de-janeiro-2027-01-28/img/dia5.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "none"
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [],
+   "sfx": [],
+   "steps": false,
+   "action_sfx": true
+  },
+  {
+   "text": "El miércoles aterrizas en Bogotá, feliz y descansado. ¡Y solo pediste cinco días libres!",
+   "media": {
+    "type": "file",
+    "path": "reels/common/eldorado-night.jpg",
+    "focus": 0.5
+   },
+   "stick": {
+    "action": "suitcase",
+    "x0": 0.5,
+    "x1": 0.75,
+    "y": 0.68,
+    "y1": 0.97,
+    "size": 260,
+    "size1": 520
+   },
+   "pops": [],
+   "ambience": [],
+   "crowd": [
+    {
+     "look": "buddy",
+     "action": "suitcase",
+     "x0": 0.36,
+     "x1": 0.58,
+     "y": 0.7,
+     "y1": 0.99,
+     "size": 245,
+     "size1": 480
+    }
+   ]
+  }
+ ],
+ "end": {
+  "text": "Todo este plan arranca con un vuelo de un millón 848 mil pesos, ida y vuelta con JetSMART. Sí, leíste bien. Esta y más ofertas en viajespillados punto com.",
+  "title": "7 días en Río de Janeiro",
+  "kicker": "",
+  "airline": "JetSMART · 2 escalas · escala larga en Santiago de Chile",
+  "price": "$1.848.034",
+  "detail": "ida y vuelta · 28 ene – 3 feb",
+  "cta": "viajespillados.com",
+  "small": "Mira esta oferta y muchas más · link en la bio",
+  "media": {
+   "type": "file",
+   "path": "reels/rio-de-janeiro-2027-01-28/img/dia1.jpg",
+   "focus": 0.5
+  }
+ },
+ "caption": "7 días en Río de Janeiro desde Bogotá ✈️ Sube al Cristo Redentor, toma el teleférico al Pan de Azúcar y relájate en la playa de Ipanema. Ida y vuelta con JetSMART desde $1.848.034 (28 ene – 3 feb). Mira la oferta en viajespillados.com – link en la bio.\n\n#viajespillados #vuelosbaratos #vuelosdesdebogota #riodejaneiro #ofertasdevuelos"
+}

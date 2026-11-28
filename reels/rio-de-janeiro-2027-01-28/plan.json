@@ -1,0 +1,78 @@
+{
+ "id": "rio-de-janeiro-2027-01-28",
+ "offer": {
+  "destino": "Río de Janeiro",
+  "pais": "Brasil",
+  "region": "Sudamérica",
+  "aerolinea": "JetSMART",
+  "precio": 1848034,
+  "escalas": "2 escalas",
+  "ida": "2027-01-28",
+  "vuelta": "2027-02-03",
+  "link": "https://www.google.com/travel/flights?q=Flights%20to%20GIG%20from%20BOG%20on%202027-01-28%20through%202027-02-03&curr=COP&hl=es-419",
+  "sheet_row": 67,
+  "escala_larga": "Santiago de Chile"
+ },
+ "hora_salida": null,
+ "hook": "¿Qué harías con una semana entre playa, montañas y samba en la misma ciudad?",
+ "buddy": true,
+ "que_hacer": "Sube al Cristo Redentor, toma el teleférico al Pan de Azúcar y relájate en la playa de Ipanema.",
+ "end_image": "dia1",
+ "lines": {
+  "vuelo": "Te doy una pista: nos vamos pa' Brasil, y abajo se ven montañas verdes que se meten al mar.",
+  "llegada": "¿Lo pillaste? ¡Es Río de Janeiro! Sales del aeropuerto y te abraza un calorcito húmedo de verano.",
+  "dia1": "Pa' empezar, chanclas puestas: playa de Ipanema, con el morro Dos Hermanos al fondo.",
+  "dia2": "Segundo día, pa' arriba: teleférico al Pan de Azúcar y toda la bahía de Guanabara a tus pies.",
+  "dia3": "Y el tercer día… lo mejor: subes al Cristo Redentor, con los brazos abiertos sobre toda la ciudad.",
+  "dia4": "¿Y el día cuatro? Feria callejera: pastel recién frito, bien crocante, con un jugo de caña helado.",
+  "dia5": "Pa' cerrar con broche de oro: samba en vivo en Lapa, bajo los arcos blancos del viejo acueducto."
+ },
+ "caption_es": {
+  "hook": "¿Río de Janeiro en 5 días, de Ipanema a una noche de samba? Pilla este plan, parce.",
+  "intro": "Subes sobre una bahía donde montañas verdes y empinadas se encuentran con playas llenas de vida.",
+  "pais": "Brasil",
+  "dias": [
+   {
+    "titulo": "Playa de Ipanema",
+    "texto": "camina por la orilla y revisa cómo está el mar antes de meterte."
+   },
+   {
+    "titulo": "Pan de Azúcar",
+    "texto": "sube en teleférico y mira toda la bahía de Guanabara desde arriba."
+   },
+   {
+    "titulo": "Cristo Redentor",
+    "texto": "sube al Corcovado y ve la ciudad entera a los pies del Cristo."
+   },
+   {
+    "titulo": "Pastel de feria",
+    "texto": "pide un pastel crocante recién frito en un puesto del mercado."
+   },
+   {
+    "titulo": "Samba en Lapa",
+    "texto": "busca una noche de samba en vivo cerca de los Arcos de Lapa."
+   }
+  ],
+  "bonus": "Si te queda tiempo, visita el Museo del Mañana, en el puerto renovado.",
+  "dato": "el paisaje de Río, declarado patrimonio por la Unesco, incluye un bosque tropical dentro de la ciudad",
+  "epoca": "abril a junio y septiembre a octubre",
+  "para": "te gustan las playas de ciudad, las vistas desde la montaña y la samba en vivo",
+  "no_para": "quieres un pueblito de playa tranquilo, con todo a pocos pasos",
+  "versus": "Ciudad del Cabo",
+  "hashtags": [
+   "#riodejaneiro",
+   "#brasil",
+   "#quehacerenriodejaneiro"
+  ]
+ },
+ "prompts": {
+  "vuelo": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from high above fluffy white clouds with a small white modern passenger jet airliner with two engines under its wings (not a propeller plane), and far below a generic green tropical coastline: rounded green forested hills dropping into a turquoise sea with a few small islands, no city, no buildings, no landmark, no statue, clear bright blue sky. The top third is calm blue sky.",
+  "llegada": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Outside a modern low airport terminal with a long glass facade and flat roof, completely plain walls with no signs, no lettering, no words and no logos anywhere, a row of tall green palm trees, rounded green forested mountains in the distance, hot sunny summer blue sky. A wide, empty light-grey sidewalk across the lower third of the picture.",
+  "dia1": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A long wide tropical city beach with golden sand and gentle turquoise waves, a row of low apartment buildings and palm trees along the promenade on the left, and at the far end of the beach two tall rounded twin rock mountains side by side rising from the sea, sunny blue sky. A wide, empty stretch of golden sand across the lower third of the picture.",
+  "dia2": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. View from the top of a tall rounded granite rock mountain over a big blue bay with sailboats, green hills and a city along the beaches, a small round red cable car hanging on cables crossing the picture, sunny blue sky. In the foreground a wide, empty flat stone viewing terrace with a low railing across the lower third of the picture.",
+  "dia3": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The famous giant white art-deco stone statue with wide open arms standing on top of a steep green forested mountain peak, seen from the front, with a blue bay, a rounded rock mountain and city beaches far below, bright blue sky with a few white clouds. A wide, empty light stone terrace across the lower third of the picture.",
+  "dia4": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. A colourful outdoor street market under bright striped awnings, simple stall counters with golden fried rectangular pastries, piles of tropical fruit, pineapples, bananas and green sugar cane stalks, plain stalls with no signs, no letters and no words, sunny morning, a tree-lined street. The paved street in the lower third of the picture is clearly visible, wide and empty.",
+  "dia5": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. Night scene in an old bohemian neighbourhood: a long white old aqueduct with two rows of tall arches across the picture, warm yellow street lamps, small colourful old two-storey buildings with lit windows and balconies, a few string lights, dark blue night sky with stars. A wide, empty cobblestone plaza across the lower third of the picture.",
+  "cover": "Very simple flat cartoon illustration, clean bold black outlines, flat bright colors, minimal detail, no gradients, children's book style. Empty scenery only: no people, no human figures, no stick figures, no silhouettes, no characters, no text, no letters, vertical 9:16. The most iconic bright daytime view of a tropical bay city: a tall rounded granite rock mountain rising from a calm blue bay, green forested hills, a curved golden sand beach with palm trees, bright blue sky. The middle of the picture is calm open sky and sea. An empty golden beach in the bottom fifth of the picture."
+ }
+}
